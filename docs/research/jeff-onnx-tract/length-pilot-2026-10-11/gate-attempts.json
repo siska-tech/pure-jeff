@@ -1,0 +1,19 @@
+{
+  "attempts": 2,
+  "initial": {
+    "status": "failed",
+    "completed_forwards": 4,
+    "failure": "harness omitted driver count field for new fixtures; existing four goldens ran, stopped before first length forward",
+    "source": "first-gate-benchmark_lengths.initial.py",
+    "process": "first-gate-gate.process.json",
+    "performance_samples": 0
+  },
+  "accepted": {
+    "status": "completed",
+    "processes": 4,
+    "gate_forwards": 28,
+    "warmup_forwards": 15,
+    "measured_forwards": 60
+  },
+  "fix": "explicit candidate_count/request candidates -> driver count adapter and consistency preflight; runtime/fixture unchanged"
+}

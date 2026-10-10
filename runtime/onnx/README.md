@@ -176,6 +176,24 @@ It uses unchanged Native prompt/tokenizer, verifies four golden prompts/IDs,
 and generates 24 artificial full requests at 128/256/384/511/512 effective
 tokens with physical512 padding. Exact/one-short token budgets and one 513
 rejection are checked. Four variants per length plus eight-candidate extras
-at lengths >=256; these have no recognition ground truth or numeric oracle yet.
-Do not benchmark these fixtures as numerically accepted inputs until an oracle
-and whole-model Tract gate pass. No runtime Python dependency is introduced.
+at lengths >=256; these have no recognition ground truth. Numeric acceptance
+requires the oracle and whole-model Tract gate below. No runtime Python
+dependency is introduced.
+
+## Effective-length oracle and performance pilot
+
+`prepare_length_oracle.py --output <new-run-dir>` checks frozen normalized ONNX,
+external weights and the 24 Rust fixtures, then computes four golden references
+plus 24 new CPU-only ORT references (one thread, optimization disabled). Python
+is development-only. The supervised worker uses `sys._base_executable` directly:
+on Windows the venv launcher otherwise hides the actual child memory from a
+single-process guard. Worker interpreter identity and actual memory are checked.
+
+`benchmark_lengths.py --oracle <oracle.json> --output <new-run-dir>` freezes the
+accepted Scatter binary/NNEF and runs all 28 numeric gates before timing. Four
+threads, three independent resident sessions, warmup5 then mixed samples20 each.
+Each effective length 128/256/384/511/512 has n=12 across four inputs; physical
+shape remains512. Extra eight-candidate cases are gate-only. Repeated raw logits
+must exactly match Tract gate; probability/judgment/token gates use ORT. Records
+include separate stages and per-input statistics. n=12 p95 is max; this is a
+descriptive prepared-tensor pilot, not Native/API E2E or formal SLO acceptance.

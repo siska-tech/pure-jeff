@@ -1,0 +1,17 @@
+{
+  "oracle_cases": 28,
+  "tract_processes": 4,
+  "tract_forwards": 103,
+  "measured_forwards": 60,
+  "warmup_forwards": 15,
+  "gate_forwards": 28,
+  "repeated_raw_logits_exact": true,
+  "all_numerical_gates_passed": true,
+  "failures": 0,
+  "guard_triggers": 0,
+  "independent_oracle_probability_policy_and_raw_record_validation": true,
+  "independent_statistics_recomputation": true,
+  "max_probability_error": 4.649162292480469e-06,
+  "onnx_raw_max_abs_error": 4.100799560546875e-05,
+  "performance_scope": "Tract-only prepared physical512 descriptive pilot; no Native speedup, API E2E or SLO acceptance"
+}

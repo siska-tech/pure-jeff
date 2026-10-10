@@ -131,3 +131,7 @@ host/build/power/ISA metadataへの参照
 [ScatterElements行単位コピー実験](onnx-tract-scatter-rows.md)は受入済みTrilu版を固定対照とし、4-thread・独立AB／BA／AB各3組・warm各n=9で中央値8.284→6.884秒、p95 8.467→7.341秒を観測した。全3組のsession中央値が短縮し、全40 forwardのraw logitsが一致したため局所受入とする。起動短縮は確認していない。I64 reductionの既存拒否64条件は成功数へ混ぜず記録した。次はこの候補を固定した4／8-thread・入力長matrixと同条件Native比較へ進める。過去の別日の対照値を差し引いた累積倍率や、演算診断からの期待倍率は提示しない。
 
 [受入候補の4／8-thread比較](onnx-tract-accepted-threads.md)は同一Scatter版exe・独立3組・各n=9で中央値6.973／6.518秒、p95 7.097／7.167秒を観測した。8 threadsは全session中央値で短縮したがp95が増え、事前条件に従い次のpilotは4を維持する。全32 forwardのraw logitsが一致。Rust tokenizerによる24件の長さfixtureは準備済みで、oracle／Tract gate／長さ性能は未受入。128は4種、256／384／511／512は4種＋8候補1種であり、128の8候補cellは欠測として区別する。
+
+[入力長pilot](onnx-tract-length-pilot.md)では同一step1113のONNX oracleを24件へ追加し、既存4 goldenと合わせた28件gate後に4-thread・3独立resident sessionを実施した。主要4本文×5長さ×3反復で測定60件、各長さn=12。forward中央値は128／256／384／511／512で6.260／6.408／6.431／6.517／6.476秒、p95は7.189／6.862／7.116／7.102／7.198秒。全103 forwardの数値gateが合格した。8候補追加4件はgateのみで性能分布へ混ぜない。全入力は物理512で、本文と長さも交絡する。3独立session・n=12 p95=maxの記述的pilotであり、正式比較の標本要件・SLO受入を満たさない。初期化／process peak各n=3は付随観測で、cold campaignや長さ別memoryではない。
+
+次のNative比較は先にpadding／attention mask／保持dtype／実executor threads／資産検証と段階境界を監査する。既存NativeのBF16保持・可変長とTractのFP32保持・固定512を混ぜた差をruntime単体の効果としない。同条件化のためにNative参照実装の挙動を変えず、必要なら独立した実験経路で数値gateを再実施する。同条件化できない項目は運用構成比較として分離し、その制約を事前登録する。Tokenizer／API E2E・独立block追加・hold-out受入は別測定として残る。

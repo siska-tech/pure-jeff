@@ -1,0 +1,12 @@
+[
+  {
+    "ProcessId": 34344,
+    "ParentProcessId": 13948,
+    "ExecutablePath": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\vendor\\jeff\\.venv\\Scripts\\python.exe"
+  },
+  {
+    "ProcessId": 2604,
+    "ParentProcessId": 34344,
+    "ExecutablePath": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+  }
+]
