@@ -197,3 +197,19 @@ shape remains512. Extra eight-candidate cases are gate-only. Repeated raw logits
 must exactly match Tract gate; probability/judgment/token gates use ORT. Records
 include separate stages and per-input statistics. n=12 p95 is max; this is a
 descriptive prepared-tensor pilot, not Native/API E2E or formal SLO acceptance.
+
+## Common512 operating-configuration comparison
+
+`benchmark_common512.py --output <new-run-dir>` uses the frozen Native wrapper
+and accepted Scatter executable, without rebuilding either. Eight numeric gates
+per engine (four goldens + four effective512 inputs) precede three resident
+pairs in AB/BA/AB order. Both use one requested/reported compute thread; primary
+inputs have physical512, no padding, batch1, text only. One warmup + four mixed
+samples/session, n=12/engine and n=3/input. Native probabilities must exactly
+repeat its gate; Tract raw logits must exactly match the previous length gate.
+Compute aggregates Native backbone+head/softmax vs Tract forward+score.
+Native BF16 mmap/per-forward FP32 conversion and Tract retained FP32 packed
+plan remain different, as do algorithms and stage boundaries. This compares
+operating configurations; it cannot isolate a runtime-only effect. Request and
+startup scopes are unequal, not matched API E2E or cold adoption evidence.
+No public runtime/API/policy or existing executable changes are required.

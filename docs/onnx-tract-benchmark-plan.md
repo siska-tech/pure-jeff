@@ -135,3 +135,7 @@ host/build/power/ISA metadataへの参照
 [入力長pilot](onnx-tract-length-pilot.md)では同一step1113のONNX oracleを24件へ追加し、既存4 goldenと合わせた28件gate後に4-thread・3独立resident sessionを実施した。主要4本文×5長さ×3反復で測定60件、各長さn=12。forward中央値は128／256／384／511／512で6.260／6.408／6.431／6.517／6.476秒、p95は7.189／6.862／7.116／7.102／7.198秒。全103 forwardの数値gateが合格した。8候補追加4件はgateのみで性能分布へ混ぜない。全入力は物理512で、本文と長さも交絡する。3独立session・n=12 p95=maxの記述的pilotであり、正式比較の標本要件・SLO受入を満たさない。初期化／process peak各n=3は付随観測で、cold campaignや長さ別memoryではない。
 
 次のNative比較は先にpadding／attention mask／保持dtype／実executor threads／資産検証と段階境界を監査する。既存NativeのBF16保持・可変長とTractのFP32保持・固定512を混ぜた差をruntime単体の効果としない。同条件化のためにNative参照実装の挙動を変えず、必要なら独立した実験経路で数値gateを再実施する。同条件化できない項目は運用構成比較として分離し、その制約を事前登録する。Tokenizer／API E2E・独立block追加・hold-out受入は別測定として残る。
+
+[共通512形状pilot](onnx-tract-common512-pilot.md)はこの監査から、paddingなしの有効512入力と1 compute threadを共通化する。既存Nativeはpadding maskを受け取れず、保持dtypeの統一にはloader／cache実装が必要なため、今回は固定exeを変更しない運用構成比較とした。独立3組AB／BA／AB、同一request・入力順序、各session 1 warmup＋4測定、各backend n=12。Native backbone＋head/softmaxとTract forward＋scoreを集約して比較する。保持dtype・algorithm・内部分割が異なるためruntime単体の効果や高速化倍率を主張せず、request／初期化の非対称な区間は別診断として保存する。
+
+同pilotは全46 forwardの数値gateに合格し、compute中央値Native 9.892／Tract 9.626秒、p95 10.703／10.133秒を観測した。3組のsession中央値はTract側が短かったが、Unicode入力の中央値と最後の組のp95はNative側が短い。非対称な保持・algorithm、各本文n=3・1 warmupであり、採用／正式SLOの受入には進めない。次の比較では保持dtype・変換／cache・thread条件を独立実験経路で揃えられる範囲を固定し、数値gateと事前登録を繰り返す。API E2Eとcold campaignは別測定で残る。

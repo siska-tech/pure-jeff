@@ -1,0 +1,18 @@
+{
+  "run_id": "resident-2-native",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\bench-native-target\\release\\kaze_judge_native_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\common512-pilot-v2-20261011\\resident-2-native.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 52158095600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 2089271296,
+  "memory_samples": 5007,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

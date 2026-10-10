@@ -1,0 +1,16 @@
+{
+  "processes": 8,
+  "forwards": 46,
+  "gate_forwards": 16,
+  "measured_forwards": 24,
+  "warmup_forwards": 6,
+  "all_numerical_gates_passed": true,
+  "native_probability_repeats_exact": true,
+  "tract_raw_exact_to_prior_four_thread_gate": true,
+  "independent_raw_record_validation_and_statistics_recomputation": true,
+  "max_probability_error": 4.649162292480469e-06,
+  "accepted_run_failures": 0,
+  "accepted_run_guard_triggers": 0,
+  "formal_slo_acceptance": false,
+  "runtime_only_effect_claim": false
+}
