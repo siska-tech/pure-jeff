@@ -1,0 +1,63 @@
+--- original
++++ generated
+@@ -1,0 +2,3 @@
++mod backbone;
++mod readout;
++mod weights;
+@@ -5 +7,0 @@
+-    backbone,
+@@ -7 +8,0 @@
+-    readout,
+@@ -45,0 +47,27 @@
++    let retained = job["retained_f32"]
++        .as_bool()
++        .ok_or_else(|| anyhow::anyhow!("retained_f32 required"))?;
++    let check_load = || {
++        if Instant::now() >= deadline {
++            candle_core::bail!("load deadline exceeded")
++        } else {
++            Ok(())
++        }
++    };
++    let step = Instant::now();
++    let weights = weights::Weights::from_mapped(weights, retained, &check_load)?;
++    let head_weights = if retained {
++        // SAFETY: parent freezes the verified readout file for the experiment.
++        let head = unsafe {
++            candle_core::safetensors::MmapedSafetensors::new(
++                bundle.root.join("readout.safetensors"),
++            )?
++        };
++        Some(weights::Weights::from_mapped(head, true, &check_load)?)
++    } else {
++        None
++    };
++    let retention_load_ns = step.elapsed().as_nanos();
++    let (cached_tensors, cached_bytes) = weights.retained_size();
++    let (head_cached_tensors, head_cached_bytes) =
++        head_weights.as_ref().map_or((0, 0), |w| w.retained_size());
+@@ -49 +77 @@
+-        "threads":candle_core::utils::get_num_threads(),"retained":"tokenizer and BF16 mmap; FP32 conversion remains per forward"}),
++        "threads":candle_core::utils::get_num_threads(),"retained_f32":retained,"retention_load_ns":retention_load_ns,"cached_tensors":cached_tensors,"cached_bytes":cached_bytes,"head_cached_tensors":head_cached_tensors,"head_cached_bytes":head_cached_bytes}),
+@@ -91,6 +119,15 @@
+-        let probabilities = readout::probabilities(
+-            &bundle.root,
+-            &hidden,
+-            request.candidates.len(),
+-            bundle.decision.temperature,
+-        )?;
++        let probabilities = if let Some(head) = &head_weights {
++            readout::probabilities(
++                head,
++                &hidden,
++                request.candidates.len(),
++                bundle.decision.temperature,
++            )?
++        } else {
++            kaze_judge_jeff::readout::probabilities(
++                &bundle.root,
++                &hidden,
++                request.candidates.len(),
++                bundle.decision.temperature,
++            )?
++        };

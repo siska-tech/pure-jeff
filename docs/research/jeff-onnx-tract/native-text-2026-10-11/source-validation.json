@@ -1,0 +1,7 @@
+{
+  "generated_files_reproduced": 11,
+  "backbone_readout_wrapper_cargo_manifest_lock_byte_exact_to_full_candidate": true,
+  "release_rust_tests_passed": 7,
+  "build_clippy_fmt_passed": true,
+  "dependencies_unchanged": true
+}

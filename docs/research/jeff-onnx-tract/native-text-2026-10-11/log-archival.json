@@ -1,0 +1,17 @@
+[
+  {
+    "path": "build.log",
+    "original_sha256": "4d8d440f972493e9ed33723f9484f2fd9cdb70e6335cac853d54d5bcc1a802f1",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  },
+  {
+    "path": "clippy.log",
+    "original_sha256": "6cd656e54ade031276086dd9bf7f72481da79b624f531aac5954e2f999dc77fd",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  },
+  {
+    "path": "test.log",
+    "original_sha256": "edbe37e0d514374a97ddf55c54f68c07afbe7fa6d51bcc525041c1d207e77659",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  }
+]

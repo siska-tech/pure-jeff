@@ -1,0 +1,170 @@
+{
+  "date_utc": "2026-10-10T22:57:39.557196+00:00",
+  "script_sha256": "852b132acaf1f40b0b8077e65c548508a81f2c661ceb8b40ff5f4294f2bbbec9",
+  "helper_sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a",
+  "full_executable_sha256": "4b6269e118851145bd81e02211b76ea13cfce8cb8d07755922f8ec771bca5cec",
+  "text_executable_sha256": "85a69ede092462343e4174ad3b3e7e597c3228b1585d572fd48c90d8734fc33f",
+  "generation_sha256": "2587e2dd6d8137e817cdcfe9006024a14c6f29d586706e1c0946c476b5602ced",
+  "previous_generation_sha256": "4e5334a1ec414e0dc2413bf14c868ba650e6b77fd500b625ef9d5e3aa38f94c4",
+  "assets": [
+    {
+      "path": ".venv/bench-native-target/release/kaze_judge_native_bench.exe",
+      "sha256": "d981d6b51ae708fd1adad0ac81845132ba8819afddf799f5afd275b7c83292c8"
+    },
+    {
+      "path": "models/jeff-rust-bundle-p3.json",
+      "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+    },
+    {
+      "path": "models/jeff-checkpoint/LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "models/jeff-checkpoint/NOTICE",
+      "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+    },
+    {
+      "path": "models/jeff-checkpoint/README.md",
+      "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+    },
+    {
+      "path": "models/jeff-checkpoint/chat_template.jinja",
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    {
+      "path": "models/jeff-checkpoint/config.json",
+      "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+    },
+    {
+      "path": "models/jeff-checkpoint/decision_config.json",
+      "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+    },
+    {
+      "path": "models/jeff-checkpoint/model.safetensors",
+      "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+    },
+    {
+      "path": "models/jeff-checkpoint/processor_config.json",
+      "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+    },
+    {
+      "path": "models/jeff-checkpoint/readout.safetensors",
+      "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer.json",
+      "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer_config.json",
+      "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+    }
+  ],
+  "reference_cases_sha256": "c1b21681c84d6dcd27a07d48c5e7b6735e249f7165484c49cfd4fae976a280b3",
+  "previous_native_probabilities_sha256": "acb95bf58c78ec6368c58805d09d476362c05bc04ba469bd77f314f7c27d675c",
+  "orders": [
+    [
+      "full",
+      "text"
+    ],
+    [
+      "text",
+      "full"
+    ],
+    [
+      "full",
+      "text"
+    ]
+  ],
+  "schedules": [
+    [
+      {
+        "case": 4,
+        "warmup": true
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 5,
+        "warmup": true
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 6,
+        "warmup": true
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      }
+    ]
+  ],
+  "seed": 320473,
+  "threads": 1,
+  "physical_tokens": 512,
+  "effective_tokens": 512,
+  "sessions_per_mode": 3,
+  "warmups_per_session": 1,
+  "samples_per_session": 4,
+  "samples_per_mode": 12,
+  "gate_cases_per_mode": 8,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8435036160,
+  "numerical_acceptance": "probability/judgment/tokens gates and all probabilities exactly equal frozen Native gate",
+  "memory_acceptance": "local memory-only iff all three paired lifetime peaks and pooled maximum decrease; numeric/resource gates pass",
+  "latency_acceptance": "descriptive only; no speedup or noninferiority acceptance",
+  "formal_slo_acceptance": false,
+  "scope": "full473 vs text320 owned FP32, same equations/wrapper/dependencies, head1 retained both",
+  "limitations": [
+    "synthetic four inputs, n=12 p95=max, three independent pairs, one warmup",
+    "startup and lifetime peaks n=3 incidental; includes temporary mmap/conversion, not warm private memory",
+    "thermals/affinity/background/storage cache uncontrolled; hashes preflighted before timing",
+    "no Tract comparison, API E2E, recognition quality or product API change"
+  ]
+}

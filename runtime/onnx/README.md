@@ -238,3 +238,20 @@ by warm compute timings. This is not Tract/API E2E, formal SLO or product change
 The measured retained mode includes all 473 model tensors; the later static
 inventory identifies 153 unused visual tensors. A text-only 320-tensor filter
 is future unmeasured work, not part of the accepted experiment.
+
+## Text-only Native retention pilot
+
+prepare_native_text.py --output <new-dir> derives a separate candidate from
+the archived full473 crate. It requires the exact pinned 473-name inventory,
+retains only the 320 text tensors, and preserves the separate head1. Equations,
+wrapper, manifest and lock are byte-identical to the full candidate. Build in
+a separate target; seven Rust tests, clippy/fmt and eleven reproduced files pass.
+
+enchmark_native_text.py --output <new-run-dir> compares the frozen full473
+exe and text320 exe, both retained FP32, common512/one thread. Eight gates per
+mode precede three AB/BA/AB resident pairs, warmup1 + measured4, n=12/mode.
+All 46 forwards match frozen Native probabilities exactly. Local acceptance
+is MEMORY ONLY: every paired lifetime peak and pooled maximum must decrease.
+Observed pooled maximum 5,190,696,960 to 4,591,202,304 bytes passes. Latency is
+descriptive; no speed or noninferiority acceptance, API E2E or formal SLO.
+The preceding full473 evidence stays unchanged and refers to its own run.
