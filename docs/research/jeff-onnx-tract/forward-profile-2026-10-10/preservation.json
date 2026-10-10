@@ -1,0 +1,14 @@
+{
+  "native_baseline_files": 128,
+  "unchanged_files": 127,
+  "previously_permitted_differences": [
+    {
+      "path": ".gitignore",
+      "original_sha256": "c9e45d4e099c24d5fb82ff0d63217d016456a5bb4df963b38c203c843659ff69",
+      "current_sha256": "37239e411a4cf4186e8bb66526c52855f55e58316e19e87dad29fd00f198b784"
+    }
+  ],
+  "sibling_files_unchanged": 21,
+  "normal_tract_executable_unchanged": true,
+  "native_public_api_changed": false
+}

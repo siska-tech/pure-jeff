@@ -1,6 +1,6 @@
 # ONNX＋Tract実装の進捗
 
-2026-10-10。Phase 0の保全、現行checkpointのONNX再exportと数値照合に続き、**限定修正したTractで、最適化なし／ChangeAxesを除いた限定最適化の両経路でJeff全体forwardと4件の数値回帰が成立した。標準最適化の修正・公開API統合・性能評価は未完了。既存Native・公開API・Decision Reportは維持している。**
+2026-10-11更新（2026-10-10からの継続）。Phase 0の保全、現行checkpointのONNX再exportと数値照合に続き、**限定修正したTractで、最適化なし／ChangeAxesを除いた限定最適化の両経路でJeff全体forwardと4件の数値回帰が成立した。標準最適化の修正・公開API統合・性能評価は未完了。既存Native・公開API・Decision Reportは維持している。**
 
 計画：[実装計画](onnx-tract-plan.md)。証跡：[今回の索引](research/jeff-onnx-tract/implementation-2026-10-10/README.md)。開発手順：[ONNX tooling](../runtime/onnx/README.md)、[Tract probe](../runtime/tract/README.md)。
 
@@ -32,6 +32,7 @@
 | driver内部診断 | 独立生成した固定coreに計時点のみ追加。3 block交互、重複探索中央値29.926秒、名前整理9.765秒、compaction 0.625秒。全9 forward数値一致 | 起動改善対象を探索・名前管理へ限定。まだalgorithm変更・高速化倍率・SLO受入ではない。[詳細](onnx-tract-driver-profile.md) |
 | 重複探索の削除実験 | 内部timerなし・別targetの単一変更版。4件gate後、cold各5回を交互比較。起動中央値49.706→19.341秒／p95 50.343→19.399秒。全14 process・30 forwardのraw logits一致、Python小型回帰20試験合格 | 起動短縮を確認。warm forward 11.844→11.875秒で改善なし。Native・通常probe・公開APIは不変。実験経路の局所受入のみ。[詳細](onnx-tract-duplicate-search.md) |
 | suffix探索の変更実験 | 前回版を対照にcold各5回。起動中央値19.708→20.265秒／p95 20.063→21.020秒、全5組で遅延増。warm forward 11.912→11.917秒。全30 forwardのraw logits一致、Python21試験・Rust命名集合試験合格 | 数値・命名回帰は合格、性能改善版として不採用。前回版を維持し、operator／thread評価を優先する。[詳細](onnx-tract-name-index.md) |
+| forward内訳・thread pilot | 同一exe・固定512・各2独立セッション、warm各n=6。1／2／4／8 threads中央値11.744／9.746／8.869／8.694秒、p95 12.255／9.941／9.071／9.294秒。全14 process・56 forwardのraw logits一致。1-thread内訳はOptMatMul 7.046秒、ScatterElements 1.902秒、MoveAxis 1.157秒。Python24試験skip 0、release clippy・callback fmt・全生成source再現照合に合格 | Tract内のthread増加による短縮を確認。次の候補は4／8 threads。1-thread profileから8-threadの残余内訳は推定しない。Native比較・正式SLO・API E2E・品質は未受入。[詳細](onnx-tract-forward-profile.md) |
 
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
@@ -58,7 +59,7 @@
 1. 5ノードのCast→Reshape→CumSum→Reshape→Sliceで標準最適化の同じエラーを再現した。`run-no-change-axes`では固定版declutterのtop-level ChangeAxesを1個だけ除去し、残りとcodegenを実行する。構成が変われば明示失敗し、自動fallbackはしない。小型例は解析的な累積和と一致し、Jeff全体4件も合格。標準Tract側の修正とupstream投稿は未実施で、投稿は明示的な依頼があったときに行う。
 2. 最適化を変更するたびに同一checkpointの4件数値gateを再実行する。各段階を別process・期限付きで記録し、OOM／panic／deadlineも失敗として残す。
 3. 型推論・全体forward成立後に、既存DecisionProvider／worker wireへ接続する独立TractBackendを実装する。512超の明示拒否、prompt/tokenizerの同一性、温度処理、期限・異常応答の契約試験を追加する。既存RustProviderを廃止・改名しない。
-4. Phase 3は独立計測wrapperでpilotまで実施した。次は独立session、多スレッドvariant、256/384/511/512-token、Tract API E2Eを測る。以前の単発probe秒数・export時間と、今回の事前登録したbenchmark結果を混同しない。
+4. Phase 3は独立計測wrapperでpilotまで実施し、1／2／4／8-thread版の各2独立sessionも測った。次は4／8-threadの内訳・session増加、256/384/511/512-token、Nativeと同形状・保持dtype・thread条件、Tract API E2Eを測る。以前の単発probe秒数・export時間と、事前登録したbenchmark結果を混同しない。
 5. Phase 4はプロファイルに基づいて選定。Phase 5は確認済みOCR/ASR正解とN-bestが必要で、現在の人工goldenでは認識品質を判定しない。
 
 限定最適化の調査では、推論前のgraph処理にも大きなコストが観測された。単発probeの秒数を速度倍率やSLOには換算しない。実験wrapperでモデル・planの再利用を実装した後、[NNEF保存・再ロード](onnx-tract-nnef-pilot.md)も検証した。ONNX拡張registry、資産hash、4件数値回帰、別process再ロードは合格。codegen前のNNEFによる初期化短縮を確認したが、codegenの約40秒とwarm forwardの約12秒は残る。codegen後のplan永続化・配布可搬性・公開API統合は未受入である。

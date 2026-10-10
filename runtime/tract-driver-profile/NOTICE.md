@@ -31,3 +31,15 @@ selection with the project-authored `name_index.rs`, preserving the original
 prefix check and decimal naming rules. The generated manifest records the old
 body and all source hashes. `name_semantics.rs` checks actual Graph and patch
 behavior; this remains an experimental local change, with no upstream posting.
+
+`prepare_forward_experiment.py` uses the accepted duplicate-removal base and
+enables the pinned tract-linalg `multithread-mm` feature. Project-authored
+`forward_profile.rs` wraps the public top-level eval callback, disabled by
+default. Child-plan times are included in the parent operator. No suffix-index
+change or internal optimizer timer is included. The separate
+`forward.Cargo.lock` fixes the additional Rayon and Crossbeam dependencies:
+rayon 1.12.0 and rayon-core 1.13.0 (MIT OR Apache-2.0), crossbeam-deque 0.8.8,
+crossbeam-epoch 0.9.21 and crossbeam-utils 0.8.23 (MIT OR Apache-2.0).
+Their crate license texts, manifest declarations and registry checksums are
+archived with the forward pilot. The earlier no-new-package statement applies
+to the driver/duplicate/name variants, not this optional multithread variant.

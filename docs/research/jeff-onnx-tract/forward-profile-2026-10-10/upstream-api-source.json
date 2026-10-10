@@ -1,0 +1,16 @@
+{
+  "revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "files": [
+    {
+      "path": "linalg/src/multithread.rs",
+      "sha256": "21405ff7819dd79d45ad3ea1653ce61cdd36b7f6f0525f514f589920f97c3aef",
+      "archived_as": "upstream-multithread.rs"
+    },
+    {
+      "path": "core/src/plan.rs",
+      "sha256": "9c909f9c6dad0e63f3f4d0c2345fe9b4d8d21019f9feb74f2766c122dc579f02",
+      "archived_as": "upstream-plan.rs"
+    }
+  ],
+  "license": "MIT OR Apache-2.0; texts retained in this archive"
+}

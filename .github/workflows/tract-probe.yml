@@ -120,6 +120,23 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python -B -m unittest discover -s runtime/onnx -p test_tract_names.py -v
           exit $LASTEXITCODE
+      - name: Verify isolated forward profile and thread executor
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B runtime/onnx/prepare_forward_experiment.py --upstream $upstream --output .venv/forward-probe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/forward-target'
+          cargo build --locked --release --manifest-path .venv/forward-probe/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --release --manifest-path .venv/forward-probe/Cargo.toml --bin bench -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_FORWARD_BENCH = Join-Path $PWD '.venv/forward-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_forward.py -v
+          exit $LASTEXITCODE
       - name: Build and lint isolated native benchmark wrapper
         shell: pwsh
         run: |

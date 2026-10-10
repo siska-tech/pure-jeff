@@ -122,3 +122,5 @@ host/build/power/ISA metadataへの参照
 起動時graph処理については、[重複探索の削除実験](onnx-tract-duplicate-search.md)で単一変更を別targetへビルドし、4件回帰の後に交互のcold 5組と常駐forwardを比較する。内部診断の寄与時間を、そのまま除去可能時間とみなさない。n=5・1入力のpilotは上記の正式SLOや品質評価を満たさない。
 
 [suffix探索の変更実験](onnx-tract-name-index.md)は数値・命名回帰に合格したが、cold 5組すべてで遅くなり不採用とした。既存の受入版を対照に固定し、理論上の走査削減と実測改善を分ける。次はforwardのoperator内訳とthread matrixを優先し、同じ数値gateを要求する。
+
+[forward内訳・thread pilot](onnx-tract-forward-profile.md)では、同一多スレッド対応exeの1／2／4／8-thread executorを4件gate後に比較した。各2独立session×3測定、n=6の中央値は11.744／9.746／8.869／8.694秒。正式比較の標本数・token長matrixを満たしたとは扱わず、4／8-threadを次の候補に残す。profileは別session・1-threadだけで、8-threadの残余コストをこの内訳から断定しない。次は4／8-threadのoperator・shape・由来nodeの対応、session増加、Nativeとの同条件化を先に固定する。

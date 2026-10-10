@@ -1,0 +1,18 @@
+{
+  "run_id": "gate-control",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\tract-duplicate-candidate-target\\release\\bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\nnef-pilot-20261010\\jeff.decluttered.nnef.tar",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\forward-pilot-20261010\\gate-control.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 68379542900,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 3276464128,
+  "memory_samples": 6510,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

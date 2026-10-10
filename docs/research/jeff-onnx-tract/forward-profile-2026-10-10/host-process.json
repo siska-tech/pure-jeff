@@ -1,0 +1,10 @@
+{
+  "power_query_succeeded": true,
+  "ACLineStatus": 1,
+  "affinity_query_succeeded": true,
+  "parent_process_affinity_mask": 65535,
+  "system_affinity_mask": 65535,
+  "RUSTFLAGS": null,
+  "CARGO_ENCODED_RUSTFLAGS": null,
+  "note": "captured during sequential gate phase; child default inherited affinity, no pinning applied"
+}

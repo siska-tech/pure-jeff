@@ -1,0 +1,13 @@
+{
+  "processes": 14,
+  "forwards": 56,
+  "four_golden_cases": 4,
+  "raw_logits_exact": true,
+  "max_raw_error": 0.0,
+  "max_probability_error": 4.9173831939697266e-06,
+  "guard_triggers": 0,
+  "failures": 0,
+  "top_level_profile_accounting_exact": true,
+  "raw_jsonl_independently_validated": true,
+  "thread_summary_independently_reaggregated": true
+}

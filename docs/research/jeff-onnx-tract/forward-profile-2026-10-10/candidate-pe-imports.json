@@ -1,0 +1,19 @@
+{
+  "executable_sha256": "1438670e7b190203903b683df60fdc1bfc55445133fc986e301d5b53dc3eadc4",
+  "direct_pe_imports": [
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "bcryptprimitives.dll",
+    "kernel32.dll",
+    "KERNEL32.dll",
+    "ntdll.dll",
+    "VCRUNTIME140.dll"
+  ],
+  "scope": "direct PE imports only; not complete dynamic library tracing",
+  "distribution_approved": false
+}

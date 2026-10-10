@@ -64,3 +64,35 @@ in one resident session per backend. Raw JSONL, OS process-lifetime peaks, guard
 per-case quantiles and numerical validation are retained. No build, export or other
 benchmark should run concurrently. Storage cache is uncontrolled; this is a pilot,
 not a production Tract worker E2E or statistical SLO acceptance.
+
+## Forward operator / thread pilot
+
+The optional experiment enables `tract-linalg/multithread-mm` on the accepted
+duplicate-removal base, with a separate dependency lock and Cargo target. It
+keeps the normal probe and Native runtime unchanged. The executor accepts only
+1/2/4/8 threads and reports the actual pool size and parallelism thresholds.
+`forward_profile.rs` uses the public top-level eval callback; Scan child work is
+included in its parent wall time. Profiling defaults to disabled.
+
+```powershell
+& vendor/jeff/.venv/Scripts/python.exe -B runtime/onnx/prepare_forward_experiment.py --upstream .venv/tract-cargo-home/git/checkouts/tract-3c391e7e500bc645/9e0cfaa --output .venv/forward-new
+$env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/forward-new-target'
+cargo build --locked --release --manifest-path .venv/forward-new/Cargo.toml --bin bench
+$env:TRACT_FORWARD_BENCH = Join-Path $PWD '.venv/forward-new-target/release/bench.exe'
+& vendor/jeff/.venv/Scripts/python.exe -B -m unittest discover -s runtime/onnx -p test_tract_forward.py -v
+& vendor/jeff/.venv/Scripts/python.exe -B runtime/onnx/benchmark_forward.py --candidate $env:TRACT_FORWARD_BENCH --generation .venv/forward-new/generation.json --output experiments/runs/forward-new
+```
+
+Set the isolated `CARGO_HOME` as for previous generators. Each output/target must
+be new; do not share a target between generated source trees. The real-model
+harness also requires the frozen accepted duplicate-removal control executable,
+the archived control hash, four golden jobs and the fixed NNEF artifact from
+earlier pilots. It runs the old feature-off control and all four new executor
+sizes through all goldens before timing. The matrix is a small pilot: two
+independent sessions per thread in ascending/reversed order, each one warmup
+and three measured candidate-request forwards (n=6). The separate profile
+session has one warmup and three measurements. No builds/tests run concurrently
+with the measured child. Raw outputs, guards and process-lifetime peaks are
+retained. New dependency attribution is in
+[NOTICE.md](../tract-driver-profile/NOTICE.md). This does not establish API E2E,
+Native equivalence of physical shape, recognition quality or a formal SLO.

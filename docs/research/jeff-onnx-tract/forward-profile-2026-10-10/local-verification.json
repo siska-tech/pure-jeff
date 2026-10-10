@@ -1,0 +1,16 @@
+{
+  "python_tests": 24,
+  "python_skipped": 0,
+  "python_failed": 0,
+  "release_clippy_exit_code": 0,
+  "new_rust_callback_rustfmt_exit_code": 0,
+  "workflow_yaml_parsed": true,
+  "github_ci_run_confirmed": false,
+  "verification_note": "initial local test attempts used inaccessible sandbox TEMP or incomplete executable paths; corrected TEMP and complete paths passed; these were not benchmark attempts",
+  "commands": [
+    "python -B -m unittest discover -s runtime/onnx -p test_*.py -v",
+    "cargo clippy --locked --offline --release --manifest-path .venv/tract-forward-probe/Cargo.toml --bin bench -- -D warnings",
+    "rustfmt --edition 2024 --check runtime/tract-driver-profile/forward_profile.rs"
+  ],
+  "pinned_upstream_core_linalg_cargo_diff_exit_code": 0
+}

@@ -93,12 +93,12 @@ def invoke(command, outdir, run_id, memory_limit, timeout=600):
     return record
 
 
-def validate_events(events, cases, policy):
+def validate_events(events, cases, policy, expected_threads=1):
     by_id = {case["id"]: case for case in cases}
     if not events or events[0]["event"] != "initialized" or events[-1]["event"] != "completed":
         raise ValueError("incomplete engine events")
-    if events[0].get("threads", 1) != 1:
-        raise ValueError("one-thread executor required")
+    if events[0].get("threads", 1) != expected_threads:
+        raise ValueError("requested thread count mismatch")
     for event in events[1:-1]:
         case = by_id[event["case"]]
         actual = event["probabilities"]
