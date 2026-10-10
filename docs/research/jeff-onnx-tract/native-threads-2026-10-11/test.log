@@ -1,0 +1,16 @@
+   Compiling kaze_judge_native_bench v0.1.0 (C:\Users\<user>\Documents\Projects\KazeJudge\.venv\native-threads-candidate)
+    Finished `release` profile [optimized] target(s) in 1.61s
+     Running unittests src\main.rs (.venv\native-threads-target\release\deps\native_retained_bench-91aa7515adb5ef43.exe)
+
+running 9 tests
+test weights::selection_tests::preserves_head_and_rejects_ambiguous_file ... ok
+test threads::tests::accepts_only_supported_integer_counts ... ok
+test threads::tests::rejects_missing_invalid_and_unsupported_counts ... ok
+test weights::selection_tests::selects_exact_text_inventory_from_unordered_full_model ... ok
+test weights::tests::retained_lookup_shares_tensor_and_rejects_missing ... ok
+test weights::tests::bf16_embedding_select_commutes_with_fp32_retention ... ok
+test weights::selection_tests::rejects_missing_duplicate_and_unexpected_model_names ... ok
+test backbone::tests::rope_preserves_unrotated_dimensions_and_zero_position ... ok
+test backbone::tests::delta_update_decay_and_state_isolation ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

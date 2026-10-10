@@ -1,0 +1,24 @@
+{
+  "processes": 20,
+  "forwards": 112,
+  "gate_forwards": 32,
+  "warmup_forwards": 16,
+  "measured_forwards": 64,
+  "all_numeric_gates_passed": true,
+  "one_thread_probabilities_exact_to_frozen_native": true,
+  "all_settings_pool_size_configuration_verified": true,
+  "repeat_tolerance": 1e-06,
+  "independent_raw_record_validation_and_statistics_recomputation": true,
+  "max_onnx_probability_error": 3.7550926208496094e-06,
+  "max_native_probability_error": 2.682209014892578e-06,
+  "max_repeat_probability_error": 5.364418029785156e-07,
+  "eligible_next_pilot_threads": [
+    2,
+    4,
+    8
+  ],
+  "next_pilot_threads": 4,
+  "formal_slo_acceptance": false,
+  "failures": 0,
+  "guard_triggers": 0
+}

@@ -1,0 +1,76 @@
+{
+  "generator_sha256": "6746e74b65d228f69e9f324bdf556132b19c24d0cc826af18c1e6f5bdde6bfec",
+  "anchor_helper_sha256": "b2c65b39104606fe367aadb9e870b2d82abfa69f54f2a251cc2e55a526ebf9cd",
+  "previous_generation_sha256": "2587e2dd6d8137e817cdcfe9006024a14c6f29d586706e1c0946c476b5602ced",
+  "sources": {
+    "runtime/rust/src/backbone.rs": "6e4f79c9e510a7da6b4b7fbbc16539343937ecd1887327d518f360b2c29bda1a",
+    "runtime/rust/src/readout.rs": "90a2781c46f07ff76fde874fa0482de807b1815f13d53a609ee8235c9667b867",
+    "runtime/bench-native/src/main.rs": "732a3692068ed1f3f802d32cf3d94e0d4669897a7a09a70c2d879e381a47ffdd",
+    "runtime/native-retained/weights.rs": "32716c36bb2794f3f448d78a01c97aec49375901f96b1a55b7aa2a3e1959b261",
+    "runtime/bench-native/Cargo.toml": "1d77873321db7748637afc71d4f2be3af1cd02ac26844ee0fdc90d778b1f6391",
+    "runtime/bench-native/Cargo.lock": "8d6790323a11f9b7a35f58e77382f761e3650d3f890318f69a407b1df7f98459"
+  },
+  "files": [
+    {
+      "path": "backbone.patch",
+      "sha256": "256557d58c538764c11672230aae9bf9dd2802dd28382f21f9e57e861cf6b730"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "a3e6e73825087e9c508b3c786acdbdb68af16d579396b868e6b6140796271536"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "65d218a302171d1f0c07551fb1f34bcc6d67443abd79cdc7417dc4763f3b41d0"
+    },
+    {
+      "path": "readout.patch",
+      "sha256": "66b02ba7d44229d2d75b2f2356fd6383375aed9b4b76aa184784cbbad424b712"
+    },
+    {
+      "path": "src/backbone.rs",
+      "sha256": "97844fba2269538f10662bbfde1496a09cf1f8e4f28228f49626aa95e99508c0"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "e9eacff52e68dae9f2c7812707b2e466df4ca65c7aa14466bf787190d3a2b6a9"
+    },
+    {
+      "path": "src/readout.rs",
+      "sha256": "32168dee026d4e91ce5558bb5de6f626256d4c6ed8776731627468aebe3b88e2"
+    },
+    {
+      "path": "src/text_inventory.rs",
+      "sha256": "d214160d1188546a2ccbc993b6fba5cb8e950bc7431cb07ed3854d9fd78f4e69"
+    },
+    {
+      "path": "src/threads.rs",
+      "sha256": "ca24aa0cbfd65d45015b29d70c67edd42f239bbcb06d4137fe537a3806bb4c93"
+    },
+    {
+      "path": "src/weights.rs",
+      "sha256": "a52d022b479b711a338f2a625d1d8674f748fd2681624a273e08d5fcf199b22c"
+    },
+    {
+      "path": "text-selection.patch",
+      "sha256": "23b5995999756cd43de41bc27a3b42e66feb9ad350a8572f8f94a80419ca9928"
+    },
+    {
+      "path": "thread-wrapper.patch",
+      "sha256": "47b414f10447e0d57b66f7c6a1119a70a0e3fc369285fe5a7835850fe79cea13"
+    },
+    {
+      "path": "wrapper.patch",
+      "sha256": "f409e23570d9b566740289ca3f67d64a36337d9cf98e81afafa435d156ff70b1"
+    }
+  ],
+  "scope": "only experimental thread wrapper; text320 weights/equations unchanged, Rayon existing locked dependency made explicit",
+  "threads": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "policy_cpu_threads": 1,
+  "runtime_api_changed": false
+}

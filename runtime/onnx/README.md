@@ -275,3 +275,24 @@ match frozen Native, Tract raw logits the earlier four-thread gate. Packed
 layout, algorithms, stage boundaries and startup verification remain different.
 This is a descriptive operating-configuration comparison; no runtime-only,
 speedup, API E2E, formal SLO or backend-adoption claim is authorized by it.
+
+## Native text320 thread matrix
+
+`prepare_native_threads.py --output <new-dir>` generates a separate wrapper
+from the archived text320 source. Backbone/readout/cache/inventory remain
+byte-identical. Rayon =1.12.0, already locked transitively, becomes explicit.
+Build/test/clippy/fmt in a new target; never overwrite frozen executables.
+Job threads accepts only integer1/2/4/8, sets both environment variables before
+initialization, explicitly builds the global Rayon pool and checks its actual
+size plus Candle's GEMM setting. Manifest policy stays1; this is an experiment
+compute override. Barrier auxiliary count is derived, not observed telemetry.
+
+`benchmark_native_threads.py --output <new-run-dir>` gates eight cases per
+setting, then runs four balanced Williams blocks with one warmup and four
+mixed common512 requests/session: n=16/setting, n=4/input, 112 total forwards.
+ONNX and frozen Native probability tolerance1e-4, judgment/tokens exact;
+one-thread frozen probabilities exact, within-setting gate repeat <=1e-6.
+Next-pilot eligibility requires all four block medians and pooled median/p95
+below1 thread; choose the lowest eligible pooled median. This selects an
+exploration candidate, not a formal SLO, product or Tract adoption. At n=16
+nearest-rank p95=max. DeltaNet stays serial; no per-kernel speedup attribution.
