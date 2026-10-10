@@ -4,6 +4,8 @@
 
 証跡：[索引とraw record](research/jeff-onnx-tract/performance-pilot-2026-10-10/README.md)。計測設計：[定量ベンチマーク計画](onnx-tract-benchmark-plan.md)。Phase 3はpilotまでの部分完了で、正式SLO受入ではない。
 
+起動コストの追加調査は[NNEF保存・再ロードの性能調査](onnx-tract-nnef-pilot.md)に分離して記録する。以下はONNXから毎回準備する経路の測定値である。
+
 ## 条件と数値受入
 
 - Windows 11 Home build 26200、Intel Core i7-1360P、12 physical／16 logical cores、物理RAM約31.6 GiB。

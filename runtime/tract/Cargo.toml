@@ -8,6 +8,7 @@ description = "Isolated ONNX importer feasibility probe, not a DecisionProvider"
 [dependencies]
 anyhow = "1"
 tract-onnx = { git = "https://github.com/sonos/tract", rev = "9e0cfaa9b3a9251f41f74101801dc2c937b1660a", default-features = false }
+tract-nnef = { git = "https://github.com/sonos/tract", rev = "9e0cfaa9b3a9251f41f74101801dc2c937b1660a", default-features = false }
 serde_json = "1"
 
 [profile.release]

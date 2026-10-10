@@ -45,6 +45,7 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           $env:TRACT_PROBE = Join-Path $PWD 'runtime/tract/target/release/kaze_judge_tract_probe.exe'
           $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
           python -B -m unittest discover -s runtime/onnx -p 'test_*.py' -v
           exit $LASTEXITCODE
       - name: Build and lint isolated native benchmark wrapper

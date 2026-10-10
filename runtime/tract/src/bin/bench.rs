@@ -18,30 +18,44 @@ fn main() -> TractResult<()> {
     let mode = job["mode"]
         .as_str()
         .ok_or_else(|| anyhow::anyhow!("missing mode"))?;
-    ensure!(["typed", "no-change-axes"].contains(&mode), "invalid mode");
+    ensure!(
+        ["typed", "no-change-axes", "nnef-decluttered"].contains(&mode),
+        "invalid mode"
+    );
     tract_onnx::tract_core::tract_linalg::multithread::set_default_executor(
         tract_onnx::tract_core::tract_linalg::multithread::Executor::SingleThread,
     );
     let step = Instant::now();
-    let mut model = tract_onnx::onnx().model_for_path(&args[0])?;
-    let load_ns = step.elapsed().as_nanos();
-    let names: Vec<_> = model
+    let (mut typed, load_ns, type_ns) = if mode == "nnef-decluttered" {
+        let typed = tract_nnef::nnef().with_onnx().model_for_path(&args[0])?;
+        (typed, step.elapsed().as_nanos(), 0)
+    } else {
+        let mut model = tract_onnx::onnx().model_for_path(&args[0])?;
+        let load_ns = step.elapsed().as_nanos();
+        for index in 0..3 {
+            model.set_input_fact(index, i64::fact([1, 512]).into())?;
+        }
+        let step = Instant::now();
+        let typed = model.into_typed()?;
+        (typed, load_ns, step.elapsed().as_nanos())
+    };
+    let names: Vec<_> = typed
         .input_outlets()?
         .iter()
-        .map(|outlet| model.node(outlet.node).name.clone())
+        .map(|outlet| typed.node(outlet.node).name.clone())
         .collect();
+    for index in 0..3 {
+        ensure!(
+            typed.input_fact(index)? == &i64::fact([1, 512]),
+            "invalid input fact"
+        );
+    }
     let mut sorted = names.clone();
     sorted.sort();
     ensure!(
         sorted == ["attention_mask", "input_ids", "mm_token_type_ids"],
         "invalid inputs"
     );
-    for index in 0..3 {
-        model.set_input_fact(index, i64::fact([1, 512]).into())?;
-    }
-    let step = Instant::now();
-    let mut typed = model.into_typed()?;
-    let type_ns = step.elapsed().as_nanos();
     let step = Instant::now();
     if mode == "no-change-axes" {
         let mut optimizer = tract_onnx::tract_core::optim::Optimizer::declutter();
@@ -54,6 +68,8 @@ fn main() -> TractResult<()> {
             "pinned pass layout changed"
         );
         optimizer.optimize(&mut typed)?;
+    }
+    if ["no-change-axes", "nnef-decluttered"].contains(&mode) {
         typed.optimize()?;
     }
     let optimize_ns = step.elapsed().as_nanos();

@@ -1,0 +1,9 @@
+{
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "external_data_sha256": "1b7c0e8a7b7902fe8631b9dec3a702858152f6693cdf5f501df1dfd710afb1a5",
+  "pack_executable_sha256": "8c8129b0963db5bf5ed36e76643d3c5ed38868a926b895e66b3ece93c44fe002",
+  "cargo_lock_sha256": "3254d69406242746b31d2ebd72198d5858f84f182a4022dc01bcb88f50506e6a",
+  "profile": "declutter excluding ChangeAxes; codegen deferred until reload",
+  "timeout_seconds": 600,
+  "peak_working_set_limit_bytes": 8589934592
+}

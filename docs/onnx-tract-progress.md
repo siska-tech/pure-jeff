@@ -27,6 +27,7 @@
 | Tract全体数値回帰 | 現行step1113、4件。最大確率差は正規化ONNX oracle比1.7285346984863281e-6、golden比3.039836883544922e-6。候補選択・保留が全件一致 | 許容1e-4で合格。小規模goldenのみで、認識品質の評価ではない |
 | 限定最適化の全体回帰 | top-level ChangeAxesのみ除外し、残りのdeclutter＋codegenを実行。4件すべて合格、最大確率差はgolden比4.9173831939697266e-6、oracle比4.649162292480469e-6 | 明示的な実験経路として成立。標準最適化の修正・性能受入ではない |
 | Phase 3 pilot | process-cold各5回、resident各1セッション・4入力各5回、warm-up各5回。Native API別5回。計65 forward数値一致。warm計算中央値Native 2.977〜4.266秒、Tract 11.636〜11.836秒 | 現行短文・1 threadで速度目的のTract採用根拠なし。threads／長さmatrix・独立session・Tract E2Eは未測定 |
+| NNEF保存・再ロードpilot | codegen前のモデルを保存・別processで再ロード。cold 5回＋resident 25 forward全件数値一致。初期化中央値49.504秒／p95 50.664秒、warm計算中央値11.825〜12.231秒 | 起動短縮を確認。codegen後は小型例のIntoShape serializerで停止。forward高速化・正式SLO・API統合の受入ではない |
 
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
@@ -56,7 +57,7 @@
 4. Phase 3は独立計測wrapperでpilotまで実施した。次は独立session、多スレッドvariant、256/384/511/512-token、Tract API E2Eを測る。以前の単発probe秒数・export時間と、今回の事前登録したbenchmark結果を混同しない。
 5. Phase 4はプロファイルに基づいて選定。Phase 5は確認済みOCR/ASR正解とN-bestが必要で、現在の人工goldenでは認識品質を判定しない。
 
-限定最適化の調査では、推論前のgraph処理にも大きなコストが観測された。単発probeの秒数を速度倍率やSLOには換算しない。Phase 2の次段ではモデル・planの再利用を実装し、必要なら最適化済みNNEFの保存・再ロードも調査する。NNEFには演算子登録、外部資産hash、4件数値回帰、clean process再ロードの独立受入が必要で、初期化短縮はまだ期待効果である。
+限定最適化の調査では、推論前のgraph処理にも大きなコストが観測された。単発probeの秒数を速度倍率やSLOには換算しない。実験wrapperでモデル・planの再利用を実装した後、[NNEF保存・再ロード](onnx-tract-nnef-pilot.md)も検証した。ONNX拡張registry、資産hash、4件数値回帰、別process再ロードは合格。codegen前のNNEFによる初期化短縮を確認したが、codegenの約40秒とwarm forwardの約12秒は残る。codegen後のplan永続化・配布可搬性・公開API統合は未受入である。
 
 ## 開発環境・ライセンス・未受入
 
