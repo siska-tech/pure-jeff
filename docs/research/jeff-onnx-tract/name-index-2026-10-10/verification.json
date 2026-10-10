@@ -1,0 +1,18 @@
+{
+  "python_tests": 21,
+  "skipped": 0,
+  "python_result": "passed",
+  "standalone_rust_tests": 1,
+  "name_sets": 8192,
+  "prefixes": 6,
+  "orders": 2,
+  "additional_duplicate_name_case": true,
+  "actual_graph_cases": 6,
+  "actual_patch_cases": 5,
+  "candidate_release_clippy_warnings_denied": "passed",
+  "helper_standalone_clippy_warnings_denied": "passed",
+  "new_rust_rustfmt": "passed",
+  "workflow_yaml_and_step_inputs": "passed",
+  "github_ci": "not run",
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1"
+}

@@ -1,0 +1,3 @@
+# Suffix-index experiment evidence
+
+Control is the frozen duplicate-search-removal binary; candidate adds only the suffix-index change. No internal timers; fixed step1113 decluttered NNEF. Two four-case gates excluded from timing; five alternating cold pairs; one resident session per binary, one warm-up and five candidate-request samples. 14 processes and 30 forwards. Units and limits are in preregistration.json and summary.json. n=5 p95 is the observed maximum. Native/public API unchanged; no formal SLO or recognition-quality acceptance. Generated sources, model weights and executables remain ignored; their hashes and the incremental core diff and new helper source are archived here.

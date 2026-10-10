@@ -13,11 +13,19 @@ def main():
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--generation", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--control", type=Path, help="frozen previous candidate executable")
+    parser.add_argument("--control-reference", type=Path, help="its archived preregistration.json")
     args = parser.parse_args()
     control = ROOT/"runtime/tract/target/release/bench.exe"
     frozen = ROOT/"docs/research/jeff-onnx-tract/codegen-profile-2026-10-10/preregistration.json"
-    if sha(control) != json.loads(frozen.read_text(encoding="utf-8"))["executable_sha256"]:
-        raise ValueError("normal control executable changed")
+    if bool(args.control) != bool(args.control_reference):
+        raise ValueError("control executable and archived reference required together")
+    if args.control:
+        control, frozen, key = args.control, args.control_reference, "candidate_executable_sha256"
+    else:
+        key = "executable_sha256"
+    if sha(control) != json.loads(frozen.read_text(encoding="utf-8"))[key]:
+        raise ValueError("frozen control executable changed")
     asset_path = ROOT/"experiments/runs/nnef-pilot-20261010/artifact.json"
     asset = json.loads(asset_path.read_text(encoding="utf-8"))
     model = asset_path.parent/asset["file"]
@@ -55,6 +63,7 @@ def main():
         "model_sha256": asset["sha256"], "source_job_sha256": sha(source),
         "control_executable_sha256": sha(control), "candidate_executable_sha256": sha(args.candidate),
         "generation_sha256": sha(args.generation), "script_sha256": sha(__file__),
+        "control_reference_sha256": sha(frozen),
         "candidate_lock_sha256": sha(args.generation.parent/"Cargo.lock"),
         "threads": 1, "cold_blocks": 5, "resident_samples": 5, "resident_warmups": 1,
         "timeout_seconds": 600, "memory_limit_bytes": limit, "available_physical_bytes": memory.ullAvailPhys,

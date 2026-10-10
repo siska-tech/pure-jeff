@@ -1,0 +1,18 @@
+{
+  "run_id": "cold-0-control",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\tract-duplicate-candidate-target\\release\\bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\nnef-pilot-20261010\\jeff.decluttered.nnef.tar",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\name-pilot-20261010\\cold-0-control.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 31746255400,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 3276550144,
+  "memory_samples": 3020,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

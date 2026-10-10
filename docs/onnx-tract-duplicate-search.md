@@ -23,6 +23,8 @@ coldの生涯Peak Working Set中央値／p95は両版とも丸めて3.051／3.05
 
 **実験経路の局所的な受入条件は満たした。通常backendへの採用・正式SLO・Phase 3全体の完了とはしない。** 次は名前整理の意味を固定して独立変更を検討し、候補版に残るcodegenの内訳も測る。前回診断の名前整理時間を、そのまま候補版の残余時間とはみなさない。常駐forwardの改善には別途operator／thread評価が必要であり、Nativeに対する採用判断は更新しない。
 
+後続の[suffix探索変更実験](onnx-tract-name-index.md)では、この削除版を対照に5組比較したが起動が遅くなったため、追加変更を不採用とした。この重複探索削除版のsource／exeはそのまま保持している。
+
 ## 変更と判定範囲
 
 固定Tract 0.23.8の`ModelPatch::apply`にある重複node探索だけを、独立生成した実験版で削除する。通常probe、Native runtime、公開API、Decision Reportは変更しない。名前整理、GEMM、DeltaNet kernel、量子化は今回の変更に含めない。

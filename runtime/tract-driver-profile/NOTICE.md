@@ -24,3 +24,10 @@ manifest identifies this as an algorithm change and records the removed text.
 This experimental variant retains the upstream licenses and the existing data
 patch. It is not a modification of the normal probe or a published Tract fix.
 `patch_semantics.rs` is project-authored development regression code.
+
+`prepare_name_experiment.py` creates another independent variant on top of the
+duplicate-search experiment. It replaces only `Graph::unique_name` suffix
+selection with the project-authored `name_index.rs`, preserving the original
+prefix check and decimal naming rules. The generated manifest records the old
+body and all source hashes. `name_semantics.rs` checks actual Graph and patch
+behavior; this remains an experimental local change, with no upstream posting.

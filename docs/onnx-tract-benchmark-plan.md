@@ -120,3 +120,5 @@ host/build/power/ISA metadataへの参照
 常駐化の損益分岐は初期化時間I、one-shot単価C、warm単価Wとして、C>Wなら概算N>I/(C−W)。両backendの同じ資産検証条件で算出し、memory・queue・再起動費用も合わせて判断する。
 
 起動時graph処理については、[重複探索の削除実験](onnx-tract-duplicate-search.md)で単一変更を別targetへビルドし、4件回帰の後に交互のcold 5組と常駐forwardを比較する。内部診断の寄与時間を、そのまま除去可能時間とみなさない。n=5・1入力のpilotは上記の正式SLOや品質評価を満たさない。
+
+[suffix探索の変更実験](onnx-tract-name-index.md)は数値・命名回帰に合格したが、cold 5組すべてで遅くなり不採用とした。既存の受入版を対照に固定し、理論上の走査削減と実測改善を分ける。次はforwardのoperator内訳とthread matrixを優先し、同じ数値gateを要求する。
