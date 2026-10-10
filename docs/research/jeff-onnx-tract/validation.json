@@ -1,0 +1,15 @@
+{
+  "checked_on": "2026-10-10",
+  "protected_files": 128,
+  "changed_protected_files": [],
+  "markdown_files_checked": 5,
+  "missing_local_links": [],
+  "operator_count": 48,
+  "node_count": 113333,
+  "output_reachable_nodes": 113333,
+  "sequence_nodes": 90,
+  "model_execution_performed": false,
+  "benchmark_performed": false,
+  "new_runtime_dependencies": false,
+  "baseline_commit_created": false
+}
