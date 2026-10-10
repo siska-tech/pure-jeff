@@ -129,3 +129,5 @@ host/build/power/ISA metadataへの参照
 
 [Trilu行単位処理実験](onnx-tract-trilu-rows.md)は4-threadの独立AB／BA／AB各3組、warm各n=9で中央値8.963→8.361秒、p95 9.900→8.666秒を観測した。全3組のsession中央値が短縮し、全40 forwardのraw logitsが一致したため局所受入とする。起動は各n=3の付随観測で、短縮は確認していない。正式SLO・8-thread・長さmatrix・Native同条件比較・API E2Eは未受入。次のScatterElementsは意味の監査と単一変更の独立比較から開始する。
 [ScatterElements行単位コピー実験](onnx-tract-scatter-rows.md)は受入済みTrilu版を固定対照とし、4-thread・独立AB／BA／AB各3組・warm各n=9で中央値8.284→6.884秒、p95 8.467→7.341秒を観測した。全3組のsession中央値が短縮し、全40 forwardのraw logitsが一致したため局所受入とする。起動短縮は確認していない。I64 reductionの既存拒否64条件は成功数へ混ぜず記録した。次はこの候補を固定した4／8-thread・入力長matrixと同条件Native比較へ進める。過去の別日の対照値を差し引いた累積倍率や、演算診断からの期待倍率は提示しない。
+
+[受入候補の4／8-thread比較](onnx-tract-accepted-threads.md)は同一Scatter版exe・独立3組・各n=9で中央値6.973／6.518秒、p95 7.097／7.167秒を観測した。8 threadsは全session中央値で短縮したがp95が増え、事前条件に従い次のpilotは4を維持する。全32 forwardのraw logitsが一致。Rust tokenizerによる24件の長さfixtureは準備済みで、oracle／Tract gate／長さ性能は未受入。128は4種、256／384／511／512は4種＋8候補1種であり、128の8候補cellは欠測として区別する。

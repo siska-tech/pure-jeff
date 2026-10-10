@@ -39,6 +39,8 @@
 
 | ScatterElements行単位コピー実験 | 受入済みTrilu版を固定対照に4-thread・独立3組・warm各n=9。中央値8.284→6.884秒／p95 8.467→7.341秒、全3組で短縮。全40 forwardのraw logits一致。Python29試験skip 0、helper Rust2＋対照／候補各2試験、clippy／fmt、174生成ファイル再現照合に合格 | 実験経路で局所受入。I64 reductionの既存拒否64条件を別記録。正式SLO・Native同条件比較・API E2E・品質は未受入。次は受入候補でthread／長さmatrix。[詳細](onnx-tract-scatter-rows.md) |
 
+| 受入候補の4／8-thread再評価 | 同一Scatter版exe・独立3組・warm各n=9。4／8中央値6.973／6.518秒、p95 7.097／7.167秒。全32 forwardのraw logits一致。24件のRust長さfixtureを生成し、golden prompt／IDs・予算ちょうど／1不足・513拒否を確認 | 8はp95改善条件を満たさず次のpilotは4を維持。fixtureのoracle／全体gate・入力長性能は未受入。[詳細](onnx-tract-accepted-threads.md) |
+
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
 再export資産はignoredな `experiments/runs/onnx-current-step1113-v2/` に保存した。
@@ -64,7 +66,7 @@
 1. 5ノードのCast→Reshape→CumSum→Reshape→Sliceで標準最適化の同じエラーを再現した。`run-no-change-axes`では固定版declutterのtop-level ChangeAxesを1個だけ除去し、残りとcodegenを実行する。構成が変われば明示失敗し、自動fallbackはしない。小型例は解析的な累積和と一致し、Jeff全体4件も合格。標準Tract側の修正とupstream投稿は未実施で、投稿は明示的な依頼があったときに行う。
 2. 最適化を変更するたびに同一checkpointの4件数値gateを再実行する。各段階を別process・期限付きで記録し、OOM／panic／deadlineも失敗として残す。
 3. 型推論・全体forward成立後に、既存DecisionProvider／worker wireへ接続する独立TractBackendを実装する。512超の明示拒否、prompt/tokenizerの同一性、温度処理、期限・異常応答の契約試験を追加する。既存RustProviderを廃止・改名しない。
-4. Phase 3は独立計測wrapperでpilotまで実施し、1／2／4／8-thread版の各2独立sessionと4／8-threadの演算内訳も測った。Triluの単一変更を4-thread・独立3組で比較し局所受入した。ScatterElementsも単一変更を4-thread・独立3組で比較し局所受入した。次は受入候補を固定して4／8-threadを再評価し、session増加、256/384/511/512-token、Nativeと同形状・保持dtype・thread条件、Tract API E2Eへ進む。以前の単発probe秒数・export時間と、事前登録したbenchmark結果を混同しない。
+4. Phase 3は独立計測wrapperでpilotまで実施し、1／2／4／8-thread版の各2独立sessionと4／8-threadの演算内訳も測った。Triluの単一変更を4-thread・独立3組で比較し局所受入した。ScatterElementsも単一変更を4-thread・独立3組で比較し局所受入した。受入候補の4／8-threadを独立3組で再評価し、8はp95条件を満たさないため次のpilotは4を維持する。24件の長さfixtureを準備した。次はfixtureのONNX oracle／Tract全件gate後に長さmatrix・session増加、Nativeと同形状・保持dtype・thread条件、Tract API E2Eへ進む。以前の単発probe秒数・export時間と、事前登録したbenchmark結果を混同しない。
 5. Phase 4はプロファイルに基づいて選定。Phase 5は確認済みOCR/ASR正解とN-bestが必要で、現在の人工goldenでは認識品質を判定しない。
 
 限定最適化の調査では、推論前のgraph処理にも大きなコストが観測された。単発probeの秒数を速度倍率やSLOには換算しない。実験wrapperでモデル・planの再利用を実装した後、[NNEF保存・再ロード](onnx-tract-nnef-pilot.md)も検証した。ONNX拡張registry、資産hash、4件数値回帰、別process再ロードは合格。codegen前のNNEFによる初期化短縮を確認したが、codegenの約40秒とwarm forwardの約12秒は残る。codegen後のplan永続化・配布可搬性・公開API統合は未受入である。

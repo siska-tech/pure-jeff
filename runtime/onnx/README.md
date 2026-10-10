@@ -161,3 +161,21 @@ precede four-thread AB/BA/AB resident pairs (warmup1 + samples3, n=9/binary).
 Separate profile sessions follow. Acceptance requires all paired session
 medians plus pooled median/p95 to improve, exact raw logits and no guard failure.
 The pilot does not establish a production SLO, API E2E or Native superiority.
+## Accepted-binary thread follow-up and length inputs
+
+`benchmark_accepted_threads.py --output <new-run-dir>` freezes the accepted
+Scatter binary, generated sources and NNEF. Four/eight-thread golden gates
+precede three unprofiled AB/BA/AB resident pairs, warmup1 + samples3, n=9/thread.
+Prefer eight only if all paired session medians plus pooled median/p95 improve;
+otherwise retain four for the next pilot. This changes no product configuration.
+
+Build the development-only `prepare_lengths` bin in `runtime/bench-native` with
+the existing locked dependencies, then run `prepare_lengths.exe
+models/jeff-rust-bundle-p3.json <new-output.json>` from the repository root.
+It uses unchanged Native prompt/tokenizer, verifies four golden prompts/IDs,
+and generates 24 artificial full requests at 128/256/384/511/512 effective
+tokens with physical512 padding. Exact/one-short token budgets and one 513
+rejection are checked. Four variants per length plus eight-candidate extras
+at lengths >=256; these have no recognition ground truth or numeric oracle yet.
+Do not benchmark these fixtures as numerically accepted inputs until an oracle
+and whole-model Tract gate pass. No runtime Python dependency is introduced.

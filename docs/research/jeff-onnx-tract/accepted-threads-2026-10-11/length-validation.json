@@ -1,0 +1,55 @@
+{
+  "cases": 24,
+  "tokens_to_case_counts": {
+    "128": 4,
+    "256": 5,
+    "384": 5,
+    "511": 5,
+    "512": 5
+  },
+  "golden_prompt_and_ids_exact": 4,
+  "exact_budget_acceptances": 24,
+  "one_short_budget_rejections": 24,
+  "boundary_513_rejected": true,
+  "request_prompt_token_hashes_independently_verified": true,
+  "native_bench_executable_unchanged": true,
+  "generator_executable_sha256": "ff796c538462d6e55a5198e61da8ddec2c07e7069accc50e34251127c6fdff53",
+  "build_clippy_fmt_exit_code": 0,
+  "initial_generation_exit_code": 1,
+  "initial_failure": "ocr-ja-2/128 target unreachable with initial longer seed; initial source and log retained; shortened synthetic seeds, no prompt/runtime change",
+  "oracle_validated": false,
+  "input_length_performance_measured": false,
+  "github_ci_executed": false,
+  "log_archival_normalizations": [
+    {
+      "path": "length-build-final.log",
+      "original_sha256": "3f2ebe0893fb52f7b390a341469d245aed053985f26da539ea6bf4b03fc10f2d",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    },
+    {
+      "path": "length-build.log",
+      "original_sha256": "ed8e7dc2f0d1ddca0ab2d6fff1ae15c183adefde791c7476dec315676fb68808",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    },
+    {
+      "path": "length-clippy-final.log",
+      "original_sha256": "5e3079d2b086cc47f8e75cd2b566804e8decad9c6db60caaa2cc7877a0236028",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    },
+    {
+      "path": "length-clippy.log",
+      "original_sha256": "2eb9e152f0812be3736f2a1eea82945d0445b68741bd21cd236fbca8074566b4",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    },
+    {
+      "path": "length-generation-initial.log",
+      "original_sha256": "d3d6e820560879cdbf2895a5f2d3f03f4aa65ad281cbeb10f388603688a35584",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    },
+    {
+      "path": "length-generation.log",
+      "original_sha256": "1daec03695ebc05547e8cc33b42929999ad1a1b00e33d1974f307ef9836bb653",
+      "change": "strip trailing whitespace and normalize CRLF to LF; original retained in ignored run directory"
+    }
+  ]
+}

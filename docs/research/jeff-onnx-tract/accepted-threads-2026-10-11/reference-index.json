@@ -1,0 +1,22 @@
+[
+  {
+    "path": "gate-control.job.json",
+    "sha256": "36394b3a7a548d3862db11a622da4d6b4f0de030071f4087eca41880774dc62f"
+  },
+  {
+    "path": "gate-control.stdout.jsonl",
+    "sha256": "327603ac1ceb9d129deb4cca079fa3dbbf5e989a55c0f287bf164fa97c16bafa"
+  },
+  {
+    "path": "preregistration.json",
+    "sha256": "36a7970e0b0adcf36a3007f3d5ed110b41d9b34a3d96acae102511d2c34da245"
+  },
+  {
+    "path": "candidate-generation.json",
+    "sha256": "0e61bd07f2495e8ed1055f981991f783560ab6da464ad31ee196d33305fdf552"
+  },
+  {
+    "path": "candidate-Cargo.lock",
+    "sha256": "1983b55fb739c91ffd373cc3f46abf645fd0b2748bf26f950631089aa780c528"
+  }
+]

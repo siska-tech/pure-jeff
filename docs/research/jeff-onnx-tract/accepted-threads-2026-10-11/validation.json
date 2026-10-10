@@ -1,0 +1,11 @@
+{
+  "processes": 8,
+  "forwards": 32,
+  "raw_logits_exact": true,
+  "failures": 0,
+  "guard_triggers": 0,
+  "raw_records_and_stats_independently_validated": true,
+  "selection_rule_independently_recomputed": true,
+  "selected_pilot_threads": 4,
+  "max_probability_error": 4.9173831939697266e-06
+}
