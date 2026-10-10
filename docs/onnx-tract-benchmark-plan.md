@@ -124,3 +124,5 @@ host/build/power/ISA metadataへの参照
 [suffix探索の変更実験](onnx-tract-name-index.md)は数値・命名回帰に合格したが、cold 5組すべてで遅くなり不採用とした。既存の受入版を対照に固定し、理論上の走査削減と実測改善を分ける。次はforwardのoperator内訳とthread matrixを優先し、同じ数値gateを要求する。
 
 [forward内訳・thread pilot](onnx-tract-forward-profile.md)では、同一多スレッド対応exeの1／2／4／8-thread executorを4件gate後に比較した。各2独立session×3測定、n=6の中央値は11.744／9.746／8.869／8.694秒。正式比較の標本数・token長matrixを満たしたとは扱わず、4／8-threadを次の候補に残す。profileは別session・1-threadだけで、8-threadの残余コストをこの内訳から断定しない。次は4／8-threadのoperator・shape・由来nodeの対応、session増加、Nativeとの同条件化を先に固定する。
+
+[4／8-thread演算診断](onnx-tract-thread-profile.md)は前回exeを固定し、各2 session・計測ありn=6で残余を追跡した。ScatterElements約2秒、MoveAxis約1.3秒、Trilu約0.8秒が残る。計測なしの性能比較ではなく、新しい高速化実績には数えない。次はTriluのcontiguous行fillだけを別targetへ変更し、4-thread固定対照との数値gateと計測なしAB／BAを事前登録する。operatorの全観測時間を、そのまま短縮目標や高速化倍率へ換算しない。

@@ -96,3 +96,15 @@ with the measured child. Raw outputs, guards and process-lifetime peaks are
 retained. New dependency attribution is in
 [NOTICE.md](../tract-driver-profile/NOTICE.md). This does not establish API E2E,
 Native equivalence of physical shape, recognition quality or a formal SLO.
+
+`profile_thread_followup.py --output experiments/runs/thread-profile-new` reuses
+the frozen multithread binary and generation tree from the preceding pilot.
+It rechecks asset/source/golden hashes and runs four golden gates at 4/8 threads
+before two profile sessions per executor, orders [4,8] then [8,4], each warmup1
+and samples3. This is operator diagnosis only: it has no unprofiled performance
+comparison. Run it after all builds/tests, with the same isolated environment.
+`inspect_profile_graph.py --model <normalized.onnx> --expected-model-sha256
+<hash> --profiles <followup-output> --output <new.json>` loads ONNX without
+external tensors, records stored shapes and exact node-name matches, and retains
+unmatched optimizer names and missing metadata. It does not infer missing shape
+or index uniqueness. Run this development analysis after timed processes finish.

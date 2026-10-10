@@ -1,0 +1,35 @@
+{
+  "date_utc": "2026-10-10T15:36:34.154057+00:00",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "executable_sha256": "1438670e7b190203903b683df60fdc1bfc55445133fc986e301d5b53dc3eadc4",
+  "generation_sha256": "ec52e328d4dfeab5a8cde4d5566786d44c4e77adc8dd131823a8469d56a54f74",
+  "script_sha256": "1010a3cfce30ee2911aa3d73ff0c4b16cdd9c693a3cd46063f6cab40530def5f",
+  "previous_preregistration_sha256": "295d02b75efec9f498607078c06b7f437eafbe939c804a93381329c30843e000",
+  "source_job_sha256": "36394b3a7a548d3862db11a622da4d6b4f0de030071f4087eca41880774dc62f",
+  "reference_raw_sha256": "dbde8d1c412f7fc87b5c2dd708ed86034cb3181193261b9334b3b7457839c24e",
+  "orders": [
+    [
+      4,
+      8
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "warmups_per_session": 1,
+  "samples_per_session": 3,
+  "sessions_per_thread": 2,
+  "profile_scope": "top-level wall time; child plans included; no CPU attribution",
+  "formal_slo_acceptance": false,
+  "performance_improvement_claim": false,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8723292160,
+  "limitations": [
+    "profile enabled timings only, no unprofiled latency comparison",
+    "prepared candidate-request physical512 tensors; no tokenizer or API E2E",
+    "thermals, affinity, background load and storage cache uncontrolled",
+    "n=6 p95 is max"
+  ]
+}

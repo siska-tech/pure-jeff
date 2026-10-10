@@ -1,0 +1,11 @@
+{
+  "processes": 6,
+  "forwards": 24,
+  "raw_logits_exact": true,
+  "max_probability_error": 4.9173831939697266e-06,
+  "failures": 0,
+  "guard_triggers": 0,
+  "raw_jsonl_independently_validated": true,
+  "operator_quantiles_independently_reaggregated": true,
+  "profile_accounting_exact": true
+}
