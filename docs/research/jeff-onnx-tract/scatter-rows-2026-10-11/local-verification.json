@@ -1,0 +1,42 @@
+{
+  "python_tests": 29,
+  "python_skips": 0,
+  "helper_tests": 2,
+  "helper_combinations": 6336,
+  "direct_tests_per_binary": 2,
+  "onnx_successful_conditions": 192,
+  "onnx_successful_processes": 384,
+  "onnx_successful_forwards": 768,
+  "onnx_expected_rejection_conditions": 64,
+  "onnx_expected_rejection_processes": 128,
+  "initial_test_expectation_failures": 64,
+  "initial_failure_reason": "existing I64 Cast -> TDim unsupported reduction; both paths now explicitly checked for same rejection",
+  "release_build_exit_code": 0,
+  "release_clippy_exit_code": 0,
+  "rustfmt_exit_code": 0,
+  "workflow_yaml_parsed": true,
+  "github_ci_executed": false,
+  "nonstandard_layout_guard_directly_exercised": false,
+  "log_archival_normalizations": [
+    {
+      "path": "helper-tests.log",
+      "original_sha256": "f96a6dc24f1ad2bf58af34d645d1a05700e2cd0dc4691c311e870f63a5be1ec5",
+      "change": "remove trailing blank line; normalize final newline only"
+    },
+    {
+      "path": "direct-control-tests.log",
+      "original_sha256": "717fa47f9308e74c3316c8231b35531ce1bb154a11daa74415733539e783ec4a",
+      "change": "remove trailing blank line; normalize final newline only"
+    },
+    {
+      "path": "direct-candidate-tests.log",
+      "original_sha256": "717fa47f9308e74c3316c8231b35531ce1bb154a11daa74415733539e783ec4a",
+      "change": "remove trailing blank line; normalize final newline only"
+    },
+    {
+      "path": "python-tests-initial.log",
+      "original_sha256": "a676a12cdb5e312ea35072cf9cbc8bee61ffa57a8ea9027d0c51ada71c36f217",
+      "change": "strip line trailing whitespace; normalize line endings to LF; original retained in ignored run directory"
+    }
+  ]
+}

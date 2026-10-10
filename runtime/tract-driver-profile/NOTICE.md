@@ -52,3 +52,14 @@ layout and declined cases keep the original indexed loop. This preserves the
 existing release overflow behavior; it does not repair that separate semantic
 issue. Core license texts, existing data patch and identical dependency lock
 are retained. No new dependency package or dedicated DeltaNet kernel is added.
+## ScatterElements row-copy experiment
+
+`prepare_scatter_experiment.py` generates the accepted Trilu base in another
+directory and modifies only the overwrite path of pinned Tract's
+`core/src/ops/array/scatter_elements.rs`, adding the project-authored
+`scatter_rows.rs`. It checks standard contiguous slices, matching non-axis
+dimensions, uniform row indices and bounds before copying. Unsupported cases
+retain the indexed implementation; reductions are unchanged. The fast return
+uses the same existing unsafe set_datum_type operation; the row-copy helper is
+safe Rust. No runtime dependency or license is added. Tract's MIT/Apache-2.0
+terms, the I64-to-TDim patch and all previous experimental notices still apply.

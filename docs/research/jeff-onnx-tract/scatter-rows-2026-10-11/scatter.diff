@@ -1,0 +1,17 @@
+--- accepted/core/src/ops/array/scatter_elements.rs
++++ candidate/core/src/ops/array/scatter_elements.rs
+@@ -2,0 +3 @@
++mod scatter_rows;
+@@ -28,0 +30,12 @@
++        if indices.shape() == updates_view.shape() {
++            let shape = data.shape().to_vec();
++            if let (Some(dest), Some(ix), Some(src)) =
++                (data.as_slice_mut(), indices.as_slice(), updates_view.as_slice())
++            {
++                if scatter_rows::copy(dest, &shape, ix, src, updates_view.shape(), axis) {
++                    let mut tensor = data.into_tensor();
++                    unsafe { tensor.set_datum_type(updates.datum_type()) };
++                    return Ok(tensor.into_tvalue());
++                }
++            }
++        }

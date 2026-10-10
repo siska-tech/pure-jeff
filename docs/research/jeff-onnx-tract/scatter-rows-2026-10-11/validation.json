@@ -1,0 +1,17 @@
+{
+  "processes": 10,
+  "forwards": 40,
+  "raw_logits_exact": true,
+  "failures": 0,
+  "guard_triggers": 0,
+  "max_probability_error": 4.9173831939697266e-06,
+  "raw_jsonl_independently_validated": true,
+  "summary_and_acceptance_independently_recomputed": true,
+  "changed_generated_files": [
+    "vendor/core/src/ops/array/scatter_elements.rs"
+  ],
+  "added_generated_files": [
+    "vendor/core/src/ops/array/scatter_elements/scatter_rows.rs"
+  ],
+  "dependency_lock_identical": true
+}

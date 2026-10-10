@@ -134,3 +134,30 @@ latency comparison. All raw logits must equal the frozen control. Local pilot
 acceptance requires all three session-median differences and pooled median/p95
 to improve, without a guard failure. This does not establish a production SLO,
 Native superiority, or API/recognition-quality acceptance.
+## ScatterElements single-change experiment
+
+`prepare_scatter_experiment.py --upstream <pinned-checkout> --output <new-dir>`
+generates the accepted Trilu base, then adds a guarded contiguous row-copy path
+only for ScatterElements reduction=None. It validates all row indices before
+mutation; nonuniform, out-of-range, nonstandard-layout or unsupported-shape
+cases retain the original loop. Duplicate targets preserve C-order overwrite
+order. Use a new `CARGO_TARGET_DIR` and locked offline release build.
+
+Run standalone `scatter_rows.rs` tests and direct `scatter_semantics.rs` tests
+linked separately to control/candidate rlibs. `test_tract_scatter.py` requires
+`TRACT_TRILU_BENCH` and `TRACT_SCATTER_BENCH`. It checks 192 successful ONNX
+conditions against scalar reference, plus 64 I64 reduction conditions that both
+imported paths reject with `TDim is not a number`. Each successful process runs
+twice; those rejections are not successful forwards. I64 Cast imports as TDim
+in pinned Tract. Reductions remain outside this optimization.
+
+`audit_scatter_indices.py --model <frozen-normalized.onnx> --output <new.json>`
+records stored shapes and scalar-Constant-to-Expand index provenance without
+external weights. This does not establish runtime layout or call counts.
+`benchmark_scatter.py --candidate <exe> --generation <generation.json>
+--output <new-run-dir>` uses the frozen accepted Trilu binary as control.
+Only ScatterElements/helper differences are allowed; all four raw-logit gates
+precede four-thread AB/BA/AB resident pairs (warmup1 + samples3, n=9/binary).
+Separate profile sessions follow. Acceptance requires all paired session
+medians plus pooled median/p95 to improve, exact raw logits and no guard failure.
+The pilot does not establish a production SLO, API E2E or Native superiority.
