@@ -1,0 +1,8 @@
+{
+  "split_to_sequence_lowered": 24,
+  "sequence_at_lowered": 66,
+  "source_sha256": "6faa35aaa8ca87638cdabeb59d25aae5f0e55775e8bcd35f9b3992b66d2d6725",
+  "output_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "onnx_version": "1.23.2",
+  "checker_passed": true
+}

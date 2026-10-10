@@ -1,0 +1,15 @@
+{
+  "onnx_version": "1.23.2",
+  "external_weights_sha256": "3635efce97cd5f0964c58e58e9fe40df28bde8647c4ecb927a121475af32cbf3",
+  "models": [
+    {
+      "path": "experiments\\runs\\onnx-tract-analysis\\model.onnx",
+      "checker_passed": true
+    },
+    {
+      "path": "experiments\\runs\\onnx-tract-analysis\\model.normalized.onnx",
+      "checker_passed": true
+    }
+  ],
+  "full_shape_inference": false
+}

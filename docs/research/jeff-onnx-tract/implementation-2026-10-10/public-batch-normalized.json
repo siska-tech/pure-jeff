@@ -1,0 +1,8 @@
+{
+  "batch_size": 1,
+  "bound_dimensions": 22489,
+  "source_sha256": "7ddf50e19e6c645afae747c6978a9ac1c0071c57f8249bc5810d27f084205f23",
+  "output_sha256": "c091654a165320a3d4e33504adce5982bd73432b0e9b1b3ef8d695be13d4ed96",
+  "checker_passed": true,
+  "onnx_version": "1.23.2"
+}

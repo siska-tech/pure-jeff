@@ -1,0 +1,13 @@
+{
+  "checker_full_check": true,
+  "strict_shape_inference": true,
+  "ort_provider": [
+    "CPUExecutionProvider"
+  ],
+  "ort_output_shape": [
+    3,
+    1,
+    512
+  ],
+  "expected_equal": true
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "kaze_judge.sibling_core_snapshot.v1",
+  "git_head": "8ababecbf8a2f68d7120f946d1a89084dfcc0ce3",
+  "core_status": " M Cargo.toml\n M crates/core/src/recognition.rs\n M crates/core/src/recognition/statistics.rs\n M crates/core/src/recognition/statistics/tests.rs\n?? crates/core/src/recognition/probe.rs\n?? crates/core/src/recognition/probe/\n",
+  "files": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 2348,
+      "sha256": "9ce71672d74a9e17ab0fe122020ddabc312874c4f128230bd634e512d3a43463"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 64839,
+      "sha256": "0ab810e65a6cb33e280a6ae9439b8c2c557547ade447315d683fed74ee422b05"
+    },
+    {
+      "path": "crates/core/Cargo.toml",
+      "bytes": 214,
+      "sha256": "b838225f8201ee6d8aace458be58795c41eeeab46e24aac8e7eccca94dd1428b"
+    },
+    {
+      "path": "crates/core/src/lib.rs",
+      "bytes": 25224,
+      "sha256": "465aeedf737d305c10a1a0850570972fc5c0c7ff1d646ed3fbba28c580238f49"
+    },
+    {
+      "path": "crates/core/src/primary.rs",
+      "bytes": 17521,
+      "sha256": "53294b2d589bb83305b9253fd008f64139972478b91025e43cf84fbccd5cec93"
+    },
+    {
+      "path": "crates/core/src/primary_tests.rs",
+      "bytes": 6448,
+      "sha256": "6da216cd598f6cf8011ab4c70e2bd4b4bdaa595e624a8431d115b79e316b29a6"
+    },
+    {
+      "path": "crates/core/src/recognition/candidate_review.rs",
+      "bytes": 3734,
+      "sha256": "05d724214bb8f412bab4bf1a5bf6ecdc6fb71d82f7852b3a40b4734e412a9ca7"
+    },
+    {
+      "path": "crates/core/src/recognition/probe/nll.rs",
+      "bytes": 5771,
+      "sha256": "e4fbed919fc990c1a3c1438c71c96da6dd4bdafb6b1f1288c1e9e9682b8536e8"
+    },
+    {
+      "path": "crates/core/src/recognition/probe/tests.rs",
+      "bytes": 10115,
+      "sha256": "9a1b1e45c356783e2ce54601e89da9e38b10d7b8dc983e331c4e578293321be5"
+    },
+    {
+      "path": "crates/core/src/recognition/probe.rs",
+      "bytes": 13174,
+      "sha256": "977a4e1d61c88f6ae3f06f3ebae388746b960954ade134992e867f6715021f4d"
+    },
+    {
+      "path": "crates/core/src/recognition/source_evidence.rs",
+      "bytes": 21209,
+      "sha256": "307314a590e0fd58fc5cacc75c276b419a7f85c3838404679dcb8b5f2fc08472"
+    },
+    {
+      "path": "crates/core/src/recognition/sparse_review.rs",
+      "bytes": 4093,
+      "sha256": "ea06ec2374a2e6a246e56240f1cf9c4f4cc356c46e95065dd73061698c22ed0a"
+    },
+    {
+      "path": "crates/core/src/recognition/statistics/pos.rs",
+      "bytes": 4721,
+      "sha256": "d04e67d74e90c21be99dd2a95ab16ea99099e9ee282a5670e048515f6fe05217"
+    },
+    {
+      "path": "crates/core/src/recognition/statistics/tests.rs",
+      "bytes": 24427,
+      "sha256": "ecea3ca12279a09194edf80f5e92e22c335a2bfdd00844271c45d93755ec8e91"
+    },
+    {
+      "path": "crates/core/src/recognition/statistics.rs",
+      "bytes": 17122,
+      "sha256": "84cf137a225ed399bf21ba92310f2533a8aa12334efcefa6845b4251db8e6114"
+    },
+    {
+      "path": "crates/core/src/recognition/string_features.rs",
+      "bytes": 5021,
+      "sha256": "5bf993f3b01ddf5e02264299ca8a9f164fc3618162429cf64d2274bd6fc83b74"
+    },
+    {
+      "path": "crates/core/src/recognition/tests.rs",
+      "bytes": 11474,
+      "sha256": "df76e30867dba55786b5eb97dfbebf89798a750f7b6a04bf67ff26a5b6072ba8"
+    },
+    {
+      "path": "crates/core/src/recognition.rs",
+      "bytes": 28982,
+      "sha256": "f5fc718162cdbe5fefe87fffe2f9a6da9ae7731740f6d43838f3c22225aa9306"
+    },
+    {
+      "path": "crates/core/src/secondary.rs",
+      "bytes": 19013,
+      "sha256": "e6483670331bafb5a379a6dd64511f0c0154a14b43772aff781e1e21c1465e79"
+    },
+    {
+      "path": "crates/core/src/secondary_tests.rs",
+      "bytes": 14150,
+      "sha256": "e2027d6649b427ef3878f9cb2d0560718c3d54567b3224c526449cfc6f2c1e0a"
+    },
+    {
+      "path": "crates/core/src/tests.rs",
+      "bytes": 7719,
+      "sha256": "9045fadfa9c46f1e7c66639725c584a80cfcd452079259cfcaad2330e5e6e6cc"
+    }
+  ],
+  "scope": "actual adapter dependency source; independent byte copies; sibling repo unchanged"
+}

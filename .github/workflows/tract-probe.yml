@@ -1,0 +1,44 @@
+name: Isolated Tract feasibility probe
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - runtime/tract/**
+      - runtime/onnx/**
+      - .github/workflows/tract-probe.yml
+  push:
+    paths:
+      - runtime/tract/**
+      - runtime/onnx/**
+      - .github/workflows/tract-probe.yml
+jobs:
+  windows-probe:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Fixed Rust toolchain
+        shell: pwsh
+        run: |
+          rustup toolchain install 1.99.0 --profile minimal --component rustfmt --component clippy
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustup default 1.99.0
+      - name: Build and lint the isolated probe
+        shell: pwsh
+        run: |
+          cargo build --locked --release --manifest-path runtime/tract/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --manifest-path runtime/tract/Cargo.toml --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/tract/Cargo.toml -- --check
+          exit $LASTEXITCODE
+      - name: Development oracle and small ONNX regression tests
+        shell: pwsh
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r runtime/onnx/requirements.lock
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PROBE = Join-Path $PWD 'runtime/tract/target/release/kaze_judge_tract_probe.exe'
+          python -B -m unittest discover -s runtime/onnx -p 'test_*.py' -v
+          exit $LASTEXITCODE

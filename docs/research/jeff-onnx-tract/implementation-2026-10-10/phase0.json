@@ -1,0 +1,26 @@
+{
+  "schema_version": "kaze_judge.onnx_phase0.v1",
+  "baseline_commit": "eb77645b89ae8bf7d07f6a8572ec474be3c61c68",
+  "initial_commit": "6b8054745048df421102cedbe352a210083566f3",
+  "plan_commit": "c4d22b4",
+  "archived_files_verified": 128,
+  "git_blobs_verified": 113,
+  "current_changed_baseline_files": [
+    ".gitignore"
+  ],
+  "change_reason": "Ignore independent Tract build target; Native source/config/API and assets unchanged",
+  "archive": "experiments/runs/native-baseline-20261010",
+  "archive_scope": "Independent byte copies on same local volume; not an off-device backup",
+  "native_regression_sha256": "e2018c7d448b1e947002df6a9aac436ead20f20cb3a99e068951dd5d6d282cf2",
+  "native_cases": 7,
+  "max_probability_error": 5.066394805908203e-06,
+  "existing_tests_passed": {
+    "root": 14,
+    "native_runtime": 12,
+    "adapter": 8,
+    "python": 18
+  },
+  "checks_log_sha256": "803999d7b0bcb86baa88360bc731eaf00de4c3512212e676eac6f8c843c236e6",
+  "sibling_snapshot_index_sha256": "9891da0c0a311e5e46fa3b75a2f9cc53ccf8162ddadbd06f95d4c3488db7e4db",
+  "github_ci_executed": false
+}

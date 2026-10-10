@@ -1,0 +1,21 @@
+{
+  "checkpoint_manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "assets": [
+    {
+      "path": "model.onnx",
+      "bytes": 217616222,
+      "sha256": "6faa35aaa8ca87638cdabeb59d25aae5f0e55775e8bcd35f9b3992b66d2d6725"
+    },
+    {
+      "path": "model.onnx.data",
+      "bytes": 3010658304,
+      "sha256": "1b7c0e8a7b7902fe8631b9dec3a702858152f6693cdf5f501df1dfd710afb1a5"
+    }
+  ],
+  "elapsed_seconds": 93.43800000008196,
+  "checker_passed": true,
+  "batch_size": 1,
+  "sequence_length": 512,
+  "opset": 18,
+  "forward_parity_checked": false
+}

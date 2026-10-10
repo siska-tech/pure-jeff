@@ -1,5 +1,7 @@
 # Jeff Pure Rust Runtime：ONNX＋Tract調査と実装計画
 
+実装着手後の結果は[進捗と判定結果](onnx-tract-progress.md)を参照。以下は策定時点の調査・計画である。
+
 2026-10-10。対象はWindows x86_64 CPU、固定Jeff 0.8B、text-only。**現行Native Rustを参照経路として維持し、Tractは独立した実験経路として段階導入する。現時点では採用・高速化を確認していない。**
 
 今回は現状分析と計画まで。既存runtime・公開API・tests・CI・golden・モデル資産を変更せず、TractBackendの実装、ONNX変換、Tractでのforward、性能測定は行っていない。公開ONNXのグラフだけを取得して静的解析した。約3.01 GBの外部重みは未取得。
