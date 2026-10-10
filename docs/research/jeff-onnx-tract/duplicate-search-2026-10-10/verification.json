@@ -1,0 +1,11 @@
+{
+  "python_tests": 20,
+  "skipped": 0,
+  "python_result": "passed",
+  "candidate_release_clippy_warnings_denied": "passed",
+  "new_rust_regression_rustfmt": "passed",
+  "workflow_yaml_and_step_inputs": "passed",
+  "github_ci": "not run",
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1",
+  "archival_note": "initial local aggregation read failed with cp932; rerun with explicit UTF-8; no inference or measurement rerun"
+}

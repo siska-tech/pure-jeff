@@ -30,6 +30,7 @@
 | NNEF保存・再ロードpilot | codegen前のモデルを保存・別processで再ロード。cold 5回＋resident 25 forward全件数値一致。初期化中央値49.504秒／p95 50.664秒、warm計算中央値11.825〜12.231秒 | 起動短縮を確認。codegen後は小型例のIntoShape serializerで停止。forward高速化・正式SLO・API統合の受入ではない |
 | codegen内訳診断 | 同一exeで通常／計時を3 block交互実行。計時codegen中央値42.371秒のうちcallback 1.820秒、driver＋計測処理40.551秒。全9 forward数値一致 | 支配項をcallback外側へ限定。個別寄与は次行の独立診断で追跡。[詳細](onnx-tract-codegen-profile.md) |
 | driver内部診断 | 独立生成した固定coreに計時点のみ追加。3 block交互、重複探索中央値29.926秒、名前整理9.765秒、compaction 0.625秒。全9 forward数値一致 | 起動改善対象を探索・名前管理へ限定。まだalgorithm変更・高速化倍率・SLO受入ではない。[詳細](onnx-tract-driver-profile.md) |
+| 重複探索の削除実験 | 内部timerなし・別targetの単一変更版。4件gate後、cold各5回を交互比較。起動中央値49.706→19.341秒／p95 50.343→19.399秒。全14 process・30 forwardのraw logits一致、Python小型回帰20試験合格 | 起動短縮を確認。warm forward 11.844→11.875秒で改善なし。Native・通常probe・公開APIは不変。実験経路の局所受入のみ。[詳細](onnx-tract-duplicate-search.md) |
 
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 

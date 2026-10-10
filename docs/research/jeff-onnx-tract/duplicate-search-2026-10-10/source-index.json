@@ -1,0 +1,30 @@
+[
+  {
+    "path": "runtime\\onnx\\prepare_duplicate_experiment.py",
+    "sha256": "b16cab25631da1561a045ef4ec7191635e83928184df1b25dd5d7671d90f2347"
+  },
+  {
+    "path": "runtime\\onnx\\prepare_driver_profile.py",
+    "sha256": "ff60b6532c723f143f9c1f1bdd814b3c7d42063ad9d70538d713dec9a72fb261"
+  },
+  {
+    "path": "runtime\\onnx\\benchmark_duplicate.py",
+    "sha256": "e0005c8bef640105d6e6dee02ecd61148f80a0709862d51e0605de738ed5e111"
+  },
+  {
+    "path": "runtime\\onnx\\benchmark_pilot.py",
+    "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692"
+  },
+  {
+    "path": "runtime\\onnx\\test_tract_duplicate.py",
+    "sha256": "1e38ffce2d4db99633781cf024c078bd2498d1fd0aac0d6669e5c03bdaa3dcff"
+  },
+  {
+    "path": "runtime\\tract-driver-profile\\patch_semantics.rs",
+    "sha256": "57207668ccc83868887f6418de1786b3d9cb1f42f62d3028b783827cf5fddfc1"
+  },
+  {
+    "path": "runtime\\tract\\src\\bin\\bench.rs",
+    "sha256": "7e45d5c26cb0484b49aa0fb9006d715135e552d98d56ee6788e033a3b05a9568"
+  }
+]

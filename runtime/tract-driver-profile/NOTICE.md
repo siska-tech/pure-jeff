@@ -16,3 +16,11 @@ No new dependency package is introduced: the existing pinned tract-core package
 is replaced only in the generated build. The generated Cargo.lock and complete
 source hash index must accompany measurements. The original upstream cache is
 not edited. This notice does not constitute distribution approval.
+
+The separate `prepare_duplicate_experiment.py` generator restores the original
+core and benchmark sources, removes all diagnostic timers, and optionally
+deletes only the duplicate-search loop in `ModelPatch::apply`. Its generation
+manifest identifies this as an algorithm change and records the removed text.
+This experimental variant retains the upstream licenses and the existing data
+patch. It is not a modification of the normal probe or a published Tract fix.
+`patch_semantics.rs` is project-authored development regression code.

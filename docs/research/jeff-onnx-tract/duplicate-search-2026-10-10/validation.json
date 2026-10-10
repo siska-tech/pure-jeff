@@ -1,0 +1,10 @@
+{
+  "processes": 14,
+  "forwards": 30,
+  "golden_cases": 4,
+  "raw_logits_exact": true,
+  "max_probability_error": 4.9173831939697266e-06,
+  "failures": 0,
+  "guard_triggers": 0,
+  "max_peak_working_set_bytes": 3293589504
+}

@@ -1,0 +1,17 @@
+--- upstream/core/src/model/patch.rs
++++ experiment/core/src/model/patch.rs
+@@ -306,14 +305,0 @@
+-            for dup in 0..target.nodes.len() {
+-                if target.node(dup).op().dyn_eq(op.as_ref())
+-                    && inputs.len() == target.node(dup).inputs.len()
+-                    && inputs
+-                        .iter()
+-                        .zip(target.node(dup).inputs.iter())
+-                        .all(|(patch_input, d)| mapping[patch_input] == *d)
+-                {
+-                    for ix in 0..n_outputs {
+-                        mapping.insert(OutletId::new(patch_node_id, ix), OutletId::new(dup, ix));
+-                    }
+-                    continue;
+-                }
+-            }

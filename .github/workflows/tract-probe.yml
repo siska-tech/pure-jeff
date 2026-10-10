@@ -70,6 +70,30 @@ jobs:
           $env:TRACT_DRIVER_BENCH = Join-Path $PWD '.venv/tract-driver-target/release/bench.exe'
           python -B -m unittest discover -s runtime/onnx -p test_tract_driver_profile.py -v
           exit $LASTEXITCODE
+      - name: Verify isolated duplicate-search experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B runtime/onnx/prepare_duplicate_experiment.py --upstream $upstream --output .venv/duplicate-control
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_duplicate_experiment.py --upstream $upstream --output .venv/duplicate-candidate --remove-duplicate-search
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/duplicate-control-target'
+          cargo build --offline --release --manifest-path .venv/duplicate-control/Cargo.toml --bin patch_semantics
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/duplicate-candidate-target'
+          cargo build --offline --release --manifest-path .venv/duplicate-candidate/Cargo.toml --bin patch_semantics --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PATCH_CONTROL = Join-Path $PWD '.venv/duplicate-control-target/release/patch_semantics.exe'
+          $env:TRACT_PATCH_CANDIDATE = Join-Path $PWD '.venv/duplicate-candidate-target/release/patch_semantics.exe'
+          $env:TRACT_DUPLICATE_BENCH = Join-Path $PWD '.venv/duplicate-candidate-target/release/bench.exe'
+          $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_duplicate.py -v
+          exit $LASTEXITCODE
       - name: Build and lint isolated native benchmark wrapper
         shell: pwsh
         run: |

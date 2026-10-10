@@ -59,3 +59,5 @@ vendor/jeff/.venv/Scripts/python.exe -B runtime/onnx/profile_codegen.py --artifa
 3. **各変更を独立して比較する。** 未変更固定版を対照として保持し、計時なしの別artifactで4 goldenと小型のgraph構造・名前・出力回帰を通す。その後に起動n≥5、warm forward、Peak Working Setを再測定する。これまでは診断上の支配項であり、除去可能時間や高速化倍率の予測値には換算しない。
 
 この2箇所の改善が成立しない場合は、現行Nativeの維持とTractモデルの常駐再利用を代替とする。推論そのものの約12秒には別のoperator profile・多スレッド比較が必要である。upstreamへの投稿は未実施。
+
+後続の[重複探索の削除実験](onnx-tract-duplicate-search.md)では、このループだけを削除した別targetで4件回帰とcold 5組比較を実施し、起動短縮を確認した。名前管理は未変更で、warm forwardの改善は確認していない。
