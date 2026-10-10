@@ -47,3 +47,20 @@ nonzero; the graph file alone does not constitute a passing transformation.
 and PE imports. Use the same isolated Cargo home as the build. It does not approve
 redistribution. Upstream exporter attribution is in [upstream/NOTICE.md](upstream/NOTICE.md).
 The [progress report](../../docs/onnx-tract-progress.md) identifies passed and pending gates.
+
+## Windows performance pilot
+
+Build the isolated Tract `bench` binary and [Native diagnostic wrapper](../bench-native/README.md)
+before measuring. Run all builds and tests outside the timing experiment:
+
+```powershell
+& vendor/jeff/.venv/Scripts/python.exe -B runtime/onnx/benchmark_pilot.py --output-dir experiments/runs/pilot-new --native-executable .venv/bench-native-target/release/kaze_judge_native_bench.exe --tract-executable runtime/tract/target/release/bench.exe --manifest models/jeff-rust-bundle-p3.json --model experiments/runs/onnx-current-step1113-v2/model.normalized.onnx --repeats 5
+```
+
+The harness pre-registers the fixed input/seed/order, runs backends sequentially,
+verifies checkpoint and golden hashes, measures process-cold startup five times
+on candidate-request, and runs five warmups plus four input cases five times each
+in one resident session per backend. Raw JSONL, OS process-lifetime peaks, guards,
+per-case quantiles and numerical validation are retained. No build, export or other
+benchmark should run concurrently. Storage cache is uncontrolled; this is a pilot,
+not a production Tract worker E2E or statistical SLO acceptance.

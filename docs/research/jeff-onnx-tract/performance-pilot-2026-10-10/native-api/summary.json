@@ -1,0 +1,15 @@
+{
+  "pilot": true,
+  "formal_slo_acceptance": false,
+  "case": "candidate-request",
+  "cli_e2e_ms": {
+    "n": 5,
+    "median": 5515.7436,
+    "p95": 5873.3267,
+    "min": 5486.0943,
+    "max": 5873.3267
+  },
+  "max_probability_error": 2.384185791015625e-07,
+  "failures": 0,
+  "peak_scope": "parent only, not reported as worker memory"
+}

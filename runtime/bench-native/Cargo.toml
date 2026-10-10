@@ -1,0 +1,12 @@
+[package]
+name = "kaze_judge_native_bench"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+anyhow = "1"
+serde_json = "1"
+kaze_judge = { path = "../.." }
+kaze_judge_jeff = { path = "../rust" }
+candle-core = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a", default-features = false }

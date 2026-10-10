@@ -40,3 +40,12 @@ See [current status](../../docs/onnx-tract-progress.md). Patched Jeff whole-mode
 typing and execution without optimization work; standard ChangeAxes optimization
 still fails through a CumSum Scan body. The separate explicit pass selection
 passes the four whole-model correctness cases. No latency SLO or speedup is established.
+
+`src/bin/bench.rs` builds the separate `bench.exe` diagnostic. It retains a runnable
+plan, explicitly selects a single-thread executor and emits JSONL stage durations
+for initial load/type/optimization/plan and per-request input preparation,
+head-inclusive forward and FP32 scoring. Each `plan.run` creates fresh execution
+state. Jobs can select `typed` or `no-change-axes`; the Windows pilot uses the
+numerically accepted latter mode. This diagnostic accepts already tokenized input
+and is not a DecisionProvider E2E measurement. Its scores are checked against the
+frozen goldens by the parent harness.

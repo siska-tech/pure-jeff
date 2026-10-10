@@ -1,0 +1,10 @@
+{
+  "captured_during_measurement": true,
+  "power_query_succeeded": true,
+  "ACLineStatus": 1,
+  "BatteryLifePercent": 100,
+  "affinity_query_succeeded": true,
+  "parent_affinity_mask": "0xffff",
+  "system_affinity_mask": "0xffff",
+  "time_unix": 1791624573.7926877
+}

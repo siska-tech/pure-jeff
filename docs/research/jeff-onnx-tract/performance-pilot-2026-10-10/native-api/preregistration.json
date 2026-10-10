@@ -1,0 +1,11 @@
+{
+  "repeats": 5,
+  "executable_sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "golden_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "harness_sha256": "d3140a343711eecb40a0345447fc5db3e2ac1a0d5a03f74965efade9ff9434a6",
+  "monitor_sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692",
+  "scope": "frozen jeff decide-process CLI, child worker, Rust Attempt validation, CLI serialization and process exit",
+  "peak_scope": "CLI parent only; excludes worker child; do not compare this peak to worker/engine peaks",
+  "cache_mode": "new parent and worker per request; storage cache uncontrolled"
+}

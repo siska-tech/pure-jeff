@@ -1,5 +1,7 @@
 # Native Rust / Tract：定量ベンチマーク計画
 
+実行済みの部分と数値は[Windows CPU性能pilot](onnx-tract-performance-pilot.md)を参照。以下は正式比較を含む測定設計であり、全matrixを完了したことを意味しない。
+
 2026-10-10。[実装計画](onnx-tract-plan.md)のPhase 3仕様案。**以下は測定設計であり、Tractの実測値・改善倍率・確定SLOではない。** 同一checkpointの数値受入に成功してから実行する。
 
 ## 1. 比較の公平性

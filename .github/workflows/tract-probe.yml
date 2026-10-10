@@ -5,11 +5,13 @@ on:
     paths:
       - runtime/tract/**
       - runtime/onnx/**
+      - runtime/bench-native/**
       - .github/workflows/tract-probe.yml
   push:
     paths:
       - runtime/tract/**
       - runtime/onnx/**
+      - runtime/bench-native/**
       - .github/workflows/tract-probe.yml
 jobs:
   windows-probe:
@@ -42,5 +44,16 @@ jobs:
           python -m pip install --require-hashes --only-binary=:all: -r runtime/onnx/requirements.lock
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           $env:TRACT_PROBE = Join-Path $PWD 'runtime/tract/target/release/kaze_judge_tract_probe.exe'
+          $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
           python -B -m unittest discover -s runtime/onnx -p 'test_*.py' -v
+          exit $LASTEXITCODE
+      - name: Build and lint isolated native benchmark wrapper
+        shell: pwsh
+        run: |
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/bench-native-target'
+          cargo build --locked --release --manifest-path runtime/bench-native/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --release --manifest-path runtime/bench-native/Cargo.toml -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/bench-native/Cargo.toml -- --check
           exit $LASTEXITCODE
