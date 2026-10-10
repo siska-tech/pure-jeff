@@ -57,4 +57,6 @@ vendor/jeff/.venv/Scripts/python.exe -B runtime/onnx/profile_codegen.py --artifa
 
 次の段階では、別の診断artifactでpatch適用・重複探索・compactionを分けて計時する。全node探索のindex化や既知の同値nodeの再利用は、対応する個別区間が支配的だと確認できた場合の最適化候補とする。専用推論kernelの追加やGEMM変更を、この起動診断だけを理由に進めない。forwardの約12秒は別途operator profileと実parallel executorの比較を必要とする。
 
+追加の[driver内部診断](onnx-tract-driver-profile.md)では、重複探索が中央値29.926秒、名前整理9.765秒、compaction 0.625秒だった。起動改善の次の対象は探索と名前管理とする。
+
 変更候補は小型の重複node・共有constant・複数outputのgraphで意味を維持することを検査し、同一checkpointの4 golden gateを通した後に、計時なしartifactで起動n≥5を再測定する。起動短縮、常駐forward、メモリは別々に判定し、計時wrapperを製品経路へ導入しない。

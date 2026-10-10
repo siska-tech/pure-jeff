@@ -1,0 +1,13 @@
+{
+  "summary_matches_raw": true,
+  "candidate_raw_logits_exact_across_all_six": true,
+  "runtime_failures": 0,
+  "guard_failures": 0,
+  "driver_exclusive_total_seconds": {
+    "n": 3,
+    "median": 40.6760517,
+    "p95": 41.9757902,
+    "min": 40.6437897,
+    "max": 41.9757902
+  }
+}

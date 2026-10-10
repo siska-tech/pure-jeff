@@ -1,0 +1,18 @@
+{
+  "run_id": "block-0-control",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\tract-driver-target\\release\\bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\nnef-pilot-20261010\\jeff.decluttered.nnef.tar",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\driver-profile-20261010\\block-0-control.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 64149387900,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 3276148736,
+  "memory_samples": 6102,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

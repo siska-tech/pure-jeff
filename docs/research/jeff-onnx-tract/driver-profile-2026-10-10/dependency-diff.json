@@ -1,0 +1,63 @@
+{
+  "package_count": 115,
+  "changes": [
+    {
+      "before": {
+        "name": "tract-core",
+        "version": "0.23.8",
+        "source": "git+https://github.com/sonos/tract?rev=9e0cfaa9b3a9251f41f74101801dc2c937b1660a#9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+        "dependencies": [
+          "anyhow",
+          "anymap3",
+          "bit-set",
+          "derive-new",
+          "downcast-rs",
+          "dyn-clone",
+          "erased-serde",
+          "inventory",
+          "lazy_static",
+          "log",
+          "maplit",
+          "ndarray",
+          "num-complex",
+          "num-integer",
+          "num-traits",
+          "pastey",
+          "rustfft",
+          "serde",
+          "smallvec",
+          "tract-data",
+          "tract-linalg"
+        ]
+      },
+      "after": {
+        "name": "tract-core",
+        "version": "0.23.8",
+        "dependencies": [
+          "anyhow",
+          "anymap3",
+          "bit-set",
+          "derive-new",
+          "downcast-rs",
+          "dyn-clone",
+          "erased-serde",
+          "inventory",
+          "lazy_static",
+          "log",
+          "maplit",
+          "ndarray",
+          "num-complex",
+          "num-integer",
+          "num-traits",
+          "pastey",
+          "rustfft",
+          "serde",
+          "smallvec",
+          "tract-data",
+          "tract-linalg"
+        ]
+      }
+    }
+  ],
+  "only_core_source_replaced": true
+}

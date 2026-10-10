@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--source-job", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--blocks", type=int, default=3)
+    parser.add_argument("--driver-provenance", type=Path, help="generation.json of the isolated instrumented build")
     parser.add_argument("--executable", type=Path, default=ROOT/"runtime/tract/target/release/bench.exe")
     args = parser.parse_args()
     if args.blocks < 1:
@@ -48,6 +49,14 @@ def main():
     order = [([False, True] if b % 2 == 0 else [True, False]) for b in range(args.blocks)]
     sources = [Path(__file__), ROOT/"runtime/tract/src/codegen_profile.rs", ROOT/"runtime/tract/src/bin/bench.rs",
                ROOT/"runtime/tract/Cargo.lock", ROOT/"runtime/tract/vendor/data/src/tensor.rs", ROOT/"runtime/onnx/benchmark_pilot.py"]
+    driver_provenance = None
+    if args.driver_provenance:
+        generation = json.loads(args.driver_provenance.read_text(encoding="utf-8"))
+        for item in generation["files"]:
+            if item["path"] != "Cargo.lock" and sha(args.driver_provenance.parent/item["path"]) != item["sha256"]:
+                raise ValueError("generated source changed")
+        driver_provenance = {"generation_sha256": sha(args.driver_provenance),
+                             "cargo_lock_sha256": sha(args.driver_provenance.parent/"Cargo.lock")}
     save(args.output/"preregistration.json", {"date_utc": datetime.now(timezone.utc).isoformat(), "blocks": args.blocks,
         "order_profile_enabled": order, "model_sha256": asset["sha256"], "artifact_manifest_sha256": sha(args.artifact),
         "source_job_sha256": sha(args.source_job), "executable_sha256": sha(args.executable), "threads": 1,
@@ -57,13 +66,19 @@ def main():
         "forward_schedule": "first profiled process checks all four cases; others only case zero; no forward latency comparison",
         "residual": "driver plus instrumentation, not separately measured compaction or packing",
         "formal_slo_acceptance": False})
+    if driver_provenance:
+        prereg = json.loads((args.output/"preregistration.json").read_text(encoding="utf-8"))
+        prereg["driver_provenance"] = driver_provenance
+        prereg["driver_timing_units"] = "each row: [calls, inclusive_ns, exclusive_ns]; nested spans excluded from exclusive"
+        save(args.output/"preregistration.json", prereg)
     records = []
     for block, enabled_order in enumerate(order):
         for enabled in enabled_order:
             run_id = f"block-{block}-{'profile' if enabled else 'control'}"
             schedule = [{"case": i, "warmup": False} for i in range(4 if enabled and block == 0 else 1)]
             job = args.output/(run_id+".job.json")
-            save(job, {"mode": "nnef-decluttered", "profile_codegen": enabled, "cases": cases, "schedule": schedule})
+            save(job, {"mode": "nnef-decluttered", "profile_codegen": enabled,
+                       "profile_driver": bool(args.driver_provenance) and enabled, "cases": cases, "schedule": schedule})
             print("START", run_id, flush=True)
             record = invoke([args.executable.resolve(), model.resolve(), job.resolve()], args.output, run_id, limit)
             events = [json.loads(line) for line in (args.output/(run_id+".stdout.jsonl")).read_text(encoding="utf-8").splitlines()]
@@ -77,6 +92,17 @@ def main():
                     raise ValueError("invalid profile accounting")
             elif profile is not None:
                 raise ValueError("control must not be instrumented")
+            if args.driver_provenance:
+                driver = events[0]["driver_profile"]
+                if enabled:
+                    if not {"patch_apply", "duplicate_search", "compact", "garbage_removal", "node_rename"} <= driver.keys():
+                        raise ValueError("missing driver regions")
+                    if any(row[0] < 1 or row[1] < row[2] or row[2] < 0 for row in driver.values()):
+                        raise ValueError("invalid nested timer accounting")
+                    if sum(row[2] for row in driver.values()) > events[0]["optimize_ns"]:
+                        raise ValueError("exclusive regions exceed optimizer interval")
+                elif driver:
+                    raise ValueError("control driver timers must be disabled")
             record.update(block=block, profile_enabled=enabled, events=events)
             save(args.output/(run_id+".validated.json"), record)
             records.append(record)
@@ -102,6 +128,11 @@ def main():
         pair = {r["profile_enabled"]: r["events"][0]["optimize_ns"]/1e9 for r in records if r["block"] == block}
         differences.append(pair[True]-pair[False])
     summary["paired_profile_minus_control_seconds"] = differences
+    if args.driver_provenance:
+        drivers = [r["events"][0]["driver_profile"] for r in records if r["profile_enabled"]]
+        summary["driver_regions"] = [{"region": name, "calls": [d[name][0] for d in drivers],
+            "inclusive_seconds": stats([d[name][1]/1e9 for d in drivers]),
+            "exclusive_seconds": stats([d[name][2]/1e9 for d in drivers])} for name in sorted(drivers[0])]
     save(args.output/"summary.json", summary)
     print("Completed codegen diagnostic", flush=True)
 
