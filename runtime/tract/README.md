@@ -26,6 +26,10 @@ Use `runtime/onnx/run_probe.py` for recorded, deadline-bounded runs. Stages:
   `mm_token_type_ids`. Returns finite raw f32 `[1,255]` logits, without policy or temperature.
 - `run-typed`: build and execute the typed graph without optimization. The input
   and output contract is the same as `run`. This isolates optimizer failures.
+- `run-no-change-axes`: explicitly remove exactly one top-level `ChangeAxes` pass from the
+  pinned declutter pipeline, then run the remaining declutter and codegen passes.
+  It checks the pinned pass layout and fails if selection is ambiguous. This is
+  an experimental alternative, never an automatic fallback from `run`.
 
 Dynamic ONNX intermediate shape symbols must be specialized consistently before
 `type`; simply replacing input facts does not bind every intermediate symbol.
@@ -33,5 +37,6 @@ The CLI itself has no deadline enforcement; always run it through a parent with 
 hard timeout. The development Python harness kills and waits for a timed-out child.
 
 See [current status](../../docs/onnx-tract-progress.md). Patched Jeff whole-model
-typing and execution without optimization work; ChangeAxes optimization still
-fails through a CumSum Scan body. No latency SLO or speedup is established.
+typing and execution without optimization work; standard ChangeAxes optimization
+still fails through a CumSum Scan body. The separate explicit pass selection
+passes the four whole-model correctness cases. No latency SLO or speedup is established.

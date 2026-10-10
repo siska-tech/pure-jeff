@@ -31,6 +31,8 @@ replace the model with a normalized graph. Use `--normalized-model` together wit
 processes and compares probabilities and judgments with that passing oracle.
 It requires `--model`, `--oracle`, `--manifest`, `--padding-gate`, `--executable`
 and a new `--output-dir`. It is a correctness gate, not a performance benchmark.
+Its optional `--stage` selects `run-typed` (default), standard `run`, or the
+explicit experimental `run-no-change-axes` pipeline. Results record that choice.
 `specialize_batch.py` is only needed for the public
 dynamic-batch graph; it binds known `batch` expressions and retains other facts.
 

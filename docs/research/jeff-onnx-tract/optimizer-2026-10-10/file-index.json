@@ -1,0 +1,89 @@
+{
+  "files": [
+    {
+      "path": "cumsum-reshape.onnx",
+      "bytes": 502,
+      "sha256": "8d7712050a065ff928a0092d1dbcc67e3f222d087abeac81350d184dd5855dc1"
+    },
+    {
+      "path": "cumsum-selected-pass.json",
+      "bytes": 3605,
+      "sha256": "93bfcb09dfcf662ec0518d3ebeb9d96511608cd2c819c6c2ac37ac8a2d9ad629"
+    },
+    {
+      "path": "cumsum-standard-failure.json",
+      "bytes": 2056,
+      "sha256": "cd9800f15fa62bddd8260e5e14256af6d92a1c04811a1f1ee5690eec631d9fb4"
+    },
+    {
+      "path": "cumsum.inputs.json",
+      "bytes": 5580,
+      "sha256": "f6c74ff857d87eb31d74c572031505e2cf4141e8f8a965e0c8e734e17c529141"
+    },
+    {
+      "path": "native-preservation.json",
+      "bytes": 151,
+      "sha256": "b67741297dd85b80620e1ded5a8023ce7722c89fce14fcf9e9dbc00a4a65863f"
+    },
+    {
+      "path": "parity/asr-unicode.inputs.json",
+      "bytes": 6799,
+      "sha256": "52d455b47e8977eaabcad4ac44814977eeaac50516ef26eeb85286b0e4ff8faf"
+    },
+    {
+      "path": "parity/asr-unicode.probe.json",
+      "bytes": 6501,
+      "sha256": "8fdc4d0233b2a692bb6d7e8740acab7508cda2e5c0e17a6dcb58575fd7c8281a"
+    },
+    {
+      "path": "parity/candidate-request.inputs.json",
+      "bytes": 6935,
+      "sha256": "e726cc97d5a20ae215699521e4b5b5c663dd00af7ed77cff2e18ef9f8523a56d"
+    },
+    {
+      "path": "parity/candidate-request.probe.json",
+      "bytes": 6522,
+      "sha256": "4eb290653165a4a476d2157fb34d1f6452b735d490db724f35e9b3f886f1fe75"
+    },
+    {
+      "path": "parity/parity.json",
+      "bytes": 2200,
+      "sha256": "4c299e41abdd2e4a8b6b853fa8d657de10d85795f9b20342ffd4a35ffe110352"
+    },
+    {
+      "path": "parity/reversed.inputs.json",
+      "bytes": 6935,
+      "sha256": "3c84601e80d48b5b35034410a8d8e7d25b1d8e76e26801dac3c3f1861dfce3ba"
+    },
+    {
+      "path": "parity/reversed.probe.json",
+      "bytes": 6539,
+      "sha256": "8b93d1e2922a95e47792d655ed4a8a324ba070126dcdff73b7d6a2b5704056aa"
+    },
+    {
+      "path": "parity/special-token-text.inputs.json",
+      "bytes": 6861,
+      "sha256": "781c82b689733f6f988d94aaeccb97b19b3c32463bc3d71db15979785d5f7263"
+    },
+    {
+      "path": "parity/special-token-text.probe.json",
+      "bytes": 6517,
+      "sha256": "da4b0e5533205a3273865089f4a1b232fb9d4ad0b8c577c09655bfd7fdb75827"
+    },
+    {
+      "path": "python-tests.log",
+      "bytes": 1525,
+      "sha256": "a5cf99b9fb1fe070a6c45180e236a02c2fd355e4b4189e799ac707869737c9e4"
+    },
+    {
+      "path": "source-index.json",
+      "bytes": 1177,
+      "sha256": "c95692199dc490d4c648dd522384cad59cd29e378cebc2591f77acd65b67cbe0"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 3888,
+      "sha256": "38cae0cfcc6b47c346300eb18c8863eb5a795e1aeb271e842a2c29534260dedc"
+    }
+  ]
+}

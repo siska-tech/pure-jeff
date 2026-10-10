@@ -10,6 +10,21 @@ fn stage(name: &str, started: Instant) {
     );
 }
 
+fn optimize_without_change_axes(mut model: TypedModel) -> TractResult<TypedModel> {
+    let mut optimizer = tract_onnx::tract_core::optim::Optimizer::declutter();
+    let before = optimizer.passes.len();
+    optimizer
+        .passes
+        .retain(|pass| format!("{pass:?}") != "ChangeAxes");
+    ensure!(
+        optimizer.passes.len() + 1 == before,
+        "expected exactly one ChangeAxes pass in pinned Tract"
+    );
+    optimizer.optimize(&mut model)?;
+    model.optimize()?;
+    Ok(model)
+}
+
 fn main() {
     if let Err(error) = probe() {
         eprintln!(
@@ -24,15 +39,24 @@ fn probe() -> TractResult<()> {
     let args: Vec<_> = env::args().skip(1).collect();
     ensure!(
         args.len() >= 2 && args.len() <= 3,
-        "usage: kaze_judge_tract_probe <model.onnx> <import|analyze|type|optimize|run|run-typed> [inputs.json]"
+        "usage: kaze_judge_tract_probe <model.onnx> <import|analyze|type|optimize|run|run-typed|run-no-change-axes> [inputs.json]"
     );
     let stop = &args[1];
     ensure!(
-        ["import", "analyze", "type", "optimize", "run", "run-typed"].contains(&stop.as_str()),
+        [
+            "import",
+            "analyze",
+            "type",
+            "optimize",
+            "run",
+            "run-typed",
+            "run-no-change-axes"
+        ]
+        .contains(&stop.as_str()),
         "invalid stage"
     );
     ensure!(
-        (stop == "run" || stop == "run-typed") == (args.len() == 3),
+        stop.starts_with("run") == (args.len() == 3),
         "run requires inputs.json; other stages take no input file"
     );
     let started = Instant::now();
@@ -99,15 +123,19 @@ fn probe() -> TractResult<()> {
         }
         let typed = model.into_typed()?;
         stage("typed", started);
-        if stop == "optimize" || stop == "run" || stop == "run-typed" {
+        if stop == "optimize" || stop.starts_with("run") {
             let optimized = if stop == "run-typed" {
                 typed
+            } else if stop == "run-no-change-axes" {
+                let optimized = optimize_without_change_axes(typed)?;
+                stage("optimized_without_change_axes", started);
+                optimized
             } else {
                 let optimized = typed.into_optimized()?;
                 stage("optimized", started);
                 optimized
             };
-            if stop == "run" || stop == "run-typed" {
+            if stop.starts_with("run") {
                 let inputs: std::collections::BTreeMap<String, Vec<i64>> =
                     serde_json::from_slice(&fs::read(&args[2])?)?;
                 ensure!(inputs.len() == 3, "expected exactly three inputs");

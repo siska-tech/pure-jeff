@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--executable", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
-    parser.add_argument("--stage", choices=["import", "analyze", "type", "optimize", "run", "run-typed"], required=True)
+    parser.add_argument("--stage", choices=["import", "analyze", "type", "optimize", "run", "run-typed", "run-no-change-axes"], required=True)
     parser.add_argument("--inputs", type=Path)
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--output", type=Path, required=True)
@@ -24,7 +24,7 @@ def main():
     if args.output.exists() or args.timeout <= 0:
         raise ValueError("new output and positive timeout required")
     command = [str(args.executable.resolve()), str(args.model.resolve()), args.stage]
-    if (args.stage in ("run", "run-typed")) != (args.inputs is not None):
+    if args.stage.startswith("run") != (args.inputs is not None):
         raise ValueError("--inputs is required only for run")
     if args.inputs:
         command.append(str(args.inputs.resolve()))

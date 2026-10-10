@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "   Compiling kaze_judge_tract_probe v0.1.0 (C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract)\n    Finished `release` profile [optimized] target(s) in 3.13s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "stdout": "\nrunning 1 test\ntest tests::integer_dimensions_preserve_i64_bounds ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling kaze_judge_tract_probe v0.1.0 (C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.12s\n     Running unittests src\\main.rs (runtime\\tract\\target\\debug\\deps\\kaze_judge_tract_probe-45eb5f54d8214418.exe)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Checking kaze_judge_tract_probe v0.1.0 (C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.56s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "vendor/jeff/.venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "runtime/onnx",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_reject_dynamic_index (test_normalize_sequences.LoweringTests.test_reject_dynamic_index) ... ok\r\ntest_reject_keepdims_zero (test_normalize_sequences.LoweringTests.test_reject_keepdims_zero) ... ok\r\ntest_reject_other_consumer (test_normalize_sequences.LoweringTests.test_reject_other_consumer) ... ok\r\ntest_reject_out_of_range (test_normalize_sequences.LoweringTests.test_reject_out_of_range) ... ok\r\ntest_reject_unknown_extent (test_normalize_sequences.LoweringTests.test_reject_unknown_extent) ... ok\r\ntest_scalar_partial_final_chunk (test_normalize_sequences.LoweringTests.test_scalar_partial_final_chunk) ... ok\r\ntest_vector_repeated_and_negative_indices (test_normalize_sequences.LoweringTests.test_vector_repeated_and_negative_indices) ... ok\r\ntest_preserve_known_shapes_and_bind_expressions (test_specialize_batch.BatchTests.test_preserve_known_shapes_and_bind_expressions) ... ok\r\ntest_reject_unknown_expression (test_specialize_batch.BatchTests.test_reject_unknown_expression) ... ok\r\ntest_cumsum_reshape (test_tract_optimizer.OptimizerTests.test_cumsum_reshape) ... ok\r\ntest_i64_cast_slice_reproduction (test_tract_probe.TractProbeTests.test_i64_cast_slice_reproduction) ... ok\r\ntest_lowered_sequence_forward (test_tract_probe.TractProbeTests.test_lowered_sequence_forward) ... ok\r\ntest_only_documented_upstream_file_changed (test_tract_vendor.VendorTests.test_only_documented_upstream_file_changed) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 13 tests in 1.274s\r\n\r\nOK\r\n"
+    }
+  ],
+  "passed": true,
+  "executable_sha256": "2d9c7cd10d77bc6631bb7a1c4dde9ce4a127665cb934c4f43450491751c8628f"
+}

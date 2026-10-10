@@ -1,0 +1,59 @@
+{
+  "schema_version": "kaze_judge.tract_parity.v1",
+  "stage": "run-no-change-axes",
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "oracle_sha256": "c96832bed727531c2f6d1f2048cc371b26af51e42e72eb3ce1bcc886ab1dc873",
+  "manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "harness_sha256": "e79391550f54eff8618ea05d4bec9d52d122ee65f51032b04c4d33783885ab39",
+  "probability_tolerance": 0.0001,
+  "cases": [
+    {
+      "case": "candidate-request",
+      "oracle_probability_error": 3.7997961044311523e-07,
+      "golden_probability_error": 6.556510925292969e-07,
+      "raw_logit_max_abs_error": 1.9073486328125e-05,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "passed": true,
+      "probe_sha256": "4eb290653165a4a476d2157fb34d1f6452b735d490db724f35e9b3f886f1fe75"
+    },
+    {
+      "case": "reversed",
+      "oracle_probability_error": 4.172325134277344e-07,
+      "golden_probability_error": 2.384185791015625e-07,
+      "raw_logit_max_abs_error": 1.2874603271484375e-05,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "passed": true,
+      "probe_sha256": "8b93d1e2922a95e47792d655ed4a8a324ba070126dcdff73b7d6a2b5704056aa"
+    },
+    {
+      "case": "asr-unicode",
+      "oracle_probability_error": 4.649162292480469e-06,
+      "golden_probability_error": 3.337860107421875e-06,
+      "raw_logit_max_abs_error": 3.62396240234375e-05,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "passed": true,
+      "probe_sha256": "8fdc4d0233b2a692bb6d7e8740acab7508cda2e5c0e17a6dcb58575fd7c8281a"
+    },
+    {
+      "case": "special-token-text",
+      "oracle_probability_error": 3.606081008911133e-06,
+      "golden_probability_error": 4.9173831939697266e-06,
+      "raw_logit_max_abs_error": 1.9550323486328125e-05,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "passed": true,
+      "probe_sha256": "da4b0e5533205a3273865089f4a1b232fb9d4ad0b8c577c09655bfd7fdb75827"
+    }
+  ],
+  "passed": true,
+  "performance_benchmark": false
+}

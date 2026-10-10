@@ -17,6 +17,7 @@ def main():
     parser.add_argument("--padding-gate", type=Path, required=True)
     parser.add_argument("--executable", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--stage", choices=["run-typed", "run", "run-no-change-axes"], default="run-typed")
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=False)
     manifest = worker.verify_bundle(args.manifest)
@@ -48,7 +49,7 @@ def main():
         probe = args.output_dir / f"{name}.probe.json"
         subprocess.run([sys.executable, "-B", str(Path(__file__).with_name("run_probe.py")),
                         "--executable", str(args.executable), "--model", str(args.model),
-                        "--stage", "run-typed", "--inputs", str(inputs), "--timeout", "180",
+                        "--stage", args.stage, "--inputs", str(inputs), "--timeout", "180",
                         "--output", str(probe)], stdout=subprocess.DEVNULL, check=True)
         record = json.loads(probe.read_text(encoding="utf-8"))
         output = json.loads(record["stdout"])
@@ -68,7 +69,7 @@ def main():
                   and judgment == golden["official"]["judgment"], "probe_sha256": worker.digest(probe)}
         results.append(result)
         print(json.dumps(result), flush=True)
-    summary = {"schema_version": "kaze_judge.tract_parity.v1", "stage": "run-typed",
+    summary = {"schema_version": "kaze_judge.tract_parity.v1", "stage": args.stage,
                "model_sha256": worker.digest(args.model), "oracle_sha256": worker.digest(args.oracle),
                "manifest_sha256": worker.digest(args.manifest), "harness_sha256": worker.digest(Path(__file__)),
                "probability_tolerance": 1e-4, "cases": results,
