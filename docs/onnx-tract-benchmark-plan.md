@@ -126,3 +126,5 @@ host/build/power/ISA metadataへの参照
 [forward内訳・thread pilot](onnx-tract-forward-profile.md)では、同一多スレッド対応exeの1／2／4／8-thread executorを4件gate後に比較した。各2独立session×3測定、n=6の中央値は11.744／9.746／8.869／8.694秒。正式比較の標本数・token長matrixを満たしたとは扱わず、4／8-threadを次の候補に残す。profileは別session・1-threadだけで、8-threadの残余コストをこの内訳から断定しない。次は4／8-threadのoperator・shape・由来nodeの対応、session増加、Nativeとの同条件化を先に固定する。
 
 [4／8-thread演算診断](onnx-tract-thread-profile.md)は前回exeを固定し、各2 session・計測ありn=6で残余を追跡した。ScatterElements約2秒、MoveAxis約1.3秒、Trilu約0.8秒が残る。計測なしの性能比較ではなく、新しい高速化実績には数えない。次はTriluのcontiguous行fillだけを別targetへ変更し、4-thread固定対照との数値gateと計測なしAB／BAを事前登録する。operatorの全観測時間を、そのまま短縮目標や高速化倍率へ換算しない。
+
+[Trilu行単位処理実験](onnx-tract-trilu-rows.md)は4-threadの独立AB／BA／AB各3組、warm各n=9で中央値8.963→8.361秒、p95 9.900→8.666秒を観測した。全3組のsession中央値が短縮し、全40 forwardのraw logitsが一致したため局所受入とする。起動は各n=3の付随観測で、短縮は確認していない。正式SLO・8-thread・長さmatrix・Native同条件比較・API E2Eは未受入。次のScatterElementsは意味の監査と単一変更の独立比較から開始する。

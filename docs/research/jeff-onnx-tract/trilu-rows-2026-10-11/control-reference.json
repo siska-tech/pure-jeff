@@ -1,0 +1,50 @@
+{
+  "date_utc": "2026-10-10T15:00:40.229309+00:00",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "source_job_sha256": "7b4760f56525135505c0624e1eb3733b12ae9744a315d260c07df4ac6396eed8",
+  "control_executable_sha256": "3d30e19153bccb255b63052b8fd3c9bdb942fa60eef7a4f99b363b594a6c9551",
+  "candidate_executable_sha256": "1438670e7b190203903b683df60fdc1bfc55445133fc986e301d5b53dc3eadc4",
+  "generation_sha256": "ec52e328d4dfeab5a8cde4d5566786d44c4e77adc8dd131823a8469d56a54f74",
+  "script_sha256": "9c1ba4c23dc387375d1a7b95d797bade442ef3c4a8d752bfef813743f08c356d",
+  "candidate_lock_sha256": "1983b55fb739c91ffd373cc3f46abf645fd0b2748bf26f950631089aa780c528",
+  "threads": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "session_orders": [
+    [
+      1,
+      2,
+      4,
+      8
+    ],
+    [
+      8,
+      4,
+      2,
+      1
+    ]
+  ],
+  "resident_sessions_per_thread": 2,
+  "samples_per_session": 3,
+  "warmups_per_session": 1,
+  "profile_threads": 1,
+  "profile_samples": 3,
+  "profile_warmups": 1,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8732303360,
+  "total_physical_bytes": 33957113856,
+  "golden_probability_tolerance": 0.0001,
+  "raw_logit_gate": "finite 255 logits; max abs difference <= 1e-3 from frozen control",
+  "scope": "prepared 512 tensors; candidate-request warm pilot; process-cold startup incidental n=2; no tokenizer/API E2E",
+  "limitations": [
+    "filesystem cache, thermals, affinity and background load uncontrolled",
+    "executor pool size is not a claim that every operator uses all threads",
+    "top-level profile includes child-plan wall time; profiling perturbs timings",
+    "n=6 nearest-rank p95 is observed maximum; no confidence interval"
+  ],
+  "formal_slo_acceptance": false
+}

@@ -137,6 +137,38 @@ jobs:
           $env:TRACT_FORWARD_BENCH = Join-Path $PWD '.venv/forward-target/release/bench.exe'
           python -B -m unittest discover -s runtime/onnx -p test_tract_forward.py -v
           exit $LASTEXITCODE
+      - name: Verify isolated Trilu row-fill experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          rustc --edition=2024 --test runtime/tract-driver-profile/trilu_rows.rs -o .venv/trilu-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/trilu-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_trilu_experiment.py --upstream $upstream --output .venv/trilu-candidate
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/trilu-target'
+          cargo build --locked --offline --release --manifest-path .venv/trilu-candidate/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $depDir = Join-Path $PWD '.venv/trilu-target/release/deps'
+          $rlibs = @(Get-ChildItem -LiteralPath $depDir -Filter 'libtract_onnx-*.rlib')
+          if ($rlibs.Count -ne 1) { throw 'Expected one isolated tract_onnx rlib' }
+          rustc --test --edition=2024 -C opt-level=3 runtime/tract-driver-profile/trilu_layout.rs --extern ('tract_onnx=' + $rlibs[0].FullName) -L ('dependency=' + $depDir) -o .venv/trilu-layout-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/trilu-layout-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --offline --release --manifest-path .venv/trilu-candidate/Cargo.toml --bin bench -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustfmt --edition 2024 --check runtime/tract-driver-profile/trilu_rows.rs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustfmt --edition 2024 --check runtime/tract-driver-profile/trilu_layout.rs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_TRILU_BENCH = Join-Path $PWD '.venv/trilu-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_trilu.py -v
+          exit $LASTEXITCODE
       - name: Build and lint isolated native benchmark wrapper
         shell: pwsh
         run: |

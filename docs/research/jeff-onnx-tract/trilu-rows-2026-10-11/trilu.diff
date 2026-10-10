@@ -1,0 +1,14 @@
+--- accepted/core/src/ops/array/trilu.rs
++++ candidate/core/src/ops/array/trilu.rs
+@@ -1,0 +2 @@
++mod trilu_rows;
+@@ -25,0 +27,9 @@
++            if view.ndim() >= 2 {
++                let rows = view.shape()[view.ndim() - 2];
++                let cols = view.shape()[view.ndim() - 1];
++                if let Some(slice) = view.as_slice_mut() {
++                    if trilu_rows::fill(slice, rows, cols, upper, k) {
++                        return Ok(());
++                    }
++                }
++            }

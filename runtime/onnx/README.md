@@ -108,3 +108,29 @@ comparison. Run it after all builds/tests, with the same isolated environment.
 external tensors, records stored shapes and exact node-name matches, and retains
 unmatched optimizer names and missing metadata. It does not infer missing shape
 or index uniqueness. Run this development analysis after timed processes finish.
+
+## Trilu single-change experiment
+
+`prepare_trilu_experiment.py` accepts the same `--upstream` and a new `.venv`
+`--output` as the forward generator. It verifies the pinned core/data/linalg
+sources and generates the same multithread base, then adds only a contiguous
+Trilu row-fill helper and guarded call. The original indexed path remains for
+nonstandard layout and possible legacy i64 row+k overflow. Dependency lock,
+benchmark driver, thread thresholds and optimizer settings stay identical.
+Use a new `CARGO_TARGET_DIR`; build with `--locked --offline --release --bin bench`.
+Run the standalone `rustc --edition=2024 --test` helper tests and
+`test_tract_trilu.py` with `TRACT_FORWARD_BENCH` pointing to the frozen control
+and `TRACT_TRILU_BENCH` to the candidate. The actual Tract test checks 168
+shape/dtype/k/upper configurations against the control and scalar reference,
+including existing release overflow behavior, twice per process.
+
+`benchmark_trilu.py --candidate <exe> --generation <generation.json> --output
+<new-run-dir>` requires the frozen multithread control/NNEF from the earlier
+pilot. It rejects any generated source change outside Trilu/helper and verifies
+all four goldens before timing. Four threads, three independent AB/BA/AB blocks,
+one warmup plus three measured candidate-request forwards per binary/session,
+n=9 per binary. Two separate profiled sessions follow and are excluded from the
+latency comparison. All raw logits must equal the frozen control. Local pilot
+acceptance requires all three session-median differences and pooled median/p95
+to improve, without a guard failure. This does not establish a production SLO,
+Native superiority, or API/recognition-quality acceptance.

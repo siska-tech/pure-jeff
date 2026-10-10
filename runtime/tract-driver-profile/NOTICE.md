@@ -43,3 +43,12 @@ crossbeam-epoch 0.9.21 and crossbeam-utils 0.8.23 (MIT OR Apache-2.0).
 Their crate license texts, manifest declarations and registry checksums are
 archived with the forward pilot. The earlier no-new-package statement applies
 to the driver/duplicate/name variants, not this optional multithread variant.
+
+`prepare_trilu_experiment.py` creates an independent variant on that multithread
+base and changes only Trilu's contiguous-array path. Project-authored
+`trilu_rows.rs` fills each row's excluded interval and declines the fast path
+before mutation when the legacy row+k i64 expression may overflow. Nonstandard
+layout and declined cases keep the original indexed loop. This preserves the
+existing release overflow behavior; it does not repair that separate semantic
+issue. Core license texts, existing data patch and identical dependency lock
+are retained. No new dependency package or dedicated DeltaNet kernel is added.
