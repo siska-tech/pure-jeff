@@ -1,0 +1,59 @@
+{
+  "schema_version": "kaze_judge.tract_parity.v1",
+  "stage": "run-typed",
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "oracle_sha256": "c96832bed727531c2f6d1f2048cc371b26af51e42e72eb3ce1bcc886ab1dc873",
+  "manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "harness_sha256": "1d211fa5bf43353c837afee8ce131b0534a6f0a372ef28175c0f8739c1b69926",
+  "probability_tolerance": 0.0001,
+  "cases": [
+    {
+      "case": "candidate-request",
+      "oracle_probability_error": 2.60770320892334e-07,
+      "golden_probability_error": 5.364418029785156e-07,
+      "raw_logit_max_abs_error": 1.52587890625e-05,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "passed": true,
+      "probe_sha256": "c0a3d3e80e02651a2d9655bf07552b7f62df6f819ecec6f182849a10cd9446d0"
+    },
+    {
+      "case": "reversed",
+      "oracle_probability_error": 6.556510925292969e-07,
+      "golden_probability_error": 4.76837158203125e-07,
+      "raw_logit_max_abs_error": 1.52587890625e-05,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "passed": true,
+      "probe_sha256": "46fc5a0998bc3a0ae4f2331f11fcd24d627494ffe58dfba9d5c672f149be5caa"
+    },
+    {
+      "case": "asr-unicode",
+      "oracle_probability_error": 1.3113021850585938e-06,
+      "golden_probability_error": 3.096647560596466e-08,
+      "raw_logit_max_abs_error": 3.62396240234375e-05,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "passed": true,
+      "probe_sha256": "05fc4618bc7f21b9f09a12381fd1b97b9b41502d1de67cc332663521ee785162"
+    },
+    {
+      "case": "special-token-text",
+      "oracle_probability_error": 1.7285346984863281e-06,
+      "golden_probability_error": 3.039836883544922e-06,
+      "raw_logit_max_abs_error": 2.6702880859375e-05,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "passed": true,
+      "probe_sha256": "dfcc0d247d04efac65004fcc6d2582eb74066808a1b1ab4f1e421cffbb5bc055"
+    }
+  ],
+  "passed": true,
+  "performance_benchmark": false
+}

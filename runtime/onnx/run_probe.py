@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--executable", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
-    parser.add_argument("--stage", choices=["import", "analyze", "type", "optimize", "run"], required=True)
+    parser.add_argument("--stage", choices=["import", "analyze", "type", "optimize", "run", "run-typed"], required=True)
     parser.add_argument("--inputs", type=Path)
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--output", type=Path, required=True)
@@ -24,7 +24,7 @@ def main():
     if args.output.exists() or args.timeout <= 0:
         raise ValueError("new output and positive timeout required")
     command = [str(args.executable.resolve()), str(args.model.resolve()), args.stage]
-    if (args.stage == "run") != (args.inputs is not None):
+    if (args.stage in ("run", "run-typed")) != (args.inputs is not None):
         raise ValueError("--inputs is required only for run")
     if args.inputs:
         command.append(str(args.inputs.resolve()))
@@ -32,6 +32,12 @@ def main():
               "executable_sha256": sha(args.executable), "harness_sha256": sha(Path(__file__)),
               "tract_revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a", "command": command,
               "timeout_seconds": args.timeout, "performance_benchmark": False}
+    crate = Path(__file__).resolve().parents[1] / "tract"
+    record["probe_cargo_lock_sha256"] = sha(crate / "Cargo.lock")
+    patch = crate / "vendor/data/src/tensor.rs"
+    if patch.exists():
+        record["tract_data_patch"] = {"tensor_rs_sha256": sha(patch),
+                                      "upstream_manifest_sha256": sha(crate / "vendor/upstream.json")}
     if args.inputs:
         record["inputs_sha256"] = sha(args.inputs)
     start = time.monotonic()

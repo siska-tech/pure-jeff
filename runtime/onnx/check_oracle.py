@@ -23,6 +23,8 @@ def probabilities(raw, count, temperature):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, required=True)
+    parser.add_argument("--normalized-model", type=Path)
+    parser.add_argument("--baseline-oracle", type=Path)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--padding-gate", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -40,6 +42,21 @@ def main():
     for asset in export["assets"]:
         if worker.digest(args.model.parent / asset["path"]) != asset["sha256"]:
             raise ValueError("export asset hash mismatch")
+    target = args.model
+    baseline_oracle = None
+    if args.normalized_model:
+        if not args.baseline_oracle or args.normalized_model.resolve().parent != args.model.resolve().parent:
+            raise ValueError("normalized graph requires matching baseline oracle and weight directory")
+        normalization = json.loads((args.model.parent / "normalization.json").read_text(encoding="utf-8"))
+        if (not normalization["checker_passed"] or normalization["source_sha256"] != worker.digest(args.model)
+                or normalization["output_sha256"] != worker.digest(args.normalized_model)):
+            raise ValueError("normalization hash mismatch")
+        baseline_oracle = json.loads(args.baseline_oracle.read_text(encoding="utf-8"))
+        if not baseline_oracle["passed"] or baseline_oracle["model_sha256"] != worker.digest(args.model):
+            raise ValueError("passing oracle for the original graph required")
+        target = args.normalized_model
+    elif args.baseline_oracle:
+        raise ValueError("baseline oracle is only used with normalized graph")
     config = Path(manifest["checkpoint"])
     tokenizer = json.loads((config / "tokenizer.json").read_text(encoding="utf-8"))
     tokenizer_config = json.loads((config / "tokenizer_config.json").read_text(encoding="utf-8"))
@@ -52,7 +69,7 @@ def main():
     options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
     options.log_severity_level = 3
     print("Loading CPU oracle with graph optimizations disabled", flush=True)
-    session = ort.InferenceSession(str(args.model), sess_options=options, providers=["CPUExecutionProvider"])
+    session = ort.InferenceSession(str(target), sess_options=options, providers=["CPUExecutionProvider"])
     if session.get_providers() != ["CPUExecutionProvider"]:
         raise ValueError("CPU-only oracle required")
     if sorted(i.name for i in session.get_inputs()) != ["attention_mask", "input_ids", "mm_token_type_ids"]:
@@ -79,6 +96,10 @@ def main():
         errors = {"onnx_patch_probability_error": float(np.max(np.abs(actual-patched))),
                   "onnx_original_padded_probability_error": float(np.max(np.abs(actual-padded))),
                   "onnx_golden_probability_error": float(np.max(np.abs(actual-np.array(golden["official"]["probabilities"]))))}
+        if baseline_oracle:
+            original = next(c for c in baseline_oracle["cases"] if c["case"] == case["case"])
+            original_probs = probabilities(np.array(original["raw_logits"]), count, golden["temperature"])
+            errors["normalization_probability_error"] = float(np.max(np.abs(actual-original_probs)))
         judgment = worker.pack_observation(golden["request"], actual.tolist(), golden["temperature"],
                                            golden["official"]["input_tokens"], manifest["policy"], [])["judgment"]
         result = {"case": case["case"], **errors, "raw_logits": raw[0].tolist(), "judgment": judgment,
@@ -87,11 +108,13 @@ def main():
         print(json.dumps({k:v for k,v in result.items() if k != "raw_logits"}), flush=True)
     record = {"schema_version": "kaze_judge.onnx_oracle.v1", "series": "C", "provider": session.get_providers(),
               "onnxruntime_version": ort.__version__, "numpy_version": np.__version__, "graph_optimization": "disabled",
-              "threads": 1, "manifest_sha256": digest, "model_sha256": worker.digest(args.model),
+              "threads": 1, "manifest_sha256": digest, "model_sha256": worker.digest(target),
               "harness_sha256": worker.digest(Path(__file__)), "padding_gate_sha256": worker.digest(args.padding_gate),
               "patch_gate_sha256": worker.digest(args.model.parent / "patch-gate.json"),
               "pad_token_id": pad_id, "probability_tolerance": 1e-4, "cases": cases,
               "passed": len(cases) == 4 and all(c["passed"] for c in cases), "performance_benchmark": False}
+    if args.baseline_oracle:
+        record["original_oracle_sha256"] = worker.digest(args.baseline_oracle)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(record, stream, indent=2, ensure_ascii=False, allow_nan=False)
         stream.write("\n")

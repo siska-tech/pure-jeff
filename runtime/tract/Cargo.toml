@@ -12,3 +12,6 @@ serde_json = "1"
 
 [profile.release]
 debug = 0
+
+[patch."https://github.com/sonos/tract"]
+tract-data = { path = "vendor/data" }

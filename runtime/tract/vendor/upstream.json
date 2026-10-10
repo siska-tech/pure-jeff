@@ -1,0 +1,111 @@
+{
+  "upstream": "https://github.com/sonos/tract",
+  "revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "scope": "data crate only; workspace dependency declarations copied from fixed root; patch described separately",
+  "original_files": [
+    {
+      "path": "data/benches/stack_tensors.rs",
+      "sha256": "e13239783f89761fe4b73dabf934bdd2a8536684418fe5110675f955c0f6a87b"
+    },
+    {
+      "path": "data/benches/tensor_from_datum.rs",
+      "sha256": "c8cf56a8923fd8607656268af1c09aa2b1d4314cd8a191757424393d3b9d6736"
+    },
+    {
+      "path": "data/Cargo.toml",
+      "sha256": "798ce2bbafe4f26c808302152d8a13e7e064e11ca031b59c7a761071c25f38c1"
+    },
+    {
+      "path": "data/LICENSE",
+      "sha256": "f7ef673bf046d823dcd775bdd0768432bd8855f81d0e5e1290a0a48c42e2dca3"
+    },
+    {
+      "path": "data/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "data/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "data/src/blob.rs",
+      "sha256": "a4595e6f16fdc3aa276d1ea2f6fa357de8705c0e6cea15eabcc2eac685ff92f9"
+    },
+    {
+      "path": "data/src/datum.rs",
+      "sha256": "2866d4641fb350254833d4c3539667959391bd07f12ecba00e352d5f5a7061b5"
+    },
+    {
+      "path": "data/src/dim/assertion.rs",
+      "sha256": "22d0f72dda092f592e6369e52563edc7051ff8cb4cf56aaf6ab79a7a12afc5f6"
+    },
+    {
+      "path": "data/src/dim/mod.rs",
+      "sha256": "f66a096ab0cc141ff3259e899cce8ad364e081f901038ecfee1c1c4b00cc8063"
+    },
+    {
+      "path": "data/src/dim/parse.rs",
+      "sha256": "d602258d193bc667aa3945a4851ac7b85f00e784a7352289eba1903b134b207d"
+    },
+    {
+      "path": "data/src/dim/resolve.rs",
+      "sha256": "8d36e980049abf9b4a57a7c42ce73398bd3ec6488c345f9710658a4c1c3a8a93"
+    },
+    {
+      "path": "data/src/dim/sym.rs",
+      "sha256": "01c48535857e1168df311789799f35f1163fdfb8b1f5b483ae58b42b304d9fa5"
+    },
+    {
+      "path": "data/src/dim/tree.rs",
+      "sha256": "d312405ec68ccc2605d6bffccc998f7ea910d5c5985596ced1da2e3ba1d7b0de"
+    },
+    {
+      "path": "data/src/dyn_eq.rs",
+      "sha256": "b87f205a325ed9b15086a28f826d8fa0c062989fb6a70ca310386153f2f31d83"
+    },
+    {
+      "path": "data/src/exotic.rs",
+      "sha256": "c3f731751c0bf852779e47ced5ecc8c196b6e4a55602c80ae2ed13a91907a288"
+    },
+    {
+      "path": "data/src/knobs.rs",
+      "sha256": "a79b371e9245d0782dc71bdda2c1139d3cdb3d17c731787ec3c3facc1aa17ac3"
+    },
+    {
+      "path": "data/src/lib.rs",
+      "sha256": "d14ccccd79356e8c566f89e6d6e693ccc78e734d535097174dbd25a05f4a9547"
+    },
+    {
+      "path": "data/src/macros.rs",
+      "sha256": "f14a1c7c7f357b43fed1e5c2b9c0cf8611d3805d13a54fbb5ee088251bcaee46"
+    },
+    {
+      "path": "data/src/scatter.rs",
+      "sha256": "3607180d9db4afee2b26462f66ed3124298eb4ec725708932de24c0611eab21d"
+    },
+    {
+      "path": "data/src/tensor/litteral.rs",
+      "sha256": "49f8b34d03fc77a292d294aa195be7446881e759a1644123fec21f3f3556ba52"
+    },
+    {
+      "path": "data/src/tensor/plain_view.rs",
+      "sha256": "6625aa18c90df165c335b11be9a65476d677344abdb63aee5256efa06759d628"
+    },
+    {
+      "path": "data/src/tensor/storage.rs",
+      "sha256": "625ef9fdb66bafc77647d485adb29b6f3262e6653eb2cc83da538dde0710856f"
+    },
+    {
+      "path": "data/src/tensor/view.rs",
+      "sha256": "b4a2d07665b785383e689d091818f16aec3fe5c297d1b9c576aa4b5e18a4fe88"
+    },
+    {
+      "path": "data/src/tensor.rs",
+      "sha256": "9a3930d6cd7b551cdb1125983e0a31ff74c221e6e62c60be0b6d58d23562210d"
+    },
+    {
+      "path": "data/src/ulp.rs",
+      "sha256": "5d6fdfbbe88f04ee5bbf3a84abe6b05c77ba5b2d3801054c2121475642894680"
+    }
+  ]
+}

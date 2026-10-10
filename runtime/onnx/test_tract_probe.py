@@ -14,6 +14,12 @@ from normalize_sequences import lower
 
 @unittest.skipUnless(os.environ.get("TRACT_PROBE"), "set TRACT_PROBE to the built executable")
 class TractProbeTests(unittest.TestCase):
+    def test_i64_cast_slice_reproduction(self):
+        path = Path(__file__).resolve().parents[2] / "docs/research/jeff-onnx-tract/implementation-2026-10-10/public-slice-metadata-repro.onnx"
+        result = subprocess.run([os.environ["TRACT_PROBE"], str(path), "analyze"],
+                                capture_output=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8"))
+
     def test_lowered_sequence_forward(self):
         inputs = [helper.make_tensor_value_info(n, TensorProto.INT64, [1, 512])
                   for n in ["input_ids", "attention_mask", "mm_token_type_ids"]]

@@ -1,0 +1,17 @@
+test_reject_dynamic_index (test_normalize_sequences.LoweringTests.test_reject_dynamic_index) ... ok
+test_reject_keepdims_zero (test_normalize_sequences.LoweringTests.test_reject_keepdims_zero) ... ok
+test_reject_other_consumer (test_normalize_sequences.LoweringTests.test_reject_other_consumer) ... ok
+test_reject_out_of_range (test_normalize_sequences.LoweringTests.test_reject_out_of_range) ... ok
+test_reject_unknown_extent (test_normalize_sequences.LoweringTests.test_reject_unknown_extent) ... ok
+test_scalar_partial_final_chunk (test_normalize_sequences.LoweringTests.test_scalar_partial_final_chunk) ... ok
+test_vector_repeated_and_negative_indices (test_normalize_sequences.LoweringTests.test_vector_repeated_and_negative_indices) ... ok
+test_preserve_known_shapes_and_bind_expressions (test_specialize_batch.BatchTests.test_preserve_known_shapes_and_bind_expressions) ... ok
+test_reject_unknown_expression (test_specialize_batch.BatchTests.test_reject_unknown_expression) ... ok
+test_i64_cast_slice_reproduction (test_tract_probe.TractProbeTests.test_i64_cast_slice_reproduction) ... ok
+test_lowered_sequence_forward (test_tract_probe.TractProbeTests.test_lowered_sequence_forward) ... ok
+test_only_documented_upstream_file_changed (test_tract_vendor.VendorTests.test_only_documented_upstream_file_changed) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.169s
+
+OK

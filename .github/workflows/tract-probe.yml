@@ -30,6 +30,8 @@ jobs:
         run: |
           cargo build --locked --release --manifest-path runtime/tract/Cargo.toml
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --manifest-path runtime/tract/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
           cargo clippy --locked --manifest-path runtime/tract/Cargo.toml --all-targets -- -D warnings
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           cargo fmt --manifest-path runtime/tract/Cargo.toml -- --check

@@ -25,8 +25,13 @@ All output paths below must be new. Historical assets/reports must be retained.
 ```
 
 `check_oracle.py` validates the original export asset hashes. It does not silently
-replace the model with a normalized graph. Whole-model normalized/original parity
-is a separate pending gate. `specialize_batch.py` is only needed for the public
+replace the model with a normalized graph. Use `--normalized-model` together with
+`--baseline-oracle` for the separate normalized/original parity gate.
+`check_tract.py` runs four golden cases through deadline-bounded `run-typed`
+processes and compares probabilities and judgments with that passing oracle.
+It requires `--model`, `--oracle`, `--manifest`, `--padding-gate`, `--executable`
+and a new `--output-dir`. It is a correctness gate, not a performance benchmark.
+`specialize_batch.py` is only needed for the public
 dynamic-batch graph; it binds known `batch` expressions and retains other facts.
 
 `normalize_sequences.py` supports top-level opset-18 SplitToSequence with known

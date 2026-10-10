@@ -848,7 +848,6 @@ dependencies = [
 [[package]]
 name = "tract-data"
 version = "0.23.8"
-source = "git+https://github.com/sonos/tract?rev=9e0cfaa9b3a9251f41f74101801dc2c937b1660a#9e0cfaa9b3a9251f41f74101801dc2c937b1660a"
 dependencies = [
  "anyhow",
  "downcast-rs",

@@ -1,0 +1,24 @@
+{
+  "schema_version": "kaze_judge.tract_probe.v1",
+  "model_sha256": "0abfe2f4c138ef7ec433e7cf954d588906da8ea6e6ea52f56829328b6913946a",
+  "executable_sha256": "066a7fb1f499e8342ce4d451a07c10d8621924c3809a1833e75e6db87d354021",
+  "harness_sha256": "ea373df00d7391bdf8b5d938f965a349708b3a28c9b27b27e3a6aae8b89d7304",
+  "tract_revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\target\\release\\kaze_judge_tract_probe.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\docs\\research\\jeff-onnx-tract\\implementation-2026-10-10\\public-slice-metadata-repro.onnx",
+    "analyze"
+  ],
+  "timeout_seconds": 30,
+  "performance_benchmark": false,
+  "probe_cargo_lock_sha256": "7cff0b8860189fc4ad585740d4c6fa9a392f1a41bdc2cbb454eb20bfa1afc8fc",
+  "tract_data_patch": {
+    "tensor_rs_sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1",
+    "upstream_manifest_sha256": "e4e18839b49b6bb6e107ec50d4dbe2a7e3fae4b6fa33ebfb2b8f75d6425eafd1"
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "stdout": "{\"forward_executed\":false,\"last_stage\":\"analyze\",\"status\":\"completed\"}\n",
+  "stderr": "{\"elapsed_seconds\":2.8e-6,\"stage\":\"load_started\"}\n{\"elapsed_seconds\":0.0004046,\"stage\":\"imported\"}\n{\"elapsed_seconds\":0.0014144,\"stage\":\"typed\"}\n",
+  "elapsed_seconds": 0.014999999664723873
+}

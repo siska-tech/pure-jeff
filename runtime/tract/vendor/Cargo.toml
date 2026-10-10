@@ -1,0 +1,29 @@
+[workspace]
+members = ["data"]
+resolver = "2"
+
+[workspace.package]
+rust-version = "1.91"
+
+[workspace.dependencies]
+"anyhow" = "1.0.43"
+"criterion" = "0.8"
+"downcast-rs" = "2.0"
+"dyn-clone" = "1.0.4"
+"dyn-hash" = "1.0"
+"half" = { "version" = ">=2.4,<3.0", "features" = ["std", "num-traits"] }
+"inventory" = "0.3.21"
+"itertools" = "0.15"
+"lazy_static" = "1.5.0"
+"libm" = "0.2.11"
+"maplit" = "1.0.2"
+"ndarray" = "0.17"
+"nom" = "8.0.0"
+"nom-language" = "0.1"
+"num-complex" = "0.4.0"
+"num-integer" = "0.1.44"
+"num-traits" = "0.2.14"
+"parking_lot" = "0.12.3"
+"proptest" = "1.0.0"
+"smallvec" = "1.6.1"
+"string-interner" = "0.20"
