@@ -1,0 +1,11 @@
+   Compiling kaze_judge_native_bench v0.1.0 (C:\Users\<user>\Documents\Projects\KazeJudge\.venv\native-retained-v2)
+    Finished `release` profile [optimized] target(s) in 1.21s
+     Running unittests src\main.rs (.venv\native-retained-target\release\deps\native_retained_bench-7751397dfe977274.exe)
+
+running 4 tests
+test weights::tests::bf16_embedding_select_commutes_with_fp32_retention ... ok
+test weights::tests::retained_lookup_shares_tensor_and_rejects_missing ... ok
+test backbone::tests::rope_preserves_unrotated_dimensions_and_zero_position ... ok
+test backbone::tests::delta_update_decay_and_state_isolation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,161 @@
+{
+  "run_id": "resident-2-retained",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-retained-target\\release\\native_retained_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\native-retained-20261011\\resident-2-retained.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 51675170500,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 5190508544,
+  "memory_samples": 4947,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "retained_f32": true,
+  "events": [
+    {
+      "backend": "native",
+      "cached_bytes": 3411943680,
+      "cached_tensors": 473,
+      "event": "initialized",
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "mmap_ns": 538200,
+      "retained_f32": true,
+      "retention_load_ns": 1727732300,
+      "startup_ns": 3694747600,
+      "threads": 1,
+      "tokenizer_load_ns": 808053800,
+      "verify_ns": 1139346200
+    },
+    {
+      "backbone_ns": 9884288400,
+      "case": "synthetic-ocr-ascii-3-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 74200,
+      "iteration": 0,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 800,
+      "probabilities": [
+        0.7541912198066711,
+        0.16195550560951233,
+        0.08385329693555832
+      ],
+      "request_ns": 9885137200,
+      "tokenize_ns": 757600,
+      "warmup": true,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "compute_ns": 9884362600
+    },
+    {
+      "backbone_ns": 9111398500,
+      "case": "synthetic-ocr-ja-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 66700,
+      "iteration": 1,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.9305989742279053,
+        0.06940098851919174
+      ],
+      "request_ns": 9112156400,
+      "tokenize_ns": 675000,
+      "warmup": false,
+      "probability_max_abs_error": 2.60770320892334e-07,
+      "judgment_match": true,
+      "compute_ns": 9111465200
+    },
+    {
+      "backbone_ns": 9675066500,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 62700,
+      "iteration": 2,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 400,
+      "probabilities": [
+        0.6114295721054077,
+        0.3885704576969147
+      ],
+      "request_ns": 9675770700,
+      "tokenize_ns": 629100,
+      "warmup": false,
+      "probability_max_abs_error": 0.0,
+      "judgment_match": true,
+      "compute_ns": 9675129200
+    },
+    {
+      "backbone_ns": 9410620700,
+      "case": "synthetic-asr-mixed-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 224300,
+      "iteration": 3,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1800,
+      "probabilities": [
+        0.9364815950393677,
+        0.06351837515830994
+      ],
+      "request_ns": 9411497300,
+      "tokenize_ns": 632800,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "compute_ns": 9410845000
+    },
+    {
+      "backbone_ns": 9585044500,
+      "case": "synthetic-ocr-ascii-3-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 66400,
+      "iteration": 4,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 700,
+      "probabilities": [
+        0.7541912198066711,
+        0.16195550560951233,
+        0.08385329693555832
+      ],
+      "request_ns": 9585747800,
+      "tokenize_ns": 622900,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "compute_ns": 9585110900
+    },
+    {
+      "event": "completed",
+      "total_ns": 51376676700
+    }
+  ]
+}

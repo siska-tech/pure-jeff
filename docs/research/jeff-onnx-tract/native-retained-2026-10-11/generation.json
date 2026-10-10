@@ -1,0 +1,51 @@
+{
+  "sources": {
+    "runtime/rust/src/backbone.rs": "6e4f79c9e510a7da6b4b7fbbc16539343937ecd1887327d518f360b2c29bda1a",
+    "runtime/rust/src/readout.rs": "90a2781c46f07ff76fde874fa0482de807b1815f13d53a609ee8235c9667b867",
+    "runtime/bench-native/src/main.rs": "732a3692068ed1f3f802d32cf3d94e0d4669897a7a09a70c2d879e381a47ffdd",
+    "runtime/native-retained/weights.rs": "32716c36bb2794f3f448d78a01c97aec49375901f96b1a55b7aa2a3e1959b261",
+    "runtime/bench-native/Cargo.toml": "1d77873321db7748637afc71d4f2be3af1cd02ac26844ee0fdc90d778b1f6391",
+    "runtime/bench-native/Cargo.lock": "8d6790323a11f9b7a35f58e77382f761e3650d3f890318f69a407b1df7f98459"
+  },
+  "generator_sha256": "b2c65b39104606fe367aadb9e870b2d82abfa69f54f2a251cc2e55a526ebf9cd",
+  "rustfmt_version": "rustfmt 1.10.0-stable (b940084d7e 2026-09-28)",
+  "files": [
+    {
+      "path": "backbone.patch",
+      "sha256": "256557d58c538764c11672230aae9bf9dd2802dd28382f21f9e57e861cf6b730"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "0598fd72f225eaf34fae5ad3f4557a948a237aa171629f768b3fd810e441a4d1"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "43107cca6af01309e1e48cd775990ed4a3dc2c5cc028bb7de9bed24b8f620498"
+    },
+    {
+      "path": "readout.patch",
+      "sha256": "66b02ba7d44229d2d75b2f2356fd6383375aed9b4b76aa184784cbbad424b712"
+    },
+    {
+      "path": "src/backbone.rs",
+      "sha256": "97844fba2269538f10662bbfde1496a09cf1f8e4f28228f49626aa95e99508c0"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "07ba7170d44ee3b073363be8d864aab9ae5f1167d9281354a63bf57279006b94"
+    },
+    {
+      "path": "src/readout.rs",
+      "sha256": "32168dee026d4e91ce5558bb5de6f626256d4c6ed8776731627468aebe3b88e2"
+    },
+    {
+      "path": "src/weights.rs",
+      "sha256": "e2f4ff652edfd4ab4a2a4638a5d5cb8ce3951833f720011fdad3219b252e58c8"
+    },
+    {
+      "path": "wrapper.patch",
+      "sha256": "f409e23570d9b566740289ca3f67d64a36337d9cf98e81afafa435d156ff70b1"
+    }
+  ],
+  "scope": "equations unchanged, mmap vs owned FP32; same binary control/candidate, one compute thread; generated only"
+}

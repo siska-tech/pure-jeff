@@ -1,0 +1,15 @@
+{
+  "processes": 8,
+  "forwards": 46,
+  "gate_forwards": 16,
+  "warmup_forwards": 6,
+  "measured_forwards": 24,
+  "all_numeric_gates_passed": true,
+  "all_probabilities_exact_to_frozen_native": true,
+  "independent_raw_record_validation_and_statistics_recomputation": true,
+  "max_probability_error": 3.7550926208496094e-06,
+  "local_warm_acceptance": true,
+  "formal_slo_acceptance": false,
+  "failures": 0,
+  "guard_triggers": 0
+}

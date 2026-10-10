@@ -45,6 +45,8 @@
 
 | Native／Tract共通512形状pilot | 同一step1113・有効／物理512の4人工request・1 compute thread、独立3組AB／BA／AB、各n=12。compute中央値Native 9.892／Tract 9.626秒、p95 10.703／10.133秒。全46 forwardの確率・判断・tokens gate合格、Native確率反復一致・Tract rawが前回4-thread gateと一致 | 形状／threadを共通化した運用構成比較を完了。3組ともTract中央値は短いが1入力中央値と最終組p95はNativeが短い。保持dtype・algorithmは非対称で、runtime単体の効果・採用・正式SLOは未受入。[詳細](onnx-tract-common512-pilot.md) |
 
+| Native FP32重み保持実験 | 参照実装から独立生成した同一exeでmmap／FP32保持を切替。1-thread・共通512・独立3組・各n=12、compute中央値9.789→9.073秒／p95 10.407→9.675秒。全46 forwardの候補確率が固定Nativeと完全一致。Rust4試験・clippy／fmt・9生成ファイル再現照合に合格 | 全組中央値が短縮しwarm性能のみ局所受入。初期化中央値2.054→3.806秒、process peak最大約1.947→4.835 GiB。未使用visual 153 tensorsも保持しており、除外候補は未測定。Tract再比較・正式SLO・API統合・品質は未受入。[詳細](onnx-tract-native-retained.md) |
+
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
 再export資産はignoredな `experiments/runs/onnx-current-step1113-v2/` に保存した。
@@ -70,7 +72,7 @@
 1. 5ノードのCast→Reshape→CumSum→Reshape→Sliceで標準最適化の同じエラーを再現した。`run-no-change-axes`では固定版declutterのtop-level ChangeAxesを1個だけ除去し、残りとcodegenを実行する。構成が変われば明示失敗し、自動fallbackはしない。小型例は解析的な累積和と一致し、Jeff全体4件も合格。標準Tract側の修正とupstream投稿は未実施で、投稿は明示的な依頼があったときに行う。
 2. 最適化を変更するたびに同一checkpointの4件数値gateを再実行する。各段階を別process・期限付きで記録し、OOM／panic／deadlineも失敗として残す。
 3. 型推論・全体forward成立後に、既存DecisionProvider／worker wireへ接続する独立TractBackendを実装する。512超の明示拒否、prompt/tokenizerの同一性、温度処理、期限・異常応答の契約試験を追加する。既存RustProviderを廃止・改名しない。
-4. Phase 3は独立計測wrapperでpilotまで実施し、1／2／4／8-thread版の各2独立sessionと4／8-threadの演算内訳も測った。TriluとScatterElementsの単一変更をそれぞれ4-thread・独立3組で比較し局所受入した。受入候補の4／8-threadを独立3組で再評価し、8はp95条件を満たさないため4を維持した。24件の長さfixtureのONNX oracle／全体gateと5長さ各n=12のpilotも完了した。同条件化の監査後、有効／物理512・1 thread・各n=12のNative／Tract運用構成比較を独立3組で実施した。保持dtype・変換／cache条件とalgorithmは非対称として残る。次は独立実験経路での保持／thread条件の同条件化と数値gate、独立session増加、Tract API E2Eへ進む。固定512の今回値から可変長Nativeとの差や正式SLOを推定しない。以前の単発probe秒数・export時間と、事前登録したbenchmark結果を混同しない。
+4. Phase 3は独立計測wrapperでpilotまで実施し、1／2／4／8-thread版の各2独立sessionと4／8-threadの演算内訳も測った。TriluとScatterElementsの単一変更をそれぞれ4-thread・独立3組で比較し局所受入した。受入候補の4／8-threadを独立3組で再評価し、8はp95条件を満たさないため4を維持した。24件の長さfixtureのONNX oracle／全体gateと5長さ各n=12のpilotも完了した。同条件化の監査後、有効／物理512・1 thread・各n=12のNative／Tract運用構成比較を独立3組で実施した。続いてNativeを変更しない独立exeでFP32保持を3組比較し、数値・warm性能を局所受入したが、初期化／peakが増え、未使用visual重み153 tensorsの保持も判明した。次はtext使用320 tensorsだけを保持する独立候補の数値gateと初期化／peak／warm比較、Native thread条件の監査、同条件Tract再比較、独立session増加、API E2Eへ進む。algorithm差は残るためruntime単体の効果を断定しない。固定512の今回値から可変長Nativeとの差や正式SLOを推定しない。以前の単発probe秒数・export時間と、事前登録したbenchmark結果を混同しない。
 5. Phase 4はプロファイルに基づいて選定。Phase 5は確認済みOCR/ASR正解とN-bestが必要で、現在の人工goldenでは認識品質を判定しない。
 
 限定最適化の調査では、推論前のgraph処理にも大きなコストが観測された。単発probeの秒数を速度倍率やSLOには換算しない。実験wrapperでモデル・planの再利用を実装した後、[NNEF保存・再ロード](onnx-tract-nnef-pilot.md)も検証した。ONNX拡張registry、資産hash、4件数値回帰、別process再ロードは合格。codegen前のNNEFによる初期化短縮を確認したが、codegenの約40秒とwarm forwardの約12秒は残る。codegen後のplan永続化・配布可搬性・公開API統合は未受入である。

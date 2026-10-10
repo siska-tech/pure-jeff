@@ -213,3 +213,28 @@ plan remain different, as do algorithms and stage boundaries. This compares
 operating configurations; it cannot isolate a runtime-only effect. Request and
 startup scopes are unequal, not matched API E2E or cold adoption evidence.
 No public runtime/API/policy or existing executable changes are required.
+
+## Isolated Native FP32 retention experiment
+
+`prepare_native_retained.py --output <new-dir>` checks the preserved Native
+baseline, then generates a separate crate from its backbone/readout/wrapper.
+The original equations remain unchanged; weight lookup selects either mmap or
+owned CPU FP32 tensors. Retained mode preloads all model and readout tensors,
+including embedding, releases the original mmap, and shares tensors on lookup.
+The generator runs rustfmt, saves zero-context patches and source/file hashes.
+It retains existing lock package versions; candle-nn becomes explicit at root.
+Build/test/clippy with the generated locked manifest in a separate Cargo target;
+never overwrite the frozen Native benchmark executable. These development
+tools require the existing local baseline/assets and cached dependencies.
+
+`benchmark_native_retained.py --output <new-run-dir>` uses the frozen generated
+v2 crate and separate target, one executable with retained_f32 false/true. Eight
+numeric gates per mode require exact probabilities to the previous frozen
+Native gate plus ONNX probability/judgment/token tolerances. Three resident
+AB/BA/AB pairs use common512, one thread, warmup1 + mixed samples4, n=12/mode.
+Local warm acceptance requires all paired medians plus pooled median/p95 to
+improve. Initialization/retention work and lifetime peak are recorded, not hidden
+by warm compute timings. This is not Tract/API E2E, formal SLO or product change.
+The measured retained mode includes all 473 model tensors; the later static
+inventory identifies 153 unused visual tensors. A text-only 320-tensor filter
+is future unmeasured work, not part of the accepted experiment.
