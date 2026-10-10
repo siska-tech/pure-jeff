@@ -255,3 +255,23 @@ is MEMORY ONLY: every paired lifetime peak and pooled maximum must decrease.
 Observed pooled maximum 5,190,696,960 to 4,591,202,304 bytes passes. Latency is
 descriptive; no speed or noninferiority acceptance, API E2E or formal SLO.
 The preceding full473 evidence stays unchanged and refers to its own run.
+
+## FP32 common512 Native/Tract comparison
+
+`audit_native_threads.py --output .venv/native-fp32-thread-audit.json` records
+the pinned Candle commit, core/nn diff, Cargo features and source excerpts.
+The fixed Native wrapper forces both RAYON_NUM_THREADS/CANDLE_NUM_THREADS to 1;
+GEMM chooses Parallelism::None and the elementwise barrier pool has no auxiliary
+workers. DeltaNet recurrence stays serial. This audits compute configuration,
+not total OS thread count or active-worker telemetry. A Native thread matrix
+requires a new isolated wrapper; external environment overrides are insufficient.
+
+`benchmark_fp32_common512.py --output <new-run-dir>` uses the frozen text320
+Native FP32 exe and accepted Tract packed FP32 exe, without rebuilding either.
+Both use common effective/physical512, no padding and one compute thread.
+Eight numerical gates per engine precede three AB/BA/AB resident pairs,
+warmup1 + measured4/session, n=12/engine. Native probabilities must exactly
+match frozen Native, Tract raw logits the earlier four-thread gate. Packed
+layout, algorithms, stage boundaries and startup verification remain different.
+This is a descriptive operating-configuration comparison; no runtime-only,
+speedup, API E2E, formal SLO or backend-adoption claim is authorized by it.

@@ -1,0 +1,5 @@
+{
+  "premeasurement_audit_attempt": "Cargo feature tree UTF-8 first decoded as cp932; UnicodeDecodeError before audit output/model launch. Explicit UTF-8 fixed before audit and preregistration. Zero performance samples affected.",
+  "no_build_or_model_source_change": true,
+  "prior_rust_tests": "text320 seven release tests and clippy/fmt preserved in previous archive; frozen exe reused without rebuild"
+}

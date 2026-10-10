@@ -1,0 +1,30 @@
+[
+  {
+    "path": "runtime/onnx/audit_native_threads.py",
+    "sha256": "3240b0a1fc35b1f0447f24b2045d7c0f577012afd126f6c045b92d0264cdc553"
+  },
+  {
+    "path": "runtime/onnx/benchmark_fp32_common512.py",
+    "sha256": "63e657721a985c5b1db95a8076b20f098d71fff5ccb59d3825d90f955753efe6"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/rust/src/backbone.rs",
+    "sha256": "6e4f79c9e510a7da6b4b7fbbc16539343937ecd1887327d518f360b2c29bda1a"
+  },
+  {
+    "path": "runtime/rust/src/readout.rs",
+    "sha256": "90a2781c46f07ff76fde874fa0482de807b1815f13d53a609ee8235c9667b867"
+  },
+  {
+    "path": "runtime/rust/src/prompt.rs",
+    "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+  },
+  {
+    "path": "runtime/rust/src/tokenize.rs",
+    "sha256": "abee532540c26cd57b966ee7289a1129288e7f46f356a1bf800537973008c4a6"
+  }
+]
