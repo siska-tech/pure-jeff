@@ -3,6 +3,8 @@ use anyhow::ensure;
 use serde_json::{Value, json};
 use std::{collections::BTreeMap, fs, io::Write, time::Instant};
 use tract_onnx::prelude::*;
+#[path = "../codegen_profile.rs"]
+mod codegen_profile;
 
 fn emit(value: Value) -> TractResult<()> {
     println!("{value}");
@@ -26,6 +28,7 @@ fn main() -> TractResult<()> {
         tract_onnx::tract_core::tract_linalg::multithread::Executor::SingleThread,
     );
     let step = Instant::now();
+    let mut profile = None;
     let (mut typed, load_ns, type_ns) = if mode == "nnef-decluttered" {
         let typed = tract_nnef::nnef().with_onnx().model_for_path(&args[0])?;
         (typed, step.elapsed().as_nanos(), 0)
@@ -70,7 +73,11 @@ fn main() -> TractResult<()> {
         optimizer.optimize(&mut typed)?;
     }
     if ["no-change-axes", "nnef-decluttered"].contains(&mode) {
-        typed.optimize()?;
+        if job["profile_codegen"].as_bool().unwrap_or(false) {
+            profile = Some(codegen_profile::optimize(&mut typed)?);
+        } else {
+            typed.optimize()?;
+        }
     }
     let optimize_ns = step.elapsed().as_nanos();
     let step = Instant::now();
@@ -80,6 +87,7 @@ fn main() -> TractResult<()> {
         json!({"event":"initialized", "backend":"tract", "mode":mode,
         "load_ns":load_ns,"type_ns":type_ns,"optimize_ns":optimize_ns,"plan_ns":plan_ns,
         "startup_ns":started.elapsed().as_nanos(),"threads":1,
+        "codegen_profile":profile,
         "asset_hash_verification":"parent preflight; excluded from child startup"}),
     )?;
     let cases = job["cases"]

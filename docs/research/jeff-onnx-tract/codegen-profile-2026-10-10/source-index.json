@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "runtime/tract/src/codegen_profile.rs",
+      "bytes": 3745,
+      "sha256": "40d4c94bad554c2b0155f3e1106b96b4ccfce9d19ab4016eeef5ddad1a81ca8e"
+    },
+    {
+      "path": "runtime/tract/src/bin/bench.rs",
+      "bytes": 6926,
+      "sha256": "7e45d5c26cb0484b49aa0fb9006d715135e552d98d56ee6788e033a3b05a9568"
+    },
+    {
+      "path": "runtime/tract/Cargo.lock",
+      "bytes": 26712,
+      "sha256": "3254d69406242746b31d2ebd72198d5858f84f182a4022dc01bcb88f50506e6a"
+    },
+    {
+      "path": "runtime/tract/vendor/data/src/tensor.rs",
+      "bytes": 116919,
+      "sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1"
+    },
+    {
+      "path": "runtime/onnx/profile_codegen.py",
+      "bytes": 7283,
+      "sha256": "fcc6be5c64eece6ce0cd22acecde29229f34c65b270e0640e8846ef30b82b51a"
+    },
+    {
+      "path": "runtime/onnx/test_tract_nnef.py",
+      "bytes": 3856,
+      "sha256": "f86001814967896fdad1afa66011bdb7a78cdb127898affda4cce854feda3c09"
+    },
+    {
+      "path": "runtime/onnx/benchmark_pilot.py",
+      "bytes": 15447,
+      "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692"
+    }
+  ]
+}

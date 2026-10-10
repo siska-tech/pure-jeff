@@ -28,6 +28,7 @@
 | 限定最適化の全体回帰 | top-level ChangeAxesのみ除外し、残りのdeclutter＋codegenを実行。4件すべて合格、最大確率差はgolden比4.9173831939697266e-6、oracle比4.649162292480469e-6 | 明示的な実験経路として成立。標準最適化の修正・性能受入ではない |
 | Phase 3 pilot | process-cold各5回、resident各1セッション・4入力各5回、warm-up各5回。Native API別5回。計65 forward数値一致。warm計算中央値Native 2.977〜4.266秒、Tract 11.636〜11.836秒 | 現行短文・1 threadで速度目的のTract採用根拠なし。threads／長さmatrix・独立session・Tract E2Eは未測定 |
 | NNEF保存・再ロードpilot | codegen前のモデルを保存・別processで再ロード。cold 5回＋resident 25 forward全件数値一致。初期化中央値49.504秒／p95 50.664秒、warm計算中央値11.825〜12.231秒 | 起動短縮を確認。codegen後は小型例のIntoShape serializerで停止。forward高速化・正式SLO・API統合の受入ではない |
+| codegen内訳診断 | 同一exeで通常／計時を3 block交互実行。計時codegen中央値42.371秒のうちcallback 1.820秒、driver＋計測処理40.551秒。全9 forward数値一致 | 支配項をcallback外側へ限定。patch適用・重複探索・compactionの個別寄与と改善は未測定。[詳細](onnx-tract-codegen-profile.md) |
 
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 

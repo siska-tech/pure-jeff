@@ -46,6 +46,20 @@ class NnefTests(unittest.TestCase):
             expected = np.cumsum(np.arange(512, dtype=np.float32).reshape(8,64), axis=1).flatten()[:255]
             for event in events[1:3]:
                 np.testing.assert_array_equal(event["raw_logits"], expected)
+            profiled_job = json.loads(job.read_text())
+            profiled_job["profile_codegen"] = True
+            job.write_text(json.dumps(profiled_job))
+            profiled = subprocess.run([os.environ["TRACT_BENCH"], str(archive), str(job)],
+                                      capture_output=True, timeout=30)
+            self.assertEqual(profiled.returncode, 0, profiled.stderr.decode())
+            timed = [json.loads(line) for line in profiled.stdout.splitlines()]
+            for reference, actual in zip(events[1:3], timed[1:3]):
+                self.assertEqual(reference["raw_logits"], actual["raw_logits"])
+            profile = timed[0]["codegen_profile"]
+            self.assertEqual(len(profile["passes"]), 6)
+            self.assertEqual(profile["total_ns"], profile["callback_ns"]+profile["driver_and_instrumentation_ns"])
+            self.assertEqual(profile["callback_ns"], sum(p["callback_ns"] for p in profile["passes"]))
+            self.assertGreater(sum(p["patches_returned"] for p in profile["passes"]), 0)
 
 
 if __name__ == "__main__":

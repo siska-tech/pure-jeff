@@ -34,6 +34,8 @@ NNEFの生涯Peak Working Setはcold 5回の最大3.052 GiB、resident 1回3.051
 
 起動時のdeclutterを事前計算へ移す効果はあるが、codegenの約40秒は残る。常駐計算は前回ONNXと同程度で、今回の短文・1 thread条件ではNativeを上回らない。製品のlatency SLOを緩めてTractを採用する根拠にはしない。FP32 weights・物理512 tokensを保持するTractと、BF16 mmap・128〜206 tokensのNativeの条件差も継続している。
 
+残るcodegenの内訳は[pass callbackとdriver残余の診断](onnx-tract-codegen-profile.md)に分離して記録する。
+
 ## 保存できる段階
 
 codegen後のモデルをそのまま保存する案は、小型のCast→Reshape→CumSum→Reshape→Sliceで失敗した。`IntoShape`にserializerがないためで、Jeff全体の全演算が保存可能という判断には進めない。
