@@ -16,3 +16,10 @@ The model weights (Jeff-Qwen3.5-0.8B, Apache License 2.0, a fine-tune of
 Qwen3.5-0.8B by the Qwen team, Alibaba Cloud) are not included; they carry
 their own LICENSE and NOTICE. See THIRD_PARTY_NOTICES.md for all
 third-party attributions.
+
+The experimental ONNX/Tract development path (runtime/tract, runtime/onnx)
+includes a modified copy of the data crate of Tract
+(https://github.com/sonos/tract, MIT OR Apache-2.0, by Sonos and the Tract
+contributors) and an unmodified copy of export_onnx.py from jigor
+(https://github.com/Partysun/jigor, Apache-2.0). Their license texts are kept
+next to the copies; see THIRD_PARTY_NOTICES.md.

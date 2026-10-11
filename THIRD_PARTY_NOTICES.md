@@ -40,3 +40,28 @@ Binaries built from this repository must carry these notices. The web demo build
 ## Test data
 
 The golden files in `tests/fixtures/` and the benchmark evidence contain prompts and output probabilities of the Jeff model for artificial inputs written for this project. They contain no model weights.
+
+## Experimental ONNX/Tract path (development only)
+
+These files came from KazeJudge with the ONNX/Tract experiments ([docs/tract-migration-plan.md](docs/tract-migration-plan.md)). None of them is built into the Native worker, the Wasm engine or the web demo, and the ONNX model is not included.
+
+### Tract — MIT OR Apache-2.0
+
+- Source: https://github.com/sonos/tract, commit `9e0cfaa9b3a9251f41f74101801dc2c937b1660a` (0.23.8), by Sonos and the Tract contributors.
+- `runtime/tract/vendor/data/` is a copy of Tract's `data` crate with one local change (I64→TDim cast); the original files' hashes are in `runtime/tract/vendor/upstream.json` and the licence texts (`LICENSE`, `LICENSE-APACHE`, `LICENSE-MIT`) are kept beside it. The other Tract crates are Git dependencies of `runtime/tract`.
+- The optimization experiments generate patched copies of `tract-core` into ignored directories, keeping the upstream licence files ([runtime/tract-driver-profile/NOTICE.md](runtime/tract-driver-profile/NOTICE.md)). The differences to upstream are listed in [runtime/tract/patches/](runtime/tract/patches/README.md). None of these changes has been submitted upstream; results from them are not results of upstream Tract.
+
+### jigor ONNX exporter — Apache-2.0
+
+- Source: https://github.com/Partysun/jigor, revision `cbd9a629f1a3d9b6829399f6f88bd3363693f9bb`, `scripts/jeff/export_onnx.py`.
+- `runtime/onnx/upstream/export_onnx.py` is an unmodified copy; licence text in `runtime/onnx/upstream/LICENSE.jigor`, attribution in [runtime/onnx/upstream/NOTICE.md](runtime/onnx/upstream/NOTICE.md). Its delta-rule code derives from Hugging Face Transformers (Apache-2.0).
+
+### Public Jeff ONNX model (graph slice) — Apache-2.0
+
+- Source: https://huggingface.co/Zatsepin/jeff-qwen3.5-0.8b-onnx, revision `e42ca8299574aed4981d711d1c29ad66674ff4b1`.
+- A small Slice reproduction extracted from its graph (no weights) is kept in the evidence under `docs/research/jeff-onnx-tract/implementation-2026-10-10/`; licence text in `runtime/onnx/upstream/LICENSE.public-model`.
+
+### Python development tools
+
+`runtime/onnx/requirements.lock` pins ONNX, ONNX Script, ONNX Runtime and their dependencies for the development oracle. They are installed into an ignored directory and are not distributed.
+
