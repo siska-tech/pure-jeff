@@ -1,0 +1,19 @@
+{
+  "attempts": 2,
+  "initial": {
+    "status": "manually_stopped",
+    "reason": "Windows venv launcher spawned real Python child, supervisor watched launcher only; incomplete output excluded from oracle acceptance",
+    "peak_scope": "launcher only, invalid for engine memory",
+    "processes": "initial-launcher-processes.json",
+    "source": "initial-prepare_length_oracle.initial.py"
+  },
+  "accepted": {
+    "status": "completed",
+    "scope": "direct Python process runs ORT; no venv launcher",
+    "worker_interpreter": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "worker_interpreter_sha256": "10d845f50a2af64e3500bb2fcb348b5bc98a75d8ddada63e45ba1da6a1fc79d1",
+    "engine_peak_working_set_bytes": 4932820992
+  },
+  "previous_native_and_tract_timing_runs_affected": false,
+  "reason_previous_timings_unaffected": "measured native/Tract executables are direct Rust processes, not Python launchers"
+}

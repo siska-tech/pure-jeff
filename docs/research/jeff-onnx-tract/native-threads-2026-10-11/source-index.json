@@ -1,0 +1,42 @@
+[
+  {
+    "path": "runtime/onnx/prepare_native_threads.py",
+    "sha256": "6746e74b65d228f69e9f324bdf556132b19c24d0cc826af18c1e6f5bdde6bfec"
+  },
+  {
+    "path": "runtime/onnx/benchmark_native_threads.py",
+    "sha256": "2f7101233664dc949db5c522c498ba813b57c5532636ea3ec59c90e15f66d33b"
+  },
+  {
+    "path": "runtime/onnx/prepare_native_retained.py",
+    "sha256": "b2c65b39104606fe367aadb9e870b2d82abfa69f54f2a251cc2e55a526ebf9cd"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/rust/src/backbone.rs",
+    "sha256": "6e4f79c9e510a7da6b4b7fbbc16539343937ecd1887327d518f360b2c29bda1a"
+  },
+  {
+    "path": "runtime/rust/src/readout.rs",
+    "sha256": "90a2781c46f07ff76fde874fa0482de807b1815f13d53a609ee8235c9667b867"
+  },
+  {
+    "path": "runtime/bench-native/src/main.rs",
+    "sha256": "732a3692068ed1f3f802d32cf3d94e0d4669897a7a09a70c2d879e381a47ffdd"
+  },
+  {
+    "path": "runtime/native-retained/weights.rs",
+    "sha256": "32716c36bb2794f3f448d78a01c97aec49375901f96b1a55b7aa2a3e1959b261"
+  },
+  {
+    "path": "runtime/bench-native/Cargo.toml",
+    "sha256": "1d77873321db7748637afc71d4f2be3af1cd02ac26844ee0fdc90d778b1f6391"
+  },
+  {
+    "path": "runtime/bench-native/Cargo.lock",
+    "sha256": "8d6790323a11f9b7a35f58e77382f761e3650d3f890318f69a407b1df7f98459"
+  }
+]

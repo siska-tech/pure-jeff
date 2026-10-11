@@ -1,0 +1,275 @@
+{
+  "units": "seconds",
+  "blocks": 3,
+  "formal_slo_acceptance": false,
+  "preregistration_sha256": "391a4d97a5bdbb8df132a37961982d552b1a5e5354301a3e28f56751c005167b",
+  "control_codegen_seconds": {
+    "n": 3,
+    "median": 43.0088238,
+    "p95": 44.5846235,
+    "min": 41.9038085,
+    "max": 44.5846235
+  },
+  "profile_codegen_seconds": {
+    "n": 3,
+    "median": 42.6012078,
+    "p95": 43.9584787,
+    "min": 42.5929944,
+    "max": 43.9584787
+  },
+  "driver_and_instrumentation_seconds": {
+    "n": 3,
+    "median": 40.7633005,
+    "p95": 42.0597591,
+    "min": 40.7308841,
+    "max": 42.0597591
+  },
+  "passes": [
+    {
+      "pass": "0:PropConst(0)",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.6672378,
+        "p95": 0.7033404,
+        "min": 0.6625591,
+        "max": 0.7033404
+      },
+      "next_calls": [
+        414,
+        414,
+        414
+      ],
+      "patches_returned": [
+        409,
+        409,
+        409
+      ]
+    },
+    {
+      "pass": "1:MergeConsecutiveSameRoleAxes",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.0157524,
+        "p95": 0.0164275,
+        "min": 0.0150006,
+        "max": 0.0164275
+      },
+      "next_calls": [
+        3,
+        3,
+        3
+      ],
+      "patches_returned": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "pass": "2:codegen",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.7061864,
+        "p95": 0.7290134,
+        "min": 0.6914185,
+        "max": 0.7290134
+      },
+      "next_calls": [
+        20061,
+        20061,
+        20061
+      ],
+      "patches_returned": [
+        20057,
+        20057,
+        20057
+      ]
+    },
+    {
+      "pass": "3:declutter",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.1897509,
+        "p95": 0.222429,
+        "min": 0.1856938,
+        "max": 0.222429
+      },
+      "next_calls": [
+        12691,
+        12691,
+        12691
+      ],
+      "patches_returned": [
+        12687,
+        12687,
+        12687
+      ]
+    },
+    {
+      "pass": "4:PushSplitDown",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.1947948,
+        "p95": 0.2778716,
+        "min": 0.1925859,
+        "max": 0.2778716
+      },
+      "next_calls": [
+        6,
+        6,
+        6
+      ],
+      "patches_returned": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "pass": "5:fuse",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.0442739,
+        "p95": 0.0459776,
+        "min": 0.0384236,
+        "max": 0.0459776
+      },
+      "next_calls": [
+        1086,
+        1086,
+        1086
+      ],
+      "patches_returned": [
+        1081,
+        1081,
+        1081
+      ]
+    }
+  ],
+  "forwards": 9,
+  "max_probability_error": 4.9173831939697266e-06,
+  "process_peak_working_set_bytes": {
+    "n": 6,
+    "median": 3276427264,
+    "p95": 3276980224,
+    "min": 3276042240,
+    "max": 3276980224
+  },
+  "paired_profile_minus_control_seconds": [
+    -0.41576450000000165,
+    -0.6260679000000025,
+    0.6974688000000029
+  ],
+  "driver_regions": [
+    {
+      "region": "compact",
+      "calls": [
+        676,
+        676,
+        676
+      ],
+      "inclusive_seconds": {
+        "n": 3,
+        "median": 0.6249811,
+        "p95": 0.6290133,
+        "min": 0.5645219,
+        "max": 0.6290133
+      },
+      "exclusive_seconds": {
+        "n": 3,
+        "median": 0.6249811,
+        "p95": 0.6290133,
+        "min": 0.5645219,
+        "max": 0.6290133
+      }
+    },
+    {
+      "region": "duplicate_search",
+      "calls": [
+        39045,
+        39045,
+        39045
+      ],
+      "inclusive_seconds": {
+        "n": 3,
+        "median": 29.9259616,
+        "p95": 31.0317601,
+        "min": 29.7618576,
+        "max": 31.0317601
+      },
+      "exclusive_seconds": {
+        "n": 3,
+        "median": 29.9259616,
+        "p95": 31.0317601,
+        "min": 29.7618576,
+        "max": 31.0317601
+      }
+    },
+    {
+      "region": "garbage_removal",
+      "calls": [
+        34290,
+        34290,
+        34290
+      ],
+      "inclusive_seconds": {
+        "n": 3,
+        "median": 0.1947998,
+        "p95": 0.1989787,
+        "min": 0.1855976,
+        "max": 0.1989787
+      },
+      "exclusive_seconds": {
+        "n": 3,
+        "median": 0.1947998,
+        "p95": 0.1989787,
+        "min": 0.1855976,
+        "max": 0.1989787
+      }
+    },
+    {
+      "region": "node_rename",
+      "calls": [
+        34290,
+        34290,
+        34290
+      ],
+      "inclusive_seconds": {
+        "n": 3,
+        "median": 9.7647653,
+        "p95": 9.7857402,
+        "min": 9.6346256,
+        "max": 9.7857402
+      },
+      "exclusive_seconds": {
+        "n": 3,
+        "median": 9.7647653,
+        "p95": 9.7857402,
+        "min": 9.6346256,
+        "max": 9.7857402
+      }
+    },
+    {
+      "region": "patch_apply",
+      "calls": [
+        34290,
+        34290,
+        34290
+      ],
+      "inclusive_seconds": {
+        "n": 3,
+        "median": 40.0792678,
+        "p95": 41.3467769,
+        "min": 40.0510706,
+        "max": 41.3467769
+      },
+      "exclusive_seconds": {
+        "n": 3,
+        "median": 0.3302979,
+        "p95": 0.333083,
+        "min": 0.3296479,
+        "max": 0.333083
+      }
+    }
+  ]
+}

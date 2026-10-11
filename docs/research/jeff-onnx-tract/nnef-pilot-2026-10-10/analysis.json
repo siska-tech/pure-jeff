@@ -1,0 +1,107 @@
+{
+  "preregistration_sha256": "d2e24c320aabc262ee42a7a39b76ffab151a2a7046675cb9011d8dacad1194e3",
+  "units": "seconds",
+  "cold_process_seconds": {
+    "n": 5,
+    "median": 61.8250864,
+    "p95": 62.1243866,
+    "min": 60.5938292,
+    "max": 62.1243866
+  },
+  "cold_peak_working_set_bytes": {
+    "n": 5,
+    "median": 3276148736,
+    "p95": 3276800000,
+    "min": 3275702272,
+    "max": 3276800000
+  },
+  "resident_peak_working_set_bytes": 3276083200,
+  "warm": [
+    {
+      "case": "candidate-request",
+      "compute_and_softmax_seconds": {
+        "n": 5,
+        "median": 11.8251037,
+        "p95": 12.6739629,
+        "min": 11.7036574,
+        "max": 12.6739629
+      }
+    },
+    {
+      "case": "reversed",
+      "compute_and_softmax_seconds": {
+        "n": 5,
+        "median": 12.2307109,
+        "p95": 12.3075151,
+        "min": 11.5589518,
+        "max": 12.3075151
+      }
+    },
+    {
+      "case": "asr-unicode",
+      "compute_and_softmax_seconds": {
+        "n": 5,
+        "median": 11.8966299,
+        "p95": 12.3136899,
+        "min": 11.4327058,
+        "max": 12.3136899
+      }
+    },
+    {
+      "case": "special-token-text",
+      "compute_and_softmax_seconds": {
+        "n": 5,
+        "median": 12.2230701,
+        "p95": 12.8924495,
+        "min": 11.8595752,
+        "max": 12.8924495
+      }
+    }
+  ],
+  "max_probability_error": 4.9173831939697266e-06,
+  "cold_seconds": {
+    "load": {
+      "n": 5,
+      "median": 8.6336097,
+      "p95": 8.7253639,
+      "min": 8.4719286,
+      "max": 8.7253639
+    },
+    "type": {
+      "n": 5,
+      "median": 0.0,
+      "p95": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "optimize": {
+      "n": 5,
+      "median": 40.4084884,
+      "p95": 41.7173177,
+      "min": 39.9893219,
+      "max": 41.7173177
+    },
+    "plan": {
+      "n": 5,
+      "median": 0.4402342,
+      "p95": 0.4464456,
+      "min": 0.4300397,
+      "max": 0.4464456
+    },
+    "startup": {
+      "n": 5,
+      "median": 49.5041312,
+      "p95": 50.6642021,
+      "min": 49.1864518,
+      "max": 50.6642021
+    }
+  },
+  "numerical_forwards": 30,
+  "counted_forwards": 25,
+  "excluded_warmups": 5,
+  "guard_failures": 0,
+  "runtime_failures": 0,
+  "pack_peak_working_set_gib": 5.742832183837891,
+  "cold_peak_working_set_gib": 3.0517578125,
+  "resident_peak_working_set_gib": 3.0510902404785156
+}

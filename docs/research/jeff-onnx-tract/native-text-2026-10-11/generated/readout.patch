@@ -1,0 +1,14 @@
+--- original
++++ generated
+@@ -0,0 +1 @@
++use crate::weights::Weights;
+@@ -2,2 +3 @@
+-use candle_core::{safetensors::MmapedSafetensors, DType, Device, Tensor};
+-use std::path::Path;
++use candle_core::{DType, Device, Tensor};
+@@ -5 +5 @@
+-    root: &Path,
++    weights: &Weights,
+@@ -14,2 +13,0 @@
+-    // SAFETY: caller verified the bundle and keeps its files immutable during inference.
+-    let weights = unsafe { MmapedSafetensors::new(root.join("readout.safetensors"))? };

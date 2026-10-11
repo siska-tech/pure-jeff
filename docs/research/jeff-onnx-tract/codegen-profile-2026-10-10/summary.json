@@ -1,0 +1,163 @@
+{
+  "units": "seconds",
+  "blocks": 3,
+  "formal_slo_acceptance": false,
+  "preregistration_sha256": "0c3884544681c6092b949d904c3337624b36eb059c9347ea78a210d3cc89173f",
+  "control_codegen_seconds": {
+    "n": 3,
+    "median": 41.6085358,
+    "p95": 42.3125183,
+    "min": 40.6225357,
+    "max": 42.3125183
+  },
+  "profile_codegen_seconds": {
+    "n": 3,
+    "median": 42.3705251,
+    "p95": 43.2729868,
+    "min": 40.2245614,
+    "max": 43.2729868
+  },
+  "driver_and_instrumentation_seconds": {
+    "n": 3,
+    "median": 40.5505966,
+    "p95": 41.3307081,
+    "min": 38.4461341,
+    "max": 41.3307081
+  },
+  "passes": [
+    {
+      "pass": "0:PropConst(0)",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.6588671,
+        "p95": 0.7864506,
+        "min": 0.6363551,
+        "max": 0.7864506
+      },
+      "next_calls": [
+        414,
+        414,
+        414
+      ],
+      "patches_returned": [
+        409,
+        409,
+        409
+      ]
+    },
+    {
+      "pass": "1:MergeConsecutiveSameRoleAxes",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.0132775,
+        "p95": 0.0185635,
+        "min": 0.0130394,
+        "max": 0.0185635
+      },
+      "next_calls": [
+        3,
+        3,
+        3
+      ],
+      "patches_returned": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "pass": "2:codegen",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.7110923,
+        "p95": 0.7139778,
+        "min": 0.6900828,
+        "max": 0.7139778
+      },
+      "next_calls": [
+        20061,
+        20061,
+        20061
+      ],
+      "patches_returned": [
+        20057,
+        20057,
+        20057
+      ]
+    },
+    {
+      "pass": "3:declutter",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.184759,
+        "p95": 0.1857557,
+        "min": 0.1796753,
+        "max": 0.1857557
+      },
+      "next_calls": [
+        12691,
+        12691,
+        12691
+      ],
+      "patches_returned": [
+        12687,
+        12687,
+        12687
+      ]
+    },
+    {
+      "pass": "4:PushSplitDown",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.2060937,
+        "p95": 0.2176655,
+        "min": 0.1996642,
+        "max": 0.2176655
+      },
+      "next_calls": [
+        6,
+        6,
+        6
+      ],
+      "patches_returned": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "pass": "5:fuse",
+      "callback_seconds": {
+        "n": 3,
+        "median": 0.0416092,
+        "p95": 0.0440969,
+        "min": 0.0396089,
+        "max": 0.0440969
+      },
+      "next_calls": [
+        1086,
+        1086,
+        1086
+      ],
+      "patches_returned": [
+        1081,
+        1081,
+        1081
+      ]
+    }
+  ],
+  "forwards": 9,
+  "max_probability_error": 4.9173831939697266e-06,
+  "process_peak_working_set_bytes": {
+    "n": 6,
+    "median": 3276124160,
+    "p95": 3276566528,
+    "min": 3275812864,
+    "max": 3276566528
+  },
+  "paired_profile_minus_control_seconds": [
+    0.05805499999999597,
+    2.6505018000000007,
+    -1.3839208999999997
+  ]
+}

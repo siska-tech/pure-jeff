@@ -1,0 +1,6 @@
+{
+  "status": "unavailable",
+  "exception_type": "Microsoft.Management.Infrastructure.CimException",
+  "message": "アクセスは拒否されました ",
+  "category": "PermissionDenied"
+}

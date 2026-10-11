@@ -1,0 +1,71 @@
+--- full-cache-weights
++++ text-cache-weights
+@@ -3,0 +4,20 @@
++#[path = "text_inventory.rs"]
++mod text_inventory;
++
++fn text_weight_names(mut names: Vec<String>) -> Result<Vec<String>> {
++    names.sort();
++    if names == ["weight"] {
++        return Ok(names); // Separate, verified Decision Head file.
++    }
++    if !names
++        .iter()
++        .map(String::as_str)
++        .eq(text_inventory::ALL_NAMES.iter().copied())
++    {
++        candle_core::bail!("checkpoint tensor inventory differs from pinned full model")
++    }
++    Ok(text_inventory::TEXT_NAMES
++        .iter()
++        .map(|name| (*name).to_owned())
++        .collect())
++}
+@@ -19,2 +39,2 @@
+-        let mut names: Vec<_> = mapped.tensors().into_iter().map(|(name, _)| name).collect();
+-        names.sort();
++        let names =
++            text_weight_names(mapped.tensors().into_iter().map(|(name, _)| name).collect())?;
+@@ -85,0 +106,42 @@
++
++#[cfg(test)]
++mod selection_tests {
++    use super::*;
++    fn complete() -> Vec<String> {
++        text_inventory::ALL_NAMES
++            .iter()
++            .rev()
++            .map(|s| (*s).to_owned())
++            .collect()
++    }
++    #[test]
++    fn selects_exact_text_inventory_from_unordered_full_model() -> Result<()> {
++        let selected = text_weight_names(complete())?;
++        assert_eq!(selected.len(), 320);
++        assert!(selected.iter().all(|s| s.starts_with("language_model.")));
++        assert!(selected
++            .iter()
++            .map(String::as_str)
++            .eq(text_inventory::TEXT_NAMES.iter().copied()));
++        Ok(())
++    }
++    #[test]
++    fn rejects_missing_duplicate_and_unexpected_model_names() {
++        let mut missing = complete();
++        missing.pop();
++        assert!(text_weight_names(missing).is_err());
++        let mut duplicate = complete();
++        duplicate.push(duplicate[0].clone());
++        assert!(text_weight_names(duplicate).is_err());
++        let mut unexpected = complete();
++        unexpected[0] = "unexpected.weight".into();
++        assert!(text_weight_names(unexpected).is_err());
++    }
++    #[test]
++    fn preserves_head_and_rejects_ambiguous_file() -> Result<()> {
++        assert_eq!(text_weight_names(vec!["weight".into()])?, vec!["weight"]);
++        assert!(text_weight_names(vec!["weight".into(), "extra".into()]).is_err());
++        assert!(text_weight_names(vec![]).is_err());
++        Ok(())
++    }
++}

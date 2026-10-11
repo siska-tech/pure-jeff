@@ -1,0 +1,24 @@
+{
+  "schema_version": "kaze_judge.tract_probe.v1",
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "executable_sha256": "734ed22eeae2d04d489b7dd22aa2815900f39128b2e3897074a15b9ae7d45a6f",
+  "harness_sha256": "232ecd9b7fc3bd82da273fb42e3d313bc337b19eb85cc975a37a59b04c77bb1e",
+  "tract_revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\target\\release\\kaze_judge_tract_probe.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\onnx-current-step1113-v2\\model.normalized.onnx",
+    "optimize"
+  ],
+  "timeout_seconds": 180,
+  "performance_benchmark": false,
+  "probe_cargo_lock_sha256": "7cff0b8860189fc4ad585740d4c6fa9a392f1a41bdc2cbb454eb20bfa1afc8fc",
+  "tract_data_patch": {
+    "tensor_rs_sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1",
+    "upstream_manifest_sha256": "e4e18839b49b6bb6e107ec50d4dbe2a7e3fae4b6fa33ebfb2b8f75d6425eafd1"
+  },
+  "exit_code": 1,
+  "timed_out": false,
+  "stdout": "",
+  "stderr": "{\"elapsed_seconds\":2.2e-6,\"stage\":\"load_started\"}\n{\"elapsed_seconds\":2.7494016,\"stage\":\"imported\"}\n{\"elapsed_seconds\":6.12897,\"stage\":\"typed\"}\n{\"error\":\"running pass ChangeAxes: Making patch for AxisChange { outlet: 45/0>, op: Reshape(2, [8,64], [512]) } from #45 \\\"node_view_9.0\\\" Reshape: Propagating AxisChange { outlet: 45/0>, op: Reshape(2, [8,64], [512]) } to node #47 \\\"node_cumsum\\\" Scan: Attemping to run change through scan body: Propagating AxisChange { outlet: 0/0>, op: Reshape(2, [8,64], [512]) } to node #0 \\\"scan_input\\\" Source: Incompatible reshape for shape [Val(1), Val(16), Val(8), Val(1)] and Reshape(2, [8,64], [512])\",\"status\":\"failed\"}\n",
+  "elapsed_seconds": 43.59400000004098
+}

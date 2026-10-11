@@ -1,0 +1,174 @@
+{
+  "run_id": "resident-1-8",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-threads-target\\release\\native_retained_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\native-threads-20261011\\resident-1-8.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 39389009000,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4591468544,
+  "memory_samples": 3733,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "threads": 8,
+  "events": [
+    {
+      "backend": "native",
+      "cached_bytes": 3009572096,
+      "cached_tensors": 320,
+      "candle_env_threads": "8",
+      "event": "initialized",
+      "expected_barrier_aux_workers": 7,
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "manifest_cpu_threads": 1,
+      "mmap_ns": 509400,
+      "rayon_pool_threads": 8,
+      "requested_threads": 8,
+      "retained_f32": true,
+      "retention_load_ns": 1488374800,
+      "startup_ns": 3553931600,
+      "threads": 8,
+      "tokenizer_load_ns": 832975800,
+      "verify_ns": 1204739200
+    },
+    {
+      "backbone_ns": 7137377800,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 117700,
+      "iteration": 0,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 7800,
+      "probabilities": [
+        0.6114299893379211,
+        0.38856998085975647
+      ],
+      "request_ns": 7138276000,
+      "tokenize_ns": 748900,
+      "warmup": true,
+      "probability_max_abs_error": 4.76837158203125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 4.76837158203125e-07,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7137495500
+    },
+    {
+      "backbone_ns": 7170457000,
+      "case": "synthetic-ocr-ja-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 111200,
+      "iteration": 1,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1200,
+      "probabilities": [
+        0.9305991530418396,
+        0.06940080970525742
+      ],
+      "request_ns": 7171347800,
+      "tokenize_ns": 760700,
+      "warmup": false,
+      "probability_max_abs_error": 4.3958425521850586e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 1.7881393432617188e-07,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7170568200
+    },
+    {
+      "backbone_ns": 7174832800,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 88200,
+      "iteration": 2,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 700,
+      "probabilities": [
+        0.6114299893379211,
+        0.38856998085975647
+      ],
+      "request_ns": 7175811300,
+      "tokenize_ns": 873100,
+      "warmup": false,
+      "probability_max_abs_error": 4.76837158203125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 4.76837158203125e-07,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7174921000
+    },
+    {
+      "backbone_ns": 7181556400,
+      "case": "synthetic-asr-mixed-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 77900,
+      "iteration": 3,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 800,
+      "probabilities": [
+        0.9364821314811707,
+        0.06351792067289352
+      ],
+      "request_ns": 7182856200,
+      "tokenize_ns": 1204200,
+      "warmup": false,
+      "probability_max_abs_error": 4.172325134277344e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 5.364418029785156e-07,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7181634300
+    },
+    {
+      "backbone_ns": 6945123800,
+      "case": "synthetic-ocr-ascii-3-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 117300,
+      "iteration": 4,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1100,
+      "probabilities": [
+        0.7541907429695129,
+        0.16195586323738098,
+        0.08385340869426727
+      ],
+      "request_ns": 6946140900,
+      "tokenize_ns": 882500,
+      "warmup": false,
+      "probability_max_abs_error": 1.341104507446289e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 4.76837158203125e-07,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6945241100
+    },
+    {
+      "event": "completed",
+      "total_ns": 39179306600
+    }
+  ]
+}

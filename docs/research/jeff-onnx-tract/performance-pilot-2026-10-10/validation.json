@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest tests::integer_dimensions_preserve_i64_bounds ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling kaze_judge_tract_probe v0.1.0 (C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.98s\n     Running unittests src\\bin\\bench.rs (runtime\\tract\\target\\debug\\deps\\bench-00742fb53df930b6.exe)\n     Running unittests src\\main.rs (runtime\\tract\\target\\debug\\deps\\kaze_judge_tract_probe-45eb5f54d8214418.exe)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "runtime/tract/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--offline",
+        "--release",
+        "--manifest-path",
+        "runtime/bench-native/Cargo.toml",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "    Finished `release` profile [optimized] target(s) in 0.18s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "runtime/bench-native/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "timing": "after all performance measurements"
+}

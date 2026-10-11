@@ -1,0 +1,2407 @@
+{
+  "checked_on": "2026-10-10",
+  "method": "Static protobuf inventory; no external weights loaded, no ONNX checker or Tract execution",
+  "onnx_repository_revision": "e42ca8299574aed4981d711d1c29ad66674ff4b1",
+  "graph_sha256": "4e38fcec2ed74ad6daebd345d8e10bff8bd4534cf428066c1f7f8ea847072a24",
+  "graph_bytes": 239145817,
+  "ir_version": 10,
+  "producer": "pytorch",
+  "producer_version": "2.14.0+cu130",
+  "opsets": [
+    {
+      "domain": "",
+      "version": 18
+    }
+  ],
+  "local_function_count": 0,
+  "graphs": 1,
+  "node_count": 113333,
+  "operators": [
+    {
+      "domain_op": "ai.onnx::Add",
+      "count": 551,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::And",
+      "count": 2,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/logic.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Cast",
+      "count": 24407,
+      "attributes": [
+        "to"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/cast.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::CastLike",
+      "count": 2617,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/cast.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Concat",
+      "count": 3757,
+      "attributes": [
+        "axis"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Constant",
+      "count": 34258,
+      "attributes": [
+        "value",
+        "value_float",
+        "value_ints"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Conv",
+      "count": 18,
+      "attributes": [
+        "auto_pad",
+        "dilations",
+        "group",
+        "kernel_shape",
+        "pads",
+        "strides"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Cos",
+      "count": 1,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::CumSum",
+      "count": 18,
+      "attributes": [
+        "exclusive",
+        "reverse"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/cumsum.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Div",
+      "count": 18,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Equal",
+      "count": 18,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/logic.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Exp",
+      "count": 108,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Expand",
+      "count": 2542,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Gather",
+      "count": 1154,
+      "attributes": [
+        "axis"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::GatherND",
+      "count": 1,
+      "attributes": [
+        "batch_dims"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Gemm",
+      "count": 1,
+      "attributes": [
+        "alpha",
+        "beta",
+        "transA",
+        "transB"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Greater",
+      "count": 18,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/logic.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Identity",
+      "count": 42,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::IsNaN",
+      "count": 6,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::LessOrEqual",
+      "count": 1,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/logic.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::MatMul",
+      "count": 3097,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Max",
+      "count": 1,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Mul",
+      "count": 702,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Neg",
+      "count": 1164,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Pad",
+      "count": 90,
+      "attributes": [
+        "mode"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Pow",
+      "count": 79,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Range",
+      "count": 188,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Reciprocal",
+      "count": 115,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::ReduceMean",
+      "count": 79,
+      "attributes": [
+        "keepdims",
+        "noop_with_empty_axes"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::ReduceSum",
+      "count": 36,
+      "attributes": [
+        "keepdims",
+        "noop_with_empty_axes"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Reshape",
+      "count": 24931,
+      "attributes": [
+        "allowzero"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::ScatterElements",
+      "count": 148,
+      "attributes": [
+        "axis",
+        "reduction"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::ScatterND",
+      "count": 148,
+      "attributes": [
+        "reduction"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::SequenceAt",
+      "count": 66,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": []
+    },
+    {
+      "domain_op": "ai.onnx::Shape",
+      "count": 2626,
+      "attributes": [
+        "end",
+        "start"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Sigmoid",
+      "count": 84,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Sin",
+      "count": 1,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Slice",
+      "count": 8250,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Softmax",
+      "count": 6,
+      "attributes": [
+        "axis"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Softplus",
+      "count": 18,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/nn/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::SplitToSequence",
+      "count": 24,
+      "attributes": [
+        "axis",
+        "keepdims"
+      ],
+      "tract_0_23_8_explicit_registration": []
+    },
+    {
+      "domain_op": "ai.onnx::Sqrt",
+      "count": 127,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Squeeze",
+      "count": 19,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Sub",
+      "count": 180,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/math.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Transpose",
+      "count": 537,
+      "attributes": [
+        "perm"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Trilu",
+      "count": 36,
+      "attributes": [
+        "upper"
+      ],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Unsqueeze",
+      "count": 995,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/array/mod.rs"
+      ]
+    },
+    {
+      "domain_op": "ai.onnx::Where",
+      "count": 48,
+      "attributes": [],
+      "tract_0_23_8_explicit_registration": [
+        "onnx/src/ops/logic.rs"
+      ]
+    }
+  ],
+  "output_reachable_node_count": 113333,
+  "sequence_nodes": [
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes",
+      "inputs": [
+        "transpose_2",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0",
+      "inputs": [
+        "split_with_sizes",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_2",
+      "inputs": [
+        "split_with_sizes",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_1"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_3",
+      "inputs": [
+        "split_with_sizes",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_2"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_1",
+      "inputs": [
+        "transpose_21",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_1"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_5",
+      "inputs": [
+        "split_with_sizes_1",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_3"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_6",
+      "inputs": [
+        "split_with_sizes_1",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_4"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_7",
+      "inputs": [
+        "split_with_sizes_1",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_5"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_2",
+      "inputs": [
+        "transpose_40",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_2"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_9",
+      "inputs": [
+        "split_with_sizes_2",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_6"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_10",
+      "inputs": [
+        "split_with_sizes_2",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_7"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_11",
+      "inputs": [
+        "split_with_sizes_2",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_8"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split",
+      "inputs": [
+        "view_46",
+        "val_15146"
+      ],
+      "outputs": [
+        "split"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_13",
+      "inputs": [
+        "split",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_9"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_14",
+      "inputs": [
+        "split",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_10"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_3",
+      "inputs": [
+        "transpose_63",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_3"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_15",
+      "inputs": [
+        "split_with_sizes_3",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_11"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_16",
+      "inputs": [
+        "split_with_sizes_3",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_12"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_17",
+      "inputs": [
+        "split_with_sizes_3",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_13"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_4",
+      "inputs": [
+        "transpose_82",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_4"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_19",
+      "inputs": [
+        "split_with_sizes_4",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_14"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_20",
+      "inputs": [
+        "split_with_sizes_4",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_15"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_21",
+      "inputs": [
+        "split_with_sizes_4",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_16"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_5",
+      "inputs": [
+        "transpose_101",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_5"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_23",
+      "inputs": [
+        "split_with_sizes_5",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_17"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_24",
+      "inputs": [
+        "split_with_sizes_5",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_18"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_25",
+      "inputs": [
+        "split_with_sizes_5",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_19"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_1",
+      "inputs": [
+        "view_96",
+        "val_15146"
+      ],
+      "outputs": [
+        "split_1"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_27",
+      "inputs": [
+        "split_1",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_20"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_28",
+      "inputs": [
+        "split_1",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_21"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_6",
+      "inputs": [
+        "transpose_124",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_6"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_29",
+      "inputs": [
+        "split_with_sizes_6",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_22"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_30",
+      "inputs": [
+        "split_with_sizes_6",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_23"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_31",
+      "inputs": [
+        "split_with_sizes_6",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_24"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_7",
+      "inputs": [
+        "transpose_143",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_7"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_33",
+      "inputs": [
+        "split_with_sizes_7",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_25"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_34",
+      "inputs": [
+        "split_with_sizes_7",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_26"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_35",
+      "inputs": [
+        "split_with_sizes_7",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_27"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_8",
+      "inputs": [
+        "transpose_162",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_8"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_37",
+      "inputs": [
+        "split_with_sizes_8",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_28"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_38",
+      "inputs": [
+        "split_with_sizes_8",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_29"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_39",
+      "inputs": [
+        "split_with_sizes_8",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_30"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_2",
+      "inputs": [
+        "view_146",
+        "val_15146"
+      ],
+      "outputs": [
+        "split_2"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_41",
+      "inputs": [
+        "split_2",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_31"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_42",
+      "inputs": [
+        "split_2",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_32"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_9",
+      "inputs": [
+        "transpose_185",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_9"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_43",
+      "inputs": [
+        "split_with_sizes_9",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_33"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_44",
+      "inputs": [
+        "split_with_sizes_9",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_34"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_45",
+      "inputs": [
+        "split_with_sizes_9",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_35"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_10",
+      "inputs": [
+        "transpose_204",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_10"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_47",
+      "inputs": [
+        "split_with_sizes_10",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_36"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_48",
+      "inputs": [
+        "split_with_sizes_10",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_37"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_49",
+      "inputs": [
+        "split_with_sizes_10",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_38"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_11",
+      "inputs": [
+        "transpose_223",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_11"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_51",
+      "inputs": [
+        "split_with_sizes_11",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_39"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_52",
+      "inputs": [
+        "split_with_sizes_11",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_40"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_53",
+      "inputs": [
+        "split_with_sizes_11",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_41"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_3",
+      "inputs": [
+        "view_196",
+        "val_15146"
+      ],
+      "outputs": [
+        "split_3"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_55",
+      "inputs": [
+        "split_3",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_42"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_56",
+      "inputs": [
+        "split_3",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_43"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_12",
+      "inputs": [
+        "transpose_246",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_12"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_57",
+      "inputs": [
+        "split_with_sizes_12",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_44"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_58",
+      "inputs": [
+        "split_with_sizes_12",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_45"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_59",
+      "inputs": [
+        "split_with_sizes_12",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_46"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_13",
+      "inputs": [
+        "transpose_265",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_13"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_61",
+      "inputs": [
+        "split_with_sizes_13",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_47"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_62",
+      "inputs": [
+        "split_with_sizes_13",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_48"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_63",
+      "inputs": [
+        "split_with_sizes_13",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_49"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_14",
+      "inputs": [
+        "transpose_284",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_14"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_65",
+      "inputs": [
+        "split_with_sizes_14",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_50"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_66",
+      "inputs": [
+        "split_with_sizes_14",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_51"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_67",
+      "inputs": [
+        "split_with_sizes_14",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_52"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_4",
+      "inputs": [
+        "view_246",
+        "val_15146"
+      ],
+      "outputs": [
+        "split_4"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_69",
+      "inputs": [
+        "split_4",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_53"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_70",
+      "inputs": [
+        "split_4",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_54"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_15",
+      "inputs": [
+        "transpose_307",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_15"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_71",
+      "inputs": [
+        "split_with_sizes_15",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_55"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_72",
+      "inputs": [
+        "split_with_sizes_15",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_56"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_73",
+      "inputs": [
+        "split_with_sizes_15",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_57"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_16",
+      "inputs": [
+        "transpose_326",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_16"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_75",
+      "inputs": [
+        "split_with_sizes_16",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_58"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_76",
+      "inputs": [
+        "split_with_sizes_16",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_59"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_77",
+      "inputs": [
+        "split_with_sizes_16",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_60"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_with_sizes_17",
+      "inputs": [
+        "transpose_345",
+        "val_317"
+      ],
+      "outputs": [
+        "split_with_sizes_17"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_317": [
+          2048,
+          2048,
+          2048
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_79",
+      "inputs": [
+        "split_with_sizes_17",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_61"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_80",
+      "inputs": [
+        "split_with_sizes_17",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_62"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_81",
+      "inputs": [
+        "split_with_sizes_17",
+        "val_113"
+      ],
+      "outputs": [
+        "getitem_63"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_113": [
+          2
+        ]
+      }
+    },
+    {
+      "op": "SplitToSequence",
+      "name": "node_split_5",
+      "inputs": [
+        "view_296",
+        "val_15146"
+      ],
+      "outputs": [
+        "split_5"
+      ],
+      "attributes": {
+        "keepdims": 1,
+        "axis": -1
+      },
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_15146": [
+          256
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_83",
+      "inputs": [
+        "split_5",
+        "val_8"
+      ],
+      "outputs": [
+        "getitem_64"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_8": [
+          0
+        ]
+      }
+    },
+    {
+      "op": "SequenceAt",
+      "name": "n0_84",
+      "inputs": [
+        "split_5",
+        "val_2"
+      ],
+      "outputs": [
+        "getitem_65"
+      ],
+      "attributes": {},
+      "reaches_output": true,
+      "constant_inputs": {
+        "val_2": [
+          1
+        ]
+      }
+    }
+  ],
+  "final_nodes": [
+    {
+      "op": "Reshape",
+      "name": "node_Reshape_90669",
+      "inputs": [
+        "val_90667",
+        "val_90668"
+      ],
+      "outputs": [
+        "val_90669"
+      ],
+      "attributes": {
+        "allowzero": 0
+      }
+    },
+    {
+      "op": "Constant",
+      "name": "node_Constant_90670",
+      "inputs": [],
+      "outputs": [
+        "val_90670"
+      ],
+      "attributes": {}
+    },
+    {
+      "op": "Slice",
+      "name": "node_slice_8560",
+      "inputs": [
+        "type_as_60",
+        "val_90663",
+        "val_90666",
+        "val_90669",
+        "val_90670"
+      ],
+      "outputs": [
+        "slice_8560"
+      ],
+      "attributes": {}
+    },
+    {
+      "op": "Gather",
+      "name": "node_select_1321",
+      "inputs": [
+        "slice_8560",
+        "val_396"
+      ],
+      "outputs": [
+        "select_1321"
+      ],
+      "attributes": {
+        "axis": 1
+      }
+    },
+    {
+      "op": "Gemm",
+      "name": "node_linear_186",
+      "inputs": [
+        "select_1321",
+        "readout.weight"
+      ],
+      "outputs": [
+        "logits"
+      ],
+      "attributes": {
+        "transB": 1,
+        "transA": 0
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "input_ids",
+      "elem_type": 7,
+      "shape": [
+        "batch",
+        512
+      ]
+    },
+    {
+      "name": "attention_mask",
+      "elem_type": 7,
+      "shape": [
+        "batch",
+        512
+      ]
+    },
+    {
+      "name": "mm_token_type_ids",
+      "elem_type": 7,
+      "shape": [
+        "batch",
+        512
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "logits",
+      "elem_type": 1,
+      "shape": [
+        "batch",
+        255
+      ]
+    }
+  ],
+  "initializer_dtype_counts": {
+    "1": 322
+  },
+  "initializer_inline_raw_bytes": 2432,
+  "external_locations": {
+    "model.onnx.data": 285
+  },
+  "external_tensor_count": 285,
+  "external_declared_bytes_sum": 3010614272,
+  "external_max_end": 3010658304,
+  "external_samples": [
+    {
+      "name": "backbone.language_model.embed_tokens.weight",
+      "dims": [
+        248320,
+        1024
+      ],
+      "dtype": 1,
+      "location": "model.onnx.data",
+      "offset": "1993539584",
+      "length": "1017118720"
+    },
+    {
+      "name": "backbone.language_model.layers.0.linear_attn.conv1d.weight",
+      "dims": [
+        6144,
+        1,
+        4
+      ],
+      "dtype": 1,
+      "location": "model.onnx.data",
+      "offset": "2581504",
+      "length": "98304"
+    },
+    {
+      "name": "backbone.language_model.layers.0.linear_attn.norm.weight",
+      "dims": [
+        128
+      ],
+      "dtype": 1,
+      "location": "model.onnx.data",
+      "offset": "0",
+      "length": "512"
+    },
+    {
+      "name": "readout.weight",
+      "dims": [
+        255,
+        1024
+      ],
+      "dtype": 1,
+      "location": "model.onnx.data",
+      "offset": "4350976",
+      "length": "1044480"
+    }
+  ],
+  "tract_source_revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "registry_warning": "Registration by name is not proof of dtype/shape/attribute/opset compatibility. Sources read via git show of official release commit, not local working tree/cache.",
+  "node_samples": [
+    {
+      "op": "Shape",
+      "name": "node_Shape_1",
+      "attributes": [
+        "end",
+        "start"
+      ]
+    },
+    {
+      "op": "Squeeze",
+      "name": "node_sym_size_int_1532",
+      "attributes": []
+    },
+    {
+      "op": "Constant",
+      "name": "node_Constant_2",
+      "attributes": [
+        "value"
+      ]
+    },
+    {
+      "op": "Gather",
+      "name": "node_embedding",
+      "attributes": [
+        "axis"
+      ]
+    },
+    {
+      "op": "Constant",
+      "name": "node_Constant_3",
+      "attributes": [
+        "value"
+      ]
+    },
+    {
+      "op": "ScatterND",
+      "name": "node_ScatterND_144",
+      "attributes": [
+        "reduction"
+      ]
+    },
+    {
+      "op": "Trilu",
+      "name": "node_triu",
+      "attributes": [
+        "upper"
+      ]
+    },
+    {
+      "op": "CumSum",
+      "name": "node_cumsum",
+      "attributes": [
+        "reverse",
+        "exclusive"
+      ]
+    }
+  ]
+}

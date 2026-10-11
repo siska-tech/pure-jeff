@@ -1,0 +1,7 @@
+[
+  {
+    "path": "smoke/tests.log",
+    "original_sha256": "dd5ed8ad4293f6b107f920e49e16214acedf6d268016a20292a3b88c9a2cd57c",
+    "change": "archive whitespace/CRLF only; ignored original retained"
+  }
+]

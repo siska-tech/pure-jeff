@@ -1,0 +1,22 @@
+{
+  "independent_raw_numeric_schedule_pool_cache_affinity_resource_reference_repeat_summary_audit": true,
+  "request_diagnostic_fields_absent": true,
+  "processes": 8,
+  "forwards": 84,
+  "cases": 28,
+  "resident_requests_per_process": 14,
+  "unchanged_compute_source": [
+    "backbone.rs",
+    "weights.rs",
+    "readout.rs",
+    "threads.rs"
+  ],
+  "generated_files_reproduced": 16,
+  "dependency_features_identical_packages": 156,
+  "native_baseline_unchanged": 127,
+  "known_gitignore_difference_only": true,
+  "sibling_files_unchanged": 21,
+  "previous_archives_and_frozen_assets_unchanged": true,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false
+}

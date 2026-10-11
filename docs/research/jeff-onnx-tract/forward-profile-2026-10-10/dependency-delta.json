@@ -1,0 +1,134 @@
+{
+  "added_packages": [
+    {
+      "name": "crossbeam-deque",
+      "version": "0.8.8",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "622f3fc73690be383c7214310406f28a90e6edeadc3cea882f9d71e495b9711a",
+      "dependencies": [
+        "crossbeam-epoch",
+        "crossbeam-utils"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "license_texts": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ],
+      "manifest_sha256": "d000cd463fb12a575d291905e3e4d125382964542626839eb818ade1e26db9b4",
+      "crate_checksum_verified": true,
+      "build_script": {
+        "path": "build.rs",
+        "sha256": "c8c35fc536a2e6481549bc13979293cb51244cd9c72d4ed9e35c22a1d70fa9ae"
+      }
+    },
+    {
+      "name": "crossbeam-epoch",
+      "version": "0.9.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "dc74980687109a3b14c72fd458107bf0baa1da1a1a805e178d15501ba9b86d9d",
+      "dependencies": [
+        "crossbeam-utils"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "license_texts": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ],
+      "manifest_sha256": "630ac9711ae7d4844bd8b60929934e28c945c87a28eab65e320f940efb247805",
+      "crate_checksum_verified": true,
+      "build_script": {
+        "path": "build.rs",
+        "sha256": "c8c35fc536a2e6481549bc13979293cb51244cd9c72d4ed9e35c22a1d70fa9ae"
+      }
+    },
+    {
+      "name": "crossbeam-utils",
+      "version": "0.8.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "a31eee39dddec8330830986fcd7625edb5a24ec90ea038215273bbc3adb08ac6",
+      "license": "MIT OR Apache-2.0",
+      "license_texts": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ],
+      "manifest_sha256": "e7a383373c60dea49a5c0dd2558aebbdae26ba9b07878d4f8fa004a5538e2b80",
+      "crate_checksum_verified": true,
+      "build_script": {
+        "path": "build.rs",
+        "sha256": "79cc5363313f77ab76e2de4779e384c672a747fbcd4b96647a79286568714807"
+      }
+    },
+    {
+      "name": "rayon",
+      "version": "1.12.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "fb39b166781f92d482534ef4b4b1b2568f42613b53e5b6c160e24cfbfa30926d",
+      "dependencies": [
+        "either",
+        "rayon-core"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "license_texts": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+        }
+      ],
+      "manifest_sha256": "bcc6eda50025991d8db6ccaaad2e26477072a359762451a4e55a7e700ad0e42d",
+      "crate_checksum_verified": true,
+      "build_script": null
+    },
+    {
+      "name": "rayon-core",
+      "version": "1.13.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "22e18b0f0062d30d4230b2e85ff77fdfe4326feb054b9783a3460d8435c8ab91",
+      "dependencies": [
+        "crossbeam-deque",
+        "crossbeam-utils"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "license_texts": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+        }
+      ],
+      "manifest_sha256": "ab50ad4709436f6bda04e5345444f1197b1eda2bd3b49f9412c0cb318111b5a2",
+      "crate_checksum_verified": true,
+      "build_script": {
+        "path": "build.rs",
+        "sha256": "fa31cb198b772600d100a7c403ddedccef637d2e6b2da431fa7f02ca41307fc6"
+      }
+    }
+  ],
+  "removed_or_changed_versions": [],
+  "core_sources_identical_to_accepted_duplicate_removal": true,
+  "distribution_approved": false
+}

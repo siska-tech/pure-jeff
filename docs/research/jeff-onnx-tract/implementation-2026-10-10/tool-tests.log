@@ -1,0 +1,15 @@
+test_reject_dynamic_index (test_normalize_sequences.LoweringTests.test_reject_dynamic_index) ... ok
+test_reject_keepdims_zero (test_normalize_sequences.LoweringTests.test_reject_keepdims_zero) ... ok
+test_reject_other_consumer (test_normalize_sequences.LoweringTests.test_reject_other_consumer) ... ok
+test_reject_out_of_range (test_normalize_sequences.LoweringTests.test_reject_out_of_range) ... ok
+test_reject_unknown_extent (test_normalize_sequences.LoweringTests.test_reject_unknown_extent) ... ok
+test_scalar_partial_final_chunk (test_normalize_sequences.LoweringTests.test_scalar_partial_final_chunk) ... ok
+test_vector_repeated_and_negative_indices (test_normalize_sequences.LoweringTests.test_vector_repeated_and_negative_indices) ... ok
+test_preserve_known_shapes_and_bind_expressions (test_specialize_batch.BatchTests.test_preserve_known_shapes_and_bind_expressions) ... ok
+test_reject_unknown_expression (test_specialize_batch.BatchTests.test_reject_unknown_expression) ... ok
+test_lowered_sequence_forward (test_tract_probe.TractProbeTests.test_lowered_sequence_forward) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.117s
+
+OK

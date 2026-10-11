@@ -1,0 +1,18 @@
+{
+  "run_id": "cache-probe",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-cache-diagnostic-target\\release\\native_cache_diagnostic.exe",
+    "--cache-probe",
+    "0"
+  ],
+  "timeout_seconds": 30,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 116568700,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 5537792,
+  "memory_samples": 7,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

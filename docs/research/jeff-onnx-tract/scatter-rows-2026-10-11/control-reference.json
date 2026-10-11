@@ -1,0 +1,42 @@
+{
+  "date_utc": "2026-10-10T16:14:34.319264+00:00",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "control_executable_sha256": "1438670e7b190203903b683df60fdc1bfc55445133fc986e301d5b53dc3eadc4",
+  "candidate_executable_sha256": "aaf1a8b9118ec5b8b4eb63e785955cce5d049b45178594cf9d9cea067b36f007",
+  "generation_sha256": "86ff8e617d73524ff9df7c79858e1aa194c510639521a1acf821dd950fd5c66a",
+  "script_sha256": "648da1d1f0baeb87cb6b62a587ee468023f41b1ab72bf0fd9b995c01f6e0d09d",
+  "lock_sha256": "1983b55fb739c91ffd373cc3f46abf645fd0b2748bf26f950631089aa780c528",
+  "threads": 4,
+  "orders": [
+    [
+      "control",
+      "candidate"
+    ],
+    [
+      "candidate",
+      "control"
+    ],
+    [
+      "control",
+      "candidate"
+    ]
+  ],
+  "warmups_per_session": 1,
+  "samples_per_session": 3,
+  "sessions_per_binary": 3,
+  "profile_sessions_per_binary": 1,
+  "profile_warmups": 1,
+  "profile_samples": 3,
+  "acceptance": "raw logits exact; all three paired session medians improve; pooled median and p95 improve; no guard failure",
+  "scope": "candidate-request physical512; prepared tensors; process startup incidental n=3, not a cold campaign",
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8698961920,
+  "formal_slo_acceptance": false,
+  "limitations": [
+    "n=9 p95 is max; no confidence interval",
+    "thermal, affinity, background load and storage cache uncontrolled",
+    "profile sessions excluded from latency comparison",
+    "no Native or tokenizer/API E2E comparison"
+  ]
+}

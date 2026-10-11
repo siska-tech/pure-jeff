@@ -1,0 +1,22 @@
+{
+  "date_utc": "2026-10-10T21:44:04.551131+00:00",
+  "direct_worker_interpreter": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "worker_interpreter_sha256": "10d845f50a2af64e3500bb2fcb348b5bc98a75d8ddada63e45ba1da6a1fc79d1",
+  "memory_scope": "direct Python process executing ONNX Runtime; bypass Windows venv launcher",
+  "fixture_sha256": "9352d52722a066d2378e6e79e505d10ac7acb1671a721197ee01877cb379872d",
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "external_weights_sha256": "1b7c0e8a7b7902fe8631b9dec3a702858152f6693cdf5f501df1dfd710afb1a5",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "script_sha256": "2dd6f7c2c2f7a9d1a789970150a1df1622b902b591e0ccf38d58976a5e911264",
+  "probability_helper_sha256": "638e231997ad69f0b0338f662875d35440f9e87b7adb1057202cf61f2d7d6348",
+  "policy_helper_sha256": "a7f1ed0a8dac713a4ada6937811a694c99a254b690bbfaa07cd2589c030e22ad",
+  "cases": 28,
+  "threads": 1,
+  "optimization": "disabled",
+  "provider": "CPUExecutionProvider",
+  "performance_benchmark": false,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8652419072,
+  "quality_labels": false
+}

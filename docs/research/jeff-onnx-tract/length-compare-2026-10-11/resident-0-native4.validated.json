@@ -1,0 +1,695 @@
+{
+  "run_id": "resident-0-native4",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-threads-target\\release\\native_retained_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\length-compare-20261011\\resident-0-native4.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 128275154300,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4593188864,
+  "memory_samples": 12230,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "configuration": "native4",
+  "events": [
+    {
+      "backend": "native",
+      "cached_bytes": 3009572096,
+      "cached_tensors": 320,
+      "candle_env_threads": "4",
+      "event": "initialized",
+      "expected_barrier_aux_workers": 3,
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "manifest_cpu_threads": 1,
+      "mmap_ns": 611700,
+      "rayon_pool_threads": 4,
+      "requested_threads": 4,
+      "retained_f32": true,
+      "retention_load_ns": 1654744100,
+      "startup_ns": 4246759300,
+      "threads": 4,
+      "tokenizer_load_ns": 1029861500,
+      "verify_ns": 1531974600
+    },
+    {
+      "backbone_ns": 2033371100,
+      "case": "synthetic-asr-mixed-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 77200,
+      "iteration": 0,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 5800,
+      "probabilities": [
+        0.9151424765586853,
+        0.08485744148492813
+      ],
+      "request_ns": 2033911400,
+      "tokenize_ns": 436300,
+      "warmup": true,
+      "probability_max_abs_error": 5.364418029785156e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 2033448300
+    },
+    {
+      "backbone_ns": 3504406900,
+      "case": "synthetic-asr-mixed-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 78700,
+      "iteration": 1,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 600,
+      "probabilities": [
+        0.935905933380127,
+        0.06409408897161484
+      ],
+      "request_ns": 3505026100,
+      "tokenize_ns": 521600,
+      "warmup": true,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 3504485600
+    },
+    {
+      "backbone_ns": 5331384800,
+      "case": "synthetic-asr-mixed-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 70100,
+      "iteration": 2,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 700,
+      "probabilities": [
+        0.9408726692199707,
+        0.059127382934093475
+      ],
+      "request_ns": 5332200400,
+      "tokenize_ns": 729200,
+      "warmup": true,
+      "probability_max_abs_error": 5.364418029785156e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 5331454900
+    },
+    {
+      "backbone_ns": 7433734900,
+      "case": "synthetic-asr-mixed-2-511",
+      "effective_tokens": 511,
+      "event": "request",
+      "head_softmax_ns": 71900,
+      "iteration": 3,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 511,
+      "policy_ns": 700,
+      "probabilities": [
+        0.9364348649978638,
+        0.06356507539749146
+      ],
+      "request_ns": 7434671200,
+      "tokenize_ns": 848400,
+      "warmup": true,
+      "probability_max_abs_error": 1.7881393432617188e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7433806800
+    },
+    {
+      "backbone_ns": 7685131300,
+      "case": "synthetic-asr-mixed-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 121500,
+      "iteration": 4,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1300,
+      "probabilities": [
+        0.9364815950393677,
+        0.06351837515830994
+      ],
+      "request_ns": 7686044500,
+      "tokenize_ns": 771500,
+      "warmup": true,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7685252800
+    },
+    {
+      "backbone_ns": 7889733200,
+      "case": "synthetic-ocr-ascii-3-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 89200,
+      "iteration": 5,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.7541912198066711,
+        0.16195550560951233,
+        0.08385329693555832
+      ],
+      "request_ns": 7891139100,
+      "tokenize_ns": 1293100,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7889822400
+    },
+    {
+      "backbone_ns": 1885462300,
+      "case": "synthetic-ocr-ja-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 70100,
+      "iteration": 6,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.9537971615791321,
+        0.046202849596738815
+      ],
+      "request_ns": 1887391200,
+      "tokenize_ns": 1840600,
+      "warmup": false,
+      "probability_max_abs_error": 4.172325134277344e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 1885532400
+    },
+    {
+      "backbone_ns": 3540340200,
+      "case": "synthetic-ocr-ascii-3-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 74900,
+      "iteration": 7,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.7441466450691223,
+        0.1680215448141098,
+        0.08783175051212311
+      ],
+      "request_ns": 3540896800,
+      "tokenize_ns": 465400,
+      "warmup": false,
+      "probability_max_abs_error": 1.3262033462524414e-06,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 3540415100
+    },
+    {
+      "backbone_ns": 5221431700,
+      "case": "synthetic-asr-mixed-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 71000,
+      "iteration": 8,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.9408726692199707,
+        0.059127382934093475
+      ],
+      "request_ns": 5222178900,
+      "tokenize_ns": 659900,
+      "warmup": false,
+      "probability_max_abs_error": 5.364418029785156e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 5221502700
+    },
+    {
+      "backbone_ns": 2327098100,
+      "case": "synthetic-asr-unicode-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 71200,
+      "iteration": 9,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 700,
+      "probabilities": [
+        0.7030330300331116,
+        0.2969669699668884
+      ],
+      "request_ns": 2336785100,
+      "tokenize_ns": 9599600,
+      "warmup": false,
+      "probability_max_abs_error": 1.6093254089355469e-06,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 2327169300
+    },
+    {
+      "backbone_ns": 6695990700,
+      "case": "synthetic-ocr-ascii-3-511",
+      "effective_tokens": 511,
+      "event": "request",
+      "head_softmax_ns": 71100,
+      "iteration": 10,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 511,
+      "policy_ns": 900,
+      "probabilities": [
+        0.7521155476570129,
+        0.16352474689483643,
+        0.08435968309640884
+      ],
+      "request_ns": 6697484200,
+      "tokenize_ns": 1405600,
+      "warmup": false,
+      "probability_max_abs_error": 2.980232238769531e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6696061800
+    },
+    {
+      "backbone_ns": 7343500800,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 183900,
+      "iteration": 11,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 700,
+      "probabilities": [
+        0.6114295721054077,
+        0.3885704576969147
+      ],
+      "request_ns": 7344535400,
+      "tokenize_ns": 832600,
+      "warmup": false,
+      "probability_max_abs_error": 0.0,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 7343684700
+    },
+    {
+      "backbone_ns": 3386348300,
+      "case": "synthetic-asr-mixed-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 78700,
+      "iteration": 12,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.935905933380127,
+        0.06409408897161484
+      ],
+      "request_ns": 3386968100,
+      "tokenize_ns": 523400,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 3386427000
+    },
+    {
+      "backbone_ns": 3492797800,
+      "case": "synthetic-asr-unicode-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 66700,
+      "iteration": 13,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 400,
+      "probabilities": [
+        0.638359010219574,
+        0.3616410195827484
+      ],
+      "request_ns": 3493402500,
+      "tokenize_ns": 521400,
+      "warmup": false,
+      "probability_max_abs_error": 1.5497207641601562e-06,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 3492864500
+    },
+    {
+      "backbone_ns": 4851918400,
+      "case": "synthetic-ocr-ascii-3-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 88800,
+      "iteration": 14,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 900,
+      "probabilities": [
+        0.7630479335784912,
+        0.15358299016952515,
+        0.08336906135082245
+      ],
+      "request_ns": 4852697000,
+      "tokenize_ns": 673000,
+      "warmup": false,
+      "probability_max_abs_error": 6.034970283508301e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 4852007200
+    },
+    {
+      "backbone_ns": 5260341000,
+      "case": "synthetic-ocr-ja-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 69300,
+      "iteration": 15,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 600,
+      "probabilities": [
+        0.9363491535186768,
+        0.06365085393190384
+      ],
+      "request_ns": 5261113900,
+      "tokenize_ns": 685200,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 5260410300
+    },
+    {
+      "backbone_ns": 3660308500,
+      "case": "synthetic-ocr-ja-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 71000,
+      "iteration": 16,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 700,
+      "probabilities": [
+        0.9380379319190979,
+        0.06196201220154762
+      ],
+      "request_ns": 3660821900,
+      "tokenize_ns": 426900,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 3660379500
+    },
+    {
+      "backbone_ns": 6849770800,
+      "case": "synthetic-asr-mixed-2-511",
+      "effective_tokens": 511,
+      "event": "request",
+      "head_softmax_ns": 68200,
+      "iteration": 17,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 511,
+      "policy_ns": 800,
+      "probabilities": [
+        0.9364348649978638,
+        0.06356507539749146
+      ],
+      "request_ns": 6850603700,
+      "tokenize_ns": 749500,
+      "warmup": false,
+      "probability_max_abs_error": 1.7881393432617188e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6849839000
+    },
+    {
+      "backbone_ns": 4946027000,
+      "case": "synthetic-asr-unicode-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 66900,
+      "iteration": 18,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 600,
+      "probabilities": [
+        0.6337430477142334,
+        0.366256982088089
+      ],
+      "request_ns": 4946684000,
+      "tokenize_ns": 574700,
+      "warmup": false,
+      "probability_max_abs_error": 4.76837158203125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 4946093900
+    },
+    {
+      "backbone_ns": 6689290700,
+      "case": "synthetic-asr-unicode-2-511",
+      "effective_tokens": 511,
+      "event": "request",
+      "head_softmax_ns": 67200,
+      "iteration": 19,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 511,
+      "policy_ns": 500,
+      "probabilities": [
+        0.6101384162902832,
+        0.3898615837097168
+      ],
+      "request_ns": 6690109100,
+      "tokenize_ns": 736100,
+      "warmup": false,
+      "probability_max_abs_error": 1.6093254089355469e-06,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6689357900
+    },
+    {
+      "backbone_ns": 6464724800,
+      "case": "synthetic-ocr-ja-2-511",
+      "effective_tokens": 511,
+      "event": "request",
+      "head_softmax_ns": 74400,
+      "iteration": 20,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 511,
+      "policy_ns": 600,
+      "probabilities": [
+        0.9319660663604736,
+        0.06803388148546219
+      ],
+      "request_ns": 6465568000,
+      "tokenize_ns": 753500,
+      "warmup": false,
+      "probability_max_abs_error": 7.450580596923828e-09,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6464799200
+    },
+    {
+      "backbone_ns": 6891408100,
+      "case": "synthetic-ocr-ja-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 70900,
+      "iteration": 21,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 700,
+      "probabilities": [
+        0.9305989742279053,
+        0.06940098851919174
+      ],
+      "request_ns": 6892259400,
+      "tokenize_ns": 763900,
+      "warmup": false,
+      "probability_max_abs_error": 2.60770320892334e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6891479000
+    },
+    {
+      "backbone_ns": 1861384700,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 58900,
+      "iteration": 22,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 600,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 1861764300,
+      "tokenize_ns": 306100,
+      "warmup": false,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 1861443600
+    },
+    {
+      "backbone_ns": 6635251300,
+      "case": "synthetic-asr-mixed-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 72500,
+      "iteration": 23,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 700,
+      "probabilities": [
+        0.9364815950393677,
+        0.06351837515830994
+      ],
+      "request_ns": 6636000200,
+      "tokenize_ns": 662500,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6635323800
+    },
+    {
+      "backbone_ns": 1804776000,
+      "case": "synthetic-asr-mixed-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 83000,
+      "iteration": 24,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 900,
+      "probabilities": [
+        0.9151424765586853,
+        0.08485744148492813
+      ],
+      "request_ns": 1805190300,
+      "tokenize_ns": 312400,
+      "warmup": false,
+      "probability_max_abs_error": 5.364418029785156e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": null,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 1804859000
+    },
+    {
+      "event": "completed",
+      "total_ns": 127976606800
+    }
+  ]
+}

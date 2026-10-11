@@ -1,0 +1,13 @@
+{
+  "independent_raw_schedule_pool_cache_resource_probability_span_and_cpu_delta_audit": true,
+  "processes": 4,
+  "forwards": 60,
+  "all_onnx_probability_judgment_token_gates_passed": true,
+  "native_baseline_unchanged": 127,
+  "known_gitignore_difference_only": true,
+  "sibling_files_unchanged": 21,
+  "failed_length_archive_and_frozen_assets_unchanged": true,
+  "performance_acceptance": false,
+  "global_28_case_reacceptance": false,
+  "formal_slo_acceptance": false
+}

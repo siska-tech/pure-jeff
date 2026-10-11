@@ -1,0 +1,18 @@
+--- frozen-main.rs
++++ cache-fixed-main.rs
+@@ -2,0 +3 @@
++mod cache_diagnostic;
+@@ -29,0 +31,4 @@
++    if args[0] == "--cache-probe" {
++        emit(cache_diagnostic::initialize(args[1].parse()?)?)?;
++        return Ok(());
++    }
+@@ -33,0 +39,5 @@
++    let cache_diagnostic = cache_diagnostic::initialize(
++        job["cache_init_cpu"]
++            .as_u64()
++            .ok_or_else(|| anyhow::anyhow!("cache_init_cpu required"))? as usize,
++    )?;
+@@ -75 +85 @@
+-        json!({"event":"initialized","backend":"native","verify_ns":verify_ns,
++        json!({"event":"initialized","backend":"native","cache_diagnostic":cache_diagnostic,"verify_ns":verify_ns,

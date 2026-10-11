@@ -1,0 +1,18 @@
+[
+  {
+    "path": "runtime/onnx/profile_thread_followup.py",
+    "sha256": "1010a3cfce30ee2911aa3d73ff0c4b16cdd9c693a3cd46063f6cab40530def5f"
+  },
+  {
+    "path": "runtime/onnx/inspect_profile_graph.py",
+    "sha256": "53453f036c5f5f0f0161aaa59c37249bc5b48534fc053ab47ff57b3f92b8d8fd"
+  },
+  {
+    "path": "runtime/onnx/test_profile_graph.py",
+    "sha256": "4e2e872dee38deabfb61f0fdb9bcb216b8a39dcd1ceb4e98e5bbd3bcb718fad5"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  }
+]

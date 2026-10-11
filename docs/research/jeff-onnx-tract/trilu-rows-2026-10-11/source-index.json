@@ -1,0 +1,34 @@
+[
+  {
+    "path": "runtime/onnx/prepare_trilu_experiment.py",
+    "sha256": "58f95ab8471b220de677282a07393c3481d23844cd9cc99d87d51c7b827b7ff7"
+  },
+  {
+    "path": "runtime/onnx/prepare_forward_experiment.py",
+    "sha256": "a339e258ed4721121ccfc8a1a4f8143d3254de26ed4932e891659a48e93e7291"
+  },
+  {
+    "path": "runtime/onnx/benchmark_trilu.py",
+    "sha256": "648da1d1f0baeb87cb6b62a587ee468023f41b1ab72bf0fd9b995c01f6e0d09d"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/onnx/test_tract_trilu.py",
+    "sha256": "17795253710116702d9de8d4b27c0981084384f4cab056797e79b0157c1f81d0"
+  },
+  {
+    "path": "runtime/tract-driver-profile/trilu_rows.rs",
+    "sha256": "953069cbb1bbfb787873d980dcf2b52aa1720fc6aad11095363090714ae4fc5a"
+  },
+  {
+    "path": "runtime/tract-driver-profile/trilu_layout.rs",
+    "sha256": "8af457695b992c3950f125b221add849da1ca5403f80423deb2834e14c0cfa50"
+  },
+  {
+    "path": "runtime/tract-driver-profile/NOTICE.md",
+    "sha256": "b96c90d78829c1ee77154106379ecaf534ebcd31002375a186e845ff2b017ee4"
+  }
+]

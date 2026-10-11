@@ -1,0 +1,18 @@
+{
+  "run_id": "cold-4-nnef",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\target\\release\\bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\nnef-pilot-20261010\\jeff.decluttered.nnef.tar",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\nnef-pilot-20261010\\reload-v2\\cold-4-nnef.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 60593829200,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 3276148736,
+  "memory_samples": 5758,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

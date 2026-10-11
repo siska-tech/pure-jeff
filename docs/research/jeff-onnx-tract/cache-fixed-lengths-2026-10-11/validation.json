@@ -1,0 +1,15 @@
+{
+  "independent_raw_schedule_pool_cache_affinity_power_resource_numeric_pairwise_repeat_and_all_statistics_audit": true,
+  "processes": 14,
+  "forwards": 206,
+  "native_forwards": 103,
+  "tract_forwards": 103,
+  "warm_measured_samples_per_length_per_backend": 12,
+  "nearest_rank_p95_is_maximum": true,
+  "native_baseline_unchanged": 127,
+  "known_gitignore_difference_only": true,
+  "sibling_files_unchanged": 21,
+  "previous_archives_and_frozen_assets_unchanged": true,
+  "formal_slo_acceptance": false,
+  "production_backend_acceptance": false
+}

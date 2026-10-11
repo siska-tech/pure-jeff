@@ -1,0 +1,267 @@
+{
+  "processes": 8,
+  "forwards": 46,
+  "numeric_passed": true,
+  "probabilities_exact_to_frozen_native": true,
+  "formal_slo_acceptance": false,
+  "max_probability_error": 3.7550926208496094e-06,
+  "modes": {
+    "control": {
+      "stages_seconds": {
+        "compute_ns": {
+          "n": 12,
+          "median": 9.7888827,
+          "p95": 10.407099,
+          "min": 9.6578583,
+          "max": 10.407099
+        },
+        "backbone_ns": {
+          "n": 12,
+          "median": 9.788093,
+          "p95": 10.4063293,
+          "min": 9.6565744,
+          "max": 10.4063293
+        },
+        "head_softmax_ns": {
+          "n": 12,
+          "median": 0.0007773,
+          "p95": 0.0012839,
+          "min": 0.0007507,
+          "max": 0.0012839
+        },
+        "tokenize_ns": {
+          "n": 12,
+          "median": 0.0006418,
+          "p95": 0.0016632,
+          "min": 0.0006219,
+          "max": 0.0016632
+        },
+        "policy_ns": {
+          "n": 12,
+          "median": 1.1e-06,
+          "p95": 1.5e-06,
+          "min": 6e-07,
+          "max": 1.5e-06
+        },
+        "request_ns": {
+          "n": 12,
+          "median": 9.7895345,
+          "p95": 10.4077504,
+          "min": 9.6590889,
+          "max": 10.4077504
+        }
+      },
+      "startup_seconds": {
+        "n": 3,
+        "median": 2.0543218,
+        "p95": 2.1162805,
+        "min": 1.9595405,
+        "max": 2.1162805
+      },
+      "retention_load_seconds": {
+        "n": 3,
+        "median": 1.5e-06,
+        "p95": 2.3e-06,
+        "min": 1.4e-06,
+        "max": 2.3e-06
+      },
+      "peak_working_set_bytes": {
+        "n": 3,
+        "median": 2089676800,
+        "p95": 2090037248,
+        "min": 2089512960,
+        "max": 2090037248
+      },
+      "inputs": {
+        "synthetic-ocr-ja-2-512": {
+          "n": 3,
+          "median": 9.8482272,
+          "p95": 10.110218,
+          "min": 9.732201,
+          "max": 10.110218
+        },
+        "synthetic-asr-unicode-2-512": {
+          "n": 3,
+          "median": 9.7743316,
+          "p95": 9.9259407,
+          "min": 9.6578583,
+          "max": 9.9259407
+        },
+        "synthetic-ocr-ascii-3-512": {
+          "n": 3,
+          "median": 9.7114845,
+          "p95": 10.407099,
+          "min": 9.6730732,
+          "max": 10.407099
+        },
+        "synthetic-asr-mixed-2-512": {
+          "n": 3,
+          "median": 9.8622948,
+          "p95": 10.0903326,
+          "min": 9.7888827,
+          "max": 10.0903326
+        }
+      }
+    },
+    "retained": {
+      "stages_seconds": {
+        "compute_ns": {
+          "n": 12,
+          "median": 9.0727972,
+          "p95": 9.6751292,
+          "min": 8.7967105,
+          "max": 9.6751292
+        },
+        "backbone_ns": {
+          "n": 12,
+          "median": 9.0727302,
+          "p95": 9.6750665,
+          "min": 8.7966475,
+          "max": 9.6750665
+        },
+        "head_softmax_ns": {
+          "n": 12,
+          "median": 6.31e-05,
+          "p95": 0.0002243,
+          "min": 6.22e-05,
+          "max": 0.0002243
+        },
+        "tokenize_ns": {
+          "n": 12,
+          "median": 0.0006328,
+          "p95": 0.0010047,
+          "min": 0.0006133,
+          "max": 0.0010047
+        },
+        "policy_ns": {
+          "n": 12,
+          "median": 8e-07,
+          "p95": 1.8e-06,
+          "min": 4e-07,
+          "max": 1.8e-06
+        },
+        "request_ns": {
+          "n": 12,
+          "median": 9.0735395,
+          "p95": 9.6757707,
+          "min": 8.7974754,
+          "max": 9.6757707
+        }
+      },
+      "startup_seconds": {
+        "n": 3,
+        "median": 3.8063196,
+        "p95": 3.8732057,
+        "min": 3.6947476,
+        "max": 3.8732057
+      },
+      "retention_load_seconds": {
+        "n": 3,
+        "median": 1.7277323,
+        "p95": 1.8694867,
+        "min": 1.7102281,
+        "max": 1.8694867
+      },
+      "peak_working_set_bytes": {
+        "n": 3,
+        "median": 5190864896,
+        "p95": 5191053312,
+        "min": 5190508544,
+        "max": 5191053312
+      },
+      "inputs": {
+        "synthetic-ocr-ja-2-512": {
+          "n": 3,
+          "median": 9.1114652,
+          "p95": 9.1617121,
+          "min": 9.0348544,
+          "max": 9.1617121
+        },
+        "synthetic-asr-unicode-2-512": {
+          "n": 3,
+          "median": 9.0727972,
+          "p95": 9.6751292,
+          "min": 9.0093625,
+          "max": 9.6751292
+        },
+        "synthetic-ocr-ascii-3-512": {
+          "n": 3,
+          "median": 9.3501837,
+          "p95": 9.5851109,
+          "min": 8.9758664,
+          "max": 9.5851109
+        },
+        "synthetic-asr-mixed-2-512": {
+          "n": 3,
+          "median": 8.9806693,
+          "p95": 9.410845,
+          "min": 8.7967105,
+          "max": 9.410845
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "block": 0,
+      "compute_seconds": {
+        "control": {
+          "n": 4,
+          "median": 9.9259407,
+          "p95": 10.407099,
+          "min": 9.732201,
+          "max": 10.407099
+        },
+        "retained": {
+          "n": 4,
+          "median": 8.9758664,
+          "p95": 9.0348544,
+          "min": 8.7967105,
+          "max": 9.0348544
+        }
+      },
+      "retained_minus_control_median_seconds": -0.9500743000000007
+    },
+    {
+      "block": 1,
+      "compute_seconds": {
+        "control": {
+          "n": 4,
+          "median": 9.7114845,
+          "p95": 9.8622948,
+          "min": 9.6578583,
+          "max": 9.8622948
+        },
+        "retained": {
+          "n": 4,
+          "median": 9.0727972,
+          "p95": 9.3501837,
+          "min": 8.9806693,
+          "max": 9.3501837
+        }
+      },
+      "retained_minus_control_median_seconds": -0.6386872999999991
+    },
+    {
+      "block": 2,
+      "compute_seconds": {
+        "control": {
+          "n": 4,
+          "median": 9.7743316,
+          "p95": 10.110218,
+          "min": 9.6730732,
+          "max": 10.110218
+        },
+        "retained": {
+          "n": 4,
+          "median": 9.410845,
+          "p95": 9.6751292,
+          "min": 9.1114652,
+          "max": 9.6751292
+        }
+      },
+      "retained_minus_control_median_seconds": -0.3634865999999999
+    }
+  ],
+  "local_warm_acceptance": true
+}

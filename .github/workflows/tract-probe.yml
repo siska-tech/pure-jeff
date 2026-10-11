@@ -1,0 +1,213 @@
+name: Isolated Tract feasibility probe
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - runtime/tract/**
+      - runtime/tract-driver-profile/**
+      - runtime/onnx/**
+      - runtime/bench-native/**
+      - .github/workflows/tract-probe.yml
+  push:
+    paths:
+      - runtime/tract/**
+      - runtime/tract-driver-profile/**
+      - runtime/onnx/**
+      - runtime/bench-native/**
+      - .github/workflows/tract-probe.yml
+jobs:
+  windows-probe:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Fixed Rust toolchain
+        shell: pwsh
+        run: |
+          rustup toolchain install 1.99.0 --profile minimal --component rustfmt --component clippy
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustup default 1.99.0
+      - name: Build and lint the isolated probe
+        shell: pwsh
+        run: |
+          cargo build --locked --release --manifest-path runtime/tract/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --manifest-path runtime/tract/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --manifest-path runtime/tract/Cargo.toml --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/tract/Cargo.toml -- --check
+          exit $LASTEXITCODE
+      - name: Development oracle and small ONNX regression tests
+        shell: pwsh
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r runtime/onnx/requirements.lock
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PROBE = Join-Path $PWD 'runtime/tract/target/release/kaze_judge_tract_probe.exe'
+          $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
+          python -B -m unittest discover -s runtime/onnx -p 'test_*.py' -v
+          exit $LASTEXITCODE
+      - name: Generate and verify isolated driver diagnostics
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B runtime/onnx/prepare_driver_profile.py --upstream $upstream --output .venv/tract-driver-probe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/tract-driver-target'
+          cargo build --offline --release --manifest-path .venv/tract-driver-probe/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustc --edition=2024 --test runtime/tract-driver-profile/driver_timing.rs -o .venv/driver-timing-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/driver-timing-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
+          $env:TRACT_DRIVER_BENCH = Join-Path $PWD '.venv/tract-driver-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_driver_profile.py -v
+          exit $LASTEXITCODE
+      - name: Verify isolated duplicate-search experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B runtime/onnx/prepare_duplicate_experiment.py --upstream $upstream --output .venv/duplicate-control
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_duplicate_experiment.py --upstream $upstream --output .venv/duplicate-candidate --remove-duplicate-search
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/duplicate-control-target'
+          cargo build --offline --release --manifest-path .venv/duplicate-control/Cargo.toml --bin patch_semantics
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/duplicate-candidate-target'
+          cargo build --offline --release --manifest-path .venv/duplicate-candidate/Cargo.toml --bin patch_semantics --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PATCH_CONTROL = Join-Path $PWD '.venv/duplicate-control-target/release/patch_semantics.exe'
+          $env:TRACT_PATCH_CANDIDATE = Join-Path $PWD '.venv/duplicate-candidate-target/release/patch_semantics.exe'
+          $env:TRACT_DUPLICATE_BENCH = Join-Path $PWD '.venv/duplicate-candidate-target/release/bench.exe'
+          $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_duplicate.py -v
+          exit $LASTEXITCODE
+      - name: Verify isolated suffix-index experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          rustc --edition=2024 --test runtime/tract-driver-profile/name_index.rs -o .venv/name-index-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/name-index-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_name_experiment.py --upstream $upstream --output .venv/name-candidate
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/name-candidate-target'
+          cargo build --offline --release --manifest-path .venv/name-candidate/Cargo.toml --bin bench --bin patch_semantics --bin name_semantics
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_PATCH_CONTROL = Join-Path $PWD '.venv/duplicate-candidate-target/release/patch_semantics.exe'
+          $env:TRACT_PATCH_CANDIDATE = Join-Path $PWD '.venv/name-candidate-target/release/patch_semantics.exe'
+          $env:TRACT_DUPLICATE_BENCH = Join-Path $PWD '.venv/name-candidate-target/release/bench.exe'
+          $env:TRACT_NAME_SEMANTICS = Join-Path $PWD '.venv/name-candidate-target/release/name_semantics.exe'
+          $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
+          $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_duplicate.py -v
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B -m unittest discover -s runtime/onnx -p test_tract_names.py -v
+          exit $LASTEXITCODE
+      - name: Verify isolated forward profile and thread executor
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B runtime/onnx/prepare_forward_experiment.py --upstream $upstream --output .venv/forward-probe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/forward-target'
+          cargo build --locked --release --manifest-path .venv/forward-probe/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --release --manifest-path .venv/forward-probe/Cargo.toml --bin bench -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_FORWARD_BENCH = Join-Path $PWD '.venv/forward-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_forward.py -v
+          exit $LASTEXITCODE
+      - name: Verify isolated Trilu row-fill experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          rustc --edition=2024 --test runtime/tract-driver-profile/trilu_rows.rs -o .venv/trilu-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/trilu-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_trilu_experiment.py --upstream $upstream --output .venv/trilu-candidate
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/trilu-target'
+          cargo build --locked --offline --release --manifest-path .venv/trilu-candidate/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $depDir = Join-Path $PWD '.venv/trilu-target/release/deps'
+          $rlibs = @(Get-ChildItem -LiteralPath $depDir -Filter 'libtract_onnx-*.rlib')
+          if ($rlibs.Count -ne 1) { throw 'Expected one isolated tract_onnx rlib' }
+          rustc --test --edition=2024 -C opt-level=3 runtime/tract-driver-profile/trilu_layout.rs --extern ('tract_onnx=' + $rlibs[0].FullName) -L ('dependency=' + $depDir) -o .venv/trilu-layout-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/trilu-layout-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --offline --release --manifest-path .venv/trilu-candidate/Cargo.toml --bin bench -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustfmt --edition 2024 --check runtime/tract-driver-profile/trilu_rows.rs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustfmt --edition 2024 --check runtime/tract-driver-profile/trilu_layout.rs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_TRILU_BENCH = Join-Path $PWD '.venv/trilu-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_trilu.py -v
+          exit $LASTEXITCODE
+      - name: Verify isolated ScatterElements row-copy experiment
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          rustc --edition=2024 --test runtime/tract-driver-profile/scatter_rows.rs -o .venv/scatter-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & .venv/scatter-rows-tests.exe
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B runtime/onnx/prepare_scatter_experiment.py --upstream $upstream --output .venv/scatter-candidate
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/scatter-target'
+          cargo build --locked --offline --release --manifest-path .venv/scatter-candidate/Cargo.toml --bin bench
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          foreach ($target in @('.venv/trilu-target', '.venv/scatter-target')) {
+            $depDir = Join-Path $PWD ($target + '/release/deps')
+            $rlibs = @(Get-ChildItem -LiteralPath $depDir -Filter 'libtract_onnx-*.rlib')
+            if ($rlibs.Count -ne 1) { throw 'Expected one isolated tract_onnx rlib' }
+            rustc --test --edition=2024 -C opt-level=3 runtime/tract-driver-profile/scatter_semantics.rs --extern ('tract_onnx=' + $rlibs[0].FullName) -L ('dependency=' + $depDir) -o .venv/scatter-semantics-tests.exe
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+            & .venv/scatter-semantics-tests.exe
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          }
+          cargo clippy --locked --offline --release --manifest-path .venv/scatter-candidate/Cargo.toml --bin bench -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          rustfmt --edition 2024 --check runtime/tract-driver-profile/scatter_rows.rs runtime/tract-driver-profile/scatter_semantics.rs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:TRACT_SCATTER_BENCH = Join-Path $PWD '.venv/scatter-target/release/bench.exe'
+          python -B -m unittest discover -s runtime/onnx -p test_tract_scatter.py -v
+          exit $LASTEXITCODE
+      - name: Build and lint isolated native benchmark wrapper
+        shell: pwsh
+        run: |
+          $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/bench-native-target'
+          cargo build --locked --release --manifest-path runtime/bench-native/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --release --manifest-path runtime/bench-native/Cargo.toml -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/bench-native/Cargo.toml -- --check
+          exit $LASTEXITCODE

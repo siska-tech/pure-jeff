@@ -1,0 +1,11 @@
+{
+  "generated_files_reproduced": 13,
+  "backbone_readout_weights_inventory_byte_exact_to_text320": true,
+  "release_tests_passed": 9,
+  "main_restores_exactly_after_reversing_thread_module_config_event_changes": true,
+  "build_clippy_fmt_passed": true,
+  "dependency_package_versions_unchanged": true,
+  "root_dependency_only_change": "explicit Rayon =1.12.0, already in previous lock",
+  "manifest_policy_cpu_threads_unchanged": 1,
+  "runtime_api_changed": false
+}

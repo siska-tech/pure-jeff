@@ -1,0 +1,18 @@
+{
+  "processes": 21,
+  "forwards": 114,
+  "gate_forwards": 24,
+  "warmup_forwards": 18,
+  "measured_forwards": 72,
+  "all_numeric_gates_passed": true,
+  "native_repeat_tolerance": 1e-06,
+  "tract_raw_exact_to_frozen_gate": true,
+  "pool_configuration_verified": true,
+  "independent_raw_record_validation_and_statistics_recomputation": true,
+  "local_native4_confirmation": true,
+  "formal_slo_acceptance": false,
+  "backend_adoption": false,
+  "held_out_input_data": false,
+  "failures": 0,
+  "guard_triggers": 0
+}

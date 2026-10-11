@@ -1,0 +1,143 @@
+{
+  "threads": {
+    "4": {
+      "request_stages_seconds": {
+        "prepare_ns": {
+          "n": 9,
+          "median": 2.96e-05,
+          "p95": 3.46e-05,
+          "min": 2.87e-05,
+          "max": 3.46e-05
+        },
+        "forward_ns": {
+          "n": 9,
+          "median": 6.9731976,
+          "p95": 7.0968433,
+          "min": 6.4400377,
+          "max": 7.0968433
+        },
+        "score_ns": {
+          "n": 9,
+          "median": 7.6e-06,
+          "p95": 7.8e-06,
+          "min": 7.1e-06,
+          "max": 7.8e-06
+        },
+        "request_ns": {
+          "n": 9,
+          "median": 6.9732468,
+          "p95": 7.0968881,
+          "min": 6.4400825,
+          "max": 7.0968881
+        }
+      },
+      "startup_stages_seconds": {
+        "load_ns": {
+          "n": 3,
+          "median": 8.9157782,
+          "p95": 8.9396561,
+          "min": 8.9148333,
+          "max": 8.9396561
+        },
+        "type_ns": {
+          "n": 3,
+          "median": 0.0,
+          "p95": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "optimize_ns": {
+          "n": 3,
+          "median": 10.4564019,
+          "p95": 10.7029554,
+          "min": 10.3264552,
+          "max": 10.7029554
+        },
+        "plan_ns": {
+          "n": 3,
+          "median": 0.4950865,
+          "p95": 0.4955613,
+          "min": 0.4858433,
+          "max": 0.4955613
+        },
+        "startup_ns": {
+          "n": 3,
+          "median": 19.8958778,
+          "p95": 20.1468444,
+          "min": 19.7847367,
+          "max": 20.1468444
+        }
+      }
+    },
+    "8": {
+      "request_stages_seconds": {
+        "prepare_ns": {
+          "n": 9,
+          "median": 3.2e-05,
+          "p95": 3.87e-05,
+          "min": 2.76e-05,
+          "max": 3.87e-05
+        },
+        "forward_ns": {
+          "n": 9,
+          "median": 6.5179522,
+          "p95": 7.1674915,
+          "min": 6.2186467,
+          "max": 7.1674915
+        },
+        "score_ns": {
+          "n": 9,
+          "median": 7.1e-06,
+          "p95": 1.09e-05,
+          "min": 6.5e-06,
+          "max": 1.09e-05
+        },
+        "request_ns": {
+          "n": 9,
+          "median": 6.517996,
+          "p95": 7.1675324,
+          "min": 6.2186949,
+          "max": 7.1675324
+        }
+      },
+      "startup_stages_seconds": {
+        "load_ns": {
+          "n": 3,
+          "median": 9.0550195,
+          "p95": 9.1848767,
+          "min": 8.9125332,
+          "max": 9.1848767
+        },
+        "type_ns": {
+          "n": 3,
+          "median": 0.0,
+          "p95": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "optimize_ns": {
+          "n": 3,
+          "median": 10.5090987,
+          "p95": 10.6440642,
+          "min": 10.3358696,
+          "max": 10.6440642
+        },
+        "plan_ns": {
+          "n": 3,
+          "median": 0.4933417,
+          "p95": 0.5060849,
+          "min": 0.4880394,
+          "max": 0.5060849
+        },
+        "startup_ns": {
+          "n": 3,
+          "median": 20.0785375,
+          "p95": 20.3478037,
+          "min": 19.7816267,
+          "max": 20.3478037
+        }
+      }
+    }
+  },
+  "scope": "Prepared tensors only. request_ns excludes serialization/IPC/parent policy, tokenizer and preflight. score_ns is mask/temperature/softmax only. Startup incidental n=3; no cold acceptance. Percentiles of stages must not be added."
+}

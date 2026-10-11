@@ -1,0 +1,21 @@
+{
+  "run_id": "api-1",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\rust\\target\\release\\jeff.exe",
+    "decide-process",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\performance-pilot-20261010\\native-api\\request.json",
+    "120000",
+    "512"
+  ],
+  "timeout_seconds": 180,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 5515743600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 6287360,
+  "memory_samples": 531,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

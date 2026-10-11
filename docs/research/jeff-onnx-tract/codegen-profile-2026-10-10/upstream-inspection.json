@@ -1,0 +1,24 @@
+{
+  "revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "tracked_source_diff_exit_code": 0,
+  "files": [
+    {
+      "path": "core/src/optim/mod.rs",
+      "sha256": "3d32836ed44d58370a2016c1de2f07d8bee3b383443f5d71f9d13c286a1a6473"
+    },
+    {
+      "path": "core/src/model/patch.rs",
+      "sha256": "44457d17da401ca8ff3d96e961ad85d6b1a47abee5a9520b36cd32289a086112"
+    },
+    {
+      "path": "core/src/model/graph.rs",
+      "sha256": "edf6f5d98dfa394e3e158e66297438cf90a1fe2acf48a6802aca9348dc57114e"
+    }
+  ],
+  "hypotheses": [
+    "per-patch target-node equality search",
+    "patch application and garbage removal",
+    "eval_order and compaction"
+  ],
+  "individual_hypotheses_not_timed": true
+}

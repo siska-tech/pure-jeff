@@ -1,0 +1,50 @@
+[
+  {
+    "ProcessName": "Code",
+    "Id": 16952,
+    "CPU": 29642.046875,
+    "WorkingSet64": 205668352
+  },
+  {
+    "ProcessName": "chrome",
+    "Id": 7740,
+    "CPU": 28990.8125,
+    "WorkingSet64": 418746368
+  },
+  {
+    "ProcessName": "Taskmgr",
+    "Id": 7932,
+    "CPU": 26345.65625,
+    "WorkingSet64": 196722688
+  },
+  {
+    "ProcessName": "chrome",
+    "Id": 9504,
+    "CPU": 13980.5,
+    "WorkingSet64": 142184448
+  },
+  {
+    "ProcessName": "Code",
+    "Id": 18028,
+    "CPU": 13266.546875,
+    "WorkingSet64": 129331200
+  },
+  {
+    "ProcessName": "esbuild",
+    "Id": 39492,
+    "CPU": 12245.71875,
+    "WorkingSet64": 16658432
+  },
+  {
+    "ProcessName": "Code",
+    "Id": 35080,
+    "CPU": 8462.3125,
+    "WorkingSet64": 189956096
+  },
+  {
+    "ProcessName": "Code",
+    "Id": 43804,
+    "CPU": 7725.0625,
+    "WorkingSet64": 168722432
+  }
+]

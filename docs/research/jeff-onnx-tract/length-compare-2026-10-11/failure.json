@@ -1,0 +1,11 @@
+{
+  "run_id": "resident-1-native4",
+  "stage": "parent post-child validation",
+  "parent_exit_code": 1,
+  "error": "ValueError: Native repeat mismatch",
+  "first_failing_iteration": 0,
+  "all_25_child_forwards_completed_before_validation": true,
+  "registered_repeat_tolerance": 1e-06,
+  "maximum_observed_repeat_error": 3.546476364135742e-06,
+  "unexecuted_pair": 2
+}

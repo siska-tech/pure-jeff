@@ -1,0 +1,9 @@
+   Compiling kaze_judge_tract_probe v0.1.0 (C:\Users\<user>\Documents\Projects\KazeJudge\runtime\tract)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.75s
+     Running unittests src\main.rs (runtime\tract\target\debug\deps\kaze_judge_tract_probe-45eb5f54d8214418.exe)
+
+running 1 test
+test tests::integer_dimensions_preserve_i64_bounds ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

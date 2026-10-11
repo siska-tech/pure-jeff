@@ -1,0 +1,11 @@
+{
+  "native_baseline_files": 128,
+  "native_unchanged": 127,
+  "expected_differences": [
+    ".gitignore"
+  ],
+  "sibling_files_unchanged": 21,
+  "normal_probe_executable_unchanged": true,
+  "native_and_accepted_tract_executables_unchanged": true,
+  "accepted_174_sources_unchanged": true
+}

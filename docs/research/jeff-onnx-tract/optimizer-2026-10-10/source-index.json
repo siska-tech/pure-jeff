@@ -1,0 +1,31 @@
+{
+  "schema_version": "kaze_judge.tract_optimizer_sources.v1",
+  "files": [
+    {
+      "path": "runtime/tract/src/main.rs",
+      "sha256": "64cdd691196a20a745255cdecf433fa9f0515d55c121203c8645e0847efa2879"
+    },
+    {
+      "path": "runtime/tract/Cargo.toml",
+      "sha256": "85154f2429125a2ab719636dfadbbe09e19463b04977927be82bfaf671dac4ea"
+    },
+    {
+      "path": "runtime/tract/Cargo.lock",
+      "sha256": "7cff0b8860189fc4ad585740d4c6fa9a392f1a41bdc2cbb454eb20bfa1afc8fc"
+    },
+    {
+      "path": "runtime/onnx/check_tract.py",
+      "sha256": "e79391550f54eff8618ea05d4bec9d52d122ee65f51032b04c4d33783885ab39"
+    },
+    {
+      "path": "runtime/onnx/run_probe.py",
+      "sha256": "8efb2db09fa9622160504116bd60214a8da35f7f7fd8f129d82bb4a0203560b0"
+    },
+    {
+      "path": "runtime/onnx/test_tract_optimizer.py",
+      "sha256": "245e2934311f2d0989efb83d1a9faf037004ab8e11369e7c3ec42605ae921796"
+    }
+  ],
+  "note": "Probe main usage string was updated after the measured executable build; computation and pipeline selection are unchanged. Executable hash is recorded in each probe result.",
+  "performance_benchmark": false
+}

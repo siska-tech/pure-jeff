@@ -1,0 +1,59 @@
+{
+  "run_id": "cold-4-native",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\bench-native-target\\release\\kaze_judge_native_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\performance-pilot-20261010\\primary\\cold-4-native.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 5565941300,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 1601433600,
+  "memory_samples": 535,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "backend": "native",
+  "phase": "cold",
+  "events": [
+    {
+      "backend": "native",
+      "event": "initialized",
+      "mmap_ns": 637600,
+      "retained": "tokenizer and BF16 mmap; FP32 conversion remains per forward",
+      "startup_ns": 1979654300,
+      "threads": 1,
+      "tokenizer_load_ns": 825184100,
+      "verify_ns": 1133743200
+    },
+    {
+      "backbone_ns": 3338774800,
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 822900,
+      "iteration": 0,
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.928595244884491,
+        0.07140474766492844
+      ],
+      "request_ns": 3339926200,
+      "tokenize_ns": 313800,
+      "warmup": false,
+      "probability_max_abs_error": 2.384185791015625e-07,
+      "judgment_match": true
+    },
+    {
+      "event": "completed",
+      "total_ns": 5319769200
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+--- upstream/core/src/lib.rs
++++ diagnostic/core/src/lib.rs
+@@ -83,0 +84 @@
++pub mod driver_timing;
+--- upstream/core/src/model/graph.rs
++++ diagnostic/core/src/model/graph.rs
+@@ -744,0 +745 @@
++        let _driver_span = crate::driver_timing::Span::new("compact");
+--- upstream/core/src/model/patch.rs
++++ diagnostic/core/src/model/patch.rs
+@@ -283,0 +284 @@
++        let _driver_span = crate::driver_timing::Span::new("patch_apply");
+@@ -305,0 +307 @@
++            let driver_dup_span = crate::driver_timing::Span::new("duplicate_search");
+@@ -319,0 +322 @@
++            drop(driver_dup_span);
+@@ -367,0 +371 @@
++        let driver_garbage_span = crate::driver_timing::Span::new("garbage_removal");
+@@ -385,0 +390,2 @@
++        drop(driver_garbage_span);
++        let _driver_rename_span = crate::driver_timing::Span::new("node_rename");

@@ -1,0 +1,74 @@
+{
+  "generator_sha256": "fc13916cf9aff42031381167c626fc9202dac60ff3550d0abde22c2db31cf81a",
+  "previous_generation_sha256": "4eb546360473762e4f3a9f4657cc548b8d70e189ab5d8289dc35f3a72206e719",
+  "files": [
+    {
+      "path": "backbone.patch",
+      "sha256": "256557d58c538764c11672230aae9bf9dd2802dd28382f21f9e57e861cf6b730"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "a2127fa33790cf18bb3dba503add22e73acf01fc9f50588b44bb5692240e0041"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "3e7a0063e28660a4079f8c6a7f699ca27a4cd185745eae498ff5604f1ea51edf"
+    },
+    {
+      "path": "main.rs.diagnostic.patch",
+      "sha256": "01c31c6c6a686d73473f611d98f9ae2d6997f0c8b2251e9bb5aa82a5a9d0bd97"
+    },
+    {
+      "path": "readout.patch",
+      "sha256": "66b02ba7d44229d2d75b2f2356fd6383375aed9b4b76aa184784cbbad424b712"
+    },
+    {
+      "path": "readout.rs.diagnostic.patch",
+      "sha256": "517e7d50dcc3bac29e32ef970f4ebdc3d7203630f9f4609024992df6d781a8d4"
+    },
+    {
+      "path": "src/backbone.rs",
+      "sha256": "97844fba2269538f10662bbfde1496a09cf1f8e4f28228f49626aa95e99508c0"
+    },
+    {
+      "path": "src/cache_diagnostic.rs",
+      "sha256": "2b0a3713c772ecab21a0e825e03a62276e0987ecb145a0b8efdb8d885445d57e"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "d23347a1c8ca279df469704b77b0dc3fae045a32ddc6aa4a51cc15de8e24f071"
+    },
+    {
+      "path": "src/readout.rs",
+      "sha256": "ee83a068e197e30ce1e5d0ac6ef2748e1d92af412502c7b66e0601b4cb57d531"
+    },
+    {
+      "path": "src/text_inventory.rs",
+      "sha256": "d214160d1188546a2ccbc993b6fba5cb8e950bc7431cb07ed3854d9fd78f4e69"
+    },
+    {
+      "path": "src/threads.rs",
+      "sha256": "ca24aa0cbfd65d45015b29d70c67edd42f239bbcb06d4137fe537a3806bb4c93"
+    },
+    {
+      "path": "src/weights.rs",
+      "sha256": "a52d022b479b711a338f2a625d1d8674f748fd2681624a273e08d5fcf199b22c"
+    },
+    {
+      "path": "text-selection.patch",
+      "sha256": "23b5995999756cd43de41bc27a3b42e66feb9ad350a8572f8f94a80419ca9928"
+    },
+    {
+      "path": "thread-wrapper.patch",
+      "sha256": "47b414f10447e0d57b66f7c6a1119a70a0e3fc369285fe5a7835850fe79cea13"
+    },
+    {
+      "path": "wrapper.patch",
+      "sha256": "f409e23570d9b566740289ca3f67d64a36337d9cf98e81afafa435d156ff70b1"
+    }
+  ],
+  "scope": "diagnostic main-thread affinity only during explicit cache initialization, restored before pool/model/forward; backbone equations unchanged; readout returns existing raw logits",
+  "dependency_packages_versions_unchanged": true,
+  "runtime_api_changed": false,
+  "performance_acceptance": false
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "kaze_judge.nnef_pilot.v1",
+  "date_utc": "2026-10-10T10:14:35.092269+00:00",
+  "artifact_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "artifact_manifest_sha256": "8e3ef18acf713a2283671e8818d3771a3840c8ba564a2a0fc1868c806cda71aa",
+  "pack_preregistration_sha256": "ad97d60539ea9d51a4e71f869f2c3aeeff206e957fece4397b98ae4404147294",
+  "executable_sha256": "4a1bbb02db0109938095427aee06634face2910a1901f49df2c412b8e758de0a",
+  "source_job_sha256": "7b4760f56525135505c0624e1eb3733b12ae9744a315d260c07df4ac6396eed8",
+  "source_preregistration_sha256": "d9dbec97d87b3e7d58ec7a98afb22547f8555985c98e32d65c02e486ac40a5a8",
+  "policy": {
+    "min_probability": 0.7,
+    "min_margin": 0.1,
+    "cpu_threads": 1
+  },
+  "cold_samples": 5,
+  "warm_samples_per_case": 5,
+  "resident_sessions": 1,
+  "warm_schedule": [
+    {
+      "case": 0,
+      "warmup": true
+    },
+    {
+      "case": 1,
+      "warmup": true
+    },
+    {
+      "case": 2,
+      "warmup": true
+    },
+    {
+      "case": 3,
+      "warmup": true
+    },
+    {
+      "case": 0,
+      "warmup": true
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    }
+  ],
+  "threads": 1,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 9542668288,
+  "cache_mode": "process-cold; storage cache uncontrolled, parent hash preflight excluded",
+  "scope": "prepared tensors, engine only; no tokenizer or DecisionProvider",
+  "comparison": "later unpaired measurement against archived ONNX pilot; executable changed",
+  "formal_slo_acceptance": false
+}

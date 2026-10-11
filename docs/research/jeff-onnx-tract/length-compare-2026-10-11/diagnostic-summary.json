@@ -1,0 +1,898 @@
+{
+  "status": "stopped_registered_native_repeat_gate_failure",
+  "processes": 6,
+  "observed_forwards": 156,
+  "planned_forwards": 206,
+  "gate_forwards": 56,
+  "warmup_forwards": 20,
+  "measured_forwards": 80,
+  "unexecuted_forwards": 50,
+  "all_onnx_probability_judgment_token_gates_passed": true,
+  "registered_numerical_passed": false,
+  "max_onnx_probability_error": 4.649162292480469e-06,
+  "max_old_native_probability_error": 5.364418029785156e-07,
+  "max_native_repeat_error": 3.546476364135742e-06,
+  "native_repeat_violations": 6,
+  "affected_unique_cases": 4,
+  "native_repeat_passed_forwards": 72,
+  "native_forwards": 78,
+  "tract_raw_exact_forwards": 78,
+  "parent_harness_exit_code": 1,
+  "child_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "guard_triggers": 0,
+  "formal_slo_acceptance": false,
+  "backend_adoption": false,
+  "performance_acceptance": false,
+  "timing_scope": "incomplete failed run, diagnostics only; no successful pooled comparison or optional stopping",
+  "diagnostic_sessions": {
+    "resident-0-native4": {
+      "registered_numeric_passed": true,
+      "lengths": {
+        "128": {
+          "compute_ns": {
+            "n": 4,
+            "median": 1.8614436,
+            "p95": 2.3271693,
+            "min": 1.804859,
+            "max": 2.3271693
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 1.8617643,
+            "p95": 2.3367851,
+            "min": 1.8051903,
+            "max": 2.3367851
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 1.8613847,
+            "p95": 2.3270981,
+            "min": 1.804776,
+            "max": 2.3270981
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 7.01e-05,
+            "p95": 8.3e-05,
+            "min": 5.89e-05,
+            "max": 8.3e-05
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0003124,
+            "p95": 0.0095996,
+            "min": 0.0003061,
+            "max": 0.0095996
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 7e-07,
+            "p95": 1e-06,
+            "min": 6e-07,
+            "max": 1e-06
+          }
+        },
+        "256": {
+          "compute_ns": {
+            "n": 4,
+            "median": 3.4928645,
+            "p95": 3.6603795,
+            "min": 3.386427,
+            "max": 3.6603795
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 3.4934025,
+            "p95": 3.6608219,
+            "min": 3.3869681,
+            "max": 3.6608219
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 3.4927978,
+            "p95": 3.6603085,
+            "min": 3.3863483,
+            "max": 3.6603085
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 7.1e-05,
+            "p95": 7.87e-05,
+            "min": 6.67e-05,
+            "max": 7.87e-05
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0004654,
+            "p95": 0.0005234,
+            "min": 0.0004269,
+            "max": 0.0005234
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 7e-07,
+            "p95": 1e-06,
+            "min": 4e-07,
+            "max": 1e-06
+          }
+        },
+        "384": {
+          "compute_ns": {
+            "n": 4,
+            "median": 4.9460939,
+            "p95": 5.2604103,
+            "min": 4.8520072,
+            "max": 5.2604103
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 4.946684,
+            "p95": 5.2611139,
+            "min": 4.852697,
+            "max": 5.2611139
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 4.946027,
+            "p95": 5.260341,
+            "min": 4.8519184,
+            "max": 5.260341
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 6.93e-05,
+            "p95": 8.88e-05,
+            "min": 6.69e-05,
+            "max": 8.88e-05
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0006599,
+            "p95": 0.0006852,
+            "min": 0.0005747,
+            "max": 0.0006852
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 6e-07,
+            "p95": 1e-06,
+            "min": 6e-07,
+            "max": 1e-06
+          }
+        },
+        "511": {
+          "compute_ns": {
+            "n": 4,
+            "median": 6.6893579,
+            "p95": 6.849839,
+            "min": 6.4647992,
+            "max": 6.849839
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 6.6901091,
+            "p95": 6.8506037,
+            "min": 6.465568,
+            "max": 6.8506037
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 6.6892907,
+            "p95": 6.8497708,
+            "min": 6.4647248,
+            "max": 6.8497708
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 6.82e-05,
+            "p95": 7.44e-05,
+            "min": 6.72e-05,
+            "max": 7.44e-05
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0007495,
+            "p95": 0.0014056,
+            "min": 0.0007361,
+            "max": 0.0014056
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 6e-07,
+            "p95": 9e-07,
+            "min": 5e-07,
+            "max": 9e-07
+          }
+        },
+        "512": {
+          "compute_ns": {
+            "n": 4,
+            "median": 6.891479,
+            "p95": 7.8898224,
+            "min": 6.6353238,
+            "max": 7.8898224
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 6.8922594,
+            "p95": 7.8911391,
+            "min": 6.6360002,
+            "max": 7.8911391
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 6.8914081,
+            "p95": 7.8897332,
+            "min": 6.6352513,
+            "max": 7.8897332
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 7.25e-05,
+            "p95": 0.0001839,
+            "min": 7.09e-05,
+            "max": 0.0001839
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0007639,
+            "p95": 0.0012931,
+            "min": 0.0006625,
+            "max": 0.0012931
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 7e-07,
+            "p95": 1e-06,
+            "min": 7e-07,
+            "max": 1e-06
+          }
+        }
+      },
+      "startup_stages_seconds": {
+        "mmap_ns": 0.0006117,
+        "retention_load_ns": 1.6547441,
+        "startup_ns": 4.2467593,
+        "tokenizer_load_ns": 1.0298615,
+        "verify_ns": 1.5319746
+      },
+      "peak_working_set_bytes": 4593188864
+    },
+    "resident-0-tract4": {
+      "registered_numeric_passed": true,
+      "lengths": {
+        "128": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.4082774,
+            "p95": 16.8381329,
+            "min": 16.352468,
+            "max": 16.8381329
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.4083511,
+            "p95": 16.8382084,
+            "min": 16.3525453,
+            "max": 16.8382084
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.4082596,
+            "p95": 16.8381146,
+            "min": 16.3524508,
+            "max": 16.8381146
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.72e-05,
+            "p95": 1.83e-05,
+            "min": 1.72e-05,
+            "max": 1.83e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 5.95e-05,
+            "p95": 6.14e-05,
+            "min": 5.92e-05,
+            "max": 6.14e-05
+          }
+        },
+        "256": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.9737101,
+            "p95": 17.3278552,
+            "min": 16.2687063,
+            "max": 17.3278552
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.973789,
+            "p95": 17.3279021,
+            "min": 16.2687783,
+            "max": 17.3279021
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.9736926,
+            "p95": 17.3278451,
+            "min": 16.2686906,
+            "max": 17.3278451
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.12e-05,
+            "p95": 1.75e-05,
+            "min": 1.01e-05,
+            "max": 1.75e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 6.08e-05,
+            "p95": 6.43e-05,
+            "min": 3.67e-05,
+            "max": 6.43e-05
+          }
+        },
+        "384": {
+          "compute_ns": {
+            "n": 4,
+            "median": 17.3202445,
+            "p95": 17.4772976,
+            "min": 16.118068,
+            "max": 17.4772976
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 17.3202944,
+            "p95": 17.477395,
+            "min": 16.118148,
+            "max": 17.477395
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 17.3202268,
+            "p95": 17.4772805,
+            "min": 16.1180516,
+            "max": 17.4772805
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.64e-05,
+            "p95": 1.77e-05,
+            "min": 1.63e-05,
+            "max": 1.77e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 6.08e-05,
+            "p95": 8.28e-05,
+            "min": 3.8e-05,
+            "max": 8.28e-05
+          }
+        },
+        "511": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.875667,
+            "p95": 17.4135136,
+            "min": 14.9857923,
+            "max": 17.4135136
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.8757405,
+            "p95": 17.4135871,
+            "min": 14.9858848,
+            "max": 17.4135871
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.8756494,
+            "p95": 17.4135016,
+            "min": 14.985773,
+            "max": 17.4135016
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.72e-05,
+            "p95": 1.93e-05,
+            "min": 1.2e-05,
+            "max": 1.93e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 5.95e-05,
+            "p95": 7.72e-05,
+            "min": 5.82e-05,
+            "max": 7.72e-05
+          }
+        },
+        "512": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.8576466,
+            "p95": 18.0109965,
+            "min": 16.7356575,
+            "max": 18.0109965
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.8577222,
+            "p95": 18.0110596,
+            "min": 16.7357307,
+            "max": 18.0110596
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.8576293,
+            "p95": 18.0109796,
+            "min": 16.7356405,
+            "max": 18.0109796
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.69e-05,
+            "p95": 1.73e-05,
+            "min": 1.6e-05,
+            "max": 1.73e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 6.02e-05,
+            "p95": 6.09e-05,
+            "min": 4.85e-05,
+            "max": 6.09e-05
+          }
+        }
+      },
+      "startup_stages_seconds": {
+        "load_ns": 10.3743043,
+        "optimize_ns": 12.1691046,
+        "plan_ns": 0.6093092,
+        "startup_ns": 23.1748923,
+        "type_ns": 0.0
+      },
+      "peak_working_set_bytes": 3277996032
+    },
+    "resident-1-tract4": {
+      "registered_numeric_passed": true,
+      "lengths": {
+        "128": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.4531838,
+            "p95": 16.7464466,
+            "min": 5.5258413,
+            "max": 16.7464466
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.4533087,
+            "p95": 16.7465455,
+            "min": 5.5258956,
+            "max": 16.7465455
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.4531659,
+            "p95": 16.746429,
+            "min": 5.5258333,
+            "max": 16.746429
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.08e-05,
+            "p95": 1.79e-05,
+            "min": 8e-06,
+            "max": 1.79e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 8.52e-05,
+            "p95": 0.0001111,
+            "min": 4.53e-05,
+            "max": 0.0001111
+          }
+        },
+        "256": {
+          "compute_ns": {
+            "n": 4,
+            "median": 16.5879444,
+            "p95": 16.8046459,
+            "min": 15.8718378,
+            "max": 16.8046459
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 16.5880143,
+            "p95": 16.8047505,
+            "min": 15.8719025,
+            "max": 16.8047505
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 16.5879266,
+            "p95": 16.8046283,
+            "min": 15.8718202,
+            "max": 16.8046283
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.76e-05,
+            "p95": 1.84e-05,
+            "min": 1.76e-05,
+            "max": 1.84e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 5.17e-05,
+            "p95": 8.89e-05,
+            "min": 4.95e-05,
+            "max": 8.89e-05
+          }
+        },
+        "384": {
+          "compute_ns": {
+            "n": 4,
+            "median": 14.8648707,
+            "p95": 17.1098932,
+            "min": 5.444532,
+            "max": 17.1098932
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 14.8649739,
+            "p95": 17.10996,
+            "min": 5.4445804,
+            "max": 17.10996
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 14.8648533,
+            "p95": 17.1098737,
+            "min": 5.4445249,
+            "max": 17.1098737
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.74e-05,
+            "p95": 1.95e-05,
+            "min": 7.1e-06,
+            "max": 1.95e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 4.11e-05,
+            "p95": 8.99e-05,
+            "min": 3.96e-05,
+            "max": 8.99e-05
+          }
+        },
+        "511": {
+          "compute_ns": {
+            "n": 4,
+            "median": 14.7352176,
+            "p95": 17.1096972,
+            "min": 11.9467242,
+            "max": 17.1096972
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 14.7353208,
+            "p95": 17.1098186,
+            "min": 11.9468163,
+            "max": 17.1098186
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 14.7352009,
+            "p95": 17.1096798,
+            "min": 11.9467148,
+            "max": 17.1096798
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.61e-05,
+            "p95": 1.74e-05,
+            "min": 9.4e-06,
+            "max": 1.74e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 8.66e-05,
+            "p95": 0.0001065,
+            "min": 8.37e-05,
+            "max": 0.0001065
+          }
+        },
+        "512": {
+          "compute_ns": {
+            "n": 4,
+            "median": 12.7031034,
+            "p95": 17.1947864,
+            "min": 9.6544892,
+            "max": 17.1947864
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 12.7031608,
+            "p95": 17.1948861,
+            "min": 9.6545923,
+            "max": 17.1948861
+          },
+          "forward_ns": {
+            "n": 4,
+            "median": 12.7030867,
+            "p95": 17.1947757,
+            "min": 9.6544822,
+            "max": 17.1947757
+          },
+          "score_ns": {
+            "n": 4,
+            "median": 1.06e-05,
+            "p95": 1.67e-05,
+            "min": 7e-06,
+            "max": 1.67e-05
+          },
+          "prepare_ns": {
+            "n": 4,
+            "median": 8.67e-05,
+            "p95": 9.19e-05,
+            "min": 4.61e-05,
+            "max": 9.19e-05
+          }
+        }
+      },
+      "startup_stages_seconds": {
+        "load_ns": 26.4859598,
+        "optimize_ns": 27.6598482,
+        "plan_ns": 1.828986,
+        "startup_ns": 55.9965228,
+        "type_ns": 0.0
+      },
+      "peak_working_set_bytes": 3278077952
+    },
+    "resident-1-native4": {
+      "registered_numeric_passed": false,
+      "lengths": {
+        "128": {
+          "compute_ns": {
+            "n": 4,
+            "median": 4.9233659,
+            "p95": 5.1945322,
+            "min": 4.7485741,
+            "max": 5.1945322
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 4.924066,
+            "p95": 5.1954634,
+            "min": 4.7492802,
+            "max": 5.1954634
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 4.9232295,
+            "p95": 5.1944123,
+            "min": 4.7484175,
+            "max": 5.1944123
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 0.0001199,
+            "p95": 0.0001566,
+            "min": 0.0001178,
+            "max": 0.0001566
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0006798,
+            "p95": 0.0009022,
+            "min": 0.0006705,
+            "max": 0.0009022
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 1.4e-06,
+            "p95": 1.7e-06,
+            "min": 9e-07,
+            "max": 1.7e-06
+          }
+        },
+        "256": {
+          "compute_ns": {
+            "n": 4,
+            "median": 8.9213648,
+            "p95": 9.741918,
+            "min": 8.7835768,
+            "max": 9.741918
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 8.922434,
+            "p95": 9.7434331,
+            "min": 8.7843094,
+            "max": 9.7434331
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 8.9212286,
+            "p95": 9.7417838,
+            "min": 8.783415,
+            "max": 9.7417838
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 0.0001362,
+            "p95": 0.0001618,
+            "min": 0.0001342,
+            "max": 0.0001618
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0010383,
+            "p95": 0.0014891,
+            "min": 0.0007056,
+            "max": 0.0014891
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 1.5e-06,
+            "p95": 2.2e-06,
+            "min": 1e-06,
+            "max": 2.2e-06
+          }
+        },
+        "384": {
+          "compute_ns": {
+            "n": 4,
+            "median": 13.3946514,
+            "p95": 14.2918064,
+            "min": 12.8600738,
+            "max": 14.2918064
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 13.3961577,
+            "p95": 14.2934441,
+            "min": 12.8611379,
+            "max": 14.2934441
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 13.3944886,
+            "p95": 14.2916641,
+            "min": 12.8599305,
+            "max": 14.2916641
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 0.0001423,
+            "p95": 0.0001628,
+            "min": 0.0001165,
+            "max": 0.0001628
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0014758,
+            "p95": 0.0016724,
+            "min": 0.0010285,
+            "max": 0.0016724
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 1e-06,
+            "p95": 1.6e-06,
+            "min": 9e-07,
+            "max": 1.6e-06
+          }
+        },
+        "511": {
+          "compute_ns": {
+            "n": 4,
+            "median": 17.8655913,
+            "p95": 18.5445583,
+            "min": 17.1377723,
+            "max": 18.5445583
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 17.867376,
+            "p95": 18.5476876,
+            "min": 17.1414855,
+            "max": 18.5476876
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 17.8654511,
+            "p95": 18.544333,
+            "min": 17.1376658,
+            "max": 18.544333
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 0.0001402,
+            "p95": 0.0002253,
+            "min": 0.0001065,
+            "max": 0.0002253
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.0017851,
+            "p95": 0.0036873,
+            "min": 0.0017545,
+            "max": 0.0036873
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 1.4e-06,
+            "p95": 2e-06,
+            "min": 1e-06,
+            "max": 2e-06
+          }
+        },
+        "512": {
+          "compute_ns": {
+            "n": 4,
+            "median": 17.3834344,
+            "p95": 18.0299783,
+            "min": 17.0090862,
+            "max": 18.0299783
+          },
+          "request_ns": {
+            "n": 4,
+            "median": 17.385296,
+            "p95": 18.0311905,
+            "min": 17.0127127,
+            "max": 18.0311905
+          },
+          "backbone_ns": {
+            "n": 4,
+            "median": 17.3832932,
+            "p95": 18.0298275,
+            "min": 17.0089395,
+            "max": 18.0298275
+          },
+          "head_softmax_ns": {
+            "n": 4,
+            "median": 0.0001467,
+            "p95": 0.0001508,
+            "min": 0.0001412,
+            "max": 0.0001508
+          },
+          "tokenize_ns": {
+            "n": 4,
+            "median": 0.001836,
+            "p95": 0.0035957,
+            "min": 0.0011864,
+            "max": 0.0035957
+          },
+          "policy_ns": {
+            "n": 4,
+            "median": 1.7e-06,
+            "p95": 2.2e-06,
+            "min": 1.1e-06,
+            "max": 2.2e-06
+          }
+        }
+      },
+      "startup_stages_seconds": {
+        "mmap_ns": 0.0005371,
+        "retention_load_ns": 2.62858,
+        "startup_ns": 4.6451437,
+        "tokenizer_load_ns": 0.8148849,
+        "verify_ns": 1.1796347
+      },
+      "peak_working_set_bytes": 4592947200
+    }
+  }
+}

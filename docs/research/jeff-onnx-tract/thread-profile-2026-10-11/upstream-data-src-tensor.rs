@@ -1,0 +1,3041 @@
+//! `Tensor`, tract main data object of interest.
+use crate::TVec;
+use crate::blob::Blob;
+use crate::datum::{ClampCast, Datum, DatumType, QParams, round_ties_to_even, scale_by};
+use crate::dim::TDim;
+use crate::internal::*;
+use half::f16;
+use itertools::{Itertools, izip};
+use ndarray::prelude::*;
+#[cfg(feature = "complex")]
+use num_complex::Complex;
+use num_traits::Float;
+use std::borrow::Cow;
+use std::fmt;
+use std::hash::Hash;
+use std::ops::Range;
+use std::sync::Arc;
+
+pub mod litteral;
+pub mod plain_view;
+pub mod storage;
+pub mod view;
+
+pub use plain_view::{PlainView, PlainViewMut};
+use storage::{PlainStorage, StorageKind, TensorStorage};
+
+#[derive(Copy, Clone, Default, Debug)]
+pub enum Approximation {
+    Exact,
+    #[default]
+    Close,
+    Approximate,
+    VeryApproximate,
+    SuperApproximate,
+    UltraApproximate,
+    Custom(f32, f32, f32),
+    /// Compare by integer ULP distance in the reference tensor's own float type,
+    /// accepting a distance up to the given bound.
+    ///
+    /// Unlike the tolerance-based variants this does not go through an f32 cast,
+    /// so an f16 comparison stays an f16 comparison. Use it to assert that two
+    /// implementations of a kernel agree to within a known number of rounding
+    /// steps.
+    Ulp(u64),
+}
+
+impl PartialEq for Approximation {
+    fn eq(&self, other: &Self) -> bool {
+        use Approximation::*;
+        match (self, other) {
+            (Custom(aa, ar, ao), Custom(ba, br, bo)) => aa == ba && ar == br && bo == ao,
+            (Ulp(a), Ulp(b)) => a == b,
+            _ => std::mem::discriminant(self) == std::mem::discriminant(other),
+        }
+    }
+}
+
+impl Eq for Approximation {}
+
+impl From<bool> for Approximation {
+    fn from(b: bool) -> Self {
+        if b { Self::Approximate } else { Self::Exact }
+    }
+}
+
+impl Approximation {
+    fn atol_rtol_outliers(&self, dt: &DatumType) -> (f64, f64, f64) {
+        use Approximation::*;
+        match (self, dt) {
+            (Exact, _) => (0.0, 0.0, 0.0),
+            (Close, DatumType::F16) => (1e-3, 1e-3, 0.0),
+            (Approximate, DatumType::F16) => (1e-3, 5e-3, 0.0),
+            (Approximate, qp) if qp.is_quantized() => (qp.zp_scale().1 as f64, 0., 0.0),
+            (Close, _) => (1e-7, 1e-7, 0.0),
+            (Approximate, _) => (1e-4, 5e-4, 0.0),
+            (VeryApproximate, _) => (5e-2, 1e-2, 0.0),
+            (SuperApproximate, _) => (0.1, 0.05, 0.0001),
+            (UltraApproximate, _) => (0.2, 0.1, 0.0005),
+            (Custom(atol, rtol, out), _) => (*atol as _, *rtol as _, *out as _),
+            // Handled by a dedicated path in `Tensor::close_enough`; these values
+            // are never consulted.
+            (Ulp(_), _) => (0.0, 0.0, 0.0),
+        }
+    }
+}
+
+/// Tensor is a concrete tensor in tract.
+pub struct Tensor {
+    dt: DatumType,
+    shape: TVec<usize>,
+    strides: TVec<isize>,
+    len: usize,
+    storage: StorageKind,
+}
+
+unsafe impl Send for Tensor {}
+unsafe impl Sync for Tensor {}
+
+impl Hash for Tensor {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        use DatumType::*;
+        self.dt.hash(state);
+        self.shape.hash(state);
+        if let Some(plain) = self.storage.as_plain_ram() {
+            plain.layout().align().hash(state);
+            unsafe {
+                match self.dt {
+                    Bool => self.as_slice_unchecked::<bool>().hash(state),
+                    I8 => self.as_slice_unchecked::<i8>().hash(state),
+                    I16 => self.as_slice_unchecked::<i16>().hash(state),
+                    I32 => self.as_slice_unchecked::<i32>().hash(state),
+                    I64 => self.as_slice_unchecked::<i64>().hash(state),
+                    U8 => self.as_slice_unchecked::<u8>().hash(state),
+                    U16 => self.as_slice_unchecked::<u16>().hash(state),
+                    U32 => self.as_slice_unchecked::<u32>().hash(state),
+                    U64 => self.as_slice_unchecked::<u64>().hash(state),
+                    F16 => self.as_slice_unchecked::<i16>().hash(state),
+                    F32 => self.as_slice_unchecked::<i32>().hash(state),
+                    F64 => self.as_slice_unchecked::<i64>().hash(state),
+                    TDim => self.as_slice_unchecked::<crate::dim::TDim>().hash(state),
+                    String => self.as_slice_unchecked::<std::string::String>().hash(state),
+                    Blob => self.as_slice_unchecked::<crate::blob::Blob>().hash(state),
+                    QI8(_) => self.as_slice_unchecked::<i8>().hash(state),
+                    QU8(_) => self.as_slice_unchecked::<u8>().hash(state),
+                    QI32(_) => self.as_slice_unchecked::<i32>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexI16 => self.as_slice_unchecked::<Complex<i16>>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexI32 => self.as_slice_unchecked::<Complex<i32>>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexI64 => self.as_slice_unchecked::<Complex<i64>>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexF16 => self.as_slice_unchecked::<Complex<i16>>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexF32 => self.as_slice_unchecked::<Complex<i32>>().hash(state),
+                    #[cfg(feature = "complex")]
+                    ComplexF64 => self.as_slice_unchecked::<Complex<i64>>().hash(state),
+                }
+            }
+        } else {
+            self.storage.dyn_hash(state);
+        }
+    }
+}
+
+impl Clone for Tensor {
+    fn clone(&self) -> Tensor {
+        self.deep_clone()
+    }
+}
+
+impl Default for Tensor {
+    fn default() -> Tensor {
+        litteral::tensor0(0f32)
+    }
+}
+
+impl Drop for Tensor {
+    fn drop(&mut self) {
+        if self.as_plain_ram_storage().is_some() {
+            macro_rules! drop_in_place {
+                ($t: ty) => {
+                    if self.dt == <$t>::datum_type() {
+                        unsafe {
+                            let slice = self.as_slice_mut_unchecked::<$t>();
+                            std::ptr::drop_in_place(slice as *mut [$t]);
+                        }
+                    }
+                };
+            }
+            drop_in_place!(Blob);
+            drop_in_place!(String);
+            drop_in_place!(TDim);
+        }
+        // StorageKind::Exotic drops via Box<dyn TensorStorage> automatically
+    }
+}
+
+#[allow(unreachable_code)]
+pub fn vector_size() -> usize {
+    #[cfg(target_arch = "x86_64")]
+    {
+        return if is_x86_feature_detected!("avx512f") { 512 / 8 } else { 256 / 8 };
+    }
+    128 / 8
+}
+
+/// Copy `outer` blocks of `block` bytes from a contiguous source into a destination
+/// strided by `out_stride`, as `T`-sized items. Used for blocks too small for a
+/// `copy_nonoverlapping` call per block to pay for itself.
+///
+/// # Safety
+/// `block` and `out_stride` must be multiples of `size_of::<T>()`, both pointers must
+/// be `T`-aligned, and the two ranges must not overlap.
+#[inline]
+unsafe fn copy_blocks<T: Copy>(
+    src: *const u8,
+    dst: *mut u8,
+    outer: usize,
+    block: usize,
+    out_stride: usize,
+) {
+    unsafe {
+        let n = block / std::mem::size_of::<T>();
+        for o in 0..outer {
+            let s = src.add(o * block) as *const T;
+            let d = dst.add(o * out_stride) as *mut T;
+            for i in 0..n {
+                *d.add(i) = *s.add(i);
+            }
+        }
+    }
+}
+
+impl Tensor {
+    /// Plain storage for this tensor's bytes, materializing it if the storage
+    /// keeps them elsewhere.
+    ///
+    /// Panics if the bytes cannot be produced, which is what the accessors
+    /// built on it (`as_bytes`, `as_ptr`, `as_slice_unchecked`) have always
+    /// done on non-plain storage. `try_as_plain_ram` is the fallible way in.
+    #[inline]
+    fn plain_ram_storage(&self) -> &PlainStorage {
+        self.storage.materialize_plain_ram().expect("Non-plain storage")
+    }
+
+    #[inline]
+    fn plain_ram_storage_mut(&mut self) -> &mut PlainStorage {
+        self.storage.as_plain_ram_mut().expect("Non-plain storage")
+    }
+
+    pub fn storage_as<T: TensorStorage>(&self) -> Option<&T> {
+        self.storage.as_storage().downcast_ref::<T>()
+    }
+
+    pub fn try_storage_as<T: TensorStorage>(&self) -> TractResult<&T> {
+        self.storage_as::<T>().context("Unexpected tensor storage type")
+    }
+
+    pub fn from_storage(
+        dt: DatumType,
+        shape: &[usize],
+        storage: impl TensorStorage + 'static,
+    ) -> Tensor {
+        let len = shape.iter().product::<usize>();
+        let strides = Self::natural_strides(shape);
+        Tensor {
+            dt,
+            shape: shape.into(),
+            strides,
+            len,
+            storage: StorageKind::Exotic(Box::new(storage)),
+        }
+    }
+
+    /// Returns an immutable [`PlainView`] if this tensor has plain storage.
+    #[inline]
+    pub fn as_plain_ram(&self) -> Option<PlainView<'_>> {
+        let storage = self.storage.as_plain_ram()?;
+        Some(PlainView::new(self, storage))
+    }
+
+    /// Returns an immutable [`PlainView`], or an error if storage is not plain.
+    ///
+    /// Unlike `as_plain_ram`, this materializes storage that holds its bytes
+    /// elsewhere, so it is the way to read a tensor whose storage may be
+    /// lazily host-backed.
+    #[inline]
+    pub fn try_as_plain_ram(&self) -> TractResult<PlainView<'_>> {
+        let storage = self.storage.materialize_plain_ram()?;
+        Ok(PlainView::new(self, storage))
+    }
+
+    /// Plain storage this tensor already holds in ram, if any. Never
+    /// materializes: the two axes at once, and the accessor to reach for
+    /// before a plain read.
+    #[inline]
+    pub fn as_plain_ram_storage(&self) -> Option<&PlainStorage> {
+        self.storage.as_plain_ram()
+    }
+
+    /// Mutable plain storage this tensor already holds in ram, if any. Never
+    /// materializes.
+    #[inline]
+    pub fn as_plain_ram_storage_mut(&mut self) -> Option<&mut PlainStorage> {
+        self.storage.as_plain_ram_mut()
+    }
+
+    /// Returns `true` if datum type and shape describe this tensor's layout on
+    /// their own.
+    ///
+    /// The layout axis, orthogonal to placement: a dense tensor is plain
+    /// wherever its bytes sit, block-quant weights are exotic wherever theirs
+    /// sit. Matches `TypedFact::is_plain`.
+    #[inline]
+    pub fn is_plain(&self) -> bool {
+        !self.storage.is_exotic()
+    }
+
+    /// Returns `true` if datum type and shape do not describe this tensor's
+    /// layout on their own, so a fact over it carries an `ExoticFact`.
+    #[inline]
+    pub fn is_exotic(&self) -> bool {
+        self.storage.is_exotic()
+    }
+
+    /// Returns `true` if this tensor's bytes can be read as plain host memory
+    /// right now: both axes at once, and what a caller gating an eager read or
+    /// an evaluation on cost is really asking.
+    #[inline]
+    pub fn is_plain_ram(&self) -> bool {
+        self.as_plain_ram_storage().is_some()
+    }
+
+    /// Returns `true` if this tensor's bytes are in host memory, readable
+    /// without a transfer.
+    ///
+    /// The placement axis, and a transient one: storage that leaves its bytes
+    /// on a device answers false until something materializes them, true
+    /// afterwards. It answers for the bytes in whatever layout the storage
+    /// keeps them, so it takes both axes -- `as_plain_ram_storage` -- for a
+    /// plain read to be sure to work.
+    #[inline]
+    pub fn in_ram(&self) -> bool {
+        self.storage.in_ram()
+    }
+
+    /// Build the `ExoticFact` matching this tensor's storage, or `None` for plain tensors.
+    pub fn exotic_fact(&self) -> TractResult<Option<Box<dyn crate::exotic::ExoticFact>>> {
+        self.storage.as_storage().exotic_fact(&self.shape)
+    }
+
+    /// Returns a mutable [`PlainViewMut`] if this tensor has plain storage.
+    #[inline]
+    pub fn as_plain_ram_mut(&mut self) -> Option<PlainViewMut<'_>> {
+        let storage = self.storage.as_plain_ram_mut()?;
+        Some(PlainViewMut::new(self.dt, &self.shape, &self.strides, self.len, storage))
+    }
+
+    /// Returns a mutable [`PlainViewMut`], or an error if storage is not plain.
+    #[inline]
+    pub fn try_as_plain_ram_mut(&mut self) -> TractResult<PlainViewMut<'_>> {
+        self.as_plain_ram_mut().context("Tensor storage is not plain")
+    }
+
+    /// Create an uninitialized tensor (dt as type paramater).
+    #[inline]
+    pub unsafe fn uninitialized<T: Datum>(shape: &[usize]) -> TractResult<Tensor> {
+        unsafe { Self::uninitialized_dt(T::datum_type(), shape) }
+    }
+
+    /// Create an uninitialized tensor (dt as regular parameter).
+    #[inline]
+    pub unsafe fn uninitialized_dt(dt: DatumType, shape: &[usize]) -> TractResult<Tensor> {
+        unsafe { Self::uninitialized_aligned_dt(dt, shape, vector_size()) }
+    }
+
+    /// Create an uninitialized tensor with a given alignment (in bytes).
+    #[inline]
+    pub unsafe fn uninitialized_aligned<T: Datum>(
+        shape: &[usize],
+        alignment: usize,
+    ) -> TractResult<Tensor> {
+        unsafe { Self::uninitialized_aligned_dt(T::datum_type(), shape, alignment) }
+    }
+
+    /// Create an uninitialized tensor with a given alignment (in bytes).
+    pub unsafe fn uninitialized_aligned_dt(
+        dt: DatumType,
+        shape: &[usize],
+        alignment: usize,
+    ) -> TractResult<Tensor> {
+        // `shape` and `dt` come from the model file. Computing the byte count
+        // with a plain product used to wrap around on overflow, silently
+        // allocating a buffer much smaller than the tensor claims (or asking
+        // the allocator for an absurd one). Check instead.
+        let bytes = shape
+            .iter()
+            .try_fold(dt.size_of(), |acc, &d| acc.checked_mul(d))
+            .filter(|&b| b <= isize::MAX as usize)
+            .ok_or_else(|| format_err!("tensor shape {shape:?} of {dt:?} is too large"))?;
+        let storage = StorageKind::Plain(PlainStorage::from(unsafe {
+            Blob::new_for_size_and_align(bytes, alignment)
+        }));
+        let mut tensor = Tensor { strides: tvec!(), dt, shape: shape.into(), storage, len: 0 };
+        if tensor.shape.len() == 0 {
+            tensor.len = 1;
+        } else {
+            tensor.update_strides_and_len();
+        }
+        if !tensor.storage.is_empty() {
+            unsafe fn write_defaults<T: Datum + Default>(tensor: &mut Tensor) {
+                unsafe {
+                    let len = tensor.len;
+                    let dst = tensor.as_slice_mut_unchecked::<T>().as_mut_ptr();
+                    for i in 0..len {
+                        std::ptr::write(dst.add(i), T::default());
+                    }
+                }
+            }
+            if dt == String::datum_type() {
+                unsafe { write_defaults::<String>(&mut tensor) }
+            } else if dt == Blob::datum_type() {
+                unsafe { write_defaults::<Blob>(&mut tensor) }
+            } else if dt == TDim::datum_type() {
+                unsafe { write_defaults::<TDim>(&mut tensor) }
+            } else if cfg!(debug_assertions) {
+                assert!(dt.is_copy());
+                if dt == DatumType::F32 {
+                    tensor.fill_t(f32::NAN).unwrap();
+                } else {
+                    // safe, non copy types have been dealt with
+                    tensor.as_bytes_mut().iter_mut().for_each(|x| *x = (-1i8) as u8);
+                }
+            }
+        }
+        Ok(tensor)
+    }
+
+    pub fn stack_tensors(
+        axis: usize,
+        tensors: &[impl std::borrow::Borrow<Tensor>],
+    ) -> TractResult<Tensor> {
+        ensure!(tensors.len() > 0);
+        let rank = tensors[0].borrow().rank();
+        ensure!(axis < rank);
+        ensure!(tensors.iter().all(|t| t.borrow().rank() == rank));
+        let dt = tensors[0].borrow().datum_type();
+        ensure!(tensors.iter().all(|t| t.borrow().datum_type() == dt));
+        let mut shape: TVec<usize> = tensors[0].borrow().shape().into();
+        for ax in 0..rank {
+            if ax != axis {
+                ensure!(tensors.iter().all(|t| t.borrow().shape()[ax] == shape[ax]));
+            }
+        }
+        shape[axis] = tensors.iter().map(|v| v.borrow().shape()[axis]).sum();
+        unsafe {
+            let mut result = Tensor::uninitialized_dt(dt, &shape)?;
+            // Every input keeps the same trailing block, so one outer stride walks
+            // them alongside the result and each contribution stays contiguous.
+            let outer: usize = shape[..axis].iter().product();
+            let out_stride = shape[axis..].iter().product::<usize>() * dt.size_of();
+            // Each contribution is `outer` blocks of `block` bytes, strided by
+            // `out_stride` in the result. At one f32 per block -- DTLN's
+            // [1, 2, 128, 2] axis-3 concat, FastEnhancer's [1, 256, 1, 2] -- a
+            // copy_nonoverlapping per block is `outer` calls to move four bytes
+            // each, and the generic strided assign below is no better. Copy those
+            // inline, typed, instead: no call, and the loop is a plain strided
+            // store LLVM can widen.
+            const SMALL_BLOCK_BYTES: usize = 64;
+            if dt.is_copy()
+                && outer > 0
+                && tensors.iter().all(|t| t.borrow().storage.as_plain_ram().is_some())
+            {
+                let out = result.plain_ram_storage_mut().as_mut_ptr();
+                let mut offset = 0isize;
+                for v in tensors {
+                    let v = v.borrow();
+                    let block = v.storage.byte_len() / outer;
+                    let src = v.plain_ram_storage().as_ptr();
+                    let dst = out.offset(offset);
+                    if outer == 1 {
+                        std::ptr::copy_nonoverlapping(src, dst, block);
+                    } else if block >= SMALL_BLOCK_BYTES {
+                        for o in 0..outer {
+                            std::ptr::copy_nonoverlapping(
+                                src.add(o * block),
+                                dst.add(o * out_stride),
+                                block,
+                            );
+                        }
+                    } else {
+                        // `block` and both pointers are multiples of the datum size,
+                        // so the typed copy stays aligned.
+                        match dt.size_of() {
+                            1 => copy_blocks::<u8>(src, dst, outer, block, out_stride),
+                            2 => copy_blocks::<u16>(src, dst, outer, block, out_stride),
+                            4 => copy_blocks::<u32>(src, dst, outer, block, out_stride),
+                            8 => copy_blocks::<u64>(src, dst, outer, block, out_stride),
+                            16 => copy_blocks::<u128>(src, dst, outer, block, out_stride),
+                            _ => {
+                                for o in 0..outer {
+                                    std::ptr::copy_nonoverlapping(
+                                        src.add(o * block),
+                                        dst.add(o * out_stride),
+                                        block,
+                                    );
+                                }
+                            }
+                        }
+                    }
+                    offset += block as isize;
+                }
+            } else {
+                let mut offset = 0;
+                for t in tensors {
+                    let t = t.borrow();
+                    let len = t.shape()[axis];
+                    result.assign_slice_from_resolved(
+                        &[],
+                        offset..offset + len,
+                        t,
+                        &[],
+                        0..len,
+                        axis,
+                    );
+                    offset += len;
+                }
+            }
+
+            Ok(result)
+        }
+    }
+
+    pub fn clear<T: Datum + num_traits::Zero + Clone>(&mut self) -> TractResult<()> {
+        self.fill_t(T::zero())
+    }
+
+    pub fn zero<T: Datum + num_traits::Zero>(shape: &[usize]) -> TractResult<Tensor> {
+        unsafe {
+            let mut t = Tensor::uninitialized::<T>(shape)?;
+            t.clear::<T>()?;
+            Ok(t)
+        }
+    }
+
+    pub fn zero_scalar<T: Datum + num_traits::Zero>() -> TractResult<Tensor> {
+        Tensor::zero::<T>(&[])
+    }
+
+    pub fn zero_scalar_dt(dt: DatumType) -> TractResult<Tensor> {
+        Tensor::zero_dt(dt, &[])
+    }
+
+    pub fn zero_dt(dt: DatumType, shape: &[usize]) -> TractResult<Tensor> {
+        Tensor::zero_aligned_dt(dt, shape, vector_size())
+    }
+
+    pub fn fill_t<T: Datum + Clone>(&mut self, value: T) -> TractResult<()> {
+        self.try_as_plain_ram_mut()?
+            .as_slice_mut::<T>()?
+            .iter_mut()
+            .for_each(|item| *item = value.clone());
+        Ok(())
+    }
+
+    pub fn zero_aligned_dt(
+        dt: DatumType,
+        shape: &[usize],
+        alignment: usize,
+    ) -> TractResult<Tensor> {
+        if shape.iter().product::<usize>() == 0 {
+            unsafe { return Tensor::uninitialized_dt(dt, shape) };
+        }
+        if dt.is_quantized() {
+            unsafe {
+                let mut t = Tensor::uninitialized_dt(dt, shape)?;
+                let zp = dt.zp_scale().0;
+                match dt.unquantized() {
+                    DatumType::I8 => t
+                        .try_as_plain_ram_mut()?
+                        .as_slice_mut::<i8>()?
+                        .iter_mut()
+                        .for_each(|item| *item = zp as _),
+                    DatumType::U8 => t
+                        .try_as_plain_ram_mut()?
+                        .as_slice_mut::<u8>()?
+                        .iter_mut()
+                        .for_each(|item| *item = zp as _),
+                    DatumType::I32 => t
+                        .try_as_plain_ram_mut()?
+                        .as_slice_mut::<i32>()?
+                        .iter_mut()
+                        .for_each(|item| *item = zp as _),
+                    _ => unreachable!(),
+                }
+                Ok(t)
+            }
+        } else if dt == DatumType::Bool {
+            let mut t = unsafe { Tensor::uninitialized_dt(dt, shape)? };
+            t.fill_t::<bool>(false)?;
+            Ok(t)
+        } else {
+            dispatch_zerolike!(Self::zero_aligned(dt)(shape, alignment))
+        }
+    }
+
+    pub fn zero_aligned<T: Datum + num_traits::Zero>(
+        shape: &[usize],
+        alignment: usize,
+    ) -> TractResult<Tensor> {
+        unsafe {
+            let mut tensor = Self::uninitialized_aligned::<T>(shape, alignment)?;
+            tensor.clear::<T>()?;
+            Ok(tensor)
+        }
+    }
+
+    /// Create a tensor with a given shape and a slice of elements.
+    /// The data is copied and aligned to size of T.
+    pub fn from_shape<T: Datum + Copy>(shape: &[usize], data: &[T]) -> TractResult<Tensor> {
+        Self::from_shape_align(shape, data, vector_size())
+    }
+
+    /// Create a tensor with a given shape and a slice of elements.
+    /// The data is copied and aligned to given alignment.
+    pub fn from_shape_align<T: Datum + Copy>(
+        shape: &[usize],
+        data: &[T],
+        align: usize,
+    ) -> TractResult<Tensor> {
+        ensure!(
+            data.len() == shape.iter().product::<usize>(),
+            "Shape product must be equal to data length"
+        );
+        unsafe {
+            let bytes = std::slice::from_raw_parts(
+                data.as_ptr() as *const u8,
+                data.len() * T::datum_type().size_of(),
+            );
+            let dt = T::datum_type();
+            Self::from_raw_dt_align(dt, shape, bytes, align)
+        }
+    }
+
+    /// Create a tensor from raw data.
+    ///
+    /// It copies the data, aligning it to the size of T.
+    pub unsafe fn from_raw<T: Datum>(shape: &[usize], content: &[u8]) -> TractResult<Tensor> {
+        unsafe { Tensor::from_raw_dt(T::datum_type(), shape, content) }
+    }
+
+    pub unsafe fn from_raw_aligned<T: Datum>(
+        shape: &[usize],
+        content: &[u8],
+        align: usize,
+    ) -> TractResult<Tensor> {
+        unsafe { Tensor::from_raw_dt_align(T::datum_type(), shape, content, align) }
+    }
+
+    pub unsafe fn from_raw_dt(
+        dt: DatumType,
+        shape: &[usize],
+        content: &[u8],
+    ) -> TractResult<Tensor> {
+        unsafe { Self::from_raw_dt_align(dt, shape, content, vector_size()) }
+    }
+
+    pub unsafe fn from_raw_dt_align(
+        dt: DatumType,
+        shape: &[usize],
+        content: &[u8],
+        align: usize,
+    ) -> TractResult<Tensor> {
+        // Check the declared shape against the payload *before* allocating.
+        // The shape is attacker-controlled, so allocating first lets a
+        // malformed model request an allocation of any size it likes, even
+        // when the payload that follows is a few bytes long.
+        let len = shape
+            .iter()
+            .try_fold(1usize, |acc, &d| acc.checked_mul(d))
+            .ok_or_else(|| format_err!("tensor shape {shape:?} overflows"))?;
+        let expected = len
+            .checked_mul(dt.size_of())
+            .ok_or_else(|| format_err!("tensor shape {shape:?} of {dt:?} is too large"))?;
+        ensure!(
+            content.len() == expected,
+            "Raw tensor data length ({}) does not match shape {:?} of {:?} ({} bytes)",
+            content.len(),
+            shape,
+            dt,
+            expected
+        );
+        let mut tensor = unsafe { Tensor::uninitialized_aligned_dt(dt, shape, align) }?;
+        tensor.as_bytes_mut().copy_from_slice(content);
+        Ok(tensor)
+    }
+
+    pub unsafe fn from_slice_align<T: Datum>(content: &[T], align: usize) -> TractResult<Tensor> {
+        let bytes = if content.len() == 0 {
+            &[]
+        } else {
+            unsafe {
+                std::slice::from_raw_parts(
+                    content.as_ptr() as *const u8,
+                    content.len() * T::datum_type().size_of(),
+                )
+            }
+        };
+        unsafe { Self::from_raw_dt_align(T::datum_type(), &[content.len()], bytes, align) }
+    }
+
+    /// Get the number of dimensions (or axes) of the tensor.
+    #[inline]
+    pub fn rank(&self) -> usize {
+        self.shape.len()
+    }
+
+    /// Get the shape of the tensor.
+    #[inline]
+    pub fn shape(&self) -> &[usize] {
+        &self.shape
+    }
+
+    /// Get the number of values in the tensor.
+    #[inline]
+    #[allow(clippy::len_without_is_empty)]
+    pub fn len(&self) -> usize {
+        self.len
+    }
+
+    /// Get the number of valeus in the tensor.
+    #[inline]
+    #[allow(clippy::len_without_is_empty)]
+    pub fn volume(&self) -> usize {
+        self.len
+    }
+
+    /// Get the shape of the tensor.
+    #[inline]
+    pub fn strides(&self) -> &[isize] {
+        &self.strides
+    }
+
+    fn update_strides_and_len(&mut self) {
+        self.strides.clear();
+        if self.shape.len() == 0 {
+            self.len = 1;
+            return;
+        }
+        compute_natural_stride_to(&mut self.strides, &self.shape);
+        self.len = unsafe { *self.strides.get_unchecked(0) as usize * self.shape.get_unchecked(0) };
+    }
+
+    /// Force the tensor shape, no consistency check.
+    pub unsafe fn set_shape_unchecked(&mut self, shape: &[usize]) {
+        if shape != &*self.shape {
+            self.shape.clear();
+            self.shape.extend_from_slice(shape);
+            self.update_strides_and_len();
+        }
+    }
+
+    /// Force the tensor shape and strides, no consistency check.
+    pub unsafe fn set_geometry_unchecked(&mut self, shape: &[usize], strides: &[isize]) {
+        self.shape.clear();
+        self.shape.extend_from_slice(shape);
+        self.strides.clear();
+        self.strides.extend_from_slice(strides);
+    }
+
+    /// Force the tensor shape.
+    pub fn set_shape(&mut self, shape: &[usize]) -> TractResult<()> {
+        if self.len() != shape.iter().product::<usize>() {
+            bail!("Invalid reshape {:?} to {:?}", self.shape, shape);
+        }
+        unsafe { self.set_shape_unchecked(shape) }
+        Ok(())
+    }
+
+    pub fn permute_axes(self, axes: &[usize]) -> TractResult<Tensor> {
+        ensure!(axes.iter().duplicates().next().is_none());
+        ensure!(axes.iter().all(|a| *a < self.rank()));
+        unsafe {
+            #[inline]
+            unsafe fn permute<T: Datum>(axes: &[usize], input: Tensor) -> Tensor {
+                unsafe { input.into_array_unchecked::<T>().permuted_axes(axes).into_tensor() }
+            }
+            let dt = self.datum_type();
+            let mut t = dispatch_datum_by_size!(permute(self.datum_type())(axes, self));
+            t.set_datum_type(dt);
+            Ok(t)
+        }
+    }
+
+    pub fn move_axis(self, from: usize, to: usize) -> TractResult<Tensor> {
+        let mut permutation: Vec<usize> = (0..self.rank()).collect();
+        permutation.remove(from);
+        permutation.insert(to, from);
+        self.permute_axes(&permutation)
+    }
+
+    pub fn collapse_axis_with_next(mut self, axis: usize) -> Tensor {
+        let removed = self.shape.remove(axis + 1);
+        self.shape[axis] *= removed;
+        self.update_strides_and_len();
+        self
+    }
+
+    pub fn split_axis(mut self, axis: usize, outer_dim: usize) -> TractResult<Tensor> {
+        if !self.shape[axis].is_multiple_of(outer_dim) {
+            bail!(
+                "Invalid axis split, shape is {:?}, axis split at {}, outer {}",
+                self.shape,
+                axis,
+                outer_dim
+            );
+        }
+        self.shape.insert(axis + 1, self.shape[axis] / outer_dim);
+        self.shape[axis] = outer_dim;
+        self.update_strides_and_len();
+        Ok(self)
+    }
+
+    /// Reshape the tensor to `shape`.
+    pub fn into_shape(mut self, shape: &[usize]) -> TractResult<Tensor> {
+        self.set_shape(shape)?;
+        Ok(self)
+    }
+
+    pub fn insert_axis(&mut self, axis: usize) -> TractResult<()> {
+        self.shape.insert(axis, 1);
+        self.strides.insert(axis, self.strides.get(axis).copied().unwrap_or(1));
+        Ok(())
+    }
+
+    pub fn remove_axis(&mut self, axis: usize) -> TractResult<()> {
+        ensure!(self.shape[axis] == 1, "Remove a non-1 axis: axis {} in {:?}", axis, self);
+        self.shape.remove(axis);
+        self.strides.remove(axis);
+        Ok(())
+    }
+
+    pub fn broadcast_into_rank(mut self, rank: usize) -> TractResult<Tensor> {
+        self.broadcast_to_rank(rank)?;
+        self.update_strides_and_len();
+        Ok(self)
+    }
+
+    pub fn broadcast_to_rank(&mut self, rank: usize) -> TractResult<()> {
+        if rank < self.rank() {
+            bail!("Can only broadcast to higher rank")
+        }
+        while self.shape.len() < rank {
+            self.shape.insert(0, 1)
+        }
+        self.update_strides_and_len();
+        Ok(())
+    }
+
+    pub fn broadcast_scalar_to_shape(&self, shape: &[usize]) -> TractResult<Tensor> {
+        if self.rank() > 0 {
+            bail!("broadcast_scalar_to_shape called on {:?}, which is not a salar", self);
+        }
+        unsafe fn make<T: Datum>(src: &Tensor, dst: &mut Tensor) {
+            unsafe {
+                let value: &T = src.to_scalar_unchecked::<T>();
+                dst.as_slice_mut_unchecked::<T>().iter_mut().for_each(|item| *item = value.clone())
+            };
+        }
+        unsafe {
+            let mut t = Tensor::uninitialized_dt(self.datum_type(), shape)?;
+            dispatch_datum_by_size!(make(self.datum_type())(self, &mut t));
+            Ok(t)
+        }
+    }
+
+    fn broadcast_to_shape_t<T: Datum>(&self, shape: &[usize]) -> TractResult<Tensor> {
+        unsafe {
+            let view = self.to_array_view_unchecked::<T>();
+            let mut output = view
+                .broadcast(shape)
+                .with_context(|| format!("Broadcasting {view:?} to {shape:?}"))?
+                .into_owned()
+                .into_tensor();
+            output.set_datum_type(self.datum_type());
+            Ok(output)
+        }
+    }
+
+    pub fn broadcast_to_shape(&self, shape: &[usize]) -> TractResult<Tensor> {
+        if !self.dt.is_copy() {
+            return dispatch_datum!(Self::broadcast_to_shape_t(self.dt)(self, shape));
+        }
+        ensure!(
+            self.rank() <= shape.len(),
+            "Broadcasting {self:?} to {shape:?} would lose {} axes",
+            self.rank() - shape.len()
+        );
+        let offset = shape.len() - self.rank();
+        let mut src: TVec<usize> = tvec!(1; shape.len());
+        src[offset..].copy_from_slice(self.shape());
+        ensure!(
+            izip!(&src, shape).all(|(s, d)| *s == 1 || s == d),
+            "Broadcasting {self:?} to {shape:?}"
+        );
+        // The axes from the innermost one down to the first broadcast axis are
+        // one contiguous run of the source, so only the axes above it need a
+        // coordinate walk, with a null source stride wherever they broadcast.
+        let mut split = shape.len();
+        while split > 0 && src[split - 1] == shape[split - 1] {
+            split -= 1;
+        }
+        let dt_size = self.dt.size_of();
+        let run = shape[split..].iter().product::<usize>() * dt_size;
+        let outer: usize = shape[..split].iter().product();
+        let mut src_strides: TVec<usize> = tvec!(0; split);
+        let mut acc = run;
+        for ax in (0..split).rev() {
+            src_strides[ax] = if src[ax] == 1 { 0 } else { acc };
+            acc *= src[ax];
+        }
+        let mut output = unsafe { Tensor::uninitialized_dt(self.dt, shape)? };
+        if run == 0 || outer == 0 {
+            return Ok(output);
+        }
+        let source = self.as_bytes();
+        let dst = output.as_bytes_mut();
+        let mut coords: TVec<usize> = tvec!(0; split);
+        for block in 0..outer {
+            let from: usize = izip!(&coords, &src_strides).map(|(c, s)| c * s).sum();
+            dst[block * run..][..run].copy_from_slice(&source[from..][..run]);
+            for ax in (0..split).rev() {
+                coords[ax] += 1;
+                if coords[ax] < shape[ax] {
+                    break;
+                }
+                coords[ax] = 0;
+            }
+        }
+        Ok(output)
+    }
+
+    pub fn broadcast_vector_to_shape(&self, shape: &[usize], axis: usize) -> TractResult<Tensor> {
+        ensure!(self.rank() == 1);
+        ensure!(shape[axis] == self.len());
+        if !self.datum_type().is_copy() {
+            let mut vec_shape = vec![1; shape.len()];
+            vec_shape[axis] = self.len();
+            return self.clone().into_shape(&vec_shape)?.broadcast_to_shape(shape);
+        }
+        unsafe {
+            let mut output = Tensor::uninitialized_dt(self.datum_type(), shape)?;
+            if output.len() == 0 {
+                return Ok(output);
+            }
+            let inner_len = shape[axis + 1..].iter().product::<usize>();
+
+            unsafe fn splat<T>(input: &Tensor, output: &mut Tensor, inner_len: usize)
+            where
+                T: Datum + Copy,
+            {
+                unsafe {
+                    for ix in 0..input.len() {
+                        let value: T = input.as_slice_unchecked()[ix];
+                        output.as_slice_mut_unchecked::<T>()[ix * inner_len..(ix + 1) * inner_len]
+                            .iter_mut()
+                            .for_each(|item| *item = value);
+                    }
+                }
+            }
+            dispatch_copy_by_size!(splat(self.datum_type())(&self, &mut output, inner_len));
+
+            let outer_len = shape[0..axis].iter().product::<usize>();
+            let repeat_bytes_len = inner_len * self.as_bytes().len();
+            let bytes = output.as_bytes_mut();
+            for ix in 1..outer_len {
+                bytes.copy_within(0..repeat_bytes_len, ix * repeat_bytes_len);
+            }
+
+            Ok(output)
+        }
+    }
+    pub fn assign_slice(
+        &mut self,
+        range: impl std::ops::RangeBounds<usize>,
+        src: &Tensor,
+        src_range: impl std::ops::RangeBounds<usize>,
+        axis: usize,
+    ) -> TractResult<()> {
+        self.assign_slice_at_prefix(&[], range, src, &[], src_range, axis)
+    }
+
+    /// Assign `src`'s `src_range` along `axis` into `range` along `axis`, each
+    /// taken in the sub-tensor at its prefix. A prefix indexes the leading axes
+    /// as [`Tensor::view_at_prefix`] does, and both prefixes cover the same
+    /// axes, whose extents may then differ. `axis` stays an axis of the whole
+    /// tensors, so it has to sit past the prefixes.
+    pub fn assign_slice_at_prefix(
+        &mut self,
+        prefix: &[usize],
+        range: impl std::ops::RangeBounds<usize>,
+        src: &Tensor,
+        src_prefix: &[usize],
+        src_range: impl std::ops::RangeBounds<usize>,
+        axis: usize,
+    ) -> TractResult<()> {
+        ensure!(self.rank() == src.rank());
+        ensure!(axis < self.rank());
+        let range = clip_range_bounds(self.shape[axis], range);
+        let src_range = clip_range_bounds(src.shape[axis], src_range);
+        ensure!(
+            src.datum_type() == self.datum_type(),
+            "Attempt to assign into {:?} from {:?}, datum type mismatch",
+            self.datum_type(),
+            src.datum_type()
+        );
+        ensure!(
+            src_range.len() == range.len(),
+            "Attempt to assign a range of {:?} from a range of {:?}",
+            range,
+            src_range,
+        );
+        ensure!(
+            prefix.len() == src_prefix.len() && prefix.len() <= axis,
+            "Attempt to assign axis {axis} at prefixes {prefix:?} and {src_prefix:?}"
+        );
+        ensure!(
+            izip!(prefix, self.shape()).all(|(ix, dim)| ix < dim)
+                && izip!(src_prefix, src.shape()).all(|(ix, dim)| ix < dim),
+            "Attempt to assign into {self:?} at {prefix:?} from {src:?} at {src_prefix:?}"
+        );
+        ensure!(
+            izip!(prefix.len().., &self.shape[prefix.len()..], &src.shape[prefix.len()..])
+                .all(|(ix, dst, src)| ix == axis || src == dst),
+            "Attempt to assign a {}-axis range of {:?} from a range of {:?}",
+            axis,
+            self,
+            src
+        );
+        ensure!(
+            src_range.end <= src.shape()[axis],
+            "Assigning from invalid slice (axis {}, {:?}) of {:?}",
+            axis,
+            src_range,
+            src
+        );
+        ensure!(
+            range.end <= self.shape()[axis],
+            "Assigning to invalid slice (axis {}, {:?}) of {:?}",
+            axis,
+            range,
+            self
+        );
+        unsafe { self.assign_slice_from_resolved(prefix, range, src, src_prefix, src_range, axis) };
+        Ok(())
+    }
+
+    pub unsafe fn assign_slice_unchecked(
+        &mut self,
+        range: impl std::ops::RangeBounds<usize>,
+        src: &Tensor,
+        src_range: impl std::ops::RangeBounds<usize>,
+        axis: usize,
+    ) {
+        let range = clip_range_bounds(self.shape[axis], range);
+        let src_range = clip_range_bounds(src.shape[axis], src_range);
+        unsafe { self.assign_slice_from_resolved(&[], range, src, &[], src_range, axis) };
+    }
+
+    /// The byte offset of the sub-tensor at `prefix`, which indexes the leading
+    /// axes as [`Tensor::view_at_prefix`] does.
+    fn prefix_offset(&self, prefix: &[usize]) -> usize {
+        izip!(prefix, &self.strides).map(|(ix, stride)| ix * *stride as usize).sum::<usize>()
+            * self.datum_type().size_of()
+    }
+
+    #[allow(clippy::ptr_eq)]
+    unsafe fn assign_slice_from_resolved(
+        &mut self,
+        prefix: &[usize],
+        range: std::ops::Range<usize>,
+        src: &Tensor,
+        src_prefix: &[usize],
+        src_range: std::ops::Range<usize>,
+        axis: usize,
+    ) {
+        unsafe {
+            use ndarray::Slice;
+            unsafe fn assign_slice_t<T: Datum>(
+                to: &mut Tensor,
+                to_prefix: &[usize],
+                to_range: Range<usize>,
+                from: &Tensor,
+                from_prefix: &[usize],
+                from_range: Range<usize>,
+                axis: usize,
+            ) {
+                unsafe {
+                    let mut to_view = to.to_array_view_mut_unchecked::<T>();
+                    let mut from_view = from.to_array_view_unchecked::<T>();
+                    for (ax, (to, from)) in izip!(to_prefix, from_prefix).enumerate() {
+                        to_view.slice_axis_inplace(Axis(ax), Slice::from(*to..*to + 1));
+                        from_view.slice_axis_inplace(Axis(ax), Slice::from(*from..*from + 1));
+                    }
+                    to_view
+                        .slice_axis_mut(Axis(axis), Slice::from(to_range))
+                        .assign(&from_view.slice_axis(Axis(axis), Slice::from(from_range)))
+                }
+            }
+            if self.datum_type().is_copy() {
+                // Tensors carry natural strides, so a range along `axis` is one
+                // contiguous run per coordinate of the axes between the prefix
+                // and it, and both sides share the run length and the trailing
+                // block.
+                let post = self.strides[axis] as usize * self.datum_type().size_of();
+                let len = post * range.len();
+                if len > 0 {
+                    let outer: usize = self.shape[prefix.len()..axis].iter().product();
+                    let dst_block = post * self.shape[axis];
+                    let src_block = post * src.shape[axis];
+                    let src_ptr = src
+                        .plain_ram_storage()
+                        .as_ptr()
+                        .add(src.prefix_offset(src_prefix) + post * src_range.start);
+                    let aliasing =
+                        self.plain_ram_storage().as_ptr() == src.plain_ram_storage().as_ptr();
+                    let dst_offset = self.prefix_offset(prefix) + post * range.start;
+                    let dst_ptr = self.plain_ram_storage_mut().as_mut_ptr().add(dst_offset);
+                    for run in 0..outer {
+                        let from = src_ptr.add(run * src_block);
+                        let to = dst_ptr.add(run * dst_block);
+                        if aliasing {
+                            std::ptr::copy(from, to, len);
+                        } else {
+                            std::ptr::copy_nonoverlapping(from, to, len);
+                        }
+                    }
+                }
+            } else {
+                dispatch_datum!(assign_slice_t(self.datum_type())(
+                    self, prefix, range, src, src_prefix, src_range, axis
+                ));
+            }
+        }
+    }
+    /// Fill `range` along `axis` with `value`, a one-element tensor of this
+    /// tensor's datum type.
+    pub fn fill_slice(
+        &mut self,
+        range: impl std::ops::RangeBounds<usize>,
+        value: &Tensor,
+        axis: usize,
+    ) -> TractResult<()> {
+        self.fill_slice_at_prefix(&[], range, value, axis)
+    }
+
+    /// Fill `range` along `axis` of the sub-tensor at `prefix`, which indexes
+    /// the leading axes as [`Tensor::view_at_prefix`] does, with `value`, a
+    /// one-element tensor of this tensor's datum type. `axis` stays an axis of
+    /// the whole tensor, so it has to sit past `prefix`.
+    pub fn fill_slice_at_prefix(
+        &mut self,
+        prefix: &[usize],
+        range: impl std::ops::RangeBounds<usize>,
+        value: &Tensor,
+        axis: usize,
+    ) -> TractResult<()> {
+        ensure!(axis < self.rank(), "Filling axis {axis} of {self:?}");
+        ensure!(
+            prefix.len() <= axis,
+            "Filling axis {axis} of {self:?} at prefix {prefix:?}, which reaches it"
+        );
+        ensure!(
+            izip!(prefix, self.shape()).all(|(ix, dim)| ix < dim),
+            "Filling {self:?} at prefix {prefix:?}"
+        );
+        ensure!(
+            value.datum_type() == self.datum_type() && value.len() == 1,
+            "Filling {:?} with {value:?}",
+            self.datum_type()
+        );
+        let range = clip_range_bounds(self.shape[axis], range);
+        ensure!(
+            range.end <= self.shape[axis],
+            "Filling invalid slice (axis {axis}, {range:?}) of {self:?}"
+        );
+        if !self.datum_type().is_copy() {
+            return dispatch_datum!(Self::fill_slice_t(self.datum_type())(
+                self, prefix, range, value, axis
+            ));
+        }
+        // Tensors carry natural strides, so the range is one contiguous run per
+        // coordinate of the axes between the prefix and `axis`, and a run of one
+        // datum grows to its whole length in log2(len) copies of itself.
+        let dt_size = self.datum_type().size_of();
+        let post = self.strides[axis] as usize * dt_size;
+        let len = post * range.len();
+        if len == 0 {
+            return Ok(());
+        }
+        let block = post * self.shape[axis];
+        let runs: usize = self.shape[prefix.len()..axis].iter().product();
+        let start = self.prefix_offset(prefix) + range.start * post;
+        let value = &value.as_bytes()[..dt_size];
+        let data = self.as_bytes_mut();
+        for run in 0..runs {
+            let run = &mut data[start + run * block..start + run * block + len];
+            run[..dt_size].copy_from_slice(value);
+            let mut written = dt_size;
+            while written < len {
+                let grow = written.min(len - written);
+                run.copy_within(0..grow, written);
+                written += grow;
+            }
+        }
+        Ok(())
+    }
+
+    fn fill_slice_t<T: Datum>(
+        &mut self,
+        prefix: &[usize],
+        range: Range<usize>,
+        value: &Tensor,
+        axis: usize,
+    ) -> TractResult<()> {
+        let value = value.try_as_plain_ram()?.to_scalar::<T>()?.clone();
+        let mut view = self.to_plain_array_view_mut::<T>()?;
+        for (ax, ix) in prefix.iter().enumerate() {
+            view.slice_axis_inplace(Axis(ax), (*ix..*ix + 1).into());
+        }
+        view.slice_axis_mut(Axis(axis), range.into()).fill(value);
+        Ok(())
+    }
+
+    /// Get the datum type of the tensor.
+    #[inline]
+    pub fn datum_type(&self) -> DatumType {
+        self.dt
+    }
+
+    /// Set the datum type of the tensor.
+    #[inline]
+    pub unsafe fn set_datum_type(&mut self, dt: DatumType) {
+        self.dt = dt
+    }
+
+    /// Dump the tensor in a human readable form.
+    ///
+    /// `force_full` will force the tensor to be dump in full even if it is big.
+    pub fn dump(&self, force_full: bool) -> TractResult<String> {
+        if self.as_plain_ram_storage().is_none() {
+            return Ok(format!(
+                "{},{:?} (non-plain storage)",
+                self.shape.iter().join(","),
+                self.dt,
+            ));
+        }
+        unsafe fn dump_t<D: Datum>(tensor: &Tensor, n: usize) -> String {
+            unsafe {
+                if let Some(qp) = tensor.datum_type().qparams() {
+                    let integers = tensor.cast_to::<i32>().unwrap();
+                    integers.as_slice_unchecked::<i32>()[0..n]
+                        .iter()
+                        .map(|x| format!("[{}]({})", x, qp.dq(*x)))
+                        .join(", ")
+                } else {
+                    tensor.as_slice_unchecked::<D>()[0..n].iter().join(", ")
+                }
+            }
+        }
+        unsafe {
+            let trunc = self.len() > 12 && !force_full;
+            let data = dispatch_datum!(dump_t(self.datum_type())(
+                self,
+                if trunc { 12 } else { self.len() }
+            ));
+            Ok(format!(
+                "{},{:?} {}{}",
+                self.shape.iter().join(","),
+                self.dt,
+                data,
+                if trunc { "..." } else { "" }
+            ))
+        }
+    }
+
+    /// Compare two tensors, allowing for rounding errors.
+    pub fn close_enough(
+        &self,
+        other: &Self,
+        approx: impl Into<Approximation> + std::fmt::Debug,
+    ) -> TractResult<()> {
+        let approx = approx.into();
+        if self.shape() != other.shape() {
+            bail!("Shape mismatch {:?} != {:?}", self.shape(), other.shape())
+        }
+        if let Approximation::Ulp(max_ulp) = approx {
+            return self.ulp_close_enough(other, max_ulp);
+        }
+        let (atol, rtol, outliers) = approx.atol_rtol_outliers(&self.datum_type());
+        let ma = self.cast_to::<f32>()?;
+        let ma = ma.to_plain_array_view::<f32>()?;
+        let mb = other.cast_to::<f32>()?;
+        let mb = mb.to_plain_array_view::<f32>()?;
+        let mut first_outlier = None;
+        let mut outliers_count = 0;
+        ndarray::indices_of(&ma).into_iter().for_each(|indices| {
+            let a = ma[&indices];
+            let b = mb[&indices];
+            if !((a.is_nan() && b.is_nan())
+                || (a.is_infinite() && b.is_infinite() && a.signum() == b.signum())
+                || (a - b).abs() <= atol as f32 + rtol as f32 * b.abs())
+            {
+                if outliers_count == 0 {
+                    first_outlier = Some(indices.as_array_view().to_vec());
+                }
+                outliers_count += 1;
+            }
+        });
+        if self.volume() > 0 && outliers_count as f64 / self.volume() as f64 > outliers {
+            let indices = first_outlier.unwrap();
+            let a = ma[&*indices];
+            let b = mb[&*indices];
+            let ulp = self
+                .max_ulp_distance(other)
+                .map(|(d, _)| format!("{d}"))
+                .unwrap_or_else(|_| "n/a".to_string());
+            bail!(
+                "Mismatch. First outlier: {:?} for {:?}) at {:?} {} != {}. Outliers: {} / {} = {:0.5} > {:0.5}. Max ULP ({:?}): {}.",
+                approx,
+                self.datum_type(),
+                indices,
+                a,
+                b,
+                outliers_count,
+                self.volume(),
+                outliers_count as f64 / self.volume() as f64,
+                outliers,
+                self.ulp_comparison_dt(),
+                ulp,
+            );
+        }
+        Ok(())
+    }
+
+    /// The float type ULP distances against this tensor are measured in.
+    ///
+    /// Float tensors are compared in their own type, so an f16 comparison stays an
+    /// f16 comparison. Anything else falls back to f32, matching what
+    /// `close_enough` does for its tolerance check.
+    pub fn ulp_comparison_dt(&self) -> DatumType {
+        match self.datum_type() {
+            dt @ (DatumType::F16 | DatumType::F32 | DatumType::F64) => dt,
+            _ => DatumType::F32,
+        }
+    }
+
+    /// Largest integer ULP distance between `self` and `other`, and the flat index
+    /// where it occurs.
+    ///
+    /// Comparison happens in [`Self::ulp_comparison_dt`]. See [`crate::ulp`] for
+    /// the exact convention around signed zeros, infinities and NaN.
+    pub fn max_ulp_distance(&self, other: &Self) -> TractResult<(u64, Option<usize>)> {
+        if self.shape() != other.shape() {
+            bail!("Shape mismatch {:?} != {:?}", self.shape(), other.shape())
+        }
+        let dt = self.ulp_comparison_dt();
+        let a = self.cast_to_dt(dt)?;
+        let b = other.cast_to_dt(dt)?;
+        fn worst<D: Datum + crate::ulp::UlpFloat>(
+            a: &Tensor,
+            b: &Tensor,
+        ) -> TractResult<(u64, Option<usize>)> {
+            let a = a.to_plain_array_view::<D>()?;
+            let b = b.to_plain_array_view::<D>()?;
+            Ok(crate::ulp::max_ulp_distance(a.iter().copied(), b.iter().copied()))
+        }
+        match dt {
+            DatumType::F16 => worst::<f16>(&a, &b),
+            DatumType::F32 => worst::<f32>(&a, &b),
+            DatumType::F64 => worst::<f64>(&a, &b),
+            dt => bail!("No ULP comparison for {dt:?}"),
+        }
+    }
+
+    /// Compare two tensors by integer ULP distance, accepting a distance up to
+    /// `max_ulp`.
+    fn ulp_close_enough(&self, other: &Self, max_ulp: u64) -> TractResult<()> {
+        let (worst, at) = self.max_ulp_distance(other)?;
+        if worst <= max_ulp {
+            return Ok(());
+        }
+        let dt = self.ulp_comparison_dt();
+        let indices = at
+            .map(|flat| {
+                let mut rest = flat;
+                let mut indices = vec![0; self.rank()];
+                for (ix, dim) in self.shape().iter().enumerate().rev() {
+                    indices[ix] = rest % dim;
+                    rest /= dim;
+                }
+                format!("{indices:?}")
+            })
+            .unwrap_or_else(|| "?".to_string());
+        let a = self.cast_to::<f64>()?;
+        let b = other.cast_to::<f64>()?;
+        let (a, b) = (a.to_plain_array_view::<f64>()?, b.to_plain_array_view::<f64>()?);
+        let flat = at.unwrap_or(0);
+        bail!(
+            "Mismatch. Max ULP distance ({dt:?}): {} > {}, at {} ({} != {}).",
+            worst,
+            max_ulp,
+            indices,
+            a.iter().nth(flat).copied().unwrap_or(f64::NAN),
+            b.iter().nth(flat).copied().unwrap_or(f64::NAN),
+        );
+    }
+
+    /// Transform the tensor into a `ndarray::Array`.
+    pub fn into_plain_array<D: Datum>(self) -> TractResult<ArrayD<D>> {
+        Ok(self.to_plain_array_view::<D>()?.to_owned())
+    }
+
+    /// Transform the tensor into a `ndarray::Array`.
+    pub unsafe fn into_array_unchecked<D: Datum>(self) -> ArrayD<D> {
+        unsafe { self.to_array_view_unchecked::<D>().to_owned() }
+    }
+
+    /// Returns a plain array view of the tensor.
+    ///
+    /// Errors if the storage is not plain or the datum type does not match `D`.
+    #[inline]
+    pub fn to_plain_array_view<D: Datum>(&self) -> TractResult<ArrayViewD<'_, D>> {
+        self.try_as_plain_ram()?.to_array_view::<D>()
+    }
+
+    /// Returns a mutable plain array view of the tensor.
+    ///
+    /// Errors if the storage is not plain or the datum type does not match `D`.
+    #[inline]
+    pub fn to_plain_array_view_mut<D: Datum>(&mut self) -> TractResult<ArrayViewMutD<'_, D>> {
+        self.check_for_access::<D>()?;
+        ensure!(self.storage.as_plain_ram_mut().is_some(), "Tensor storage is not plain");
+        unsafe { Ok(self.to_array_view_mut_unchecked()) }
+    }
+
+    fn check_for_access<D: Datum>(&self) -> TractResult<()> {
+        ensure!(
+            self.datum_type().unquantized() == D::datum_type().unquantized(),
+            "Tensor datum type error: tensor is {:?}, accessed as {:?}",
+            self.datum_type(),
+            D::datum_type(),
+        );
+        Ok(())
+    }
+
+    /// Transform the data as a `ndarray::Array`.
+    pub unsafe fn to_array_view_unchecked<D: Datum>(&self) -> ArrayViewD<'_, D> {
+        if self.len() != 0 {
+            unsafe {
+                ArrayViewD::from_shape_ptr(
+                    &*self.shape,
+                    self.plain_ram_storage().as_ptr() as *const D,
+                )
+            }
+        } else {
+            ArrayViewD::from_shape(&*self.shape, &[]).unwrap()
+        }
+    }
+
+    /// Transform the data as a mutable `ndarray::Array`.
+    pub unsafe fn to_array_view_mut_unchecked<D: Datum>(&mut self) -> ArrayViewMutD<'_, D> {
+        if self.len() != 0 {
+            unsafe {
+                let ptr = self.plain_ram_storage_mut().as_mut_ptr() as *mut D;
+                ArrayViewMutD::from_shape_ptr(&*self.shape, ptr)
+            }
+        } else {
+            ArrayViewMutD::from_shape(&*self.shape, &mut []).unwrap()
+        }
+    }
+
+    /// Access the data as a pointer.
+    pub fn as_ptr<D: Datum>(&self) -> TractResult<*const D> {
+        self.check_for_access::<D>()?;
+        Ok(self.plain_ram_storage().as_ptr() as *const D)
+    }
+
+    /// Access the data as a pointer.
+    pub unsafe fn as_ptr_unchecked<D: Datum>(&self) -> *const D {
+        self.plain_ram_storage().as_ptr() as *const D
+    }
+
+    /// Access the data as a pointer.
+    pub unsafe fn as_ptr_mut_unchecked<D: Datum>(&mut self) -> *mut D {
+        self.plain_ram_storage_mut().as_mut_ptr() as *mut D
+    }
+
+    /// Access the data as a mutable pointer.
+    pub fn as_ptr_mut<D: Datum>(&mut self) -> TractResult<*mut D> {
+        self.as_ptr::<D>().map(|p| p as *mut D)
+    }
+
+    /// Access the data as a slice.
+    pub unsafe fn as_slice_unchecked<D: Datum>(&self) -> &[D] {
+        if self.storage.byte_len() == 0 {
+            &[]
+        } else {
+            unsafe { std::slice::from_raw_parts::<D>(self.as_ptr_unchecked(), self.len()) }
+        }
+    }
+
+    /// Access the data as a mutable slice.
+    pub unsafe fn as_slice_mut_unchecked<D: Datum>(&mut self) -> &mut [D] {
+        if self.storage.byte_len() == 0 {
+            &mut []
+        } else {
+            unsafe { std::slice::from_raw_parts_mut::<D>(self.as_ptr_mut_unchecked(), self.len()) }
+        }
+    }
+
+    /// Make the tensor a scalar tensor (assumes it contains a single value).
+    pub fn to_scalar_tensor(&self) -> TractResult<Tensor> {
+        fn to_scalar_tensor_t<D: Datum>(t: &Tensor) -> TractResult<Tensor> {
+            Ok(litteral::tensor0(t.try_as_plain_ram()?.to_scalar::<D>()?.clone()))
+        }
+        dispatch_datum!(to_scalar_tensor_t(self.datum_type())(self))
+    }
+
+    /// Access the data as a scalar.
+    pub unsafe fn to_scalar_unchecked<D: Datum>(&self) -> &D {
+        unsafe { &*(self.plain_ram_storage().as_ptr() as *const D) }
+    }
+
+    /// Mutable access the data as a scalar.
+    pub fn to_scalar_mut<D: Datum>(&mut self) -> TractResult<&mut D> {
+        self.check_for_access::<D>()?;
+        if self.len() == 0 {
+            bail!("to_scalar_mut called on empty tensor ({:?})", self)
+        }
+        if self.len() > 1 {
+            bail!("to_scalar called on a tensor with multiple values ({:?})", self)
+        }
+        unsafe { Ok(self.to_scalar_mut_unchecked()) }
+    }
+
+    /// Mutable access the data as a scalar.
+    pub unsafe fn to_scalar_mut_unchecked<D: Datum>(&mut self) -> &mut D {
+        unsafe { &mut *(self.plain_ram_storage_mut().as_mut_ptr() as *mut D) }
+    }
+
+    pub fn as_bytes(&self) -> &[u8] {
+        self.plain_ram_storage().as_bytes()
+    }
+
+    pub fn as_bytes_mut(&mut self) -> &mut [u8] {
+        self.plain_ram_storage_mut().as_bytes_mut()
+    }
+
+    unsafe fn is_uniform_t<T: Datum>(&self) -> bool {
+        let slice = unsafe { self.as_slice_unchecked::<T>() };
+        slice[1..].iter().all(|x| x == &slice[0])
+    }
+
+    pub fn is_uniform(&self) -> bool {
+        if self.as_plain_ram_storage().is_none() {
+            return false;
+        }
+        if self.len() <= 1 {
+            return true;
+        }
+        unsafe { dispatch_datum!(Tensor::is_uniform_t(self.datum_type())(self)) }
+    }
+
+    unsafe fn as_uniform_t<T: Datum>(&self) -> Tensor {
+        let v: T = unsafe { self.as_slice_unchecked::<T>() }[0].clone();
+        litteral::tensor0(v)
+    }
+
+    pub fn as_uniform(&self) -> Option<Tensor> {
+        if self.len() >= 1 && self.is_uniform() {
+            unsafe {
+                let mut t = dispatch_datum!(Tensor::as_uniform_t(self.datum_type())(self));
+                t.set_datum_type(self.datum_type());
+                Some(t)
+            }
+        } else {
+            None
+        }
+    }
+
+    pub fn is_all_zero(&self) -> TractResult<bool> {
+        Ok(self.len() == 0 || self.as_uniform().map(|t| t.is_zero().unwrap()).unwrap_or(false))
+    }
+
+    pub fn is_zero(&self) -> TractResult<bool> {
+        Ok(self == &Tensor::zero_scalar_dt(self.dt)?)
+    }
+
+    unsafe fn natural_cast<
+        Source: Datum + num_traits::AsPrimitive<Target>,
+        Target: Datum + Copy,
+    >(
+        &self,
+        other: &mut Tensor,
+    ) {
+        unsafe {
+            self.as_slice_unchecked::<Source>()
+                .iter()
+                .zip(other.as_slice_mut_unchecked::<Target>().iter_mut())
+                .for_each(|(s, d)| *d = s.as_())
+        };
+    }
+
+    unsafe fn cast_number_to_bool<Source: Datum + num_traits::Zero>(&self, other: &mut Tensor) {
+        unsafe {
+            self.as_slice_unchecked::<Source>()
+                .iter()
+                .zip(other.as_slice_mut_unchecked::<bool>().iter_mut())
+                .for_each(|(s, d)| *d = !s.is_zero());
+        }
+    }
+
+    unsafe fn cast_from_string<Target: Datum + core::str::FromStr>(
+        &self,
+        other: &mut Tensor,
+    ) -> TractResult<()> {
+        unsafe {
+            for (s, d) in self
+                .as_slice_unchecked::<String>()
+                .iter()
+                .zip(other.as_slice_mut_unchecked::<Target>().iter_mut())
+            {
+                *d = s
+                    .parse()
+                    .map_err(|_| format_err!("Can not parse as {:?}", Target::datum_type()))?;
+            }
+            Ok(())
+        }
+    }
+
+    unsafe fn cast_to_string<Source: Datum>(&self, other: &mut Tensor) {
+        unsafe {
+            for (s, d) in self
+                .as_slice_unchecked::<Source>()
+                .iter()
+                .zip(other.as_slice_mut_unchecked::<String>().iter_mut())
+            {
+                *d = s.to_string()
+            }
+        }
+    }
+
+    /// Optionnaly convert data to a tensor for a new DatumType.
+    pub fn cast_to<D: Datum>(&self) -> TractResult<Cow<'_, Tensor>> {
+        self.cast_to_dt(D::datum_type())
+    }
+
+    /// Optionnaly convert data to a tensor for a new DatumType.
+    #[allow(clippy::redundant_closure_call)]
+    pub fn cast_to_dt(&self, dst_dt: DatumType) -> TractResult<Cow<'_, Tensor>> {
+        unsafe {
+            if self.dt == dst_dt {
+                return Ok(Cow::Borrowed(self));
+            }
+            if self.dt == TDim::datum_type() && (dst_dt.is_integer() || dst_dt.is_float()) {
+                let slice = self.as_slice_unchecked::<TDim>();
+                let mut ints = Self::uninitialized::<i64>(&self.shape)?;
+                let ints_slice = ints.as_slice_mut_unchecked::<i64>();
+                for i in 0..self.len() {
+                    ints_slice[i] = slice[i].to_i64()?;
+                }
+                return Ok(Cow::Owned(ints.cast_to_dt(dst_dt)?.into_owned()));
+            }
+            if self.dt == bool::datum_type()
+                && (dst_dt.is_integer() || dst_dt.is_float() || dst_dt == TDim::datum_type())
+            {
+                let slice = self.as_slice_unchecked::<bool>();
+                let mut ints = Self::uninitialized::<i8>(&self.shape)?;
+                let ints_slice = ints.as_slice_mut_unchecked::<i8>();
+                for i in 0..self.len() {
+                    ints_slice[i] = slice[i] as usize as i8;
+                }
+                return Ok(Cow::Owned(ints.cast_to_dt(dst_dt)?.into_owned()));
+            }
+            let mut result = Self::uninitialized_dt(dst_dt, &self.shape)?;
+            if self.dt == DatumType::String {
+                dispatch_numbers!(Self::cast_from_string(dst_dt)(self, &mut result))?;
+                return Ok(Cow::Owned(result));
+            }
+            if dst_dt == DatumType::String {
+                dispatch_datum!(Self::cast_to_string(self.dt)(self, &mut result));
+                return Ok(Cow::Owned(result));
+            }
+            macro_rules! n {
+                ($source:ty) => {
+                    if <$source>::datum_type() == self.datum_type() {
+                        match dst_dt {
+                            DatumType::I8 => self.natural_cast::<$source, i8>(&mut result),
+                            DatumType::I16 => self.natural_cast::<$source, i16>(&mut result),
+                            DatumType::I32 => self.natural_cast::<$source, i32>(&mut result),
+                            DatumType::I64 => self.natural_cast::<$source, i64>(&mut result),
+                            DatumType::U8 => self.natural_cast::<$source, u8>(&mut result),
+                            DatumType::U16 => self.natural_cast::<$source, u16>(&mut result),
+                            DatumType::U32 => self.natural_cast::<$source, u32>(&mut result),
+                            DatumType::U64 => self.natural_cast::<$source, u64>(&mut result),
+                            DatumType::F16 => self.natural_cast::<$source, f16>(&mut result),
+                            DatumType::F32 => self.natural_cast::<$source, f32>(&mut result),
+                            DatumType::F64 => self.natural_cast::<$source, f64>(&mut result),
+                            DatumType::TDim => {
+                                let ints = self.cast_to::<i32>()?;
+                                let slice = ints.as_slice_unchecked::<i32>();
+                                let result = result.as_slice_mut_unchecked::<TDim>();
+                                for i in 0..self.len() {
+                                    result[i] = slice[i].into();
+                                }
+                            }
+                            DatumType::Bool => self.cast_number_to_bool::<$source>(&mut result),
+                            _ => todo!(),
+                        }
+                        return Ok(Cow::Owned(result));
+                    };
+                };
+            }
+            //If there is no quantization
+            if !dst_dt.is_quantized() && !self.datum_type().is_quantized() {
+                n!(u8);
+                n!(u16);
+                n!(u32);
+                n!(u64);
+                n!(i8);
+                n!(i16);
+                n!(i32);
+                n!(i64);
+                n!(f16);
+                n!(f32);
+                n!(f64);
+            } else {
+                let (s_zp, s_scale) = self.datum_type().zp_scale();
+                let (d_zp, d_scale) = dst_dt.zp_scale();
+                if self.datum_type().is_quantized() && dst_dt.is_float() {
+                    macro_rules! q_to_fp {
+                        ($source:ty, $dest:ty) => {
+                            if <$source>::datum_type().unquantized()
+                                == self.datum_type().unquantized()
+                                && <$dest>::datum_type().unquantized() == dst_dt.unquantized()
+                            {
+                                self.as_slice_unchecked::<$source>()
+                                    .iter()
+                                    .zip(result.as_slice_mut_unchecked::<$dest>().iter_mut())
+                                    .for_each(|(&s, d)| {
+                                        *d = (s as $dest - s_zp as $dest) * s_scale as $dest;
+                                    });
+                                return Ok(Cow::Owned(result));
+                            }
+                        };
+                    }
+                    q_to_fp!(i8, f64);
+                    q_to_fp!(i8, f32);
+                    q_to_fp!(u8, f64);
+                    q_to_fp!(u8, f32);
+                }
+                //TODO: optimize scale_by
+                macro_rules! q8_to_q8 {
+                    ($typ:ty) => {
+                        if dst_dt.unquantized() == <$typ>::datum_type() {
+                            self.as_slice_unchecked::<$typ>()
+                                .iter()
+                                .zip(result.as_slice_mut_unchecked::<$typ>().iter_mut())
+                                .for_each(|(&s, d)| {
+                                    *d = (d_zp as i32
+                                        + scale_by(s as i32 - s_zp as i32, s_scale / d_scale))
+                                    .clamp_cast()
+                                });
+                            return Ok(Cow::Owned(result));
+                        }
+                    };
+                }
+
+                macro_rules! q_via_f32 {
+                    ($source:ty, $dest:ty, $round:expr) => {
+                        if <$source>::datum_type().unquantized() == self.datum_type().unquantized()
+                            && <$dest>::datum_type().unquantized() == dst_dt.unquantized()
+                        {
+                            self.as_slice_unchecked::<$source>()
+                                .iter()
+                                .zip(result.as_slice_mut_unchecked::<$dest>().iter_mut())
+                                .for_each(|(&s, d)| {
+                                    let s_float = (s as f32 - s_zp as f32) * s_scale as f32;
+                                    let d_float = s_float as f32 / d_scale as f32 + d_zp as f32;
+                                    *d = $round(d_float);
+                                });
+                            return Ok(Cow::Owned(result));
+                        }
+                    };
+                }
+
+                macro_rules! q_n {
+                    (clamp $source:ty, $dest:ty) => {{
+                        if <$source>::datum_type().unquantized() == self.datum_type().unquantized()
+                            && <$dest>::datum_type().unquantized() == dst_dt.unquantized()
+                        {
+                            self.as_slice_unchecked::<$source>()
+                                .iter()
+                                .zip(result.as_slice_mut_unchecked::<$dest>().iter_mut())
+                                .for_each(|(&s, d)| {
+                                    *d = s.clamp_cast();
+                                });
+                            return Ok(Cow::Owned(result));
+                        }
+                    }};
+                    ($source:ty, $dest:ty) => {{
+                        if <$source>::datum_type().unquantized() == self.datum_type().unquantized()
+                            && <$dest>::datum_type().unquantized() == dst_dt.unquantized()
+                        {
+                            self.as_slice_unchecked::<$source>()
+                                .iter()
+                                .zip(result.as_slice_mut_unchecked::<$dest>().iter_mut())
+                                .for_each(|(&s, d)| {
+                                    *d = s as $dest;
+                                });
+                            return Ok(Cow::Owned(result));
+                        }
+                    }};
+                }
+
+                if dst_dt.unquantized() == self.datum_type().unquantized()
+                    && dst_dt.is_quantized()
+                    && self.datum_type().is_quantized()
+                {
+                    q8_to_q8!(i8);
+                    q8_to_q8!(u8);
+                }
+
+                q_via_f32!(f32, i8, |f| round_ties_to_even(f).clamp_cast());
+                q_via_f32!(f32, u8, |f| round_ties_to_even(f).clamp_cast());
+                q_via_f32!(f32, i32, |f| round_ties_to_even(f).clamp_cast());
+                q_via_f32!(i8, f32, |f| f);
+                q_via_f32!(u8, f32, |f| f);
+                q_via_f32!(i32, f32, |f| f);
+
+                if dst_dt.is_quantized() && self.datum_type().is_quantized() {
+                    q_via_f32!(u8, i8, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(i8, u8, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(i32, u8, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(i32, i8, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(u8, i32, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(i8, i32, |f| round_ties_to_even(f).clamp_cast());
+
+                    // ensure cast to different scale offset work
+                    q_via_f32!(i8, i8, |f| round_ties_to_even(f).clamp_cast());
+                    q_via_f32!(u8, u8, |f| round_ties_to_even(f).clamp_cast());
+                }
+
+                q_n!(i8, i32);
+                q_n!(i8, u32);
+                q_n!(u8, i32);
+                q_n!(u8, u32);
+                q_n!(clamp i32, i8);
+                q_n!(clamp i32, u8);
+                q_n!(clamp u32, i8);
+                q_n!(clamp u32, u8);
+                q_n!(i8, i8);
+                q_n!(u8, u8);
+                q_n!(i32, i32);
+                q_n!(u32, u32);
+            }
+
+            bail!("Unsupported cast from {:?} to {:?}", self.dt, dst_dt)
+        }
+    }
+
+    /// Access the data as a scalar, after a cast.
+    pub fn cast_to_scalar<D: Datum + Copy>(&self) -> TractResult<D> {
+        let casted = self.cast_to::<D>()?;
+        casted.try_as_plain_ram()?.to_scalar::<D>().copied()
+    }
+
+    /// Access the nth element of the tensor, returned as a 0-rank Tensor
+    pub fn nth(&self, nth: usize) -> TractResult<Tensor> {
+        if nth >= self.len() {
+            bail!(
+                "nth called with {}th element on a tensor of len {} ({:?}",
+                nth,
+                self.len(),
+                self
+            );
+        }
+        unsafe fn nth_t<T: Datum>(me: &Tensor, nth: usize, output: &mut Tensor) {
+            unsafe {
+                let value = me.as_slice_unchecked::<T>()[nth].clone();
+                std::ptr::write(output.as_slice_mut_unchecked::<T>().as_mut_ptr(), value);
+            }
+        }
+        unsafe {
+            let mut output = Tensor::uninitialized_dt(self.datum_type(), &[])?;
+            dispatch_datum_by_size!(nth_t(self.datum_type())(self, nth, &mut output));
+            Ok(output)
+        }
+    }
+
+    /// Strict equality test on tensors.
+    fn eq_dt(&self, other: &Tensor) -> TractResult<bool> {
+        unsafe fn eq_t<D: Datum>(me: &Tensor, other: &Tensor) -> TractResult<bool> {
+            unsafe {
+                if D::datum_type().is_float() {
+                    return dispatch_floatlike!(float_eq_t(D::datum_type())(me, other));
+                }
+                Ok(izip!(me.as_slice_unchecked::<D>(), other.as_slice_unchecked::<D>())
+                    .all(|(a, b)| a == b))
+            }
+        }
+
+        unsafe fn float_eq_t<D: Datum + Float>(me: &Tensor, other: &Tensor) -> TractResult<bool> {
+            unsafe {
+                Ok(izip!(me.as_slice_unchecked::<D>(), other.as_slice_unchecked::<D>())
+                    .all(|(a, b)| (a.is_nan() && b.is_nan()) || a == b))
+            }
+        }
+
+        unsafe {
+            Ok(self.datum_type() == other.datum_type()
+                && self.shape() == other.shape()
+                && dispatch_datum!(eq_t(self.dt)(self, other))?)
+        }
+    }
+
+    fn from_datum<T: Datum>(mut it: ArrayD<T>) -> Tensor {
+        unsafe {
+            let mut t = Self::uninitialized::<T>(it.shape()).unwrap();
+            if let Some(slice) = it.as_slice_mut() {
+                if t.datum_type().is_copy() {
+                    std::ptr::copy_nonoverlapping(
+                        slice.as_ptr() as *const i8,
+                        t.as_ptr_mut_unchecked(),
+                        t.plain_ram_storage().layout().size(),
+                    );
+                } else {
+                    t.as_slice_mut_unchecked::<T>()
+                        .iter_mut()
+                        .zip(slice.iter_mut())
+                        .for_each(|(t, s)| *t = std::mem::take(s));
+                }
+                return t;
+            }
+            if it.strides().iter().all(|&s| s > 0) && it.as_slice_memory_order().is_some() {
+                let mut len_and_strides: TVec<(usize, usize)> = tvec!();
+                for (len, stride) in itertools::izip!(it.shape(), it.strides(), t.strides())
+                    .sorted_by_key(|(_, src, _)| *src)
+                    .map(|(l, _, dst)| (*l as isize, *dst))
+                {
+                    if !len_and_strides.is_empty()
+                        && len_and_strides.last().unwrap().1 * len_and_strides.last().unwrap().0
+                            == stride as usize
+                    {
+                        len_and_strides.last_mut().unwrap().0 *= len as usize;
+                    } else {
+                        len_and_strides.push((len as usize, stride as usize));
+                    }
+                }
+                len_and_strides.reverse();
+                crate::scatter::scatter_contig_data(
+                    it.as_ptr(),
+                    t.as_ptr_mut_unchecked(),
+                    &len_and_strides,
+                );
+                return t;
+            }
+            // finally use ndarray into_iter()
+            t.as_slice_mut_unchecked().iter_mut().zip(it).for_each(|(t, a)| *t = a);
+            t
+        }
+    }
+
+    pub fn deep_clone(&self) -> Tensor {
+        if self.as_plain_ram_storage().is_none() {
+            return Tensor {
+                dt: self.dt,
+                shape: self.shape.clone(),
+                strides: self.strides.clone(),
+                len: self.len,
+                storage: self.storage.deep_clone(),
+            };
+        }
+        unsafe {
+            let mut tensor = Tensor::uninitialized_dt(self.datum_type(), self.shape()).unwrap();
+            if self.len() > 0 {
+                if self.dt.is_copy() {
+                    self.plain_ram_storage().as_ptr().copy_to_nonoverlapping(
+                        tensor.as_bytes_mut().as_mut_ptr(),
+                        self.plain_ram_storage().layout().size(),
+                    )
+                } else if self.dt == DatumType::String {
+                    tensor
+                        .as_slice_mut_unchecked::<String>()
+                        .clone_from_slice(self.as_slice_unchecked());
+                } else if self.dt == DatumType::Blob {
+                    tensor
+                        .as_slice_mut_unchecked::<Blob>()
+                        .clone_from_slice(self.as_slice_unchecked());
+                } else if self.dt == DatumType::TDim {
+                    tensor
+                        .as_slice_mut_unchecked::<TDim>()
+                        .clone_from_slice(self.as_slice_unchecked());
+                }
+            }
+            tensor
+        }
+    }
+
+    pub fn slice(&self, axis: usize, start: usize, end: usize) -> TractResult<Tensor> {
+        if axis >= self.rank() {
+            bail!("Can not slice at axis {} tensor {:?}", axis, self);
+        }
+        if start > self.shape[axis] || end > self.shape[axis] || start >= end {
+            bail!("Invalid slicing range {start}..{end} on axis {axis} for {self:?}");
+        }
+        // Storage gets first refusal: one that can serve the slice without a
+        // copy does so, anything else falls through to the copy below.
+        if let Some(sliced) =
+            self.storage.as_storage().slice(self.dt, self.shape(), axis, start, end)?
+        {
+            return Ok(sliced);
+        }
+        let mut shape: TVec<usize> = self.shape().into();
+        shape[axis] = end - start;
+        unsafe {
+            let mut tensor = Tensor::uninitialized_dt(self.datum_type(), &shape)?;
+            tensor.assign_slice_from_resolved(&[], 0..end - start, self, &[], start..end, axis);
+            Ok(tensor)
+        }
+    }
+
+    #[inline]
+    pub fn view(&self) -> view::TensorView<'_> {
+        unsafe { view::TensorView::view(self) }
+    }
+
+    #[inline]
+    pub fn view_at_prefix(&self, prefix: &[usize]) -> TractResult<view::TensorView<'_>> {
+        view::TensorView::at_prefix(self, prefix)
+    }
+
+    #[inline]
+    pub fn view_offsetting(&self, coords: &[usize]) -> TractResult<view::TensorView<'_>> {
+        view::TensorView::offsetting(self, coords)
+    }
+
+    #[inline]
+    pub unsafe fn view_offsetting_unchecked(&self, coords: &[usize]) -> view::TensorView<'_> {
+        unsafe { view::TensorView::offsetting_unchecked(self, coords) }
+    }
+
+    #[inline]
+    pub fn view_mut(&mut self) -> view::TensorView<'_> {
+        unsafe { view::TensorView::view(self) }
+    }
+
+    #[inline]
+    pub fn view_at_prefix_mut(&mut self, prefix: &[usize]) -> TractResult<view::TensorView<'_>> {
+        view::TensorView::at_prefix(self, prefix)
+    }
+
+    #[inline]
+    pub fn view_offsetting_mut(&mut self, coords: &[usize]) -> TractResult<view::TensorView<'_>> {
+        view::TensorView::offsetting(self, coords)
+    }
+
+    /// Offsets the tensor as an i8 type if it's an u8 type, otherwise passes it unchanged.
+    pub fn offset_u8_as_i8(self: &Arc<Self>) -> Arc<Self> {
+        let mut t = if let DatumType::U8 = self.dt.unquantized() {
+            self.try_as_plain_ram()
+                .unwrap()
+                .to_array_view::<u8>()
+                .unwrap()
+                .mapv(|v| v.wrapping_sub(128) as i8)
+                .into_tensor()
+        } else {
+            return self.clone();
+        };
+
+        if let DatumType::QU8(qp) = self.dt {
+            if let QParams::ZpScale { zero_point, scale } = qp {
+                t.dt = DatumType::QI8(QParams::ZpScale { zero_point: zero_point - 128, scale });
+            } else {
+                t.dt = DatumType::QI8(qp);
+            }
+        }
+
+        t.into_arc_tensor()
+    }
+
+    /// Offsets the tensor as an u8 type if it's an i8 type, otherwise passes it unchanged.
+    pub fn offset_i8_as_u8(self: &Arc<Self>) -> Arc<Self> {
+        let mut t = if let DatumType::I8 = self.dt.unquantized() {
+            self.try_as_plain_ram()
+                .unwrap()
+                .to_array_view::<i8>()
+                .unwrap()
+                .mapv(|v| (v as u8).wrapping_add(128))
+                .into_tensor()
+        } else {
+            return self.clone();
+        };
+
+        if let DatumType::QI8(qp) = self.dt {
+            if let QParams::ZpScale { zero_point, scale } = qp {
+                t.dt = DatumType::QU8(QParams::ZpScale { zero_point: zero_point + 128, scale });
+            } else {
+                t.dt = DatumType::QU8(qp);
+            }
+        }
+        t.into_arc_tensor()
+    }
+
+    pub fn to_aligned_default(&self) -> TractResult<Self> {
+        if self.dt.is_copy() {
+            unsafe {
+                let mut t = Self::uninitialized_dt(self.dt, &self.shape)?;
+                t.as_bytes_mut().copy_from_slice(self.as_bytes());
+                Ok(t)
+            }
+        } else {
+            let mut t = Self::zero_dt(self.dt, &self.shape)?;
+            if self.dt == String::datum_type() {
+                t.try_as_plain_ram_mut()?
+                    .as_slice_mut::<String>()?
+                    .clone_from_slice(self.try_as_plain_ram()?.as_slice()?);
+            } else if self.dt == Blob::datum_type() {
+                t.try_as_plain_ram_mut()?
+                    .as_slice_mut::<Blob>()?
+                    .clone_from_slice(self.try_as_plain_ram()?.as_slice()?);
+            } else if self.dt == TDim::datum_type() {
+                t.try_as_plain_ram_mut()?
+                    .as_slice_mut::<TDim>()?
+                    .clone_from_slice(self.try_as_plain_ram()?.as_slice()?);
+            }
+            Ok(t)
+        }
+    }
+
+    pub fn natural_strides(shape: &[usize]) -> TVec<isize> {
+        let mut strides = tvec!();
+        compute_natural_stride_to(&mut strides, shape);
+        strides
+    }
+
+    /// Returns `true` if this tensor owns plain ram storage outright, rather
+    /// than storage that produces or holds some -- a device readback that has
+    /// come back still keeps its device tensor.
+    #[inline]
+    pub fn has_plain_ram_storage(&self) -> bool {
+        matches!(self.storage, StorageKind::Plain(_))
+    }
+
+    /// This tensor backed by plain ram storage of its own: bytes left on a
+    /// device come back here, and exotic storage, which has no plain form,
+    /// errors.
+    pub fn into_plain_ram(mut self) -> TractResult<Tensor> {
+        if self.has_plain_ram_storage() {
+            return Ok(self);
+        }
+        ensure!(self.dt.is_copy());
+        let storage =
+            std::mem::replace(&mut self.storage, StorageKind::Plain(PlainStorage::default()));
+        let storage = storage.into_plain_ram().context("Storage can not produce plain bytes")?;
+        Ok(Tensor {
+            dt: self.dt,
+            shape: self.shape.clone(),
+            strides: self.strides.clone(),
+            len: self.len,
+            storage: StorageKind::Plain(storage),
+        })
+    }
+
+    pub fn into_blob(mut self) -> TractResult<Blob> {
+        ensure!(self.dt.is_copy());
+        let storage =
+            std::mem::replace(&mut self.storage, StorageKind::Plain(PlainStorage::default()));
+        Ok(storage.into_plain_ram().context("Storage is not plain")?.into_blob())
+    }
+}
+
+impl PartialEq for Tensor {
+    fn eq(&self, other: &Tensor) -> bool {
+        if self.dt != other.dt || self.shape != other.shape {
+            return false;
+        }
+        match (self.storage.as_plain_ram(), other.storage.as_plain_ram()) {
+            (Some(_), Some(_)) => self.eq_dt(other).unwrap_or(false),
+            (None, None) => self.storage == other.storage,
+            _ => false,
+        }
+    }
+}
+
+impl Eq for Tensor {}
+
+impl fmt::Debug for Tensor {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let content = self.dump(false).unwrap_or_else(|e| format!("Error : {e:?}"));
+        write!(formatter, "{content}")
+    }
+}
+
+#[cfg(feature = "complex")]
+pub fn reinterpret_inner_dim_as_complex(mut t: Tensor) -> TractResult<Tensor> {
+    ensure!(
+        t.shape().last() == Some(&2),
+        "The last dimension in the tensor shape {:?} must be 2",
+        t.shape()
+    );
+    unsafe {
+        t.shape.pop();
+        t.set_datum_type(t.datum_type().complexify()?);
+        t.update_strides_and_len();
+        Ok(t)
+    }
+}
+
+#[cfg(feature = "complex")]
+pub fn reinterpret_complex_as_inner_dim(mut t: Tensor) -> TractResult<Tensor> {
+    unsafe {
+        t.shape.push(2);
+        t.set_datum_type(t.datum_type().decomplexify()?);
+        t.update_strides_and_len();
+        Ok(t)
+    }
+}
+
+pub fn clip_range_bounds(len: usize, range: impl std::ops::RangeBounds<usize>) -> Range<usize> {
+    use std::ops::Bound;
+    let start = match range.start_bound() {
+        Bound::Included(ix) => *ix,
+        Bound::Excluded(ix) => ix + 1,
+        Bound::Unbounded => 0,
+    };
+    let end = match range.end_bound() {
+        Bound::Included(ix) => *ix + 1,
+        Bound::Excluded(ix) => *ix,
+        Bound::Unbounded => len,
+    };
+    start..end
+}
+
+pub fn natural_strides(shape: &[usize]) -> TVec<isize> {
+    let mut strides = tvec!();
+    compute_natural_stride_to(&mut strides, shape);
+    strides
+}
+
+fn compute_natural_stride_to(strides: &mut TVec<isize>, shape: &[usize]) {
+    match shape.len() {
+        0 => (),
+        1 => strides.push(1),
+        2 => strides.extend_from_slice(&[shape[1] as isize, 1]),
+        3 => strides.extend_from_slice(&[(shape[1] * shape[2]) as isize, shape[2] as _, 1]),
+        4 => strides.extend_from_slice(&[
+            (shape[1] * shape[2] * shape[3]) as isize,
+            (shape[2] * shape[3]) as _,
+            shape[3] as _,
+            1,
+        ]),
+        _ => {
+            strides.push(1);
+            for dim in shape.as_ref().iter().skip(1).rev() {
+                let previous = *strides.last().unwrap();
+                strides.push(previous * *dim as isize)
+            }
+            strides.reverse();
+        }
+    }
+}
+
+impl<D: ::ndarray::Dimension, T: Datum> From<Array<T, D>> for Tensor {
+    fn from(it: Array<T, D>) -> Tensor {
+        Tensor::from_datum(it.into_dyn())
+    }
+}
+
+/// Convenient conversion to Tensor.
+pub trait IntoTensor: Sized {
+    /// Convert Self to a Tensor.
+    ///
+    /// May perform a copy
+    fn into_tensor(self) -> Tensor;
+}
+
+/// Convenient conversion to Arc<Tensor>.
+pub trait IntoArcTensor: Sized {
+    /// Convert Self to a Arc<Tensor>.
+    ///
+    /// May perform a copy
+    fn into_arc_tensor(self) -> Arc<Tensor>;
+}
+
+impl<D: ::ndarray::Dimension, T: Datum> IntoTensor for Array<T, D> {
+    fn into_tensor(self) -> Tensor {
+        Tensor::from(self)
+    }
+}
+
+impl<D: ::ndarray::Dimension, T: Datum> IntoArcTensor for Array<T, D> {
+    fn into_arc_tensor(self) -> Arc<Tensor> {
+        Arc::new(Tensor::from(self))
+    }
+}
+
+impl IntoTensor for Tensor {
+    fn into_tensor(self) -> Tensor {
+        self
+    }
+}
+
+impl IntoTensor for Arc<Tensor> {
+    fn into_tensor(self) -> Tensor {
+        Arc::try_unwrap(self).unwrap_or_else(|t| (*t).clone())
+    }
+}
+
+impl IntoArcTensor for Tensor {
+    fn into_arc_tensor(self) -> Arc<Tensor> {
+        Arc::new(self)
+    }
+}
+
+impl IntoArcTensor for Arc<Tensor> {
+    fn into_arc_tensor(self) -> Arc<Tensor> {
+        self
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::dim::SymbolScope;
+    use crate::prelude::tensor1;
+
+    use super::*;
+    use litteral::tensor0;
+    use proptest::collection::vec;
+    use proptest::prelude::*;
+
+    // Regression for sonos/tract#2390: from_raw must reject a content length that
+    // does not match the declared shape rather than panicking in copy_from_slice.
+    #[test]
+    fn from_raw_rejects_length_mismatch() {
+        // shape [2, 3] of f32 needs 24 bytes; supply 12.
+        let err = unsafe { Tensor::from_raw_dt(f32::datum_type(), &[2, 3], &[0u8; 12]) }
+            .expect_err("from_raw must reject a short content buffer, not panic");
+        assert!(err.to_string().contains("does not match shape"), "unexpected error: {err}");
+        // Too-long content is rejected as well.
+        assert!(unsafe { Tensor::from_raw_dt(f32::datum_type(), &[2, 3], &[0u8; 32]) }.is_err());
+        // Exact match still succeeds.
+        assert!(unsafe { Tensor::from_raw_dt(f32::datum_type(), &[2, 3], &[0u8; 24]) }.is_ok());
+    }
+
+    #[derive(Debug)]
+    struct PermuteAxisProblem {
+        shape: Vec<usize>,
+        permutation: Vec<usize>,
+    }
+
+    impl Arbitrary for PermuteAxisProblem {
+        type Strategy = BoxedStrategy<PermuteAxisProblem>;
+        type Parameters = ();
+
+        fn arbitrary_with(_: Self::Parameters) -> Self::Strategy {
+            (0..8usize)
+                .prop_flat_map(|rank| {
+                    let permute: Vec<usize> = (0..rank).collect();
+                    (proptest::collection::vec(1..5usize, rank), Just(permute).prop_shuffle())
+                })
+                .prop_map(|(shape, permutation)| PermuteAxisProblem { shape, permutation })
+                .boxed()
+        }
+    }
+
+    impl PermuteAxisProblem {
+        fn input(&self) -> ArrayD<i32> {
+            let mut i = 0;
+            ArrayD::from_shape_simple_fn(&*self.shape, || {
+                i += 1;
+                i
+            })
+            .permuted_axes(&*self.permutation)
+        }
+
+        fn reference(&self) -> Tensor {
+            let values: Vec<i32> = self.input().iter().copied().collect();
+            let shape = self.permutation.iter().map(|ix| self.shape[*ix]).collect::<TVec<usize>>();
+            super::litteral::tensor1(&values).into_shape(&shape).unwrap()
+        }
+
+        fn tract(&self) -> Tensor {
+            Tensor::from(self.input())
+        }
+
+        fn check(&self) -> proptest::test_runner::TestCaseResult {
+            prop_assert_eq!(self.tract(), self.reference());
+            Ok(())
+        }
+    }
+
+    proptest::proptest! {
+        #[test]
+        fn prop(pb: PermuteAxisProblem) {
+            pb.check().unwrap();
+        }
+    }
+
+    #[test]
+    fn t_1_2() {
+        PermuteAxisProblem { shape: vec![2, 1], permutation: vec![1, 0] }.check().unwrap();
+    }
+
+    #[test]
+    fn t_2_2() {
+        PermuteAxisProblem { shape: vec![2, 2], permutation: vec![1, 0] }.check().unwrap();
+    }
+
+    #[derive(Debug)]
+    struct BroadcastVecToShape {
+        vec: Vec<f32>,
+        axis: usize,
+        shape: TVec<usize>,
+    }
+
+    impl BroadcastVecToShape {
+        fn check(&self) -> proptest::test_runner::TestCaseResult {
+            let input = tensor1(&self.vec);
+            let mut intermediate = tvec![1usize; self.shape.len()];
+            intermediate[self.axis] = self.vec.len();
+            let reference = input
+                .clone()
+                .into_shape(&intermediate)
+                .unwrap()
+                .broadcast_to_shape(&self.shape)
+                .unwrap();
+            prop_assert_eq!(
+                reference,
+                input.broadcast_vector_to_shape(&self.shape, self.axis).unwrap()
+            );
+            Ok(())
+        }
+    }
+
+    impl Arbitrary for BroadcastVecToShape {
+        type Strategy = BoxedStrategy<BroadcastVecToShape>;
+        type Parameters = ();
+
+        fn arbitrary_with(_: Self::Parameters) -> Self::Strategy {
+            vec(0usize..5, 0usize..4)
+                .prop_flat_map(|shape| {
+                    (vec(-10f32..10f32, 0usize..5), Just(shape.clone()), 0..shape.len() + 1)
+                })
+                .prop_map(|(vec, mut shape, axis)| {
+                    shape.insert(axis, vec.len());
+                    BroadcastVecToShape { vec, shape: shape.into(), axis }
+                })
+                .boxed()
+        }
+    }
+
+    proptest::proptest! {
+        #[test]
+        fn broadcast_vector_to_shape_prop(pb: BroadcastVecToShape) {
+            pb.check().unwrap()
+        }
+    }
+
+    #[test]
+    #[cfg(feature = "complex")]
+    fn test_reinterpret_inner_dim_as_complex() -> TractResult<()> {
+        let input = crate::internal::tensor2(&[[1.0f32, 2.0], [3.0, 4.0], [5.0, 6.0]]);
+        let cplx_input = reinterpret_inner_dim_as_complex(input)?;
+        let expected = crate::internal::tensor1(&[
+            Complex::new(1.0f32, 2.0),
+            Complex::new(3.0, 4.0),
+            Complex::new(5.0, 6.0),
+        ]);
+        assert_eq!(expected, cplx_input);
+        Ok(())
+    }
+
+    #[test]
+    #[cfg(feature = "complex")]
+    fn test_reinterpret_inner_dim_as_complex_2() -> TractResult<()> {
+        let input =
+            crate::internal::tensor3(&[[[1i32, 2], [1, 2]], [[3, 4], [3, 4]], [[5, 6], [5, 6]]]);
+        let cplx_input = reinterpret_inner_dim_as_complex(input)?;
+        let expected = crate::internal::tensor2(&[
+            [Complex::new(1i32, 2), Complex::new(1, 2)],
+            [Complex::new(3, 4), Complex::new(3, 4)],
+            [Complex::new(5, 6), Complex::new(5, 6)],
+        ]);
+        assert_eq!(expected, cplx_input);
+        Ok(())
+    }
+
+    #[test]
+    fn clone_tdim_tensor() {
+        let symbols = SymbolScope::default();
+        let a = symbols.sym("a");
+        let t = tensor0(TDim::from(a));
+        let _ = t.clone();
+    }
+
+    #[test]
+    fn ulp_approximation_accepts_within_bound() -> TractResult<()> {
+        let a = tensor1(&[1.0f32, 2.0, 3.0]);
+        let b = tensor1(&[
+            f32::from_bits(1.0f32.to_bits() + 1),
+            2.0,
+            f32::from_bits(3.0f32.to_bits() + 2),
+        ]);
+        a.close_enough(&b, Approximation::Ulp(2))?;
+        assert!(a.close_enough(&b, Approximation::Ulp(1)).is_err());
+        assert_eq!(a.max_ulp_distance(&b)?, (2, Some(2)));
+        Ok(())
+    }
+
+    #[test]
+    fn ulp_approximation_uses_the_tensor_own_float_type() -> TractResult<()> {
+        // One f16 rounding step is ~8192 f32 steps. Measuring in f32 would make an
+        // adjacent-f16 pair look wildly off, so the comparison must stay in f16.
+        let one = f16::from_f32(1.0);
+        let a = tensor1(&[one]);
+        let b = tensor1(&[f16::from_bits(one.to_bits() + 1)]);
+        assert_eq!(a.ulp_comparison_dt(), DatumType::F16);
+        assert_eq!(a.max_ulp_distance(&b)?, (1, Some(0)));
+        a.close_enough(&b, Approximation::Ulp(1))?;
+        Ok(())
+    }
+
+    #[test]
+    fn ulp_approximation_is_scale_free() -> TractResult<()> {
+        // The same relative error at wildly different magnitudes reads the same,
+        // which a shared atol cannot do.
+        let a = tensor1(&[1e-30f32, 1e30]);
+        let b = tensor1(&[
+            f32::from_bits(1e-30f32.to_bits() + 1),
+            f32::from_bits(1e30f32.to_bits() + 1),
+        ]);
+        a.close_enough(&b, Approximation::Ulp(1))?;
+        Ok(())
+    }
+
+    #[test]
+    fn ulp_approximation_rejects_shape_mismatch() {
+        let a = tensor1(&[1.0f32, 2.0]);
+        let b = tensor1(&[1.0f32]);
+        assert!(a.close_enough(&b, Approximation::Ulp(1000)).is_err());
+    }
+
+    // stack_tensors picks between three copy strategies by block size; they must
+    // all agree with plain index arithmetic. Sizes 1/2/4/8 cover the typed-copy
+    // dispatch, and a trailing axis of 1 gives the one-datum blocks that
+    // FastEnhancer's [1, 256, 1, 2] and DTLN's [1, 2, 128, 2] concats produce.
+    fn stack_reference<T: Datum + Copy + num_traits::Zero>(
+        axis: usize,
+        tensors: &[Tensor],
+    ) -> Tensor {
+        let mut shape: TVec<usize> = tensors[0].shape().into();
+        shape[axis] = tensors.iter().map(|t| t.shape()[axis]).sum();
+        let mut out = Tensor::zero::<T>(&shape).unwrap();
+        let outer: usize = shape[..axis].iter().product();
+        let inner: usize = shape[axis + 1..].iter().product();
+        let mid = shape[axis];
+        let ov = unsafe { out.as_slice_mut_unchecked::<T>() };
+        let mut base = 0;
+        for t in tensors {
+            let m = t.shape()[axis];
+            let tv = unsafe { t.as_slice_unchecked::<T>() };
+            for o in 0..outer {
+                for j in 0..m {
+                    for i in 0..inner {
+                        ov[(o * mid + base + j) * inner + i] = tv[(o * m + j) * inner + i];
+                    }
+                }
+            }
+            base += m;
+        }
+        out
+    }
+
+    fn ramp<T: Datum + Copy + From<u8>>(shape: &[usize], seed: u8) -> Tensor {
+        let n: usize = shape.iter().product();
+        let v: Vec<T> = (0..n).map(|i| T::from(seed.wrapping_add(i as u8))).collect();
+        Tensor::from_shape(shape, &v).unwrap()
+    }
+
+    macro_rules! stack_agrees_for {
+        ($name:ident, $t:ty) => {
+            #[test]
+            fn $name() {
+                for shape in [
+                    tvec!(1usize, 256, 1, 1),
+                    tvec!(1usize, 2, 128, 1),
+                    tvec!(1usize, 35, 35, 8),
+                    tvec!(4usize, 3),
+                    tvec!(7usize),
+                ] {
+                    for axis in 0..shape.len() {
+                        let a: Tensor = ramp::<$t>(&shape, 1);
+                        let b: Tensor = ramp::<$t>(&shape, 100);
+                        let c: Tensor = ramp::<$t>(&shape, 200);
+                        for n in 1..=3 {
+                            let ins = [a.clone(), b.clone(), c.clone()][..n].to_vec();
+                            let got = Tensor::stack_tensors(axis, &ins).unwrap();
+                            let want = stack_reference::<$t>(axis, &ins);
+                            assert_eq!(got, want, "shape {shape:?} axis {axis} n {n}");
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    stack_agrees_for!(stack_tensors_agrees_u8, u8);
+    stack_agrees_for!(stack_tensors_agrees_u16, u16);
+    stack_agrees_for!(stack_tensors_agrees_u32, u32);
+    stack_agrees_for!(stack_tensors_agrees_u64, u64);
+
+    // A zero extent before the concatenated axis makes `outer` zero; the block
+    // path divides by it, so it must not be taken.
+    #[test]
+    fn stack_tensors_tolerates_a_zero_outer_extent() {
+        let a = Tensor::zero::<f32>(&[0, 2, 3]).unwrap();
+        let stacked = Tensor::stack_tensors(2, &[a.clone(), a.clone()]).unwrap();
+        assert_eq!(stacked.shape(), &[0, 2, 6]);
+    }
+
+    // assign_slice copies one contiguous run per coordinate of the axes before
+    // `axis`; the runs must agree with plain index arithmetic for every axis,
+    // including the trailing one where each run is a single datum.
+    fn assign_slice_reference<T: Datum + Copy>(
+        dst: &Tensor,
+        dst_range: Range<usize>,
+        src: &Tensor,
+        src_range: Range<usize>,
+        axis: usize,
+    ) -> Tensor {
+        let mut out = dst.clone();
+        let outer: usize = dst.shape()[..axis].iter().product();
+        let inner: usize = dst.shape()[axis + 1..].iter().product();
+        let dst_mid = dst.shape()[axis];
+        let src_mid = src.shape()[axis];
+        let sv = unsafe { src.as_slice_unchecked::<T>() };
+        let ov = unsafe { out.as_slice_mut_unchecked::<T>() };
+        for o in 0..outer {
+            for j in 0..dst_range.len() {
+                for i in 0..inner {
+                    ov[(o * dst_mid + dst_range.start + j) * inner + i] =
+                        sv[(o * src_mid + src_range.start + j) * inner + i];
+                }
+            }
+        }
+        out
+    }
+
+    macro_rules! assign_slice_agrees_for {
+        ($name:ident, $t:ty) => {
+            #[test]
+            fn $name() {
+                for (shape, axis, dst_mid, src_mid, dst_start, len, src_start) in [
+                    (tvec!(1usize, 56, 24), 2, 24, 8, 16, 8, 0),
+                    (tvec!(1usize, 56, 24), 2, 24, 24, 0, 16, 8),
+                    (tvec!(1usize, 32, 4, 128), 3, 128, 128, 0, 64, 64),
+                    (tvec!(1usize, 8, 16, 64), 2, 16, 1, 3, 1, 0),
+                    (tvec!(3usize, 5), 0, 3, 7, 1, 2, 4),
+                    (tvec!(4usize, 3), 1, 3, 3, 0, 3, 0),
+                    (tvec!(7usize), 0, 7, 7, 2, 0, 5),
+                ] {
+                    let mut dst_shape = shape.clone();
+                    dst_shape[axis] = dst_mid;
+                    let mut src_shape = shape.clone();
+                    src_shape[axis] = src_mid;
+                    let mut got: Tensor = ramp::<$t>(&dst_shape, 1);
+                    let src: Tensor = ramp::<$t>(&src_shape, 100);
+                    let want = assign_slice_reference::<$t>(
+                        &got,
+                        dst_start..dst_start + len,
+                        &src,
+                        src_start..src_start + len,
+                        axis,
+                    );
+                    got.assign_slice(
+                        dst_start..dst_start + len,
+                        &src,
+                        src_start..src_start + len,
+                        axis,
+                    )
+                    .unwrap();
+                    assert_eq!(got, want, "shape {dst_shape:?} axis {axis}");
+                }
+            }
+        };
+    }
+
+    assign_slice_agrees_for!(assign_slice_agrees_u8, u8);
+    assign_slice_agrees_for!(assign_slice_agrees_u16, u16);
+    assign_slice_agrees_for!(assign_slice_agrees_u32, u32);
+    assign_slice_agrees_for!(assign_slice_agrees_u64, u64);
+
+    // The prefixed assign copies the same runs inside one sub-tensor of each
+    // side, and the prefixed axes are free to differ in extent.
+    macro_rules! assign_slice_at_prefix_agrees_for {
+        ($name:ident, $t:ty) => {
+            #[test]
+            fn $name() {
+                for (shape, prefix, src_lead, src_prefix, axis, start, len, src_start) in [
+                    (tvec!(3usize, 5, 7), tvec!(2usize), 4, tvec!(3usize), 2, 3, 4, 0),
+                    (tvec!(3usize, 5, 7), tvec!(0usize), 1, tvec!(0usize), 1, 1, 3, 2),
+                    (tvec!(2usize, 4, 8, 3), tvec!(1usize, 2), 2, tvec!(0usize, 1), 3, 0, 3, 0),
+                    (tvec!(4usize, 6), tvec!(), 4, tvec!(), 1, 2, 4, 2),
+                ] {
+                    let mut src_shape = shape.clone();
+                    src_shape[0] = src_lead;
+                    let mut got: Tensor = ramp::<$t>(&shape, 1);
+                    let src: Tensor = ramp::<$t>(&src_shape, 100);
+                    // A prefixed assign is the same assign between the two
+                    // sub-tensors, which a slice materializes.
+                    let mut want_sub = sub_tensor(&got, &prefix);
+                    want_sub
+                        .assign_slice(
+                            start..start + len,
+                            &sub_tensor(&src, &src_prefix),
+                            src_start..src_start + len,
+                            axis - prefix.len(),
+                        )
+                        .unwrap();
+                    got.assign_slice_at_prefix(
+                        &prefix,
+                        start..start + len,
+                        &src,
+                        &src_prefix,
+                        src_start..src_start + len,
+                        axis,
+                    )
+                    .unwrap();
+                    assert_eq!(
+                        sub_tensor(&got, &prefix),
+                        want_sub,
+                        "shape {shape:?} prefix {prefix:?} axis {axis}"
+                    );
+                }
+            }
+        };
+    }
+
+    fn sub_tensor(t: &Tensor, prefix: &[usize]) -> Tensor {
+        let mut sub = t.clone();
+        for ix in prefix {
+            sub = sub.slice(0, *ix, ix + 1).unwrap();
+            sub.remove_axis(0).unwrap();
+        }
+        sub
+    }
+
+    assign_slice_at_prefix_agrees_for!(assign_slice_at_prefix_agrees_u8, u8);
+    assign_slice_at_prefix_agrees_for!(assign_slice_at_prefix_agrees_u16, u16);
+    assign_slice_at_prefix_agrees_for!(assign_slice_at_prefix_agrees_u32, u32);
+    assign_slice_at_prefix_agrees_for!(assign_slice_at_prefix_agrees_u64, u64);
+
+    // fill_slice writes one contiguous run per coordinate of the axes between
+    // the prefix and `axis`; the runs must agree with plain index arithmetic,
+    // including on the trailing axis where each run is a single datum.
+    fn fill_slice_reference<T: Datum + Copy>(
+        data: &Tensor,
+        prefix: &[usize],
+        range: Range<usize>,
+        value: T,
+        axis: usize,
+    ) -> Tensor {
+        let mut out = data.clone();
+        let shape = data.shape().to_vec();
+        let inner: usize = shape[axis + 1..].iter().product();
+        let mid = shape[axis];
+        let outer: usize = shape[prefix.len()..axis].iter().product();
+        let at: usize = izip!(prefix, data.strides()).map(|(ix, s)| ix * *s as usize).sum();
+        let ov = unsafe { out.as_slice_mut_unchecked::<T>() };
+        for o in 0..outer {
+            for j in range.clone() {
+                for i in 0..inner {
+                    ov[at + (o * mid + j) * inner + i] = value;
+                }
+            }
+        }
+        out
+    }
+
+    macro_rules! fill_slice_agrees_for {
+        ($name:ident, $t:ty) => {
+            #[test]
+            fn $name() {
+                for (shape, prefix, axis, start, len) in [
+                    (tvec!(1usize, 56, 24), tvec!(), 2, 16, 8),
+                    (tvec!(3usize, 5, 7), tvec!(), 1, 1, 3),
+                    (tvec!(3usize, 5, 7), tvec!(2usize), 2, 3, 4),
+                    (tvec!(3usize, 5, 7), tvec!(1usize, 4), 2, 0, 7),
+                    (tvec!(4usize, 3), tvec!(), 0, 1, 2),
+                    (tvec!(2usize, 8, 16, 64), tvec!(1usize), 2, 3, 1),
+                    (tvec!(7usize), tvec!(), 0, 2, 0),
+                ] {
+                    let value: $t = 42 as $t;
+                    let mut got: Tensor = ramp::<$t>(&shape, 1);
+                    let want =
+                        fill_slice_reference::<$t>(&got, &prefix, start..start + len, value, axis);
+                    got.fill_slice_at_prefix(&prefix, start..start + len, &tensor0(value), axis)
+                        .unwrap();
+                    assert_eq!(got, want, "shape {shape:?} prefix {prefix:?} axis {axis}");
+                }
+            }
+        };
+    }
+
+    fill_slice_agrees_for!(fill_slice_agrees_u8, u8);
+    fill_slice_agrees_for!(fill_slice_agrees_u16, u16);
+    fill_slice_agrees_for!(fill_slice_agrees_u32, u32);
+    fill_slice_agrees_for!(fill_slice_agrees_u64, u64);
+
+    #[test]
+    fn fill_slice_carries_non_copy_data() {
+        let strings = |v: [&str; 6]| {
+            ndarray::Array2::from_shape_vec((2, 3), v.iter().map(|s| s.to_string()).collect())
+                .unwrap()
+                .into_tensor()
+        };
+        let mut data = strings(["a", "b", "c", "d", "e", "f"]);
+        data.fill_slice(1..3, &tensor0("x".to_string()), 1).unwrap();
+        assert_eq!(data, strings(["a", "x", "x", "d", "x", "x"]));
+    }
+
+    #[test]
+    fn assign_slice_carries_non_copy_data() {
+        let strings = |v: [&str; 6]| {
+            ndarray::Array2::from_shape_vec((2, 3), v.iter().map(|s| s.to_string()).collect())
+                .unwrap()
+                .into_tensor()
+        };
+        let mut dst = strings(["a", "b", "c", "d", "e", "f"]);
+        let src = ndarray::Array2::from_shape_vec((2, 1), vec!["x".to_string(), "y".to_string()])
+            .unwrap()
+            .into_tensor();
+        dst.assign_slice(1..2, &src, 0..1, 1).unwrap();
+        assert_eq!(dst, strings(["a", "x", "c", "d", "y", "f"]));
+    }
+
+    // The run-based broadcast must agree with the ndarray view it replaced, over
+    // leading, middle and trailing broadcast axes and over ranks that grow.
+    #[test]
+    fn broadcast_to_shape_agrees_with_the_view() {
+        for (src, dst) in [
+            (tvec!(1usize, 8, 1, 7, 4), tvec!(1usize, 8, 4, 7, 4)),
+            (tvec!(1usize, 1, 1, 7), tvec!(2usize, 3, 5, 7)),
+            (tvec!(4usize), tvec!(2usize, 3, 5, 4)),
+            (tvec!(1usize, 5, 3), tvec!(6usize, 5, 3)),
+            (tvec!(2usize, 3), tvec!(2usize, 3)),
+            (tvec!(1usize), tvec!(3usize, 1, 2)),
+            (tvec!(3usize, 1), tvec!(3usize, 0)),
+        ] {
+            for dt in [f32::datum_type(), u8::datum_type(), i32::datum_type()] {
+                let t = Tensor::zero_dt(dt, &src).unwrap().cast_to_dt(dt).unwrap().into_owned();
+                let got = t.broadcast_to_shape(&dst).unwrap();
+                let want = dispatch_datum!(Tensor::broadcast_to_shape_t(dt)(&t, &dst)).unwrap();
+                assert_eq!(got.shape(), &*dst, "{src:?} -> {dst:?}");
+                assert_eq!(got, want, "{src:?} -> {dst:?} {dt:?}");
+            }
+        }
+    }
+
+    #[test]
+    fn broadcast_to_shape_carries_values_and_rejects_mismatches() {
+        let t = tensor2(&[[1u8, 2, 3], [4, 5, 6]]);
+        let got = t.clone().into_shape(&[2, 1, 3]).unwrap().broadcast_to_shape(&[2, 2, 3]).unwrap();
+        assert_eq!(got, tensor3(&[[[1u8, 2, 3], [1, 2, 3]], [[4, 5, 6], [4, 5, 6]]]));
+        assert!(t.broadcast_to_shape(&[3, 3]).is_err());
+        assert!(t.broadcast_to_shape(&[3]).is_err());
+    }
+
+    #[test]
+    fn slice_keeps_the_datum_type_and_the_values() {
+        let t = ramp::<u32>(&tvec!(2usize, 3, 4), 0);
+        let got = t.slice(1, 1, 3).unwrap();
+        let mut want = Tensor::zero::<u32>(&[2, 2, 4]).unwrap();
+        want.assign_slice(0..2, &t, 1..3, 1).unwrap();
+        assert_eq!(got, want);
+        let quantized = Tensor::zero_dt(
+            i8::datum_type().quantize(QParams::ZpScale { zero_point: 3, scale: 0.5 }),
+            &[2, 4],
+        )
+        .unwrap();
+        assert_eq!(quantized.slice(1, 0, 2).unwrap().datum_type(), quantized.datum_type());
+    }
+
+    #[test]
+    fn ulp_bounds_are_distinguished_by_equality() {
+        assert_eq!(Approximation::Ulp(1), Approximation::Ulp(1));
+        assert_ne!(Approximation::Ulp(1), Approximation::Ulp(2));
+    }
+
+    /// Storage that keeps its bytes "elsewhere" until asked, standing in for a
+    /// device-backed one so the seam can be tested without a GPU.
+    #[derive(Debug)]
+    struct LateStorage {
+        elsewhere: Vec<u8>,
+        here: std::sync::OnceLock<PlainStorage>,
+        materializations: std::sync::atomic::AtomicUsize,
+    }
+
+    impl LateStorage {
+        fn new(bytes: &[u8]) -> LateStorage {
+            LateStorage {
+                elsewhere: bytes.to_vec(),
+                here: std::sync::OnceLock::new(),
+                materializations: std::sync::atomic::AtomicUsize::new(0),
+            }
+        }
+        fn count(t: &Tensor) -> usize {
+            t.storage_as::<LateStorage>()
+                .unwrap()
+                .materializations
+                .load(std::sync::atomic::Ordering::Relaxed)
+        }
+    }
+
+    impl PartialEq for LateStorage {
+        fn eq(&self, other: &Self) -> bool {
+            self.elsewhere == other.elsewhere
+        }
+    }
+    impl Eq for LateStorage {}
+
+    impl std::fmt::Display for LateStorage {
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            write!(f, "LateStorage")
+        }
+    }
+
+    impl TensorStorage for LateStorage {
+        fn byte_len(&self) -> usize {
+            self.elsewhere.len()
+        }
+        fn is_empty(&self) -> bool {
+            self.elsewhere.is_empty()
+        }
+        fn deep_clone(&self) -> Box<dyn TensorStorage> {
+            Box::new(LateStorage::new(&self.elsewhere))
+        }
+        fn as_plain_ram(&self) -> Option<&PlainStorage> {
+            self.here.get()
+        }
+        fn as_plain_ram_mut(&mut self) -> Option<&mut PlainStorage> {
+            None
+        }
+        fn into_plain_ram(self: Box<Self>) -> Option<PlainStorage> {
+            let me = *self;
+            me.materialize_plain_ram().ok()?;
+            me.here.into_inner()
+        }
+        fn dyn_hash(&self, _state: &mut dyn std::hash::Hasher) {}
+        fn exotic_fact(&self, _shape: &[usize]) -> TractResult<Option<Box<dyn ExoticFact>>> {
+            Ok(None)
+        }
+        fn is_exotic(&self) -> bool {
+            false
+        }
+        fn in_ram(&self) -> bool {
+            self.here.get().is_some()
+        }
+        fn materialize_plain_ram(&self) -> TractResult<&PlainStorage> {
+            if let Some(here) = self.here.get() {
+                return Ok(here);
+            }
+            self.materializations.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            let blob = Blob::from_bytes(&self.elsewhere)?;
+            Ok(self.here.get_or_init(|| PlainStorage::from(blob)))
+        }
+        fn slice(
+            &self,
+            dt: DatumType,
+            shape: &[usize],
+            axis: usize,
+            start: usize,
+            end: usize,
+        ) -> TractResult<Option<Tensor>> {
+            // Only the outermost axis is a contiguous byte range here.
+            if axis != 0 || shape[..axis].iter().product::<usize>() != 1 {
+                return Ok(None);
+            }
+            let row = shape[1..].iter().product::<usize>() * dt.size_of();
+            let mut sliced: TVec<usize> = shape.into();
+            sliced[0] = end - start;
+            Ok(Some(Tensor::from_storage(
+                dt,
+                &sliced,
+                LateStorage::new(&self.elsewhere[start * row..end * row]),
+            )))
+        }
+    }
+
+    fn late_tensor(shape: &[usize], values: &[f32]) -> Tensor {
+        let host = Tensor::from_shape(shape, values).unwrap();
+        Tensor::from_storage(f32::datum_type(), shape, LateStorage::new(host.as_bytes()))
+    }
+
+    #[test]
+    fn late_storage_stays_put_until_the_bytes_are_read() {
+        let t = late_tensor(&[2, 3], &[1f32, 2., 3., 4., 5., 6.]);
+        // Predicates must not drag the bytes back.
+        assert!(!t.in_ram());
+        assert!(t.as_plain_ram().is_none());
+        assert_eq!(t.datum_type(), f32::datum_type());
+        assert_eq!(t.shape(), &[2, 3]);
+        assert_eq!(LateStorage::count(&t), 0);
+        // Reading them does, once.
+        assert_eq!(
+            t.try_as_plain_ram().unwrap().as_slice::<f32>().unwrap(),
+            &[1f32, 2., 3., 4., 5., 6.]
+        );
+        assert_eq!(LateStorage::count(&t), 1);
+        assert_eq!(t.try_as_plain_ram().unwrap().as_slice::<f32>().unwrap()[0], 1f32);
+        assert_eq!(LateStorage::count(&t), 1);
+    }
+
+    #[test]
+    fn late_storage_is_plain_but_not_in_ram_until_asked() {
+        let t = late_tensor(&[2, 3], &[1f32, 2., 3., 4., 5., 6.]);
+        assert!(t.is_plain());
+        assert!(!t.in_ram());
+        let t = t.into_plain_ram().unwrap();
+        assert!(t.in_ram());
+        assert!(t.has_plain_ram_storage());
+        assert_eq!(
+            t.try_as_plain_ram().unwrap().as_slice::<f32>().unwrap(),
+            &[1f32, 2., 3., 4., 5., 6.]
+        );
+    }
+
+    #[test]
+    fn late_storage_slices_without_materializing_when_it_can() {
+        let t = late_tensor(&[2, 3], &[1f32, 2., 3., 4., 5., 6.]);
+        let row = t.slice(0, 1, 2).unwrap();
+        assert_eq!(LateStorage::count(&t), 0);
+        assert!(row.storage_as::<LateStorage>().is_some());
+        assert_eq!(row.shape(), &[1, 3]);
+        assert_eq!(row.try_as_plain_ram().unwrap().as_slice::<f32>().unwrap(), &[4f32, 5., 6.]);
+    }
+
+    #[test]
+    fn late_storage_falls_back_to_a_copy_on_a_gappy_slice() {
+        let t = late_tensor(&[2, 3], &[1f32, 2., 3., 4., 5., 6.]);
+        let col = t.slice(1, 1, 3).unwrap();
+        // Storage refused, so the generic path copied: material, and correct.
+        assert!(col.in_ram());
+        assert_eq!(col.shape(), &[2, 2]);
+        assert_eq!(col.try_as_plain_ram().unwrap().as_slice::<f32>().unwrap(), &[2f32, 3., 5., 6.]);
+        assert_eq!(LateStorage::count(&t), 1);
+    }
+}

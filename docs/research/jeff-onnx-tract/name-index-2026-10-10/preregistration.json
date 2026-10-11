@@ -1,0 +1,20 @@
+{
+  "date_utc": "2026-10-10T14:22:04.045943+00:00",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "source_job_sha256": "7b4760f56525135505c0624e1eb3733b12ae9744a315d260c07df4ac6396eed8",
+  "control_executable_sha256": "3d30e19153bccb255b63052b8fd3c9bdb942fa60eef7a4f99b363b594a6c9551",
+  "candidate_executable_sha256": "252afbe391d99474ff0ec2f208e9c527d5a4b37d65c362163ae951780b6a50c3",
+  "generation_sha256": "817604f0a333daebaa155ae33ca53f70978b10c79e538a5e20cfbb1bca0e886e",
+  "script_sha256": "996d211f9c16a03fa3a2f3a5df797389e6828e197061960b2551f442137c9e7f",
+  "control_reference_sha256": "e1daa180d563b33513969e87061a5e0295ffa2de66ac5310fc98b9c625c0cf3b",
+  "candidate_lock_sha256": "9a9d56b0921837e1ec296ce313725a62b2ab69a21991f1bd0954660aa4bf7bc0",
+  "threads": 1,
+  "cold_blocks": 5,
+  "resident_samples": 5,
+  "resident_warmups": 1,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8758067200,
+  "scope": "process-cold; filesystem cache, thermals and background load uncontrolled; no API E2E",
+  "formal_slo_acceptance": false
+}

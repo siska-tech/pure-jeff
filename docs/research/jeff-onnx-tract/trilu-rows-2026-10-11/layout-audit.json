@@ -1,0 +1,7 @@
+{
+  "path": "data/src/tensor/plain_view.rs",
+  "sha256": "6625aa18c90df165c335b11be9a65476d677344abdb63aee5256efa06759d628",
+  "finding": "plain RAM ndarray views are constructed from shape as standard layout; nonstandard guard is defensive",
+  "nonstandard_guard_directly_exercised": false,
+  "direct_operator_tests": "shared input copy-on-write and empty shapes"
+}

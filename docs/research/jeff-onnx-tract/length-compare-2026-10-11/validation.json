@@ -1,0 +1,17 @@
+{
+  "archive_audit_passed": true,
+  "registered_numeric_gate_passed": false,
+  "independent_raw_schedule_resource_probability_statistics_audit": true,
+  "processes": 6,
+  "forwards": 156,
+  "native_repeat_violations": 6,
+  "all_onnx_probability_judgment_token_gates_passed": true,
+  "tract_raw_exact_to_previous_gate": true,
+  "child_failures": 0,
+  "guard_triggers": 0,
+  "harness_exit_code": 1,
+  "formal_slo_acceptance": false,
+  "performance_acceptance": false,
+  "third_pair_not_executed": true,
+  "thresholds_unchanged": true
+}

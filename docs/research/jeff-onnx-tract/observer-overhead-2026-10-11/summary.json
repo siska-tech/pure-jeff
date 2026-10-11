@@ -1,0 +1,309 @@
+{
+  "processes": 8,
+  "forwards": 64,
+  "all_numeric_host_resource_gates_passed": true,
+  "max_onnx_probability_error": 2.4139881134033203e-06,
+  "native_repeat_exact": true,
+  "formal_slo_acceptance": false,
+  "equivalence_acceptance": false,
+  "configurations": {
+    "native4": {
+      "off": {
+        "compute_ns": {
+          "n": 6,
+          "median": 2.0917804,
+          "p95": 2.2956271,
+          "min": 1.8368702,
+          "max": 2.2956271
+        },
+        "request_ns": {
+          "n": 6,
+          "median": 2.0920416,
+          "p95": 2.2959355,
+          "min": 1.8372215,
+          "max": 2.2959355
+        },
+        "wrapper_wall_ns": {
+          "n": 2,
+          "median": 21.7225301,
+          "p95": 21.9953517,
+          "min": 21.7225301,
+          "max": 21.9953517
+        },
+        "parent_process_ns": {
+          "n": 2,
+          "median": 21.7211416,
+          "p95": 21.993274,
+          "min": 21.7211416,
+          "max": 21.993274
+        },
+        "parent_cpu_ns": {
+          "n": 2,
+          "median": 0.28125,
+          "p95": 0.4375,
+          "min": 0.28125,
+          "max": 0.4375
+        },
+        "startup_ns": {
+          "n": 2,
+          "median": 3.7815642,
+          "p95": 3.9118066,
+          "min": 3.7815642,
+          "max": 3.9118066
+        },
+        "peak_working_set_bytes": {
+          "n": 2,
+          "median": 4590993408,
+          "p95": 4590993408,
+          "min": 4590993408,
+          "max": 4590993408
+        }
+      },
+      "on": {
+        "compute_ns": {
+          "n": 6,
+          "median": 2.0237217,
+          "p95": 2.3364228,
+          "min": 1.8576903,
+          "max": 2.3364228
+        },
+        "request_ns": {
+          "n": 6,
+          "median": 2.0239711,
+          "p95": 2.3368879,
+          "min": 1.8579468,
+          "max": 2.3368879
+        },
+        "wrapper_wall_ns": {
+          "n": 2,
+          "median": 19.4732717,
+          "p95": 23.2399449,
+          "min": 19.4732717,
+          "max": 23.2399449
+        },
+        "parent_process_ns": {
+          "n": 2,
+          "median": 19.4570283,
+          "p95": 23.2357744,
+          "min": 19.4570283,
+          "max": 23.2357744
+        },
+        "parent_cpu_ns": {
+          "n": 2,
+          "median": 0.28125,
+          "p95": 0.328125,
+          "min": 0.28125,
+          "max": 0.328125
+        },
+        "startup_ns": {
+          "n": 2,
+          "median": 3.5101595,
+          "p95": 4.5867599,
+          "min": 3.5101595,
+          "max": 4.5867599
+        },
+        "peak_working_set_bytes": {
+          "n": 2,
+          "median": 4590575616,
+          "p95": 4590915584,
+          "min": 4590575616,
+          "max": 4590915584
+        }
+      }
+    },
+    "tract4": {
+      "off": {
+        "compute_ns": {
+          "n": 6,
+          "median": 7.4310421,
+          "p95": 8.3393687,
+          "min": 7.0441812,
+          "max": 8.3393687
+        },
+        "request_ns": {
+          "n": 6,
+          "median": 7.4310796,
+          "p95": 8.3394065,
+          "min": 7.0442207,
+          "max": 8.3394065
+        },
+        "wrapper_wall_ns": {
+          "n": 2,
+          "median": 78.4625725,
+          "p95": 83.9217748,
+          "min": 78.4625725,
+          "max": 83.9217748
+        },
+        "parent_process_ns": {
+          "n": 2,
+          "median": 78.4608406,
+          "p95": 83.9189442,
+          "min": 78.4608406,
+          "max": 83.9189442
+        },
+        "parent_cpu_ns": {
+          "n": 2,
+          "median": 0.703125,
+          "p95": 0.875,
+          "min": 0.703125,
+          "max": 0.875
+        },
+        "startup_ns": {
+          "n": 2,
+          "median": 19.488007,
+          "p95": 20.0784258,
+          "min": 19.488007,
+          "max": 20.0784258
+        },
+        "peak_working_set_bytes": {
+          "n": 2,
+          "median": 3276255232,
+          "p95": 3276369920,
+          "min": 3276255232,
+          "max": 3276369920
+        }
+      },
+      "on": {
+        "compute_ns": {
+          "n": 6,
+          "median": 7.7614979,
+          "p95": 8.211336,
+          "min": 7.7155548,
+          "max": 8.211336
+        },
+        "request_ns": {
+          "n": 6,
+          "median": 7.7615335,
+          "p95": 8.2113745,
+          "min": 7.7156034,
+          "max": 8.2113745
+        },
+        "wrapper_wall_ns": {
+          "n": 2,
+          "median": 83.6983268,
+          "p95": 84.4484255,
+          "min": 83.6983268,
+          "max": 84.4484255
+        },
+        "parent_process_ns": {
+          "n": 2,
+          "median": 83.68675,
+          "p95": 84.44174,
+          "min": 83.68675,
+          "max": 84.44174
+        },
+        "parent_cpu_ns": {
+          "n": 2,
+          "median": 0.703125,
+          "p95": 0.71875,
+          "min": 0.703125,
+          "max": 0.71875
+        },
+        "startup_ns": {
+          "n": 2,
+          "median": 20.816904,
+          "p95": 22.2344162,
+          "min": 20.816904,
+          "max": 22.2344162
+        },
+        "peak_working_set_bytes": {
+          "n": 2,
+          "median": 3276414976,
+          "p95": 3276476416,
+          "min": 3276414976,
+          "max": 3276476416
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "backend": "native4",
+      "block": 0,
+      "compute_seconds": {
+        "off": {
+          "n": 3,
+          "median": 1.9144633,
+          "p95": 2.0917804,
+          "min": 1.8368702,
+          "max": 2.0917804
+        },
+        "on": {
+          "n": 3,
+          "median": 1.9183295,
+          "p95": 2.0237217,
+          "min": 1.8576903,
+          "max": 2.0237217
+        }
+      },
+      "on_minus_off_median_seconds": 0.003866200000000042,
+      "on_over_off_median_minus_one": 0.002019469372956939
+    },
+    {
+      "backend": "native4",
+      "block": 1,
+      "compute_seconds": {
+        "on": {
+          "n": 3,
+          "median": 2.2150279,
+          "p95": 2.3364228,
+          "min": 2.1131133,
+          "max": 2.3364228
+        },
+        "off": {
+          "n": 3,
+          "median": 2.181357,
+          "p95": 2.2956271,
+          "min": 2.0943954,
+          "max": 2.2956271
+        }
+      },
+      "on_minus_off_median_seconds": 0.033670899999999726,
+      "on_over_off_median_minus_one": 0.01543575856680035
+    },
+    {
+      "backend": "tract4",
+      "block": 0,
+      "compute_seconds": {
+        "on": {
+          "n": 3,
+          "median": 7.7614979,
+          "p95": 7.9523263,
+          "min": 7.7564486,
+          "max": 7.9523263
+        },
+        "off": {
+          "n": 3,
+          "median": 7.3564901,
+          "p95": 7.4310421,
+          "min": 7.0441812,
+          "max": 7.4310421
+        }
+      },
+      "on_minus_off_median_seconds": 0.4050077999999999,
+      "on_over_off_median_minus_one": 0.055054488552903846
+    },
+    {
+      "backend": "tract4",
+      "block": 1,
+      "compute_seconds": {
+        "off": {
+          "n": 3,
+          "median": 8.1936373,
+          "p95": 8.3393687,
+          "min": 7.654203,
+          "max": 8.3393687
+        },
+        "on": {
+          "n": 3,
+          "median": 7.7734281,
+          "p95": 8.211336,
+          "min": 7.7155548,
+          "max": 8.211336
+        }
+      },
+      "on_minus_off_median_seconds": -0.4202092000000004,
+      "on_over_off_median_minus_one": -0.05128481828210785
+    }
+  ]
+}

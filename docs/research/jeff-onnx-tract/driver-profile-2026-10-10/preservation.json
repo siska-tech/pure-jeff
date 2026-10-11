@@ -1,0 +1,8 @@
+{
+  "native_files_checked": 128,
+  "native_changed": [
+    ".gitignore"
+  ],
+  "baseline_sha256": "d939c5770b8d989eef01460d4f6b328d0f175e885f04e9f5bbd1fc650c01e09a",
+  "normal_probe_executable_unchanged": true
+}

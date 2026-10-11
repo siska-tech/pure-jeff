@@ -1,0 +1,66 @@
+{
+  "date_utc": "2026-10-10T11:13:43.760178+00:00",
+  "blocks": 3,
+  "order_profile_enabled": [
+    [
+      false,
+      true
+    ],
+    [
+      true,
+      false
+    ],
+    [
+      false,
+      true
+    ]
+  ],
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "artifact_manifest_sha256": "8e3ef18acf713a2283671e8818d3771a3840c8ba564a2a0fc1868c806cda71aa",
+  "source_job_sha256": "7b4760f56525135505c0624e1eb3733b12ae9744a315d260c07df4ac6396eed8",
+  "executable_sha256": "521a45bb5cfb98cb0322474cbbc7a6b199b20e0580275ba566f7ccb815326889",
+  "threads": 1,
+  "sources": [
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\onnx\\profile_codegen.py",
+      "sha256": "285ef92fe9833ecad38e2c91291ef71d3150b8eb663af6fe8cbf63cc73f10221"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\src\\codegen_profile.rs",
+      "sha256": "40d4c94bad554c2b0155f3e1106b96b4ccfce9d19ab4016eeef5ddad1a81ca8e"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\src\\bin\\bench.rs",
+      "sha256": "7e45d5c26cb0484b49aa0fb9006d715135e552d98d56ee6788e033a3b05a9568"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\Cargo.lock",
+      "sha256": "3254d69406242746b31d2ebd72198d5858f84f182a4022dc01bcb88f50506e6a"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\tract\\vendor\\data\\src\\tensor.rs",
+      "sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\onnx\\benchmark_pilot.py",
+      "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692"
+    }
+  ],
+  "policy": {
+    "min_probability": 0.7,
+    "min_margin": 0.1,
+    "cpu_threads": 1
+  },
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 9097441280,
+  "scope": "codegen startup diagnostics; process-cold, storage cache uncontrolled; parent hash excluded",
+  "forward_schedule": "first profiled process checks all four cases; others only case zero; no forward latency comparison",
+  "residual": "driver plus instrumentation, not separately measured compaction or packing",
+  "formal_slo_acceptance": false,
+  "driver_provenance": {
+    "generation_sha256": "44dc3be9549defb4176af367b418617f011ce9f98ef1383cda0e0531d286f39d",
+    "cargo_lock_sha256": "9a9d56b0921837e1ec296ce313725a62b2ab69a21991f1bd0954660aa4bf7bc0"
+  },
+  "driver_timing_units": "each row: [calls, inclusive_ns, exclusive_ns]; nested spans excluded from exclusive"
+}

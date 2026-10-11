@@ -1,0 +1,26 @@
+{
+  "revision": "9e0cfaa9b3a9251f41f74101801dc2c937b1660a",
+  "files": [
+    {
+      "path": "core/src/ops/array/scatter_elements.rs",
+      "sha256": "8af820694c42d087b089c54cd6b1b4f746f2e8d89a327faaeb7e3e29df59e81f",
+      "archived_as": "upstream-core-src-ops-array-scatter_elements.rs"
+    },
+    {
+      "path": "core/src/ops/array/trilu.rs",
+      "sha256": "525dc88cf0a1b3585feebfcc5e97e25eb44a8bddf707119153d2d71f31550437",
+      "archived_as": "upstream-core-src-ops-array-trilu.rs"
+    },
+    {
+      "path": "core/src/ops/change_axes.rs",
+      "sha256": "60e217898f9a5ade3d8c07fc3e1ae101b8fc7dadf41febaec41890bca291fe1b",
+      "archived_as": "upstream-core-src-ops-change_axes.rs"
+    },
+    {
+      "path": "data/src/tensor.rs",
+      "sha256": "9a3930d6cd7b551cdb1125983e0a31ff74c221e6e62c60be0b6d58d23562210d",
+      "archived_as": "upstream-data-src-tensor.rs"
+    }
+  ],
+  "scope": "read-only upstream source; no operator change in this experiment"
+}

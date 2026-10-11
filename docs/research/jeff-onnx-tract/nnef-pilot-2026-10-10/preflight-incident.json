@@ -1,0 +1,6 @@
+{
+  "stage": "source job read, before any measured child launch",
+  "error": "UnicodeDecodeError with Windows cp932 default",
+  "resolution": "explicit UTF-8 reads, new reload-v2 output directory",
+  "included_in_runtime_timings": false
+}

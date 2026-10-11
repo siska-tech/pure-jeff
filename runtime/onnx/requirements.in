@@ -1,0 +1,6 @@
+# Development oracle / graph tooling only. Never shipped with the Rust worker.
+# Match the frozen reference environment's numpy to avoid shadow-version drift.
+numpy==2.5.3
+onnx
+onnxscript
+onnxruntime

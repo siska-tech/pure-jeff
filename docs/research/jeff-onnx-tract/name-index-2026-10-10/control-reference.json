@@ -1,0 +1,19 @@
+{
+  "date_utc": "2026-10-10T13:25:48.908011+00:00",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "source_job_sha256": "7b4760f56525135505c0624e1eb3733b12ae9744a315d260c07df4ac6396eed8",
+  "control_executable_sha256": "fc2976bbb757668ee2ab8b2094cd32418025bc7c08128c51337f6b7ce785d7c6",
+  "candidate_executable_sha256": "3d30e19153bccb255b63052b8fd3c9bdb942fa60eef7a4f99b363b594a6c9551",
+  "generation_sha256": "41f5e328195a55c68df69322d8ec8be4965e4ec129e72906ef99726127d2825e",
+  "script_sha256": "e0005c8bef640105d6e6dee02ecd61148f80a0709862d51e0605de738ed5e111",
+  "candidate_lock_sha256": "9a9d56b0921837e1ec296ce313725a62b2ab69a21991f1bd0954660aa4bf7bc0",
+  "threads": 1,
+  "cold_blocks": 5,
+  "resident_samples": 5,
+  "resident_warmups": 1,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8855273472,
+  "scope": "process-cold; filesystem cache, thermals and background load uncontrolled; no API E2E",
+  "formal_slo_acceptance": false
+}

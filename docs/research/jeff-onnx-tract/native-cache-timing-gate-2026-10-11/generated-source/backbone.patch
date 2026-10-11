@@ -1,0 +1,31 @@
+--- original
++++ generated
+@@ -4 +4,2 @@
+-use candle_core::{safetensors::MmapedSafetensors, DType, Device, Result, Tensor, D};
++use crate::weights::Weights;
++use candle_core::{DType, Device, Result, Tensor, D};
+@@ -10 +11 @@
+-fn weight(weights: &MmapedSafetensors, name: &str) -> Result<Tensor> {
++fn weight(weights: &Weights, name: &str) -> Result<Tensor> {
+@@ -14 +15 @@
+-fn linear(x: &Tensor, weights: &MmapedSafetensors, name: &str) -> Result<Tensor> {
++fn linear(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
+@@ -22 +23 @@
+-fn norm(x: &Tensor, weights: &MmapedSafetensors, name: &str) -> Result<Tensor> {
++fn norm(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
+@@ -30 +31 @@
+-fn mlp(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {
++fn mlp(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
+@@ -64 +65 @@
+-fn full_attention(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {
++fn full_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
+@@ -156 +157 @@
+-fn linear_attention(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {
++fn linear_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
+@@ -197 +198,2 @@
+-pub fn forward(weights: &MmapedSafetensors, ids: &[u32]) -> Result<Tensor> {
++#[allow(dead_code)]
++pub fn forward(weights: &Weights, ids: &[u32]) -> Result<Tensor> {
+@@ -201 +203 @@
+-    weights: &MmapedSafetensors,
++    weights: &Weights,

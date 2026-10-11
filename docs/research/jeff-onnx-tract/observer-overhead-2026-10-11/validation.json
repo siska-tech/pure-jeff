@@ -1,0 +1,11 @@
+{
+  "raw_schedule_numeric_pairwise_pool_resource_host_and_all_statistics_independently_checked": true,
+  "processes": 8,
+  "forwards": 64,
+  "measured_per_backend_mode": 6,
+  "native_baseline_unchanged": 127,
+  "sibling_files_unchanged": 21,
+  "frozen_assets_and_prior_archives_unchanged": true,
+  "formal_slo_acceptance": false,
+  "equivalence_acceptance": false
+}

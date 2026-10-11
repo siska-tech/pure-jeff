@@ -1,0 +1,14 @@
+[
+  {
+    "path": "runtime/onnx/benchmark_native_confirm.py",
+    "sha256": "ab64b62c92885282fda1631f7077ff4d4120ba4edcb4ec7a0e0a049169e0d01a"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/onnx/prepare_native_threads.py",
+    "sha256": "6746e74b65d228f69e9f324bdf556132b19c24d0cc826af18c1e6f5bdde6bfec"
+  }
+]

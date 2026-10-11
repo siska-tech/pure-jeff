@@ -1,0 +1,14 @@
+[
+  {
+    "path": "gate-control.stdout.jsonl",
+    "sha256": "dbde8d1c412f7fc87b5c2dd708ed86034cb3181193261b9334b3b7457839c24e"
+  },
+  {
+    "path": "gate-4.job.json",
+    "sha256": "36394b3a7a548d3862db11a622da4d6b4f0de030071f4087eca41880774dc62f"
+  },
+  {
+    "path": "preregistration.json",
+    "sha256": "295d02b75efec9f498607078c06b7f437eafbe939c804a93381329c30843e000"
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "path": "runtime/tract/src/bin/pack.rs",
+      "sha256": "00b41449ed252a113c75faee1e059cdc14df7d1e8c9241eb2425e55558c71b0d",
+      "bytes": 2137
+    },
+    {
+      "path": "runtime/tract/src/bin/bench.rs",
+      "sha256": "95240347a41e8c8d28454243caab0adcb7a4e67b37eb5e884c3bfaac8a459bd3",
+      "bytes": 6646
+    },
+    {
+      "path": "runtime/tract/Cargo.toml",
+      "sha256": "e26385edf0dad96b4ed24e52c5ba22bda959899099361233e70719bddf2b4206",
+      "bytes": 593
+    },
+    {
+      "path": "runtime/tract/Cargo.lock",
+      "sha256": "3254d69406242746b31d2ebd72198d5858f84f182a4022dc01bcb88f50506e6a",
+      "bytes": 26712
+    },
+    {
+      "path": "runtime/tract/vendor/data/src/tensor.rs",
+      "sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1",
+      "bytes": 116919
+    },
+    {
+      "path": "runtime/tract/vendor/upstream.json",
+      "sha256": "e4e18839b49b6bb6e107ec50d4dbe2a7e3fae4b6fa33ebfb2b8f75d6425eafd1",
+      "bytes": 3853
+    },
+    {
+      "path": "runtime/onnx/prepare_nnef.py",
+      "sha256": "d20733d0bd2c316d7b944521d1065df2876bbbf1c634f2e7d28e79210b953403",
+      "bytes": 2508
+    },
+    {
+      "path": "runtime/onnx/benchmark_nnef.py",
+      "sha256": "55355c5a6cca459caa88b1b80c8e36b64493386fb9d869cdc35190980c5d5476",
+      "bytes": 6946
+    },
+    {
+      "path": "runtime/onnx/benchmark_pilot.py",
+      "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692",
+      "bytes": 15447
+    },
+    {
+      "path": "runtime/onnx/test_tract_nnef.py",
+      "sha256": "5bc638db08934719eaf8b4c5fa007360e0454475ff57e56c79dfd62b279f36cf",
+      "bytes": 2816
+    },
+    {
+      "path": ".github/workflows/tract-probe.yml",
+      "sha256": "0da550475f50f85163ed7834b4a3d1365facf18bc9c93a6eeb092a2ea37d9f7f",
+      "bytes": 2596
+    }
+  ],
+  "executables": [
+    {
+      "path": "runtime\\tract\\target\\release\\pack.exe",
+      "sha256": "8c8129b0963db5bf5ed36e76643d3c5ed38868a926b895e66b3ece93c44fe002"
+    },
+    {
+      "path": "runtime\\tract\\target\\release\\bench.exe",
+      "sha256": "4a1bbb02db0109938095427aee06634face2910a1901f49df2c412b8e758de0a"
+    }
+  ]
+}

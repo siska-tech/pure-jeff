@@ -1,0 +1,9 @@
+{
+  "generated_files_reproduced": 9,
+  "backbone_equations_restored_exactly": true,
+  "new_rust_tests_passed": 4,
+  "release_build_clippy_fmt_passed": true,
+  "dependency_package_entries_unchanged": 156,
+  "root_dependency_only_change": "explicit candle-nn, already present at fixed version in original Native lock",
+  "candle_core_nn_upstream_git_diff_exit_code": 0
+}

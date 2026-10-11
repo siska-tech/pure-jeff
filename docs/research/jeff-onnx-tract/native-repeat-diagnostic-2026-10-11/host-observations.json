@@ -1,0 +1,82 @@
+[
+  {
+    "run_id": "diagnostic-0-threads1",
+    "system_wide_average_busy_percent": 28.220552247387413,
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    }
+  },
+  {
+    "run_id": "diagnostic-0-threads4",
+    "system_wide_average_busy_percent": 29.34570154314655,
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    }
+  },
+  {
+    "run_id": "diagnostic-1-threads4",
+    "system_wide_average_busy_percent": 28.515198373649664,
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    }
+  },
+  {
+    "run_id": "diagnostic-1-threads1",
+    "system_wide_average_busy_percent": 18.63337953276776,
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    }
+  }
+]

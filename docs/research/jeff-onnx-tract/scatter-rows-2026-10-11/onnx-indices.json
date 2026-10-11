@@ -1,0 +1,7563 @@
+{
+  "model_sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c",
+  "script_sha256": "add510380cdfb13b71918186c6121be34d202973ddc612baf35cb8cceeff6875",
+  "nodes": [
+    {
+      "name": "node_select_scatter",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 0,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "mul_1",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        },
+        {
+          "name": "val_115",
+          "metadata": null
+        },
+        {
+          "name": "val_113",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_115",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_1",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 0,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        },
+        {
+          "name": "val_155",
+          "metadata": null
+        },
+        {
+          "name": "val_153",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_1",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_155",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_2",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 0,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "mul",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        },
+        {
+          "name": "val_194",
+          "metadata": null
+        },
+        {
+          "name": "val_192",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_2",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_194",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_3",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 0,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_2",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        },
+        {
+          "name": "val_233",
+          "metadata": null
+        },
+        {
+          "name": "val_231",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_3",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              3,
+              1,
+              512,
+              32
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_233",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_4",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_63",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4404",
+          "metadata": null
+        },
+        {
+          "name": "val_4402",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_4",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4404",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_5",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_4",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4407",
+          "metadata": null
+        },
+        {
+          "name": "val_4405",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_5",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4407",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_6",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_5",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4410",
+          "metadata": null
+        },
+        {
+          "name": "val_4408",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_6",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4410",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_7",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_6",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4413",
+          "metadata": null
+        },
+        {
+          "name": "val_4411",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_7",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4413",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_8",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_7",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4416",
+          "metadata": null
+        },
+        {
+          "name": "val_4414",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_8",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4416",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_9",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_8",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4420",
+          "metadata": null
+        },
+        {
+          "name": "val_4418",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_9",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4420",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_10",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_9",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4424",
+          "metadata": null
+        },
+        {
+          "name": "val_4422",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_10",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4424",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_11",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_10",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_4428",
+          "metadata": null
+        },
+        {
+          "name": "val_4426",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_11",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_4428",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_12",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_127",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8620",
+          "metadata": null
+        },
+        {
+          "name": "val_8618",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_12",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8620",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_13",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_12",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8623",
+          "metadata": null
+        },
+        {
+          "name": "val_8621",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_13",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8623",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_14",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_13",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8626",
+          "metadata": null
+        },
+        {
+          "name": "val_8624",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_14",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8626",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_15",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_14",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8629",
+          "metadata": null
+        },
+        {
+          "name": "val_8627",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_15",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8629",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_16",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_15",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8632",
+          "metadata": null
+        },
+        {
+          "name": "val_8630",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_16",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8632",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_17",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_16",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8635",
+          "metadata": null
+        },
+        {
+          "name": "val_8633",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_17",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8635",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_18",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_17",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8638",
+          "metadata": null
+        },
+        {
+          "name": "val_8636",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_18",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8638",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_19",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_18",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_8641",
+          "metadata": null
+        },
+        {
+          "name": "val_8639",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_19",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_8641",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_20",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_191",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12833",
+          "metadata": null
+        },
+        {
+          "name": "val_12831",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_20",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12833",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_21",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_20",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12836",
+          "metadata": null
+        },
+        {
+          "name": "val_12834",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_21",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12836",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_22",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_21",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12839",
+          "metadata": null
+        },
+        {
+          "name": "val_12837",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_22",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12839",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_23",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_22",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12842",
+          "metadata": null
+        },
+        {
+          "name": "val_12840",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_23",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12842",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_24",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_23",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12845",
+          "metadata": null
+        },
+        {
+          "name": "val_12843",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_24",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12845",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_25",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_24",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12848",
+          "metadata": null
+        },
+        {
+          "name": "val_12846",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_25",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12848",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_26",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_25",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12851",
+          "metadata": null
+        },
+        {
+          "name": "val_12849",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_26",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12851",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_27",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_26",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_12854",
+          "metadata": null
+        },
+        {
+          "name": "val_12852",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_27",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_12854",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_28",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_255",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17238",
+          "metadata": null
+        },
+        {
+          "name": "val_17236",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_28",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17238",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_29",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_28",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17241",
+          "metadata": null
+        },
+        {
+          "name": "val_17239",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_29",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17241",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_30",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_29",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17244",
+          "metadata": null
+        },
+        {
+          "name": "val_17242",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_30",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17244",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_31",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_30",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17247",
+          "metadata": null
+        },
+        {
+          "name": "val_17245",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_31",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17247",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_32",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_31",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17250",
+          "metadata": null
+        },
+        {
+          "name": "val_17248",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_32",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17250",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_33",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_32",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17253",
+          "metadata": null
+        },
+        {
+          "name": "val_17251",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_33",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17253",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_34",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_33",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17256",
+          "metadata": null
+        },
+        {
+          "name": "val_17254",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_34",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17256",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_35",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_34",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_17259",
+          "metadata": null
+        },
+        {
+          "name": "val_17257",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_35",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_17259",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_36",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_319",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21451",
+          "metadata": null
+        },
+        {
+          "name": "val_21449",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_36",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21451",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_37",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_36",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21454",
+          "metadata": null
+        },
+        {
+          "name": "val_21452",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_37",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21454",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_38",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_37",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21457",
+          "metadata": null
+        },
+        {
+          "name": "val_21455",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_38",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21457",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_39",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_38",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21460",
+          "metadata": null
+        },
+        {
+          "name": "val_21458",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_39",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21460",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_40",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_39",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21463",
+          "metadata": null
+        },
+        {
+          "name": "val_21461",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_40",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21463",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_41",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_40",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21466",
+          "metadata": null
+        },
+        {
+          "name": "val_21464",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_41",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21466",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_42",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_41",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21469",
+          "metadata": null
+        },
+        {
+          "name": "val_21467",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_42",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21469",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_43",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_42",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_21472",
+          "metadata": null
+        },
+        {
+          "name": "val_21470",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_43",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_21472",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_44",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_383",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25664",
+          "metadata": null
+        },
+        {
+          "name": "val_25662",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_44",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25664",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_45",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_44",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25667",
+          "metadata": null
+        },
+        {
+          "name": "val_25665",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_45",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25667",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_46",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_45",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25670",
+          "metadata": null
+        },
+        {
+          "name": "val_25668",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_46",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25670",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_47",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_46",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25673",
+          "metadata": null
+        },
+        {
+          "name": "val_25671",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_47",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25673",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_48",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_47",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25676",
+          "metadata": null
+        },
+        {
+          "name": "val_25674",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_48",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25676",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_49",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_48",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25679",
+          "metadata": null
+        },
+        {
+          "name": "val_25677",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_49",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25679",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_50",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_49",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25682",
+          "metadata": null
+        },
+        {
+          "name": "val_25680",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_50",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25682",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_51",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_50",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_25685",
+          "metadata": null
+        },
+        {
+          "name": "val_25683",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_51",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_25685",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_52",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_447",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30066",
+          "metadata": null
+        },
+        {
+          "name": "val_30064",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_52",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30066",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_53",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_52",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30069",
+          "metadata": null
+        },
+        {
+          "name": "val_30067",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_53",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30069",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_54",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_53",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30072",
+          "metadata": null
+        },
+        {
+          "name": "val_30070",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_54",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30072",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_55",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_54",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30075",
+          "metadata": null
+        },
+        {
+          "name": "val_30073",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_55",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30075",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_56",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_55",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30078",
+          "metadata": null
+        },
+        {
+          "name": "val_30076",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_56",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30078",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_57",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_56",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30081",
+          "metadata": null
+        },
+        {
+          "name": "val_30079",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_57",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30081",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_58",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_57",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30084",
+          "metadata": null
+        },
+        {
+          "name": "val_30082",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_58",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30084",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_59",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_58",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_30087",
+          "metadata": null
+        },
+        {
+          "name": "val_30085",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_59",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_30087",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_60",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_511",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34279",
+          "metadata": null
+        },
+        {
+          "name": "val_34277",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_60",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34279",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_61",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_60",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34282",
+          "metadata": null
+        },
+        {
+          "name": "val_34280",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_61",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34282",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_62",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_61",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34285",
+          "metadata": null
+        },
+        {
+          "name": "val_34283",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_62",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34285",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_63",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_62",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34288",
+          "metadata": null
+        },
+        {
+          "name": "val_34286",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_63",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34288",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_64",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_63",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34291",
+          "metadata": null
+        },
+        {
+          "name": "val_34289",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_64",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34291",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_65",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_64",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34294",
+          "metadata": null
+        },
+        {
+          "name": "val_34292",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_65",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34294",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_66",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_65",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34297",
+          "metadata": null
+        },
+        {
+          "name": "val_34295",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_66",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34297",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_67",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_66",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_34300",
+          "metadata": null
+        },
+        {
+          "name": "val_34298",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_67",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_34300",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_68",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_575",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38492",
+          "metadata": null
+        },
+        {
+          "name": "val_38490",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_68",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38492",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_69",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_68",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38495",
+          "metadata": null
+        },
+        {
+          "name": "val_38493",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_69",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38495",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_70",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_69",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38498",
+          "metadata": null
+        },
+        {
+          "name": "val_38496",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_70",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38498",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_71",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_70",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38501",
+          "metadata": null
+        },
+        {
+          "name": "val_38499",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_71",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38501",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_72",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_71",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38504",
+          "metadata": null
+        },
+        {
+          "name": "val_38502",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_72",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38504",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_73",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_72",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38507",
+          "metadata": null
+        },
+        {
+          "name": "val_38505",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_73",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38507",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_74",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_73",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38510",
+          "metadata": null
+        },
+        {
+          "name": "val_38508",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_74",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38510",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_75",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_74",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_38513",
+          "metadata": null
+        },
+        {
+          "name": "val_38511",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_75",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_38513",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_76",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_639",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42894",
+          "metadata": null
+        },
+        {
+          "name": "val_42892",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_76",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42894",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_77",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_76",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42897",
+          "metadata": null
+        },
+        {
+          "name": "val_42895",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_77",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42897",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_78",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_77",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42900",
+          "metadata": null
+        },
+        {
+          "name": "val_42898",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_78",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42900",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_79",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_78",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42903",
+          "metadata": null
+        },
+        {
+          "name": "val_42901",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_79",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42903",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_80",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_79",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42906",
+          "metadata": null
+        },
+        {
+          "name": "val_42904",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_80",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42906",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_81",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_80",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42909",
+          "metadata": null
+        },
+        {
+          "name": "val_42907",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_81",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42909",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_82",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_81",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42912",
+          "metadata": null
+        },
+        {
+          "name": "val_42910",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_82",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42912",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_83",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_82",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_42915",
+          "metadata": null
+        },
+        {
+          "name": "val_42913",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_83",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_42915",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_84",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_703",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47107",
+          "metadata": null
+        },
+        {
+          "name": "val_47105",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_84",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47107",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_85",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_84",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47110",
+          "metadata": null
+        },
+        {
+          "name": "val_47108",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_85",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47110",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_86",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_85",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47113",
+          "metadata": null
+        },
+        {
+          "name": "val_47111",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_86",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47113",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_87",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_86",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47116",
+          "metadata": null
+        },
+        {
+          "name": "val_47114",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_87",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47116",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_88",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_87",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47119",
+          "metadata": null
+        },
+        {
+          "name": "val_47117",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_88",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47119",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_89",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_88",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47122",
+          "metadata": null
+        },
+        {
+          "name": "val_47120",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_89",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47122",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_90",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_89",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47125",
+          "metadata": null
+        },
+        {
+          "name": "val_47123",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_90",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47125",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_91",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_90",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_47128",
+          "metadata": null
+        },
+        {
+          "name": "val_47126",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_91",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_47128",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_92",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_767",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51320",
+          "metadata": null
+        },
+        {
+          "name": "val_51318",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_92",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51320",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_93",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_92",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51323",
+          "metadata": null
+        },
+        {
+          "name": "val_51321",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_93",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51323",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_94",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_93",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51326",
+          "metadata": null
+        },
+        {
+          "name": "val_51324",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_94",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51326",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_95",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_94",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51329",
+          "metadata": null
+        },
+        {
+          "name": "val_51327",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_95",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51329",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_96",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_95",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51332",
+          "metadata": null
+        },
+        {
+          "name": "val_51330",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_96",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51332",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_97",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_96",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51335",
+          "metadata": null
+        },
+        {
+          "name": "val_51333",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_97",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51335",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_98",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_97",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51338",
+          "metadata": null
+        },
+        {
+          "name": "val_51336",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_98",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51338",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_99",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_98",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_51341",
+          "metadata": null
+        },
+        {
+          "name": "val_51339",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_99",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_51341",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_100",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_831",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55722",
+          "metadata": null
+        },
+        {
+          "name": "val_55720",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_100",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55722",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_101",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_100",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55725",
+          "metadata": null
+        },
+        {
+          "name": "val_55723",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_101",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55725",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_102",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_101",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55728",
+          "metadata": null
+        },
+        {
+          "name": "val_55726",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_102",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55728",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_103",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_102",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55731",
+          "metadata": null
+        },
+        {
+          "name": "val_55729",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_103",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55731",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_104",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_103",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55734",
+          "metadata": null
+        },
+        {
+          "name": "val_55732",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_104",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55734",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_105",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_104",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55737",
+          "metadata": null
+        },
+        {
+          "name": "val_55735",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_105",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55737",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_106",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_105",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55740",
+          "metadata": null
+        },
+        {
+          "name": "val_55738",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_106",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55740",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_107",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_106",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_55743",
+          "metadata": null
+        },
+        {
+          "name": "val_55741",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_107",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_55743",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_108",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_895",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59935",
+          "metadata": null
+        },
+        {
+          "name": "val_59933",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_108",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59935",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_109",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_108",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59938",
+          "metadata": null
+        },
+        {
+          "name": "val_59936",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_109",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59938",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_110",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_109",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59941",
+          "metadata": null
+        },
+        {
+          "name": "val_59939",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_110",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59941",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_111",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_110",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59944",
+          "metadata": null
+        },
+        {
+          "name": "val_59942",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_111",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59944",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_112",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_111",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59947",
+          "metadata": null
+        },
+        {
+          "name": "val_59945",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_112",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59947",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_113",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_112",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59950",
+          "metadata": null
+        },
+        {
+          "name": "val_59948",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_113",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59950",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_114",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_113",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59953",
+          "metadata": null
+        },
+        {
+          "name": "val_59951",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_114",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59953",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_115",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_114",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_59956",
+          "metadata": null
+        },
+        {
+          "name": "val_59954",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_115",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_59956",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_116",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_959",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64148",
+          "metadata": null
+        },
+        {
+          "name": "val_64146",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_116",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64148",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_117",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_116",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64151",
+          "metadata": null
+        },
+        {
+          "name": "val_64149",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_117",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64151",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_118",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_117",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64154",
+          "metadata": null
+        },
+        {
+          "name": "val_64152",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_118",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64154",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_119",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_118",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64157",
+          "metadata": null
+        },
+        {
+          "name": "val_64155",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_119",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64157",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_120",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_119",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64160",
+          "metadata": null
+        },
+        {
+          "name": "val_64158",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_120",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64160",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_121",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_120",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64163",
+          "metadata": null
+        },
+        {
+          "name": "val_64161",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_121",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64163",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_122",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_121",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64166",
+          "metadata": null
+        },
+        {
+          "name": "val_64164",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_122",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64166",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_123",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_122",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_64169",
+          "metadata": null
+        },
+        {
+          "name": "val_64167",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_123",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_64169",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_124",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_1023",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68550",
+          "metadata": null
+        },
+        {
+          "name": "val_68548",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_124",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68550",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_125",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_124",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68553",
+          "metadata": null
+        },
+        {
+          "name": "val_68551",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_125",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68553",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_126",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_125",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68556",
+          "metadata": null
+        },
+        {
+          "name": "val_68554",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_126",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68556",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_127",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_126",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68559",
+          "metadata": null
+        },
+        {
+          "name": "val_68557",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_127",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68559",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_128",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_127",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68562",
+          "metadata": null
+        },
+        {
+          "name": "val_68560",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_128",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68562",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_129",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_128",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68565",
+          "metadata": null
+        },
+        {
+          "name": "val_68563",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_129",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68565",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_130",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_129",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68568",
+          "metadata": null
+        },
+        {
+          "name": "val_68566",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_130",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68568",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_131",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_130",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_68571",
+          "metadata": null
+        },
+        {
+          "name": "val_68569",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_131",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_68571",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_132",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_1087",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72763",
+          "metadata": null
+        },
+        {
+          "name": "val_72761",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_132",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72763",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_133",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_132",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72766",
+          "metadata": null
+        },
+        {
+          "name": "val_72764",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_133",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72766",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_134",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_133",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72769",
+          "metadata": null
+        },
+        {
+          "name": "val_72767",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_134",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72769",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_135",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_134",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72772",
+          "metadata": null
+        },
+        {
+          "name": "val_72770",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_135",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72772",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_136",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_135",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72775",
+          "metadata": null
+        },
+        {
+          "name": "val_72773",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_136",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72775",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_137",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_136",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72778",
+          "metadata": null
+        },
+        {
+          "name": "val_72776",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_137",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72778",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_138",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_137",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72781",
+          "metadata": null
+        },
+        {
+          "name": "val_72779",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_138",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72781",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_139",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_138",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_72784",
+          "metadata": null
+        },
+        {
+          "name": "val_72782",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_139",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_72784",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_140",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "zeros_like_1151",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76976",
+          "metadata": null
+        },
+        {
+          "name": "val_76974",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_140",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76976",
+      "index_scalar_constant": 0,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_141",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_140",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76979",
+          "metadata": null
+        },
+        {
+          "name": "val_76977",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_141",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76979",
+      "index_scalar_constant": 1,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_142",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_141",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76982",
+          "metadata": null
+        },
+        {
+          "name": "val_76980",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_142",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76982",
+      "index_scalar_constant": 2,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_143",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_142",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76985",
+          "metadata": null
+        },
+        {
+          "name": "val_76983",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_143",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76985",
+      "index_scalar_constant": 3,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_144",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_143",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76988",
+          "metadata": null
+        },
+        {
+          "name": "val_76986",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_144",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76988",
+      "index_scalar_constant": 4,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_145",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_144",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76991",
+          "metadata": null
+        },
+        {
+          "name": "val_76989",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_145",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76991",
+      "index_scalar_constant": 5,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_146",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_145",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76994",
+          "metadata": null
+        },
+        {
+          "name": "val_76992",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_146",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76994",
+      "index_scalar_constant": 6,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    },
+    {
+      "name": "node_select_scatter_147",
+      "op": "ScatterElements",
+      "domain": "",
+      "attributes": {
+        "axis": 2,
+        "reduction": "none"
+      },
+      "inputs": [
+        {
+          "name": "select_scatter_146",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        },
+        {
+          "name": "val_76997",
+          "metadata": null
+        },
+        {
+          "name": "val_76995",
+          "metadata": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "select_scatter_147",
+          "metadata": {
+            "dtype": 1,
+            "shape": [
+              1,
+              16,
+              8,
+              64,
+              128
+            ]
+          }
+        }
+      ],
+      "index_producer": "node_Expand_76997",
+      "index_scalar_constant": 7,
+      "scalar_expand_confirmed": true,
+      "runtime_guard_required": true
+    }
+  ],
+  "count": 148,
+  "axes": {
+    "0": 4,
+    "2": 144
+  },
+  "scalar_expand_confirmed": 148,
+  "scalar_indices": {
+    "0": 22,
+    "1": 18,
+    "2": 18,
+    "3": 18,
+    "4": 18,
+    "5": 18,
+    "6": 18,
+    "7": 18
+  },
+  "scope": "Stored ONNX shape metadata and scalar Constant -> Expand provenance only. No external weights, inferred runtime layouts or call counts. Fast path validates actual runtime shapes and indices."
+}

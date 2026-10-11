@@ -1,0 +1,6 @@
+Error: Translating model to proto_model
+
+Caused by:
+    0: Translating model to AST
+    1: translating node #2 "chunks.0" IntoShape
+    2: No serializer found for node #2 "chunks.0" IntoShape

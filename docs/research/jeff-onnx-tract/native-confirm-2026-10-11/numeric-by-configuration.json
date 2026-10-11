@@ -1,0 +1,14 @@
+{
+  "native2": {
+    "forwards": 38,
+    "exact_to_frozen_native": 38,
+    "max_frozen_error": 0.0,
+    "max_repeat_error": 0.0
+  },
+  "native4": {
+    "forwards": 38,
+    "exact_to_frozen_native": 38,
+    "max_frozen_error": 0.0,
+    "max_repeat_error": 0.0
+  }
+}

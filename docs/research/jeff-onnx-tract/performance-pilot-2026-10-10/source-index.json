@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": "runtime/onnx/benchmark_pilot.py",
+      "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692"
+    },
+    {
+      "path": "runtime/onnx/benchmark_native_api.py",
+      "sha256": "d3140a343711eecb40a0345447fc5db3e2ac1a0d5a03f74965efade9ff9434a6"
+    },
+    {
+      "path": "runtime/onnx/summarize_pilot.py",
+      "sha256": "9cc661511fa694e6aa7a32155f91524df50741ae6854824d1bcb2c6247939993"
+    },
+    {
+      "path": "runtime/tract/src/bin/bench.rs",
+      "sha256": "517e60f9b155a8c3458b290ebf06e3e5380a2b4fa84382a68284efc6d46e00bd"
+    },
+    {
+      "path": "runtime/tract/Cargo.toml",
+      "sha256": "85154f2429125a2ab719636dfadbbe09e19463b04977927be82bfaf671dac4ea"
+    },
+    {
+      "path": "runtime/tract/Cargo.lock",
+      "sha256": "7cff0b8860189fc4ad585740d4c6fa9a392f1a41bdc2cbb454eb20bfa1afc8fc"
+    },
+    {
+      "path": "runtime/tract/vendor/upstream.json",
+      "sha256": "e4e18839b49b6bb6e107ec50d4dbe2a7e3fae4b6fa33ebfb2b8f75d6425eafd1"
+    },
+    {
+      "path": "runtime/tract/vendor/data/src/tensor.rs",
+      "sha256": "a403a27489a8c235832d7bd5ed40209002d7bb0352a1c5b8f4bed1f77ef204c1"
+    },
+    {
+      "path": "runtime/bench-native/src/main.rs",
+      "sha256": "732a3692068ed1f3f802d32cf3d94e0d4669897a7a09a70c2d879e381a47ffdd"
+    },
+    {
+      "path": "runtime/bench-native/Cargo.toml",
+      "sha256": "1d77873321db7748637afc71d4f2be3af1cd02ac26844ee0fdc90d778b1f6391"
+    },
+    {
+      "path": "runtime/bench-native/Cargo.lock",
+      "sha256": "8d6790323a11f9b7a35f58e77382f761e3650d3f890318f69a407b1df7f98459"
+    }
+  ]
+}

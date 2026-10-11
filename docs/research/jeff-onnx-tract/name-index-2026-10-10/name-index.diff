@@ -1,0 +1,19 @@
+--- upstream/core/src/model/graph.rs
++++ experiment/core/src/model/graph.rs
+@@ -618,11 +618 @@
+-        let prefix = prefix.into();
+-        if self.nodes.iter().all(|n| n.name != *prefix) {
+-            return prefix;
+-        }
+-        for i in 1.. {
+-            let s = format!("{prefix}.{i}");
+-            if self.nodes.iter().all(|n| n.name != s) {
+-                return Cow::Owned(s);
+-            }
+-        }
+-        unreachable!();
++        crate::name_index::unique_name(self.nodes.iter().map(|n| n.name.as_str()), prefix.into())
+--- upstream/core/src/lib.rs
++++ experiment/core/src/lib.rs
+@@ -83,0 +84 @@
++mod name_index;

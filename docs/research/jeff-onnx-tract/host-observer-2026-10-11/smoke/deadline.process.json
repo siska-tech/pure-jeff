@@ -1,0 +1,18 @@
+{
+  "run_id": "deadline",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\vendor\\jeff\\.venv\\Scripts\\python.exe",
+    "-c",
+    "import time; time.sleep(3)"
+  ],
+  "timeout_seconds": 0.3,
+  "memory_limit_bytes": 268435456,
+  "status": "failed",
+  "parent_process_ns": 319403300,
+  "exit_code": 1,
+  "guard_trigger": "deadline",
+  "peak_working_set_bytes": 5079040,
+  "memory_samples": 29,
+  "post_exit_query_succeeded": false,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

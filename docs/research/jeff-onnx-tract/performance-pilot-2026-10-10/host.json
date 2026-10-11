@@ -1,0 +1,30 @@
+{
+  "cpu": {
+    "Name": "13th Gen Intel(R) Core(TM) i7-1360P",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 16,
+    "MaxClockSpeed": 2200
+  },
+  "os": {
+    "Caption": "Microsoft Windows 11 Home",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200",
+    "TotalVisibleMemorySize": 33161244,
+    "FreePhysicalMemory": 8247444
+  },
+  "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+  "rust": [
+    "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "binary: rustc",
+    "commit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4",
+    "commit-date: 2026-09-28",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.0",
+    "LLVM version: 23.1.1"
+  ],
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+  "temperature": "unavailable",
+  "p_e_core_mapping": "unavailable",
+  "affinity": "inherited; no pinning",
+  "rustflags": null
+}

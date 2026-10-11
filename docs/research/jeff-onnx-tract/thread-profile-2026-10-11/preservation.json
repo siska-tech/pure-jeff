@@ -1,0 +1,12 @@
+{
+  "native_baseline_files": 128,
+  "unchanged_files": 127,
+  "previously_permitted_difference": [
+    ".gitignore"
+  ],
+  "sibling_files_unchanged": 21,
+  "upstream_core_data_linalg_cargo_diff_exit_code": 0,
+  "native_api_changed": false,
+  "normal_tract_source_changed": false,
+  "frozen_executable_sha256": "1438670e7b190203903b683df60fdc1bfc55445133fc986e301d5b53dc3eadc4"
+}

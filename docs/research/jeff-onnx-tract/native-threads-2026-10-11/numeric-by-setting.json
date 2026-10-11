@@ -1,0 +1,26 @@
+{
+  "1": {
+    "forwards": 28,
+    "exact_to_frozen_native": 28,
+    "max_native_probability_error": 0.0,
+    "max_repeat_probability_error": 0.0
+  },
+  "2": {
+    "forwards": 28,
+    "exact_to_frozen_native": 23,
+    "max_native_probability_error": 5.364418029785156e-07,
+    "max_repeat_probability_error": 5.364418029785156e-07
+  },
+  "4": {
+    "forwards": 28,
+    "exact_to_frozen_native": 28,
+    "max_native_probability_error": 0.0,
+    "max_repeat_probability_error": 0.0
+  },
+  "8": {
+    "forwards": 28,
+    "exact_to_frozen_native": 11,
+    "max_native_probability_error": 2.682209014892578e-06,
+    "max_repeat_probability_error": 5.364418029785156e-07
+  }
+}

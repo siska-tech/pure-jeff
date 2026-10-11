@@ -1,0 +1,503 @@
+{
+  "run_id": "resident-chunk0",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-cache-fixed-target\\release\\native_cache_fixed_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\native-cache-timing-gate-20261011\\resident-chunk0.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 120935340600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4593045504,
+  "memory_samples": 11263,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "events": [
+    {
+      "backend": "native",
+      "cache_diagnostic": {
+        "actual_cpu_at_initialization": 0,
+        "affinity_restored": true,
+        "cache_info": [
+          {
+            "associativity": 12,
+            "cache_bytes": 49152,
+            "cache_line_bytes": 64
+          },
+          {
+            "associativity": 10,
+            "cache_bytes": 1310720,
+            "cache_line_bytes": 64
+          },
+          {
+            "associativity": 12,
+            "cache_bytes": 18874368,
+            "cache_line_bytes": 64
+          }
+        ],
+        "hypothetical_kernel_params": [
+          {
+            "k": 1024,
+            "kc": 1024,
+            "m": 128,
+            "mc": 64,
+            "mr": 8,
+            "n": 1024,
+            "nc": 1024,
+            "nr": 8,
+            "scalar_bytes": 4
+          },
+          {
+            "k": 1024,
+            "kc": 1024,
+            "m": 512,
+            "mc": 64,
+            "mr": 8,
+            "n": 1024,
+            "nc": 1024,
+            "nr": 8,
+            "scalar_bytes": 4
+          }
+        ],
+        "process_allowed_mask": 65535,
+        "requested_cpu": 0,
+        "system_mask": 65535,
+        "thread_mask_restored": 65535
+      },
+      "cached_bytes": 3009572096,
+      "cached_tensors": 320,
+      "candle_env_threads": "4",
+      "event": "initialized",
+      "expected_barrier_aux_workers": 3,
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "manifest_cpu_threads": 1,
+      "mmap_ns": 542800,
+      "rayon_pool_threads": 4,
+      "requested_threads": 4,
+      "retained_f32": true,
+      "retention_load_ns": 2252021600,
+      "startup_ns": 4250766600,
+      "threads": 4,
+      "tokenizer_load_ns": 779165100,
+      "verify_ns": 1194787700
+    },
+    {
+      "backbone_ns": 5358886100,
+      "case": "reversed",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 144200,
+      "iteration": 0,
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 2100,
+      "probabilities": [
+        0.032961178570985794,
+        0.9670388102531433
+      ],
+      "request_ns": 5360267000,
+      "tokenize_ns": 1179400,
+      "warmup": false,
+      "probability_max_abs_error": 1.825392246246338e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 5315019900,
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 142300,
+      "iteration": 1,
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1700,
+      "probabilities": [
+        0.928595244884491,
+        0.07140474766492844
+      ],
+      "request_ns": 5315893100,
+      "tokenize_ns": 706300,
+      "warmup": false,
+      "probability_max_abs_error": 5.960464477539063e-08,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 9843185400,
+      "case": "synthetic-ocr-ja-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 165400,
+      "iteration": 2,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 2100,
+      "probabilities": [
+        0.9380379319190979,
+        0.06196201220154762
+      ],
+      "request_ns": 9844601000,
+      "tokenize_ns": 1220000,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 14491035700,
+      "case": "synthetic-ocr-ja-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 140700,
+      "iteration": 3,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 1900,
+      "probabilities": [
+        0.9363491535186768,
+        0.06365085393190384
+      ],
+      "request_ns": 14492753800,
+      "tokenize_ns": 1546900,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 5354664700,
+      "case": "synthetic-ocr-ja-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 133900,
+      "iteration": 4,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1800,
+      "probabilities": [
+        0.9537971615791321,
+        0.046202849596738815
+      ],
+      "request_ns": 5355490900,
+      "tokenize_ns": 666000,
+      "warmup": false,
+      "probability_max_abs_error": 4.172325134277344e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 7692679700,
+      "case": "special-token-text",
+      "effective_tokens": 182,
+      "event": "request",
+      "head_softmax_ns": 278600,
+      "iteration": 5,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 182,
+      "policy_ns": 1700,
+      "probabilities": [
+        0.663058340549469,
+        0.3369416296482086
+      ],
+      "request_ns": 7694706200,
+      "tokenize_ns": 1720100,
+      "warmup": false,
+      "probability_max_abs_error": 2.1457672119140625e-06,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 8540194700,
+      "case": "asr-unicode",
+      "effective_tokens": 206,
+      "event": "request",
+      "head_softmax_ns": 130600,
+      "iteration": 6,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 206,
+      "policy_ns": 800,
+      "probabilities": [
+        0.635992169380188,
+        0.3610706627368927,
+        0.002937160898000002
+      ],
+      "request_ns": 8541747300,
+      "tokenize_ns": 1395400,
+      "warmup": false,
+      "probability_max_abs_error": 3.7550926208496094e-06,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 5795422800,
+      "case": "reversed",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 114100,
+      "iteration": 7,
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1500,
+      "probabilities": [
+        0.032961178570985794,
+        0.9670388102531433
+      ],
+      "request_ns": 5796079400,
+      "tokenize_ns": 520200,
+      "warmup": false,
+      "probability_max_abs_error": 1.825392246246338e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 11056779400,
+      "case": "synthetic-ocr-ja-2-256",
+      "effective_tokens": 256,
+      "event": "request",
+      "head_softmax_ns": 139900,
+      "iteration": 8,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 256,
+      "policy_ns": 1800,
+      "probabilities": [
+        0.9380379319190979,
+        0.06196201220154762
+      ],
+      "request_ns": 11057661600,
+      "tokenize_ns": 718100,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 8731631900,
+      "case": "asr-unicode",
+      "effective_tokens": 206,
+      "event": "request",
+      "head_softmax_ns": 209500,
+      "iteration": 9,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 206,
+      "policy_ns": 1600,
+      "probabilities": [
+        0.635992169380188,
+        0.3610706627368927,
+        0.002937160898000002
+      ],
+      "request_ns": 8732857200,
+      "tokenize_ns": 984600,
+      "warmup": false,
+      "probability_max_abs_error": 3.7550926208496094e-06,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 15353454600,
+      "case": "synthetic-ocr-ja-2-384",
+      "effective_tokens": 384,
+      "event": "request",
+      "head_softmax_ns": 143700,
+      "iteration": 10,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 384,
+      "policy_ns": 1600,
+      "probabilities": [
+        0.9363491535186768,
+        0.06365085393190384
+      ],
+      "request_ns": 15355290300,
+      "tokenize_ns": 1661400,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 5729111400,
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 131000,
+      "iteration": 11,
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1600,
+      "probabilities": [
+        0.928595244884491,
+        0.07140474766492844
+      ],
+      "request_ns": 5730028200,
+      "tokenize_ns": 759700,
+      "warmup": false,
+      "probability_max_abs_error": 5.960464477539063e-08,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "backbone_ns": 5518842600,
+      "case": "synthetic-ocr-ja-2-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 136100,
+      "iteration": 12,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1500,
+      "probabilities": [
+        0.9537971615791321,
+        0.046202849596738815
+      ],
+      "request_ns": 5519725500,
+      "tokenize_ns": 715900,
+      "warmup": false,
+      "probability_max_abs_error": 4.172325134277344e-07,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": null
+    },
+    {
+      "backbone_ns": 7423738500,
+      "case": "special-token-text",
+      "effective_tokens": 182,
+      "event": "request",
+      "head_softmax_ns": 108800,
+      "iteration": 13,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 182,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.663058340549469,
+        0.3369416296482086
+      ],
+      "request_ns": 7424765600,
+      "tokenize_ns": 891800,
+      "warmup": false,
+      "probability_max_abs_error": 2.1457672119140625e-06,
+      "judgment_match": true,
+      "old_gate_probability_error": 0.0,
+      "diagnostic_probability_error": 0.0,
+      "repeat_probability_error": 0.0,
+      "frozen_native_probability_error": 0.0
+    },
+    {
+      "event": "completed",
+      "total_ns": 120482217300
+    }
+  ],
+  "phase": "resident",
+  "chunk": 0,
+  "host_before": {
+    "utc": "2026-10-11T05:10:10.693902+00:00",
+    "power_status_raw": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_cpu_100ns": {
+      "idle": 292297617031250,
+      "kernel_including_idle": 298557523125000,
+      "user": 11070689375000
+    }
+  },
+  "host_after": {
+    "utc": "2026-10-11T05:12:11.638602+00:00",
+    "power_status_raw": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_cpu_100ns": {
+      "idle": 292310691875000,
+      "kernel_including_idle": 298572206406250,
+      "user": 11075358593750
+    }
+  }
+}

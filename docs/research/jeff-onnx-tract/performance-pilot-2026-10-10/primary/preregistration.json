@@ -1,0 +1,181 @@
+{
+  "schema_version": "kaze_judge.performance_pilot.v1",
+  "seed": 1113,
+  "date_utc": "2026-10-10T09:25:50.020944+00:00",
+  "repeats": 5,
+  "cold_order": [
+    [
+      "native",
+      "tract"
+    ],
+    [
+      "tract",
+      "native"
+    ],
+    [
+      "native",
+      "tract"
+    ],
+    [
+      "tract",
+      "native"
+    ],
+    [
+      "native",
+      "tract"
+    ]
+  ],
+  "warm_schedule": [
+    {
+      "case": 0,
+      "warmup": true
+    },
+    {
+      "case": 1,
+      "warmup": true
+    },
+    {
+      "case": 2,
+      "warmup": true
+    },
+    {
+      "case": 3,
+      "warmup": true
+    },
+    {
+      "case": 0,
+      "warmup": true
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 1,
+      "warmup": false
+    },
+    {
+      "case": 0,
+      "warmup": false
+    },
+    {
+      "case": 2,
+      "warmup": false
+    },
+    {
+      "case": 3,
+      "warmup": false
+    }
+  ],
+  "threads": 1,
+  "assets": [
+    {
+      "path": "experiments\\runs\\onnx-current-step1113-v2\\model.normalized.onnx",
+      "sha256": "4808e28131967e8ed33f8b50d46c4212e11c19b79e6dfb5209cf9b6931cd9b0c"
+    },
+    {
+      "path": "experiments\\runs\\onnx-current-step1113-v2\\model.onnx.data",
+      "sha256": "1b7c0e8a7b7902fe8631b9dec3a702858152f6693cdf5f501df1dfd710afb1a5"
+    },
+    {
+      "path": "models\\jeff-rust-bundle-p3.json",
+      "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+    },
+    {
+      "path": ".venv\\bench-native-target\\release\\kaze_judge_native_bench.exe",
+      "sha256": "d981d6b51ae708fd1adad0ac81845132ba8819afddf799f5afd275b7c83292c8"
+    },
+    {
+      "path": "runtime\\tract\\target\\release\\bench.exe",
+      "sha256": "2d73b8c994873f56df557cad8944c620903bd94eb930b0a48cf1ad947c70e59d"
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\onnx\\benchmark_pilot.py",
+      "sha256": "0e35a98d969c2bc31eb048c00bb519d87e5054b10321bae070ad80bd55ea2692"
+    }
+  ],
+  "available_physical_bytes": 9392496640,
+  "total_physical_bytes": 33957113856,
+  "memory_limit_bytes": 8589934592,
+  "cache_mode": "process-cold / storage cache uncontrolled; hashes preflighted before timing",
+  "cold_input": "candidate-request",
+  "warm_inputs": [
+    "candidate-request",
+    "reversed",
+    "asr-unicode",
+    "special-token-text"
+  ],
+  "quantile": "nearest rank; pilot p95 with n=5 is unstable",
+  "comparison_scope": "engine diagnostics, not Tract DecisionProvider E2E",
+  "limitations": [
+    "native retains BF16 mmap and converts per forward; Tract retains FP32/packed plan",
+    "native startup includes child bundle verification/tokenizer; Tract excludes parent asset preflight",
+    "Tract uses prepared padded tensors; native request timing includes prompt/tokenize",
+    "native head+softmax combined; compare backbone+head+softmax with Tract forward+score",
+    "one resident session per backend; no independent-session confidence interval",
+    "temperature, throttling and P/E core affinity not controlled"
+  ],
+  "native_manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "oracle_sha256": "c96832bed727531c2f6d1f2048cc371b26af51e42e72eb3ce1bcc886ab1dc873",
+  "gate_sha256": "4c299e41abdd2e4a8b6b853fa8d657de10d85795f9b20342ffd4a35ffe110352"
+}

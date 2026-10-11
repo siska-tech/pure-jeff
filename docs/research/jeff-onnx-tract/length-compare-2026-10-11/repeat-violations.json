@@ -1,0 +1,120 @@
+[
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-asr-unicode-2-128",
+    "iteration": 0,
+    "warmup": true,
+    "tokens": 128,
+    "onnx_error": 2.384185791015625e-07,
+    "old_native_error": null,
+    "repeat_error": 1.430511474609375e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.7030344009399414,
+      0.2969655394554138
+    ],
+    "gate_reference": [
+      0.7030330300331116,
+      0.2969669699668884
+    ]
+  },
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-asr-unicode-2-384",
+    "iteration": 2,
+    "warmup": true,
+    "tokens": 384,
+    "onnx_error": 6.854534149169922e-07,
+    "old_native_error": null,
+    "repeat_error": 1.1324882507324219e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.6337419152259827,
+      0.36625808477401733
+    ],
+    "gate_reference": [
+      0.6337430477142334,
+      0.366256982088089
+    ]
+  },
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-asr-unicode-2-128",
+    "iteration": 6,
+    "warmup": false,
+    "tokens": 128,
+    "onnx_error": 2.384185791015625e-07,
+    "old_native_error": null,
+    "repeat_error": 1.430511474609375e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.7030344009399414,
+      0.2969655394554138
+    ],
+    "gate_reference": [
+      0.7030330300331116,
+      0.2969669699668884
+    ]
+  },
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-ocr-ascii-3-511",
+    "iteration": 12,
+    "warmup": false,
+    "tokens": 511,
+    "onnx_error": 1.6093254089355469e-06,
+    "old_native_error": null,
+    "repeat_error": 1.4901161193847656e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.7521170377731323,
+      0.16352351009845734,
+      0.08435944467782974
+    ],
+    "gate_reference": [
+      0.7521155476570129,
+      0.16352474689483643,
+      0.08435968309640884
+    ]
+  },
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-asr-unicode-2-384",
+    "iteration": 13,
+    "warmup": false,
+    "tokens": 384,
+    "onnx_error": 6.854534149169922e-07,
+    "old_native_error": null,
+    "repeat_error": 1.1324882507324219e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.6337419152259827,
+      0.36625808477401733
+    ],
+    "gate_reference": [
+      0.6337430477142334,
+      0.366256982088089
+    ]
+  },
+  {
+    "run_id": "resident-1-native4",
+    "case": "synthetic-ocr-ascii-3-128",
+    "iteration": 19,
+    "warmup": false,
+    "tokens": 128,
+    "onnx_error": 1.1324882507324219e-06,
+    "old_native_error": null,
+    "repeat_error": 3.546476364135742e-06,
+    "repeat_passed": false,
+    "actual": [
+      0.44896984100341797,
+      0.30723434686660767,
+      0.24379588663578033
+    ],
+    "gate_reference": [
+      0.4489733874797821,
+      0.30723264813423157,
+      0.24379387497901917
+    ]
+  }
+]

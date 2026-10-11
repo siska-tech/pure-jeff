@@ -1,0 +1,18 @@
+[
+  {
+    "path": "runtime/onnx/benchmark_cache_fixed_lengths.py",
+    "sha256": "8b065fd1a2b2961d7beb01606c57982e261882c0a70e74f1da5de43bc6660999"
+  },
+  {
+    "path": "runtime/onnx/benchmark_length_compare.py",
+    "sha256": "0a8c1f46b41b8fd207483deaa041a3b55b7ea18ebbbcb07ffdc799234369bd1b"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/onnx/diagnose_native_repeats.py",
+    "sha256": "17d4294a5896638ae8719b908715b2ee0089bdb65eed523e02ecbfc4069d4a1b"
+  }
+]

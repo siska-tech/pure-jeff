@@ -1,0 +1,85 @@
+{
+  "formal_slo_acceptance": false,
+  "raw_logits_exact": true,
+  "processes": 10,
+  "forwards": 40,
+  "binaries": {
+    "control": {
+      "warm_forward_seconds": {
+        "n": 9,
+        "median": 8.9634298,
+        "p95": 9.8998055,
+        "min": 8.7706858,
+        "max": 9.8998055
+      },
+      "session_medians_seconds": [
+        8.8291049,
+        9.159416,
+        9.2377432
+      ],
+      "startup_seconds": {
+        "n": 3,
+        "median": 20.2475821,
+        "p95": 21.5023061,
+        "min": 20.138949,
+        "max": 21.5023061
+      },
+      "peak_working_set_bytes": {
+        "n": 3,
+        "median": 3276722176,
+        "p95": 3276775424,
+        "min": 3276226560,
+        "max": 3276775424
+      },
+      "profiled_trilu_seconds": {
+        "n": 3,
+        "median": 0.7923943,
+        "p95": 0.7984247,
+        "min": 0.7793472,
+        "max": 0.7984247
+      }
+    },
+    "candidate": {
+      "warm_forward_seconds": {
+        "n": 9,
+        "median": 8.3614526,
+        "p95": 8.6663661,
+        "min": 8.022169,
+        "max": 8.6663661
+      },
+      "session_medians_seconds": [
+        8.052679,
+        8.4205263,
+        8.1063782
+      ],
+      "startup_seconds": {
+        "n": 3,
+        "median": 20.3856475,
+        "p95": 20.4537934,
+        "min": 20.0488737,
+        "max": 20.4537934
+      },
+      "peak_working_set_bytes": {
+        "n": 3,
+        "median": 3276750848,
+        "p95": 3276881920,
+        "min": 3276398592,
+        "max": 3276881920
+      },
+      "profiled_trilu_seconds": {
+        "n": 3,
+        "median": 0.0016484,
+        "p95": 0.001746,
+        "min": 0.0016331,
+        "max": 0.001746
+      }
+    }
+  },
+  "paired_session_delta_seconds": [
+    -0.7764259000000013,
+    -0.7388896999999996,
+    -1.1313650000000006
+  ],
+  "local_pilot_accepted": true,
+  "max_probability_error": 4.9173831939697266e-06
+}

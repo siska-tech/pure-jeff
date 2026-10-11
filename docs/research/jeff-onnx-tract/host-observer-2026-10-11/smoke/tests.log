@@ -1,0 +1,12 @@
+test_cpu_records_skip_unknown_and_reject_truncation_duplicates (test_observe_windows_host.HostTests.test_cpu_records_skip_unknown_and_reject_truncation_duplicates) ... ok
+test_initial_reader_failure_is_saved (test_observe_windows_host.HostTests.test_initial_reader_failure_is_saved) ... ok
+test_missing_gap_error_and_counter_rejected (test_observe_windows_host.HostTests.test_missing_gap_error_and_counter_rejected) ... ok
+test_monitor_retains_original_failure (test_observe_windows_host.HostTests.test_monitor_retains_original_failure) ... ok
+test_scheme_affinity_topology_change_rejected (test_observe_windows_host.HostTests.test_scheme_affinity_topology_change_rejected) ... ok
+test_unknown_ac_and_saver_rejected (test_observe_windows_host.HostTests.test_unknown_ac_and_saver_rejected) ... ok
+test_valid_and_scope (test_observe_windows_host.HostTests.test_valid_and_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.163s
+
+OK

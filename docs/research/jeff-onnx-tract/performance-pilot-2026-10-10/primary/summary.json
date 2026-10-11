@@ -1,0 +1,703 @@
+{
+  "schema_version": "kaze_judge.performance_pilot_summary.v1",
+  "pilot": true,
+  "formal_slo_acceptance": false,
+  "preregistration_sha256": "d9dbec97d87b3e7d58ec7a98afb22547f8555985c98e32d65c02e486ac40a5a8",
+  "cells": [
+    {
+      "backend": "native",
+      "phase": "cold",
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "physical_tokens": 128,
+      "timings_ms": {
+        "backbone_ns": {
+          "n": 5,
+          "median": 3407.2281,
+          "p95": 3483.9834,
+          "min": 3297.1338,
+          "max": 3483.9834
+        },
+        "head_softmax_ns": {
+          "n": 5,
+          "median": 0.6841,
+          "p95": 0.8229,
+          "min": 0.6556,
+          "max": 0.8229
+        },
+        "policy_ns": {
+          "n": 5,
+          "median": 0.0009,
+          "p95": 0.0011,
+          "min": 0.0008,
+          "max": 0.0011
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 3408.2565,
+          "p95": 3485.055,
+          "min": 3298.1768,
+          "max": 3485.055
+        },
+        "tokenize_ns": {
+          "n": 5,
+          "median": 0.3318,
+          "p95": 0.3632,
+          "min": 0.3138,
+          "max": 0.3632
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 3407.9122,
+          "p95": 3484.6854,
+          "min": 3297.7986,
+          "max": 3484.6854
+        }
+      },
+      "max_probability_error": 2.384185791015625e-07,
+      "process_peak_bytes": {
+        "n": 5,
+        "median": 1600929792,
+        "p95": 1601900544,
+        "min": 1600884736,
+        "max": 1601900544
+      },
+      "process_startup_ms": {
+        "n": 5,
+        "median": 1956.3926,
+        "p95": 2006.5556,
+        "min": 1953.5748,
+        "max": 2006.5556
+      },
+      "parent_process_ms": {
+        "n": 5,
+        "median": 5625.6818,
+        "p95": 5693.5664,
+        "min": 5493.4237,
+        "max": 5693.5664
+      }
+    },
+    {
+      "backend": "native",
+      "phase": "resident",
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "physical_tokens": 128,
+      "timings_ms": {
+        "backbone_ns": {
+          "n": 5,
+          "median": 2976.0254,
+          "p95": 3181.6768,
+          "min": 2938.7724,
+          "max": 3181.6768
+        },
+        "head_softmax_ns": {
+          "n": 5,
+          "median": 0.6773,
+          "p95": 0.7426,
+          "min": 0.6501,
+          "max": 0.7426
+        },
+        "policy_ns": {
+          "n": 5,
+          "median": 0.0009,
+          "p95": 0.001,
+          "min": 0.0008,
+          "max": 0.001
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 2977.0254,
+          "p95": 3182.6211,
+          "min": 2939.704,
+          "max": 3182.6211
+        },
+        "tokenize_ns": {
+          "n": 5,
+          "median": 0.2551,
+          "p95": 0.2662,
+          "min": 0.2354,
+          "max": 0.2662
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 2976.768,
+          "p95": 3182.3541,
+          "min": 2939.4577,
+          "max": 3182.3541
+        }
+      },
+      "max_probability_error": 2.384185791015625e-07,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 2096390144,
+        "p95": 2096390144,
+        "min": 2096390144,
+        "max": 2096390144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 2031.0499,
+        "p95": 2031.0499,
+        "min": 2031.0499,
+        "max": 2031.0499
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 93641.9976,
+        "p95": 93641.9976,
+        "min": 93641.9976,
+        "max": 93641.9976
+      }
+    },
+    {
+      "backend": "native",
+      "phase": "resident",
+      "case": "reversed",
+      "effective_tokens": 128,
+      "physical_tokens": 128,
+      "timings_ms": {
+        "backbone_ns": {
+          "n": 5,
+          "median": 3147.4755,
+          "p95": 3199.4195,
+          "min": 2923.5736,
+          "max": 3199.4195
+        },
+        "head_softmax_ns": {
+          "n": 5,
+          "median": 0.6989,
+          "p95": 0.7892,
+          "min": 0.6691,
+          "max": 0.7892
+        },
+        "policy_ns": {
+          "n": 5,
+          "median": 0.0011,
+          "p95": 0.0013,
+          "min": 0.001,
+          "max": 0.0013
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 3148.4193,
+          "p95": 3200.4482,
+          "min": 2924.5091,
+          "max": 3200.4482
+        },
+        "tokenize_ns": {
+          "n": 5,
+          "median": 0.2488,
+          "p95": 0.2685,
+          "min": 0.2358,
+          "max": 0.2685
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 3148.1729,
+          "p95": 3200.168,
+          "min": 2924.2427,
+          "max": 3200.168
+        }
+      },
+      "max_probability_error": 6.332993507385254e-08,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 2096390144,
+        "p95": 2096390144,
+        "min": 2096390144,
+        "max": 2096390144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 2031.0499,
+        "p95": 2031.0499,
+        "min": 2031.0499,
+        "max": 2031.0499
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 93641.9976,
+        "p95": 93641.9976,
+        "min": 93641.9976,
+        "max": 93641.9976
+      }
+    },
+    {
+      "backend": "native",
+      "phase": "resident",
+      "case": "asr-unicode",
+      "effective_tokens": 206,
+      "physical_tokens": 206,
+      "timings_ms": {
+        "backbone_ns": {
+          "n": 5,
+          "median": 4265.7437,
+          "p95": 4364.6174,
+          "min": 4191.0965,
+          "max": 4364.6174
+        },
+        "head_softmax_ns": {
+          "n": 5,
+          "median": 0.797,
+          "p95": 0.839,
+          "min": 0.755,
+          "max": 0.839
+        },
+        "policy_ns": {
+          "n": 5,
+          "median": 0.0006,
+          "p95": 0.0007,
+          "min": 0.0006,
+          "max": 0.0007
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 4266.8202,
+          "p95": 4365.8081,
+          "min": 4192.1987,
+          "max": 4365.8081
+        },
+        "tokenize_ns": {
+          "n": 5,
+          "median": 0.3082,
+          "p95": 0.327,
+          "min": 0.2872,
+          "max": 0.327
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 4266.4987,
+          "p95": 4365.4564,
+          "min": 4191.8935,
+          "max": 4365.4564
+        }
+      },
+      "max_probability_error": 5.066394805908203e-06,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 2096390144,
+        "p95": 2096390144,
+        "min": 2096390144,
+        "max": 2096390144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 2031.0499,
+        "p95": 2031.0499,
+        "min": 2031.0499,
+        "max": 2031.0499
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 93641.9976,
+        "p95": 93641.9976,
+        "min": 93641.9976,
+        "max": 93641.9976
+      }
+    },
+    {
+      "backend": "native",
+      "phase": "resident",
+      "case": "special-token-text",
+      "effective_tokens": 182,
+      "physical_tokens": 182,
+      "timings_ms": {
+        "backbone_ns": {
+          "n": 5,
+          "median": 4127.2181,
+          "p95": 4393.8667,
+          "min": 4062.1416,
+          "max": 4393.8667
+        },
+        "head_softmax_ns": {
+          "n": 5,
+          "median": 0.809,
+          "p95": 0.8377,
+          "min": 0.7557,
+          "max": 0.8377
+        },
+        "policy_ns": {
+          "n": 5,
+          "median": 0.0007,
+          "p95": 0.0011,
+          "min": 0.0006,
+          "max": 0.0011
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 4128.3571,
+          "p95": 4395.0174,
+          "min": 4063.3085,
+          "max": 4395.0174
+        },
+        "tokenize_ns": {
+          "n": 5,
+          "median": 0.3372,
+          "p95": 0.3436,
+          "min": 0.318,
+          "max": 0.3436
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 4128.0271,
+          "p95": 4394.6669,
+          "min": 4062.9586,
+          "max": 4394.6669
+        }
+      },
+      "max_probability_error": 8.344650268554688e-07,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 2096390144,
+        "p95": 2096390144,
+        "min": 2096390144,
+        "max": 2096390144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 2031.0499,
+        "p95": 2031.0499,
+        "min": 2031.0499,
+        "max": 2031.0499
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 93641.9976,
+        "p95": 93641.9976,
+        "min": 93641.9976,
+        "max": 93641.9976
+      }
+    },
+    {
+      "backend": "tract",
+      "phase": "cold",
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "physical_tokens": 512,
+      "timings_ms": {
+        "forward_ns": {
+          "n": 5,
+          "median": 11897.1635,
+          "p95": 12005.1088,
+          "min": 11618.3918,
+          "max": 12005.1088
+        },
+        "prepare_ns": {
+          "n": 5,
+          "median": 0.0483,
+          "p95": 0.0971,
+          "min": 0.0406,
+          "max": 0.0971
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 11897.2792,
+          "p95": 12005.1745,
+          "min": 11618.4503,
+          "max": 12005.1745
+        },
+        "score_ns": {
+          "n": 5,
+          "median": 0.0117,
+          "p95": 0.0121,
+          "min": 0.0116,
+          "max": 0.0121
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 11897.1751,
+          "p95": 12005.1205,
+          "min": 11618.4034,
+          "max": 12005.1205
+        }
+      },
+      "max_probability_error": 6.556510925292969e-07,
+      "process_peak_bytes": {
+        "n": 5,
+        "median": 3505590272,
+        "p95": 3505799168,
+        "min": 3505577984,
+        "max": 3505799168
+      },
+      "process_startup_ms": {
+        "n": 5,
+        "median": 100956.817,
+        "p95": 105635.3879,
+        "min": 99537.7141,
+        "max": 105635.3879
+      },
+      "parent_process_ms": {
+        "n": 5,
+        "median": 113123.6477,
+        "p95": 117737.1566,
+        "min": 111831.4379,
+        "max": 117737.1566
+      }
+    },
+    {
+      "backend": "tract",
+      "phase": "resident",
+      "case": "candidate-request",
+      "effective_tokens": 128,
+      "physical_tokens": 512,
+      "timings_ms": {
+        "forward_ns": {
+          "n": 5,
+          "median": 11635.9362,
+          "p95": 12217.2253,
+          "min": 11364.8935,
+          "max": 12217.2253
+        },
+        "prepare_ns": {
+          "n": 5,
+          "median": 0.0267,
+          "p95": 0.0294,
+          "min": 0.0228,
+          "max": 0.0294
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 11635.976,
+          "p95": 12217.2672,
+          "min": 11364.9329,
+          "max": 12217.2672
+        },
+        "score_ns": {
+          "n": 5,
+          "median": 0.006,
+          "p95": 0.0065,
+          "min": 0.0059,
+          "max": 0.0065
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 11635.9423,
+          "p95": 12217.2312,
+          "min": 11364.8995,
+          "max": 12217.2312
+        }
+      },
+      "max_probability_error": 6.556510925292969e-07,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 3505926144,
+        "p95": 3505926144,
+        "min": 3505926144,
+        "max": 3505926144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 101365.3108,
+        "p95": 101365.3108,
+        "min": 101365.3108,
+        "max": 101365.3108
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 399352.1073,
+        "p95": 399352.1073,
+        "min": 399352.1073,
+        "max": 399352.1073
+      }
+    },
+    {
+      "backend": "tract",
+      "phase": "resident",
+      "case": "reversed",
+      "effective_tokens": 128,
+      "physical_tokens": 512,
+      "timings_ms": {
+        "forward_ns": {
+          "n": 5,
+          "median": 11818.6955,
+          "p95": 12193.6644,
+          "min": 11749.2347,
+          "max": 12193.6644
+        },
+        "prepare_ns": {
+          "n": 5,
+          "median": 0.0272,
+          "p95": 0.0282,
+          "min": 0.0251,
+          "max": 0.0282
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 11818.7353,
+          "p95": 12193.7058,
+          "min": 11749.2736,
+          "max": 12193.7058
+        },
+        "score_ns": {
+          "n": 5,
+          "median": 0.0064,
+          "p95": 0.008,
+          "min": 0.0058,
+          "max": 0.008
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 11818.7013,
+          "p95": 12193.6724,
+          "min": 11749.2411,
+          "max": 12193.6724
+        }
+      },
+      "max_probability_error": 2.384185791015625e-07,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 3505926144,
+        "p95": 3505926144,
+        "min": 3505926144,
+        "max": 3505926144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 101365.3108,
+        "p95": 101365.3108,
+        "min": 101365.3108,
+        "max": 101365.3108
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 399352.1073,
+        "p95": 399352.1073,
+        "min": 399352.1073,
+        "max": 399352.1073
+      }
+    },
+    {
+      "backend": "tract",
+      "phase": "resident",
+      "case": "asr-unicode",
+      "effective_tokens": 206,
+      "physical_tokens": 512,
+      "timings_ms": {
+        "forward_ns": {
+          "n": 5,
+          "median": 11835.8202,
+          "p95": 12668.5115,
+          "min": 11735.5659,
+          "max": 12668.5115
+        },
+        "prepare_ns": {
+          "n": 5,
+          "median": 0.0261,
+          "p95": 0.034,
+          "min": 0.0253,
+          "max": 0.034
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 11835.8681,
+          "p95": 12668.5506,
+          "min": 11735.6037,
+          "max": 12668.5506
+        },
+        "score_ns": {
+          "n": 5,
+          "median": 0.0063,
+          "p95": 0.0073,
+          "min": 0.0061,
+          "max": 0.0073
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 11835.8275,
+          "p95": 12668.518,
+          "min": 11735.5722,
+          "max": 12668.518
+        }
+      },
+      "max_probability_error": 3.337860107421875e-06,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 3505926144,
+        "p95": 3505926144,
+        "min": 3505926144,
+        "max": 3505926144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 101365.3108,
+        "p95": 101365.3108,
+        "min": 101365.3108,
+        "max": 101365.3108
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 399352.1073,
+        "p95": 399352.1073,
+        "min": 399352.1073,
+        "max": 399352.1073
+      }
+    },
+    {
+      "backend": "tract",
+      "phase": "resident",
+      "case": "special-token-text",
+      "effective_tokens": 182,
+      "physical_tokens": 512,
+      "timings_ms": {
+        "forward_ns": {
+          "n": 5,
+          "median": 11737.1876,
+          "p95": 12531.1066,
+          "min": 11557.372,
+          "max": 12531.1066
+        },
+        "prepare_ns": {
+          "n": 5,
+          "median": 0.0237,
+          "p95": 0.027,
+          "min": 0.0228,
+          "max": 0.027
+        },
+        "request_ns": {
+          "n": 5,
+          "median": 11737.2264,
+          "p95": 12531.1429,
+          "min": 11557.4123,
+          "max": 12531.1429
+        },
+        "score_ns": {
+          "n": 5,
+          "median": 0.0064,
+          "p95": 0.0078,
+          "min": 0.006,
+          "max": 0.0078
+        },
+        "compute_and_softmax_ms": {
+          "n": 5,
+          "median": 11737.1954,
+          "p95": 12531.1135,
+          "min": 11557.3783,
+          "max": 12531.1135
+        }
+      },
+      "max_probability_error": 4.9173831939697266e-06,
+      "process_peak_bytes": {
+        "n": 1,
+        "median": 3505926144,
+        "p95": 3505926144,
+        "min": 3505926144,
+        "max": 3505926144
+      },
+      "process_startup_ms": {
+        "n": 1,
+        "median": 101365.3108,
+        "p95": 101365.3108,
+        "min": 101365.3108,
+        "max": 101365.3108
+      },
+      "parent_process_ms": {
+        "n": 1,
+        "median": 399352.1073,
+        "p95": 399352.1073,
+        "min": 399352.1073,
+        "max": 399352.1073
+      }
+    }
+  ]
+}

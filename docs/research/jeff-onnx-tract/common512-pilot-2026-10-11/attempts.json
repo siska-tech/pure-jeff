@@ -1,0 +1,19 @@
+{
+  "attempts": 2,
+  "initial": {
+    "status": "failed",
+    "cause": "sandbox access denied before Native initialization; os error 5",
+    "forwards": 0,
+    "performance_samples": 0
+  },
+  "accepted": {
+    "status": "completed",
+    "processes": 8,
+    "forwards": 46,
+    "gate_forwards": 16,
+    "warmup_forwards": 6,
+    "measured_forwards": 24
+  },
+  "source_and_assets_identical": true,
+  "retry": "same harness and assets under approved execution permission, separate output directory"
+}

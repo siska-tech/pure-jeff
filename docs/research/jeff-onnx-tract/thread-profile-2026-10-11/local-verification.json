@@ -1,0 +1,14 @@
+{
+  "python_tests": 27,
+  "python_skipped": 0,
+  "python_failed": 0,
+  "new_runtime_dependencies": 0,
+  "rust_build_changed": false,
+  "github_ci_run_confirmed": false,
+  "provenance_counts": {
+    "exact": 56,
+    "unmatched": 16
+  },
+  "matched_dynamic_trilu_shapes_verified": true,
+  "matched_axis2_scatter_shapes_verified": true
+}

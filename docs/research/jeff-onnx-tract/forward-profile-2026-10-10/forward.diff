@@ -1,0 +1,42 @@
+--- accepted/Cargo.toml
++++ forward/Cargo.toml
+@@ -8,0 +9 @@
++tract-linalg = { git = "https://github.com/sonos/tract", rev = "9e0cfaa9b3a9251f41f74101801dc2c937b1660a", features = ["multithread-mm"] }
+--- accepted/src/bin/bench.rs
++++ forward/src/bin/bench.rs
+@@ -7,0 +8,2 @@
++#[path = "../forward_profile.rs"]
++mod forward_profile;
+@@ -27,3 +29,14 @@
+-    tract_onnx::tract_core::tract_linalg::multithread::set_default_executor(
+-        tract_onnx::tract_core::tract_linalg::multithread::Executor::SingleThread,
+-    );
++    let threads = match job.get("threads") {
++        None => 1,
++        Some(value) => value.as_u64().ok_or_else(|| anyhow::anyhow!("invalid thread count"))? as usize,
++    };
++    ensure!([1, 2, 4, 8].contains(&threads), "unsupported thread count");
++    use tract_onnx::tract_core::tract_linalg::multithread::{self, Executor};
++    let executor = if threads == 1 { Executor::SingleThread } else { Executor::multithread(threads) };
++    let executor_threads = match &executor {
++        Executor::MultiThread(pool) => pool.current_num_threads(),
++        _ => 1,
++    };
++    ensure!(executor_threads == threads, "executor size mismatch");
++    multithread::set_default_executor(executor);
++    let profile_forward = job["profile_forward"].as_bool().unwrap_or(false);
+@@ -89 +102,2 @@
+-        "startup_ns":started.elapsed().as_nanos(),"threads":1,
++        "startup_ns":started.elapsed().as_nanos(),"threads":threads,"executor_threads":executor_threads,"multithread_mm":true,
++        "panel_threshold":multithread::current_threading_panel_threshold(),"element_threshold":multithread::current_threading_element_threshold(),
+@@ -140 +154,6 @@
+-        let output = plan.run(tensors)?;
++        let (output, forward_profile) = if profile_forward {
++            let (output, profile) = forward_profile::run(&plan, tensors)?;
++            (output, Some(profile))
++        } else {
++            (plan.run(tensors)?, None)
++        };
+@@ -173 +192 @@
+-            "raw_logits":raw,"probabilities":probabilities}),
++            "raw_logits":raw,"probabilities":probabilities,"forward_profile":forward_profile}),

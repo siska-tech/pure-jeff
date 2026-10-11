@@ -1,0 +1,82 @@
+{
+  "checked_on": "2026-10-10",
+  "files": [
+    {
+      "file": "decision_config.json",
+      "native_sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03",
+      "onnx_sha256": "1727dac04d69fe54230a88cd3cbd6f2a160c320328763eaa6304c5d335e00d94"
+    },
+    {
+      "file": "chat_template.jinja",
+      "native_sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "onnx_sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    {
+      "file": "processor_config.json",
+      "native_sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f",
+      "onnx_sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "native_sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f",
+      "onnx_sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+    }
+  ],
+  "native": {
+    "step": 1113,
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0845714325759162,
+    "prompt_layout": "state-first",
+    "format_version": 1
+  },
+  "onnx": {
+    "step": 960,
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 0.9629933669102758,
+    "prompt_layout": "state-first",
+    "format_version": 1
+  },
+  "native_provenance": {
+    "run": "0.8b-20260929-2258",
+    "git_commit": "a095c98f3fd2782bba033b378f7375ecc33c35fa",
+    "development": "ebcedc3e726548c08da90ff569b94e4822f23312dfc3ea29b93579cfec3016c7",
+    "temperature": "e735fa4e0df3482752112bc9cdff6af9ddb7be07a0a9f2fb8dd8cf2355042bf6",
+    "train": "f826592e75acdaa9510af5b15d5c944e07628632134cd57d2d6840192696e4ac",
+    "train.py": "6c8c17694057e4d5f027dbb25d790b648f67381c00ed8e65480a7cf0bd5bafde",
+    "model.py": "cbb5c04fe21c696fb019aab06b64273e9bb2489db5dde7a35aed740a375db206",
+    "encoder.py": "cca3a60bb8078d599a0372c488d13083feb35cdbe826151936d50dd60ed6a40c",
+    "decoder.py": "2f3116390bc18295dd934b78680f5845e0efb5feac351c15857b3e73869a26a1",
+    "models.py": "4fb30630b099f0b0c9bfe50b2cbd29dd477f8df7f87e83d2df8cc7000e2d2499",
+    "optim.py": "ae0ec56aafe7d01cd46f7d9e088909610fa48314ed215b550b5c67c38d6f365d",
+    "evaluate.py": "1527503162600d0d03daa6dbf14d6e64de1763ab83f756986dcb0fb5e2d5dedc",
+    "types.py": "0f8e3bfa4e92693ec50b9f258fb9180438a62d30caf9b3e6c00860a71e46dc5a",
+    "events.py": "98c77d359fea9a6eeb62753004f93ded41479aefb5812a4812ed149cfff26f7f",
+    "uv.lock": "9f0b5b955cb9a06536c89a0099205dc56ecfea9dabf928318794681101ad705e"
+  },
+  "onnx_provenance": {
+    "run": "0.8b-20260928-0540",
+    "git_commit": "a095c98f3fd2782bba033b378f7375ecc33c35fa",
+    "development": "ebcedc3e726548c08da90ff569b94e4822f23312dfc3ea29b93579cfec3016c7",
+    "temperature": "e735fa4e0df3482752112bc9cdff6af9ddb7be07a0a9f2fb8dd8cf2355042bf6",
+    "train": "48a4e3adbb9f1c77676133183564e897c254c4555cc97ff8e426d1cd359c06d8",
+    "train.py": "0fa7bbce1b7e788b34c73ee7046245838563d4f6be9e0194ff4b2e00d3df8a2d",
+    "model.py": "cbb5c04fe21c696fb019aab06b64273e9bb2489db5dde7a35aed740a375db206",
+    "encoder.py": "cca3a60bb8078d599a0372c488d13083feb35cdbe826151936d50dd60ed6a40c",
+    "decoder.py": "2f3116390bc18295dd934b78680f5845e0efb5feac351c15857b3e73869a26a1",
+    "models.py": "4fb30630b099f0b0c9bfe50b2cbd29dd477f8df7f87e83d2df8cc7000e2d2499",
+    "optim.py": "ae0ec56aafe7d01cd46f7d9e088909610fa48314ed215b550b5c67c38d6f365d",
+    "evaluate.py": "1527503162600d0d03daa6dbf14d6e64de1763ab83f756986dcb0fb5e2d5dedc",
+    "types.py": "0f8e3bfa4e92693ec50b9f258fb9180438a62d30caf9b3e6c00860a71e46dc5a",
+    "events.py": "98c77d359fea9a6eeb62753004f93ded41479aefb5812a4812ed149cfff26f7f",
+    "uv.lock": "9f0b5b955cb9a06536c89a0099205dc56ecfea9dabf928318794681101ad705e"
+  },
+  "codes_equal": true,
+  "token_ids_equal": true,
+  "codes_count": 255,
+  "tokenizer_sha_equal_to_hf_lfs_metadata": true,
+  "weights_equal": "not established; source training provenance and temperature differ",
+  "exporter_sha256": "a090d94903b31b167e8eec0994ac2dff41782d197c3ad626d04a960a49cffa0b",
+  "exporter_source_revision": "cbd9a629f1a3d9b6829399f6f88bd3363693f9bb"
+}

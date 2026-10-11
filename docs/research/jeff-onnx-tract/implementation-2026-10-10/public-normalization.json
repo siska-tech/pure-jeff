@@ -1,0 +1,9 @@
+{
+  "split_to_sequence_lowered": 24,
+  "sequence_at_lowered": 66,
+  "source_sha256": "4e38fcec2ed74ad6daebd345d8e10bff8bd4534cf428066c1f7f8ea847072a24",
+  "output_sha256": "7ddf50e19e6c645afae747c6978a9ac1c0071c57f8249bc5810d27f084205f23",
+  "onnx_version": "1.23.2",
+  "checker_passed": false,
+  "checker_error": "Tensor backbone.language_model.embed_tokens.weight external data path could not be canonicalized: Access is denied."
+}

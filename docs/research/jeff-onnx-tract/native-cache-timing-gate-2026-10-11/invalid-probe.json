@@ -1,0 +1,6 @@
+{
+  "cpu": 64,
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Error: CPU index exceeds single-group mask\n"
+}

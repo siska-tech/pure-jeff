@@ -1,0 +1,20 @@
+{
+  "run_id": "oracle",
+  "command": [
+    "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\runtime\\onnx\\prepare_length_oracle.py",
+    "--worker",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\length-oracle-direct-20261011\\oracle.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 253111377600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4932820992,
+  "memory_samples": 24139,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

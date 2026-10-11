@@ -1,0 +1,6 @@
+
+running 2 tests
+test shared_input_duplicate_order_and_bit_preservation ... ok
+test empty_updates_and_invalid_index_fallback ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

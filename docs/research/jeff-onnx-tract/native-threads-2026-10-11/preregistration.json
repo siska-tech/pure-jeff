@@ -1,0 +1,208 @@
+{
+  "date_utc": "2026-10-10T23:36:17.275995+00:00",
+  "script_sha256": "2f7101233664dc949db5c522c498ba813b57c5532636ea3ec59c90e15f66d33b",
+  "helper_sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a",
+  "executable_sha256": "a3baf46b4ec9f0e7bd9cf57a8b5283f235adb2e2efe62601869d4728af432d3b",
+  "generation_sha256": "4eb546360473762e4f3a9f4657cc548b8d70e189ab5d8289dc35f3a72206e719",
+  "audit_sha256": "e22cc37308462d949143e240a2697a1d4c9661e2e9109f2af021e2c38eefc730",
+  "assets": [
+    {
+      "path": ".venv/bench-native-target/release/kaze_judge_native_bench.exe",
+      "sha256": "d981d6b51ae708fd1adad0ac81845132ba8819afddf799f5afd275b7c83292c8"
+    },
+    {
+      "path": "models/jeff-rust-bundle-p3.json",
+      "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+    },
+    {
+      "path": "models/jeff-checkpoint/LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "models/jeff-checkpoint/NOTICE",
+      "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+    },
+    {
+      "path": "models/jeff-checkpoint/README.md",
+      "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+    },
+    {
+      "path": "models/jeff-checkpoint/chat_template.jinja",
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    {
+      "path": "models/jeff-checkpoint/config.json",
+      "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+    },
+    {
+      "path": "models/jeff-checkpoint/decision_config.json",
+      "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+    },
+    {
+      "path": "models/jeff-checkpoint/model.safetensors",
+      "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+    },
+    {
+      "path": "models/jeff-checkpoint/processor_config.json",
+      "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+    },
+    {
+      "path": "models/jeff-checkpoint/readout.safetensors",
+      "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer.json",
+      "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer_config.json",
+      "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+    }
+  ],
+  "reference_cases_sha256": "c1b21681c84d6dcd27a07d48c5e7b6735e249f7165484c49cfd4fae976a280b3",
+  "native_probabilities_sha256": "acb95bf58c78ec6368c58805d09d476362c05bc04ba469bd77f314f7c27d675c",
+  "orders": [
+    [
+      1,
+      2,
+      4,
+      8
+    ],
+    [
+      2,
+      8,
+      1,
+      4
+    ],
+    [
+      4,
+      1,
+      8,
+      2
+    ],
+    [
+      8,
+      4,
+      2,
+      1
+    ]
+  ],
+  "schedules": [
+    [
+      {
+        "case": 4,
+        "warmup": true
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 5,
+        "warmup": true
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 6,
+        "warmup": true
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 4,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 7,
+        "warmup": true
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      }
+    ]
+  ],
+  "threads": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "seed": 1248320,
+  "sessions_per_setting": 4,
+  "warmups_per_session": 1,
+  "samples_per_session": 4,
+  "samples_per_setting": 16,
+  "gate_cases_per_setting": 8,
+  "physical_tokens": 512,
+  "effective_tokens": 512,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8390852608,
+  "formal_slo_acceptance": false,
+  "numerical_acceptance": "all ONNX probability maxabs<=1e-4,sum<=1e-6,judgment/tokens gates; fixed Native maxabs<=1e-4; one-thread exact; per-setting gate repeat maxabs<=1e-6",
+  "performance_acceptance": "descriptive pilot; next candidate only if all four block medians and pooled median/p95 below one-thread, select lowest pooled median among eligible; no adoption/SLO",
+  "scope": "same new executable, text320/head1 owned FP32; only requested compute threads change; DeltaNet serial",
+  "limitations": [
+    "four independent blocks, n=16 p95=max, one warmup, synthetic requests, no recognition labels",
+    "Williams balanced order; thermals/affinity/background/storage cache uncontrolled",
+    "reported actual global Rayon pool size/configured GEMM setting; no active worker telemetry or OS-thread cap",
+    "Candle barrier auxiliary worker count is derived expectation, not observed count; helper pools may coexist",
+    "startup/lifetime peak n=4 incidental, not cold campaign/private warm memory/API E2E/Tract comparison"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "before model inference",
+  "differences": {
+    "registry+https://github.com/rust-lang/crates.io-index#gemm-common@0.19.0": {
+      "before": [
+        "f16",
+        "half",
+        "rayon",
+        "std",
+        "sysctl",
+        "wasm-simd128-enable"
+      ],
+      "after": [
+        "default",
+        "f16",
+        "half",
+        "rayon",
+        "std",
+        "sysctl",
+        "wasm-simd128-enable"
+      ]
+    }
+  },
+  "action": "disable default features, preserve initial generated candidate/build; use a new bin name"
+}

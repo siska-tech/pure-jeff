@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "model_sha256": "8d7712050a065ff928a0092d1dbcc67e3f222d087abeac81350d184dd5855dc1",
+  "executable_sha256": "8c8129b0963db5bf5ed36e76643d3c5ed38868a926b895e66b3ece93c44fe002",
+  "expected_failure": "IntoShape has no NNEF serializer",
+  "profile": "optimized"
+}

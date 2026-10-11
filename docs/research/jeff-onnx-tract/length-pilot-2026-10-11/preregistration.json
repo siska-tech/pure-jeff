@@ -1,0 +1,347 @@
+{
+  "date_utc": "2026-10-10T21:50:51.768439+00:00",
+  "executable_sha256": "704bb16e1ac6f68ea1e84b24a46696a6055801b8f5ae86dd5749424dc407cc4f",
+  "generation_sha256": "0e61bd07f2495e8ed1055f981991f783560ab6da464ad31ee196d33305fdf552",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "fixture_sha256": "9352d52722a066d2378e6e79e505d10ac7acb1671a721197ee01877cb379872d",
+  "oracle_sha256": "1607da545bf569a3aa73f7f7670cba4e4ce03f571c3432de34c5ea8de6afa770",
+  "script_sha256": "953715fce0533a0c8f4084bbb73f6112d20cd9fc1441fc09a51a84341d2d669d",
+  "threads": 4,
+  "profile_enabled": false,
+  "sessions": 3,
+  "warmups_per_session": 5,
+  "measured_per_session": 20,
+  "lengths": [
+    128,
+    256,
+    384,
+    511,
+    512
+  ],
+  "variants_per_length": 4,
+  "samples_per_length": 12,
+  "schedules": [
+    [
+      {
+        "case": 19,
+        "warmup": true
+      },
+      {
+        "case": 20,
+        "warmup": true
+      },
+      {
+        "case": 21,
+        "warmup": true
+      },
+      {
+        "case": 22,
+        "warmup": true
+      },
+      {
+        "case": 23,
+        "warmup": true
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 13,
+        "warmup": false
+      },
+      {
+        "case": 22,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 10,
+        "warmup": false
+      },
+      {
+        "case": 8,
+        "warmup": false
+      },
+      {
+        "case": 21,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 16,
+        "warmup": false
+      },
+      {
+        "case": 20,
+        "warmup": false
+      },
+      {
+        "case": 17,
+        "warmup": false
+      },
+      {
+        "case": 11,
+        "warmup": false
+      },
+      {
+        "case": 9,
+        "warmup": false
+      },
+      {
+        "case": 18,
+        "warmup": false
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 12,
+        "warmup": false
+      },
+      {
+        "case": 14,
+        "warmup": false
+      },
+      {
+        "case": 23,
+        "warmup": false
+      },
+      {
+        "case": 15,
+        "warmup": false
+      },
+      {
+        "case": 19,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 9,
+        "warmup": true
+      },
+      {
+        "case": 10,
+        "warmup": true
+      },
+      {
+        "case": 11,
+        "warmup": true
+      },
+      {
+        "case": 12,
+        "warmup": true
+      },
+      {
+        "case": 13,
+        "warmup": true
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 15,
+        "warmup": false
+      },
+      {
+        "case": 11,
+        "warmup": false
+      },
+      {
+        "case": 8,
+        "warmup": false
+      },
+      {
+        "case": 9,
+        "warmup": false
+      },
+      {
+        "case": 13,
+        "warmup": false
+      },
+      {
+        "case": 20,
+        "warmup": false
+      },
+      {
+        "case": 10,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 19,
+        "warmup": false
+      },
+      {
+        "case": 14,
+        "warmup": false
+      },
+      {
+        "case": 18,
+        "warmup": false
+      },
+      {
+        "case": 16,
+        "warmup": false
+      },
+      {
+        "case": 23,
+        "warmup": false
+      },
+      {
+        "case": 12,
+        "warmup": false
+      },
+      {
+        "case": 21,
+        "warmup": false
+      },
+      {
+        "case": 22,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 17,
+        "warmup": false
+      }
+    ],
+    [
+      {
+        "case": 14,
+        "warmup": true
+      },
+      {
+        "case": 15,
+        "warmup": true
+      },
+      {
+        "case": 16,
+        "warmup": true
+      },
+      {
+        "case": 17,
+        "warmup": true
+      },
+      {
+        "case": 18,
+        "warmup": true
+      },
+      {
+        "case": 9,
+        "warmup": false
+      },
+      {
+        "case": 6,
+        "warmup": false
+      },
+      {
+        "case": 12,
+        "warmup": false
+      },
+      {
+        "case": 17,
+        "warmup": false
+      },
+      {
+        "case": 8,
+        "warmup": false
+      },
+      {
+        "case": 11,
+        "warmup": false
+      },
+      {
+        "case": 20,
+        "warmup": false
+      },
+      {
+        "case": 22,
+        "warmup": false
+      },
+      {
+        "case": 7,
+        "warmup": false
+      },
+      {
+        "case": 4,
+        "warmup": false
+      },
+      {
+        "case": 15,
+        "warmup": false
+      },
+      {
+        "case": 16,
+        "warmup": false
+      },
+      {
+        "case": 13,
+        "warmup": false
+      },
+      {
+        "case": 21,
+        "warmup": false
+      },
+      {
+        "case": 5,
+        "warmup": false
+      },
+      {
+        "case": 19,
+        "warmup": false
+      },
+      {
+        "case": 14,
+        "warmup": false
+      },
+      {
+        "case": 10,
+        "warmup": false
+      },
+      {
+        "case": 18,
+        "warmup": false
+      },
+      {
+        "case": 23,
+        "warmup": false
+      }
+    ]
+  ],
+  "gate_cases": 28,
+  "extra_eight_candidate_cases_gate_only": 4,
+  "seed": 20261011,
+  "numerical_acceptance": "finite raw255; probability maxabs <=1e-4; sum error <=1e-6; judgment/tokens exact; repeated raw logits exact to Tract gate",
+  "performance_acceptance": "descriptive pilot only; no speedup or SLO acceptance",
+  "formal_slo_acceptance": false,
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8696434688,
+  "scope": "same step1113 FP32 batch1 physical512; prepared tensors",
+  "limitations": [
+    "n=12 nearest-rank p95 is max; four inputs and three sessions, not 12 independent sessions",
+    "length and content confounded; primary candidate counts 2/3; eight-candidate extras excluded from timing",
+    "thermals, affinity, background load and storage cache uncontrolled",
+    "no Native, tokenizer/API E2E, recognition quality or cold campaign"
+  ]
+}

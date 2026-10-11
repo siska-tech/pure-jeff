@@ -1,0 +1,39 @@
+{
+  "date_utc": "2026-10-10T17:05:43.110910+00:00",
+  "executable_sha256": "704bb16e1ac6f68ea1e84b24a46696a6055801b8f5ae86dd5749424dc407cc4f",
+  "generation_sha256": "0e61bd07f2495e8ed1055f981991f783560ab6da464ad31ee196d33305fdf552",
+  "model_sha256": "ace9bfbee3f8d3a0817d8ea22d14df9392eb9e3afdae72b9a4e3eba419e4c0d5",
+  "script_sha256": "51ce9cc71b6e439297d61425f51dce0912697113fb5ffbd5d86d2d1b67da0f07",
+  "source_job_sha256": "36394b3a7a548d3862db11a622da4d6b4f0de030071f4087eca41880774dc62f",
+  "reference_raw_sha256": "327603ac1ceb9d129deb4cca079fa3dbbf5e989a55c0f287bf164fa97c16bafa",
+  "orders": [
+    [
+      4,
+      8
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      4,
+      8
+    ]
+  ],
+  "sessions_per_thread": 3,
+  "warmups_per_session": 1,
+  "samples_per_session": 3,
+  "profile_enabled": false,
+  "formal_slo_acceptance": false,
+  "selection_rule": "prefer 8 only if all three paired session medians and pooled median/p95 improve; otherwise retain 4",
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "available_physical_bytes": 8549916672,
+  "scope": "candidate-request effective128 physical512, prepared tensors, same accepted binary",
+  "limitations": [
+    "n=9 nearest-rank p95 is max, no confidence interval",
+    "thermals, affinity, background load and storage cache uncontrolled",
+    "startup and lifetime peaks n=3 are incidental, not cold campaign",
+    "no tokenizer/API E2E, Native comparison or quality acceptance"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "all_summary_statistics_recomputed_exactly": true,
+  "numerical_forwards": 30,
+  "runtime_failures": 0,
+  "guard_failures": 0
+}

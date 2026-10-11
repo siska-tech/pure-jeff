@@ -1,0 +1,29 @@
+{
+  "python_unittest": {
+    "passed": 28,
+    "skipped": 0,
+    "log": "python-tests.log"
+  },
+  "rust_helper_tests": {
+    "passed": 2,
+    "exhaustive_combinations": 32800
+  },
+  "rust_direct_operator_tests": {
+    "passed": 2,
+    "log": "direct-operator-tests.log"
+  },
+  "small_onnx_conditions": 168,
+  "small_onnx_processes": 336,
+  "small_onnx_forwards": 672,
+  "release_build_exit_code": 0,
+  "release_clippy_exit_code": 0,
+  "rustfmt_helper_and_direct_test_exit_code": 0,
+  "workflow_yaml_parsed": true,
+  "github_ci_executed": false,
+  "nonstandard_layout_guard_directly_exercised": false,
+  "direct_operator_log_archival": {
+    "original_sha256": "6d907db8b5e891c691b949fd539d9473d2b40ba650c45236f675adb9971b5391",
+    "transformation": "remove trailing blank line; normalize final newline only",
+    "original_retained_at": "experiments/runs/trilu-pilot-20261011/direct-operator-tests.log"
+  }
+}

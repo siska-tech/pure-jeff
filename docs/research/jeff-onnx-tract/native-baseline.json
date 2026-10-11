@@ -1,0 +1,649 @@
+{
+  "schema_version": "kaze_judge.onnx_planning_baseline.v1",
+  "checked_on": "2026-10-10",
+  "git_head": null,
+  "git_tracked_files": 0,
+  "purpose": "Freeze current source, tests, CI, historical evidence and local reference assets for the ONNX planning audit; not a commit or backup",
+  "files": [
+    {
+      "path": ".github/workflows/rust-contracts.yml",
+      "bytes": 1362,
+      "sha256": "6c2ab935a856c178c9efb52e75c5d253c449ace7e2ad3867f60fe10423d4d506"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 123,
+      "sha256": "c9e45d4e099c24d5fb82ff0d63217d016456a5bb4df963b38c203c843659ff69"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 5485,
+      "sha256": "19f0f711950677ee77ab45373385f2272426152a120832d1c1c057187818449f"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 396,
+      "sha256": "5e5d2ad443567e9ae79fd5374246667483eb2130671b284606bf536a0f05ef52"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 5670,
+      "sha256": "a76cda637d135768f1ce9f76e990226d61ef84e0f0ec2ac9e60948ff5c0ee3ae"
+    },
+    {
+      "path": "docs/completion-audit-2026-10-10.md",
+      "bytes": 6567,
+      "sha256": "5717cb082c6e27f720a53f1251fdf4919fc965feff53c65924471e50f3c6877f"
+    },
+    {
+      "path": "docs/extended-migration-validation.json",
+      "bytes": 19105,
+      "sha256": "d8d619d514a3dbc52e7b92a4123df37dd469b1dc9b33d3b0c775bc3e525ebd29"
+    },
+    {
+      "path": "docs/jeff-reference.json",
+      "bytes": 4727,
+      "sha256": "d8e529b8e313a6aff0e94c0bc0706bc8ee0de51b4ac8c49d4368f233e74ffde7"
+    },
+    {
+      "path": "docs/jeff-runtime.md",
+      "bytes": 10646,
+      "sha256": "bc51c14d3e7c641a76d80ee758321d9e0ad9f3a79fed50ce2904c403b704dcfb"
+    },
+    {
+      "path": "docs/kaze-nhanh-integration.md",
+      "bytes": 7398,
+      "sha256": "9cc5fc840937fff3cb1674acdbfa10c3fb101a83488249bf5bdba4acb4fb2444"
+    },
+    {
+      "path": "docs/p1-validation.json",
+      "bytes": 3722,
+      "sha256": "56e069347d19130e799d56dfb9c5d750c14ff4c5919ab15947a99ba80b664948"
+    },
+    {
+      "path": "docs/p2-boundaries.json",
+      "bytes": 748,
+      "sha256": "6d4798618975b98d3f83b61f266408f73dbbb952fcb0ca938233c5e8d1396584"
+    },
+    {
+      "path": "docs/p2-validation.json",
+      "bytes": 9943,
+      "sha256": "208638075f9fd1ab1210abfb7be1ace96ad1dc45941f95edcdba27665878aecf"
+    },
+    {
+      "path": "docs/p3-boundaries.json",
+      "bytes": 748,
+      "sha256": "3258563460dc556d24f6d79e944e36b4230b4fc8cbc4fb1ac898166040d2d082"
+    },
+    {
+      "path": "docs/p3-validation.json",
+      "bytes": 16454,
+      "sha256": "146bd543cbb1d94ef8f61c5bdeb602b08429d7b1b3526c70dd29b671ba9f1e5d"
+    },
+    {
+      "path": "docs/p4-acceptance.md",
+      "bytes": 12072,
+      "sha256": "751fbab411b6b8572422d3a8ddaf0d7e7328f00d35893cf6bad9c34dbbaf2be2"
+    },
+    {
+      "path": "docs/p4-benchmark.json",
+      "bytes": 18456,
+      "sha256": "43b693e8e41ebf1f07e690ac75c7bbba19fa6b894fc35b5b644b808b021cb989"
+    },
+    {
+      "path": "docs/p4-license-review.json",
+      "bytes": 3928,
+      "sha256": "60f26511026f5796ae0662106afa1f664d3e538b4e86d7e3166ed088fa03190b"
+    },
+    {
+      "path": "docs/p4-portable-validation.json",
+      "bytes": 1645,
+      "sha256": "e8b7014b415d822bb81283e4186c0f91f15710e0cb02f8dc424280369842bd7c"
+    },
+    {
+      "path": "docs/p4-quality-input-audit.json",
+      "bytes": 2220,
+      "sha256": "0cd976a08c5c0912b9eac2e182a865367adf562dcc04eabb2bc7067f6437e16e"
+    },
+    {
+      "path": "docs/p4-tool-imports.json",
+      "bytes": 1187,
+      "sha256": "2060aaf54ef156728b70b077a239c24f87a5be066cf33d8285af9fdb80f23739"
+    },
+    {
+      "path": "docs/p4-worker-tree-memory.json",
+      "bytes": 2822,
+      "sha256": "6b4c78977b0b0b52070501ad85c93283f19d3beecc55fb6cac3caeb1b383e1e6"
+    },
+    {
+      "path": "docs/p4c-portable-validation.json",
+      "bytes": 1528,
+      "sha256": "e909d03904bb1865c6ec00e4693f9d28c6cbe379de1009ec87532940bb2012da"
+    },
+    {
+      "path": "docs/pure-rust-plan.md",
+      "bytes": 13855,
+      "sha256": "98e4a9b9edd250f625dddbaa2648d87ca9b1aa4b906dfa3601fccd9bb1cb5f1f"
+    },
+    {
+      "path": "docs/pure-rust-progress.md",
+      "bytes": 23991,
+      "sha256": "37a92654bf6b23ff6b44472e5ce3727799ed661d03da56b390a9bbe61fdcc794"
+    },
+    {
+      "path": "docs/rust-backend-assessment.md",
+      "bytes": 6583,
+      "sha256": "abe4c59a57d0ee1ddc58ba16efad4407f49785a8efe1c99f10ccaf917fecfc41"
+    },
+    {
+      "path": "docs/rust-dependency-audit-p2.json",
+      "bytes": 44812,
+      "sha256": "699ed836036c2a89d1bd15bfb162931d110835b6b631d4e81cf1c7f05781d761"
+    },
+    {
+      "path": "docs/rust-dependency-audit-p3.json",
+      "bytes": 44831,
+      "sha256": "8b7fe9464c8d8e7fac0e604b09c00457313dd545aac437dec4f776566f40816f"
+    },
+    {
+      "path": "docs/rust-dependency-audit.json",
+      "bytes": 44462,
+      "sha256": "854d642b4137e2d0f90384badb1110797807549b1bc3acef7000939b7ba18cb5"
+    },
+    {
+      "path": "docs/token-limit-boundaries.json",
+      "bytes": 2192,
+      "sha256": "50ff032fadf0777b68de41d0c6904507670c6dbe7b180fd255176744b0b87e9d"
+    },
+    {
+      "path": "docs/token-limit-forward-validation.json",
+      "bytes": 3726,
+      "sha256": "e6ab4f4a5ed50ceedf58b0df4f8e5b39dbba29b2aab0ad64f64e3bb10b4d919f"
+    },
+    {
+      "path": "examples/candidate-request.json",
+      "bytes": 436,
+      "sha256": "83f4e434855d62334cf96a9a8b5c60d963e91960b41fd066d8f9016ec483f5b3"
+    },
+    {
+      "path": "examples/jeff_decide.rs",
+      "bytes": 1445,
+      "sha256": "7d0d47289120be703ff0537f661a7abbed8fafd5e35b7fc75a1f28182b5167ed"
+    },
+    {
+      "path": "experiments/runs/portable-p4c/package.json",
+      "bytes": 46856,
+      "sha256": "2bb221e19f38782494b6e8c5fe0716f834b45e04f9d86b797d56173d91ee9959"
+    },
+    {
+      "path": "integrations/kaze_nhanh/Cargo.lock",
+      "bytes": 6490,
+      "sha256": "df5104e17be725f932531aa720c56cf7d4e7b55c599c91dee8de180c61aa906a"
+    },
+    {
+      "path": "integrations/kaze_nhanh/Cargo.toml",
+      "bytes": 486,
+      "sha256": "76a920c12c00efaa0ce6fb052f1c6f211b34af0afa490f3e05e62c8b4d1d6d75"
+    },
+    {
+      "path": "integrations/kaze_nhanh/examples/decide_report.rs",
+      "bytes": 3688,
+      "sha256": "c197549539ceca2b468b4cfffd76fcc1c14ce4e4b82aeef8402b116bb7c3d4aa"
+    },
+    {
+      "path": "integrations/kaze_nhanh/examples/prepare_report.rs",
+      "bytes": 1269,
+      "sha256": "b80f668ce57fe47042ad1e30594984024422e50e03a7e51270cd99dd6380ef07"
+    },
+    {
+      "path": "integrations/kaze_nhanh/README.md",
+      "bytes": 341,
+      "sha256": "31b74546286ce99740efdf2425a0db0880a85f6ec4749960b144975f359bab3e"
+    },
+    {
+      "path": "integrations/kaze_nhanh/src/lib.rs",
+      "bytes": 6899,
+      "sha256": "8cc0bfdf187b1c70c186be4edba4f5e7851fed15cce3e94a459ee875ee49bcdf"
+    },
+    {
+      "path": "integrations/kaze_nhanh/tests/adapter.rs",
+      "bytes": 11477,
+      "sha256": "049a1bc15d68f40459119a7e867194def05898558dd3ef2a3899d70bb081595f"
+    },
+    {
+      "path": "models/jeff-bundle.json",
+      "bytes": 11092,
+      "sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14"
+    },
+    {
+      "path": "models/jeff-checkpoint/chat_template.jinja",
+      "bytes": 7755,
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    {
+      "path": "models/jeff-checkpoint/config.json",
+      "bytes": 2692,
+      "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+    },
+    {
+      "path": "models/jeff-checkpoint/decision_config.json",
+      "bytes": 6635,
+      "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+    },
+    {
+      "path": "models/jeff-checkpoint/LICENSE",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "path": "models/jeff-checkpoint/model.safetensors",
+      "bytes": 1706027688,
+      "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+    },
+    {
+      "path": "models/jeff-checkpoint/NOTICE",
+      "bytes": 327,
+      "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+    },
+    {
+      "path": "models/jeff-checkpoint/processor_config.json",
+      "bytes": 1218,
+      "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+    },
+    {
+      "path": "models/jeff-checkpoint/README.md",
+      "bytes": 25920,
+      "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+    },
+    {
+      "path": "models/jeff-checkpoint/readout.safetensors",
+      "bytes": 522320,
+      "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer_config.json",
+      "bytes": 1166,
+      "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+    },
+    {
+      "path": "models/jeff-checkpoint/tokenizer.json",
+      "bytes": 19989492,
+      "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+    },
+    {
+      "path": "models/jeff-rust-bundle-p3.json",
+      "bytes": 1872,
+      "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4329,
+      "sha256": "30f698963d1fa818dc9038b2082443def01c611569b77e81bea9077a96b1d754"
+    },
+    {
+      "path": "runtime/rust/target/release/jeff.exe",
+      "bytes": 6703616,
+      "sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd"
+    },
+    {
+      "path": "runtime/audit_license_package.py",
+      "bytes": 4877,
+      "sha256": "b9b66d129c8e4eb3532183a3515823a7df848af87e8973f1c48c6c0d7d3146ef"
+    },
+    {
+      "path": "runtime/audit_quality_inputs.py",
+      "bytes": 2751,
+      "sha256": "0c666fecd5fb7a857874ea3ddc202b38da75f53162662264dee3d0079494ab9a"
+    },
+    {
+      "path": "runtime/audit_rust_dependencies.py",
+      "bytes": 4894,
+      "sha256": "f8cd55360f75a01a314193e4cc8c0bbdcf2c9b84275f309d09b11fdcb9ec931d"
+    },
+    {
+      "path": "runtime/benchmark_rust_runtime.py",
+      "bytes": 9889,
+      "sha256": "e65185d3556e3522a67141907ab687137fed18faceec20d68c354909494aa8c0"
+    },
+    {
+      "path": "runtime/check_jeff_boundaries.py",
+      "bytes": 4677,
+      "sha256": "5ce00861b398ec89bce59ff97cd3db8f8f93952cb84d6e5d857172458d262b7f"
+    },
+    {
+      "path": "runtime/check_rust_boundaries.py",
+      "bytes": 3826,
+      "sha256": "352946837fa6f321dc6dbeb2904d75d1fc5825d9b58d57a0c810adec9db767de"
+    },
+    {
+      "path": "runtime/create_migration_requests.py",
+      "bytes": 1616,
+      "sha256": "c4b4e447c2e86b30a49bc794077a0c57bed522b2f8ef3cde27dbf467e6d1fa57"
+    },
+    {
+      "path": "runtime/create_token_limit_requests.py",
+      "bytes": 2597,
+      "sha256": "ab28e74f3cf5f13c0b1c0ff99c469c0038296ab3683c559db6ffbc8050f36837"
+    },
+    {
+      "path": "runtime/export_jeff_reference.py",
+      "bytes": 7548,
+      "sha256": "eb771b6295eda5f1b4930cfe926910d44b8105edad72a6fe0a35fa6cf6468014"
+    },
+    {
+      "path": "runtime/jeff_worker.py",
+      "bytes": 15401,
+      "sha256": "a7f1ed0a8dac713a4ada6937811a694c99a254b690bbfaa07cd2589c030e22ad"
+    },
+    {
+      "path": "runtime/license_supplements.py",
+      "bytes": 2225,
+      "sha256": "3f3a0ca29077362380ab264ac944652efc3a396bbfaf79e4193b31e7c68e80b8"
+    },
+    {
+      "path": "runtime/licenses/jeff-source/LICENSE",
+      "bytes": 1162,
+      "sha256": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb"
+    },
+    {
+      "path": "runtime/licenses/pulp-wasm-simd-flag-0.1.1/LICENSE",
+      "bytes": 1062,
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "runtime/licenses/reference-sources.json",
+      "bytes": 702,
+      "sha256": "8ef33b29c61805693f964813dcb2c5ade79abba92385b14667bce0e8c23612d0"
+    },
+    {
+      "path": "runtime/licenses/supplements.json",
+      "bytes": 1744,
+      "sha256": "bf2624f1a2328671a3b3a57206eec05ee72b958b4b7cfd6928e89f2291d42218"
+    },
+    {
+      "path": "runtime/measure_worker_tree.py",
+      "bytes": 7198,
+      "sha256": "b20766b3f0e6e3a59678bcc2a8a22f3a938d69a8bdbcfec5a667a905e8c92397"
+    },
+    {
+      "path": "runtime/package_rust_runtime.py",
+      "bytes": 9383,
+      "sha256": "a289a4377f4cfe6397d7c27e8fd76cd0e8c8ce77c3a1f75808cf62ccbb052867"
+    },
+    {
+      "path": "runtime/rust/build.rs",
+      "bytes": 604,
+      "sha256": "5cb7931ac8e938e9c760d9b7c67169e43e5d58856a75c48fa56cccfafba41f54"
+    },
+    {
+      "path": "runtime/rust/Cargo.lock",
+      "bytes": 37173,
+      "sha256": "1d8c90f3e86d6f4d27ddc4421f51045de643e31b6bfc5f0035ce9f7fdb978b4d"
+    },
+    {
+      "path": "runtime/rust/Cargo.toml",
+      "bytes": 729,
+      "sha256": "6ad8e4bf5a76f6f32f080732f39b3b1e727c3bff97cb3475cb7ab36117a16a04"
+    },
+    {
+      "path": "runtime/rust/examples/probe.rs",
+      "bytes": 10533,
+      "sha256": "99315136c8b8a21c79db573db47c93492ccfe355b981805f7e8b8adfb4cc8be8"
+    },
+    {
+      "path": "runtime/rust/examples/profile.rs",
+      "bytes": 3319,
+      "sha256": "57913b943a71f4471ea755b14649976f27263e08783b0bb8ce6272d801b6e681"
+    },
+    {
+      "path": "runtime/rust/examples/verify_portable.rs",
+      "bytes": 5312,
+      "sha256": "e1ebd9d4cb30439f1b75e5d3b3766c5de431ed30b4f357bba3e750379836e906"
+    },
+    {
+      "path": "runtime/rust/README.md",
+      "bytes": 7018,
+      "sha256": "534f3a51285983ce708c455576fa1f93492bde5c7a1f471e023e014db4fe3ca1"
+    },
+    {
+      "path": "runtime/rust/spec/jeff-0.8b-tensors.json",
+      "bytes": 63815,
+      "sha256": "3a3ba9caec88d7ba664e6ad26ba1a9bafb7198a5dccde20f0608c8c953320247"
+    },
+    {
+      "path": "runtime/rust/src/backbone.rs",
+      "bytes": 10894,
+      "sha256": "6e4f79c9e510a7da6b4b7fbbc16539343937ecd1887327d518f360b2c29bda1a"
+    },
+    {
+      "path": "runtime/rust/src/bin/jeff.rs",
+      "bytes": 4287,
+      "sha256": "a5873edba71ff68cf2d5317225ce9ca9711d37e971fdf2bddfa382e159dfa810"
+    },
+    {
+      "path": "runtime/rust/src/bundle.rs",
+      "bytes": 14732,
+      "sha256": "714dfdcd136e69ee4f22c19422ec88fcae1b8c18d15aa7fb2b7b5c7e8deb60ec"
+    },
+    {
+      "path": "runtime/rust/src/json.rs",
+      "bytes": 3198,
+      "sha256": "6d87637006ba8de3b7c28227293d7e2eae3823f3e9205d8b2f81cf16d2215bb0"
+    },
+    {
+      "path": "runtime/rust/src/lib.rs",
+      "bytes": 5178,
+      "sha256": "636d63671491b010da2089901e6dcb109604eb1e5e1b453b02df7f3a0752bcd2"
+    },
+    {
+      "path": "runtime/rust/src/policy.rs",
+      "bytes": 1570,
+      "sha256": "7adee7fb4a679e79abc8ed0b86113ee333c60791dbe71d85a81ac85e96635a57"
+    },
+    {
+      "path": "runtime/rust/src/prompt.rs",
+      "bytes": 1671,
+      "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+    },
+    {
+      "path": "runtime/rust/src/readout.rs",
+      "bytes": 1339,
+      "sha256": "90a2781c46f07ff76fde874fa0482de807b1815f13d53a609ee8235c9667b867"
+    },
+    {
+      "path": "runtime/rust/src/tokenize.rs",
+      "bytes": 3839,
+      "sha256": "abee532540c26cd57b966ee7289a1129288e7f46f356a1bf800537973008c4a6"
+    },
+    {
+      "path": "runtime/rust/src/worker.rs",
+      "bytes": 3175,
+      "sha256": "6fffa975232d99188b6efe6439a112033654489fc0dd6842b2554215761c8b60"
+    },
+    {
+      "path": "runtime/rust/tests/contracts.rs",
+      "bytes": 3541,
+      "sha256": "1c0dc46e7c94e961792ba5732214b5f3cb8b96d6a2a21b7c9d21a04a36ca105d"
+    },
+    {
+      "path": "runtime/rust/tests/worker.rs",
+      "bytes": 3388,
+      "sha256": "7513c9e3af75c8c30d1f25b2bd105f7cbd97b1440b9715a17c9645ed33671be6"
+    },
+    {
+      "path": "runtime/test_export_jeff_reference.py",
+      "bytes": 1154,
+      "sha256": "2b0adb1c03b079b27cef4678132a66d9797f9aeb0b49696ed42c2811b26979ea"
+    },
+    {
+      "path": "runtime/test_jeff_worker.py",
+      "bytes": 8788,
+      "sha256": "9c47a3077bcf07a62d60a1ae97a8b83278f7c4bfc137f442a352a38c62817ef1"
+    },
+    {
+      "path": "runtime/test_license_supplements.py",
+      "bytes": 2784,
+      "sha256": "c5bf8efe735f2109e29a88426f78ea4f8f5faa1d14d52ad301ed6ed373dee6cf"
+    },
+    {
+      "path": "runtime/validate_migration_cases.py",
+      "bytes": 5401,
+      "sha256": "bf3ddb3b2af976d8489c46be79ba49b0a01cfcc866b0fe2bb17ee3709e69b0f0"
+    },
+    {
+      "path": "runtime/validate_portable.py",
+      "bytes": 4047,
+      "sha256": "2d58629d57dce0bda36fede7033be356e15c889cbab738b56c871a42f3d3eb00"
+    },
+    {
+      "path": "runtime/validate_rust_process.py",
+      "bytes": 9477,
+      "sha256": "831209a5af0174c6fa33f4d1e381378690ecb718ef92a66f7dd0d3906cae01f3"
+    },
+    {
+      "path": "runtime/validate_rust_runtime.py",
+      "bytes": 7605,
+      "sha256": "94198d7a9ed30c9120596743b4e4b4fa70890a3b0b867efc652bae42927cc8c0"
+    },
+    {
+      "path": "runtime/validate_token_limit_boundaries.py",
+      "bytes": 5442,
+      "sha256": "0bd7a061acf08f7f76fe699b247c5228954361a4178dd02b4a0d11eaa791f50f"
+    },
+    {
+      "path": "src/lib.rs",
+      "bytes": 8043,
+      "sha256": "b5b64c746314c39b70c90ae8aa3324c357965c830970f54e71f0e9a9d03c9d85"
+    },
+    {
+      "path": "src/process.rs",
+      "bytes": 8112,
+      "sha256": "f01d7b2ece1ee4cece24d9157eccc2ef75fca883b21ed0b12c34453e24b60cd6"
+    },
+    {
+      "path": "tests/contract.rs",
+      "bytes": 5556,
+      "sha256": "e64e08bcbe7e0dba7fa2f4c3bf68c2ac12d392a4faffabb709931492a0deddbb"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/asr-unicode.json",
+      "bytes": 62598,
+      "sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/boundaries.json",
+      "bytes": 731,
+      "sha256": "b7f6b6052b99f0bf46f273254f006bd5524b4930d118936ad02c8a9af7623821"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/candidate-request.json",
+      "bytes": 58052,
+      "sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/long-text.json",
+      "bytes": 100052,
+      "sha256": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/maximum-candidates.json",
+      "bytes": 254853,
+      "sha256": "81b5a85ef58aefca25401945388ec96c4aa1e59793080495f614e52e67498a2e"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/README.md",
+      "bytes": 3544,
+      "sha256": "6f44212031903ffcef06fb11c75b1c0ee3b82240a98d68b3f5985c94c7d1d4d8"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/reversed.json",
+      "bytes": 58057,
+      "sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/special-token-text.json",
+      "bytes": 61211,
+      "sha256": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797"
+    },
+    {
+      "path": "tests/fixtures/jeff-golden/token-limit-8192.json",
+      "bytes": 453247,
+      "sha256": "b2a734bc089de83c9001e1ff2b0c31487c17f896b9521b6f13ede87af6446e36"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/asr-unicode.json",
+      "bytes": 702,
+      "sha256": "11fe25160f77466b33b98f0685e52c87ca365b49a8ee98af790c521245117764"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/long-text.json",
+      "bytes": 2965,
+      "sha256": "33885af3c6cfc6ca7cfbfd48a09c47b5bf0b0cd1479b60ee61c6fed8568b7a00"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/maximum-candidates.json",
+      "bytes": 16165,
+      "sha256": "b20a3257709496124da9d99b9248ca7a4ad6deceb585df547e0992056fb19322"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/reversed.json",
+      "bytes": 385,
+      "sha256": "3d9627fe89c2ccf278784bf651ae08e9c246466b8c436decfc4c804af34c48db"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/special-token-text.json",
+      "bytes": 694,
+      "sha256": "71eda725268bd47e05184137ae31013ab165edecc7253953277421180ce6ab60"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/token-limit-8192.json",
+      "bytes": 16580,
+      "sha256": "e7d08d69d4fccce941e188c7b96273807c0601b5a08984dc2fc0110b2d504b33"
+    },
+    {
+      "path": "tests/fixtures/jeff-requests/token-limit-8193.json",
+      "bytes": 16582,
+      "sha256": "a17aed79a435e3e1dfc7aff0c8070437c8d7e537d33cc9a575c2ae4ab1034dd3"
+    },
+    {
+      "path": "tests/fixtures/kaze-nhanh/policy.json",
+      "bytes": 185,
+      "sha256": "2582d58a6b75eb94ed62d97cab8adcd686ad9222040980e84931adfd2c80315f"
+    },
+    {
+      "path": "tests/fixtures/kaze-nhanh/README.md",
+      "bytes": 757,
+      "sha256": "46df74c0da2c3251a69eddd506ba3b477fb50fb1956c73e6c8a2fdabe9da659a"
+    },
+    {
+      "path": "tests/fixtures/kaze-nhanh/report.json",
+      "bytes": 8432,
+      "sha256": "c51debad923542f8c67ac41ccb79e8a2ffe1a5743fabba0f006edd8bd5651fb0"
+    },
+    {
+      "path": "tests/fixtures/kaze-nhanh/unsupported-policy.json",
+      "bytes": 175,
+      "sha256": "c876c3bd0cb22290065a55c47b9f65e76154fb6aa741af5410bb11e08b032064"
+    },
+    {
+      "path": "tests/fixtures/native_worker.rs",
+      "bytes": 2011,
+      "sha256": "be57d2725097ac392cbafc382775484d0b58337f0075a6e43915dc1bcc03dc2f"
+    },
+    {
+      "path": "tests/fixtures/process_worker.py",
+      "bytes": 1458,
+      "sha256": "ed0781db1a79f819d71b88fe871807d49263797bd09c4756434cb746631f48c6"
+    },
+    {
+      "path": "tests/native_process.rs",
+      "bytes": 4892,
+      "sha256": "a6cdfb7a34e5f9822b82ac3341690635806a8b5886853a35c822d65b361607ec"
+    },
+    {
+      "path": "tests/process.rs",
+      "bytes": 3590,
+      "sha256": "c64459e7b8ca57f5dca1353041b1062ed66f3f5af3fd202317a03a8996b2dcbf"
+    }
+  ]
+}
