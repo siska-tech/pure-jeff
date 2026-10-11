@@ -234,8 +234,13 @@ def main():
                       and all(u.startswith("https://") or u.startswith(origin) for u in net), "hosts": hosts}
         if args.site_url:
             import urllib.request
-            deployed = json.loads(urllib.request.urlopen(f"{origin}/demo-config.json", timeout=60).read())
-            engine = urllib.request.urlopen(f"{origin}/engine.wasm", timeout=120).read()
+
+            def fetch(path, timeout):
+                # Cloudflare may reject the default Python-urllib user agent (HTTP 403).
+                request = urllib.request.Request(f"{origin}/{path}", headers={"User-Agent": "pure-jeff-e2e/1"})
+                return urllib.request.urlopen(request, timeout=timeout).read()
+            deployed = json.loads(fetch("demo-config.json", 60))
+            engine = fetch("engine.wasm", 120)
             g["deployed"] = {"passed": deployed == config and hashlib.sha256(engine).hexdigest() == config["engine"]["sha256"],
                              "engine_sha256": hashlib.sha256(engine).hexdigest()}
     elif args.w4:
