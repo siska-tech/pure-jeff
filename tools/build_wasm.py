@@ -1,9 +1,12 @@
-"""Build the Wasm probe or the web demo engine reproducibly.
+"""Build the Wasm probe or the web demo engine without host paths.
 
-Panic messages embed source paths, so a plain build's bytes depend on where the repository,
-CARGO_HOME (registry and git checkouts) and the target directory (build-script output that is
-included) live. This remaps those prefixes to fixed names, so the same commit and toolchain
-give the same .wasm on any machine path.
+Panic messages embed source paths. A plain build therefore contains absolute paths of the
+repository, CARGO_HOME (registry and git checkouts, i.e. the user's home directory) and the
+target directory (build-script output that is included). This remaps those prefixes to
+/pure-jeff, /cargo and /target, so no host path ships, and the same commit, toolchain and
+checkout path give byte-identical .wasm regardless of CARGO_HOME and target directory.
+(Cargo's crate metadata hash still depends on the checkout path of path dependencies, so a
+different checkout path changes symbol names and the bytes.)
 
   python tools/build_wasm.py engine --target-dir .venv/demo-target-wasm
   python tools/build_wasm.py probe --target-dir .venv/wasm-target-simd128

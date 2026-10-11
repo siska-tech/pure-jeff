@@ -13,14 +13,13 @@ A static page that runs the Jeff candidate decision entirely in the browser (Rus
 ## Build
 
 ```powershell
-# Engine (wasm32, SIMD128)
-$env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/demo-target-wasm'
-$env:RUSTFLAGS = '--cfg getrandom_backend="custom" -C target-feature=+simd128'
-cargo build --locked --offline --release --lib --target wasm32-unknown-unknown --manifest-path apps/web-demo/engine/Cargo.toml
+# Engine (wasm32, SIMD128). build_wasm.py remaps host paths, so no user or home directory ships
+# in engine.wasm, and the bytes do not depend on CARGO_HOME or the target directory.
+python tools/build_wasm.py engine --target-dir .venv/demo-target-wasm
+python tools/check_no_host_paths.py .venv/demo-target-wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm
 
 # Native checks
 $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/demo-target'
-Remove-Item Env:RUSTFLAGS
 cargo test --locked --offline --release --manifest-path apps/web-demo/engine/Cargo.toml
 cargo clippy --locked --offline --release --manifest-path apps/web-demo/engine/Cargo.toml --all-targets -- -D warnings
 

@@ -1,5 +1,6 @@
 // Cloudflare Workers static-assets deployment of the web demo (no server code).
-// Build first:  python build_demo.py --engine-wasm <engine.wasm> --manifest ../../models/jeff-rust-bundle.json \
+// Build the engine without host paths:  python ../../tools/build_wasm.py engine --target-dir ../../.venv/demo-target-wasm
+// Then the site:  python build_demo.py --engine-wasm <engine.wasm> --manifest ../../models/jeff-rust-bundle.json \
 //   --model-base-url https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/ \
 //   --manifest-url bundle/manifest.json --output dist
 // Then:         npx wrangler deploy

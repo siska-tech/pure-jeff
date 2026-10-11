@@ -67,9 +67,8 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           cargo fmt --manifest-path runtime/wasm/Cargo.toml -- --check
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-          $env:CARGO_TARGET_DIR = ".ci-target/wasm"
-          $env:RUSTFLAGS = '--cfg getrandom_backend="custom" -C target-feature=+simd128'
-          cargo build --locked --release --lib --target wasm32-unknown-unknown --manifest-path runtime/wasm/Cargo.toml
+          Remove-Item Env:CARGO_TARGET_DIR
+          python -B tools/build_wasm.py probe --target-dir .ci-target/wasm
       - name: Web demo engine
         run: |
           $env:CARGO_TARGET_DIR = ".ci-target/engine"
@@ -79,9 +78,11 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           cargo fmt --manifest-path apps/web-demo/engine/Cargo.toml -- --check
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-          $env:CARGO_TARGET_DIR = ".ci-target/wasm"
-          $env:RUSTFLAGS = '--cfg getrandom_backend="custom" -C target-feature=+simd128'
-          cargo build --locked --release --lib --target wasm32-unknown-unknown --manifest-path apps/web-demo/engine/Cargo.toml
+          Remove-Item Env:CARGO_TARGET_DIR
+          python -B tools/build_wasm.py engine --target-dir .ci-target/wasm
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          # No host path (home directory, checkout, target) may ship in the engine.
+          python -B tools/check_no_host_paths.py .ci-target/wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python -B apps/web-demo/strip_exports.py .ci-target/wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm .ci-target/engine.wasm
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
