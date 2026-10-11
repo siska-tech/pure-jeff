@@ -1,0 +1,23 @@
+--- a/core/src/model/patch.rs
++++ b/core/src/model/patch.rs
+@@ -303,20 +303,6 @@
+             }
+             let Node { id: patch_node_id, name, inputs, op, outputs } = node;
+             let n_outputs = outputs.len();
+-            for dup in 0..target.nodes.len() {
+-                if target.node(dup).op().dyn_eq(op.as_ref())
+-                    && inputs.len() == target.node(dup).inputs.len()
+-                    && inputs
+-                        .iter()
+-                        .zip(target.node(dup).inputs.iter())
+-                        .all(|(patch_input, d)| mapping[patch_input] == *d)
+-                {
+-                    for ix in 0..n_outputs {
+-                        mapping.insert(OutletId::new(patch_node_id, ix), OutletId::new(dup, ix));
+-                    }
+-                    continue;
+-                }
+-            }
+             let facts = outputs.into_iter().map(|of| of.fact).collect();
+             let added_node_id = target.add_node(name, op, facts)?;
+             new_nodes.insert(added_node_id);

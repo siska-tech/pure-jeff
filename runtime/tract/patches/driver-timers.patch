@@ -1,0 +1,148 @@
+--- /dev/null
++++ b/core/src/driver_timing.rs
+@@ -0,0 +1,82 @@
++//! Diagnostic-only nested region timers; no operation or optimizer changes.
++use std::{cell::RefCell, collections::BTreeMap, time::Instant};
++
++#[derive(Default)]
++struct State {
++    enabled: bool,
++    stack: Vec<Frame>,
++    rows: BTreeMap<&'static str, (u64, u128, u128)>,
++}
++struct Frame {
++    name: &'static str,
++    started: Instant,
++    child_ns: u128,
++}
++thread_local! {
++    static STATE: RefCell<State> = RefCell::new(State::default());
++}
++
++pub fn begin(enabled: bool) {
++    STATE.with(|s| {
++        let mut s = s.borrow_mut();
++        assert!(s.stack.is_empty());
++        *s = State { enabled, ..State::default() };
++    });
++}
++
++pub fn finish() -> BTreeMap<&'static str, (u64, u128, u128)> {
++    STATE.with(|s| {
++        let mut s = s.borrow_mut();
++        assert!(s.stack.is_empty());
++        s.enabled = false;
++        std::mem::take(&mut s.rows)
++    })
++}
++
++pub struct Span(bool);
++impl Span {
++    pub fn new(name: &'static str) -> Self {
++        STATE.with(|s| {
++            let mut s = s.borrow_mut();
++            if s.enabled {
++                s.stack.push(Frame { name, started: Instant::now(), child_ns: 0 });
++            }
++            Self(s.enabled)
++        })
++    }
++}
++impl Drop for Span {
++    fn drop(&mut self) {
++        if !self.0 { return; }
++        STATE.with(|s| {
++            let mut s = s.borrow_mut();
++            let frame = s.stack.pop().expect("balanced diagnostic spans");
++            let inclusive = frame.started.elapsed().as_nanos();
++            let row = s.rows.entry(frame.name).or_default();
++            row.0 += 1;
++            row.1 += inclusive;
++            row.2 += inclusive-frame.child_ns;
++            if let Some(parent) = s.stack.last_mut() { parent.child_ns += inclusive; }
++        });
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    #[test]
++    fn nested_spans_and_disabled_mode() {
++        begin(true);
++        {
++            let _outer = Span::new("outer");
++            { let _inner = Span::new("inner"); }
++        }
++        let rows = finish();
++        assert_eq!(rows["outer"].0, 1);
++        assert_eq!(rows["inner"].0, 1);
++        assert_eq!(rows["outer"].1, rows["outer"].2+rows["inner"].1);
++        begin(false);
++        { let _span = Span::new("disabled"); }
++        assert!(finish().is_empty());
++    }
++}
+--- a/core/src/lib.rs
++++ b/core/src/lib.rs
+@@ -81,6 +81,7 @@
+ pub mod lanes;
+ pub mod model;
+ pub mod optim;
++pub mod driver_timing;
+ pub mod plan;
+ #[macro_use]
+ pub mod runtime;
+--- a/core/src/model/graph.rs
++++ b/core/src/model/graph.rs
+@@ -742,6 +742,7 @@
+     }
+ 
+     pub fn compact(&mut self) -> TractResult<()> {
++        let _driver_span = crate::driver_timing::Span::new("compact");
+         let mut order = self.eval_order()?;
+         if order.len() == self.nodes.len() && order.iter().enumerate().all(|(a, b)| a == *b) {
+             return Ok(());
+--- a/core/src/model/patch.rs
++++ b/core/src/model/patch.rs
+@@ -281,6 +281,7 @@
+ 
+     /// Apply all changes in the patch to the target model.
+     pub fn apply(self, target: &mut Graph<F, O>) -> TractResult<()> {
++        let _driver_span = crate::driver_timing::Span::new("patch_apply");
+         let prior_target_inputs = target.input_outlets()?.len();
+         let prior_target_outputs = target.output_outlets()?.len();
+         let ModelPatch {
+@@ -303,6 +304,7 @@
+             }
+             let Node { id: patch_node_id, name, inputs, op, outputs } = node;
+             let n_outputs = outputs.len();
++            let driver_dup_span = crate::driver_timing::Span::new("duplicate_search");
+             for dup in 0..target.nodes.len() {
+                 if target.node(dup).op().dyn_eq(op.as_ref())
+                     && inputs.len() == target.node(dup).inputs.len()
+@@ -317,6 +319,7 @@
+                     continue;
+                 }
+             }
++            drop(driver_dup_span);
+             let facts = outputs.into_iter().map(|of| of.fact).collect();
+             let added_node_id = target.add_node(name, op, facts)?;
+             new_nodes.insert(added_node_id);
+@@ -365,6 +368,7 @@
+         debug_assert_eq!(target.input_outlets()?.len(), prior_target_inputs);
+         debug_assert_eq!(target.output_outlets()?.len(), prior_target_outputs);
+         target.set_input_outlets(&model_input_outlets)?;
++        let driver_garbage_span = crate::driver_timing::Span::new("garbage_removal");
+         let mut maybe_garbage: HashSet<usize> = shunt_outlet_by.iter().map(|o| o.0.node).collect();
+         while let Some(&maybe) = maybe_garbage.iter().next() {
+             maybe_garbage.remove(&maybe);
+@@ -383,6 +387,8 @@
+                 target.check_edges()?;
+             }
+         }
++        drop(driver_garbage_span);
++        let _driver_rename_span = crate::driver_timing::Span::new("node_rename");
+         for n in new_nodes.iter() {
+             if let Some((prefix, _)) = target.nodes[*n].name.split_once('#') {
+                 target.nodes[*n].name = target.unique_name(prefix).into();

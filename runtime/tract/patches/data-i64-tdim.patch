@@ -1,0 +1,18 @@
+--- a/data/src/tensor.rs
++++ b/data/src/tensor.rs
+@@ -1688,6 +1688,15 @@
+                             DatumType::F16 => self.natural_cast::<$source, f16>(&mut result),
+                             DatumType::F32 => self.natural_cast::<$source, f32>(&mut result),
+                             DatumType::F64 => self.natural_cast::<$source, f64>(&mut result),
++                            // KazeJudge patch: keep ONNX INT64 bounds intact.
++                            // The i32 intermediate below truncates INT64_MAX to -1.
++                            DatumType::TDim if self.dt == DatumType::I64 => {
++                                let slice = self.as_slice_unchecked::<i64>();
++                                let result = result.as_slice_mut_unchecked::<TDim>();
++                                for i in 0..self.len() {
++                                    result[i] = slice[i].into();
++                                }
++                            }
+                             DatumType::TDim => {
+                                 let ints = self.cast_to::<i32>()?;
+                                 let slice = ints.as_slice_unchecked::<i32>();
