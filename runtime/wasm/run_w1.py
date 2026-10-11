@@ -137,7 +137,7 @@ def main():
     parser.add_argument("--browser", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True, help="native w1_reference.exe")
     parser.add_argument("--wasm", type=Path, required=True)
-    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle-p3.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle.json")
     parser.add_argument("--case", default="candidate-request")
     parser.add_argument("--max-input-tokens", type=int, default=512)
     parser.add_argument("--cancel-forward-fraction", type=float, default=0.5)
@@ -190,7 +190,7 @@ def main():
     }).encode(), "application/json")
     received = {"event": threading.Event()}
     server = serve(routes, received)
-    profile = Path(tempfile.mkdtemp(prefix="kj-w1-profile-"))
+    profile = Path(tempfile.mkdtemp(prefix="pj-w1-profile-"))
     browser = subprocess.Popen([str(args.browser), "--headless=new", f"--user-data-dir={profile}",
                                 "--no-first-run", "--no-default-browser-check", "--disable-extensions",
                                 "--disable-sync", "--disable-background-networking",

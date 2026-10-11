@@ -2,7 +2,7 @@
 
 Development-only browser feasibility probe ([plan](../../docs/wasm-demo-feasibility-plan.md), [W0 results](../../docs/wasm-w0-results.md), [W1 results](../../docs/wasm-w1-results.md)). It is not a DecisionProvider and not a public worker protocol.
 
-In pure-jeff, pass `--manifest models/jeff-rust-bundle.json` to `run_w0.py`, `run_w1.py` and `run_w2.py`: their default is the KazeJudge-era name `models/jeff-rust-bundle-p3.json`, kept unchanged because the drivers' hashes are part of the W0-W2 evidence.
+The drivers default to `models/jeff-rust-bundle.json`. The W0-W2 evidence was recorded with the KazeJudge-era versions of these drivers and pages (default manifest `jeff-rust-bundle-p3.json`, KazeJudge page titles); their hashes in the evidence correspond to those versions ([commit map](../../docs/commit-map.md)).
 
 `build.rs` checks the SHA-256 of the frozen Native `backbone.rs`, `prompt.rs`, `readout.rs` and `policy.rs`; a changed frozen source fails the build. W0 includes the backbone byte-for-byte. W1 (`decide`) uses generated copies of the backbone and readout whose only change is reading weights from a byte slice (`SliceSafetensors`) instead of a memory map; every substitution must match exactly once. The wasm module uses a raw C ABI (no wasm-bindgen) and imports only `env.kj_random_fill`, `env.kj_now_ms` and `env.kj_panic`. `getrandom` 0.3 uses its custom backend, fed by `crypto.getRandomValues`.
 

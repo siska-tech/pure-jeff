@@ -91,7 +91,7 @@ def make_server(dist, manifest, port=0, log=None, role="all", tls=None, cors_ori
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dist", type=Path, required=True)
-    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle-p3.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle.json")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--log", type=Path)
     args = parser.parse_args()

@@ -90,7 +90,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--browser", type=Path, required=True)
     parser.add_argument("--dist", type=Path, required=True)
-    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle-p3.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle.json")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--timeout", type=float, default=5400)
     parser.add_argument("--w4", action="store_true", help="HTTPS, separate model origin with CORS, download abort")
@@ -143,7 +143,7 @@ def main():
         model_server, model_requests_log = None, None
         origin = f"http://127.0.0.1:{server.server_port}"
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    profile = Path(tempfile.mkdtemp(prefix="kj-w3-profile-"))
+    profile = Path(tempfile.mkdtemp(prefix="pj-w3-profile-"))
     browser = subprocess.Popen([str(args.browser), "--headless=new", f"--user-data-dir={profile}",
                                 "--remote-debugging-port=0", "--no-first-run", "--no-default-browser-check",
                                 "--disable-extensions", "--disable-sync", "--disable-background-networking",

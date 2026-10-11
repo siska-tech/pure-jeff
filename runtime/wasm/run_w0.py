@@ -170,7 +170,7 @@ def main():
     parser.add_argument("--browser", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True, help="native w0_reference.exe")
     parser.add_argument("--variant", action="append", required=True, metavar="NAME=PATH.wasm")
-    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle-p3.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle.json")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--timeout", type=float, default=600)
     args = parser.parse_args()
@@ -216,7 +216,7 @@ def main():
                    for name, path in variants.items()})
     received = {"event": threading.Event()}
     server = serve(routes, received)
-    profile = Path(tempfile.mkdtemp(prefix="kj-w0-profile-"))
+    profile = Path(tempfile.mkdtemp(prefix="pj-w0-profile-"))
     browser = subprocess.Popen([str(args.browser), "--headless=new", f"--user-data-dir={profile}",
                                 "--no-first-run", "--no-default-browser-check", "--disable-extensions",
                                 "--disable-sync", "--disable-background-networking",

@@ -114,7 +114,7 @@ def main():
         target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(reference_index.parent/reference["file"],target)
     shutil.copy2(reference_index,destination/"licenses/reference-sources.json")
-    notice_lines = ["KazeJudge third-party attribution inventory (local prototype)",
+    notice_lines = ["pure-jeff third-party attribution inventory (local prototype)",
         "", "This inventory preserves collected license/notice evidence; distribution review remains open.",
         "Dependency scope: conservative locked Windows build graph, including build/dev dependencies.",
         "Project license selection remains separate from third-party declarations.", "",
@@ -129,7 +129,7 @@ def main():
             *[record["path"] for record in entry["files"]],""]
     (destination/"THIRD_PARTY_NOTICES.txt").write_text("\n".join(notice_lines)+"\n",encoding="utf-8")
     (destination/"README.txt").write_text(
-        "KazeJudge fixed 0.8B Windows x86_64 CPU local prototype.\n"
+        "pure-jeff fixed 0.8B Windows x86_64 CPU local prototype.\n"
         "Run verify.exe. Python, Cargo and PowerShell scripts are not needed.\n"
         "Requires Windows OS/CRT including VCRUNTIME140.dll. Model files must remain immutable during inference.\n"
         "Not release accepted: project license, third-party notices, quality, performance SLO and Python-free clean-host validation remain open.\n",

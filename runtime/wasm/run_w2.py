@@ -114,7 +114,7 @@ def main():
     parser.add_argument("--reference", type=Path, required=True, help="native w2_reference.exe")
     parser.add_argument("--wasm", type=Path, required=True)
     parser.add_argument("--official", type=Path, required=True, help="directory of exported length references")
-    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle-p3.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "models/jeff-rust-bundle.json")
     parser.add_argument("--max-input-tokens", type=int, default=512)
     parser.add_argument("--heap-reserve-bytes", type=int, default=805306368)
     parser.add_argument("--cancel-case", default="synthetic-asr-mixed-2-512")
@@ -177,7 +177,7 @@ def main():
     }, ensure_ascii=False).encode(), "application/json")
     parts = {"event": threading.Event()}
     server = serve(routes, parts)
-    profile = Path(tempfile.mkdtemp(prefix="kj-w2-profile-"))
+    profile = Path(tempfile.mkdtemp(prefix="pj-w2-profile-"))
     browser = subprocess.Popen([str(args.browser), "--headless=new", f"--user-data-dir={profile}",
                                 "--no-first-run", "--no-default-browser-check", "--disable-extensions",
                                 "--disable-sync", "--disable-background-networking",
