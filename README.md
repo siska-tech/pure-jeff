@@ -1,52 +1,84 @@
 # pure-jeff
 
-Jeff（Qwen3.5-0.8BベースのDecision Model）の候補判断を、Python・PyTorchなしでRustだけで実行する実装。CPUのNative実行と、ブラウザ内のWebAssembly実行の2系統がある。
+Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/jeff)の候補判断（decision model）を実行する実装。CPUのNative実行と、ブラウザ内のWebAssembly実行がある。
 
-固定checkpoint（step1113、revision `51552f39…`）・text-only・batch 1に対象を絞り、公式Jeff（Python）の出力を参照として数値一致を検証している。人工データでの検証であり、日本語OCR／ASRの認識品質は評価していない。
+*Pure-Rust (Candle) inference for the Jeff-Qwen3.5-0.8B decision model, as a native CPU worker and in the browser via WebAssembly, verified against the official Python implementation. Not affiliated with the Jeff authors.*
 
-## 現状
+> 本プロジェクトは本家Jeff・Qwenとは無関係の非公式実装です。ライセンスは未定で、公開の準備中です（[ライセンスの未決事項](docs/licensing.md)）。
 
-| 系統 | 状態 | 記録 |
+## 何ができるか
+
+原文と候補（2〜255件）を渡すと、候補内の分布と、選択（selected）または保留（abstained）を返す。分布は渡した候補の中での比較であり、認識の正解率ではない。
+
+| 系統 | 内容 | 検証 |
 | --- | --- | --- |
-| Native（`runtime/rust`） | 公式参照7件（最大8192 tokens・255候補）で判断一致、確率差は最大5.066e-6。1要求ごとに子processで実行し、期限超過時は親がkillする | [進捗](docs/pure-rust-progress.md)、[P4](docs/p4-acceptance.md) |
-| ブラウザWasm（`runtime/wasm`） | Chrome／Edgeで128〜512 tokens・2〜8候補の12件が公式参照と一致（最大2.38e-6）。反復・不正入力・資産破損・取消・再読込を確認 | [W0](docs/wasm-w0-results.md)〜[W2](docs/wasm-w2-results.md) |
-| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存ができる。Chrome／Edgeの自動E2Eに合格。未公開 | [W3](docs/web-demo-w3-results.md) |
+| Native（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
+| ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
+| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存 | Chrome／EdgeのE2Eに合格。HTTPSと別originのモデル配信を模した構成でも合格（[W4](docs/web-demo-w4-results.md)）。未公開 |
 
-公式Jeffとの1 thread横並びベンチマーク（[結果](docs/benchmark-results-2026-10-11.md)）では、1要求ごとに起動するone-shotでNativeが1.65〜2.78倍速く、メモリは半分以下だった。モデル常駐では公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断した。性能の許容値（SLO）、配布用のライセンス確定、Python未導入の端末での検証、公開は未完了。
+対象は固定checkpoint（`jeff-legacy/Jeff-Qwen3.5-0.8B` revision `51552f39…`）、text-only、batch 1。検証は人工データで行い、日本語OCR／ASRの認識品質は評価していない。
+
+公式Jeffとの1 threadの比較（[結果](docs/benchmark-results-2026-10-11.md)）：
+
+- 1要求ごとに起動する場合、Nativeは公式Jeffの1.65〜2.78倍速く、メモリは半分以下。
+- モデルを常駐させると、公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断する。Nativeの改善案は[計画](docs/native-fp32-retention-plan.md)にある。
+
+## 必要なもの
+
+- Rust 1.99.0（`rust-toolchain`は固定していない。CIは1.99.0を使う）。Wasmには`wasm32-unknown-unknown` target
+- Windows x86_64で検証している。ほかのOSは未検証
+- モデル（約1.73 GB）：`tools/fetch_model.py`で取得する
+- 公式Jeffとの照合やbenchmarkをする場合だけ：固定commitのJeff sourceとPython環境（[手順](docs/jeff-runtime.md)）
+
+## 使い方
+
+```powershell
+# 1. モデルを取得し、11ファイルのSHA-256を照合する（Python 3.12以上、標準ライブラリのみ）
+python tools/fetch_model.py
+
+# 2. Native workerをbuildし、このbuildに対応するbundle manifestを作る
+cargo build --locked --release --manifest-path runtime/rust/Cargo.toml
+runtime/rust/target/release/jeff.exe lock models/jeff-checkpoint models/jeff-rust-bundle.json 51552f39a943d62e8387c4ea5e17026a1408729f 0.7 0.1 1
+
+# 3. 公式参照（golden）6件と照合する
+python runtime/validate_migration_cases.py --executable runtime/rust/target/release/jeff.exe --manifest models/jeff-rust-bundle.json --output experiments/runs/golden.json
+```
+
+bundle manifestは、runtimeのsourceから計算したbuild hashを固定する。runtimeや契約crateを変えたら`jeff lock`で作り直す。0.7／0.1は選択・保留の閾値の例で、推奨値ではない。1要求の実行やprocess境界は[Rust実行手順](runtime/rust/README.md)、Wasmは[runtime/wasm](runtime/wasm/README.md)、デモは[apps/web-demo](apps/web-demo/README.md)を参照。
+
+## 試験
+
+```powershell
+cargo test --locked                                  # 判断契約（process試験はKAZE_JUDGE_PYTHONが必要）
+cargo test --locked --manifest-path runtime/rust/Cargo.toml
+cargo test --locked --manifest-path runtime/wasm/Cargo.toml
+cargo test --locked --manifest-path apps/web-demo/engine/Cargo.toml
+python -m unittest discover -s runtime -p "test_*.py"
+```
+
+CI（`.github/workflows/ci.yml`）は、これらに加えてclippy・fmt、Native release build、Wasm build、ライセンス監査を行う。モデルを使う照合は、ダウンロード量が大きいためCIに含めない。clone・build・モデル取得・goldenの照合を一度に行うには`bash tools/clean_check.sh <repository> <workdir>`を使う（[記録](docs/clean-environment-check.md)）。
 
 ## 構成
 
 ```
-Cargo.toml, src/, tests/   判断契約crate（kaze_judge）。KazeJudgeから複製した要求・結果の型と検証
-runtime/rust/              Native実行（jeff.exe worker、bundle検証、tokenizer、backbone、readout、policy）
+Cargo.toml, src/, tests/   判断契約crate（kaze_judge）：要求・結果の型と検証
+runtime/rust/              Native実行（worker、bundle検証、tokenizer、backbone、readout、policy）
 runtime/wasm/              ブラウザ用probe。凍結したNative sourceをhashで固定して再利用する
-apps/web-demo/             Webデモ（Wasmエンジン、静的ページ、build・配信・E2E script）
-runtime/*.py               公式Jeffの参照worker・参照出力の採取・照合・packageの開発用tool
+apps/web-demo/             Webデモ（Wasm engine、静的ページ、build・配信・E2E script）
+runtime/*.py               公式Jeffの参照worker、参照出力の採取、照合、package用の開発tool
+tools/                     モデル取得、ライセンス監査
 tests/fixtures/            公式参照（golden）と要求
-docs/                      計画・進捗・検証記録と証跡（docs/README.md）
+bench/                     公式Jeff・Native・Wasmの比較benchmark
+docs/                      計画、結果、検証記録と証跡（docs/README.md）
 ```
 
-`kaze_judge`は、KazeJudgeが定める判断契約（`DecisionRequest`、`Observation`、`Attempt`など）の複製である。crate名を変えていないのは、凍結sourceのhashとpath依存をそのまま保つためである。複製元との同期は手動で行う。
+crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判断契約を利用する側のproject）から切り出されたことによる。改名すると既存のAPI、hash固定、検証証跡が変わるため、そのままにしている。
 
-## 必要なもの
+## 出典
 
-- Rust 1.99.0、`wasm32-unknown-unknown` target（Wasm／デモ）
-- `models/`（git管理外）：`models/jeff-checkpoint/`に固定checkpointの11ファイル。bundle manifestは`jeff lock`で作る（runtimeのsourceのhashを固定するため、契約crateやruntimeを変えたら作り直す）。照合方法は[Rust実行手順](runtime/rust/README.md)を参照
-- 公式Jeffとの照合やベンチマークだけ：固定commitのJeff sourceと依存環境（[手順](docs/jeff-runtime.md)）
+- 本家Jeff（MIT）、Jeffの重み（Apache-2.0）、Qwen3.5-0.8B（Apache-2.0）、依存crate：[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+- 切り出し元：KazeJudge commit `43f315b`。複製したファイルとhashは[PROVENANCE.json](PROVENANCE.json)
 
-## 検証
+## ライセンス
 
-```powershell
-cargo test --locked --offline              # 契約。--all-features の process試験は KAZE_JUDGE_PYTHON が必要
-cargo test --locked --offline --manifest-path runtime/rust/Cargo.toml
-cargo test --locked --offline --manifest-path runtime/wasm/Cargo.toml
-cargo test --locked --offline --manifest-path apps/web-demo/engine/Cargo.toml
-```
-
-実モデルでの照合、Wasm、デモの手順は、[runtime/rust](runtime/rust/README.md)、[runtime/wasm](runtime/wasm/README.md)、[apps/web-demo](apps/web-demo/README.md)の各READMEを参照。
-
-## 出典とライセンス
-
-KazeJudge commit `43f315b33fcc401c4a677901bb92384d5f263820`から切り出した。複製したファイルとhashは[PROVENANCE.json](PROVENANCE.json)にある。履歴は引き継いでいない。
-
-このリポジトリ自身のコードのライセンスは**未定**である。公式Jeffの参照実装（MIT）の本文は`runtime/licenses/jeff-source/LICENSE`にある。checkpointと依存crateにはそれぞれの条件がある。配布の前に、ライセンスとNOTICEを確定する必要がある。
+**未定。** 決まるまで、このリポジトリのコードは公開・再利用を想定していない。判断が必要な事項は[docs/licensing.md](docs/licensing.md)にある。

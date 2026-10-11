@@ -1,6 +1,19 @@
 # docs
 
-KazeJudgeから切り出した記録。本文は当時のまま変更していない。文中の`architecture.md`、`kaze-nhanh-integration.md`、`onnx-tract-*.md`などへのリンクは、KazeJudgeにだけある文書を指す（KazeJudge commit `43f315b`で参照できる）。
+## pure-jeffとしての文書
+
+| 文書 | 内容 |
+| --- | --- |
+| [oss-release-plan.md](oss-release-plan.md) | 独立OSS公開に向けた計画と進捗 |
+| [clean-environment-check.md](clean-environment-check.md) | clean環境でのbuild・試験・数値再現 |
+| [licensing.md](licensing.md)、[license-audit.json](license-audit.json) | ライセンスの監査と公開blocker |
+| [benchmark-plan.md](benchmark-plan.md)、[benchmark-results-2026-10-11.md](benchmark-results-2026-10-11.md) | 公式Jeff・Native・Wasmの比較 |
+| [web-demo-w4-results.md](web-demo-w4-results.md)、[w4-hosting.md](w4-hosting.md) | Webデモの公開準備と配信構成 |
+| [native-fp32-retention-plan.md](native-fp32-retention-plan.md) | Native推論の改善計画 |
+
+## KazeJudgeから引き継いだ記録
+
+本文は当時のまま変更していない。文中の`architecture.md`、`kaze-nhanh-integration.md`、`onnx-tract-*.md`などへのリンクは、KazeJudgeにだけある文書を指す（KazeJudge commit `43f315b`で参照できる）。
 
 | 文書 | 内容 |
 | --- | --- |

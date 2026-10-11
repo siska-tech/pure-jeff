@@ -16,7 +16,7 @@
 | 契約crateの試験 | 11件合格。process試験4件は`KAZE_JUDGE_PYTHON`が未設定で失敗した。変数なしでもskipするよう試験を直した（`055e65c`）。`tools/clean_check.sh`は変数を設定して実行する |
 | Native runtime | 試験12件合格、release build成功 |
 | Wasm probe、デモengine | 試験合格。wasm32 buildはどちらも成功した（1回目は確認scriptが別名のtoolchainを指定したためtarget未導入で失敗し、既定のtoolchainで再実行した） |
-| bundleのlock | manifestのSHA-256は`7de618cb…`。開発環境で作ったmanifestと同じで、runtimeのbuild hashはpathやmachineによらず再現した |
+| bundleのlock | manifestのSHA-256は`7de618cb…`。開発環境で作ったmanifestと同じで、runtimeのbuild hashはcloneしたpathによらず再現した（同じmachine） |
 | 公式golden 6件 | 判断がすべて一致。確率差の最大は5.066e-6で、既存の記録（KazeJudge P3）と同じ。各caseの誤差も一致 |
 | Python試験（標準ライブラリのみ） | 18件合格 |
 | KazeJudgeへの参照 | 生成物にKazeJudgeのpathは現れなかった |

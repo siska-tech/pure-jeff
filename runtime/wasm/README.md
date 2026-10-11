@@ -2,6 +2,8 @@
 
 Development-only browser feasibility probe ([plan](../../docs/wasm-demo-feasibility-plan.md), [W0 results](../../docs/wasm-w0-results.md), [W1 results](../../docs/wasm-w1-results.md)). It is not a DecisionProvider and not a public worker protocol.
 
+In pure-jeff, pass `--manifest models/jeff-rust-bundle.json` to `run_w0.py`, `run_w1.py` and `run_w2.py`: their default is the KazeJudge-era name `models/jeff-rust-bundle-p3.json`, kept unchanged because the drivers' hashes are part of the W0-W2 evidence.
+
 `build.rs` checks the SHA-256 of the frozen Native `backbone.rs`, `prompt.rs`, `readout.rs` and `policy.rs`; a changed frozen source fails the build. W0 includes the backbone byte-for-byte. W1 (`decide`) uses generated copies of the backbone and readout whose only change is reading weights from a byte slice (`SliceSafetensors`) instead of a memory map; every substitution must match exactly once. The wasm module uses a raw C ABI (no wasm-bindgen) and imports only `env.kj_random_fill`, `env.kj_now_ms` and `env.kj_panic`. `getrandom` 0.3 uses its custom backend, fed by `crypto.getRandomValues`.
 
 ```powershell
@@ -22,7 +24,7 @@ cargo build --locked --offline --release --lib --target wasm32-unknown-unknown -
 Remove-Item Env:RUSTFLAGS
 
 # Run in a fresh headless profile; the output directory must not exist.
-& vendor/jeff/.venv/Scripts/python.exe -B runtime/wasm/run_w0.py `
+python -B runtime/wasm/run_w0.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference .venv/wasm-target/release/w0_reference.exe `
   --variant "baseline=.venv/wasm-target-baseline/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm" `
@@ -32,12 +34,12 @@ Remove-Item Env:RUSTFLAGS
 # W1: one real-model decision (run A), a Worker terminated mid-forward (B) and a fresh rerun (C).
 # Run from runtime/wasm so run_w1.py can import run_w0.py.
 Push-Location runtime/wasm
-& ../../vendor/jeff/.venv/Scripts/python.exe -B run_w1.py `
+python -B run_w1.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference ../../.venv/wasm-target/release/w1_reference.exe `
   --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm `
   --heap-reserve-bytes 805306368 --output ../../experiments/runs/wasm-w1-repeat
-& ../../vendor/jeff/.venv/Scripts/python.exe -B -m unittest test_run_w0 test_run_w1 test_run_w2 -v
+python -B -m unittest test_run_w0 test_run_w1 test_run_w2 -v
 Pop-Location
 
 # W2: one resident session over 12 cases (128-512 tokens, 2-8 candidates), two passes,
@@ -45,7 +47,7 @@ Pop-Location
 # --official holds official Jeff references exported with runtime/export_jeff_reference.py
 # (copies in docs/research/wasm-demo/w2-2026-10-11/official-references/).
 Push-Location runtime/wasm
-& ../../vendor/jeff/.venv/Scripts/python.exe -B run_w2.py `
+python -B run_w2.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference ../../.venv/wasm-target/release/w2_reference.exe `
   --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm `

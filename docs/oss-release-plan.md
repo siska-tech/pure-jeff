@@ -52,3 +52,15 @@ KazeJudgeの既存証跡（FP32保持、text320、thread matrix）と今回のbe
 ## 守ること
 
 既存のAPI・推論結果・golden・検証証跡を変えない。KazeJudgeや他セッションのfileを変えない。変更ごとに必要な試験を行い、論理単位でcommitする。remote作成・push・公開・有料サービスの設定は行わない。ライセンスや公開条件の不確実な点は推測で解決せず、blockerとして報告する。
+
+## 進捗（2026-10-11）
+
+| 段階 | 状態 | 記録 |
+| --- | --- | --- |
+| 1. 独立性とbuild | 完了。KazeJudgeのfileとPython環境を使わずに、clean cloneでbuild・試験・golden 6件の完全再現を確認。公式Jeffの参照環境も`.venv/jeff-ref`へ作り直した | [clean環境での確認](clean-environment-check.md) |
+| 2. ライセンス | 監査とNOTICEは完了。**自身のライセンスなど5件が公開blocker**（利用者の判断待ち） | [licensing.md](licensing.md)、[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) |
+| 3. 整理とCI | README、docs索引、CI workflowを整備。CIはremoteがないため未実行で、同じcommandをclean cloneで確認する | [.github/workflows/ci.yml](../.github/workflows/ci.yml) |
+| 4. W4 | 開発用exportの除去、ライセンスの同梱、表示の修正、HTTPS・別originでのE2E（Chrome／Edge）に合格。中止後に残る部分cacheを消せない点は未修正 | [W4結果](web-demo-w4-results.md)、[配信構成](w4-hosting.md) |
+| 5. Native改善 | 計画のみ | [計画](native-fp32-retention-plan.md) |
+
+KazeJudge時代の名称は、証跡に結び付いたfile（W0／W1のprobe画面のtitle、`runtime/wasm`の各driverの既定manifest名、`runtime/package_rust_runtime.py`の文言）に残っている。hashが証跡に記録されているため、変えていない。
