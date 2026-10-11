@@ -15,6 +15,7 @@ from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+SEPARATOR = "\x1f"  # CARGO_ENCODED_RUSTFLAGS field separator
 CRATES = {"probe": ("runtime/wasm/Cargo.toml", "kaze_judge_wasm_probe"),
           "engine": ("apps/web-demo/engine/Cargo.toml", "kaze_judge_web_demo")}
 
@@ -33,7 +34,7 @@ def main():
     flags += [f"--remap-path-prefix={path}={mapped}" for path, mapped in remaps]
     # One flag per field, so paths with spaces survive; RUSTFLAGS would be split on spaces.
     env = {k: v for k, v in os.environ.items() if k != "RUSTFLAGS"}
-    env |= {"CARGO_ENCODED_RUSTFLAGS": "".join(flags), "CARGO_TARGET_DIR": str(target)}
+    env |= {"CARGO_ENCODED_RUSTFLAGS": SEPARATOR.join(flags), "CARGO_TARGET_DIR": str(target)}
     command = ["cargo", "build", "--locked", "--release", "--lib", "--target", "wasm32-unknown-unknown",
                "--manifest-path", str(ROOT / manifest)] + (["--offline"] if args.offline else [])
     subprocess.run(command, check=True, env=env)
