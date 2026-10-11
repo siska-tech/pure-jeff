@@ -12,6 +12,8 @@
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
+| [tract-development.md](tract-development.md) | ONNX／Tract経路（実験）の準備・build・数値gate・benchmarkの手順と、統合の判断 |
+| [tract-migration-plan.md](tract-migration-plan.md)、[tract-migration-results-2026-10-12.md](tract-migration-results-2026-10-12.md)、[tract-migration-provenance.json](tract-migration-provenance.json) | KazeJudgeからのONNX／Tract資産の移管計画・pure-jeffでの再検証結果・移管したファイルのhash |
 
 ## KazeJudgeから引き継いだ記録
 
@@ -28,3 +30,17 @@
 | [standalone-demo-release-plan.md](standalone-demo-release-plan.md) | Windowsコンソール版デモの代替案 |
 | `*.json` | 各段階の照合・境界・監査の記録 |
 | [research/wasm-demo/](research/wasm-demo) | W0〜W3の証跡 |
+
+## KazeJudgeから移管したONNX／Tractの記録
+
+2026-10-12にKazeJudge commit `ad59b25`から履歴ごと移した（[移管計画](tract-migration-plan.md)）。本文と証跡は当時のまま（利用者名を含むローカルpathだけ`<user>`に置き換えた。対応は[tract-migration-provenance.json](tract-migration-provenance.json)）。文中の性能値は当時のhostでの記録で、ほかの環境での性能を示すものではない。文中のKazeJudge、`vendor/jeff/.venv`などは当時の環境を指す。pure-jeffでの手順は[tract-development.md](tract-development.md)。
+
+| 文書 | 内容 |
+| --- | --- |
+| [onnx-tract-plan.md](onnx-tract-plan.md)、[onnx-tract-progress.md](onnx-tract-progress.md) | ONNX＋Tract実装の計画と、各gateの進捗 |
+| [onnx-tract-compatibility.md](onnx-tract-compatibility.md)、[onnx-tract-benchmark-plan.md](onnx-tract-benchmark-plan.md) | 演算子の互換性と、benchmarkの仕様 |
+| `onnx-tract-*.md`（ほか26件） | 個別の実験（NNEF、codegen／driver内訳、重複探索、Trilu、ScatterElements、thread、入力長、Native FP32保持・thread・cache診断、host記録） |
+| [research/jeff-onnx-tract/](research/jeff-onnx-tract) | 実験ごとの証跡（job、raw出力、検証、host情報） |
+
+kzn-datasetの実OCR取込（`onnx-tract-kzn-ocr-intake.md`）はKazeNhanhの監査なので移していない。文中のリンクのうちこの文書と`architecture.md`などはKazeJudgeにだけある。
+

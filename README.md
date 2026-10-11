@@ -1,6 +1,6 @@
 # pure-jeff
 
-Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/jeff)の候補判断（decision model）を実行する実装。CPUのNative実行と、ブラウザ内のWebAssembly実行がある。
+Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/jeff)の候補判断（decision model）を実行する実装。CPUのNative実行と、ブラウザ内のWebAssembly実行がある。ONNX＋Tractによる実行も実験として含む。
 
 *Pure-Rust (Candle) inference for the Jeff-Qwen3.5-0.8B decision model, as a native CPU worker and in the browser via WebAssembly, verified against the official Python implementation. Not affiliated with the Jeff authors.*
 
@@ -14,6 +14,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 | --- | --- | --- |
 | Native（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
 | ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
+| ONNX／Tract（`runtime/onnx`、`runtime/tract`）**実験** | 512 tokens固定のONNXへexportし、局所修正したTractで実行する開発用CLI。公開API・デモには組み込んでいない（[手順と判断](docs/tract-development.md)） | 公式参照のうち512 tokens以下の4件で判断が一致。最大4.917e-6 |
 | Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存。**https://pure-jeff.siska-tech.workers.dev** | 公開サイトに対するChrome／EdgeのE2Eに合格（[公開の記録](docs/web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する |
 
 対象は固定checkpoint（`jeff-legacy/Jeff-Qwen3.5-0.8B` revision `51552f39…`）、text-only、batch 1。検証は人工データで行い、日本語OCR／ASRの認識品質は評価していない。
@@ -68,16 +69,20 @@ apps/web-demo/             Webデモ（Wasm engine、静的ページ、build・�
 runtime/*.py               公式Jeffの参照worker、参照出力の採取、照合、package用の開発tool
 tools/                     モデル取得、ライセンス監査
 tests/fixtures/            公式参照（golden）と要求
-bench/                     公式Jeff・Native・Wasmの比較benchmark
+bench/                     公式Jeff・Native・Wasmの比較benchmark、Tractの常駐benchmark
+runtime/onnx/, runtime/tract/   ONNX export・数値gate・Tract probe（実験。docs/tract-development.md）
+runtime/tract-driver-profile/, runtime/bench-native/, runtime/native-retained/
+                           Tract最適化実験の生成元、Nativeの計測wrapper・FP32保持実験
 docs/                      計画、結果、検証記録と証跡（docs/README.md）
 ```
 
-crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判断契約を利用する側のproject）から切り出されたことによる。改名すると既存のAPI、hash固定、検証証跡が変わるため、そのままにしている。
+crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判断契約を利用する側のproject）から切り出されたことによる。改名すると既存のAPI、hash固定、検証証跡が変わるため、そのままにしている。ONNX／Tractの実験コードも、証跡が自身のhashを記録しているため移管時のbytesのまま残している。
 
 ## 出典
 
 - 本家Jeff（MIT）、Jeffの重み（Apache-2.0）、Qwen3.5-0.8B（Apache-2.0）、依存crate：[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 - 切り出し元：KazeJudge commit `885e7ff`。複製したファイルとhashは[PROVENANCE.json](PROVENANCE.json)
+- ONNX／Tract資産：KazeJudge commit `ad59b25`から履歴ごと移管。ファイルとhashは[docs/tract-migration-provenance.json](docs/tract-migration-provenance.json)、再検証は[docs/tract-migration-results-2026-10-12.md](docs/tract-migration-results-2026-10-12.md)
 
 ## ライセンス
 
