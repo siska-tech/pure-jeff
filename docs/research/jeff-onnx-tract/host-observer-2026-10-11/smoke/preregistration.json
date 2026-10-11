@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-11T06:40:01.802498+00:00",
+  "script_sha256": "11449cc833713dc45714d756ee3ec0559918ba1c8c129e9496d059f85b2287d2",
+  "host_helper_sha256": "17d4294a5896638ae8719b908715b2ee0089bdb65eed523e02ecbfc4069d4a1b",
+  "benchmark_helper_sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a",
+  "duration_seconds": 30.0,
+  "interval_seconds": 1.0,
+  "acceptance": "AC1,battery saver0,stable scheme/observer mask/topology,2+ samples,each gap <=2.5*interval",
+  "purpose": "observer smoke check only; no inference or performance acceptance",
+  "settings_changed": false
+}

@@ -1,0 +1,7 @@
+{
+  "Name": "13th Gen Intel(R) Core(TM) i7-1360P",
+  "NumberOfCores": 12,
+  "NumberOfLogicalProcessors": 16,
+  "MaxClockSpeed": 2200,
+  "CurrentClockSpeed": 2200
+}

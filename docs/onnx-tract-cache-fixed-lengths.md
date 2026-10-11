@@ -90,3 +90,6 @@ system平均busyは他processを含む累積時間差であり、child利用率�
 既存Native/API・baseline127ファイル（既知.gitignore差のみ）・隣接KazeNhanh21ファイル・frozen assets・前回証跡は不変。Pythonは開発用のみ。正式SLO、公開TractBackend統合、配布NOTICE・clean host、Phase 5の確認済み実OCR／ASR N-best品質評価は未完了である。
 
 [事前登録・生ログ・全段階の中央値／p95／n・独立validator](research/jeff-onnx-tract/cache-fixed-lengths-2026-10-11/README.md)。[比較ハーネス](../runtime/onnx/benchmark_cache_fixed_lengths.py)。
+
+
+追加：Windows環境の[継続記録・結合検証](onnx-tract-host-observer.md)を実施した。既存invokeと固定exeを変えず、各3 forward・電源／CPU情報のraw記録と独立監査に合格。性能受入ではなく、次はobserver overheadのAB／BA比較、配置変更時の全数値再gate、未使用本文と正式標本数への拡大を行う。温度は取得不可、OS報告MHzはhardware実測値ではない。

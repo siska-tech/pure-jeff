@@ -165,3 +165,6 @@ host/build/power/ISA metadataへの参照
 
 
 追加の[固定cache Native4／Tract4長さ別pilot](onnx-tract-cache-fixed-lengths.md)は、性能用exeの84 forward数値受入後に新規事前登録し、各backend28件gate＋3独立resident組、全14 child・206 forwardを完了した。旧gate／Native全観測ペア差≤1e-6とTract raw一致、power／resource条件を維持。各長さn=12の記述的比較で、正式SLO・API E2E・backend採用・入力hold-outは未受入。元の停止runは置換しない。
+
+
+追加：Windows環境の[継続記録・結合検証](onnx-tract-host-observer.md)を実施した。既存invokeと固定exeを変えず、各3 forward・電源／CPU情報のraw記録と独立監査に合格。性能受入ではなく、次はobserver overheadのAB／BA比較、配置変更時の全数値再gate、未使用本文と正式標本数への拡大を行う。温度は取得不可、OS報告MHzはhardware実測値ではない。

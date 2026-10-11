@@ -1,0 +1,19 @@
+[
+  {
+    "case": "success",
+    "expected_failure": false,
+    "passed": true
+  },
+  {
+    "case": "nonzero",
+    "expected_failure": true,
+    "passed": true,
+    "error": "nonzero failed; retained process and stderr records"
+  },
+  {
+    "case": "deadline",
+    "expected_failure": true,
+    "passed": true,
+    "error": "deadline failed; retained process and stderr records"
+  }
+]

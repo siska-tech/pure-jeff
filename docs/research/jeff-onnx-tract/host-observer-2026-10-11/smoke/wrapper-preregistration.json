@@ -1,0 +1,12 @@
+{
+  "script_sha256": "b081a3420e8f7e623cbbdcbde026744acade09803c5428d28ff35b1fe837d3c5",
+  "observer_sha256": "11449cc833713dc45714d756ee3ec0559918ba1c8c129e9496d059f85b2287d2",
+  "cases": [
+    "success",
+    "nonzero",
+    "deadline"
+  ],
+  "memory_limit_bytes": 268435456,
+  "inference_forwards": 0,
+  "purpose": "child lifecycle/guard smoke only; Python development child, not model runtime"
+}

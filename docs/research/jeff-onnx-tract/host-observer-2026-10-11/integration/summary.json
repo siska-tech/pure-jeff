@@ -1,0 +1,8 @@
+{
+  "forwards": 6,
+  "all_numeric_and_sampled_host_conditions_passed": true,
+  "max_onnx_probability_error": 2.5033950805664062e-06,
+  "native_repeat_exact": true,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false
+}

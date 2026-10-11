@@ -1,0 +1,22 @@
+[
+  {
+    "path": "runtime/onnx/observe_windows_host.py",
+    "sha256": "11449cc833713dc45714d756ee3ec0559918ba1c8c129e9496d059f85b2287d2"
+  },
+  {
+    "path": "runtime/onnx/test_observe_windows_host.py",
+    "sha256": "cc067ba1cdfe5b9ee3cf5ccd53b1f0a9d8f6059cbac7a9d8a5b2de2d1141dbfe"
+  },
+  {
+    "path": "runtime/onnx/validate_observed_backends.py",
+    "sha256": "63fd834e5c8c365787d57744ab46f2a7cd49d04b9d643c64f637082282ed916b"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/onnx/diagnose_native_repeats.py",
+    "sha256": "17d4294a5896638ae8719b908715b2ee0089bdb65eed523e02ecbfc4069d4a1b"
+  }
+]

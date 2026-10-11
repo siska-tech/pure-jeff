@@ -389,3 +389,11 @@ Tract raw exact, AC connected/battery saver off at child boundaries required.
 Power/system CPU snapshots only; compute affinity/thermals/background remain
 uncontrolled. Same old artificial inputs, Native effective vs Tract physical512,
 operational descriptive pilot, no API E2E/backend adoption/formal SLO/quality.
+
+Read-only Windows host telemetry: observe_windows_host.py --output PATH
+--duration 30 --interval 1. invoke_observed wraps existing invoke without
+changing frozen engines. AC/saver/scheme/topology/mask/cadence gates and raw
+JSONL retained; no hardware-clock/temperature or worker-placement guarantee.
+validate_observed_backends.py --output PATH runs fixed Native4/Tract4 each3
+forwards on the old512 case to check integration, not performance/SLO.
+Observer overhead calibration and new hold-out inputs remain pending.

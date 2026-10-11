@@ -1,0 +1,19 @@
+{
+  "raw_telemetry_numeric_and_resource_independently_checked": true,
+  "samples": {
+    "host-observer-20261011/preflight": 31,
+    "host-observer-20261011/success": 5,
+    "host-observer-20261011/nonzero": 4,
+    "host-observer-20261011/deadline": 2,
+    "observed-backends-20261011/native4": 67,
+    "observed-backends-20261011/tract4": 134
+  },
+  "forwards": 6,
+  "unit_tests": 7,
+  "guard_cases": 3,
+  "baseline_files_unchanged": 127,
+  "sibling_files_unchanged": 21,
+  "settings_changed": false,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false
+}
