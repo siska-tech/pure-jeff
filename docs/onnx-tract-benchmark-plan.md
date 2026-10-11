@@ -171,3 +171,8 @@ host/build/power/ISA metadataへの参照
 
 
 追加の[observerあり／なし比較pilot](onnx-tract-observer-overhead.md)は、既存128-token入力・各backend2組の順序反転・5 warmup＋3測定で8 child／64 forwardを実施し、数値・resource・host条件と独立再計算に合格した。各条件n=6の記述的比較であり、observer負荷の同等性・正式性能・SLOは未受入。
+
+
+## 2026-10-11 実OCRの取込状況更新
+
+[kzn-dataset取込監査](onnx-tract-kzn-ocr-intake.md)で、人手確認済みdevelopment 3件を正解と分離して抽出し、KazeNhanh単独で3件保留・SLM呼出し0を確認した。実OCRは存在するが、ユーザー確認を含めN-bestは未保存。Jeff併用品質比較は未実施。test 1件は件数確認のみで推論へ渡していない。品質評価には実N-bestとraw-visual.v1の評価方針整合が必要であり、goldから候補を作らない。この1 child動作確認は性能標本に含めない。
