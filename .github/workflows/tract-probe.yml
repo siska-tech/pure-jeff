@@ -1,4 +1,5 @@
-name: Isolated Tract feasibility probe
+# Experimental ONNX/Tract path, separate from ci.yml: model-free checks only.
+name: Tract experiments
 on:
   workflow_dispatch:
   pull_request:
@@ -7,6 +8,12 @@ on:
       - runtime/tract-driver-profile/**
       - runtime/onnx/**
       - runtime/bench-native/**
+      - runtime/rust/**
+      - src/**
+      - docs/research/jeff-onnx-tract/**
+      - docs/tract-migration-provenance.json
+      - tools/verify_tract_migration.py
+      - tools/check_tract_experiments.py
       - .github/workflows/tract-probe.yml
   push:
     paths:
@@ -14,15 +21,33 @@ on:
       - runtime/tract-driver-profile/**
       - runtime/onnx/**
       - runtime/bench-native/**
+      - runtime/rust/**
+      - src/**
+      - docs/research/jeff-onnx-tract/**
+      - docs/tract-migration-provenance.json
+      - tools/verify_tract_migration.py
+      - tools/check_tract_experiments.py
       - .github/workflows/tract-probe.yml
+permissions:
+  contents: read
+concurrency:
+  group: tract-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   windows-probe:
     runs-on: windows-2022
+    timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
         with:
-          python-version: '3.12.14'
+          # The migration record is checked against the merge commit that brought the files in.
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Migration record
+        shell: pwsh
+        run: python -B tools/verify_tract_migration.py
       - name: Fixed Rust toolchain
         shell: pwsh
         run: |
@@ -49,6 +74,15 @@ jobs:
           $env:TRACT_BENCH = Join-Path $PWD 'runtime/tract/target/release/bench.exe'
           $env:TRACT_PACK = Join-Path $PWD 'runtime/tract/target/release/pack.exe'
           python -B -m unittest discover -s runtime/onnx -p 'test_*.py' -v
+          exit $LASTEXITCODE
+      - name: Reproduce the archived optimization experiments
+        shell: pwsh
+        run: |
+          $metadata = cargo metadata --locked --manifest-path runtime/tract/Cargo.toml --format-version 1 | ConvertFrom-Json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $coreManifest = ($metadata.packages | Where-Object { $_.name -eq 'tract-core' }).manifest_path
+          $upstream = Split-Path (Split-Path $coreManifest -Parent) -Parent
+          python -B tools/check_tract_experiments.py --upstream $upstream --work .venv/tract-generation-check --patches
           exit $LASTEXITCODE
       - name: Generate and verify isolated driver diagnostics
         shell: pwsh
