@@ -1,0 +1,38 @@
+{
+ "source_commit": "893a4747792f719199bdf9e37026981882c4376e",
+ "source_dirty": false,
+ "copy_model": false,
+ "model_base_url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/",
+ "engine_input_sha256": "066c031d041e154892f6cc767d4c590d6a634c594479b53ea23baec9a90182af",
+ "engine_removed_exports": [
+  "__getrandom_v03_custom",
+  "kj_alloc",
+  "kj_decide",
+  "kj_environment",
+  "kj_free",
+  "kj_init",
+  "kj_ops",
+  "kj_output_len",
+  "kj_output_ptr",
+  "kj_session_close",
+  "kj_session_decide",
+  "kj_session_open",
+  "kj_tokenize"
+ ],
+ "files": {
+  "_headers": "b1442bf701d7137fea7a0542d54fc65a377c08a44f04ce97fded5b4be8538d3f",
+  "app.js": "ca84703ebd9ec8289f4ffb98d67be484c05f2030997ac8e1ee0b243aab39f2b8",
+  "bundle/manifest.json": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9",
+  "demo-config.json": "8f0e1b37eee559e2f6bc81b4f6305375276553f7acd2e8b9030b3426bcb2a74d",
+  "engine-worker.js": "b5503f4b527edd7c02e5f50d43884f58f85c7b59172f8f2bced56dea48b410e1",
+  "engine.wasm": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749",
+  "index.html": "099503f6b98e325505067a8d2abcefb2540879c843138a950606726945e0f7e5",
+  "licenses/JEFF_SOURCE_LICENSE.txt": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+  "licenses/MODEL_LICENSE.txt": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+  "licenses/MODEL_NOTICE.txt": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74",
+  "licenses/THIRD_PARTY_LICENSES.txt": "f0a745e29f475d495ec3efbf9a3a266c4bc3093571bb9ac294874d0c950f9a83",
+  "licenses/THIRD_PARTY_NOTICES.md": "b86e7fd5ca7214d5675d1b4f14cf0d53f7eaac6922420b540c309d74edbce93a",
+  "samples.json": "239bc25b95cb7022c48b3645a28bb482942541cdb60882086d8c69dbb47dca2a",
+  "style.css": "d40576c29c3b43ed1af1265042b71a47c46d1c88ce89386c4593d5eb391b834d"
+ }
+}

@@ -64,3 +64,7 @@ KazeJudgeの既存証跡（FP32保持、text320、thread matrix）と今回のbe
 | 5. Native改善 | 計画のみ | [計画](native-fp32-retention-plan.md) |
 
 KazeJudge時代の名称は、証跡に結び付いたfile（W0／W1のprobe画面のtitle、`runtime/wasm`の各driverの既定manifest名、`runtime/package_rust_runtime.py`の文言）に残っている。hashが証跡に記録されているため、変えていない。
+
+## 公開（2026-10-12）
+
+利用者の決定（Apache-2.0、`siska-tech/pure-jeff`での公開、`pure-jeff.siska-tech.workers.dev`へのdeploy、旧名称の変更）に基づき、ライセンスを付け、旧名称を改め、Webデモを公開した（[公開の記録](web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する構成にしたため、R2などの有料設定は使っていない。`kaze_judge`のcrate名とschema名は、KazeJudgeと共有する契約・wire formatとして残している。

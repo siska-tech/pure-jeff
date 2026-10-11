@@ -1,0 +1,187 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_summary.v1",
+ "e2e_completed": true,
+ "e2e_error": null,
+ "gates": {
+  "consent": {
+   "passed": true,
+   "model_host_requests_before_click": []
+  },
+  "single_download": {
+   "passed": true,
+   "model_requests": 2,
+   "after_second_click": 1
+  },
+  "abort": {
+   "passed": true,
+   "step": {
+    "status": "モデルはまだ取得していません。（読み込みを中止しました）",
+    "model_in_cache": false,
+    "evaluate_disabled": true
+   }
+  },
+  "hosts": {
+   "passed": true,
+   "hosts": [
+    "huggingface.co",
+    "pure-jeff.siska-tech.workers.dev",
+    "us.aws.cdn.hf.co"
+   ]
+  },
+  "deployed": {
+   "passed": true,
+   "engine_sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+  },
+  "private_inference": {
+   "passed": true,
+   "during_evaluation": [],
+   "foreign": []
+  },
+  "results": {
+   "passed": true,
+   "rows": {
+    "eval_sample0": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 5.364418029785156e-07
+    },
+    "eval_sample2": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 2.384185791015625e-06
+    },
+    "eval_sample5": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 1.7881393432617188e-06
+    },
+    "eval_sample6_budget": {
+     "passed": true,
+     "outcome": {
+      "status": "failed",
+      "value": "budget_exceeded"
+     }
+    },
+    "no_reason": {
+     "passed": true,
+     "outcome": {
+      "status": "not_selected"
+     }
+    },
+    "ui_validation": {
+     "passed": true,
+     "message": "候補IDが重複しています。"
+    }
+   }
+  },
+  "attempt": {
+   "passed": true,
+   "components": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "bundle_manifest",
+    "chat_template.jinja",
+    "config.json",
+    "decision_config.json",
+    "model.safetensors",
+    "policy",
+    "processor_config.json",
+    "prompt",
+    "readout.safetensors",
+    "rendered_prompt",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "wasm_engine"
+   ]
+  },
+  "save": {
+   "passed": true,
+   "file": "attempt-demo-1791733187414.json",
+   "fields": [
+    "schema_version",
+    "request",
+    "provider_calls_started",
+    "outcome"
+   ]
+  },
+  "repeat": {
+   "passed": true
+  },
+  "main_thread": {
+   "passed": true,
+   "max_gap_ms": {
+    "eval_sample0": 64.89999961853027,
+    "eval_sample2": 64.59999990463257,
+    "eval_sample5": 70.09999990463257,
+    "eval_sample6": 62.299999713897705,
+    "eval_after_cancel": 65.40000009536743,
+    "eval_after_reload": 63.700000286102295
+   }
+  },
+  "delete": {
+   "passed": true,
+   "usage_before": 1726551808,
+   "usage_after": 1726551808
+  }
+ },
+ "timings": {
+  "download_and_open": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 131898.19999980927,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 0.5,
+    "hashed_at_open": [],
+    "tokenizer_ms": 444.19999980926514
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "load_from_cache": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 5172.400000095367,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 0.40000009536743164,
+    "hashed_at_open": [],
+    "tokenizer_ms": 490.40000009536743
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "evaluations_ms": {
+   "eval_sample0": 5061.099999904633,
+   "eval_sample2": 7663.5,
+   "eval_sample5": 19437.599999904633,
+   "eval_sample6": 0.9000000953674316,
+   "eval_no_reason": 0,
+   "eval_after_cancel": 5413.299999713898,
+   "eval_after_reload": 5370.5
+  }
+ },
+ "passed": true
+}

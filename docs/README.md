@@ -9,6 +9,7 @@
 | [licensing.md](licensing.md)、[license-audit.json](license-audit.json) | ライセンスの監査と公開blocker |
 | [benchmark-plan.md](benchmark-plan.md)、[benchmark-results-2026-10-11.md](benchmark-results-2026-10-11.md) | 公式Jeff・Native・Wasmの比較 |
 | [web-demo-w4-results.md](web-demo-w4-results.md)、[w4-hosting.md](w4-hosting.md) | Webデモの公開準備と配信構成 |
+| [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md) | Native推論の改善計画 |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 

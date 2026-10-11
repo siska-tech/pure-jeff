@@ -14,7 +14,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 | --- | --- | --- |
 | Native（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
 | ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
-| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存 | Chrome／EdgeのE2Eに合格。HTTPSと別originのモデル配信を模した構成でも合格（[W4](docs/web-demo-w4-results.md)）。未公開 |
+| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存。**https://pure-jeff.siska-tech.workers.dev** | 公開サイトに対するChrome／EdgeのE2Eに合格（[公開の記録](docs/web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する |
 
 対象は固定checkpoint（`jeff-legacy/Jeff-Qwen3.5-0.8B` revision `51552f39…`）、text-only、batch 1。検証は人工データで行い、日本語OCR／ASRの認識品質は評価していない。
 
