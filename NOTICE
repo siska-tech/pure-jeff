@@ -1,0 +1,18 @@
+pure-jeff
+Copyright 2026 The pure-jeff authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+pure-jeff is an unofficial Rust implementation of the inference of the
+Jeff decision model. It is not affiliated with the authors of Jeff or Qwen.
+
+This product reproduces the decision procedure of the Jeff reference
+implementation (https://github.com/firelex/jeff), which is licensed under
+the MIT License: Copyright (c) 2026 Mathias Strasser (Jeff); Copyright (c)
+2026 Denis Yarats (AutoJev). The full MIT text is in
+runtime/licenses/jeff-source/LICENSE.
+
+The model weights (Jeff-Qwen3.5-0.8B, Apache License 2.0, a fine-tune of
+Qwen3.5-0.8B by the Qwen team, Alibaba Cloud) are not included; they carry
+their own LICENSE and NOTICE. See THIRD_PARTY_NOTICES.md for all
+third-party attributions.

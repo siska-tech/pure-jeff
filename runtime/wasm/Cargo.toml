@@ -2,6 +2,7 @@
 name = "kaze_judge_wasm_probe"
 version = "0.1.0"
 edition = "2021"
+license = "Apache-2.0"
 publish = false
 description = "W0 browser Wasm feasibility probe for the frozen Native Jeff operators"
 

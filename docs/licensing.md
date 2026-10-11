@@ -10,18 +10,15 @@
 | Jeffの重み（`jeff-legacy/Jeff-Qwen3.5-0.8B` `51552f39`） | Apache-2.0とNOTICE | Hugging Faceの固定revisionのmetadata、checkpoint内のLICENSE・NOTICE | repoには含めない。再配布ではLICENSEとNOTICEを同梱する |
 | Qwen3.5-0.8B | Apache-2.0 | Hugging Faceのmetadata | 重みのNOTICEで言及されている |
 | Rust依存（138 package） | すべてpermissive | `tools/audit_licenses.py`（Cargo.lockから） | 未宣言なし、copyleftなし、本文の欠落なし |
-| pure-jeff自身のコード | **未定** | — | 公開blocker |
+| pure-jeff自身のコード | Apache-2.0 | 利用者の決定（2026-10-12） | `LICENSE`、`NOTICE` |
 
-## 公開blocker（判断が必要）
+## 公開blockerの決定（2026-10-12）
 
-1. **pure-jeff自身のライセンス**：自作の4 crate（`kaze_judge`、`kaze_judge_jeff`、`kaze_judge_wasm_probe`、`kaze_judge_web_demo`）、Python・JSのtool、文書にライセンスがない。依存はすべてpermissiveなので、次のどれも技術的には両立する。選択は権利者が行う。
-   - MIT OR Apache-2.0（Rustで一般的。依存と同じ形）
-   - Apache-2.0（特許条項あり。重みやQwenと同じ）
-   - MIT（本家Jeffのコードと同じ）
-2. **著作権者の確認**：commitのauthorは組織のドメイン（`siska-tech.jp`）のメールアドレスである。コードの権利が個人と組織のどちらにあるか（業務で作成したか）を確認し、LICENSEの著作権表示を決める必要がある。
-3. **`backbone.rs`とTransformersの関係**：commentは「Transformers 5.17.0のQwen3.5で式を照合した」と書く。実装がTransformers（Apache-2.0）のsourceを翻訳した派生物にあたるなら、そのファイルにApache-2.0の帰属と変更の表示が必要になる。作成の経緯（KazeJudge P1）を記録だけからは判定できないため、作成者の確認を要する。
-4. **重みの再配布と学習データ**：重みの公開者はApache-2.0を宣言している。一方、model cardは学習データにshare-alike（CC BY-SA）のdatasetを含むと書く。Webデモで重みを自前のstorage（R2など）から配る場合、公開者の宣言に依拠して再配布してよいかを判断する必要がある。Hugging Faceの固定revisionからブラウザが直接取得する構成にすれば、自前の再配布は避けられる（[W4 hosting](w4-hosting.md)）。
-5. **名称**：「pure-jeff」と「Jeff」は上流projectの名称を含む。上流と無関係である旨をREADMEに書いた。名称の使用について上流に確認するかは判断事項とする。
+1. **pure-jeff自身のライセンス**：利用者の決定により**Apache-2.0**とした（`LICENSE`、`NOTICE`、4 crateの`license`）。依存はすべてpermissiveで両立する。
+2. **著作権表示**：`NOTICE`は「The pure-jeff authors」とした。特定の法人名・個人名は書いていない。権利者を明記する必要があれば、利用者が追記する。
+3. **`backbone.rs`とTransformers**：pure-jeffもApache-2.0になったため、仮にTransformers（Apache-2.0）の派生物にあたる場合でも、ライセンスは両立する。帰属は[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)に記載済み。作成の経緯（翻訳か独自実装か）は未確認のまま残る。
+4. **重みの再配布**：公開するWebデモ（`pure-jeff.siska-tech.workers.dev`）は、Hugging Faceの固定revisionからブラウザが直接取得する構成にした。pure-jeffは重みを再配布しない。checkpointのLICENSEとNOTICEは、配信物の`licenses/`にも置く。
+5. **名称**：利用者の決定により、pure-jeffの名称で公開する。READMEとWebデモに非公式実装である旨を表示する。
 
 ## 公開前に確認しておくとよい点（blockerではない）
 

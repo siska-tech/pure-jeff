@@ -1,6 +1,6 @@
 # Third-party notices
 
-pure-jeff reimplements and verifies the inference of a third-party model. This file lists the upstream works it depends on or derives from, and what is (and is not) included in this repository. The license of pure-jeff's own code is **not yet decided** ([docs/licensing.md](docs/licensing.md)).
+pure-jeff reimplements and verifies the inference of a third-party model. This file lists the upstream works it depends on or derives from, and what is (and is not) included in this repository. pure-jeff's own code is licensed under the Apache License 2.0 ([LICENSE](LICENSE), [NOTICE](NOTICE)).
 
 ## Jeff reference implementation — MIT
 

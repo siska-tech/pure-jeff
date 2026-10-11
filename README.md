@@ -4,7 +4,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 
 *Pure-Rust (Candle) inference for the Jeff-Qwen3.5-0.8B decision model, as a native CPU worker and in the browser via WebAssembly, verified against the official Python implementation. Not affiliated with the Jeff authors.*
 
-> 本プロジェクトは本家Jeff・Qwenとは無関係の非公式実装です。ライセンスは未定で、公開の準備中です（[ライセンスの未決事項](docs/licensing.md)）。
+> 本プロジェクトは本家Jeff・Qwenとは無関係の非公式実装です。
 
 ## 何ができるか
 
@@ -81,4 +81,4 @@ crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判
 
 ## ライセンス
 
-**未定。** 決まるまで、このリポジトリのコードは公開・再利用を想定していない。判断が必要な事項は[docs/licensing.md](docs/licensing.md)にある。
+[Apache License 2.0](LICENSE)。帰属表示は[NOTICE](NOTICE)と[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)にある。モデルの重みは含まず、重み自身のLICENSE（Apache-2.0）とNOTICEに従う。ライセンス監査の記録は[docs/licensing.md](docs/licensing.md)。

@@ -116,7 +116,8 @@ def audit():
                     "license_texts": [str(f.relative_to(f.parents[1])).replace("\\", "/") for f in files],
                     "text_from_supplement": not texts(p) and bool(files)}
     findings = {
-        "own_crates_without_license": sorted(k for k, v in report["packages"].items() if v["class"] == "own"),
+        "own_crates_without_license": sorted(k for k, v in report["packages"].items()
+                                             if v["class"] == "own" and not v["license"]),
         "undeclared": sorted(k for k, v in report["packages"].items() if v["class"] == "undeclared"),
         "needs_review": sorted(f"{k}: {v['license']}" for k, v in report["packages"].items() if v["class"] == "review"),
         "missing_license_text": sorted(k for k, v in report["packages"].items()
@@ -171,8 +172,7 @@ def main():
         args.output.write_text(text, encoding="utf-8", newline="\n")
     print(json.dumps({"packages": len(report["packages"]), "findings": report["findings"],
                       "license_counts": report["license_counts"]}, ensure_ascii=False, indent=1))
-    # Our own crates have no license until the owner decides one; that is reported, not failed here.
-    problems = {k: v for k, v in report["findings"].items() if k != "own_crates_without_license" and v}
+    problems = {k: v for k, v in report["findings"].items() if v}
     if args.strict and problems:
         raise SystemExit(f"license audit failed: {problems}")
 
