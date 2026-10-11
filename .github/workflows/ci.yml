@@ -1,0 +1,118 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  CARGO_TERM_COLOR: always
+  RUST_TOOLCHAIN: 1.99.0
+jobs:
+  windows:
+    # Model-free checks only: the 1.7 GB checkpoint is not downloaded in CI.
+    runs-on: windows-2022
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Rust toolchain
+        run: |
+          rustup toolchain install $env:RUST_TOOLCHAIN --profile minimal --component rustfmt --component clippy --target wasm32-unknown-unknown
+          rustup default $env:RUST_TOOLCHAIN
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            target
+            runtime/rust/target
+            .ci-target
+          key: cargo-${{ runner.os }}-${{ env.RUST_TOOLCHAIN }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Contract crate (kaze_judge)
+        run: |
+          $env:KAZE_JUDGE_PYTHON = (Get-Command python).Source
+          cargo test --locked --all-features
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --all-features --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --check
+      - name: Native runtime
+        run: |
+          cargo test --locked --manifest-path runtime/rust/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --manifest-path runtime/rust/Cargo.toml --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/rust/Cargo.toml -- --check
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo build --locked --release --manifest-path runtime/rust/Cargo.toml --bins --examples
+      - name: Wasm probe
+        run: |
+          $env:CARGO_TARGET_DIR = ".ci-target/probe"
+          cargo test --locked --manifest-path runtime/wasm/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --manifest-path runtime/wasm/Cargo.toml --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path runtime/wasm/Cargo.toml -- --check
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = ".ci-target/wasm"
+          $env:RUSTFLAGS = '--cfg getrandom_backend="custom" -C target-feature=+simd128'
+          cargo build --locked --release --lib --target wasm32-unknown-unknown --manifest-path runtime/wasm/Cargo.toml
+      - name: Web demo engine
+        run: |
+          $env:CARGO_TARGET_DIR = ".ci-target/engine"
+          cargo test --locked --manifest-path apps/web-demo/engine/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo clippy --locked --manifest-path apps/web-demo/engine/Cargo.toml --all-targets -- -D warnings
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo fmt --manifest-path apps/web-demo/engine/Cargo.toml -- --check
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $env:CARGO_TARGET_DIR = ".ci-target/wasm"
+          $env:RUSTFLAGS = '--cfg getrandom_backend="custom" -C target-feature=+simd128'
+          cargo build --locked --release --lib --target wasm32-unknown-unknown --manifest-path apps/web-demo/engine/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B apps/web-demo/strip_exports.py .ci-target/wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm .ci-target/engine.wasm
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          node -e "const m=new WebAssembly.Module(require('fs').readFileSync('.ci-target/engine.wasm'));const e=WebAssembly.Module.exports(m).map(x=>x.name);if(e.some(n=>n.startsWith('kj_')))process.exit(1);console.log(e.join(','))"
+      - name: Python tools (no model)
+        run: |
+          python -m pip install --disable-pip-version-check numpy==2.5.3
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B -m unittest discover -s runtime -p "test_*.py"
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          Push-Location runtime/wasm
+          python -B -m unittest test_run_w0 test_run_w1 test_run_w2
+          $code = $LASTEXITCODE
+          Pop-Location
+          if ($code) { exit $code }
+          Push-Location apps/web-demo
+          python -B -m unittest discover -p "test_*.py"
+          $code = $LASTEXITCODE
+          Pop-Location
+          exit $code
+      - name: JavaScript syntax
+        run: |
+          foreach ($f in @("apps/web-demo/web/app.js", "apps/web-demo/web/engine-worker.js", "apps/web-demo/e2e_w3.mjs", "runtime/wasm/web/worker.js", "runtime/wasm/web/w1-worker.js", "runtime/wasm/web/w2-worker.js")) {
+            node --check $f
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          }
+      - name: Dependency licenses
+        run: |
+          # cargo metadata runs offline; fetch every locked package (all platforms) first.
+          foreach ($m in @("Cargo.toml", "runtime/rust/Cargo.toml", "runtime/wasm/Cargo.toml", "apps/web-demo/engine/Cargo.toml")) {
+            cargo fetch --locked --manifest-path $m
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          }
+          python -B tools/audit_licenses.py --strict
