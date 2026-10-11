@@ -1,0 +1,2265 @@
+{
+ "schema_version": "pure_jeff.license_audit.v1",
+ "crates": {
+  "core": {
+   "manifest": "Cargo.toml",
+   "targets": {
+    "x86_64-pc-windows-msvc": {
+     "shipped": [
+      "itoa 1.0.18",
+      "memchr 2.8.3",
+      "proc-macro2 1.0.107",
+      "quote 1.0.47",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "syn 3.0.6",
+      "unicode-ident 1.0.26",
+      "zmij 1.0.23"
+     ],
+     "build_only": []
+    }
+   }
+  },
+  "native": {
+   "manifest": "runtime/rust/Cargo.toml",
+   "targets": {
+    "x86_64-pc-windows-msvc": {
+     "shipped": [
+      "ahash 0.8.12",
+      "aho-corasick 1.1.5",
+      "allocator-api2 0.2.21",
+      "anyhow 1.0.104",
+      "base64 0.13.1",
+      "bit-set 0.8.0",
+      "bit-vec 0.8.0",
+      "bitflags 2.13.2",
+      "block-buffer 0.10.4",
+      "bytemuck 1.25.2",
+      "bytemuck_derive 1.12.1",
+      "byteorder 1.5.0",
+      "candle-core 0.11.0",
+      "candle-nn 0.11.0",
+      "castaway 0.2.4",
+      "cfg-if 1.0.5",
+      "compact_str 0.9.1",
+      "cpufeatures 0.2.17",
+      "crc32fast 1.5.2",
+      "crossbeam-deque 0.8.8",
+      "crossbeam-epoch 0.9.21",
+      "crossbeam-utils 0.8.23",
+      "crypto-common 0.1.7",
+      "daachorse 3.0.3",
+      "darling 0.20.11",
+      "darling_core 0.20.11",
+      "darling_macro 0.20.11",
+      "dary_heap 0.3.9",
+      "derive_builder 0.20.2",
+      "derive_builder_core 0.20.2",
+      "derive_builder_macro 0.20.2",
+      "digest 0.10.7",
+      "dyn-stack 0.13.2",
+      "dyn-stack-macros 0.1.3",
+      "either 1.19.0",
+      "equivalent 1.0.2",
+      "esaxx-rs 0.1.10",
+      "fancy-regex 0.17.0",
+      "fastrand 2.5.0",
+      "float8 0.7.0",
+      "fnv 1.0.7",
+      "foldhash 0.2.0",
+      "gemm 0.19.0",
+      "gemm-c32 0.19.0",
+      "gemm-c64 0.19.0",
+      "gemm-common 0.19.0",
+      "gemm-f16 0.19.0",
+      "gemm-f32 0.19.0",
+      "gemm-f64 0.19.0",
+      "generic-array 0.14.7",
+      "getrandom 0.3.4",
+      "getrandom 0.4.3",
+      "half 2.7.1",
+      "hashbrown 0.16.1",
+      "hashbrown 0.17.1",
+      "ident_case 1.0.1",
+      "indexmap 2.14.2",
+      "itertools 0.14.0",
+      "itoa 1.0.18",
+      "kaze_judge 0.1.0",
+      "libc 0.2.190",
+      "libm 0.2.16",
+      "lock_api 0.4.14",
+      "log 0.4.34",
+      "macro_rules_attribute 0.2.3",
+      "macro_rules_attribute-proc_macro 0.2.3",
+      "memchr 2.8.3",
+      "memmap2 0.9.11",
+      "minimal-lexical 0.2.1",
+      "monostate 0.1.18",
+      "monostate-impl 0.1.18",
+      "nom 7.1.3",
+      "num-complex 0.4.6",
+      "num-traits 0.2.19",
+      "num_cpus 1.17.0",
+      "once_cell 1.21.4",
+      "parking_lot 0.12.5",
+      "parking_lot_core 0.9.12",
+      "paste 1.0.15",
+      "pastey 0.2.3",
+      "ppv-lite86 0.2.21",
+      "proc-macro2 1.0.107",
+      "pulp 0.22.3",
+      "pulp-wasm-simd-flag 0.1.1",
+      "quote 1.0.47",
+      "rand 0.9.5",
+      "rand_chacha 0.9.0",
+      "rand_core 0.9.5",
+      "rand_distr 0.5.1",
+      "raw-cpuid 11.6.0",
+      "rayon 1.12.0",
+      "rayon-cond 0.4.0",
+      "rayon-core 1.13.0",
+      "reborrow 0.5.5",
+      "regex 1.13.1",
+      "regex-automata 0.4.18",
+      "regex-syntax 0.8.11",
+      "rustversion 1.0.23",
+      "ryu 1.0.23",
+      "safetensors 0.8.0",
+      "scopeguard 1.2.0",
+      "seq-macro 0.3.6",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "sha2 0.10.9",
+      "smallvec 1.16.2",
+      "spm_precompiled 0.1.4",
+      "stable_deref_trait 1.2.1",
+      "static_assertions 1.1.0",
+      "strsim 0.11.1",
+      "syn 2.0.119",
+      "syn 3.0.6",
+      "synstructure 0.14.0",
+      "tempfile 3.27.0",
+      "thiserror 2.0.21",
+      "thiserror-impl 2.0.21",
+      "tokenizers 0.23.2",
+      "typed-path 0.12.3",
+      "typenum 1.20.1",
+      "unicode-ident 1.0.26",
+      "unicode-normalization-alignments 0.1.12",
+      "unicode-segmentation 1.13.3",
+      "unicode_categories 0.1.1",
+      "windows-link 0.2.1",
+      "windows-sys 0.61.2",
+      "yoke 0.8.3",
+      "yoke-derive 0.8.4",
+      "zerocopy 0.8.62",
+      "zerocopy-derive 0.8.62",
+      "zerofrom 0.1.8",
+      "zerofrom-derive 0.1.8",
+      "zip 8.6.0",
+      "zmij 1.0.23"
+     ],
+     "build_only": [
+      "autocfg 1.5.1",
+      "version_check 0.9.5"
+     ]
+    }
+   }
+  },
+  "probe": {
+   "manifest": "runtime/wasm/Cargo.toml",
+   "targets": {
+    "wasm32-unknown-unknown": {
+     "shipped": [
+      "ahash 0.8.12",
+      "aho-corasick 1.1.5",
+      "allocator-api2 0.2.21",
+      "anyhow 1.0.104",
+      "base64 0.13.1",
+      "bit-set 0.8.0",
+      "bit-vec 0.8.0",
+      "bitflags 2.13.2",
+      "block-buffer 0.10.4",
+      "bytemuck 1.25.2",
+      "bytemuck_derive 1.12.1",
+      "byteorder 1.5.0",
+      "candle-core 0.11.0",
+      "candle-nn 0.11.0",
+      "castaway 0.2.4",
+      "cfg-if 1.0.5",
+      "compact_str 0.9.1",
+      "crc32fast 1.5.2",
+      "crossbeam-deque 0.8.8",
+      "crossbeam-epoch 0.9.21",
+      "crossbeam-utils 0.8.23",
+      "crypto-common 0.1.7",
+      "daachorse 3.0.3",
+      "darling 0.20.11",
+      "darling_core 0.20.11",
+      "darling_macro 0.20.11",
+      "dary_heap 0.3.9",
+      "derive_builder 0.20.2",
+      "derive_builder_core 0.20.2",
+      "derive_builder_macro 0.20.2",
+      "digest 0.10.7",
+      "dyn-stack 0.13.2",
+      "dyn-stack-macros 0.1.3",
+      "either 1.19.0",
+      "equivalent 1.0.2",
+      "esaxx-rs 0.1.10",
+      "fancy-regex 0.17.0",
+      "fastrand 2.5.0",
+      "float8 0.7.0",
+      "fnv 1.0.7",
+      "foldhash 0.2.0",
+      "gemm 0.19.0",
+      "gemm-c32 0.19.0",
+      "gemm-c64 0.19.0",
+      "gemm-common 0.19.0",
+      "gemm-f16 0.19.0",
+      "gemm-f32 0.19.0",
+      "gemm-f64 0.19.0",
+      "generic-array 0.14.7",
+      "getrandom 0.3.4",
+      "half 2.7.1",
+      "hashbrown 0.16.1",
+      "hashbrown 0.17.1",
+      "ident_case 1.0.1",
+      "indexmap 2.14.2",
+      "itertools 0.14.0",
+      "itoa 1.0.18",
+      "kaze_judge 0.1.0",
+      "libc 0.2.190",
+      "libm 0.2.16",
+      "lock_api 0.4.14",
+      "log 0.4.34",
+      "macro_rules_attribute 0.2.3",
+      "macro_rules_attribute-proc_macro 0.2.3",
+      "memchr 2.8.3",
+      "memmap2 0.9.11",
+      "minimal-lexical 0.2.1",
+      "monostate 0.1.18",
+      "monostate-impl 0.1.18",
+      "nom 7.1.3",
+      "num-complex 0.4.6",
+      "num-traits 0.2.19",
+      "num_cpus 1.17.0",
+      "once_cell 1.21.4",
+      "parking_lot 0.12.5",
+      "parking_lot_core 0.9.12",
+      "paste 1.0.15",
+      "pastey 0.2.3",
+      "ppv-lite86 0.2.21",
+      "proc-macro2 1.0.107",
+      "pulp 0.22.3",
+      "pulp-wasm-simd-flag 0.1.1",
+      "quote 1.0.47",
+      "rand 0.9.5",
+      "rand_chacha 0.9.0",
+      "rand_core 0.9.5",
+      "rand_distr 0.5.1",
+      "raw-cpuid 11.6.0",
+      "rayon 1.12.0",
+      "rayon-cond 0.4.0",
+      "rayon-core 1.13.0",
+      "reborrow 0.5.5",
+      "regex 1.13.1",
+      "regex-automata 0.4.18",
+      "regex-syntax 0.8.11",
+      "rustversion 1.0.23",
+      "ryu 1.0.23",
+      "safetensors 0.8.0",
+      "scopeguard 1.2.0",
+      "seq-macro 0.3.6",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "sha2 0.10.9",
+      "smallvec 1.16.2",
+      "spm_precompiled 0.1.4",
+      "stable_deref_trait 1.2.1",
+      "static_assertions 1.1.0",
+      "strsim 0.11.1",
+      "syn 2.0.119",
+      "syn 3.0.6",
+      "synstructure 0.14.0",
+      "tempfile 3.27.0",
+      "thiserror 2.0.21",
+      "thiserror-impl 2.0.21",
+      "tokenizers 0.23.2",
+      "typed-path 0.12.3",
+      "typenum 1.20.1",
+      "unicode-ident 1.0.26",
+      "unicode-normalization-alignments 0.1.12",
+      "unicode-segmentation 1.13.3",
+      "unicode_categories 0.1.1",
+      "yoke 0.8.3",
+      "yoke-derive 0.8.4",
+      "zerocopy 0.8.62",
+      "zerocopy-derive 0.8.62",
+      "zerofrom 0.1.8",
+      "zerofrom-derive 0.1.8",
+      "zip 8.6.0",
+      "zmij 1.0.23"
+     ],
+     "build_only": [
+      "autocfg 1.5.1",
+      "version_check 0.9.5"
+     ]
+    },
+    "x86_64-pc-windows-msvc": {
+     "shipped": [
+      "ahash 0.8.12",
+      "aho-corasick 1.1.5",
+      "allocator-api2 0.2.21",
+      "anyhow 1.0.104",
+      "base64 0.13.1",
+      "bit-set 0.8.0",
+      "bit-vec 0.8.0",
+      "bitflags 2.13.2",
+      "block-buffer 0.10.4",
+      "bytemuck 1.25.2",
+      "bytemuck_derive 1.12.1",
+      "byteorder 1.5.0",
+      "candle-core 0.11.0",
+      "candle-nn 0.11.0",
+      "castaway 0.2.4",
+      "cfg-if 1.0.5",
+      "compact_str 0.9.1",
+      "cpufeatures 0.2.17",
+      "crc32fast 1.5.2",
+      "crossbeam-deque 0.8.8",
+      "crossbeam-epoch 0.9.21",
+      "crossbeam-utils 0.8.23",
+      "crypto-common 0.1.7",
+      "daachorse 3.0.3",
+      "darling 0.20.11",
+      "darling_core 0.20.11",
+      "darling_macro 0.20.11",
+      "dary_heap 0.3.9",
+      "derive_builder 0.20.2",
+      "derive_builder_core 0.20.2",
+      "derive_builder_macro 0.20.2",
+      "digest 0.10.7",
+      "dyn-stack 0.13.2",
+      "dyn-stack-macros 0.1.3",
+      "either 1.19.0",
+      "equivalent 1.0.2",
+      "esaxx-rs 0.1.10",
+      "fancy-regex 0.17.0",
+      "fastrand 2.5.0",
+      "float8 0.7.0",
+      "fnv 1.0.7",
+      "foldhash 0.2.0",
+      "gemm 0.19.0",
+      "gemm-c32 0.19.0",
+      "gemm-c64 0.19.0",
+      "gemm-common 0.19.0",
+      "gemm-f16 0.19.0",
+      "gemm-f32 0.19.0",
+      "gemm-f64 0.19.0",
+      "generic-array 0.14.7",
+      "getrandom 0.3.4",
+      "getrandom 0.4.3",
+      "half 2.7.1",
+      "hashbrown 0.16.1",
+      "hashbrown 0.17.1",
+      "ident_case 1.0.1",
+      "indexmap 2.14.2",
+      "itertools 0.14.0",
+      "itoa 1.0.18",
+      "kaze_judge 0.1.0",
+      "libc 0.2.190",
+      "libm 0.2.16",
+      "lock_api 0.4.14",
+      "log 0.4.34",
+      "macro_rules_attribute 0.2.3",
+      "macro_rules_attribute-proc_macro 0.2.3",
+      "memchr 2.8.3",
+      "memmap2 0.9.11",
+      "minimal-lexical 0.2.1",
+      "monostate 0.1.18",
+      "monostate-impl 0.1.18",
+      "nom 7.1.3",
+      "num-complex 0.4.6",
+      "num-traits 0.2.19",
+      "num_cpus 1.17.0",
+      "once_cell 1.21.4",
+      "parking_lot 0.12.5",
+      "parking_lot_core 0.9.12",
+      "paste 1.0.15",
+      "pastey 0.2.3",
+      "ppv-lite86 0.2.21",
+      "proc-macro2 1.0.107",
+      "pulp 0.22.3",
+      "pulp-wasm-simd-flag 0.1.1",
+      "quote 1.0.47",
+      "rand 0.9.5",
+      "rand_chacha 0.9.0",
+      "rand_core 0.9.5",
+      "rand_distr 0.5.1",
+      "raw-cpuid 11.6.0",
+      "rayon 1.12.0",
+      "rayon-cond 0.4.0",
+      "rayon-core 1.13.0",
+      "reborrow 0.5.5",
+      "regex 1.13.1",
+      "regex-automata 0.4.18",
+      "regex-syntax 0.8.11",
+      "rustversion 1.0.23",
+      "ryu 1.0.23",
+      "safetensors 0.8.0",
+      "scopeguard 1.2.0",
+      "seq-macro 0.3.6",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "sha2 0.10.9",
+      "smallvec 1.16.2",
+      "spm_precompiled 0.1.4",
+      "stable_deref_trait 1.2.1",
+      "static_assertions 1.1.0",
+      "strsim 0.11.1",
+      "syn 2.0.119",
+      "syn 3.0.6",
+      "synstructure 0.14.0",
+      "tempfile 3.27.0",
+      "thiserror 2.0.21",
+      "thiserror-impl 2.0.21",
+      "tokenizers 0.23.2",
+      "typed-path 0.12.3",
+      "typenum 1.20.1",
+      "unicode-ident 1.0.26",
+      "unicode-normalization-alignments 0.1.12",
+      "unicode-segmentation 1.13.3",
+      "unicode_categories 0.1.1",
+      "windows-link 0.2.1",
+      "windows-sys 0.61.2",
+      "yoke 0.8.3",
+      "yoke-derive 0.8.4",
+      "zerocopy 0.8.62",
+      "zerocopy-derive 0.8.62",
+      "zerofrom 0.1.8",
+      "zerofrom-derive 0.1.8",
+      "zip 8.6.0",
+      "zmij 1.0.23"
+     ],
+     "build_only": [
+      "autocfg 1.5.1",
+      "version_check 0.9.5"
+     ]
+    }
+   }
+  },
+  "engine": {
+   "manifest": "apps/web-demo/engine/Cargo.toml",
+   "targets": {
+    "wasm32-unknown-unknown": {
+     "shipped": [
+      "ahash 0.8.12",
+      "aho-corasick 1.1.5",
+      "allocator-api2 0.2.21",
+      "anyhow 1.0.104",
+      "base64 0.13.1",
+      "bit-set 0.8.0",
+      "bit-vec 0.8.0",
+      "bitflags 2.13.2",
+      "block-buffer 0.10.4",
+      "bytemuck 1.25.2",
+      "bytemuck_derive 1.12.1",
+      "byteorder 1.5.0",
+      "candle-core 0.11.0",
+      "candle-nn 0.11.0",
+      "castaway 0.2.4",
+      "cfg-if 1.0.5",
+      "compact_str 0.9.1",
+      "crc32fast 1.5.2",
+      "crossbeam-deque 0.8.8",
+      "crossbeam-epoch 0.9.21",
+      "crossbeam-utils 0.8.23",
+      "crypto-common 0.1.7",
+      "daachorse 3.0.3",
+      "darling 0.20.11",
+      "darling_core 0.20.11",
+      "darling_macro 0.20.11",
+      "dary_heap 0.3.9",
+      "derive_builder 0.20.2",
+      "derive_builder_core 0.20.2",
+      "derive_builder_macro 0.20.2",
+      "digest 0.10.7",
+      "dyn-stack 0.13.2",
+      "dyn-stack-macros 0.1.3",
+      "either 1.19.0",
+      "equivalent 1.0.2",
+      "esaxx-rs 0.1.10",
+      "fancy-regex 0.17.0",
+      "fastrand 2.5.0",
+      "float8 0.7.0",
+      "fnv 1.0.7",
+      "foldhash 0.2.0",
+      "gemm 0.19.0",
+      "gemm-c32 0.19.0",
+      "gemm-c64 0.19.0",
+      "gemm-common 0.19.0",
+      "gemm-f16 0.19.0",
+      "gemm-f32 0.19.0",
+      "gemm-f64 0.19.0",
+      "generic-array 0.14.7",
+      "getrandom 0.3.4",
+      "half 2.7.1",
+      "hashbrown 0.16.1",
+      "hashbrown 0.17.1",
+      "ident_case 1.0.1",
+      "indexmap 2.14.2",
+      "itertools 0.14.0",
+      "itoa 1.0.18",
+      "kaze_judge 0.1.0",
+      "kaze_judge_wasm_probe 0.1.0",
+      "libc 0.2.190",
+      "libm 0.2.16",
+      "lock_api 0.4.14",
+      "log 0.4.34",
+      "macro_rules_attribute 0.2.3",
+      "macro_rules_attribute-proc_macro 0.2.3",
+      "memchr 2.8.3",
+      "memmap2 0.9.11",
+      "minimal-lexical 0.2.1",
+      "monostate 0.1.18",
+      "monostate-impl 0.1.18",
+      "nom 7.1.3",
+      "num-complex 0.4.6",
+      "num-traits 0.2.19",
+      "num_cpus 1.17.0",
+      "once_cell 1.21.4",
+      "parking_lot 0.12.5",
+      "parking_lot_core 0.9.12",
+      "paste 1.0.15",
+      "pastey 0.2.3",
+      "ppv-lite86 0.2.21",
+      "proc-macro2 1.0.107",
+      "pulp 0.22.3",
+      "pulp-wasm-simd-flag 0.1.1",
+      "quote 1.0.47",
+      "rand 0.9.5",
+      "rand_chacha 0.9.0",
+      "rand_core 0.9.5",
+      "rand_distr 0.5.1",
+      "raw-cpuid 11.6.0",
+      "rayon 1.12.0",
+      "rayon-cond 0.4.0",
+      "rayon-core 1.13.0",
+      "reborrow 0.5.5",
+      "regex 1.13.1",
+      "regex-automata 0.4.18",
+      "regex-syntax 0.8.11",
+      "rustversion 1.0.23",
+      "ryu 1.0.23",
+      "safetensors 0.8.0",
+      "scopeguard 1.2.0",
+      "seq-macro 0.3.6",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "sha2 0.10.9",
+      "smallvec 1.16.2",
+      "spm_precompiled 0.1.4",
+      "stable_deref_trait 1.2.1",
+      "static_assertions 1.1.0",
+      "strsim 0.11.1",
+      "syn 2.0.119",
+      "syn 3.0.6",
+      "synstructure 0.14.0",
+      "tempfile 3.27.0",
+      "thiserror 2.0.21",
+      "thiserror-impl 2.0.21",
+      "tokenizers 0.23.2",
+      "typed-path 0.12.3",
+      "typenum 1.20.1",
+      "unicode-ident 1.0.26",
+      "unicode-normalization-alignments 0.1.12",
+      "unicode-segmentation 1.13.3",
+      "unicode_categories 0.1.1",
+      "yoke 0.8.3",
+      "yoke-derive 0.8.4",
+      "zerocopy 0.8.62",
+      "zerocopy-derive 0.8.62",
+      "zerofrom 0.1.8",
+      "zerofrom-derive 0.1.8",
+      "zip 8.6.0",
+      "zmij 1.0.23"
+     ],
+     "build_only": [
+      "autocfg 1.5.1",
+      "version_check 0.9.5"
+     ]
+    },
+    "x86_64-pc-windows-msvc": {
+     "shipped": [
+      "ahash 0.8.12",
+      "aho-corasick 1.1.5",
+      "allocator-api2 0.2.21",
+      "anyhow 1.0.104",
+      "base64 0.13.1",
+      "bit-set 0.8.0",
+      "bit-vec 0.8.0",
+      "bitflags 2.13.2",
+      "block-buffer 0.10.4",
+      "bytemuck 1.25.2",
+      "bytemuck_derive 1.12.1",
+      "byteorder 1.5.0",
+      "candle-core 0.11.0",
+      "candle-nn 0.11.0",
+      "castaway 0.2.4",
+      "cfg-if 1.0.5",
+      "compact_str 0.9.1",
+      "cpufeatures 0.2.17",
+      "crc32fast 1.5.2",
+      "crossbeam-deque 0.8.8",
+      "crossbeam-epoch 0.9.21",
+      "crossbeam-utils 0.8.23",
+      "crypto-common 0.1.7",
+      "daachorse 3.0.3",
+      "darling 0.20.11",
+      "darling_core 0.20.11",
+      "darling_macro 0.20.11",
+      "dary_heap 0.3.9",
+      "derive_builder 0.20.2",
+      "derive_builder_core 0.20.2",
+      "derive_builder_macro 0.20.2",
+      "digest 0.10.7",
+      "dyn-stack 0.13.2",
+      "dyn-stack-macros 0.1.3",
+      "either 1.19.0",
+      "equivalent 1.0.2",
+      "esaxx-rs 0.1.10",
+      "fancy-regex 0.17.0",
+      "fastrand 2.5.0",
+      "float8 0.7.0",
+      "fnv 1.0.7",
+      "foldhash 0.2.0",
+      "gemm 0.19.0",
+      "gemm-c32 0.19.0",
+      "gemm-c64 0.19.0",
+      "gemm-common 0.19.0",
+      "gemm-f16 0.19.0",
+      "gemm-f32 0.19.0",
+      "gemm-f64 0.19.0",
+      "generic-array 0.14.7",
+      "getrandom 0.3.4",
+      "getrandom 0.4.3",
+      "half 2.7.1",
+      "hashbrown 0.16.1",
+      "hashbrown 0.17.1",
+      "ident_case 1.0.1",
+      "indexmap 2.14.2",
+      "itertools 0.14.0",
+      "itoa 1.0.18",
+      "kaze_judge 0.1.0",
+      "kaze_judge_wasm_probe 0.1.0",
+      "libc 0.2.190",
+      "libm 0.2.16",
+      "lock_api 0.4.14",
+      "log 0.4.34",
+      "macro_rules_attribute 0.2.3",
+      "macro_rules_attribute-proc_macro 0.2.3",
+      "memchr 2.8.3",
+      "memmap2 0.9.11",
+      "minimal-lexical 0.2.1",
+      "monostate 0.1.18",
+      "monostate-impl 0.1.18",
+      "nom 7.1.3",
+      "num-complex 0.4.6",
+      "num-traits 0.2.19",
+      "num_cpus 1.17.0",
+      "once_cell 1.21.4",
+      "parking_lot 0.12.5",
+      "parking_lot_core 0.9.12",
+      "paste 1.0.15",
+      "pastey 0.2.3",
+      "ppv-lite86 0.2.21",
+      "proc-macro2 1.0.107",
+      "pulp 0.22.3",
+      "pulp-wasm-simd-flag 0.1.1",
+      "quote 1.0.47",
+      "rand 0.9.5",
+      "rand_chacha 0.9.0",
+      "rand_core 0.9.5",
+      "rand_distr 0.5.1",
+      "raw-cpuid 11.6.0",
+      "rayon 1.12.0",
+      "rayon-cond 0.4.0",
+      "rayon-core 1.13.0",
+      "reborrow 0.5.5",
+      "regex 1.13.1",
+      "regex-automata 0.4.18",
+      "regex-syntax 0.8.11",
+      "rustversion 1.0.23",
+      "ryu 1.0.23",
+      "safetensors 0.8.0",
+      "scopeguard 1.2.0",
+      "seq-macro 0.3.6",
+      "serde 1.0.229",
+      "serde_core 1.0.229",
+      "serde_derive 1.0.229",
+      "serde_json 1.0.151",
+      "sha2 0.10.9",
+      "smallvec 1.16.2",
+      "spm_precompiled 0.1.4",
+      "stable_deref_trait 1.2.1",
+      "static_assertions 1.1.0",
+      "strsim 0.11.1",
+      "syn 2.0.119",
+      "syn 3.0.6",
+      "synstructure 0.14.0",
+      "tempfile 3.27.0",
+      "thiserror 2.0.21",
+      "thiserror-impl 2.0.21",
+      "tokenizers 0.23.2",
+      "typed-path 0.12.3",
+      "typenum 1.20.1",
+      "unicode-ident 1.0.26",
+      "unicode-normalization-alignments 0.1.12",
+      "unicode-segmentation 1.13.3",
+      "unicode_categories 0.1.1",
+      "windows-link 0.2.1",
+      "windows-sys 0.61.2",
+      "yoke 0.8.3",
+      "yoke-derive 0.8.4",
+      "zerocopy 0.8.62",
+      "zerocopy-derive 0.8.62",
+      "zerofrom 0.1.8",
+      "zerofrom-derive 0.1.8",
+      "zip 8.6.0",
+      "zmij 1.0.23"
+     ],
+     "build_only": [
+      "autocfg 1.5.1",
+      "version_check 0.9.5"
+     ]
+    }
+   }
+  }
+ },
+ "packages": {
+  "serde_json 1.0.151": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/serde-rs/json",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "serde_json-1.0.151/LICENSE-APACHE",
+    "serde_json-1.0.151/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "itoa 1.0.18": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/itoa",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "itoa-1.0.18/LICENSE-APACHE",
+    "itoa-1.0.18/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "zmij 1.0.23": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/zmij",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zmij-1.0.23/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "memchr 2.8.3": {
+   "license": "Unlicense OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/BurntSushi/memchr",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "memchr-2.8.3/COPYING",
+    "memchr-2.8.3/LICENSE-MIT",
+    "memchr-2.8.3/UNLICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "serde 1.0.229": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/serde-rs/serde",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "serde-1.0.229/LICENSE-APACHE",
+    "serde-1.0.229/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "syn 3.0.6": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/syn",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "syn-3.0.6/LICENSE-APACHE",
+    "syn-3.0.6/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "unicode-ident 1.0.26": {
+   "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/unicode-ident",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "unicode-ident-1.0.26/LICENSE-APACHE",
+    "unicode-ident-1.0.26/LICENSE-MIT",
+    "unicode-ident-1.0.26/LICENSE-UNICODE"
+   ],
+   "text_from_supplement": false
+  },
+  "serde_derive 1.0.229": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/serde-rs/serde",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "serde_derive-1.0.229/LICENSE-APACHE",
+    "serde_derive-1.0.229/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "serde_core 1.0.229": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/serde-rs/serde",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "serde_core-1.0.229/LICENSE-APACHE",
+    "serde_core-1.0.229/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "proc-macro2 1.0.107": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/proc-macro2",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "proc-macro2-1.0.107/LICENSE-APACHE",
+    "proc-macro2-1.0.107/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "quote 1.0.47": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/quote",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "quote-1.0.47/LICENSE-APACHE",
+    "quote-1.0.47/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "tempfile 3.27.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Stebalien/tempfile",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "tempfile-3.27.0/LICENSE-APACHE",
+    "tempfile-3.27.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "once_cell 1.21.4": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/matklad/once_cell",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "once_cell-1.21.4/LICENSE-APACHE",
+    "once_cell-1.21.4/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-common 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-common-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "nom 7.1.3": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/Geal/nom",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "nom-7.1.3/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "minimal-lexical 0.2.1": {
+   "license": "MIT/Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Alexhuszagh/minimal-lexical",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "minimal-lexical-0.2.1/LICENSE-APACHE",
+    "minimal-lexical-0.2.1/LICENSE-MIT",
+    "minimal-lexical-0.2.1/LICENSE.md"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "rand_distr 0.5.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/rand_distr",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rand_distr-0.5.1/LICENSE-APACHE",
+    "rand_distr-0.5.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "esaxx-rs 0.1.10": {
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Narsil/esaxx-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "esaxx-rs-0.1.10/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "rayon-core 1.13.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rayon-rs/rayon",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rayon-core-1.13.0/LICENSE-APACHE",
+    "rayon-core-1.13.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "yoke-derive 0.8.4": {
+   "license": "Unicode-3.0",
+   "class": "permissive",
+   "repository": "https://github.com/unicode-org/icu4x",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "yoke-derive-0.8.4/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "parking_lot_core 0.9.12": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Amanieu/parking_lot",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "parking_lot_core-0.9.12/LICENSE-APACHE",
+    "parking_lot_core-0.9.12/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "regex-automata 0.4.18": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/regex",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "regex-automata-0.4.18/LICENSE-APACHE",
+    "regex-automata-0.4.18/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "safetensors 0.8.0": {
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/huggingface/safetensors",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "safetensors-0.8.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "darling_core 0.20.11": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/TedDriggs/darling",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "darling_core-0.20.11/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "tokenizers 0.23.2": {
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/huggingface/tokenizers",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "tokenizers-0.23.2/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "daachorse 3.0.3": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/daac-tools/daachorse",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "daachorse-3.0.3/LICENSE-APACHE",
+    "daachorse-3.0.3/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "crossbeam-epoch 0.9.21": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/crossbeam-rs/crossbeam",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "crossbeam-epoch-0.9.21/LICENSE-APACHE",
+    "crossbeam-epoch-0.9.21/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "version_check 0.9.5": {
+   "license": "MIT/Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/SergioBenitez/version_check",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "version_check-0.9.5/LICENSE-APACHE",
+    "version_check-0.9.5/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "bytemuck_derive 1.12.1": {
+   "license": "Zlib OR Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/Lokathor/bytemuck",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "bytemuck_derive-1.12.1/LICENSE-APACHE",
+    "bytemuck_derive-1.12.1/LICENSE-MIT",
+    "bytemuck_derive-1.12.1/LICENSE-ZLIB"
+   ],
+   "text_from_supplement": false
+  },
+  "pastey 0.2.3": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/as1100k/pastey",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "pastey-0.2.3/LICENSE-APACHE",
+    "pastey-0.2.3/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-f16 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-f16-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "generic-array 0.14.7": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/fizyk20/generic-array.git",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "generic-array-0.14.7/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "ident_case 1.0.1": {
+   "license": "MIT/Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/TedDriggs/ident_case",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "ident_case-1.0.1/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "crc32fast 1.5.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/srijs/rust-crc32fast",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "crc32fast-1.5.2/LICENSE-APACHE",
+    "crc32fast-1.5.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "monostate-impl 0.1.18": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/monostate",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "monostate-impl-0.1.18/LICENSE-APACHE",
+    "monostate-impl-0.1.18/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "allocator-api2 0.2.21": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/zakarumych/allocator-api2",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "allocator-api2-0.2.21/LICENSE-APACHE",
+    "allocator-api2-0.2.21/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "compact_str 0.9.1": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/ParkMyCar/compact_str",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "compact_str-0.9.1/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-c32 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-c32-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "ryu 1.0.23": {
+   "license": "Apache-2.0 OR BSL-1.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/ryu",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "ryu-1.0.23/LICENSE-APACHE",
+    "ryu-1.0.23/LICENSE-BOOST"
+   ],
+   "text_from_supplement": false
+  },
+  "fancy-regex 0.17.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/fancy-regex/fancy-regex",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "fancy-regex-0.17.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "thiserror-impl 2.0.21": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/thiserror",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "thiserror-impl-2.0.21/LICENSE-APACHE",
+    "thiserror-impl-2.0.21/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rand 0.9.5": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/rand",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rand-0.9.5/LICENSE-APACHE",
+    "rand-0.9.5/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "sha2 0.10.9": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RustCrypto/hashes",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "sha2-0.10.9/LICENSE-APACHE",
+    "sha2-0.10.9/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "spm_precompiled 0.1.4": {
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/huggingface/spm_precompiled",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "spm_precompiled-0.1.4/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "lock_api 0.4.14": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Amanieu/parking_lot",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "lock_api-0.4.14/LICENSE-APACHE",
+    "lock_api-0.4.14/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "parking_lot 0.12.5": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/Amanieu/parking_lot",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "parking_lot-0.12.5/LICENSE-APACHE",
+    "parking_lot-0.12.5/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-f32 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-f32-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "either 1.19.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rayon-rs/either",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "either-1.19.0/LICENSE-APACHE",
+    "either-1.19.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "macro_rules_attribute-proc_macro 0.2.3": {
+   "license": "Apache-2.0 OR MIT OR Zlib",
+   "class": "permissive",
+   "repository": "https://github.com/danielhenrymantilla/macro_rules_attribute-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "macro_rules_attribute-proc_macro-0.2.3/LICENSE-APACHE",
+    "macro_rules_attribute-proc_macro-0.2.3/LICENSE-MIT",
+    "macro_rules_attribute-proc_macro-0.2.3/LICENSE-ZLIB"
+   ],
+   "text_from_supplement": false
+  },
+  "static_assertions 1.1.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/nvzqz/static-assertions-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "static_assertions-1.1.0/LICENSE-APACHE",
+    "static_assertions-1.1.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "getrandom 0.3.4": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/getrandom",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "getrandom-0.3.4/LICENSE-APACHE",
+    "getrandom-0.3.4/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "monostate 0.1.18": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/monostate",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "monostate-0.1.18/LICENSE-APACHE",
+    "monostate-0.1.18/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "pulp-wasm-simd-flag 0.1.1": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-quinones/pulp/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "pulp-wasm-simd-flag-0.1.1/LICENSE"
+   ],
+   "text_from_supplement": true
+  },
+  "autocfg 1.5.1": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/cuviper/autocfg",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "autocfg-1.5.1/LICENSE-APACHE",
+    "autocfg-1.5.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rand_core 0.9.5": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/rand",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rand_core-0.9.5/LICENSE-APACHE",
+    "rand_core-0.9.5/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "syn 2.0.119": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/syn",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "syn-2.0.119/LICENSE-APACHE",
+    "syn-2.0.119/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "getrandom 0.4.3": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/getrandom",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "getrandom-0.4.3/LICENSE-APACHE",
+    "getrandom-0.4.3/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rayon-cond 0.4.0": {
+   "license": "Apache-2.0/MIT",
+   "class": "permissive",
+   "repository": "https://github.com/cuviper/rayon-cond",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rayon-cond-0.4.0/LICENSE-APACHE",
+    "rayon-cond-0.4.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "float8 0.7.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/EricLBuehler/float8",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "float8-0.7.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "crossbeam-utils 0.8.23": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/crossbeam-rs/crossbeam",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "crossbeam-utils-0.8.23/LICENSE-APACHE",
+    "crossbeam-utils-0.8.23/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "half 2.7.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/VoidStarKat/half-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "half-2.7.1/LICENSE-APACHE",
+    "half-2.7.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-c64 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-c64-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "typenum 1.20.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/paholg/typenum",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "typenum-1.20.1/LICENSE",
+    "typenum-1.20.1/LICENSE-APACHE",
+    "typenum-1.20.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "hashbrown 0.16.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/hashbrown",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "hashbrown-0.16.1/LICENSE-APACHE",
+    "hashbrown-0.16.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "bit-vec 0.8.0": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/contain-rs/bit-vec",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "bit-vec-0.8.0/LICENSE-APACHE",
+    "bit-vec-0.8.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rayon 1.12.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rayon-rs/rayon",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rayon-1.12.0/LICENSE-APACHE",
+    "rayon-1.12.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "libm 0.2.16": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/compiler-builtins",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "libm-0.2.16/LICENSE.txt"
+   ],
+   "text_from_supplement": false
+  },
+  "macro_rules_attribute 0.2.3": {
+   "license": "Apache-2.0 OR MIT OR Zlib",
+   "class": "permissive",
+   "repository": "https://github.com/danielhenrymantilla/macro_rules_attribute-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "macro_rules_attribute-0.2.3/LICENSE-APACHE",
+    "macro_rules_attribute-0.2.3/LICENSE-MIT",
+    "macro_rules_attribute-0.2.3/LICENSE-ZLIB"
+   ],
+   "text_from_supplement": false
+  },
+  "fastrand 2.5.0": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/smol-rs/fastrand",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "fastrand-2.5.0/LICENSE-APACHE",
+    "fastrand-2.5.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "stable_deref_trait 1.2.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/storyyeller/stable_deref_trait",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "stable_deref_trait-1.2.1/LICENSE-APACHE",
+    "stable_deref_trait-1.2.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "ppv-lite86 0.2.21": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/cryptocorrosion/cryptocorrosion",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "ppv-lite86-0.2.21/LICENSE-APACHE",
+    "ppv-lite86-0.2.21/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "reborrow 0.5.5": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/reborrow/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "reborrow-0.5.5/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "log 0.4.34": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/log",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "log-0.4.34/LICENSE-APACHE",
+    "log-0.4.34/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "num-complex 0.4.6": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-num/num-complex",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "num-complex-0.4.6/LICENSE-APACHE",
+    "num-complex-0.4.6/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "aho-corasick 1.1.5": {
+   "license": "Unlicense OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/BurntSushi/aho-corasick",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "aho-corasick-1.1.5/COPYING",
+    "aho-corasick-1.1.5/LICENSE-MIT",
+    "aho-corasick-1.1.5/UNLICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "gemm-f64 0.19.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-ek/gemm/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "gemm-f64-0.19.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "unicode-normalization-alignments 0.1.12": {
+   "license": "MIT/Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/n1t0/unicode-normalization",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "unicode-normalization-alignments-0.1.12/LICENSE-APACHE",
+    "unicode-normalization-alignments-0.1.12/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "zip 8.6.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/zip-rs/zip2",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zip-8.6.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "num-traits 0.2.19": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-num/num-traits",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "num-traits-0.2.19/LICENSE-APACHE",
+    "num-traits-0.2.19/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "dyn-stack 0.13.2": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://codeberg.org/sarah-quinones/dyn-stack",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "dyn-stack-0.13.2/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "castaway 0.2.4": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sagebind/castaway",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "castaway-0.2.4/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "cpufeatures 0.2.17": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RustCrypto/utils",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "cpufeatures-0.2.17/LICENSE-APACHE",
+    "cpufeatures-0.2.17/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "darling_macro 0.20.11": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/TedDriggs/darling",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "darling_macro-0.20.11/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "regex 1.13.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/regex",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "regex-1.13.1/LICENSE-APACHE",
+    "regex-1.13.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "digest 0.10.7": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RustCrypto/traits",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "digest-0.10.7/LICENSE-APACHE",
+    "digest-0.10.7/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "block-buffer 0.10.4": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RustCrypto/utils",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "block-buffer-0.10.4/LICENSE-APACHE",
+    "block-buffer-0.10.4/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "byteorder 1.5.0": {
+   "license": "Unlicense OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/BurntSushi/byteorder",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "byteorder-1.5.0/COPYING",
+    "byteorder-1.5.0/LICENSE-MIT",
+    "byteorder-1.5.0/UNLICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "itertools 0.14.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-itertools/itertools",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "itertools-0.14.0/LICENSE-APACHE",
+    "itertools-0.14.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "zerofrom 0.1.8": {
+   "license": "Unicode-3.0",
+   "class": "permissive",
+   "repository": "https://github.com/unicode-org/icu4x",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zerofrom-0.1.8/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "strsim 0.11.1": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/rapidfuzz/strsim-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "strsim-0.11.1/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "regex-syntax 0.8.11": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/regex",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "regex-syntax-0.8.11/LICENSE-APACHE",
+    "regex-syntax-0.8.11/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "dary_heap 0.3.9": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/hanmertens/dary_heap",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "dary_heap-0.3.9/LICENSE-APACHE",
+    "dary_heap-0.3.9/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "ahash 0.8.12": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/tkaitchuck/ahash",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "ahash-0.8.12/LICENSE-APACHE",
+    "ahash-0.8.12/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rand_chacha 0.9.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-random/rand",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rand_chacha-0.9.0/LICENSE-APACHE",
+    "rand_chacha-0.9.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "scopeguard 1.2.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/bluss/scopeguard",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "scopeguard-1.2.0/LICENSE-APACHE",
+    "scopeguard-1.2.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "fnv 1.0.7": {
+   "license": "Apache-2.0 / MIT",
+   "class": "permissive",
+   "repository": "https://github.com/servo/rust-fnv",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "fnv-1.0.7/LICENSE-APACHE",
+    "fnv-1.0.7/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "darling 0.20.11": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/TedDriggs/darling",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "darling-0.20.11/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "foldhash 0.2.0": {
+   "license": "Zlib",
+   "class": "permissive",
+   "repository": "https://github.com/orlp/foldhash",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "foldhash-0.2.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "smallvec 1.16.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/servo/rust-smallvec",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "smallvec-1.16.2/LICENSE-APACHE",
+    "smallvec-1.16.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "bytemuck 1.25.2": {
+   "license": "Zlib OR Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/Lokathor/bytemuck",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "bytemuck-1.25.2/LICENSE-APACHE",
+    "bytemuck-1.25.2/LICENSE-MIT",
+    "bytemuck-1.25.2/LICENSE-ZLIB"
+   ],
+   "text_from_supplement": false
+  },
+  "paste 1.0.15": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/paste",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "paste-1.0.15/LICENSE-APACHE",
+    "paste-1.0.15/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "windows-sys 0.61.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/microsoft/windows-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "windows-sys-0.61.2/license-apache-2.0",
+    "windows-sys-0.61.2/license-mit"
+   ],
+   "text_from_supplement": false
+  },
+  "windows-link 0.2.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/microsoft/windows-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "windows-link-0.2.1/license-apache-2.0",
+    "windows-link-0.2.1/license-mit"
+   ],
+   "text_from_supplement": false
+  },
+  "zerofrom-derive 0.1.8": {
+   "license": "Unicode-3.0",
+   "class": "permissive",
+   "repository": "https://github.com/unicode-org/icu4x",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zerofrom-derive-0.1.8/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "zerocopy 0.8.62": {
+   "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/google/zerocopy",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zerocopy-0.8.62/LICENSE-APACHE",
+    "zerocopy-0.8.62/LICENSE-BSD",
+    "zerocopy-0.8.62/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "seq-macro 0.3.6": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/seq-macro",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "seq-macro-0.3.6/LICENSE-APACHE",
+    "seq-macro-0.3.6/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "typed-path 0.12.3": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/chipsenkbeil/typed-path",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "typed-path-0.12.3/LICENSE-APACHE",
+    "typed-path-0.12.3/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "base64 0.13.1": {
+   "license": "MIT/Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/marshallpierce/rust-base64",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "base64-0.13.1/LICENSE-APACHE",
+    "base64-0.13.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "candle-nn 0.11.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/huggingface/candle",
+   "source": "git+https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a",
+   "license_texts": [
+    "c68b249/LICENSE-APACHE",
+    "c68b249/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "cfg-if 1.0.5": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/cfg-if",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "cfg-if-1.0.5/LICENSE-APACHE",
+    "cfg-if-1.0.5/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "memmap2 0.9.11": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RazrFalcon/memmap2-rs",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "memmap2-0.9.11/LICENSE-APACHE",
+    "memmap2-0.9.11/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "pulp 0.22.3": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/sarah-quinones/pulp/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "pulp-0.22.3/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "synstructure 0.14.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/mystor/synstructure",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "synstructure-0.14.0/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "derive_builder_core 0.20.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/colin-kiegel/rust-derive-builder",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "derive_builder_core-0.20.2/LICENSE-APACHE",
+    "derive_builder_core-0.20.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "derive_builder 0.20.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/colin-kiegel/rust-derive-builder",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "derive_builder-0.20.2/LICENSE-APACHE",
+    "derive_builder-0.20.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "dyn-stack-macros 0.1.3": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/kitegi/dynstack/",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "dyn-stack-macros-0.1.3/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "hashbrown 0.17.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/hashbrown",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "hashbrown-0.17.1/LICENSE-APACHE",
+    "hashbrown-0.17.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "unicode-segmentation 1.13.3": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/unicode-rs/unicode-segmentation",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "unicode-segmentation-1.13.3/LICENSE-APACHE",
+    "unicode-segmentation-1.13.3/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "crypto-common 0.1.7": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/RustCrypto/traits",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "crypto-common-0.1.7/LICENSE-APACHE",
+    "crypto-common-0.1.7/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "derive_builder_macro 0.20.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/colin-kiegel/rust-derive-builder",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "derive_builder_macro-0.20.2/LICENSE-APACHE",
+    "derive_builder_macro-0.20.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "indexmap 2.14.2": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/indexmap-rs/indexmap",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "indexmap-2.14.2/LICENSE-APACHE",
+    "indexmap-2.14.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "rustversion 1.0.23": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/rustversion",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "rustversion-1.0.23/LICENSE-APACHE",
+    "rustversion-1.0.23/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "kaze_judge 0.1.0": {
+   "license": null,
+   "class": "own",
+   "repository": null,
+   "source": "path",
+   "license_texts": [],
+   "text_from_supplement": false
+  },
+  "candle-core 0.11.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/huggingface/candle",
+   "source": "git+https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a",
+   "license_texts": [
+    "candle-core/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "num_cpus 1.17.0": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/seanmonstar/num_cpus",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "num_cpus-1.17.0/LICENSE-APACHE",
+    "num_cpus-1.17.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "raw-cpuid 11.6.0": {
+   "license": "MIT",
+   "class": "permissive",
+   "repository": "https://github.com/gz/rust-cpuid",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "raw-cpuid-11.6.0/LICENSE.md"
+   ],
+   "text_from_supplement": false
+  },
+  "anyhow 1.0.104": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/anyhow",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "anyhow-1.0.104/LICENSE-APACHE",
+    "anyhow-1.0.104/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "thiserror 2.0.21": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/dtolnay/thiserror",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "thiserror-2.0.21/LICENSE-APACHE",
+    "thiserror-2.0.21/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "zerocopy-derive 0.8.62": {
+   "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/google/zerocopy",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "zerocopy-derive-0.8.62/LICENSE-APACHE",
+    "zerocopy-derive-0.8.62/LICENSE-BSD",
+    "zerocopy-derive-0.8.62/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "bitflags 2.13.2": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/bitflags/bitflags",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "bitflags-2.13.2/LICENSE-APACHE",
+    "bitflags-2.13.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "crossbeam-deque 0.8.8": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/crossbeam-rs/crossbeam",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "crossbeam-deque-0.8.8/LICENSE-APACHE",
+    "crossbeam-deque-0.8.8/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "yoke 0.8.3": {
+   "license": "Unicode-3.0",
+   "class": "permissive",
+   "repository": "https://github.com/unicode-org/icu4x",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "yoke-0.8.3/LICENSE"
+   ],
+   "text_from_supplement": false
+  },
+  "equivalent 1.0.2": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/indexmap-rs/equivalent",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "equivalent-1.0.2/LICENSE-APACHE",
+    "equivalent-1.0.2/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "bit-set 0.8.0": {
+   "license": "Apache-2.0 OR MIT",
+   "class": "permissive",
+   "repository": "https://github.com/contain-rs/bit-set",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "bit-set-0.8.0/LICENSE-APACHE",
+    "bit-set-0.8.0/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "unicode_categories 0.1.1": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/swgillespie/unicode-categories",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "unicode_categories-0.1.1/LICENSE-APACHE",
+    "unicode_categories-0.1.1/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "libc 0.2.190": {
+   "license": "MIT OR Apache-2.0",
+   "class": "permissive",
+   "repository": "https://github.com/rust-lang/libc",
+   "source": "registry+https://github.com/rust-lang/crates.io-index",
+   "license_texts": [
+    "libc-0.2.190/LICENSE-APACHE",
+    "libc-0.2.190/LICENSE-MIT"
+   ],
+   "text_from_supplement": false
+  },
+  "kaze_judge_wasm_probe 0.1.0": {
+   "license": null,
+   "class": "own",
+   "repository": null,
+   "source": "path",
+   "license_texts": [],
+   "text_from_supplement": false
+  }
+ },
+ "findings": {
+  "own_crates_without_license": [
+   "kaze_judge 0.1.0",
+   "kaze_judge_wasm_probe 0.1.0"
+  ],
+  "undeclared": [],
+  "needs_review": [],
+  "missing_license_text": []
+ },
+ "license_counts": {
+  "MIT OR Apache-2.0": 76,
+  "MIT": 27,
+  "Unlicense OR MIT": 3,
+  "(MIT OR Apache-2.0) AND Unicode-3.0": 1,
+  "MIT/Apache-2.0": 5,
+  "Apache-2.0": 4,
+  "Unicode-3.0": 4,
+  "Zlib OR Apache-2.0 OR MIT": 2,
+  "Apache-2.0 OR BSL-1.0": 1,
+  "Apache-2.0 OR MIT OR Zlib": 2,
+  "Apache-2.0 OR MIT": 6,
+  "Apache-2.0/MIT": 1,
+  "Apache-2.0 / MIT": 1,
+  "Zlib": 1,
+  "BSD-2-Clause OR Apache-2.0 OR MIT": 2,
+  "(none)": 2
+ }
+}
