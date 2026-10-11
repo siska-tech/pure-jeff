@@ -52,7 +52,8 @@ GATES_W4 = {
 GATES_EXTERNAL = {
     "consent": "no request to the model host before the download button is pressed",
     "abort": "after stopping a download while model.safetensors streams, it is not in Cache Storage and the UI "
-             "shows the model as not downloaded with evaluation disabled",
+             "shows the model as not downloaded with evaluation disabled; leftover partial data can be deleted from "
+             "the page (delete enabled) and no cache remains afterwards",
     "single_download": "after the second download click, model.safetensors is requested exactly once from the "
                        "model host, and no model-host request follows the completed download",
     "hosts": "every page/Worker request goes to the site origin, the model host or its download CDN (*.hf.co), "
@@ -224,7 +225,9 @@ def main():
                                 "model_requests": len(weights), "after_second_click": len([n for n in weights if n["time"] > click])}
         abort = steps["abort"]
         g["abort"] = {"passed": abort["model_in_cache"] is False and abort["evaluate_disabled"]
-                      and "取得していません" in abort["status"] and bool([n for n in weights if n["time"] < click]),
+                      and "取得していません" in abort["status"] and bool([n for n in weights if n["time"] < click])
+                      and abort.get("cache_after_cleanup") is False
+                      and (abort.get("state") != "partial" or abort.get("delete_enabled") is True),
                       "step": abort}
         net = [n["url"] for n in result["network"] if not n["url"].startswith(("blob:", "about:", "data:"))]
         hosts = sorted({u.split("/")[2] for u in net})

@@ -104,9 +104,12 @@ try {
     await waitFor("document.getElementById('model-bar').value > 0.15", 600000, "download progress");
     await click("stop-load");
     mark("abort:stopped");
-    await waitFor("window.kazeDemo.model === 'absent'", 60000, "state after stopping");
+    await waitFor("['absent', 'partial'].includes(window.kazeDemo.model)", 60000, "state after stopping");
     const config = await js("window.kazeDemo.config");
+    const stateAfterStop = await model();
     results.steps.abort = {
+      state: stateAfterStop,
+      delete_enabled: !(await js("document.getElementById('delete-cache').disabled")),
       status: await text("model-status"),
       model_in_cache: await js(`caches.has(${JSON.stringify(config.cache_name)}).then(async (has) => has &&
         !!(await (await caches.open(${JSON.stringify(config.cache_name)})).match(
@@ -114,6 +117,12 @@ try {
       evaluate_disabled: await js("document.getElementById('evaluate').disabled"),
     };
     await shot("01b-aborted");
+    if (stateAfterStop === "partial") {
+      // The files finished before the stop must be removable from the page.
+      await click("delete-cache");
+      await waitFor("window.kazeDemo.model === 'absent'", 60000, "partial data deleted");
+    }
+    results.steps.abort.cache_after_cleanup = await js(`caches.has(${JSON.stringify(config.cache_name)})`);
     await sleep(1000);
   }
   mark("download:click");

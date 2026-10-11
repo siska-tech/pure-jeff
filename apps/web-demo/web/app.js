@@ -78,7 +78,7 @@ function setModel(model, message) {
   const busy = model === "loading";
   $("download").disabled = busy || model === "unsupported" || model.startsWith("ready");
   $("load-cached").disabled = busy || !["cached", "ready-cached"].includes(model) || model.startsWith("ready");
-  $("delete-cache").disabled = busy || !["cached", "ready-cached"].includes(model);
+  $("delete-cache").disabled = busy || !["cached", "ready-cached", "partial"].includes(model);
   $("stop-load").hidden = !busy;
   $("model-progress").hidden = !busy;
   $("evaluate").disabled = !model.startsWith("ready") || state.running;
@@ -91,6 +91,9 @@ async function refreshModel() {
       cached ? "読み込み済み（このブラウザに保存済み）" : "読み込み済み（保存データはありません）");
   } else if (cached) {
     setModel("cached", "このブラウザに保存済みです。読み込むと使えます（通信は発生しません）。");
+  } else if ("caches" in self && await caches.has(config.cache_name)) {
+    // A stopped download can leave the smaller files; they are useless alone, so offer deletion.
+    setModel("partial", "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。");
   } else {
     setModel("absent", "モデルはまだ取得していません。");
   }
