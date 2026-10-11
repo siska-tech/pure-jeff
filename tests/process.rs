@@ -4,15 +4,16 @@ use std::{
     path::PathBuf,
     time::{Duration, Instant},
 };
-fn setup() -> (LocalProcessProvider, tempfile::TempDir) {
-    let python = PathBuf::from(
-        std::env::var_os("KAZE_JUDGE_PYTHON")
-            .expect("set KAZE_JUDGE_PYTHON to an absolute Python 3.12+ executable"),
-    );
+/// None (test skipped with a message) unless KAZE_JUDGE_PYTHON names a Python 3.12+ executable.
+fn setup() -> Option<(LocalProcessProvider, tempfile::TempDir)> {
+    let Some(python) = std::env::var_os("KAZE_JUDGE_PYTHON").map(PathBuf::from) else {
+        eprintln!("skipped: set KAZE_JUDGE_PYTHON to an absolute Python 3.12+ executable");
+        return None;
+    };
     let dir = tempfile::tempdir().unwrap();
     let manifest = dir.path().join("manifest.json");
     std::fs::write(&manifest, "{}").unwrap();
-    (
+    Some((
         LocalProcessProvider::new(
             python,
             PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/process_worker.py"),
@@ -20,7 +21,7 @@ fn setup() -> (LocalProcessProvider, tempfile::TempDir) {
         )
         .unwrap(),
         dir,
-    )
+    ))
 }
 fn request(mode: &str) -> DecisionRequest {
     DecisionRequest {
@@ -55,14 +56,18 @@ fn limits() -> Limits {
 }
 #[test]
 fn process_round_trip() {
-    let (mut provider, _dir) = setup();
+    let Some((mut provider, _dir)) = setup() else {
+        return;
+    };
     let a = evaluate(&mut provider, request("節約する"), limits()).unwrap();
     assert!(matches!(a.outcome, Outcome::Completed(_)));
     assert_eq!(a.provider_calls_started, 1);
 }
 #[test]
 fn process_failures_are_preserved() {
-    let (mut provider, _dir) = setup();
+    let Some((mut provider, _dir)) = setup() else {
+        return;
+    };
     for (mode, expected) in [
         ("wrong_id", Failure::InvalidOutput),
         ("invalid_json", Failure::InvalidOutput),
@@ -82,7 +87,9 @@ fn process_failures_are_preserved() {
 }
 #[test]
 fn direct_provider_also_enforces_preflight() {
-    let (mut provider, dir) = setup();
+    let Some((mut provider, dir)) = setup() else {
+        return;
+    };
     let mut l = limits();
     l.max_input_bytes = 1;
     assert_eq!(
@@ -96,7 +103,9 @@ fn direct_provider_also_enforces_preflight() {
 }
 #[test]
 fn timeout_terminates_running_child() {
-    let (mut provider, dir) = setup();
+    let Some((mut provider, dir)) = setup() else {
+        return;
+    };
     let mut l = limits();
     l.deadline = Instant::now() + Duration::from_secs(1);
     let start = Instant::now();

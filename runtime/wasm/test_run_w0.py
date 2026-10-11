@@ -1,4 +1,5 @@
 """Driver checks without a browser or model forward."""
+import importlib.util
 import unittest
 
 import run_w0
@@ -11,7 +12,8 @@ def ops(values, elapsed=1.0):
 
 class DriverTests(unittest.TestCase):
     def test_job_uses_all_golden_cases_with_one_vocabulary(self):
-        job = run_w0.make_job(run_w0.ROOT / "models/jeff-rust-bundle-p3.json")
+        # The committed checkpoint list has the same file records as a bundle manifest.
+        job = run_w0.make_job(run_w0.ROOT / "tools/checkpoint.json")
         self.assertEqual([case["name"] for case in job["cases"]], run_w0.CASES)
         self.assertEqual(len(job["codes"]), 255)
         self.assertEqual(job["cases"][-1]["input_ids"].__len__(), 8192)
@@ -29,6 +31,7 @@ class DriverTests(unittest.TestCase):
         nan = {"cases": [{"name": "x", "shape": [2], "values": [100.0, float("nan")], "elapsed_ms": 0}]}
         self.assertFalse(run_w0.compare_ops(native, nan, {})[0])
 
+    @unittest.skipUnless(importlib.util.find_spec("numpy"), "numpy is not installed")
     def test_gemm_backward_bound_rejects_wrong_product(self):
         exact = run_w0.gemm_exact()
         product = exact["gemm_odd_5x64_by_33x64T"][0].ravel()
