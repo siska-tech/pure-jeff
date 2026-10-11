@@ -313,3 +313,24 @@ Native4/Tract4 remains descriptive: dtype/shape/threads common, layout,
 algorithm, stage/startup verification/request scopes unequal. No backend
 adoption, runtime-only claim, API E2E or formal SLO. n=24 p95=second-largest;
 startup/lifetime peaks n=6 incidental, not cold/private warm memory evidence.
+
+`benchmark_length_compare.py` reuses the frozen Native thread wrapper and
+accepted Tract binary at four threads with the existing 28-case length oracle.
+Gate28/configuration precedes three AB/BA/AB resident pairs, each with five
+mixed-length warmups and twenty measured requests. Four primary cases at each
+of 128/256/384/511/512 effective tokens yield n=12/length/configuration and
+n=3/input; p95 is the maximum. Native computes the effective length; Tract
+computes left-padded physical512, so shorter cells have different shapes.
+ONNX probability/judgment/token gates, Native per-case repeat<=1e-6 and existing
+Native references where available, and exact previous Tract length-gate raw
+logits are required for all 206 planned forwards. Eight-candidate extras are gate-only and
+lack a128 cell. Same old artificial inputs, partially balanced order and
+uncontrolled thermals/background/cache limit interpretation. No runtime-only
+speedup, backend adoption, API E2E, cold campaign or formal SLO acceptance.
+The first run stopped after 156 forwards: resident-1-native4 exceeded the
+registered repeat tolerance for six observations/four cases, maximum
+3.546476364135742e-6. All156 passed ONNX probability/judgment/token gates,
+but the third pair was not run and performance comparison was not accepted.
+Raw diagnostics, failure and independent audit are preserved in
+`docs/research/jeff-onnx-tract/length-compare-2026-10-11`; no threshold relaxation
+or replacement run. Timing drift in both backends remains unexplained.

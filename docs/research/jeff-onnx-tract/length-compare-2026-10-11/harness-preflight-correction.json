@@ -1,0 +1,6 @@
+{
+  "phase": "before output directory creation or child launch",
+  "initial_check": "incorrect right-padding expectation rejected existing left-padded oracle",
+  "correction": "require attention_mask zero-prefix/one-suffix; no inference/timing or numerical threshold change",
+  "benchmark_attempts_after_preregistration": 1
+}
