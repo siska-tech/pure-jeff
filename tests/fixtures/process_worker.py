@@ -12,7 +12,7 @@ r=w["request"]
 mode=r["original_text"]
 if mode == "timeout":
     Path(a.manifest + ".started").write_text("started")
-    time.sleep(2)
+    time.sleep(8)  # well past the test's deadline; must be killed before writing below
     Path(a.manifest + ".survived").write_text("should not exist")
 if mode == "crash":
     raise SystemExit(2)

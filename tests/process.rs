@@ -106,8 +106,10 @@ fn timeout_terminates_running_child() {
     let Some((mut provider, dir)) = setup() else {
         return;
     };
+    // The deadline leaves time for a cold interpreter to start (CI runners can take over a
+    // second), while the fixture sleeps far longer than the deadline.
     let mut l = limits();
-    l.deadline = Instant::now() + Duration::from_secs(1);
+    l.deadline = Instant::now() + Duration::from_secs(5);
     let start = Instant::now();
     assert_eq!(
         evaluate(&mut provider, request("timeout"), l)
@@ -115,11 +117,12 @@ fn timeout_terminates_running_child() {
             .outcome,
         Outcome::Failed(Failure::Timeout)
     );
-    assert!(start.elapsed() < Duration::from_secs(2));
+    assert!(start.elapsed() < Duration::from_secs(7));
     assert!(
         dir.path().join("manifest.json.started").exists(),
         "fixture must actually start"
     );
-    std::thread::sleep(Duration::from_millis(1500));
+    // A surviving child would write this marker about 8 s after it started.
+    std::thread::sleep(Duration::from_secs(5));
     assert!(!dir.path().join("manifest.json.survived").exists());
 }
