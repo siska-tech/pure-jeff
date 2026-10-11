@@ -1,0 +1,39 @@
+{
+  "cases": {
+    "synthetic-asr-unicode-2-128": {
+      "observations": 12,
+      "across_both_settings_max_span": 0.0,
+      "all_twelve_exact": true,
+      "exact_to_failed_session_observations": true
+    },
+    "synthetic-asr-unicode-2-384": {
+      "observations": 12,
+      "across_both_settings_max_span": 0.0,
+      "all_twelve_exact": true,
+      "exact_to_failed_session_observations": true
+    },
+    "synthetic-asr-unicode-2-512": {
+      "observations": 12,
+      "across_both_settings_max_span": 0.0,
+      "all_twelve_exact": true,
+      "exact_to_failed_session_observations": true
+    },
+    "synthetic-ocr-ascii-3-128": {
+      "observations": 12,
+      "across_both_settings_max_span": 0.0,
+      "all_twelve_exact": true,
+      "exact_to_failed_session_observations": true
+    },
+    "synthetic-ocr-ascii-3-511": {
+      "observations": 12,
+      "across_both_settings_max_span": 0.0,
+      "all_twelve_exact": true,
+      "exact_to_failed_session_observations": true
+    }
+  },
+  "all_twelve_exact_per_case": true,
+  "all_match_failed_session": true,
+  "failed_raw_sha256": "f9351f724c97007f856ff83f6e462a45181b38ae4bf4ba1f3704cad7f8ca71e3",
+  "causal_attribution": false,
+  "global_28_case_reacceptance": false
+}

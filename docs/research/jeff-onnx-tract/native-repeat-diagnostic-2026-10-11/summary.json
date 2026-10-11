@@ -1,0 +1,102 @@
+{
+  "observed_forwards": 60,
+  "all_onnx_probability_judgment_token_gates_passed": true,
+  "max_onnx_error": 1.6093254089355469e-06,
+  "global_28_case_reacceptance": false,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false,
+  "threads": {
+    "1": {
+      "cases": {
+        "synthetic-asr-unicode-2-128": {
+          "tokens": 128,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.430511474609375e-06
+        },
+        "synthetic-asr-unicode-2-384": {
+          "tokens": 384,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.1324882507324219e-06
+        },
+        "synthetic-ocr-ascii-3-128": {
+          "tokens": 128,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 3.546476364135742e-06
+        },
+        "synthetic-ocr-ascii-3-511": {
+          "tokens": 511,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.4901161193847656e-06
+        },
+        "synthetic-asr-unicode-2-512": {
+          "tokens": 512,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 4.76837158203125e-07
+        }
+      },
+      "subset_span_within_1e6": true,
+      "subset_old_gate_within_1e6": false
+    },
+    "4": {
+      "cases": {
+        "synthetic-asr-unicode-2-128": {
+          "tokens": 128,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.430511474609375e-06
+        },
+        "synthetic-asr-unicode-2-384": {
+          "tokens": 384,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.1324882507324219e-06
+        },
+        "synthetic-ocr-ascii-3-128": {
+          "tokens": 128,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 3.546476364135742e-06
+        },
+        "synthetic-ocr-ascii-3-511": {
+          "tokens": 511,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 1.4901161193847656e-06
+        },
+        "synthetic-asr-unicode-2-512": {
+          "tokens": 512,
+          "within_process_max_span": 0.0,
+          "between_process_first_error": 0.0,
+          "all_six_max_span": 0.0,
+          "all_six_exact": true,
+          "max_old_native4_gate_error": 4.76837158203125e-07
+        }
+      },
+      "subset_span_within_1e6": true,
+      "subset_old_gate_within_1e6": false
+    }
+  }
+}

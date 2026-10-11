@@ -334,3 +334,13 @@ but the third pair was not run and performance comparison was not accepted.
 Raw diagnostics, failure and independent audit are preserved in
 `docs/research/jeff-onnx-tract/length-compare-2026-10-11`; no threshold relaxation
 or replacement run. Timing drift in both backends remains unexplained.
+
+`diagnose_native_repeats.py` separates numerical diagnosis from the stopped
+length benchmark. Four failed cases plus one512 control, threads1/4 in AB/BA,
+two processes/setting and three repeats/case/process =60 forwards. ONNX and
+resource gates remain enforced; repeat1e-6 exceedances are recorded across a
+fixed diagnostic sample, never used to relabel the failed benchmark. Within-
+process span, cross-process first delta, all-six span and old Native4 gate
+errors are independently audited. Power and system-wide CPU snapshots before/
+after each child do not measure child utilization, temperature or affinity.
+No 28-case reacceptance, performance acceptance, backend adoption or SLO.

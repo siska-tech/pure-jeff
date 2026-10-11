@@ -57,6 +57,8 @@
 
 | Native4／Tract4長さ別比較（停止） | 固定exe・FP32常駐・4 threads、3組・各長さn=12を計画。全6 child／156 forwardはONNX確率・判断・tokens条件合格、Tract raw78件一致 | 2組目Nativeの6観測・4ケースで反復上限1e-6を超え、最大3.5465e-6。第3組未実施、閾値不変。時間変動・512の8秒超も観測。成功した性能比較・SLOへ数えず、次は反復診断と環境条件の監査。[詳細](onnx-tract-length-compare.md) |
 
+| Native反復数値診断 | 失敗4ケース＋512 control、固定exe 1／4 threads・各2 process・3反復、全60 forward ONNX確率・判断・tokens条件合格。source／raw／pool／cache／span・CPU差分の独立監査合格 | 同process／process間／旧gateの差を分離。5ケースの診断であり全28件再受入・原因修正・性能SLOではない。元の停止runと閾値を維持。[詳細](onnx-tract-native-repeat-diagnostic.md) |
+
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
 再export資産はignoredな `experiments/runs/onnx-current-step1113-v2/` に保存した。

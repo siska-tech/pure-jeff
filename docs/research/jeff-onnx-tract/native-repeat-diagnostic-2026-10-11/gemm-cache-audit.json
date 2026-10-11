@@ -1,0 +1,92 @@
+{
+  "package": {
+    "name": "gemm-common",
+    "version": "0.19.0",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "checksum": "88027625910cc9b1085aaaa1c4bc46bb3a36aad323452b33c25b5e4e7c8e2a3e",
+    "dependencies": [
+      "bytemuck",
+      "dyn-stack",
+      "half",
+      "libm",
+      "num-complex",
+      "num-traits",
+      "once_cell",
+      "paste",
+      "pulp",
+      "raw-cpuid",
+      "rayon",
+      "seq-macro",
+      "sysctl"
+    ]
+  },
+  "cargo_lock_sha256": "a3e6e73825087e9c508b3c786acdbdb68af16d579396b868e6b6140796271536",
+  "crate_path": "C:\\Users\\<user>\\.cargo\\registry\\cache\\index.crates.io-1949cf8c6b5b557f\\gemm-common-0.19.0.crate",
+  "crate_sha256": "88027625910cc9b1085aaaa1c4bc46bb3a36aad323452b33c25b5e4e7c8e2a3e",
+  "files": [
+    {
+      "path": "C:\\Users\\<user>\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\gemm-common-0.19.0\\src\\cache.rs",
+      "sha256": "dcb68251336e74146f919f8b8362b6638451f06904d22f5e521c901657347d78",
+      "exact_to_checksum_verified_crate": true
+    },
+    {
+      "path": "C:\\Users\\<user>\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\gemm-common-0.19.0\\src\\gemm.rs",
+      "sha256": "31095a58ca9404e13416b98305f27febe7bc8a8e092195f99a164b966387fc7c",
+      "exact_to_checksum_verified_crate": true
+    },
+    {
+      "path": "C:\\Users\\<user>\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\gemm-common-0.19.0\\Cargo.toml",
+      "sha256": "6fc1ea0cdfe6fee9ea0a51e9a06cac0b6aa7c9b628e0b2d6a9f03cde7a5d6ef9",
+      "exact_to_checksum_verified_crate": true
+    }
+  ],
+  "license": "MIT",
+  "findings": [
+    {
+      "file": "src/cache.rs",
+      "lines": [
+        303,
+        309,
+        330
+      ],
+      "fact": "Intel cache information read via raw_cpuid cache parameters"
+    },
+    {
+      "file": "src/cache.rs",
+      "lines": [
+        475,
+        477
+      ],
+      "fact": "std CACHE_INFO initialized once per process"
+    },
+    {
+      "file": "src/cache.rs",
+      "lines": [
+        530,
+        565,
+        566,
+        567,
+        568
+      ],
+      "fact": "kernel_params uses cache information to choose auto_kc; reduction chunking can depend on these parameters"
+    },
+    {
+      "file": "src/gemm.rs",
+      "lines": [
+        352,
+        354,
+        365,
+        502
+      ],
+      "fact": "shape-specific small-matrix path and general kernel_params select kc; loop uses kc for depth chunks"
+    }
+  ],
+  "hypothesis": "process initialization on different CPU/cache conditions may select different GEMM reduction chunks; unproven for this run",
+  "not_observed": [
+    "actual CACHE_INFO/kernel parameters used in frozen exe",
+    "core IDs/affinity/frequency/temperature",
+    "first differing backbone/head operation"
+  ],
+  "causal_attribution": false,
+  "scope": "current local dependency source matches checksum-pinned registry crate; no build-time source attestation or patch"
+}

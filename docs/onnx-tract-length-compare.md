@@ -71,3 +71,5 @@ tokenize／head／score／request・startup内訳、各長さ・各sessionの中
 計測前には既存fixtureの左paddingを誤って右paddingとして検査するpreflightで停止した。出力dir作成・child起動前に左padding検査へ修正した。事前登録後のrunは1回であり、今回の反復違反を理由に条件を変えた再試行はない。
 
 [証跡・事前登録・生ログ・独立監査](research/jeff-onnx-tract/length-compare-2026-10-11/README.md)。[測定ハーネス](../runtime/onnx/benchmark_length_compare.py)。
+
+[反復数値診断](onnx-tract-native-repeat-diagnostic.md)では失敗4ケース＋512 controlを固定exeの1／4 threads・各2 process・同process3反復、全60 forwardで調べた。ONNX確率／判断／tokens条件は全件合格。最大の同process spanは1 thread 0.0、4 threads 0.0、全6観測spanは1 thread 0.0、4 threads 0.0。性能評価の再試行ではなく、元の不合格・閾値は維持する。全28件再受入・原因修正・正式SLOは未完了。
