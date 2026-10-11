@@ -2,7 +2,7 @@
 
 2026-10-11。Webデモを公開できる状態に近づけるため、配信物の整理と表示の修正を行い、HTTPSと別originのモデル配信を模した環境で、Chrome 153とEdge 153のE2Eを実施した。**全条件に合格した。実際の公開、Cloudflareの設定、remote作成は行っていない。** 配信構成と料金は[W4 hosting](w4-hosting.md)にある。
 
-## 変更（commit `d4380ce`）
+## 変更（commit `d1b928e`）
 
 - **開発用exportの除去**：engineはWasm probeをlibraryとして使うため、probeの開発用関数（`kj_*`）までexportされていた。buildの後処理（`strip_exports.py`）でexport sectionだけを書き換え、`memory`と`demo_*`だけを残した。13個を除去し、codeとほかのsectionは変えていない。probeのsourceと証跡も変えていない。
 - **ライセンスの同梱**：配信物に`licenses/`を加えた。engineに含まれる依存130 packageのライセンス本文、checkpointの`LICENSE`と`NOTICE`、本家JeffのMIT license、出典の一覧を含む。ページの末尾にリンクと、非公式実装である旨を表示する。
@@ -18,7 +18,7 @@
 - W3の全手順に加え、最初に**ダウンロードを途中で中止**する手順を入れた。
 - 同一originのHTTP構成（従来のW3）でも、Chromeで回帰確認した。
 
-配信物は`d4380ce`と同じ内容の作業treeからbuildした。driver、E2E script、Web fileのhashが、各runの事前登録の値と`d4380ce`のfileとで一致することを確認した。
+配信物は`d1b928e`と同じ内容の作業treeからbuildした。driver、E2E script、Web fileのhashが、各runの事前登録の値と`d1b928e`のfileとで一致することを確認した。
 
 ## 結果
 

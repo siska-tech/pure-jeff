@@ -9,4 +9,4 @@
 | `chrome-w3/` | 同一originのHTTP構成（W3）のChrome。回帰確認 | 合格 |
 | `build-info-split.json`、`build-info-same.json` | 使った2つの配信物（別origin用、同一origin用）の各fileのhash | — |
 
-各dirには、事前登録、集計、E2Eの全記録、サーバーの要求ログ（W4ではサイトとモデルを別々に）がある。TLSの秘密鍵は含めていない。`build-info`の`source_dirty`がtrueなのは、commit前の作業treeからbuildしたためである。driver、E2E script、Web fileのhashは`d4380ce`と一致する。
+各dirには、事前登録、集計、E2Eの全記録、サーバーの要求ログ（W4ではサイトとモデルを別々に）がある。TLSの秘密鍵は含めていない。`build-info`の`source_dirty`がtrueなのは、commit前の作業treeからbuildしたためである。driver、E2E script、Web fileのhashは`d1b928e`と一致する。

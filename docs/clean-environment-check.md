@@ -4,7 +4,7 @@
 
 ## 方法
 
-- commit `8d26e83`を一時directoryへcloneした。空の`CARGO_HOME`を使い、crates.ioとCandleのgit依存を取得し直した。
+- commit `f3f6b49`を一時directoryへcloneした。空の`CARGO_HOME`を使い、crates.ioとCandleのgit依存を取得し直した。
 - モデルは`tools/fetch_model.py`でHugging Faceの固定revision（`jeff-legacy/Jeff-Qwen3.5-0.8B` `51552f39…`）から取得した。11ファイルすべてのSHA-256が`tools/checkpoint.json`と一致した。
 - Pythonはuvが管理するCPython 3.12.14（標準ライブラリのみ）。KazeJudgeのvenvは使っていない。
 - Windows 11、Rust 1.99.0。
@@ -13,7 +13,7 @@
 
 | 確認 | 結果 |
 | --- | --- |
-| 契約crateの試験 | 11件合格。process試験4件は`KAZE_JUDGE_PYTHON`が未設定で失敗した。変数なしでもskipするよう試験を直した（`055e65c`）。`tools/clean_check.sh`は変数を設定して実行する |
+| 契約crateの試験 | 11件合格。process試験4件は`KAZE_JUDGE_PYTHON`が未設定で失敗した。変数なしでもskipするよう試験を直した（`bac04cf`）。`tools/clean_check.sh`は変数を設定して実行する |
 | Native runtime | 試験12件合格、release build成功 |
 | Wasm probe、デモengine | 試験合格。wasm32 buildはどちらも成功した（1回目は確認scriptが別名のtoolchainを指定したためtarget未導入で失敗し、既定のtoolchainで再実行した） |
 | bundleのlock | manifestのSHA-256は`7de618cb…`。開発環境で作ったmanifestと同じで、runtimeのbuild hashはcloneしたpathによらず再現した（同じmachine） |
