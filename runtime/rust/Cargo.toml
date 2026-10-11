@@ -1,0 +1,19 @@
+[package]
+name = "kaze_judge_jeff"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Development probes for the Pure Rust Jeff runtime"
+
+[dependencies]
+kaze_judge = { path = "../..", features = ["process"] }
+anyhow = "1"
+candle-core = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a", default-features = false }
+candle-nn = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tokenizers = { version = "=0.23.2", default-features = false, features = ["fancy-regex"] }
+
+[dev-dependencies]
+tempfile = "3"

@@ -1,0 +1,90 @@
+{
+  "schema_version": "kaze_judge.p4_worker_tree_memory.v1",
+  "checked_on": "2026-10-10",
+  "harness_sha256": "b20766b3f0e6e3a59678bcc2a8a22f3a938d69a8bdbcfec5a667a905e8c92397",
+  "memory_helper_sha256": "d3bb4f1677b87e29a5354f3fc9bc9b5da3fd4bd8abc0de0f2327cabd8398b3b1",
+  "python_manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "cases": {
+    "candidate-request": {
+      "processes": [
+        {
+          "pid": 32484,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 5259264
+        },
+        {
+          "pid": 36588,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 3984752640
+        },
+        {
+          "pid": 46780,
+          "executable_name": "conhost.exe",
+          "os_peak_working_set_bytes": 8187904
+        }
+      ],
+      "sampled_aggregate_working_set_peak_bytes": 3997511680,
+      "samples": 684,
+      "elapsed_seconds": 15.546999999787658
+    },
+    "reversed": {
+      "processes": [
+        {
+          "pid": 13244,
+          "executable_name": "conhost.exe",
+          "os_peak_working_set_bytes": 8192000
+        },
+        {
+          "pid": 19464,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 3984236544
+        },
+        {
+          "pid": 33460,
+          "executable_name": "cmd.exe",
+          "os_peak_working_set_bytes": 8015872
+        },
+        {
+          "pid": 37120,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 5242880
+        }
+      ],
+      "sampled_aggregate_working_set_peak_bytes": 3996942336,
+      "samples": 688,
+      "elapsed_seconds": 15.671999999787658
+    },
+    "asr-unicode": {
+      "processes": [
+        {
+          "pid": 32180,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 5251072
+        },
+        {
+          "pid": 36468,
+          "executable_name": "python.exe",
+          "os_peak_working_set_bytes": 3998162944
+        },
+        {
+          "pid": 40096,
+          "executable_name": "conhost.exe",
+          "os_peak_working_set_bytes": 8192000
+        },
+        {
+          "pid": 49120,
+          "executable_name": "cmd.exe",
+          "os_peak_working_set_bytes": 8015872
+        }
+      ],
+      "sampled_aggregate_working_set_peak_bytes": 4010950656,
+      "samples": 720,
+      "elapsed_seconds": 16.014999999664724
+    }
+  },
+  "repeats_per_case": 1,
+  "method": "Toolhelp process-tree discovery; OS per-process PeakWorkingSetSize plus sampled aggregate WorkingSetSize; shared pages may be double counted; not private RSS",
+  "poll_interval_lower_bound_seconds": 0.01,
+  "scope_correction": "original p4-benchmark Python memory is launcher-only and cannot represent interpreter memory",
+  "slo_accepted": false
+}

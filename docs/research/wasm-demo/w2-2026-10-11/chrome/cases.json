@@ -1,0 +1,50 @@
+[
+ {
+  "name": "candidate-request",
+  "request": "requests/candidate-request.json"
+ },
+ {
+  "name": "reversed",
+  "request": "requests/reversed.json"
+ },
+ {
+  "name": "special-token-text",
+  "request": "requests/special-token-text.json"
+ },
+ {
+  "name": "asr-unicode",
+  "request": "requests/asr-unicode.json"
+ },
+ {
+  "name": "synthetic-asr-unicode-2-128",
+  "request": "requests/synthetic-asr-unicode-2-128.json"
+ },
+ {
+  "name": "synthetic-ocr-ascii-3-128",
+  "request": "requests/synthetic-ocr-ascii-3-128.json"
+ },
+ {
+  "name": "synthetic-ocr-ja-2-256",
+  "request": "requests/synthetic-ocr-ja-2-256.json"
+ },
+ {
+  "name": "synthetic-ocr-ascii-8-256",
+  "request": "requests/synthetic-ocr-ascii-8-256.json"
+ },
+ {
+  "name": "synthetic-asr-unicode-2-384",
+  "request": "requests/synthetic-asr-unicode-2-384.json"
+ },
+ {
+  "name": "synthetic-ocr-ascii-3-511",
+  "request": "requests/synthetic-ocr-ascii-3-511.json"
+ },
+ {
+  "name": "synthetic-asr-mixed-2-512",
+  "request": "requests/synthetic-asr-mixed-2-512.json"
+ },
+ {
+  "name": "synthetic-ocr-ascii-8-512",
+  "request": "requests/synthetic-ocr-ascii-8-512.json"
+ }
+]

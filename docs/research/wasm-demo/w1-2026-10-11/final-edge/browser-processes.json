@@ -1,0 +1,56 @@
+[
+ {
+  "pid": 23404,
+  "name": "browser",
+  "peak_working_set": 10829824,
+  "peak_pagefile": 2015232
+ },
+ {
+  "pid": 23320,
+  "name": "msedge.exe",
+  "peak_working_set": 179011584,
+  "peak_pagefile": 68984832
+ },
+ {
+  "pid": 25448,
+  "name": "msedge.exe",
+  "peak_working_set": 30842880,
+  "peak_pagefile": 10166272
+ },
+ {
+  "pid": 37936,
+  "name": "msedge.exe",
+  "peak_working_set": 36028416,
+  "peak_pagefile": 20119552
+ },
+ {
+  "pid": 33976,
+  "name": "msedge.exe",
+  "peak_working_set": 3980570624,
+  "peak_pagefile": 5264162816
+ },
+ {
+  "pid": 43652,
+  "name": "msedge.exe",
+  "peak_working_set": 19595264,
+  "peak_pagefile": 9818112
+ },
+ {
+  "pid": 34456,
+  "name": "msedge.exe",
+  "peak_working_set": 46125056,
+  "peak_pagefile": 17100800
+ },
+ {
+  "pid": 46832,
+  "name": "msedge.exe",
+  "peak_working_set": 114376704,
+  "peak_pagefile": 111505408
+ },
+ {
+  "pid": 18412,
+  "name": "msedge.exe",
+  "peak_working_set": 19898368,
+  "peak_pagefile": 3604480
+ }
+]

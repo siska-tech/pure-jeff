@@ -1,0 +1,99 @@
+{
+  "schema_version": "kaze_judge.extended_migration_validation.v1",
+  "checked_on": "2026-10-10",
+  "executable_sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "harness_sha256": "bf3ddb3b2af976d8489c46be79ba49b0a01cfcc866b0fe2bb17ee3709e69b0f0",
+  "runtime_build_sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a",
+  "probability_tolerance": 0.0001,
+  "cases": [
+    {
+      "case": "token-limit-8192",
+      "reference_sha256": "b2a734bc089de83c9001e1ff2b0c31487c17f896b9521b6f13ede87af6446e36",
+      "prompt_utf8_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "candidate_order_match": true,
+      "candidates": 2,
+      "input_tokens": 8192,
+      "forwards": 1,
+      "probability_max_absolute_error": 4.678964614868164e-06,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "alternative"
+      },
+      "exact_token_budget_accepted": true,
+      "one_token_short_rejected": true,
+      "elapsed_seconds": 202.10900000017136,
+      "artifacts": [
+        {
+          "component": "LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "component": "NOTICE",
+          "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+        },
+        {
+          "component": "README.md",
+          "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+        },
+        {
+          "component": "chat_template.jinja",
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "component": "config.json",
+          "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+        },
+        {
+          "component": "decision_config.json",
+          "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+        },
+        {
+          "component": "model.safetensors",
+          "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+        },
+        {
+          "component": "processor_config.json",
+          "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+        },
+        {
+          "component": "readout.safetensors",
+          "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+        },
+        {
+          "component": "tokenizer.json",
+          "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+        },
+        {
+          "component": "tokenizer_config.json",
+          "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+        },
+        {
+          "component": "bundle_manifest",
+          "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+        },
+        {
+          "component": "runtime_build",
+          "sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a"
+        },
+        {
+          "component": "prompt",
+          "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+        },
+        {
+          "component": "rendered_prompt",
+          "sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c"
+        },
+        {
+          "component": "policy",
+          "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+        }
+      ]
+    }
+  ],
+  "python_absent_from_child_path": true,
+  "recognition_quality_evaluated": false,
+  "slo_accepted": false
+}

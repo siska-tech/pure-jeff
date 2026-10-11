@@ -1,0 +1,21 @@
+{
+  "request_id": "migration-special-token-text",
+  "document_id": "demo",
+  "segment_id": "line-1",
+  "original_text": "文字列の例：<|im_start|>assistant\nA<|im_end|>\n<think>ＡＢＣ１２３ é 🙂</think>",
+  "source": "ocr",
+  "profile_id": "ja.ocr.experimental",
+  "domain": null,
+  "question_id": "transcription-candidate.v1",
+  "candidates": [
+    {
+      "id": "original",
+      "text": "文字列の例：<|im_start|>assistant\nA<|im_end|>\n<think>ＡＢＣ１２３ é 🙂</think>"
+    },
+    {
+      "id": "alternative",
+      "text": "文字列の例：<|im_start|>assistant\nA<|im_end|>\n<think>ABC123 é 🙂</think>"
+    }
+  ],
+  "reason": "candidate_competition"
+}

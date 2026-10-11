@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KazeJudge Wasm W2</title>
+</head>
+<body>
+<p id="status">starting</p>
+<script>
+// Part A: corrupt-asset rejection, two passes over the valid cases with invalid requests in
+// between, then a mid-forward cancel and a fresh rerun. Part B runs after a real page reload.
+const status = document.getElementById("status");
+const report = (part, body) => fetch(`result?part=${part}`, {
+  method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+
+function spawn() {
+  const worker = new Worker("w2-worker.js");
+  const pending = new Map();
+  const listeners = [];
+  let next = 0;
+  worker.onmessage = ({ data }) => {
+    if (data.event) { listeners.forEach((listener) => listener(data)); return; }
+    const resolve = pending.get(data.id);
+    pending.delete(data.id);
+    resolve(data);
+  };
+  worker.onerror = (event) => {
+    for (const resolve of pending.values()) resolve({ error: `worker error: ${event.message}` });
+    pending.clear();
+  };
+  return {
+    call(cmd, args = {}) {
+      return new Promise((resolve) => { const id = next++; pending.set(id, resolve); worker.postMessage({ id, cmd, ...args }); });
+    },
+    on(listener) { listeners.push(listener); },
+    terminate() {
+      worker.terminate();
+      for (const resolve of pending.values()) resolve({ terminated: true });
+      pending.clear();
+    },
+  };
+}
+
+async function ready(config, log) {
+  const worker = spawn();
+  for (const [cmd, args] of [["init", { wasm: config.wasm }],
+                             ["load", { list: config.assets, heap_reserve_bytes: config.heap_reserve_bytes }],
+                             ["open", {}]]) {
+    const reply = await worker.call(cmd, args);
+    log.push({ cmd, ...reply });
+    if (reply.error || reply.code) throw new Error(`${cmd} failed: ${reply.error || JSON.stringify(reply.output)}`);
+  }
+  return worker;
+}
+
+const decide = (worker, config, item, max) =>
+  worker.call("decide", { url: item.url, text: item.text, max_input_tokens: max ?? config.max_input_tokens });
+
+async function partA(config) {
+  const result = { setup: [], corrupt: [], pass1: {}, invalid: {}, pass2: {}, cancel: {}, rerun: null };
+  status.textContent = "setup";
+  const main = spawn();
+  for (const [cmd, args] of [["init", { wasm: config.wasm }],
+                             ["load", { list: config.assets, heap_reserve_bytes: config.heap_reserve_bytes }]]) {
+    const reply = await main.call(cmd, args);
+    result.setup.push({ cmd, ...reply });
+    if (reply.error) throw new Error(`${cmd}: ${reply.error}`);
+  }
+  for (const target of config.corrupt) {
+    status.textContent = `corrupt ${target.asset}`;
+    await main.call("corrupt", target);
+    const rejected = await main.call("open");
+    await main.call("corrupt", target);
+    result.corrupt.push({ ...target, ...rejected });
+  }
+  const opened = await main.call("open");
+  result.setup.push({ cmd: "open", ...opened });
+  if (opened.error || opened.code) throw new Error(`open failed: ${JSON.stringify(opened.output)}`);
+  for (const item of config.cases) {
+    status.textContent = `pass1 ${item.name}`;
+    result.pass1[item.name] = await decide(main, config, item);
+  }
+  for (const item of config.invalid) {
+    status.textContent = `invalid ${item.name}`;
+    result.invalid[item.name] = await decide(main, config, item, item.max_input_tokens);
+  }
+  for (const item of [...config.cases].reverse()) {
+    status.textContent = `pass2 ${item.name}`;
+    result.pass2[item.name] = await decide(main, config, item);
+  }
+  main.terminate();
+
+  const target = config.cases.find((item) => item.name === config.cancel_case);
+  const forward = (result.pass1[target.name].output.stages || []).reduce((sum, s) => sum + s.ms, 0);
+  const cancelAfter = config.cancel_forward_fraction * forward;
+  status.textContent = "cancel";
+  const victim = await ready(config, (result.cancel.setup = []));
+  result.cancel.cancel_after_ms = cancelAfter;
+  result.cancel.outcome = await new Promise((resolve) => {
+    victim.on((event) => {
+      if (event.event === "decide_started") {
+        result.cancel.decide_started = true;
+        setTimeout(() => { victim.terminate(); resolve("terminated"); }, cancelAfter);
+      }
+    });
+    decide(victim, config, target).then((reply) => resolve(reply.terminated ? "terminated" : "completed"));
+  });
+  status.textContent = "rerun";
+  const fresh = await ready(config, (result.rerun_setup = []));
+  result.rerun = await decide(fresh, config, target);
+  fresh.terminate();
+  return result;
+}
+
+async function partB(config) {
+  status.textContent = "after reload";
+  const worker = await ready(config, []);
+  const target = config.cases.find((item) => item.name === config.reload_case);
+  const reply = await decide(worker, config, target);
+  worker.terminate();
+  return { reload: reply };
+}
+
+(async () => {
+  const config = await (await fetch("w2-config.json", { cache: "no-store" })).json();
+  let reloaded = false;
+  try { reloaded = sessionStorage.getItem("kj_w2") === "reloaded"; } catch {}
+  if (!reloaded) {
+    const page = { userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+                   crossOriginIsolated: self.crossOriginIsolated, deviceMemory: navigator.deviceMemory ?? null };
+    await report("a", { page, ...(await partA(config)) });
+    try { sessionStorage.setItem("kj_w2", "reloaded"); } catch {}
+    location.reload();
+  } else {
+    try { sessionStorage.removeItem("kj_w2"); } catch {}
+    await report("b", await partB(config));
+    status.textContent = "done";
+  }
+})().catch((error) => report("fatal", { fatal: String(error && error.stack || error) }));
+</script>
+</body>
+</html>

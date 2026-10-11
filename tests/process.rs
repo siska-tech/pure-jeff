@@ -1,0 +1,116 @@
+#![cfg(feature = "process")]
+use kaze_judge::*;
+use std::{
+    path::PathBuf,
+    time::{Duration, Instant},
+};
+fn setup() -> (LocalProcessProvider, tempfile::TempDir) {
+    let python = PathBuf::from(
+        std::env::var_os("KAZE_JUDGE_PYTHON")
+            .expect("set KAZE_JUDGE_PYTHON to an absolute Python 3.12+ executable"),
+    );
+    let dir = tempfile::tempdir().unwrap();
+    let manifest = dir.path().join("manifest.json");
+    std::fs::write(&manifest, "{}").unwrap();
+    (
+        LocalProcessProvider::new(
+            python,
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/process_worker.py"),
+            manifest,
+        )
+        .unwrap(),
+        dir,
+    )
+}
+fn request(mode: &str) -> DecisionRequest {
+    DecisionRequest {
+        request_id: "request".into(),
+        document_id: "doc".into(),
+        segment_id: "seg".into(),
+        original_text: mode.into(),
+        source: Source::Ocr,
+        profile_id: "test".into(),
+        domain: None,
+        question_id: "transcription-candidate.v1".into(),
+        reason: Some(RoutingReason::CandidateCompetition),
+        candidates: vec![
+            Candidate {
+                id: "first".into(),
+                text: "節約する".into(),
+            },
+            Candidate {
+                id: "second".into(),
+                text: "節税する".into(),
+            },
+        ],
+    }
+}
+fn limits() -> Limits {
+    Limits {
+        max_input_bytes: 8192,
+        max_input_tokens: 100,
+        max_forwards: 1,
+        deadline: Instant::now() + Duration::from_secs(10),
+    }
+}
+#[test]
+fn process_round_trip() {
+    let (mut provider, _dir) = setup();
+    let a = evaluate(&mut provider, request("節約する"), limits()).unwrap();
+    assert!(matches!(a.outcome, Outcome::Completed(_)));
+    assert_eq!(a.provider_calls_started, 1);
+}
+#[test]
+fn process_failures_are_preserved() {
+    let (mut provider, _dir) = setup();
+    for (mode, expected) in [
+        ("wrong_id", Failure::InvalidOutput),
+        ("invalid_json", Failure::InvalidOutput),
+        ("oversized", Failure::InvalidOutput),
+        ("crash", Failure::Unavailable),
+        ("unavailable", Failure::Unavailable),
+        ("budget", Failure::BudgetExceeded),
+    ] {
+        assert_eq!(
+            evaluate(&mut provider, request(mode), limits())
+                .unwrap()
+                .outcome,
+            Outcome::Failed(expected),
+            "{mode}"
+        );
+    }
+}
+#[test]
+fn direct_provider_also_enforces_preflight() {
+    let (mut provider, dir) = setup();
+    let mut l = limits();
+    l.max_input_bytes = 1;
+    assert_eq!(
+        provider.decide(&request("timeout"), l),
+        Err(Failure::BudgetExceeded)
+    );
+    let mut r = request("timeout");
+    r.reason = None;
+    assert_eq!(provider.decide(&r, limits()), Err(Failure::InvalidRequest));
+    assert!(!dir.path().join("manifest.json.started").exists());
+}
+#[test]
+fn timeout_terminates_running_child() {
+    let (mut provider, dir) = setup();
+    let mut l = limits();
+    l.deadline = Instant::now() + Duration::from_secs(1);
+    let start = Instant::now();
+    assert_eq!(
+        evaluate(&mut provider, request("timeout"), l)
+            .unwrap()
+            .outcome,
+        Outcome::Failed(Failure::Timeout)
+    );
+    assert!(start.elapsed() < Duration::from_secs(2));
+    assert!(
+        dir.path().join("manifest.json.started").exists(),
+        "fixture must actually start"
+    );
+    std::thread::sleep(Duration::from_millis(1500));
+    assert!(!dir.path().join("manifest.json.survived").exists());
+}

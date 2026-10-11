@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KazeJudge 候補判定デモ</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>KazeJudge 候補判定デモ</h1>
+  <p class="lead">OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。</p>
+</header>
+
+<main>
+  <section id="model" aria-labelledby="model-title">
+    <h2 id="model-title">1. モデル</h2>
+    <p class="note" id="privacy">入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約<span data-total-size>1.7 GB</span>）は、ボタンを押したときだけ配信元から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。</p>
+    <p class="status" id="model-status" role="status" aria-live="polite">確認中…</p>
+    <div class="progress" id="model-progress" hidden>
+      <progress id="model-bar" max="1" value="0"></progress>
+      <span id="model-progress-text"></span>
+    </div>
+    <div class="actions">
+      <button type="button" id="download" disabled>モデルを取得して読み込む（約<span data-total-size>1.7 GB</span>）</button>
+      <button type="button" id="load-cached" disabled>保存済みモデルを読み込む</button>
+      <button type="button" id="stop-load" hidden>中止</button>
+      <button type="button" id="delete-cache" class="secondary" disabled>保存したモデルを削除</button>
+    </div>
+    <p class="note" id="storage"></p>
+  </section>
+
+  <section id="input" aria-labelledby="input-title">
+    <h2 id="input-title">2. 入力</h2>
+    <label class="field">見本（人工データ）
+      <select id="sample"><option value="">— 選択すると入力欄に反映 —</option></select>
+    </label>
+    <label class="field">原文（認識結果）
+      <textarea id="original" rows="3" required></textarea>
+    </label>
+    <div class="row">
+      <label class="field">種類
+        <select id="source"><option value="ocr">OCR</option><option value="asr">ASR</option></select>
+      </label>
+      <label class="field">評価する理由
+        <select id="reason">
+          <option value="candidate_competition">候補が競合している</option>
+          <option value="weak_text_signal">文章上の手がかりが弱い</option>
+          <option value="evidence_conflict">根拠が食い違う</option>
+          <option value="">なし（評価しない）</option>
+        </select>
+      </label>
+    </div>
+    <fieldset>
+      <legend>候補（2〜8件。順序は保持されます）</legend>
+      <div id="candidates"></div>
+      <button type="button" id="add-candidate" class="secondary">候補を追加</button>
+    </fieldset>
+    <p class="note">入力は最大512 tokensまでです。超える場合は切り詰めず、予算超過として返します。</p>
+    <div class="actions">
+      <button type="button" id="evaluate" disabled>判断する</button>
+      <button type="button" id="cancel" hidden>取消</button>
+      <span class="status" id="run-status" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section id="result" aria-labelledby="result-title" hidden>
+    <h2 id="result-title">3. 結果</h2>
+    <p class="judgment" id="judgment"></p>
+    <table id="scores">
+      <thead><tr><th scope="col">候補ID</th><th scope="col">候補</th><th scope="col">分布</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note">数値は、渡した候補の中での分布です。認識が正しい確率ではありません。</p>
+    <p class="note" id="result-meta"></p>
+    <div class="actions">
+      <button type="button" id="save-json" class="secondary">JSONを保存</button>
+    </div>
+    <details>
+      <summary>Attempt JSON</summary>
+      <pre id="attempt-json"></pre>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p class="note">研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

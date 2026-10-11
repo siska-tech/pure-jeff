@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<title>pure-jeff Wasm benchmark session</title>
+</head>
+<body>
+<p id="status">starting</p>
+<script>
+// One resident Wasm session: init, load assets, open (hash + tokenizer), then the job in order.
+const status = document.getElementById("status");
+const report = (body) => fetch("result", { method: "POST", headers: { "content-type": "application/json" },
+                                           body: JSON.stringify(body) });
+(async () => {
+  const config = await (await fetch("bench-config.json", { cache: "no-store" })).json();
+  const worker = new Worker("w2-worker.js");
+  let next = 0;
+  const pending = new Map();
+  worker.onmessage = ({ data }) => { if (data.event) return; pending.get(data.id)(data); pending.delete(data.id); };
+  const call = (cmd, args = {}) => new Promise((resolve) => {
+    const id = next++; pending.set(id, resolve); worker.postMessage({ id, cmd, ...args }); });
+  const startup = {};
+  for (const [cmd, args] of [["init", { wasm: config.wasm }],
+                             ["load", { list: config.assets, heap_reserve_bytes: config.heap_reserve_bytes }],
+                             ["open", {}]]) {
+    status.textContent = cmd;
+    const reply = await call(cmd, args);
+    startup[cmd] = { ms: reply.ms, code: reply.code, error: reply.error, output: reply.output,
+                     linear_memory_bytes: reply.linear_memory_bytes };
+    if (reply.error || reply.code) throw new Error(`${cmd}: ${reply.error || JSON.stringify(reply.output)}`);
+  }
+  const decisions = [];
+  for (const item of config.job) {
+    status.textContent = item.name;
+    const reply = await call("decide", { url: item.url, max_input_tokens: config.max_input_tokens });
+    const output = reply.output || {};
+    delete output.last_hidden_state;
+    decisions.push({ name: item.name, ms: reply.ms, code: reply.code, error: reply.error, panic: reply.panic,
+                     output, linear_memory_bytes: reply.linear_memory_bytes });
+  }
+  worker.terminate();
+  await report({ page: { userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+                         crossOriginIsolated: self.crossOriginIsolated }, startup, decisions });
+  status.textContent = "done";
+})().catch((error) => report({ fatal: String(error && error.stack || error) }));
+</script>
+</body>
+</html>

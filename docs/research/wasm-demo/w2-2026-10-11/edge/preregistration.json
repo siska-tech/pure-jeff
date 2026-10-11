@@ -1,0 +1,86 @@
+{
+ "schema_version": "kaze_judge.wasm_w2_preregistration.v1",
+ "created_utc": "2026-10-11T12:10:08.003750+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "valid": "every pass-1, pass-2, cancel-rerun and reload decision: code 0, no panic/trap; rendered prompt SHA-256, input_ids, candidate order and judgment equal the official reference",
+  "repeat": "pass 2 (reverse order, same session) probabilities and hidden state bitwise equal pass 1; cancel rerun and reload results bitwise equal pass 1",
+  "memory": "linear memory after pass 2 equals linear memory after pass 1",
+  "invalid": "every invalid request returns code 1 without panic/trap; the session keeps working",
+  "corrupt": "a flipped byte in an asset makes open fail with '<asset> hash mismatch'; open then succeeds",
+  "cancel": "Worker terminated after decide_started; a fresh Worker then decides correctly",
+  "browser": "both page parts report within the timeout",
+  "native_reference_threads": 1
+ },
+ "cases": [
+  "candidate-request",
+  "reversed",
+  "special-token-text",
+  "asr-unicode",
+  "synthetic-asr-unicode-2-128",
+  "synthetic-ocr-ascii-3-128",
+  "synthetic-ocr-ja-2-256",
+  "synthetic-ocr-ascii-8-256",
+  "synthetic-asr-unicode-2-384",
+  "synthetic-ocr-ascii-3-511",
+  "synthetic-asr-mixed-2-512",
+  "synthetic-ocr-ascii-8-512"
+ ],
+ "invalid": [
+  "invalid_json",
+  "one_candidate",
+  "duplicate_candidate_ids",
+  "unsupported_question",
+  "no_routing_reason",
+  "token_budget_exceeded"
+ ],
+ "corrupt": [
+  {
+   "asset": "tokenizer",
+   "path": "tokenizer.json",
+   "offset": 1000
+  },
+  {
+   "asset": "model",
+   "path": "model.safetensors",
+   "offset": 853013844
+  }
+ ],
+ "cancel_case": "synthetic-asr-mixed-2-512",
+ "reload_case": "candidate-request",
+ "max_input_tokens": 512,
+ "heap_reserve_bytes": 805306368,
+ "cancel_forward_fraction": 0.5,
+ "official_references": {
+  "candidate-request": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "reversed": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "special-token-text": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "asr-unicode": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "synthetic-asr-unicode-2-128": "e9028e8697a29b59b96ce77c3c011f8f9f857ff1750029b12d9f60c0f6caba29",
+  "synthetic-ocr-ascii-3-128": "a259d9b2c3dc17d35e7e4705da7d3903cfec145b6382d50a16eb9ea55185d7c6",
+  "synthetic-ocr-ja-2-256": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+  "synthetic-ocr-ascii-8-256": "71b0d75d1e044e94929ae84dd3aa74a1c0816f1b52b39e04f6d80289833023f0",
+  "synthetic-asr-unicode-2-384": "356fa7fa9779d5ad1ca72eb2bf17294e8302a19058452fc87c54a63e92df8902",
+  "synthetic-ocr-ascii-3-511": "829403a4ddd0b5163da010e31e9e4528d28119989e9d5d0d029e99ba73fd145a",
+  "synthetic-asr-mixed-2-512": "b46bb3e6ebde5d68ded59e21dd1ba604193efb237133e98be739bbc9ecd0237f",
+  "synthetic-ocr-ascii-8-512": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3"
+ },
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+ },
+ "wasm": {
+  "path": "..\\..\\.venv\\wasm-target-simd128\\wasm32-unknown-unknown\\release\\kaze_judge_wasm_probe.wasm",
+  "sha256": "58c712852e4bbc4c9380240934ce95885637788ff2bb6b17671f879a66627592",
+  "bytes": 4524246
+ },
+ "reference_sha256": "108c385f94a083381997c3f68ed0beeba1caaba112d25aea9045f7429821487b",
+ "driver_sha256": "be6ebd28160fa586a32632e43de9b0957bdb56e9fe4df0fbac870cc08006e3df",
+ "web": {
+  "w2.html": "829d16a10a6b71fd25eef0b2db50696e2fd8ee11e154263e02e81c9f2e985096",
+  "w2-worker.js": "838e5fca525cbd06de0e07df41fe0d803dd89e6315d19fde43ac08a2f7059768"
+ },
+ "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+ "headless": true,
+ "threads": "single (no SharedArrayBuffer, not cross-origin isolated)"
+}

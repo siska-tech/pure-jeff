@@ -1,0 +1,17 @@
+{
+  "schema_version": "kaze_judge.jeff_boundaries.v1",
+  "manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "golden_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "checker_sha256": "5ce00861b398ec89bce59ff97cd3db8f8f93952cb84d6e5d857172458d262b7f",
+  "exact_token_limit": 128,
+  "undersized_token_limit": 127,
+  "worker_undersized_result": "budget_exceeded",
+  "forward_guard_calls": 0,
+  "maximum_candidates": 255,
+  "maximum_candidates_input_tokens": 3206,
+  "over_maximum_candidates": "invalid_request",
+  "threshold_equality": "selected",
+  "probability_threshold_nextafter": "abstained",
+  "margin_threshold_nextafter": "abstained",
+  "tie": "abstained"
+}

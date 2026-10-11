@@ -1,0 +1,49 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
+ "created_utc": "2026-10-11T12:45:16.816032+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "max_main_thread_gap_ms": 250,
+  "consent": "no model/ request before the download button is pressed",
+  "single_download": "each model file is fetched from the server exactly once in the whole session (cancel recovery and page reload read Cache Storage)",
+  "private_inference": "no network request from the page or its Workers while any evaluation runs, and every request goes to the demo origin",
+  "results": "sample 0/2/5 completed Attempts match the official prompt hash, candidate order, judgment and probabilities; sample 6 (874 tokens) fails budget_exceeded after one provider call; reason none is not_selected with no provider call; duplicate IDs are rejected in the UI",
+  "attempt": "schema kaze_judge.attempt.v1; artifacts include the manifest files, bundle_manifest, wasm_engine (= deployed engine hash), prompt, rendered_prompt and policy",
+  "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in kaze_judge::Attempt order",
+  "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
+  "delete": "after delete no kazejudge cache remains and a reload shows the model as not downloaded"
+ },
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+ },
+ "dist": {
+  "build_info_sha256": "7e54999f7a71dd3b20d15de0b738d4517de492e2b8035a618c7e390ed816eeae",
+  "build_info": {
+   "source_commit": "5991887d5135b28293b2e3b7a6535a8070984304",
+   "source_dirty": false,
+   "copy_model": false,
+   "files": {
+    "app.js": "3bfe39523e29d2e2ff6579e3be206576536d4b93ba05cc6ecb63893938e7621a",
+    "demo-config.json": "a17a6d8c66351a13ae6f88f67684771e498f682ff5300a8f1c80728539da3b3c",
+    "engine-worker.js": "b5503f4b527edd7c02e5f50d43884f58f85c7b59172f8f2bced56dea48b410e1",
+    "engine.wasm": "c89f0fac42d13652c9217df742317461c993e68ca9db5ac7efc70e64ab104299",
+    "index.html": "78c0c8853985a53a3f512759dcfaad8f01e7172342cff0bb68c7da786eff2de6",
+    "samples.json": "239bc25b95cb7022c48b3645a28bb482942541cdb60882086d8c69dbb47dca2a",
+    "style.css": "d40576c29c3b43ed1af1265042b71a47c46d1c88ce89386c4593d5eb391b834d"
+   }
+  }
+ },
+ "driver_sha256": "9a485cb9f403d6a755217bd9ced9cad8479a8fd91ead4908826dd689ab90c73e",
+ "e2e_sha256": "2d30d34123ec97c98c9dfe69d8eb2b7fa85f41cf82bcad7c9d289c7085f3c947",
+ "samples": {
+  "OCR：2候補（128 tokens）": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "OCR：同じ2候補を逆順（128 tokens）": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "ASR：Unicode文字を含む3候補（206 tokens）": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "区切り記号に似た文字列を含む2候補（182 tokens）": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "日本語OCR：2候補（256 tokens）": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+  "OCR：8候補（512 tokens、上限ちょうど）": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3",
+  "上限を超える長文（874 tokens、予算超過の例）": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995"
+ },
+ "headless": true
+}

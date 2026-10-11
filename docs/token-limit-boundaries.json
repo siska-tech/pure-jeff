@@ -1,0 +1,60 @@
+{
+  "schema_version": "kaze_judge.token_limit_boundaries.v1",
+  "checked_on": "2026-10-10",
+  "cases": [
+    {
+      "input_tokens": 8192,
+      "requested_budget": 8192,
+      "effective_ceiling": 8192,
+      "request_sha256": "e7d08d69d4fccce941e188c7b96273807c0601b5a08984dc2fc0110b2d504b33",
+      "official_prepare": "prepared",
+      "rust_prepare": "prepared"
+    },
+    {
+      "input_tokens": 8192,
+      "requested_budget": 8191,
+      "effective_ceiling": 8191,
+      "request_sha256": "e7d08d69d4fccce941e188c7b96273807c0601b5a08984dc2fc0110b2d504b33",
+      "official_prepare": "budget_exceeded",
+      "rust_prepare": "budget_exceeded",
+      "rust_native_outcome": {
+        "status": "failed",
+        "value": "budget_exceeded"
+      }
+    },
+    {
+      "input_tokens": 8193,
+      "requested_budget": 8192,
+      "effective_ceiling": 8192,
+      "request_sha256": "a17aed79a435e3e1dfc7aff0c8070437c8d7e537d33cc9a575c2ae4ab1034dd3",
+      "official_prepare": "budget_exceeded",
+      "rust_prepare": "budget_exceeded",
+      "rust_native_outcome": {
+        "status": "failed",
+        "value": "budget_exceeded"
+      }
+    },
+    {
+      "input_tokens": 8193,
+      "requested_budget": 8193,
+      "effective_ceiling": 8192,
+      "request_sha256": "a17aed79a435e3e1dfc7aff0c8070437c8d7e537d33cc9a575c2ae4ab1034dd3",
+      "official_prepare": "budget_exceeded",
+      "rust_prepare": "budget_exceeded",
+      "rust_native_outcome": {
+        "status": "failed",
+        "value": "budget_exceeded"
+      }
+    }
+  ],
+  "official_forward_calls": 0,
+  "python_prepare_clamp_matches_worker": true,
+  "python_absent_from_native_child_path": true,
+  "executable_sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "python_manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "harness_sha256": "0bd7a061acf08f7f76fe699b247c5228954361a4178dd02b4a0d11eaa791f50f",
+  "request_generator_sha256": "ab28e74f3cf5f13c0b1c0ff99c469c0038296ab3683c559db6ffbc8050f36837",
+  "recognition_quality_evaluated": false,
+  "slo_accepted": false
+}

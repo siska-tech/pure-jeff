@@ -1,0 +1,19 @@
+{
+ "schema_version": "kaze_judge.wasm_w0_diagnosis.v1",
+ "run": "wasm-w0-chrome-20261011",
+ "verdict_under_registered_v1": "failed",
+ "failed_checks": {
+  "ops": "gemm_17x1024_by_3584x1024T and gemm_silu_17x3584_by_1024x3584T exceed the elementwise 1e-5 abs + 1e-5 rel rule (both variants); all 8 other ops pass",
+  "browser_repeat": "driver defect: run_w0.v1.py compared whole case objects including elapsed_ms; values-only comparison of the saved ops_0/ops_1 is bitwise identical for both variants"
+ },
+ "passed_checks": "tokenize in both variants: tokenizer hash, 255 answer codes/IDs, single-token property, all 7 prompts and official input_ids exact (incl. 8192 tokens)",
+ "float64_diagnosis": {
+  "method": "inputs replayed from the ops.rs integer generator in float64; error divided by |x|·|w|ᵀ (backward-error scale)",
+  "gemm_17x1024_by_3584x1024T": {"max_abs_exact": 43.1, "native": {"abs": 6.51e-05, "scaled": 2.55e-07}, "baseline": {"abs": 3.64e-05, "scaled": 1.43e-07}, "simd128": {"abs": 3.64e-05, "scaled": 1.43e-07}},
+  "gemm_silu_17x3584_by_1024x3584T_vs_exact_chain": {"max_abs_exact": 1090, "native": {"abs": 9.26e-04, "scaled": 1.2e-07}, "baseline": {"abs": 7.33e-04, "scaled": 9.67e-08}, "simd128": {"abs": 7.33e-04, "scaled": 9.67e-08}},
+  "float32_epsilon": 1.1920929e-07,
+  "interpretation": "wasm GEMM error is within ~1-2 float32 eps of the exact product and not larger than native; v1 failure is summation-order noise judged elementwise at near-zero outputs, not a wasm defect"
+ },
+ "reference_threads": "native reference ran with candle_num_threads=12 (not the frozen policy's 1); fixed for the next run",
+ "follow_up": "new preregistered v2 run in a new output directory; this run is not overturned"
+}

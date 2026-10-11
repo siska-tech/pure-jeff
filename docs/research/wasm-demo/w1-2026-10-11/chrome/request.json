@@ -1,0 +1,21 @@
+{
+ "request_id": "ocr-demo-1",
+ "document_id": "demo",
+ "segment_id": "line-1",
+ "original_text": "節約する",
+ "source": "ocr",
+ "profile_id": "ja.ocr.experimental",
+ "domain": null,
+ "question_id": "transcription-candidate.v1",
+ "candidates": [
+  {
+   "id": "original",
+   "text": "節約する"
+  },
+  {
+   "id": "alternative",
+   "text": "節税する"
+  }
+ ],
+ "reason": "candidate_competition"
+}

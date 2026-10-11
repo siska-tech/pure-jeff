@@ -1,0 +1,35 @@
+{
+  "schema_version": "kaze_judge.p4_tool_imports.v1",
+  "checked_on": "2026-10-10",
+  "verifier_sha256": "d36c812d449041789625b14f089a5008fb389f036ffae627b40ab4cef0a86fd9",
+  "verifier_direct_imports": [
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "bcryptprimitives.dll",
+    "KERNEL32.dll",
+    "kernel32.dll",
+    "ntdll.dll",
+    "VCRUNTIME140.dll"
+  ],
+  "profiler_sha256": "be3fc8fb16be88e35162329500fc78fb221af9473c3ed1aec5526368edb48c2a",
+  "profiler_direct_imports": [
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "bcryptprimitives.dll",
+    "KERNEL32.dll",
+    "kernel32.dll",
+    "ntdll.dll",
+    "VCRUNTIME140.dll"
+  ],
+  "scope": "direct PE imports only; not a completed source or distribution audit"
+}

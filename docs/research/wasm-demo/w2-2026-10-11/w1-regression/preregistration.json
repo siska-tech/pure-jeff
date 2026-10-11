@@ -1,0 +1,42 @@
+{
+ "schema_version": "kaze_judge.wasm_w1_preregistration.v1",
+ "created_utc": "2026-10-11T12:17:14.641404+00:00",
+ "gates": {
+  "probability_max_abs_vs_golden": 0.0001,
+  "runs_a_and_c": "completed without error/panic; rendered prompt SHA-256, input_ids, candidate order and judgment equal the official golden; probability error within the bound",
+  "rerun": "run C probabilities and last hidden state bitwise equal run A",
+  "cancel": "run B terminated after decide_started and before completion; run C then completes",
+  "browser": "page reports within the timeout (no tab/renderer crash)",
+  "native_reference_threads": 1
+ },
+ "diagnostics": [
+  "wasm vs native same-code probabilities and hidden state",
+  "hidden state vs official golden",
+  "stage timings",
+  "linear memory bytes",
+  "browser process-tree PeakWorkingSetSize / PeakPagefileUsage"
+ ],
+ "case": "candidate-request",
+ "golden_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+ "max_input_tokens": 512,
+ "cancel_forward_fraction": 0.5,
+ "heap_reserve_bytes": 805306368,
+ "browser": {
+  "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "sha256": "392dec76f7d4a54f6bc9c360e8d21a56c428173b6c6a90f2be38a2714d606227"
+ },
+ "wasm": {
+  "path": "..\\..\\.venv\\wasm-target-simd128\\wasm32-unknown-unknown\\release\\kaze_judge_wasm_probe.wasm",
+  "sha256": "58c712852e4bbc4c9380240934ce95885637788ff2bb6b17671f879a66627592",
+  "bytes": 4524246
+ },
+ "reference_sha256": "20e81f61fe9a15d4d581483b2142699e5c71d388f53094bac7588de04786b4ee",
+ "driver_sha256": "d019a4e93da49dd8ac76c045c845cfec89f81440ea1a4adf36364b356295cc76",
+ "web": {
+  "w1.html": "a3b68f5bb6ecd5a180c141bc1ba1f133a81d8566af321db25f0922b1253cd199",
+  "w1-worker.js": "c66253784fe84fbf4e3d9d7b9fd27f91128828fcd6c9c287fb901462882fc547"
+ },
+ "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+ "headless": true,
+ "threads": "single (no SharedArrayBuffer, not cross-origin isolated)"
+}

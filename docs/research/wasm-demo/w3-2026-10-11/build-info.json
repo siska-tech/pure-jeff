@@ -1,0 +1,14 @@
+{
+ "source_commit": "5991887d5135b28293b2e3b7a6535a8070984304",
+ "source_dirty": false,
+ "copy_model": false,
+ "files": {
+  "app.js": "3bfe39523e29d2e2ff6579e3be206576536d4b93ba05cc6ecb63893938e7621a",
+  "demo-config.json": "a17a6d8c66351a13ae6f88f67684771e498f682ff5300a8f1c80728539da3b3c",
+  "engine-worker.js": "b5503f4b527edd7c02e5f50d43884f58f85c7b59172f8f2bced56dea48b410e1",
+  "engine.wasm": "c89f0fac42d13652c9217df742317461c993e68ca9db5ac7efc70e64ab104299",
+  "index.html": "78c0c8853985a53a3f512759dcfaad8f01e7172342cff0bb68c7da786eff2de6",
+  "samples.json": "239bc25b95cb7022c48b3645a28bb482942541cdb60882086d8c69dbb47dca2a",
+  "style.css": "d40576c29c3b43ed1af1265042b71a47c46d1c88ce89386c4593d5eb391b834d"
+ }
+}

@@ -1,0 +1,499 @@
+{
+  "schema_version": "kaze_judge.p4_benchmark.v1",
+  "status": "exploratory_no_slo_acceptance",
+  "checked_on": "2026-10-10",
+  "host": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 16
+  },
+  "method": {
+    "process": "fresh process and model load for every run",
+    "os_file_cache": "not flushed; potentially cached",
+    "warm_model": false,
+    "worker_memory": "Windows PeakWorkingSetSize of directly launched process only; Python numbers are venv launcher memory, not interpreter memory; not private RSS",
+    "memory_sampling_seconds": 0.01,
+    "native_cli_memory": "parent only; worker memory measured separately",
+    "quantile": "nearest rank; with 5 samples p95 is max; exploratory small sample",
+    "stage_profile": "single diagnostic process; forward includes BF16 weight loading/conversion; bundle stage includes hash and tensor metadata",
+    "python_worker_includes": "Python/PyTorch/transformers startup, source/dependency/hash validation and model loading"
+  },
+  "executable_sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd",
+  "profiler_executable_sha256": "be3fc8fb16be88e35162329500fc78fb221af9473c3ed1aec5526368edb48c2a",
+  "harness_sha256": "d3bb4f1677b87e29a5354f3fc9bc9b5da3fd4bd8abc0de0f2327cabd8398b3b1",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "python_manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+  "policy": {
+    "min_probability": 0.7,
+    "min_margin": 0.1,
+    "cpu_threads": 1
+  },
+  "cases": {
+    "candidate-request": {
+      "reference_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+      "input_tokens": 128,
+      "runs": {
+        "rust_worker": [
+          {
+            "seconds": 5.456094500143081,
+            "os_peak_working_set_bytes": 1600724992,
+            "memory_samples": 525,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 2.384185791015625e-07
+          },
+          {
+            "seconds": 6.276793000288308,
+            "os_peak_working_set_bytes": 1601269760,
+            "memory_samples": 560,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 2.384185791015625e-07
+          },
+          {
+            "seconds": 5.5189368003048,
+            "os_peak_working_set_bytes": 1601241088,
+            "memory_samples": 531,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 2.384185791015625e-07
+          },
+          {
+            "seconds": 5.8584258002229035,
+            "os_peak_working_set_bytes": 1601257472,
+            "memory_samples": 562,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 2.384185791015625e-07
+          },
+          {
+            "seconds": 5.466074499767274,
+            "os_peak_working_set_bytes": 1601236992,
+            "memory_samples": 526,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 2.384185791015625e-07
+          }
+        ],
+        "python_worker": [
+          {
+            "seconds": 28.578391199931502,
+            "os_peak_working_set_bytes": 5246976,
+            "memory_samples": 2735,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 92.33947460027412,
+            "os_peak_working_set_bytes": 5218304,
+            "memory_samples": 8799,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 15.673552399966866,
+            "os_peak_working_set_bytes": 5246976,
+            "memory_samples": 1500,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 15.162225299980491,
+            "os_peak_working_set_bytes": 5251072,
+            "memory_samples": 1454,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 18.52863149996847,
+            "os_peak_working_set_bytes": 5242880,
+            "memory_samples": 1774,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          }
+        ]
+      },
+      "summary": {
+        "rust_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 5.456094500143081,
+            "p50": 5.5189368003048,
+            "p95": 6.276793000288308,
+            "max": 6.276793000288308
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 1600724992,
+            "p50": 1601241088,
+            "p95": 1601269760,
+            "max": 1601269760
+          }
+        },
+        "python_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 15.162225299980491,
+            "p50": 18.52863149996847,
+            "p95": 92.33947460027412,
+            "max": 92.33947460027412
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 5218304,
+            "p50": 5246976,
+            "p95": 5251072,
+            "max": 5251072
+          }
+        }
+      },
+      "native_process_cli_single_run": {
+        "seconds": 7.510740499943495,
+        "os_peak_working_set_bytes": 6238208,
+        "memory_samples": 719,
+        "post_exit_memory_query_succeeded": true
+      },
+      "diagnostic_profile": {
+        "forwards": 1,
+        "input_tokens": 128,
+        "judgment": {
+          "candidate_id": "original",
+          "kind": "selected"
+        },
+        "probabilities": [
+          0.928595244884491,
+          0.07140474766492844
+        ],
+        "profiler_source_sha256": "57913b943a71f4471ea755b14649976f27263e08783b0bb8ce6272d801b6e681",
+        "runtime_build_sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a",
+        "schema_version": "kaze_judge.profile.v1",
+        "timings_seconds": {
+          "bundle_hash_and_metadata_validation": 1.1287533,
+          "forward_including_weight_conversion": 3.4170313,
+          "model_mmap": 0.0005594,
+          "prompt_and_tokenize": 0.0003256,
+          "readout_and_policy": 0.0006909,
+          "request_and_header": 0.0003026,
+          "tokenizer_load_and_vocabulary_validation": 0.8097841
+        },
+        "total_seconds": 5.3574631
+      },
+      "diagnostic_process": {
+        "seconds": 5.951671999879181,
+        "os_peak_working_set_bytes": 1600466944,
+        "memory_samples": 540,
+        "post_exit_memory_query_succeeded": true
+      }
+    },
+    "reversed": {
+      "reference_sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+      "input_tokens": 128,
+      "runs": {
+        "rust_worker": [
+          {
+            "seconds": 6.668858299963176,
+            "os_peak_working_set_bytes": 1600552960,
+            "memory_samples": 640,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 6.332993507385254e-08
+          },
+          {
+            "seconds": 5.491028399672359,
+            "os_peak_working_set_bytes": 1600995328,
+            "memory_samples": 530,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 6.332993507385254e-08
+          },
+          {
+            "seconds": 5.586992000229657,
+            "os_peak_working_set_bytes": 1601142784,
+            "memory_samples": 538,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 6.332993507385254e-08
+          },
+          {
+            "seconds": 7.727459900081158,
+            "os_peak_working_set_bytes": 1601003520,
+            "memory_samples": 740,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 6.332993507385254e-08
+          },
+          {
+            "seconds": 7.827085099648684,
+            "os_peak_working_set_bytes": 1600548864,
+            "memory_samples": 751,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 6.332993507385254e-08
+          }
+        ],
+        "python_worker": [
+          {
+            "seconds": 15.500097299925983,
+            "os_peak_working_set_bytes": 5242880,
+            "memory_samples": 1484,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 15.104043799918145,
+            "os_peak_working_set_bytes": 5242880,
+            "memory_samples": 1448,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 21.70474459975958,
+            "os_peak_working_set_bytes": 5242880,
+            "memory_samples": 2066,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 26.656578300055116,
+            "os_peak_working_set_bytes": 5246976,
+            "memory_samples": 2506,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 23.216295499820262,
+            "os_peak_working_set_bytes": 5255168,
+            "memory_samples": 2220,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          }
+        ]
+      },
+      "summary": {
+        "rust_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 5.491028399672359,
+            "p50": 6.668858299963176,
+            "p95": 7.827085099648684,
+            "max": 7.827085099648684
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 1600548864,
+            "p50": 1600995328,
+            "p95": 1601142784,
+            "max": 1601142784
+          }
+        },
+        "python_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 15.104043799918145,
+            "p50": 21.70474459975958,
+            "p95": 26.656578300055116,
+            "max": 26.656578300055116
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 5242880,
+            "p50": 5242880,
+            "p95": 5255168,
+            "max": 5255168
+          }
+        }
+      },
+      "native_process_cli_single_run": {
+        "seconds": 5.545738600194454,
+        "os_peak_working_set_bytes": 6246400,
+        "memory_samples": 534,
+        "post_exit_memory_query_succeeded": true
+      },
+      "diagnostic_profile": {
+        "forwards": 1,
+        "input_tokens": 128,
+        "judgment": {
+          "candidate_id": "original",
+          "kind": "selected"
+        },
+        "probabilities": [
+          0.032961178570985794,
+          0.9670388102531433
+        ],
+        "profiler_source_sha256": "57913b943a71f4471ea755b14649976f27263e08783b0bb8ce6272d801b6e681",
+        "runtime_build_sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a",
+        "schema_version": "kaze_judge.profile.v1",
+        "timings_seconds": {
+          "bundle_hash_and_metadata_validation": 1.1710567,
+          "forward_including_weight_conversion": 3.3574873,
+          "model_mmap": 0.0005532,
+          "prompt_and_tokenize": 0.0007994,
+          "readout_and_policy": 0.0007969,
+          "request_and_header": 0.0004147,
+          "tokenizer_load_and_vocabulary_validation": 0.884403
+        },
+        "total_seconds": 5.4155265
+      },
+      "diagnostic_process": {
+        "seconds": 5.732695600017905,
+        "os_peak_working_set_bytes": 1600901120,
+        "memory_samples": 550,
+        "post_exit_memory_query_succeeded": true
+      }
+    },
+    "asr-unicode": {
+      "reference_sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+      "input_tokens": 206,
+      "runs": {
+        "rust_worker": [
+          {
+            "seconds": 7.058028799947351,
+            "os_peak_working_set_bytes": 1603543040,
+            "memory_samples": 679,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 5.066394805908203e-06
+          },
+          {
+            "seconds": 6.7431602999567986,
+            "os_peak_working_set_bytes": 1602772992,
+            "memory_samples": 649,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 5.066394805908203e-06
+          },
+          {
+            "seconds": 6.7683489001356065,
+            "os_peak_working_set_bytes": 1602756608,
+            "memory_samples": 651,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 5.066394805908203e-06
+          },
+          {
+            "seconds": 6.869325399864465,
+            "os_peak_working_set_bytes": 1603624960,
+            "memory_samples": 661,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 5.066394805908203e-06
+          },
+          {
+            "seconds": 7.458721600007266,
+            "os_peak_working_set_bytes": 1602617344,
+            "memory_samples": 717,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 5.066394805908203e-06
+          }
+        ],
+        "python_worker": [
+          {
+            "seconds": 16.922097399830818,
+            "os_peak_working_set_bytes": 5259264,
+            "memory_samples": 1622,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 16.23663889989257,
+            "os_peak_working_set_bytes": 5246976,
+            "memory_samples": 1558,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 16.226420000195503,
+            "os_peak_working_set_bytes": 5242880,
+            "memory_samples": 1557,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 16.731743999756873,
+            "os_peak_working_set_bytes": 5255168,
+            "memory_samples": 1603,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          },
+          {
+            "seconds": 15.93287010025233,
+            "os_peak_working_set_bytes": 5246976,
+            "memory_samples": 1526,
+            "post_exit_memory_query_succeeded": true,
+            "probability_max_absolute_error": 0.0
+          }
+        ]
+      },
+      "summary": {
+        "rust_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 6.7431602999567986,
+            "p50": 6.869325399864465,
+            "p95": 7.458721600007266,
+            "max": 7.458721600007266
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 1602617344,
+            "p50": 1602772992,
+            "p95": 1603624960,
+            "max": 1603624960
+          }
+        },
+        "python_worker": {
+          "seconds": {
+            "count": 5,
+            "min": 15.93287010025233,
+            "p50": 16.23663889989257,
+            "p95": 16.922097399830818,
+            "max": 16.922097399830818
+          },
+          "os_peak_working_set_bytes": {
+            "count": 5,
+            "min": 5242880,
+            "p50": 5246976,
+            "p95": 5259264,
+            "max": 5259264
+          }
+        }
+      },
+      "native_process_cli_single_run": {
+        "seconds": 7.175413600169122,
+        "os_peak_working_set_bytes": 6258688,
+        "memory_samples": 691,
+        "post_exit_memory_query_succeeded": true
+      },
+      "diagnostic_profile": {
+        "forwards": 1,
+        "input_tokens": 206,
+        "judgment": {
+          "kind": "abstained"
+        },
+        "probabilities": [
+          0.635992169380188,
+          0.3610706627368927,
+          0.002937160898000002
+        ],
+        "profiler_source_sha256": "57913b943a71f4471ea755b14649976f27263e08783b0bb8ce6272d801b6e681",
+        "runtime_build_sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a",
+        "schema_version": "kaze_judge.profile.v1",
+        "timings_seconds": {
+          "bundle_hash_and_metadata_validation": 1.1380493999999999,
+          "forward_including_weight_conversion": 4.8039319,
+          "model_mmap": 0.0009646,
+          "prompt_and_tokenize": 0.0103802,
+          "readout_and_policy": 0.0007684,
+          "request_and_header": 0.0003001,
+          "tokenizer_load_and_vocabulary_validation": 0.7931719
+        },
+        "total_seconds": 6.7475845
+      },
+      "diagnostic_process": {
+        "seconds": 7.000172299798578,
+        "os_peak_working_set_bytes": 1602736128,
+        "memory_samples": 674,
+        "post_exit_memory_query_succeeded": true
+      }
+    }
+  },
+  "slo": null,
+  "quality_accepted": false,
+  "harness_source_snapshot": "experiments/runs/benchmark-harness-v1.py",
+  "memory_scope": {
+    "rust_worker": "direct Rust worker process",
+    "python_worker": "launcher only; do not compare against Rust worker memory"
+  },
+  "memory_scope_correction": {
+    "raw_record_sha256": "4e0e65bdaf472235a849c0028dd3565370553a77e6cb60b2e50417bcdcac0a5e",
+    "correction": "metadata clarification only; no latency or memory samples changed",
+    "corrected_harness_sha256": "e65185d3556e3522a67141907ab687137fed18faceec20d68c354909494aa8c0",
+    "interpreter_memory_record": "docs/p4-worker-tree-memory.json"
+  }
+}

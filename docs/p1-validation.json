@@ -1,0 +1,94 @@
+{
+  "schema_version": "kaze_judge.p1_validation.v1",
+  "checked_on": "2026-10-10",
+  "status": "experimental_backbone_forward_verified_not_a_production_provider",
+  "toolchain": "rustc 1.99.0",
+  "target": "x86_64-pc-windows-msvc",
+  "dtype": "float32",
+  "executable_sha256": "f77bf648e4bade15c23a686dd1a85be31f43c56140a62cb215c8992eb549aa58",
+  "cargo_lock_sha256": "ba3ed79301f02c860be8853b41ff44e1b92ec5ce82961fe7102dd2207bf0ee43",
+  "dependency_audit_sha256": "854d642b4137e2d0f90384badb1110797807549b1bc3acef7000939b7ba18cb5",
+  "cases": [
+    {
+      "case": "candidate-request",
+      "reference_path": "tests/fixtures/jeff-golden/candidate-request.json",
+      "reference_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+      "mode": "full_backbone",
+      "input_tokens": 128,
+      "token_ids_match": true,
+      "hidden_max_absolute_error": 2.47955322265625e-05,
+      "logits_max_absolute_error": 6.9141387939453125e-06,
+      "probabilities_max_absolute_error": 2.384185791015625e-07,
+      "probabilities": [
+        0.928595244884491,
+        0.07140474766492844
+      ],
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "judgment_matches": true,
+      "gemm_threads": 1,
+      "candle_revision": "c68b24997319b8d76e5a4e775dab197c7f26322a",
+      "backbone_sha256": "03c72f8c4df130c7ecaf013a1ef17c210f0b7439b785ffb65446f93938c33ff1",
+      "probe_sha256": "99315136c8b8a21c79db573db47c93492ccfe355b981805f7e8b8adfb4cc8be8",
+      "elapsed_ms": 5079,
+      "probability_target": 0.0001,
+      "target_passed": true
+    },
+    {
+      "case": "reversed",
+      "reference_path": "tests/fixtures/jeff-golden/reversed.json",
+      "reference_sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+      "mode": "full_backbone",
+      "input_tokens": 128,
+      "token_ids_match": true,
+      "hidden_max_absolute_error": 2.0503997802734375e-05,
+      "logits_max_absolute_error": 7.62939453125e-06,
+      "probabilities_max_absolute_error": 6.332993507385254e-08,
+      "probabilities": [
+        0.032961178570985794,
+        0.9670388102531433
+      ],
+      "judgment": {
+        "candidate_id": "original",
+        "kind": "selected"
+      },
+      "judgment_matches": true,
+      "gemm_threads": 1,
+      "candle_revision": "c68b24997319b8d76e5a4e775dab197c7f26322a",
+      "backbone_sha256": "03c72f8c4df130c7ecaf013a1ef17c210f0b7439b785ffb65446f93938c33ff1",
+      "probe_sha256": "99315136c8b8a21c79db573db47c93492ccfe355b981805f7e8b8adfb4cc8be8",
+      "elapsed_ms": 5173,
+      "probability_target": 0.0001,
+      "target_passed": true
+    },
+    {
+      "case": "asr-unicode",
+      "reference_path": "tests/fixtures/jeff-golden/asr-unicode.json",
+      "reference_sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+      "mode": "full_backbone",
+      "input_tokens": 206,
+      "token_ids_match": true,
+      "hidden_max_absolute_error": 1.9550323486328125e-05,
+      "logits_max_absolute_error": 2.193450927734375e-05,
+      "probabilities_max_absolute_error": 5.066394805908203e-06,
+      "probabilities": [
+        0.635992169380188,
+        0.3610706627368927,
+        0.002937160898000002
+      ],
+      "judgment": {
+        "kind": "abstained"
+      },
+      "judgment_matches": true,
+      "gemm_threads": 1,
+      "candle_revision": "c68b24997319b8d76e5a4e775dab197c7f26322a",
+      "backbone_sha256": "03c72f8c4df130c7ecaf013a1ef17c210f0b7439b785ffb65446f93938c33ff1",
+      "probe_sha256": "99315136c8b8a21c79db573db47c93492ccfe355b981805f7e8b8adfb4cc8be8",
+      "elapsed_ms": 6460,
+      "probability_target": 0.0001,
+      "target_passed": true
+    }
+  ]
+}

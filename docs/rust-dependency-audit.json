@@ -1,0 +1,1756 @@
+{
+  "schema_version": "kaze_judge.rust_dependency_audit.v1",
+  "target": "x86_64-pc-windows-msvc",
+  "cargo_lock_sha256": "ba3ed79301f02c860be8853b41ff44e1b92ec5ce82961fe7102dd2207bf0ee43",
+  "auditor_sha256": "f8cd55360f75a01a314193e4cc8c0bbdcf2c9b84275f309d09b11fdcb9ec931d",
+  "executable_sha256": "f77bf648e4bade15c23a686dd1a85be31f43c56140a62cb215c8992eb549aa58",
+  "executable_direct_imports": [
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "bcryptprimitives.dll",
+    "KERNEL32.dll",
+    "kernel32.dll",
+    "ntdll.dll",
+    "VCRUNTIME140.dll"
+  ],
+  "known_prohibited_dependencies": [],
+  "known_prohibited_features": [],
+  "esaxx_cpp_enabled": false,
+  "packages": [
+    {
+      "name": "ahash",
+      "version": "0.8.12",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "getrandom",
+        "runtime-rng",
+        "serde",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "d7dd5428c78b80bb3c99068561641ec661f0f94defbda17f85b443e358ab6396"
+        }
+      ]
+    },
+    {
+      "name": "aho-corasick",
+      "version": "1.1.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "perf-literal",
+        "std"
+      ],
+      "license": "Unlicense OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "allocator-api2",
+      "version": "0.2.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "anyhow",
+      "version": "1.0.104",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "89d1baedcff59822ed692d3a33f131c211a213bdec33c83f68b54110d9c64223"
+        }
+      ]
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "base64",
+      "version": "0.13.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT/Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "bit-set",
+      "version": "0.8.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "bit-vec",
+      "version": "0.8.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "bitflags",
+      "version": "2.13.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.10.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "bytemuck",
+      "version": "1.25.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "aarch64_simd",
+        "bytemuck_derive",
+        "derive",
+        "wasm_simd"
+      ],
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "bytemuck_derive",
+      "version": "1.12.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "byteorder",
+      "version": "1.5.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "Unlicense OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "candle-core",
+      "version": "0.11.0",
+      "source": "git+https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a#c68b24997319b8d76e5a4e775dab197c7f26322a",
+      "features": [
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "candle-nn",
+      "version": "0.11.0",
+      "source": "git+https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a#c68b24997319b8d76e5a4e775dab197c7f26322a",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "castaway",
+      "version": "0.2.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "compact_str",
+      "version": "0.9.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "serde",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.2.17",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "crc32fast",
+      "version": "1.5.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "deb6052c4a586e8875ef677fe2d9e9dcfafebfa949803455ea8eff6e7dbde436"
+        }
+      ]
+    },
+    {
+      "name": "crossbeam-deque",
+      "version": "0.8.8",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "c8c35fc536a2e6481549bc13979293cb51244cd9c72d4ed9e35c22a1d70fa9ae"
+        }
+      ]
+    },
+    {
+      "name": "crossbeam-epoch",
+      "version": "0.9.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "c8c35fc536a2e6481549bc13979293cb51244cd9c72d4ed9e35c22a1d70fa9ae"
+        }
+      ]
+    },
+    {
+      "name": "crossbeam-utils",
+      "version": "0.8.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "79cc5363313f77ab76e2de4779e384c672a747fbcd4b96647a79286568714807"
+        }
+      ]
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.1.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "daachorse",
+      "version": "3.0.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "darling",
+      "version": "0.20.11",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "suggestions"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "darling_core",
+      "version": "0.20.11",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "strsim",
+        "suggestions"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "darling_macro",
+      "version": "0.20.11",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "dary_heap",
+      "version": "0.3.9",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "serde"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "derive_builder",
+      "version": "0.20.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "derive_builder_core",
+      "version": "0.20.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "lib_has_std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "derive_builder_macro",
+      "version": "0.20.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "lib_has_std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "digest",
+      "version": "0.10.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "block-buffer",
+        "core-api",
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "dyn-stack",
+      "version": "0.13.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "dyn-stack-macros",
+      "version": "0.1.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "either",
+      "version": "1.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std",
+        "use_std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "esaxx-rs",
+      "version": "0.1.10",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "c83421c6d1a109c3cd12042bb3f9af238e57b7b0711d5899424dd81b57d33ff2"
+        }
+      ]
+    },
+    {
+      "name": "fancy-regex",
+      "version": "0.17.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "perf",
+        "std",
+        "unicode",
+        "variable-lookbehinds"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "fastrand",
+      "version": "2.5.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "float8",
+      "version": "0.7.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "num-traits",
+        "rand_distr",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "fnv",
+      "version": "1.0.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "Apache-2.0 / MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "foldhash",
+      "version": "0.2.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Zlib",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "f16",
+        "gemm-f16",
+        "rayon",
+        "std",
+        "wasm-simd128-enable"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-c32",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "rayon",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-c64",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "rayon",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-common",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "f16",
+        "half",
+        "rayon",
+        "std",
+        "sysctl",
+        "wasm-simd128-enable"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-f16",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "rayon",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-f32",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "rayon",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "gemm-f64",
+      "version": "0.19.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "rayon",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "generic-array",
+      "version": "0.14.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "more_lengths"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "08fa30c4a2c1ad24fe5f987e721dfb20131f45ea5b5dc3e836dcf88a8e33248c"
+        }
+      ]
+    },
+    {
+      "name": "getrandom",
+      "version": "0.3.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "d542c9c3bbc2f64a26c758eac8af16178aab52464bdd8bf0b9a767ba87665021"
+        }
+      ]
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "662faa06d7b2a9c5bea2c17a127a90e00b9f9b31105b0360da516e47cf816e95"
+        }
+      ]
+    },
+    {
+      "name": "half",
+      "version": "2.7.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "bytemuck",
+        "default",
+        "num-traits",
+        "rand_distr",
+        "std",
+        "use-intrinsics",
+        "zerocopy"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.16.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "allocator-api2",
+        "default",
+        "default-hasher",
+        "equivalent",
+        "inline-more",
+        "raw-entry",
+        "serde"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "ident_case",
+      "version": "1.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT/Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "itertools",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "use_alloc",
+        "use_std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "kaze_judge_jeff",
+      "version": "0.1.0",
+      "source": null,
+      "features": [],
+      "license": null,
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "libc",
+      "version": "0.2.190",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "feede9bdbbcf70c6409faef8fb2f2c065e942107eb6596677bb36dce6c5075fb"
+        }
+      ]
+    },
+    {
+      "name": "libm",
+      "version": "0.2.16",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "arch",
+        "default"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "85dfa93693f40e282ecf2d9a3115280d8f508f056063862add9e529b8143b71b"
+        }
+      ]
+    },
+    {
+      "name": "lock_api",
+      "version": "0.4.14",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "atomic_usize",
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "log",
+      "version": "0.4.34",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "macro_rules_attribute",
+      "version": "0.2.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default"
+      ],
+      "license": "Apache-2.0 OR MIT OR Zlib",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "macro_rules_attribute-proc_macro",
+      "version": "0.2.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0 OR MIT OR Zlib",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "Unlicense OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "memmap2",
+      "version": "0.9.11",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "stable_deref_trait"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "minimal-lexical",
+      "version": "0.2.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT/Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "monostate",
+      "version": "0.1.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "monostate-impl",
+      "version": "0.1.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "nom",
+      "version": "7.1.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "num-complex",
+      "version": "0.4.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "bytemuck"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "i128",
+        "libm",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "d3969209fc1c9d201c66ed11820d0b328600d75b3971f8ceebeab04900bc0587"
+        }
+      ]
+    },
+    {
+      "name": "num_cpus",
+      "version": "1.17.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "once_cell",
+      "version": "1.21.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "race",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "parking_lot",
+      "version": "0.12.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "parking_lot_core",
+      "version": "0.9.12",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "3698c936b75f8332d9b6b30a8a6838ea116c1ff0a819a025c9ea9696e4d8ce72"
+        }
+      ]
+    },
+    {
+      "name": "paste",
+      "version": "1.0.15",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "dba46ae4291317fb644ba2143f44eaf54a8ab946ba1367a33d055d694715f68a"
+        }
+      ]
+    },
+    {
+      "name": "pastey",
+      "version": "0.2.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "ppv-lite86",
+      "version": "0.2.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "simd",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "baeb20b52f6b536be8657a566591a507bb2e34a45cf8baa42b135510a0c3c729"
+        }
+      ]
+    },
+    {
+      "name": "pulp",
+      "version": "0.22.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "ba006df9f748fd817b68f9ff9b174ece596cf9fa3e4f1a008dbcb762bd7f00b8"
+        }
+      ]
+    },
+    {
+      "name": "pulp-wasm-simd-flag",
+      "version": "0.1.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "cd6808c02e476b09a520105e2c6f6d325cccb1ecd542cbbcc836a0ae6f6fb0f1"
+        }
+      ]
+    },
+    {
+      "name": "rand",
+      "version": "0.9.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "os_rng",
+        "small_rng",
+        "std",
+        "std_rng",
+        "thread_rng"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rand_chacha",
+      "version": "0.9.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rand_core",
+      "version": "0.9.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "os_rng",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rand_distr",
+      "version": "0.5.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "raw-cpuid",
+      "version": "11.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rayon",
+      "version": "1.12.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rayon-cond",
+      "version": "0.4.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0/MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rayon-core",
+      "version": "1.13.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": "rayon-core",
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "fa31cb198b772600d100a7c403ddedccef637d2e6b2da431fa7f02ca41307fc6"
+        }
+      ]
+    },
+    {
+      "name": "reborrow",
+      "version": "0.5.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "regex",
+      "version": "1.13.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "perf",
+        "perf-backtrack",
+        "perf-cache",
+        "perf-dfa",
+        "perf-inline",
+        "perf-literal",
+        "perf-onepass",
+        "std",
+        "unicode",
+        "unicode-age",
+        "unicode-bool",
+        "unicode-case",
+        "unicode-gencat",
+        "unicode-perl",
+        "unicode-script",
+        "unicode-segment"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "regex-automata",
+      "version": "0.4.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "dfa",
+        "dfa-build",
+        "dfa-onepass",
+        "dfa-search",
+        "hybrid",
+        "meta",
+        "nfa",
+        "nfa-backtrack",
+        "nfa-pikevm",
+        "nfa-thompson",
+        "perf",
+        "perf-inline",
+        "perf-literal",
+        "perf-literal-multisubstring",
+        "perf-literal-substring",
+        "std",
+        "syntax",
+        "unicode",
+        "unicode-age",
+        "unicode-bool",
+        "unicode-case",
+        "unicode-gencat",
+        "unicode-perl",
+        "unicode-script",
+        "unicode-segment",
+        "unicode-word-boundary"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "regex-syntax",
+      "version": "0.8.11",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std",
+        "unicode",
+        "unicode-age",
+        "unicode-bool",
+        "unicode-case",
+        "unicode-gencat",
+        "unicode-perl",
+        "unicode-script",
+        "unicode-segment"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "rustversion",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build/build.rs",
+          "sha256": "4438b108d5b198ca43ef0a78509da89861020674abd05166addd1c3058afbfa6"
+        }
+      ]
+    },
+    {
+      "name": "ryu",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0 OR BSL-1.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "scopeguard",
+      "version": "1.2.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "seq-macro",
+      "version": "0.3.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "derive",
+        "serde_derive",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "e2ea6a7a82f5404c3e28cb055883c737ee7903367a10206fbb47b75c009f0eb3"
+        }
+      ]
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "result",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "7bc6b1eec8913ff4cd8e4b9b92cd04a82a4f38beb30a0b73a64c1e6e49f07b5f"
+        }
+      ]
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.151",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "a681e754be844c7dbef957f5d2d00b01f37c5dca160ef1055a8d8f975697a881"
+        }
+      ]
+    },
+    {
+      "name": "sha2",
+      "version": "0.10.9",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "smallvec",
+      "version": "1.16.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "spm_precompiled",
+      "version": "0.1.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "stable_deref_trait",
+      "version": "1.2.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "static_assertions",
+      "version": "1.1.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "strsim",
+      "version": "0.11.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "syn",
+      "version": "2.0.119",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "clone-impls",
+        "default",
+        "derive",
+        "extra-traits",
+        "full",
+        "parsing",
+        "printing",
+        "proc-macro"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "syn",
+      "version": "3.0.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "clone-impls",
+        "default",
+        "derive",
+        "extra-traits",
+        "fold",
+        "parsing",
+        "printing",
+        "proc-macro",
+        "visit"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "synstructure",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "tempfile",
+      "version": "3.27.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "getrandom"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "ccc38283604f99237ad2333bbe395259e29fdf2ff4e04a60a95de9e4499c09a3"
+        }
+      ]
+    },
+    {
+      "name": "thiserror-impl",
+      "version": "2.0.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "fancy-regex"
+      ],
+      "license": "Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "typed-path",
+      "version": "0.12.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "default",
+        "std"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.26",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "unicode-normalization-alignments",
+      "version": "0.1.12",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT/Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "unicode-segmentation",
+      "version": "1.13.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "unicode_categories",
+      "version": "0.1.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "version_check",
+      "version": "0.9.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT/Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "windows-link",
+      "version": "0.2.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "Win32",
+        "Win32_Foundation",
+        "Win32_Networking",
+        "Win32_Networking_WinSock",
+        "Win32_Storage",
+        "Win32_Storage_FileSystem",
+        "Win32_System",
+        "Win32_System_Console",
+        "Win32_System_Diagnostics",
+        "Win32_System_Diagnostics_Debug",
+        "Win32_System_SystemInformation",
+        "default"
+      ],
+      "license": "MIT OR Apache-2.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "yoke",
+      "version": "0.8.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "default",
+        "derive",
+        "zerofrom"
+      ],
+      "license": "Unicode-3.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "yoke-derive",
+      "version": "0.8.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Unicode-3.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "zerocopy",
+      "version": "0.8.62",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "derive",
+        "simd",
+        "zerocopy-derive"
+      ],
+      "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "2ff44eb8770f1823291f09f8c7921a1cc19eb13f34168609a24be329065b6204"
+        }
+      ]
+    },
+    {
+      "name": "zerocopy-derive",
+      "version": "0.8.62",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "zerofrom",
+      "version": "0.1.8",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [
+        "alloc",
+        "derive"
+      ],
+      "license": "Unicode-3.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "zerofrom-derive",
+      "version": "0.1.8",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "Unicode-3.0",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "zip",
+      "version": "8.6.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": []
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "features": [],
+      "license": "MIT",
+      "links": null,
+      "build_scripts": [
+        {
+          "path": "build.rs",
+          "sha256": "ad320bc635887879bdbbf1b9322da4a157ec2c5a4243bd7c2cf9b6884a3b2a41"
+        }
+      ]
+    }
+  ],
+  "scope": "initial feature/build-script/import evidence; manual source and distribution review remains"
+}

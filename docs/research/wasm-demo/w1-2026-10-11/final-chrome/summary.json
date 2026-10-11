@@ -1,0 +1,328 @@
+{
+ "schema_version": "kaze_judge.wasm_w1_summary.v1",
+ "page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 16,
+  "crossOriginIsolated": false,
+  "deviceMemory": 32
+ },
+ "fatal": null,
+ "runs": {
+  "a": {
+   "checks": {
+    "completed": true,
+    "prompt": true,
+    "input_ids": true,
+    "candidate_order": true,
+    "judgment": true,
+    "probabilities": true
+   },
+   "probability_max_abs_vs_golden": 5.364418029785156e-07,
+   "error": null,
+   "panic": null,
+   "steps": [
+    {
+     "name": "instantiate",
+     "ms": 39.700000286102295,
+     "linear_memory_bytes": 1703936,
+     "bytes": 4513858
+    },
+    {
+     "name": "load_manifest",
+     "ms": 11,
+     "linear_memory_bytes": 1769472,
+     "bytes": 1872
+    },
+    {
+     "name": "load_decision_config",
+     "ms": 11.100000381469727,
+     "linear_memory_bytes": 1769472,
+     "bytes": 6635
+    },
+    {
+     "name": "load_tokenizer",
+     "ms": 45.59999990463257,
+     "linear_memory_bytes": 21823488,
+     "bytes": 19989492
+    },
+    {
+     "name": "load_readout",
+     "ms": 4.300000190734863,
+     "linear_memory_bytes": 22347776,
+     "bytes": 522320
+    },
+    {
+     "name": "load_model",
+     "ms": 3795.300000190735,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 1706027688
+    },
+    {
+     "name": "load_request",
+     "ms": 7.5,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 405
+    },
+    {
+     "name": "heap_reserve",
+     "ms": 16.5,
+     "linear_memory_bytes": 2533752832,
+     "bytes": 805306368
+    },
+    {
+     "name": "decide",
+     "ms": 35622.09999990463,
+     "linear_memory_bytes": 2533752832
+    }
+   ],
+   "stages": [
+    {
+     "ms": 15944.5,
+     "name": "hash"
+    },
+    {
+     "ms": 1402.9000000953674,
+     "name": "tokenizer"
+    },
+    {
+     "ms": 3.5999999046325684,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 18157,
+     "name": "forward"
+    },
+    {
+     "ms": 1.5,
+     "name": "readout_policy"
+    }
+   ],
+   "final_linear_memory_bytes": 2533752832,
+   "probabilities": [
+    0.9285955429077148,
+    0.07140449434518814
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "vs_native_same_code": {
+    "probability_max_abs": 2.980232238769531e-07,
+    "hidden_max_abs": 2.86102294921875e-05
+   },
+   "hidden_max_abs_vs_golden": 1.33514404296875e-05
+  },
+  "c": {
+   "checks": {
+    "completed": true,
+    "prompt": true,
+    "input_ids": true,
+    "candidate_order": true,
+    "judgment": true,
+    "probabilities": true
+   },
+   "probability_max_abs_vs_golden": 5.364418029785156e-07,
+   "error": null,
+   "panic": null,
+   "steps": [
+    {
+     "name": "instantiate",
+     "ms": 46,
+     "linear_memory_bytes": 1703936,
+     "bytes": 4513858
+    },
+    {
+     "name": "load_manifest",
+     "ms": 7.600000381469727,
+     "linear_memory_bytes": 1769472,
+     "bytes": 1872
+    },
+    {
+     "name": "load_decision_config",
+     "ms": 6.699999809265137,
+     "linear_memory_bytes": 1769472,
+     "bytes": 6635
+    },
+    {
+     "name": "load_tokenizer",
+     "ms": 112,
+     "linear_memory_bytes": 21823488,
+     "bytes": 19989492
+    },
+    {
+     "name": "load_readout",
+     "ms": 11.300000190734863,
+     "linear_memory_bytes": 22347776,
+     "bytes": 522320
+    },
+    {
+     "name": "load_model",
+     "ms": 4427,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 1706027688
+    },
+    {
+     "name": "load_request",
+     "ms": 7.600000381469727,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 405
+    },
+    {
+     "name": "heap_reserve",
+     "ms": 31.199999809265137,
+     "linear_memory_bytes": 2533752832,
+     "bytes": 805306368
+    },
+    {
+     "name": "decide",
+     "ms": 34906.800000190735,
+     "linear_memory_bytes": 2533752832
+    }
+   ],
+   "stages": [
+    {
+     "ms": 15478.60000038147,
+     "name": "hash"
+    },
+    {
+     "ms": 1096.1999998092651,
+     "name": "tokenizer"
+    },
+    {
+     "ms": 1.4000000953674316,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 18250.299999713898,
+     "name": "forward"
+    },
+    {
+     "ms": 0.6000003814697266,
+     "name": "readout_policy"
+    }
+   ],
+   "final_linear_memory_bytes": 2533752832,
+   "probabilities": [
+    0.9285955429077148,
+    0.07140449434518814
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "vs_native_same_code": {
+    "probability_max_abs": 2.980232238769531e-07,
+    "hidden_max_abs": 2.86102294921875e-05
+   },
+   "hidden_max_abs_vs_golden": 1.33514404296875e-05
+  }
+ },
+ "rerun_bitwise_identical": true,
+ "cancel": {
+  "passed": true,
+  "outcome": "terminated",
+  "cancel_after_ms": 26429.5,
+  "progress": [
+   {
+    "phase": "instantiate",
+    "name": "instantiate",
+    "ms": 43.700000286102295,
+    "linear_memory_bytes": 1703936,
+    "bytes": 4513858,
+    "page_ms": 63.19999980926514
+   },
+   {
+    "phase": "load_manifest",
+    "name": "load_manifest",
+    "ms": 8.699999809265137,
+    "linear_memory_bytes": 1769472,
+    "bytes": 1872,
+    "page_ms": 72.40000009536743
+   },
+   {
+    "phase": "load_decision_config",
+    "name": "load_decision_config",
+    "ms": 6.700000286102295,
+    "linear_memory_bytes": 1769472,
+    "bytes": 6635,
+    "page_ms": 79.09999990463257
+   },
+   {
+    "phase": "load_tokenizer",
+    "name": "load_tokenizer",
+    "ms": 70.30000019073486,
+    "linear_memory_bytes": 21823488,
+    "bytes": 19989492,
+    "page_ms": 149.59999990463257
+   },
+   {
+    "phase": "load_readout",
+    "name": "load_readout",
+    "ms": 6.300000190734863,
+    "linear_memory_bytes": 22347776,
+    "bytes": 522320,
+    "page_ms": 156
+   },
+   {
+    "phase": "load_model",
+    "name": "load_model",
+    "ms": 3935.5,
+    "linear_memory_bytes": 1728380928,
+    "bytes": 1706027688,
+    "page_ms": 4091.5999999046326
+   },
+   {
+    "phase": "load_request",
+    "name": "load_request",
+    "ms": 6.599999904632568,
+    "linear_memory_bytes": 1728380928,
+    "bytes": 405,
+    "page_ms": 4098.099999904633
+   },
+   {
+    "phase": "heap_reserve",
+    "name": "heap_reserve",
+    "ms": 20.59999990463257,
+    "linear_memory_bytes": 2533752832,
+    "bytes": 805306368,
+    "page_ms": 4119
+   },
+   {
+    "phase": "decide_started",
+    "linear_memory_bytes": 2533752832,
+    "page_ms": 4119.099999904633
+   }
+  ]
+ },
+ "native_reference": {
+  "probability_max_abs_vs_golden": 2.384185791015625e-07,
+  "stages": [
+   {
+    "ms": 845.2922,
+    "name": "hash"
+   },
+   {
+    "ms": 467.02049999999997,
+    "name": "tokenizer"
+   },
+   {
+    "ms": 0.3451999999999771,
+    "name": "prompt_tokenize"
+   },
+   {
+    "ms": 8962.173400000001,
+    "name": "forward"
+   },
+   {
+    "ms": 1.2479999999995925,
+    "name": "readout_policy"
+   }
+  ]
+ },
+ "browser_process_peaks": {
+  "max_peak_working_set": 3970985984,
+  "max_peak_pagefile": 5254750208,
+  "processes": 8
+ },
+ "passed": true
+}

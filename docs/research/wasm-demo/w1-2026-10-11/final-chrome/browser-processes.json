@@ -1,0 +1,50 @@
+[
+ {
+  "pid": 35328,
+  "name": "browser",
+  "peak_working_set": 160677888,
+  "peak_pagefile": 54648832
+ },
+ {
+  "pid": 22580,
+  "name": "chrome.exe",
+  "peak_working_set": 34754560,
+  "peak_pagefile": 18644992
+ },
+ {
+  "pid": 45780,
+  "name": "chrome.exe",
+  "peak_working_set": 3970985984,
+  "peak_pagefile": 5254750208
+ },
+ {
+  "pid": 42432,
+  "name": "chrome.exe",
+  "peak_working_set": 87801856,
+  "peak_pagefile": 47222784
+ },
+ {
+  "pid": 39976,
+  "name": "chrome.exe",
+  "peak_working_set": 18063360,
+  "peak_pagefile": 8568832
+ },
+ {
+  "pid": 3372,
+  "name": "chrome.exe",
+  "peak_working_set": 42946560,
+  "peak_pagefile": 13590528
+ },
+ {
+  "pid": 48996,
+  "name": "chrome.exe",
+  "peak_working_set": 109355008,
+  "peak_pagefile": 91426816
+ },
+ {
+  "pid": 44224,
+  "name": "chrome.exe",
+  "peak_working_set": 11055104,
+  "peak_pagefile": 2707456
+ }
+]

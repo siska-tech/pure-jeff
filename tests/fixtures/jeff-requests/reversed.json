@@ -1,0 +1,7 @@
+{
+  "request_id": "ocr-reversed", "document_id": "synthetic", "segment_id": "line-1",
+  "original_text": "節約する", "source": "ocr", "profile_id": "ja.ocr.experimental",
+  "domain": null, "question_id": "transcription-candidate.v1",
+  "candidates": [{"id": "alternative", "text": "節税する"}, {"id": "original", "text": "節約する"}],
+  "reason": "candidate_competition"
+}

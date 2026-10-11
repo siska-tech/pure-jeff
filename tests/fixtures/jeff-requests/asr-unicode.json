@@ -1,0 +1,12 @@
+{
+  "request_id": "asr-unicode", "document_id": "synthetic", "segment_id": "utterance-1",
+  "original_text": "明日１０時にCaféで会いましょう。\n予算は１００円です。",
+  "source": "asr", "profile_id": "ja.asr.experimental", "domain": null,
+  "question_id": "transcription-candidate.v1",
+  "candidates": [
+    {"id": "original", "text": "明日１０時にCaféで会いましょう。\n予算は１００円です。"},
+    {"id": "normalized", "text": "明日10時にCaféで会いましょう。\n予算は100円です。"},
+    {"id": "conflicting", "text": "明日7時にCaféで会いましょう。\n予算は700円です。"}
+  ],
+  "reason": "candidate_competition"
+}

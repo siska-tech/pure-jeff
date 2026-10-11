@@ -1,0 +1,328 @@
+{
+ "schema_version": "kaze_judge.wasm_w1_summary.v1",
+ "page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
+  "hardwareConcurrency": 16,
+  "crossOriginIsolated": false,
+  "deviceMemory": 32
+ },
+ "fatal": null,
+ "runs": {
+  "a": {
+   "checks": {
+    "completed": true,
+    "prompt": true,
+    "input_ids": true,
+    "candidate_order": true,
+    "judgment": true,
+    "probabilities": true
+   },
+   "probability_max_abs_vs_golden": 5.364418029785156e-07,
+   "error": null,
+   "panic": null,
+   "steps": [
+    {
+     "name": "instantiate",
+     "ms": 33.5,
+     "linear_memory_bytes": 1703936,
+     "bytes": 4513858
+    },
+    {
+     "name": "load_manifest",
+     "ms": 11.900000095367432,
+     "linear_memory_bytes": 1769472,
+     "bytes": 1872
+    },
+    {
+     "name": "load_decision_config",
+     "ms": 17.700000286102295,
+     "linear_memory_bytes": 1769472,
+     "bytes": 6635
+    },
+    {
+     "name": "load_tokenizer",
+     "ms": 44.799999713897705,
+     "linear_memory_bytes": 21823488,
+     "bytes": 19989492
+    },
+    {
+     "name": "load_readout",
+     "ms": 5.699999809265137,
+     "linear_memory_bytes": 22347776,
+     "bytes": 522320
+    },
+    {
+     "name": "load_model",
+     "ms": 3665.2000002861023,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 1706027688
+    },
+    {
+     "name": "load_request",
+     "ms": 8.199999809265137,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 405
+    },
+    {
+     "name": "heap_reserve",
+     "ms": 16,
+     "linear_memory_bytes": 2533752832,
+     "bytes": 805306368
+    },
+    {
+     "name": "decide",
+     "ms": 35270.2999997139,
+     "linear_memory_bytes": 2533752832
+    }
+   ],
+   "stages": [
+    {
+     "ms": 15724.5,
+     "name": "hash"
+    },
+    {
+     "ms": 1332.5,
+     "name": "tokenizer"
+    },
+    {
+     "ms": 4.700000286102295,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 18106,
+     "name": "forward"
+    },
+    {
+     "ms": 1.8999996185302734,
+     "name": "readout_policy"
+    }
+   ],
+   "final_linear_memory_bytes": 2533752832,
+   "probabilities": [
+    0.9285955429077148,
+    0.07140449434518814
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "vs_native_same_code": {
+    "probability_max_abs": 2.980232238769531e-07,
+    "hidden_max_abs": 2.86102294921875e-05
+   },
+   "hidden_max_abs_vs_golden": 1.33514404296875e-05
+  },
+  "c": {
+   "checks": {
+    "completed": true,
+    "prompt": true,
+    "input_ids": true,
+    "candidate_order": true,
+    "judgment": true,
+    "probabilities": true
+   },
+   "probability_max_abs_vs_golden": 5.364418029785156e-07,
+   "error": null,
+   "panic": null,
+   "steps": [
+    {
+     "name": "instantiate",
+     "ms": 44.30000019073486,
+     "linear_memory_bytes": 1703936,
+     "bytes": 4513858
+    },
+    {
+     "name": "load_manifest",
+     "ms": 7.299999713897705,
+     "linear_memory_bytes": 1769472,
+     "bytes": 1872
+    },
+    {
+     "name": "load_decision_config",
+     "ms": 7.100000381469727,
+     "linear_memory_bytes": 1769472,
+     "bytes": 6635
+    },
+    {
+     "name": "load_tokenizer",
+     "ms": 78.90000009536743,
+     "linear_memory_bytes": 21823488,
+     "bytes": 19989492
+    },
+    {
+     "name": "load_readout",
+     "ms": 9.299999713897705,
+     "linear_memory_bytes": 22347776,
+     "bytes": 522320
+    },
+    {
+     "name": "load_model",
+     "ms": 4403.099999904633,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 1706027688
+    },
+    {
+     "name": "load_request",
+     "ms": 8.399999618530273,
+     "linear_memory_bytes": 1728380928,
+     "bytes": 405
+    },
+    {
+     "name": "heap_reserve",
+     "ms": 28.699999809265137,
+     "linear_memory_bytes": 2533752832,
+     "bytes": 805306368
+    },
+    {
+     "name": "decide",
+     "ms": 34777.2000002861,
+     "linear_memory_bytes": 2533752832
+    }
+   ],
+   "stages": [
+    {
+     "ms": 15048.699999809265,
+     "name": "hash"
+    },
+    {
+     "ms": 1150,
+     "name": "tokenizer"
+    },
+    {
+     "ms": 1.200000286102295,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 18491.599999904633,
+     "name": "forward"
+    },
+    {
+     "ms": 0.5999999046325684,
+     "name": "readout_policy"
+    }
+   ],
+   "final_linear_memory_bytes": 2533752832,
+   "probabilities": [
+    0.9285955429077148,
+    0.07140449434518814
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "vs_native_same_code": {
+    "probability_max_abs": 2.980232238769531e-07,
+    "hidden_max_abs": 2.86102294921875e-05
+   },
+   "hidden_max_abs_vs_golden": 1.33514404296875e-05
+  }
+ },
+ "rerun_bitwise_identical": true,
+ "cancel": {
+  "passed": true,
+  "outcome": "terminated",
+  "cancel_after_ms": 26114.700000286102,
+  "progress": [
+   {
+    "phase": "instantiate",
+    "name": "instantiate",
+    "ms": 304.69999980926514,
+    "linear_memory_bytes": 1703936,
+    "bytes": 4513858,
+    "page_ms": 327.80000019073486
+   },
+   {
+    "phase": "load_manifest",
+    "name": "load_manifest",
+    "ms": 9.700000286102295,
+    "linear_memory_bytes": 1769472,
+    "bytes": 1872,
+    "page_ms": 337.6000003814697
+   },
+   {
+    "phase": "load_decision_config",
+    "name": "load_decision_config",
+    "ms": 7.899999618530273,
+    "linear_memory_bytes": 1769472,
+    "bytes": 6635,
+    "page_ms": 345.7000002861023
+   },
+   {
+    "phase": "load_tokenizer",
+    "name": "load_tokenizer",
+    "ms": 90,
+    "linear_memory_bytes": 21823488,
+    "bytes": 19989492,
+    "page_ms": 435.80000019073486
+   },
+   {
+    "phase": "load_readout",
+    "name": "load_readout",
+    "ms": 23.40000009536743,
+    "linear_memory_bytes": 22347776,
+    "bytes": 522320,
+    "page_ms": 459.5
+   },
+   {
+    "phase": "load_model",
+    "name": "load_model",
+    "ms": 3941,
+    "linear_memory_bytes": 1728380928,
+    "bytes": 1706027688,
+    "page_ms": 4400.700000286102
+   },
+   {
+    "phase": "load_request",
+    "name": "load_request",
+    "ms": 7.5,
+    "linear_memory_bytes": 1728380928,
+    "bytes": 405,
+    "page_ms": 4408.10000038147
+   },
+   {
+    "phase": "heap_reserve",
+    "name": "heap_reserve",
+    "ms": 16.09999990463257,
+    "linear_memory_bytes": 2533752832,
+    "bytes": 805306368,
+    "page_ms": 4424.5
+   },
+   {
+    "phase": "decide_started",
+    "linear_memory_bytes": 2533752832,
+    "page_ms": 4425
+   }
+  ]
+ },
+ "native_reference": {
+  "probability_max_abs_vs_golden": 2.384185791015625e-07,
+  "stages": [
+   {
+    "ms": 861.6003,
+    "name": "hash"
+   },
+   {
+    "ms": 456.79679999999996,
+    "name": "tokenizer"
+   },
+   {
+    "ms": 0.33310000000005857,
+    "name": "prompt_tokenize"
+   },
+   {
+    "ms": 8511.7667,
+    "name": "forward"
+   },
+   {
+    "ms": 0.9274000000004889,
+    "name": "readout_policy"
+   }
+  ]
+ },
+ "browser_process_peaks": {
+  "max_peak_working_set": 3980570624,
+  "max_peak_pagefile": 5264162816,
+  "processes": 9
+ },
+ "passed": true
+}

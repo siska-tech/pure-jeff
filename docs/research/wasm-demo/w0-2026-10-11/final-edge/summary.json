@@ -1,0 +1,608 @@
+{
+ "schema_version": "kaze_judge.wasm_w0_summary.v1",
+ "page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
+  "hardwareConcurrency": 16,
+  "crossOriginIsolated": false,
+  "deviceMemory": 32
+ },
+ "fatal": null,
+ "native_environment": {
+  "candle_num_threads": 1,
+  "candle_with_simd128": false,
+  "simd128_compiled": false,
+  "target_arch": "x86_64"
+ },
+ "native_tokenize_passed": true,
+ "variants": {
+  "baseline": {
+   "error": null,
+   "panic": null,
+   "skipped": null,
+   "simd128_supported": true,
+   "environment": {
+    "candle_num_threads": 1,
+    "candle_with_simd128": false,
+    "simd128_compiled": false,
+    "target_arch": "wasm32"
+   },
+   "steps": [
+    {
+     "name": "fetch_wasm",
+     "ms": 6.599999904632568,
+     "linear_memory_bytes": null,
+     "bytes": 3933525
+    },
+    {
+     "name": "instantiate",
+     "ms": 4.800000190734863,
+     "linear_memory_bytes": 1703936
+    },
+    {
+     "name": "ops_0",
+     "ms": 70.10000038146973,
+     "linear_memory_bytes": 42532864
+    },
+    {
+     "name": "ops_1",
+     "ms": 42.19999980926514,
+     "linear_memory_bytes": 57278464
+    },
+    {
+     "name": "fetch_tokenizer_and_job",
+     "ms": 48.69999980926514,
+     "linear_memory_bytes": 57278464,
+     "bytes": 20180571
+    },
+    {
+     "name": "tokenize",
+     "ms": 995.6000003814697,
+     "linear_memory_bytes": 138346496
+    }
+   ],
+   "final_linear_memory_bytes": 138346496,
+   "ops_passed": true,
+   "ops": [
+    {
+     "name": "gemm_17x1024_by_3584x1024T",
+     "shape": [
+      17,
+      3584
+     ],
+     "elements": 60928,
+     "max_abs_error": 5.7220458984375e-05,
+     "max_rel_error": 0.016973542151416356,
+     "tensor_scale": 43.103675842285156,
+     "bitwise_identical": 3275,
+     "passed": true,
+     "native_ms": 2.1691999999999996,
+     "wasm_ms": 8.599999904632568,
+     "native_backward_error": 2.551111917429585e-07,
+     "wasm_backward_error": 1.4291448294194802e-07
+    },
+    {
+     "name": "gemm_silu_17x3584_by_1024x3584T",
+     "shape": [
+      17,
+      1024
+     ],
+     "elements": 17408,
+     "max_abs_error": 0.000946044921875,
+     "max_rel_error": 0.00289638419134822,
+     "tensor_scale": 1089.181640625,
+     "bitwise_identical": 604,
+     "passed": true,
+     "native_ms": 2.2018000000000004,
+     "wasm_ms": 7.099999904632568
+    },
+    {
+     "name": "gemm_odd_5x64_by_33x64T",
+     "shape": [
+      5,
+      33
+     ],
+     "elements": 165,
+     "max_abs_error": 9.5367431640625e-07,
+     "max_rel_error": 1.1765983636231989e-05,
+     "tensor_scale": 7.152810096740723,
+     "bitwise_identical": 30,
+     "passed": true,
+     "native_ms": 0.007600000000000051,
+     "wasm_ms": 0,
+     "native_backward_error": 3.6491097485409714e-08,
+     "wasm_backward_error": 6.01849490342866e-08
+    },
+    {
+     "name": "attention_scores_causal_softmax",
+     "shape": [
+      8,
+      13,
+      13
+     ],
+     "elements": 1352,
+     "max_abs_error": 8.940696716308594e-08,
+     "max_rel_error": 2.9368357841105585e-07,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 975,
+     "passed": true,
+     "native_ms": 0.6709999999999994,
+     "wasm_ms": 3
+    },
+    {
+     "name": "rms_normalized_17x1024",
+     "shape": [
+      17,
+      1024
+     ],
+     "elements": 17408,
+     "max_abs_error": 9.5367431640625e-07,
+     "max_rel_error": 6.203952455389963e-07,
+     "tensor_scale": 1.7530505657196045,
+     "bitwise_identical": 2158,
+     "passed": true,
+     "native_ms": 0.053300000000000125,
+     "wasm_ms": 3.0999999046325684
+    },
+    {
+     "name": "l2_9x16x128",
+     "shape": [
+      9,
+      16,
+      128
+     ],
+     "elements": 18432,
+     "max_abs_error": 4.470348358154297e-08,
+     "max_rel_error": 3.198167748375837e-07,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 6668,
+     "passed": true,
+     "native_ms": 0.04240000000000066,
+     "wasm_ms": 0.3000001907348633
+    },
+    {
+     "name": "rotary_8x7x256",
+     "shape": [
+      8,
+      7,
+      256
+     ],
+     "elements": 14336,
+     "max_abs_error": 5.960464477539063e-08,
+     "max_rel_error": 6.940180571006132e-08,
+     "tensor_scale": 1.336356282234192,
+     "bitwise_identical": 14335,
+     "passed": true,
+     "native_ms": 0.04339999999999833,
+     "wasm_ms": 2
+    },
+    {
+     "name": "silu_sigmoid_9x2048",
+     "shape": [
+      18,
+      2048
+     ],
+     "elements": 36864,
+     "max_abs_error": 9.5367431640625e-07,
+     "max_rel_error": 2.1683815492847646e-07,
+     "tensor_scale": 5.984995365142822,
+     "bitwise_identical": 35223,
+     "passed": true,
+     "native_ms": 0.14170000000000016,
+     "wasm_ms": 0.8000001907348633
+    },
+    {
+     "name": "gated_delta_recurrence_9x16x128",
+     "shape": [
+      9,
+      16,
+      128
+     ],
+     "elements": 18432,
+     "max_abs_error": 6.51925802230835e-09,
+     "max_rel_error": 0.002311105632934796,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 2606,
+     "passed": true,
+     "native_ms": 2.305999999999999,
+     "wasm_ms": 9.899999618530273
+    },
+    {
+     "name": "reduce_sum_last_dim",
+     "shape": [
+      9,
+      16,
+      1
+     ],
+     "elements": 144,
+     "max_abs_error": 4.470348358154297e-08,
+     "max_rel_error": 1.4490189839599636e-05,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 12,
+     "passed": true,
+     "native_ms": 0.0027000000000025892,
+     "wasm_ms": 0
+    }
+   ],
+   "browser_repeat_identical": true,
+   "tokenize_passed": true,
+   "tokenize": {
+    "codes_match": true,
+    "hash_ms": 354.5,
+    "load_ms": 581,
+    "schema_version": "kaze_judge.wasm_w0_tokenize.v1",
+    "single_token_after_prefix": true,
+    "token_ids_match": true,
+    "tokenizer_bytes": 19989492,
+    "vocabulary_ms": 16.200000286102295
+   },
+   "tokenize_cases": [
+    {
+     "encode_ms": 0.5,
+     "expected_tokens": 128,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "candidate-request",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 128
+    },
+    {
+     "encode_ms": 0.19999980926513672,
+     "expected_tokens": 128,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "reversed",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 128
+    },
+    {
+     "encode_ms": 0.3000001907348633,
+     "expected_tokens": 206,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "asr-unicode",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 206
+    },
+    {
+     "encode_ms": 0.6999998092651367,
+     "expected_tokens": 874,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "long-text",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 874
+    },
+    {
+     "encode_ms": 0.3000001907348633,
+     "expected_tokens": 182,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "special-token-text",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 182
+    },
+    {
+     "encode_ms": 3.3000001907348633,
+     "expected_tokens": 3206,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "maximum-candidates",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 3206
+    },
+    {
+     "encode_ms": 5.699999809265137,
+     "expected_tokens": 8192,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "token-limit-8192",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 8192
+    }
+   ],
+   "passed": true
+  },
+  "simd128": {
+   "error": null,
+   "panic": null,
+   "skipped": null,
+   "simd128_supported": true,
+   "environment": {
+    "candle_num_threads": 1,
+    "candle_with_simd128": true,
+    "simd128_compiled": true,
+    "target_arch": "wasm32"
+   },
+   "steps": [
+    {
+     "name": "fetch_wasm",
+     "ms": 9.800000190734863,
+     "linear_memory_bytes": null,
+     "bytes": 4012073
+    },
+    {
+     "name": "instantiate",
+     "ms": 4.799999713897705,
+     "linear_memory_bytes": 1703936
+    },
+    {
+     "name": "ops_0",
+     "ms": 67.2000002861023,
+     "linear_memory_bytes": 42532864
+    },
+    {
+     "name": "ops_1",
+     "ms": 40.59999990463257,
+     "linear_memory_bytes": 57278464
+    },
+    {
+     "name": "fetch_tokenizer_and_job",
+     "ms": 58.90000009536743,
+     "linear_memory_bytes": 57278464,
+     "bytes": 20180571
+    },
+    {
+     "name": "tokenize",
+     "ms": 1365.9000000953674,
+     "linear_memory_bytes": 138346496
+    }
+   ],
+   "final_linear_memory_bytes": 138346496,
+   "ops_passed": true,
+   "ops": [
+    {
+     "name": "gemm_17x1024_by_3584x1024T",
+     "shape": [
+      17,
+      3584
+     ],
+     "elements": 60928,
+     "max_abs_error": 5.7220458984375e-05,
+     "max_rel_error": 0.016973542151416356,
+     "tensor_scale": 43.103675842285156,
+     "bitwise_identical": 3275,
+     "passed": true,
+     "native_ms": 2.1691999999999996,
+     "wasm_ms": 8.199999809265137,
+     "native_backward_error": 2.551111917429585e-07,
+     "wasm_backward_error": 1.4291448294194802e-07
+    },
+    {
+     "name": "gemm_silu_17x3584_by_1024x3584T",
+     "shape": [
+      17,
+      1024
+     ],
+     "elements": 17408,
+     "max_abs_error": 0.000946044921875,
+     "max_rel_error": 0.00289638419134822,
+     "tensor_scale": 1089.181640625,
+     "bitwise_identical": 604,
+     "passed": true,
+     "native_ms": 2.2018000000000004,
+     "wasm_ms": 7
+    },
+    {
+     "name": "gemm_odd_5x64_by_33x64T",
+     "shape": [
+      5,
+      33
+     ],
+     "elements": 165,
+     "max_abs_error": 9.5367431640625e-07,
+     "max_rel_error": 1.1765983636231989e-05,
+     "tensor_scale": 7.152810096740723,
+     "bitwise_identical": 30,
+     "passed": true,
+     "native_ms": 0.007600000000000051,
+     "wasm_ms": 0,
+     "native_backward_error": 3.6491097485409714e-08,
+     "wasm_backward_error": 6.01849490342866e-08
+    },
+    {
+     "name": "attention_scores_causal_softmax",
+     "shape": [
+      8,
+      13,
+      13
+     ],
+     "elements": 1352,
+     "max_abs_error": 8.940696716308594e-08,
+     "max_rel_error": 2.9368357841105585e-07,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 975,
+     "passed": true,
+     "native_ms": 0.6709999999999994,
+     "wasm_ms": 2.5999999046325684
+    },
+    {
+     "name": "rms_normalized_17x1024",
+     "shape": [
+      17,
+      1024
+     ],
+     "elements": 17408,
+     "max_abs_error": 2.384185791015625e-07,
+     "max_rel_error": 2.0594257600182054e-07,
+     "tensor_scale": 1.7530505657196045,
+     "bitwise_identical": 11350,
+     "passed": true,
+     "native_ms": 0.053300000000000125,
+     "wasm_ms": 3.0999999046325684
+    },
+    {
+     "name": "l2_9x16x128",
+     "shape": [
+      9,
+      16,
+      128
+     ],
+     "elements": 18432,
+     "max_abs_error": 1.4901161193847656e-08,
+     "max_rel_error": 1.452267348767595e-07,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 15815,
+     "passed": true,
+     "native_ms": 0.04240000000000066,
+     "wasm_ms": 0.19999980926513672
+    },
+    {
+     "name": "rotary_8x7x256",
+     "shape": [
+      8,
+      7,
+      256
+     ],
+     "elements": 14336,
+     "max_abs_error": 5.960464477539063e-08,
+     "max_rel_error": 6.940180571006132e-08,
+     "tensor_scale": 1.336356282234192,
+     "bitwise_identical": 14335,
+     "passed": true,
+     "native_ms": 0.04339999999999833,
+     "wasm_ms": 2
+    },
+    {
+     "name": "silu_sigmoid_9x2048",
+     "shape": [
+      18,
+      2048
+     ],
+     "elements": 36864,
+     "max_abs_error": 9.5367431640625e-07,
+     "max_rel_error": 2.1683815492847646e-07,
+     "tensor_scale": 5.984995365142822,
+     "bitwise_identical": 35223,
+     "passed": true,
+     "native_ms": 0.14170000000000016,
+     "wasm_ms": 0.7000002861022949
+    },
+    {
+     "name": "gated_delta_recurrence_9x16x128",
+     "shape": [
+      9,
+      16,
+      128
+     ],
+     "elements": 18432,
+     "max_abs_error": 5.587935447692871e-09,
+     "max_rel_error": 0.0032355478861087143,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 8778,
+     "passed": true,
+     "native_ms": 2.305999999999999,
+     "wasm_ms": 7
+    },
+    {
+     "name": "reduce_sum_last_dim",
+     "shape": [
+      9,
+      16,
+      1
+     ],
+     "elements": 144,
+     "max_abs_error": 2.7939677238464355e-08,
+     "max_rel_error": 1.058306648887115e-05,
+     "tensor_scale": 1.0,
+     "bitwise_identical": 38,
+     "passed": true,
+     "native_ms": 0.0027000000000025892,
+     "wasm_ms": 0
+    }
+   ],
+   "browser_repeat_identical": true,
+   "tokenize_passed": true,
+   "tokenize": {
+    "codes_match": true,
+    "hash_ms": 324.09999990463257,
+    "load_ms": 977.0999999046326,
+    "schema_version": "kaze_judge.wasm_w0_tokenize.v1",
+    "single_token_after_prefix": true,
+    "token_ids_match": true,
+    "tokenizer_bytes": 19989492,
+    "vocabulary_ms": 18.09999990463257
+   },
+   "tokenize_cases": [
+    {
+     "encode_ms": 0.5,
+     "expected_tokens": 128,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "candidate-request",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 128
+    },
+    {
+     "encode_ms": 0.09999990463256836,
+     "expected_tokens": 128,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "reversed",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 128
+    },
+    {
+     "encode_ms": 0.40000009536743164,
+     "expected_tokens": 206,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "asr-unicode",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 206
+    },
+    {
+     "encode_ms": 0.5,
+     "expected_tokens": 874,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "long-text",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 874
+    },
+    {
+     "encode_ms": 0.2999997138977051,
+     "expected_tokens": 182,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "special-token-text",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 182
+    },
+    {
+     "encode_ms": 2.8000001907348633,
+     "expected_tokens": 3206,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "maximum-candidates",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 3206
+    },
+    {
+     "encode_ms": 5.599999904632568,
+     "expected_tokens": 8192,
+     "ids_first_difference": null,
+     "ids_match": true,
+     "name": "token-limit-8192",
+     "prompt_first_difference": null,
+     "prompt_match": true,
+     "tokens": 8192
+    }
+   ],
+   "passed": true
+  }
+ },
+ "passed": true
+}

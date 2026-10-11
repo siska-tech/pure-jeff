@@ -1,0 +1,15 @@
+{
+  "schema_version": "kaze_judge.reference_license_evidence.v1",
+  "sources": [
+    {
+      "name": "Jeff reference implementation",
+      "revision": "3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0",
+      "declared_license": "MIT",
+      "repository": "https://github.com/firelex/jeff",
+      "source_license_url": "https://github.com/firelex/jeff/blob/3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0/LICENSE",
+      "file": "jeff-source/LICENSE",
+      "sha256": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+      "scope": "Conservative attribution for the official reference used to implement and validate the Rust port; Python source/runtime is not shipped."
+    }
+  ]
+}

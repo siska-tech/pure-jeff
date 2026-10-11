@@ -1,0 +1,69 @@
+// W1 Worker: loads the verified assets into linear memory and runs one decision.
+"use strict";
+
+self.onmessage = async ({ data: config }) => {
+  const steps = [];
+  let instance = null;
+  let panic = null;
+  const memoryBytes = () => (instance ? instance.exports.memory.buffer.byteLength : null);
+  const step = (name, started, extra) => {
+    const entry = { name, ms: performance.now() - started, linear_memory_bytes: memoryBytes(), ...extra };
+    steps.push(entry);
+    self.postMessage({ phase: name, ...entry });
+  };
+  try {
+    const decoder = new TextDecoder();
+    const view = () => new Uint8Array(instance.exports.memory.buffer);
+    const imports = { env: {
+      kj_now_ms: () => performance.now(),
+      kj_random_fill: (ptr, len) => {
+        for (let offset = 0; offset < len; offset += 65536) {
+          crypto.getRandomValues(view().subarray(ptr + offset, ptr + Math.min(len, offset + 65536)));
+        }
+        return 0;
+      },
+      kj_panic: (ptr, len) => { panic = decoder.decode(view().slice(ptr, ptr + len)); },
+    } };
+    let t = performance.now();
+    const wasm = await (await fetch(config.wasm, { cache: "no-store" })).arrayBuffer();
+    ({ instance } = await WebAssembly.instantiate(wasm, imports));
+    const e = instance.exports;
+    e.kj_init();
+    step("instantiate", t, { bytes: wasm.byteLength });
+
+    // Streams each asset straight into linear memory; no second full copy on the JS side.
+    const load = async (asset) => {
+      const started = performance.now();
+      const response = await fetch(asset.url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${asset.url}: HTTP ${response.status}`);
+      const ptr = e.kj_alloc(asset.bytes);
+      if (asset.bytes > 0 && ptr === 0) throw new Error(`${asset.url}: allocation failed`);
+      const reader = response.body.getReader();
+      let offset = 0;
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (offset + value.byteLength > asset.bytes) throw new Error(`${asset.url}: longer than expected`);
+        view().set(value, ptr + offset);
+        offset += value.byteLength;
+      }
+      if (offset !== asset.bytes) throw new Error(`${asset.url}: ${offset} of ${asset.bytes} bytes`);
+      step(`load_${asset.name}`, started, { bytes: asset.bytes });
+      return [ptr, asset.bytes];
+    };
+    const loaded = {};
+    for (const asset of config.assets) loaded[asset.name] = await load(asset);
+
+    t = performance.now();
+    self.postMessage({ phase: "decide_started", linear_memory_bytes: memoryBytes() });
+    const code = e.kj_decide(...loaded.manifest, ...loaded.decision_config, ...loaded.tokenizer,
+                             ...loaded.readout, ...loaded.model, ...loaded.request, config.max_input_tokens);
+    const out = view().slice(e.kj_output_ptr(), e.kj_output_ptr() + e.kj_output_len());
+    const result = JSON.parse(decoder.decode(out));
+    step("decide", t);
+    self.postMessage({ phase: "done", code, result, steps, panic, final_linear_memory_bytes: memoryBytes() });
+  } catch (error) {
+    self.postMessage({ phase: "done", error: String(error && error.stack || error), steps, panic,
+                       final_linear_memory_bytes: memoryBytes() });
+  }
+};

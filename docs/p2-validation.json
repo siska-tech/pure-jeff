@@ -1,0 +1,286 @@
+{
+  "schema_version": "kaze_judge.p2_validation.v1",
+  "checked_on": "2026-10-10",
+  "status": "independent_request_prompt_bundle_native_provider_verified_three_synthetic_cases",
+  "runtime_executable_sha256": "ccc689b4822d358b986b171cb4e7e18d826513d5dac5362ca97a39ca65e6da19",
+  "manifest_sha256": "5d258b153b297d7cf81bd5888fe33b9991ef49cb87082493f088c15b72b3f5cd",
+  "runtime_build_sha256": "fecc30dc45ca2822d287b33c87ca9e6f9dff20f6341a638ba7eb2e5d1ad028e6",
+  "harness_sha256": "94198d7a9ed30c9120596743b4e4b4fa70890a3b0b867efc652bae42927cc8c0",
+  "cargo_lock_sha256": "2dc37e4698479af647c9b882e9e66d57159ab8a613c87ea561760ef942adc451",
+  "cases": [
+    {
+      "case": "candidate-request",
+      "reference_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "input_tokens": 128,
+      "forwards": 1,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "probability_max_absolute_error": 2.384185791015625e-07,
+      "artifacts": [
+        {
+          "component": "LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "component": "NOTICE",
+          "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+        },
+        {
+          "component": "README.md",
+          "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+        },
+        {
+          "component": "chat_template.jinja",
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "component": "config.json",
+          "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+        },
+        {
+          "component": "decision_config.json",
+          "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+        },
+        {
+          "component": "model.safetensors",
+          "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+        },
+        {
+          "component": "processor_config.json",
+          "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+        },
+        {
+          "component": "readout.safetensors",
+          "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+        },
+        {
+          "component": "tokenizer.json",
+          "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+        },
+        {
+          "component": "tokenizer_config.json",
+          "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+        },
+        {
+          "component": "bundle_manifest",
+          "sha256": "5d258b153b297d7cf81bd5888fe33b9991ef49cb87082493f088c15b72b3f5cd"
+        },
+        {
+          "component": "runtime_build",
+          "sha256": "fecc30dc45ca2822d287b33c87ca9e6f9dff20f6341a638ba7eb2e5d1ad028e6"
+        },
+        {
+          "component": "prompt",
+          "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+        },
+        {
+          "component": "rendered_prompt",
+          "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+        },
+        {
+          "component": "policy",
+          "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+        }
+      ]
+    },
+    {
+      "case": "reversed",
+      "reference_sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "input_tokens": 128,
+      "forwards": 1,
+      "judgment": {
+        "kind": "selected",
+        "candidate_id": "original"
+      },
+      "probability_max_absolute_error": 6.332993507385254e-08,
+      "artifacts": [
+        {
+          "component": "LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "component": "NOTICE",
+          "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+        },
+        {
+          "component": "README.md",
+          "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+        },
+        {
+          "component": "chat_template.jinja",
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "component": "config.json",
+          "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+        },
+        {
+          "component": "decision_config.json",
+          "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+        },
+        {
+          "component": "model.safetensors",
+          "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+        },
+        {
+          "component": "processor_config.json",
+          "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+        },
+        {
+          "component": "readout.safetensors",
+          "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+        },
+        {
+          "component": "tokenizer.json",
+          "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+        },
+        {
+          "component": "tokenizer_config.json",
+          "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+        },
+        {
+          "component": "bundle_manifest",
+          "sha256": "5d258b153b297d7cf81bd5888fe33b9991ef49cb87082493f088c15b72b3f5cd"
+        },
+        {
+          "component": "runtime_build",
+          "sha256": "fecc30dc45ca2822d287b33c87ca9e6f9dff20f6341a638ba7eb2e5d1ad028e6"
+        },
+        {
+          "component": "prompt",
+          "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+        },
+        {
+          "component": "rendered_prompt",
+          "sha256": "4e99980f23f4dd00a568cb65ff0aad43e0a43cf6052c210c9a00b67058cf0c34"
+        },
+        {
+          "component": "policy",
+          "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+        }
+      ]
+    },
+    {
+      "case": "asr-unicode",
+      "reference_sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "input_tokens": 206,
+      "forwards": 1,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "probability_max_absolute_error": 5.066394805908203e-06,
+      "artifacts": [
+        {
+          "component": "LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "component": "NOTICE",
+          "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+        },
+        {
+          "component": "README.md",
+          "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+        },
+        {
+          "component": "chat_template.jinja",
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "component": "config.json",
+          "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+        },
+        {
+          "component": "decision_config.json",
+          "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+        },
+        {
+          "component": "model.safetensors",
+          "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+        },
+        {
+          "component": "processor_config.json",
+          "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+        },
+        {
+          "component": "readout.safetensors",
+          "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+        },
+        {
+          "component": "tokenizer.json",
+          "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+        },
+        {
+          "component": "tokenizer_config.json",
+          "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+        },
+        {
+          "component": "bundle_manifest",
+          "sha256": "5d258b153b297d7cf81bd5888fe33b9991ef49cb87082493f088c15b72b3f5cd"
+        },
+        {
+          "component": "runtime_build",
+          "sha256": "fecc30dc45ca2822d287b33c87ca9e6f9dff20f6341a638ba7eb2e5d1ad028e6"
+        },
+        {
+          "component": "prompt",
+          "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+        },
+        {
+          "component": "rendered_prompt",
+          "sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+        },
+        {
+          "component": "policy",
+          "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+        }
+      ]
+    }
+  ],
+  "negative_cases": {
+    "one_token_short": {
+      "status": "failed",
+      "value": "budget_exceeded"
+    },
+    "one_ms_timeout": {
+      "status": "failed",
+      "value": "timeout"
+    },
+    "not_selected_missing_manifest": {
+      "provider_calls_started": 0,
+      "status": "not_selected"
+    },
+    "duplicate_request_key": {
+      "exit_nonzero": true
+    },
+    "runtime_build_changed": {
+      "status": "failed",
+      "value": "unavailable"
+    },
+    "missing_required_component": {
+      "status": "failed",
+      "value": "unavailable"
+    },
+    "asset_hash_changed": {
+      "status": "failed",
+      "value": "unavailable"
+    },
+    "path_traversal": {
+      "status": "failed",
+      "value": "unavailable"
+    },
+    "unknown_manifest_field": {
+      "exit_nonzero": true
+    }
+  },
+  "hard_process_timeout": false,
+  "recognition_quality_evaluated": false
+}

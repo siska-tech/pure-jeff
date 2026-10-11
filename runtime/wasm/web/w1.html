@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KazeJudge Wasm W1</title>
+</head>
+<body>
+<p id="status">starting</p>
+<script>
+// Run A (full), run B (terminated mid-forward), run C (fresh full run); each in its own Worker.
+const status = document.getElementById("status");
+const report = (body) => fetch("result", { method: "POST", headers: { "content-type": "application/json" },
+                                           body: JSON.stringify(body) });
+function run(config, cancelAfterMs) {
+  return new Promise((resolve) => {
+    const worker = new Worker("w1-worker.js");
+    const started = performance.now();
+    const progress = [];
+    let timer = null;
+    const finish = (value) => { clearTimeout(timer); worker.terminate(); resolve({ ...value, progress, wall_ms: performance.now() - started }); };
+    worker.onmessage = ({ data }) => {
+      if (data.phase === "done") { finish({ outcome: "completed", ...data }); return; }
+      progress.push({ ...data, page_ms: performance.now() - started });
+      if (data.phase === "decide_started" && cancelAfterMs !== null) {
+        timer = setTimeout(() => finish({ outcome: "terminated", cancel_after_ms: cancelAfterMs }), cancelAfterMs);
+      }
+    };
+    worker.onerror = (event) => finish({ outcome: "worker_error", error: event.message });
+    worker.postMessage(config);
+  });
+}
+(async () => {
+  const config = await (await fetch("w1-config.json", { cache: "no-store" })).json();
+  status.textContent = "run A";
+  const a = await run(config, null);
+  let cancelAfter = null;
+  if (a.outcome === "completed" && a.result && a.result.stages) {
+    const ms = Object.fromEntries(a.result.stages.map((s) => [s.name, s.ms]));
+    cancelAfter = ms.hash + ms.tokenizer + ms.prompt_tokenize + config.cancel_forward_fraction * ms.forward;
+  }
+  status.textContent = "run B";
+  const b = cancelAfter === null ? { outcome: "not_run" } : await run(config, cancelAfter);
+  status.textContent = "run C";
+  const c = await run(config, null);
+  const page = { userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+                 crossOriginIsolated: self.crossOriginIsolated, deviceMemory: navigator.deviceMemory ?? null };
+  await report({ page, runs: { a, b, c } });
+  status.textContent = "done";
+})().catch((error) => report({ fatal: String(error && error.stack || error) }));
+</script>
+</body>
+</html>

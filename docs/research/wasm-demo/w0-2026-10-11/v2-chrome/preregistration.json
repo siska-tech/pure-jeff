@@ -1,0 +1,58 @@
+{
+ "schema_version": "kaze_judge.wasm_w0_preregistration.v1",
+ "created_utc": "2026-10-11T10:07:07.234410+00:00",
+ "thresholds": {
+  "version": 2,
+  "ops_tensor_rel": 1e-05,
+  "rule": "per tensor max|wasm-native| <= ops_tensor_rel*max(1, max|native|); equal shapes; finite",
+  "gemm_backward": 4.76837158203125e-07,
+  "gemm_rule": "for input-only GEMMs, max|out-exact64| / (|x|·|w|ᵀ) <= gemm_backward, native and wasm",
+  "browser_repeat": "ops_0 and ops_1 values bitwise identical (timings excluded)",
+  "tokenize": "hash, answer codes/IDs, single-token property, every prompt and input_ids exact",
+  "native_reference_threads": 1
+ },
+ "cases": [
+  "candidate-request",
+  "reversed",
+  "asr-unicode",
+  "long-text",
+  "special-token-text",
+  "maximum-candidates",
+  "token-limit-8192"
+ ],
+ "prior_failed_run": "experiments/runs/wasm-w0-chrome-20261011 (v1 thresholds; stays failed)",
+ "browser": {
+  "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "sha256": "392dec76f7d4a54f6bc9c360e8d21a56c428173b6c6a90f2be38a2714d606227"
+ },
+ "reference_sha256": "7ab72f353bcdff88acfb87e537f58f96cffe1434fe0a2e2d571b274ac1d2b5a8",
+ "variants": {
+  "baseline": {
+   "path": ".venv/wasm-target-baseline/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm",
+   "sha256": "9363a00d938bd6901ea81680eb5edad560a6946bb46b0c242f5542785c593122",
+   "bytes": 3933525
+  },
+  "simd128": {
+   "path": ".venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm",
+   "sha256": "9288c14d41ae9c8f22fb18907fc382cdae93869a0fe9171962f7f0dcf71cfa62",
+   "bytes": 4012073
+  }
+ },
+ "web": {
+  "index.html": "576da03163ea0c896b11a22b68b9d95577563b3148f6aa29163015a2fe9e7e76",
+  "worker.js": "99147f5e7815c975b248bd347b26c99933d5b0de2475282c89a00cdce03927f7"
+ },
+ "driver_sha256": "015e93c5ebc05b6635c34d81a264a5736eb9cb8950b00fa10e10a0ea5bdb2dee",
+ "tokenizer_sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706",
+ "golden": {
+  "candidate-request": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "reversed": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "asr-unicode": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "long-text": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995",
+  "special-token-text": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "maximum-candidates": "81b5a85ef58aefca25401945388ec96c4aa1e59793080495f614e52e67498a2e",
+  "token-limit-8192": "b2a734bc089de83c9001e1ff2b0c31487c17f896b9521b6f13ede87af6446e36"
+ },
+ "headless": true,
+ "threads": "single (no SharedArrayBuffer, not cross-origin isolated)"
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "kaze_judge.jeff_reference.v1",
+  "checked_on": "2026-10-10",
+  "status": "local_bundle_locked_first_real_inference_verified",
+  "source": {
+    "repository": "https://github.com/firelex/jeff",
+    "revision": "3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0",
+    "metadata_url": "https://api.github.com/repos/firelex/jeff/commits/3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0"
+  },
+  "checkpoint": {
+    "repository": "mstrasser/Jeff-Qwen3.5-0.8B",
+    "revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "resolved_repository": "jeff-legacy/Jeff-Qwen3.5-0.8B",
+    "metadata_url": "https://huggingface.co/api/models/mstrasser/Jeff-Qwen3.5-0.8B",
+    "license_metadata": "apache-2.0",
+    "language_metadata": [
+      "en"
+    ],
+    "base_model_metadata": "Qwen/Qwen3.5-0.8B"
+  },
+  "local_validation": {
+    "bundle_manifest": "models/jeff-bundle.json",
+    "bundle_manifest_sha256": "948eba4b9b1d5487900aac7dbf4f5d127984f3831ce22fe3f19be6ebe68e2b14",
+    "model_safetensors_sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f",
+    "model_safetensors_bytes": 1706027688,
+    "reference_fixture": "tests/fixtures/jeff-golden/candidate-request.json",
+    "reference_fixture_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+    "official_worker_max_absolute_error": 0.0,
+    "input_tokens": 128,
+    "forwards_per_inference": 1,
+    "cpu_threads": 1,
+    "dtype": "float32",
+    "rust_process_completed": true,
+    "quality_evaluation": false
+  },
+  "rust_validation": {
+    "status": "native_worker_and_kaze_nhanh_cli_verified_with_python_absent_from_child_path",
+    "record": "docs/p3-validation.json",
+    "p2_record": "docs/p2-validation.json",
+    "boundary_record": "docs/p2-boundaries.json",
+    "dependency_audit": "docs/rust-dependency-audit-p3.json",
+    "maximum_probability_absolute_error": 5.066394805908203e-06,
+    "token_ids_and_judgments_match": true,
+    "production_provider": false,
+    "experimental_native_provider": true,
+    "hard_process_timeout": true,
+    "python_uninstalled_host_test": false,
+    "extended_record": "docs/extended-migration-validation.json",
+    "reference_case_count": 7,
+    "extended_references": [
+      {
+        "path": "tests/fixtures/jeff-golden/candidate-request.json",
+        "sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+        "input_tokens": 128,
+        "candidates": 2
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/reversed.json",
+        "sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+        "input_tokens": 128,
+        "candidates": 2
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/asr-unicode.json",
+        "sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+        "input_tokens": 206,
+        "candidates": 3
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/long-text.json",
+        "sha256": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995",
+        "input_tokens": 874,
+        "candidates": 2
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/special-token-text.json",
+        "sha256": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+        "input_tokens": 182,
+        "candidates": 2
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/maximum-candidates.json",
+        "sha256": "81b5a85ef58aefca25401945388ec96c4aa1e59793080495f614e52e67498a2e",
+        "input_tokens": 3206,
+        "candidates": 255
+      },
+      {
+        "path": "tests/fixtures/jeff-golden/token-limit-8192.json",
+        "sha256": "b2a734bc089de83c9001e1ff2b0c31487c17f896b9521b6f13ede87af6446e36",
+        "input_tokens": 8192,
+        "candidates": 2
+      }
+    ],
+    "token_limit_forward_record": "docs/token-limit-forward-validation.json",
+    "token_limit_boundary_record": "docs/token-limit-boundaries.json"
+  },
+  "p4_work": {
+    "status": "in_progress_not_release_accepted",
+    "acceptance_record": "docs/p4-acceptance.md",
+    "benchmark": "docs/p4-benchmark.json",
+    "worker_tree_memory": "docs/p4-worker-tree-memory.json",
+    "portable_validation": "docs/p4c-portable-validation.json",
+    "quality_input_audit": "docs/p4-quality-input-audit.json",
+    "release_ready": false,
+    "previous_portable_validation": "docs/p4-portable-validation.json",
+    "license_inventory_review": "docs/p4-license-review.json"
+  },
+  "pending": [
+    "audit_base_model_and_distribution_notices",
+    "evaluate_quality_performance_and_clean_host_distribution",
+    "evaluate_japanese_ocr_asr"
+  ]
+}

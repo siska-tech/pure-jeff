@@ -1,0 +1,33 @@
+{
+ "source": "experiments/runs/length-inputs-20261011/inputs.json",
+ "picked": [
+  "synthetic-asr-unicode-2-128",
+  "synthetic-ocr-ascii-3-128",
+  "synthetic-ocr-ja-2-256",
+  "synthetic-ocr-ascii-8-256",
+  "synthetic-asr-unicode-2-384",
+  "synthetic-ocr-ascii-3-511",
+  "synthetic-asr-mixed-2-512",
+  "synthetic-ocr-ascii-8-512"
+ ],
+ "prompt_utf8_sha256": {
+  "synthetic-asr-unicode-2-128": "30375394bed9d83fb1c2d36687b1e16fbc1a4d702c617ebea205fbbd0a7564a7",
+  "synthetic-ocr-ascii-3-128": "bdcb1e50df0c81a1595c49b427f489274a726fbde12ebdc252967b80c7da7130",
+  "synthetic-ocr-ja-2-256": "c8fd652708cddea6101f7e14e971c02862787cfc4d4c5a5cc1556d8af5783c1c",
+  "synthetic-ocr-ascii-8-256": "0dff2accc6e525608cdf7ee716355c3bb07fa10472656a4f6b3dd97f2904ffe0",
+  "synthetic-asr-unicode-2-384": "ab08852e639de7410b7d3dd0d657490b1f955ce2487caa953d0667f48ccca03c",
+  "synthetic-ocr-ascii-3-511": "6fa306a33b4e815c4537be510b0f46aca9ce98447ffb0d987c2aadbb84e1f210",
+  "synthetic-asr-mixed-2-512": "d6c4a3b40ccf7f196932ae953bafc0d5f23bd3d29023f04ab47c172c45ffaecb",
+  "synthetic-ocr-ascii-8-512": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+ },
+ "tokens": {
+  "synthetic-asr-unicode-2-128": 128,
+  "synthetic-ocr-ascii-3-128": 128,
+  "synthetic-ocr-ja-2-256": 256,
+  "synthetic-ocr-ascii-8-256": 256,
+  "synthetic-asr-unicode-2-384": 384,
+  "synthetic-ocr-ascii-3-511": 511,
+  "synthetic-asr-mixed-2-512": 512,
+  "synthetic-ocr-ascii-8-512": 512
+ }
+}

@@ -1,0 +1,184 @@
+[
+ {
+  "time": 1791722718.4230597,
+  "method": "GET",
+  "path": "/index.html",
+  "status": 200,
+  "bytes": 4401
+ },
+ {
+  "time": 1791722718.4270828,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 3498
+ },
+ {
+  "time": 1791722718.4270828,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 13188
+ },
+ {
+  "time": 1791722718.4377713,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1338
+ },
+ {
+  "time": 1791722718.4946876,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8033
+ },
+ {
+  "time": 1791722718.8778212,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 5965
+ },
+ {
+  "time": 1791722718.8980465,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4658005
+ },
+ {
+  "time": 1791722718.9230638,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1872
+ },
+ {
+  "time": 1791722718.927374,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635
+ },
+ {
+  "time": 1791722719.0082326,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492
+ },
+ {
+  "time": 1791722719.1381063,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320
+ },
+ {
+  "time": 1791722725.727432,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 1706027688
+ },
+ {
+  "time": 1791722770.5512419,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 5965
+ },
+ {
+  "time": 1791722770.5619547,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4658005
+ },
+ {
+  "time": 1791722782.4706316,
+  "method": "GET",
+  "path": "/index.html",
+  "status": 200,
+  "bytes": 4401
+ },
+ {
+  "time": 1791722782.4806335,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 13188
+ },
+ {
+  "time": 1791722782.4806335,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 3498
+ },
+ {
+  "time": 1791722782.4856343,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1338
+ },
+ {
+  "time": 1791722782.4887128,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8033
+ },
+ {
+  "time": 1791722782.8737168,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 5965
+ },
+ {
+  "time": 1791722782.884778,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4658005
+ },
+ {
+  "time": 1791722795.0371888,
+  "method": "GET",
+  "path": "/index.html",
+  "status": 200,
+  "bytes": 4401
+ },
+ {
+  "time": 1791722795.0542898,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 3498
+ },
+ {
+  "time": 1791722795.0572836,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 13188
+ },
+ {
+  "time": 1791722795.0670764,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1338
+ },
+ {
+  "time": 1791722795.0731905,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8033
+ }
+]

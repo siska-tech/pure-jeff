@@ -1,0 +1,42 @@
+{
+ "schema_version": "kaze_judge.wasm_w1_preregistration.v1",
+ "created_utc": "2026-10-11T11:39:10.541124+00:00",
+ "gates": {
+  "probability_max_abs_vs_golden": 0.0001,
+  "runs_a_and_c": "completed without error/panic; rendered prompt SHA-256, input_ids, candidate order and judgment equal the official golden; probability error within the bound",
+  "rerun": "run C probabilities and last hidden state bitwise equal run A",
+  "cancel": "run B terminated after decide_started and before completion; run C then completes",
+  "browser": "page reports within the timeout (no tab/renderer crash)",
+  "native_reference_threads": 1
+ },
+ "diagnostics": [
+  "wasm vs native same-code probabilities and hidden state",
+  "hidden state vs official golden",
+  "stage timings",
+  "linear memory bytes",
+  "browser process-tree PeakWorkingSetSize / PeakPagefileUsage"
+ ],
+ "case": "candidate-request",
+ "golden_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+ "max_input_tokens": 512,
+ "cancel_forward_fraction": 0.5,
+ "heap_reserve_bytes": 805306368,
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+ },
+ "wasm": {
+  "path": "..\\..\\.venv\\wasm-target-simd128\\wasm32-unknown-unknown\\release\\kaze_judge_wasm_probe.wasm",
+  "sha256": "3fd8895bd22f6c2cfbcd2cdeec219d5e9f67b56bb837c211a9f216003a70819e",
+  "bytes": 4513858
+ },
+ "reference_sha256": "40ccbfd040d013b9fabb14e8d94196644798946f23b1fbc425ee1efba0a889f0",
+ "driver_sha256": "d019a4e93da49dd8ac76c045c845cfec89f81440ea1a4adf36364b356295cc76",
+ "web": {
+  "w1.html": "a3b68f5bb6ecd5a180c141bc1ba1f133a81d8566af321db25f0922b1253cd199",
+  "w1-worker.js": "c66253784fe84fbf4e3d9d7b9fd27f91128828fcd6c9c287fb901462882fc547"
+ },
+ "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+ "headless": true,
+ "threads": "single (no SharedArrayBuffer, not cross-origin isolated)"
+}

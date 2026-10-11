@@ -1,0 +1,465 @@
+{
+  "schema_version": "kaze_judge.p3_validation.v1",
+  "checked_on": "2026-10-10",
+  "status": "native_worker_and_kaze_nhanh_cli_verified",
+  "executable_sha256": "66aff281ba40d611758de1f9f45577465e8d0a88febfdf127743825197369bfd",
+  "adapter_executable_sha256": "d74d2d746b546b9d2ffed1e24e64e2a67a2b8dd465f5436af6531e3a5f1854aa",
+  "manifest_sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503",
+  "runtime_build_sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a",
+  "harness_sha256": "831209a5af0174c6fa33f4d1e381378690ecb718ef92a66f7dd0d3906cae01f3",
+  "runtime_cargo_lock_sha256": "1d8c90f3e86d6f4d27ddc4421f51045de643e31b6bfc5f0035ce9f7fdb978b4d",
+  "adapter_cargo_lock_sha256": "df5104e17be725f932531aa720c56cf7d4e7b55c599c91dee8de180c61aa906a",
+  "child_path": "C:\\WINDOWS\\System32",
+  "python_absent_from_child_path": true,
+  "python_uninstalled_host_test": false,
+  "cases": [
+    {
+      "case": "candidate-request",
+      "reference_sha256": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "probability_max_absolute_error": 2.384185791015625e-07,
+      "elapsed_seconds": 5.515000000130385,
+      "observation": {
+        "scores": [
+          {
+            "candidate_id": "original",
+            "option_probability": 0.928595244884491
+          },
+          {
+            "candidate_id": "alternative",
+            "option_probability": 0.07140474766492844
+          }
+        ],
+        "judgment": {
+          "kind": "selected",
+          "candidate_id": "original"
+        },
+        "temperature": 1.0845714325759162,
+        "input_tokens": 128,
+        "forwards": 1,
+        "artifacts": [
+          {
+            "component": "LICENSE",
+            "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+          },
+          {
+            "component": "NOTICE",
+            "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+          },
+          {
+            "component": "README.md",
+            "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+          },
+          {
+            "component": "chat_template.jinja",
+            "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+          },
+          {
+            "component": "config.json",
+            "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+          },
+          {
+            "component": "decision_config.json",
+            "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+          },
+          {
+            "component": "model.safetensors",
+            "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+          },
+          {
+            "component": "processor_config.json",
+            "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+          },
+          {
+            "component": "readout.safetensors",
+            "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+          },
+          {
+            "component": "tokenizer.json",
+            "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+          },
+          {
+            "component": "tokenizer_config.json",
+            "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+          },
+          {
+            "component": "bundle_manifest",
+            "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+          },
+          {
+            "component": "runtime_build",
+            "sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a"
+          },
+          {
+            "component": "prompt",
+            "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+          },
+          {
+            "component": "rendered_prompt",
+            "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+          },
+          {
+            "component": "policy",
+            "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+          }
+        ]
+      }
+    },
+    {
+      "case": "reversed",
+      "reference_sha256": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "probability_max_absolute_error": 6.332993507385254e-08,
+      "elapsed_seconds": 5.530999999959022,
+      "observation": {
+        "scores": [
+          {
+            "candidate_id": "alternative",
+            "option_probability": 0.032961178570985794
+          },
+          {
+            "candidate_id": "original",
+            "option_probability": 0.9670388102531432
+          }
+        ],
+        "judgment": {
+          "kind": "selected",
+          "candidate_id": "original"
+        },
+        "temperature": 1.0845714325759162,
+        "input_tokens": 128,
+        "forwards": 1,
+        "artifacts": [
+          {
+            "component": "LICENSE",
+            "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+          },
+          {
+            "component": "NOTICE",
+            "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+          },
+          {
+            "component": "README.md",
+            "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+          },
+          {
+            "component": "chat_template.jinja",
+            "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+          },
+          {
+            "component": "config.json",
+            "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+          },
+          {
+            "component": "decision_config.json",
+            "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+          },
+          {
+            "component": "model.safetensors",
+            "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+          },
+          {
+            "component": "processor_config.json",
+            "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+          },
+          {
+            "component": "readout.safetensors",
+            "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+          },
+          {
+            "component": "tokenizer.json",
+            "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+          },
+          {
+            "component": "tokenizer_config.json",
+            "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+          },
+          {
+            "component": "bundle_manifest",
+            "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+          },
+          {
+            "component": "runtime_build",
+            "sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a"
+          },
+          {
+            "component": "prompt",
+            "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+          },
+          {
+            "component": "rendered_prompt",
+            "sha256": "4e99980f23f4dd00a568cb65ff0aad43e0a43cf6052c210c9a00b67058cf0c34"
+          },
+          {
+            "component": "policy",
+            "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+          }
+        ]
+      }
+    },
+    {
+      "case": "asr-unicode",
+      "reference_sha256": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+      "prompt_bytes_match": true,
+      "token_ids_match": true,
+      "probability_max_absolute_error": 5.066394805908203e-06,
+      "elapsed_seconds": 6.813000000081956,
+      "observation": {
+        "scores": [
+          {
+            "candidate_id": "original",
+            "option_probability": 0.635992169380188
+          },
+          {
+            "candidate_id": "normalized",
+            "option_probability": 0.3610706627368927
+          },
+          {
+            "candidate_id": "conflicting",
+            "option_probability": 0.002937160898000002
+          }
+        ],
+        "judgment": {
+          "kind": "abstained"
+        },
+        "temperature": 1.0845714325759162,
+        "input_tokens": 206,
+        "forwards": 1,
+        "artifacts": [
+          {
+            "component": "LICENSE",
+            "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+          },
+          {
+            "component": "NOTICE",
+            "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+          },
+          {
+            "component": "README.md",
+            "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+          },
+          {
+            "component": "chat_template.jinja",
+            "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+          },
+          {
+            "component": "config.json",
+            "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+          },
+          {
+            "component": "decision_config.json",
+            "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+          },
+          {
+            "component": "model.safetensors",
+            "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+          },
+          {
+            "component": "processor_config.json",
+            "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+          },
+          {
+            "component": "readout.safetensors",
+            "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+          },
+          {
+            "component": "tokenizer.json",
+            "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+          },
+          {
+            "component": "tokenizer_config.json",
+            "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+          },
+          {
+            "component": "bundle_manifest",
+            "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+          },
+          {
+            "component": "runtime_build",
+            "sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a"
+          },
+          {
+            "component": "prompt",
+            "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+          },
+          {
+            "component": "rendered_prompt",
+            "sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+          },
+          {
+            "component": "policy",
+            "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+          }
+        ]
+      }
+    }
+  ],
+  "adapter_case": {
+    "report_sha256": "c51debad923542f8c67ac41ccb79e8a2ffe1a5743fabba0f006edd8bd5651fb0",
+    "policy_sha256": "2582d58a6b75eb94ed62d97cab8adcd686ad9222040980e84931adfd2c80315f",
+    "base_report_identical": true,
+    "input_file_unchanged": true,
+    "elapsed_seconds": 5.938000000081956,
+    "attempt": {
+      "schema_version": "kaze_judge.attempt.v1",
+      "request": {
+        "request_id": "p3-report",
+        "document_id": "synthetic-contract",
+        "segment_id": "ocr-natural-number",
+        "original_text": "料金は100円です",
+        "source": "ocr",
+        "profile_id": "synthetic.candidates.v1",
+        "domain": null,
+        "question_id": "transcription-candidate.v1",
+        "candidates": [
+          {
+            "id": "nbest_1",
+            "text": "料金は100円です"
+          },
+          {
+            "id": "nbest_2",
+            "text": "料金は700円です"
+          }
+        ],
+        "reason": "candidate_competition"
+      },
+      "provider_calls_started": 1,
+      "outcome": {
+        "status": "completed",
+        "value": {
+          "scores": [
+            {
+              "candidate_id": "nbest_1",
+              "option_probability": 0.9988898634910583
+            },
+            {
+              "candidate_id": "nbest_2",
+              "option_probability": 0.0011101897107437253
+            }
+          ],
+          "judgment": {
+            "kind": "selected",
+            "candidate_id": "nbest_1"
+          },
+          "temperature": 1.0845714325759162,
+          "input_tokens": 148,
+          "forwards": 1,
+          "artifacts": [
+            {
+              "component": "LICENSE",
+              "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+            },
+            {
+              "component": "NOTICE",
+              "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+            },
+            {
+              "component": "README.md",
+              "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+            },
+            {
+              "component": "chat_template.jinja",
+              "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+            },
+            {
+              "component": "config.json",
+              "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+            },
+            {
+              "component": "decision_config.json",
+              "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+            },
+            {
+              "component": "model.safetensors",
+              "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+            },
+            {
+              "component": "processor_config.json",
+              "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+            },
+            {
+              "component": "readout.safetensors",
+              "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+            },
+            {
+              "component": "tokenizer.json",
+              "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+            },
+            {
+              "component": "tokenizer_config.json",
+              "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+            },
+            {
+              "component": "bundle_manifest",
+              "sha256": "2c333eb62221515bc7d72336455beee2a512b142606cc75bb689fc0dce788503"
+            },
+            {
+              "component": "runtime_build",
+              "sha256": "b20772f207eb7506b173b1429dd742a1a30deed4a33a0de2d1c39c6a6d94742a"
+            },
+            {
+              "component": "prompt",
+              "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+            },
+            {
+              "component": "rendered_prompt",
+              "sha256": "6ebc835bf7a56f06f72ca7cdbf4ec37a2fa7b80ddffa7913bc4ad19631cc8a02"
+            },
+            {
+              "component": "policy",
+              "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "negative_cases": {
+    "token_budget": {
+      "outcome": {
+        "status": "failed",
+        "value": "budget_exceeded"
+      },
+      "elapsed_seconds": 2.046000000089407
+    },
+    "parent_deadline": {
+      "outcome": {
+        "status": "failed",
+        "value": "timeout"
+      },
+      "elapsed_seconds": 0.125
+    },
+    "opt_out_without_manifest": {
+      "status": "not_selected"
+    },
+    "tampered_bundle": {
+      "status": "failed",
+      "value": "unavailable"
+    },
+    "adapter_scope_skip_missing_assets": {
+      "status": "skipped",
+      "value": "unsupported_scope"
+    },
+    "adapter_timeout": {
+      "failure": "timeout",
+      "base_report_identical": true
+    },
+    "adapter_token_budget": {
+      "failure": "budget_exceeded",
+      "base_report_identical": true
+    },
+    "adapter_tampered_bundle": {
+      "failure": "unavailable",
+      "base_report_identical": true
+    },
+    "missing_rust_executable_no_fallback": {
+      "exit_nonzero": true
+    },
+    "malformed_report": {
+      "exit_nonzero": true
+    }
+  },
+  "recognition_quality_evaluated": false
+}

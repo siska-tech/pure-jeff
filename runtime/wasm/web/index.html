@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KazeJudge Wasm W0</title>
+</head>
+<body>
+<p id="status">starting</p>
+<script>
+// Runs every configured variant in its own Worker, then posts all results to the driver.
+const status = document.getElementById("status");
+async function runVariant(variant) {
+  return new Promise((resolve) => {
+    const worker = new Worker("worker.js");
+    worker.onmessage = (event) => { worker.terminate(); resolve(event.data); };
+    worker.onerror = (event) => { worker.terminate(); resolve({ variant: variant.name, error: `worker error: ${event.message}` }); };
+    worker.postMessage(variant);
+  });
+}
+(async () => {
+  const config = await (await fetch("config.json", { cache: "no-store" })).json();
+  const results = [];
+  for (const variant of config.variants) {
+    status.textContent = `running ${variant.name}`;
+    results.push(await runVariant(variant));
+  }
+  const page = { userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+                 crossOriginIsolated: self.crossOriginIsolated, deviceMemory: navigator.deviceMemory ?? null };
+  await fetch("result", { method: "POST", headers: { "content-type": "application/json" },
+                          body: JSON.stringify({ page, results }) });
+  status.textContent = "done";
+})().catch(async (error) => {
+  await fetch("result", { method: "POST", headers: { "content-type": "application/json" },
+                          body: JSON.stringify({ fatal: String(error && error.stack || error) }) });
+});
+</script>
+</body>
+</html>

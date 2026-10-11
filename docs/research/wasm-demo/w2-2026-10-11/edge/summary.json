@@ -1,0 +1,879 @@
+{
+ "schema_version": "kaze_judge.wasm_w2_summary.v1",
+ "page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
+  "hardwareConcurrency": 16,
+  "crossOriginIsolated": false,
+  "deviceMemory": 32
+ },
+ "fatal": null,
+ "cases": {
+  "candidate-request": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 5.364418029785156e-07,
+    "stages": [
+     {
+      "ms": 1.9000000953674316,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5649.400000095367,
+      "name": "forward"
+     },
+     {
+      "ms": 0.5,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 5.364418029785156e-07,
+    "stages": [
+     {
+      "ms": 0.19999980926513672,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5397.5,
+      "name": "forward"
+     },
+     {
+      "ms": 0.20000028610229492,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 2.980232238769531e-07,
+    "hidden_max_abs": 2.86102294921875e-05
+   },
+   "tokens": 128,
+   "candidates": 2
+  },
+  "reversed": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 6.332993507385254e-08,
+    "stages": [
+     {
+      "ms": 0.20000028610229492,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5675.699999809265,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 6.332993507385254e-08,
+    "stages": [
+     {
+      "ms": 0.20000028610229492,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5370.89999961853,
+      "name": "forward"
+     },
+     {
+      "ms": 0.10000038146972656,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 0.0,
+    "hidden_max_abs": 1.7642974853515625e-05
+   },
+   "tokens": 128,
+   "candidates": 2
+  },
+  "special-token-text": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 0.0,
+    "stages": [
+     {
+      "ms": 0.40000009536743164,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 7444.699999809265,
+      "name": "forward"
+     },
+     {
+      "ms": 0.3000001907348633,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 0.0,
+    "stages": [
+     {
+      "ms": 0.3000001907348633,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 7595.5,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 8.344650268554688e-07,
+    "hidden_max_abs": 2.765655517578125e-05
+   },
+   "tokens": 182,
+   "candidates": 2
+  },
+  "asr-unicode": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 2.384185791015625e-06,
+    "stages": [
+     {
+      "ms": 0.40000009536743164,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 9874.199999809265,
+      "name": "forward"
+     },
+     {
+      "ms": 0.20000028610229492,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 2.384185791015625e-06,
+    "stages": [
+     {
+      "ms": 0.2999997138977051,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 8816.700000286102,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 2.682209014892578e-06,
+    "hidden_max_abs": 2.574920654296875e-05
+   },
+   "tokens": 206,
+   "candidates": 3
+  },
+  "synthetic-asr-unicode-2-128": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.4007091522216797e-06,
+    "stages": [
+     {
+      "ms": 0.3000001907348633,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5478.299999713898,
+      "name": "forward"
+     },
+     {
+      "ms": 0.20000028610229492,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.4007091522216797e-06,
+    "stages": [
+     {
+      "ms": 0.19999980926513672,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5620.200000286102,
+      "name": "forward"
+     },
+     {
+      "ms": 0.40000009536743164,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 1.7881393432617188e-07,
+    "hidden_max_abs": 1.430511474609375e-05
+   },
+   "tokens": 128,
+   "candidates": 2
+  },
+  "synthetic-ocr-ascii-3-128": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.817941665649414e-06,
+    "stages": [
+     {
+      "ms": 0.20000028610229492,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5512.699999809265,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.817941665649414e-06,
+    "stages": [
+     {
+      "ms": 0.19999980926513672,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 5410.700000286102,
+      "name": "forward"
+     },
+     {
+      "ms": 0.09999990463256836,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 4.32133674621582e-06,
+    "hidden_max_abs": 1.5497207641601562e-05
+   },
+   "tokens": 128,
+   "candidates": 3
+  },
+  "synthetic-ocr-ja-2-256": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 2.7939677238464355e-07,
+    "stages": [
+     {
+      "ms": 0.3000001907348633,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 10439.400000095367,
+      "name": "forward"
+     },
+     {
+      "ms": 0.2999997138977051,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 2.7939677238464355e-07,
+    "stages": [
+     {
+      "ms": 0.40000009536743164,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 10212.199999809265,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 1.6763806343078613e-07,
+    "hidden_max_abs": 1.2874603271484375e-05
+   },
+   "tokens": 256,
+   "candidates": 2
+  },
+  "synthetic-ocr-ascii-8-256": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.0132789611816406e-06,
+    "stages": [
+     {
+      "ms": 0.39999961853027344,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 10554.200000286102,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.0132789611816406e-06,
+    "stages": [
+     {
+      "ms": 0.40000009536743164,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 10167.5,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 4.76837158203125e-07,
+    "hidden_max_abs": 2.288818359375e-05
+   },
+   "tokens": 256,
+   "candidates": 8
+  },
+  "synthetic-asr-unicode-2-384": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 4.76837158203125e-07,
+    "stages": [
+     {
+      "ms": 0.40000009536743164,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 15343,
+      "name": "forward"
+     },
+     {
+      "ms": 0.20000028610229492,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 4.76837158203125e-07,
+    "stages": [
+     {
+      "ms": 0.5,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 15023.5,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 1.5497207641601562e-06,
+    "hidden_max_abs": 1.621246337890625e-05
+   },
+   "tokens": 384,
+   "candidates": 2
+  },
+  "synthetic-ocr-ascii-3-511": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.0728836059570312e-06,
+    "stages": [
+     {
+      "ms": 0.5999999046325684,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 20152.599999904633,
+      "name": "forward"
+     },
+     {
+      "ms": 0.20000028610229492,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.0728836059570312e-06,
+    "stages": [
+     {
+      "ms": 0.5,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 19950.599999904633,
+      "name": "forward"
+     },
+     {
+      "ms": 0.09999990463256836,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 1.0728836059570312e-06,
+    "hidden_max_abs": 1.71661376953125e-05
+   },
+   "tokens": 511,
+   "candidates": 3
+  },
+  "synthetic-asr-mixed-2-512": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 0.0,
+    "stages": [
+     {
+      "ms": 0.5999999046325684,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 20803.599999904633,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 0.0,
+    "stages": [
+     {
+      "ms": 0.5,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 20568.5,
+      "name": "forward"
+     },
+     {
+      "ms": 0.09999990463256836,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 3.5762786865234375e-07,
+    "hidden_max_abs": 2.002716064453125e-05
+   },
+   "tokens": 512,
+   "candidates": 2
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "pass1": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.7881393432617188e-06,
+    "stages": [
+     {
+      "ms": 0.7000002861022949,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 20668.799999713898,
+      "name": "forward"
+     },
+     {
+      "ms": 0.10000038146972656,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2": {
+    "checks": {
+     "completed": true,
+     "prompt": true,
+     "input_ids": true,
+     "candidate_order": true,
+     "judgment": true,
+     "probabilities": true
+    },
+    "probability_max_abs_vs_official": 1.7881393432617188e-06,
+    "stages": [
+     {
+      "ms": 0.5999999046325684,
+      "name": "prompt_tokenize"
+     },
+     {
+      "ms": 20560.300000190735,
+      "name": "forward"
+     },
+     {
+      "ms": 0.19999980926513672,
+      "name": "readout_policy"
+     }
+    ],
+    "linear_memory_bytes": 2533752832
+   },
+   "pass2_bitwise_equal_pass1": true,
+   "vs_native_same_code": {
+    "probability_max_abs": 5.960464477539062e-07,
+    "hidden_max_abs": 1.430511474609375e-05
+   },
+   "tokens": 512,
+   "candidates": 8
+  }
+ },
+ "invalid": {
+  "invalid_json": {
+   "passed": true,
+   "message": "EOF while parsing a value at line 1 column 15",
+   "error": null,
+   "panic": null
+  },
+  "one_candidate": {
+   "passed": true,
+   "message": "invalid request: InvalidRequest",
+   "error": null,
+   "panic": null
+  },
+  "duplicate_candidate_ids": {
+   "passed": true,
+   "message": "invalid request: InvalidRequest",
+   "error": null,
+   "panic": null
+  },
+  "unsupported_question": {
+   "passed": true,
+   "message": "unsupported request",
+   "error": null,
+   "panic": null
+  },
+  "no_routing_reason": {
+   "passed": true,
+   "message": "unsupported request",
+   "error": null,
+   "panic": null
+  },
+  "token_budget_exceeded": {
+   "passed": true,
+   "message": "token budget exceeded",
+   "error": null,
+   "panic": null
+  }
+ },
+ "corrupt": [
+  {
+   "asset": "tokenizer",
+   "offset": 1000,
+   "passed": true,
+   "message": "tokenizer.json hash mismatch",
+   "ms": 344.59999990463257
+  },
+  {
+   "asset": "model",
+   "offset": 853013844,
+   "passed": true,
+   "message": "model.safetensors hash mismatch",
+   "ms": 4344.300000190735
+  }
+ ],
+ "memory": {
+  "after_open": 2533752832,
+  "pass1": [
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832
+  ],
+  "pass2": [
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832,
+   2533752832
+  ],
+  "passed": true
+ },
+ "cancel": {
+  "outcome": "terminated",
+  "decide_started": true,
+  "cancel_after_ms": 10402.199999809265,
+  "rerun_checks": {
+   "completed": true,
+   "prompt": true,
+   "input_ids": true,
+   "candidate_order": true,
+   "judgment": true,
+   "probabilities": true
+  },
+  "rerun_probability_max_abs_vs_official": 0.0,
+  "rerun_bitwise_equal_pass1": true,
+  "passed": true
+ },
+ "reload": {
+  "checks": {
+   "completed": true,
+   "prompt": true,
+   "input_ids": true,
+   "candidate_order": true,
+   "judgment": true,
+   "probabilities": true
+  },
+  "probability_max_abs_vs_official": 5.364418029785156e-07,
+  "bitwise_equal_pass1": true,
+  "passed": true
+ },
+ "native_reference_vs_official": {
+  "candidate-request": 2.384185791015625e-07,
+  "reversed": 6.332993507385254e-08,
+  "special-token-text": 8.344650268554688e-07,
+  "asr-unicode": 5.066394805908203e-06,
+  "synthetic-asr-unicode-2-128": 1.2218952178955078e-06,
+  "synthetic-ocr-ascii-3-128": 2.5033950805664062e-06,
+  "synthetic-ocr-ja-2-256": 1.1920928955078125e-07,
+  "synthetic-ocr-ascii-8-256": 1.4901161193847656e-06,
+  "synthetic-asr-unicode-2-384": 2.0265579223632812e-06,
+  "synthetic-ocr-ascii-3-511": 3.948807716369629e-07,
+  "synthetic-asr-mixed-2-512": 3.5762786865234375e-07,
+  "synthetic-ocr-ascii-8-512": 2.384185791015625e-06
+ },
+ "browser_process_peaks": {
+  "max_peak_working_set": 4674461696,
+  "max_peak_pagefile": 7370485760,
+  "processes": 10
+ },
+ "passed": true
+}

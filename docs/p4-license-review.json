@@ -1,0 +1,84 @@
+{
+  "schema_version": "kaze_judge.license_package_review.v1",
+  "checked_on": "2026-10-10",
+  "auditor_sha256": "b9b66d129c8e4eb3532183a3515823a7df848af87e8973f1c48c6c0d7d3146ef",
+  "package_index_sha256": "2bb221e19f38782494b6e8c5fe0716f834b45e04f9d86b797d56173d91ee9959",
+  "licenses_index_sha256": "17b4d5cb15c210b1ceda2e59ffd3c988ecb3cbe3c6efb16852ba6ece3196edc2",
+  "notices_sha256": "d353cc419b1062b7c971d7b3dd3e59eb359f5f4b5e116e9c803eb3f152d6bc8e",
+  "supplement_index_sha256": "bf2624f1a2328671a3b3a57206eec05ee72b958b4b7cfd6928e89f2291d42218",
+  "reference_index_sha256": "8ef33b29c61805693f964813dcb2c5ade79abba92385b14667bce0e8c23612d0",
+  "dependency_packages": 138,
+  "packages_with_license_files": 136,
+  "unresolved_license_collection_issues": [
+    {
+      "package": "kaze_judge",
+      "declared_license": null,
+      "local_license_files": 0
+    },
+    {
+      "package": "kaze_judge_jeff",
+      "declared_license": null,
+      "local_license_files": 0
+    }
+  ],
+  "supplements": [
+    {
+      "name": "pulp-wasm-simd-flag",
+      "version": "0.1.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "declared_license": "MIT",
+      "vcs_revision": "5eb07fd7b68edf0a5e19f71737d315f72a510295",
+      "package_files": {
+        "Cargo.toml": "54146b6fcfec790328d3a093fc789a209dde6ef387b711f98a5374a5436b2b9f",
+        ".cargo_vcs_info.json": "30cddf6acb10cad6c23f1ef7ac18d435c25aa2f72c114c5d974fc39c04999d1c",
+        "src/lib.rs": "3e1aa12e84d7af330853e3f10f91983da0acb0fbca79c8fa121e1700fddb57c8"
+      },
+      "files": [
+        {
+          "path": "pulp-wasm-simd-flag-0.1.1/LICENSE",
+          "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+        }
+      ],
+      "provenance": {
+        "reviewed_on": "2026-10-10",
+        "repository_license_url": "https://raw.githubusercontent.com/sarah-quinones/pulp/5eb07fd7b68edf0a5e19f71737d315f72a510295/LICENSE",
+        "package_manifest_url": "https://raw.githubusercontent.com/sarah-quinones/pulp/5eb07fd7b68edf0a5e19f71737d315f72a510295/pulp-wasm-simd-flag/Cargo.toml",
+        "local_text_source": {
+          "package": "pulp",
+          "version": "0.22.3",
+          "path": "LICENSE",
+          "vcs_revision": "5eb07fd7b68edf0a5e19f71737d315f72a510295",
+          "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+        },
+        "review": "Fixed repository root MIT text and package declaration reviewed; copied the matching local sibling crate text from the same publisher commit. This supplement does not complete distribution/legal review."
+      }
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Jeff reference implementation",
+      "revision": "3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0",
+      "declared_license": "MIT",
+      "repository": "https://github.com/firelex/jeff",
+      "source_license_url": "https://github.com/firelex/jeff/blob/3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0/LICENSE",
+      "file": "jeff-source/LICENSE",
+      "sha256": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+      "scope": "Conservative attribution for the official reference used to implement and validate the Rust port; Python source/runtime is not shipped."
+    }
+  ],
+  "all_recorded_license_files_hash_verified": true,
+  "notices_inventory_covers_audited_packages": true,
+  "checkpoint_assets_unchanged": 11,
+  "executable_unchanged": true,
+  "previous_package_index_sha256": "7bd5a5ae26ee83aa9914540c491cadb295d56f3d26c16d007a632b9a52741e4f",
+  "scope": "Conservative locked graph includes build/dev dependencies; collection and attribution inventory only.",
+  "distribution_legal_review_complete": false,
+  "release_ready": false,
+  "pending": [
+    "project_license_selection",
+    "base_model_and_third_party_distribution_review",
+    "clean_host_validation",
+    "quality_evaluation",
+    "performance_slo_acceptance"
+  ]
+}
