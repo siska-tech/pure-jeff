@@ -8,3 +8,5 @@ __pycache__/
 *.py[cod]
 /apps/web-demo/dist/
 /apps/web-demo/.wrangler/
+/runtime/tract/target/
+/runtime/bench-native/target/
