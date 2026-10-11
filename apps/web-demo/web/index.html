@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KazeJudge 候補判定デモ</title>
+<title>pure-jeff 候補判定デモ</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <h1>KazeJudge 候補判定デモ</h1>
+  <h1>pure-jeff 候補判定デモ</h1>
   <p class="lead">OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。</p>
 </header>
 
 <main>
   <section id="model" aria-labelledby="model-title">
     <h2 id="model-title">1. モデル</h2>
-    <p class="note" id="privacy">入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約<span data-total-size>1.7 GB</span>）は、ボタンを押したときだけ配信元から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。</p>
+    <p class="note" id="privacy">入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約<span data-total-size>1.7 GB</span>）は、ボタンを押したときだけ配信元（<span id="model-host">このサイト</span>）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。</p>
     <p class="status" id="model-status" role="status" aria-live="polite">確認中…</p>
     <div class="progress" id="model-progress" hidden>
       <progress id="model-bar" max="1" value="0"></progress>
@@ -72,7 +72,7 @@
       <thead><tr><th scope="col">候補ID</th><th scope="col">候補</th><th scope="col">分布</th></tr></thead>
       <tbody></tbody>
     </table>
-    <p class="note">数値は、渡した候補の中での分布です。認識が正しい確率ではありません。</p>
+    <p class="note" id="distribution-note">数値は、渡した候補の中での分布です。認識が正しい確率ではありません。</p>
     <p class="note" id="result-meta"></p>
     <div class="actions">
       <button type="button" id="save-json" class="secondary">JSONを保存</button>
@@ -86,6 +86,12 @@
 
 <footer>
   <p class="note">研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。</p>
+  <p class="note">本家Jeff・Qwenとは無関係の非公式実装です。ライセンス：
+    <a href="licenses/THIRD_PARTY_NOTICES.md">出典の一覧</a>・
+    <a href="licenses/MODEL_LICENSE.txt">モデルのLICENSE</a>・
+    <a href="licenses/MODEL_NOTICE.txt">モデルのNOTICE</a>・
+    <a href="licenses/JEFF_SOURCE_LICENSE.txt">本家JeffのLICENSE</a>・
+    <a href="licenses/THIRD_PARTY_LICENSES.txt">推論エンジンが含む依存のライセンス</a></p>
 </footer>
 <script src="app.js"></script>
 </body>

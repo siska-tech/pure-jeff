@@ -62,7 +62,7 @@ async function cachedComplete() {
 
 async function removeOldCaches() {
   for (const name of await caches.keys()) {
-    if (name.startsWith("kazejudge-model-") && name !== config.cache_name) await caches.delete(name);
+    if (name.startsWith("pure-jeff-model-") && name !== config.cache_name) await caches.delete(name);
   }
 }
 
@@ -137,6 +137,7 @@ async function deleteCache() {
   await caches.delete(config.cache_name);
   await refreshModel();
   $("model-status").textContent += "　保存データを削除しました。";
+  $("storage").textContent += "（使用量の表示は、ブラウザが見積もりを更新するまで少し遅れることがあります）";
 }
 
 function addCandidate(id = "", text = "") {
@@ -198,6 +199,7 @@ function renderResult(reply) {
   const body = $("scores").querySelector("tbody");
   body.replaceChildren();
   $("scores").hidden = outcome.status !== "completed";
+  $("distribution-note").hidden = outcome.status !== "completed";
   if (outcome.status === "completed") {
     const obs = outcome.value;
     const selected = obs.judgment.kind === "selected" ? obs.judgment.candidate_id : null;
@@ -283,6 +285,8 @@ function saveJson() {
   state.config = config;
   samples = await (await fetch("samples.json", { cache: "no-store" })).json();
   document.querySelectorAll("[data-total-size]").forEach((el) => { el.textContent = formatBytes(config.total_download_bytes); });
+  const modelOrigin = new URL(config.model_base_url || "model/", location.href);
+  if (modelOrigin.origin !== location.origin) $("model-host").textContent = modelOrigin.host;
   samples.forEach((s, i) => $("sample").add(new Option(s.label, String(i))));
   $("sample").addEventListener("change", (e) => fillSample(Number(e.target.value)));
   $("add-candidate").addEventListener("click", () => addCandidate());

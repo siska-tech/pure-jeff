@@ -4,33 +4,43 @@ import argparse
 import http.server
 import json
 from pathlib import Path
+import ssl
 import threading
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
 TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
          ".css": "text/css; charset=utf-8", ".json": "application/json", ".wasm": "application/wasm"}
-MODEL_FILES = ["decision_config.json", "tokenizer.json", "readout.safetensors", "model.safetensors"]
+MODEL_FILES = ["decision_config.json", "tokenizer.json", "readout.safetensors", "model.safetensors",
+               "LICENSE", "NOTICE"]
 
 
-def routes_for(dist, manifest):
+def routes_for(dist, manifest, role="all"):
+    """role "all": site and model/; "site": the build without model/; "model": only model/."""
     routes = {p.relative_to(dist).as_posix(): p for p in dist.rglob("*") if p.is_file()}
     checkpoint = manifest.parent / json.loads(manifest.read_text(encoding="utf-8"))["checkpoint_dir"]
     routes.setdefault("model/manifest.json", manifest)
     for name in MODEL_FILES:
         routes.setdefault(f"model/{name}", checkpoint / name)
+    if role == "site":
+        routes = {k: v for k, v in routes.items() if not k.startswith("model/")}
+    elif role == "model":
+        routes = {k: v for k, v in routes.items() if k.startswith("model/")}
     return routes
 
 
-def make_server(dist, manifest, port=0, log=None):
-    """Returns (server, request log list). Requests are appended to `log` (and the list)."""
-    routes = routes_for(dist, manifest)
+def make_server(dist, manifest, port=0, log=None, role="all", tls=None, cors_origin=None):
+    """Returns (server, request log list). Requests are appended to `log` (and the list).
+    tls=(certfile, keyfile) serves HTTPS; cors_origin adds Access-Control-Allow-Origin, as a
+    model bucket on another origin (e.g. R2 with a CORS rule) would."""
+    routes = routes_for(dist, manifest, role)
     requests = []
     lock = threading.Lock()
 
     class Handler(http.server.BaseHTTPRequestHandler):
-        def record(self, status, size):
-            entry = {"time": time.time(), "method": self.command, "path": self.path, "status": status, "bytes": size}
+        def record(self, status, size, expected=0):
+            entry = {"time": time.time(), "method": self.command, "path": self.path, "status": status, "bytes": size,
+                     "complete": status == 200 and size == expected}
             with lock:
                 requests.append(entry)
                 if log:
@@ -49,6 +59,9 @@ def make_server(dist, manifest, port=0, log=None):
             self.send_header("content-type", TYPES.get(source.suffix, "application/octet-stream"))
             self.send_header("content-length", str(size))
             self.send_header("cache-control", "no-cache")
+            if cors_origin:
+                self.send_header("access-control-allow-origin", cors_origin)
+                self.send_header("vary", "Origin")
             self.end_headers()
             sent = 0
             try:
@@ -58,7 +71,7 @@ def make_server(dist, manifest, port=0, log=None):
                         sent += len(chunk)
             except ConnectionError:
                 pass  # the page may abort a download
-            self.record(200, sent)
+            self.record(200, sent, size)
 
         def do_POST(self):
             self.send_error(405)
@@ -68,6 +81,10 @@ def make_server(dist, manifest, port=0, log=None):
             pass
 
     server = http.server.ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    if tls:
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(*tls)
+        server.socket = context.wrap_socket(server.socket, server_side=True)
     return server, requests
 
 

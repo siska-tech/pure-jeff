@@ -1,9 +1,10 @@
 // W3 end-to-end: drives the real demo UI through the Chrome DevTools Protocol.
-// Usage: node e2e_w3.mjs <browser-ws-url> <page-url> <output-dir>
+// Usage: node e2e_w3.mjs <browser-ws-url> <page-url> <output-dir> [--abort-download]
 import fs from "node:fs";
 import path from "node:path";
 
 const [browserWs, pageUrl, outDir] = process.argv.slice(2);
+const abortDownload = process.argv.includes("--abort-download");
 const downloads = path.join(outDir, "downloads");
 fs.mkdirSync(downloads, { recursive: true });
 const results = { marks: [], network: [], steps: {} };
@@ -96,6 +97,25 @@ try {
   results.steps.initial = { model: await model(), status: await text("model-status"), privacy: await text("privacy"),
     download_label: await text("download") };
   await shot("01-initial");
+  if (abortDownload) {
+    // Stop a download once the large model file is streaming; nothing partial may count as saved.
+    mark("abort:click");
+    await click("download");
+    await waitFor("document.getElementById('model-bar').value > 0.15", 600000, "download progress");
+    await click("stop-load");
+    mark("abort:stopped");
+    await waitFor("window.kazeDemo.model === 'absent'", 60000, "state after stopping");
+    const config = await js("window.kazeDemo.config");
+    results.steps.abort = {
+      status: await text("model-status"),
+      model_in_cache: await js(`caches.has(${JSON.stringify(config.cache_name)}).then(async (has) => has &&
+        !!(await (await caches.open(${JSON.stringify(config.cache_name)})).match(
+          ${JSON.stringify(config.assets.find((a) => a.path === "model.safetensors").url)})))`),
+      evaluate_disabled: await js("document.getElementById('evaluate').disabled"),
+    };
+    await shot("01b-aborted");
+    await sleep(1000);
+  }
   mark("download:click");
   await click("download");
   await waitFor("window.kazeDemo.model === 'ready-cached'", 1800000, "download");
