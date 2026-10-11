@@ -75,3 +75,6 @@ raw出力、入力順／coverage、診断版参照、全確率差・pool／cache
 Native baseline127ファイル（既知.gitignore差のみ）、隣接KazeNhanh21ファイル、旧診断／失敗証跡とfrozen assetsの不変を確認した。Pythonは開発用のみで推論実行時依存へ追加していない。ライセンス／NOTICE snapshotを引き継ぎ、配布承認とは扱わない。
 
 [事前登録・生ログ・source・検査ログ・独立validator](research/jeff-onnx-tract/native-cache-timing-gate-2026-10-11/README.md)。[生成ハーネス](../runtime/onnx/prepare_native_cache_fixed.py)、[数値検証ハーネス](../runtime/onnx/validate_native_cache_timing.py)。
+
+
+追加の[固定cache Native4／Tract4長さ別pilot](onnx-tract-cache-fixed-lengths.md)は、性能用exeの84 forward数値受入後に新規事前登録し、各backend28件gate＋3独立resident組、全14 child・206 forwardを完了した。旧gate／Native全観測ペア差≤1e-6とTract raw一致、power／resource条件を維持。各長さn=12の記述的比較で、正式SLO・API E2E・backend採用・入力hold-outは未受入。元の停止runは置換しない。

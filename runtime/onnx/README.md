@@ -379,3 +379,13 @@ Old/diagnostic/gate probabilities<=1e-6, existing ONNX/reference/pool/cache/
 resource gates unchanged; per-request diagnostic fields must be absent.
 Build/test/clippy/fmt hashes preregistered, CPU0 probe and invalid64 rejection.
 Numerical acceptance only, not latency/SLO; resident14 is not long history.
+
+`benchmark_cache_fixed_lengths.py --output experiments/runs/cache-fixed-lengths-20261011`
+requires the accepted timing-wrapper full28/resident gate, then compares the
+frozen cacheB Native4 and accepted Tract4. Gates28/backend in4 chunks each,
+three AB/BA/AB resident pairs with5 warmups+20 measured =14 children206 forwards.
+Each length n12/backend, p95=max. Native old gate and all-pair repeats<=1e-6,
+Tract raw exact, AC connected/battery saver off at child boundaries required.
+Power/system CPU snapshots only; compute affinity/thermals/background remain
+uncontrolled. Same old artificial inputs, Native effective vs Tract physical512,
+operational descriptive pilot, no API E2E/backend adoption/formal SLO/quality.
