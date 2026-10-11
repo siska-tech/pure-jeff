@@ -1,0 +1,88 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
+ "created_utc": "2026-10-11T22:34:41.264979+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "max_main_thread_gap_ms": 250,
+  "consent": "no model/ request before the download button is pressed",
+  "single_download": "each model file is fetched from the server exactly once in the whole session (cancel recovery and page reload read Cache Storage)",
+  "private_inference": "no network request from the page or its Workers while any evaluation runs, and every request goes to the demo origin",
+  "results": "sample 0/2/5 completed Attempts match the official prompt hash, candidate order, judgment and probabilities; sample 6 (874 tokens) fails budget_exceeded after one provider call; reason none is not_selected with no provider call; duplicate IDs are rejected in the UI",
+  "attempt": "schema kaze_judge.attempt.v1; artifacts include the manifest files, bundle_manifest, wasm_engine (= deployed engine hash), prompt, rendered_prompt and policy",
+  "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in kaze_judge::Attempt order",
+  "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
+  "delete": "after delete no pure-jeff-model cache remains and a reload shows the model as not downloaded"
+ },
+ "mode": "external",
+ "gates_w4": null,
+ "gates_external": {
+  "consent": "no request to the model host before the download button is pressed",
+  "abort": "after stopping a download while model.safetensors streams, it is not in Cache Storage and the UI shows the model as not downloaded with evaluation disabled; leftover partial data can be deleted from the page (delete enabled) and no cache remains afterwards",
+  "single_download": "after the second download click, model.safetensors is requested exactly once from the model host, and no model-host request follows the completed download",
+  "hosts": "every page/Worker request goes to the site origin, the model host or its download CDN (*.hf.co), over https except a local http site",
+  "deployed": "with --site-url, the deployed demo-config.json and engine.wasm equal the local build"
+ },
+ "site_url": "https://pure-jeff.siska-tech.workers.dev",
+ "model_base_url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/",
+ "origins": {
+  "site": null,
+  "model": null
+ },
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+ },
+ "dist": {
+  "build_info_sha256": "d6a9161f208f7c82671fcc93367e0ba1086808a5ff8b8dd779e20630c66229dc",
+  "build_info": {
+   "source_commit": "0ab76d2a5772eea039f9068735886699e0e7da93",
+   "source_dirty": false,
+   "copy_model": false,
+   "model_base_url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/",
+   "engine_input_sha256": "43f6fd26b16792b1dabcd1156f887bfc7c53ed3a1c5a0a2998b94f17ee609dde",
+   "engine_removed_exports": [
+    "__getrandom_v03_custom",
+    "kj_alloc",
+    "kj_decide",
+    "kj_environment",
+    "kj_free",
+    "kj_init",
+    "kj_ops",
+    "kj_output_len",
+    "kj_output_ptr",
+    "kj_session_close",
+    "kj_session_decide",
+    "kj_session_open",
+    "kj_tokenize"
+   ],
+   "files": {
+    "_headers": "b1442bf701d7137fea7a0542d54fc65a377c08a44f04ce97fded5b4be8538d3f",
+    "app.js": "cebe04a253222201286526c655dab1f80f15f3ba153ba67a10ecb75cd49ee593",
+    "bundle/manifest.json": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9",
+    "demo-config.json": "e3a7a583860e34841312912b87ccc878a11702c2a37b39ca6a28fc40a4d21a24",
+    "engine-worker.js": "b5503f4b527edd7c02e5f50d43884f58f85c7b59172f8f2bced56dea48b410e1",
+    "engine.wasm": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e",
+    "index.html": "099503f6b98e325505067a8d2abcefb2540879c843138a950606726945e0f7e5",
+    "licenses/JEFF_SOURCE_LICENSE.txt": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+    "licenses/MODEL_LICENSE.txt": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+    "licenses/MODEL_NOTICE.txt": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74",
+    "licenses/THIRD_PARTY_LICENSES.txt": "f0a745e29f475d495ec3efbf9a3a266c4bc3093571bb9ac294874d0c950f9a83",
+    "licenses/THIRD_PARTY_NOTICES.md": "b86e7fd5ca7214d5675d1b4f14cf0d53f7eaac6922420b540c309d74edbce93a",
+    "samples.json": "239bc25b95cb7022c48b3645a28bb482942541cdb60882086d8c69dbb47dca2a",
+    "style.css": "d40576c29c3b43ed1af1265042b71a47c46d1c88ce89386c4593d5eb391b834d"
+   }
+  }
+ },
+ "driver_sha256": "07a8f9fcc0788db2d91776dfb8a51040e3b7d008cdaf0be44b5880bd96c26e82",
+ "e2e_sha256": "bf8717916b011b577cee47cab6aae2afba21562fc6e1aa66bea9503403c2ae3e",
+ "samples": {
+  "OCR：2候補（128 tokens）": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "OCR：同じ2候補を逆順（128 tokens）": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "ASR：Unicode文字を含む3候補（206 tokens）": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "区切り記号に似た文字列を含む2候補（182 tokens）": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "日本語OCR：2候補（256 tokens）": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+  "OCR：8候補（512 tokens、上限ちょうど）": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3",
+  "上限を超える長文（874 tokens、予算超過の例）": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995"
+ },
+ "headless": true
+}

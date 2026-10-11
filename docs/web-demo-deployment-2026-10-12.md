@@ -32,3 +32,9 @@ Webデモを **https://pure-jeff.siska-tech.workers.dev** に公開し、公開�
 ## 証跡
 
 [research/wasm-demo/deploy-2026-10-12/](research/wasm-demo/deploy-2026-10-12)：各browserの事前登録・集計・E2Eの全記録、Chromeのスクリーンショット、配信物の`build-info.json`、不合格だったローカルrunの記録。
+
+## 再deploy（2026-10-12）
+
+最初に公開した`engine.wasm`には、依存crateのsource pathとして、build machineの利用者名を含む絶対path（`C:\Users\…\.cargo\…`）が7種類含まれていた（panic messageの位置情報）。`tools/build_wasm.py`でpathを`/pure-jeff`、`/cargo`、`/target`へ置き換えてbuildし直し、再deployした（Version `edf744d3…`）。公開中の`engine.wasm`にhost pathがないことを`tools/check_no_host_paths.py`で確認した。CIも同じ検査を行う。旧versionはCloudflareのversion履歴（非公開）に残る。
+
+同時に、中止したダウンロードの残り（小さいfile）をページから削除できるようにした。再deploy後のサイトに対してE2Eを実施し、Chrome／Edgeとも全条件に合格した。中止の直後は「途中まで取得したデータが残っています」と表示され、削除ボタンが有効になる。削除するとcacheは残らない。確率の誤差は前回と同じ（最大2.4e-6）。証跡は[research/wasm-demo/deploy-2026-10-12/redeploy/](research/wasm-demo/deploy-2026-10-12/redeploy)。

@@ -1,0 +1,190 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_summary.v1",
+ "e2e_completed": true,
+ "e2e_error": null,
+ "gates": {
+  "consent": {
+   "passed": true,
+   "model_host_requests_before_click": []
+  },
+  "single_download": {
+   "passed": true,
+   "model_requests": 2,
+   "after_second_click": 1
+  },
+  "abort": {
+   "passed": true,
+   "step": {
+    "state": "partial",
+    "delete_enabled": true,
+    "status": "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。（読み込みを中止しました）",
+    "model_in_cache": false,
+    "evaluate_disabled": true,
+    "cache_after_cleanup": false
+   }
+  },
+  "hosts": {
+   "passed": true,
+   "hosts": [
+    "huggingface.co",
+    "pure-jeff.siska-tech.workers.dev",
+    "us.aws.cdn.hf.co"
+   ]
+  },
+  "deployed": {
+   "passed": true,
+   "engine_sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+  },
+  "private_inference": {
+   "passed": true,
+   "during_evaluation": [],
+   "foreign": []
+  },
+  "results": {
+   "passed": true,
+   "rows": {
+    "eval_sample0": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 5.364418029785156e-07
+    },
+    "eval_sample2": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 2.384185791015625e-06
+    },
+    "eval_sample5": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 1.7881393432617188e-06
+    },
+    "eval_sample6_budget": {
+     "passed": true,
+     "outcome": {
+      "status": "failed",
+      "value": "budget_exceeded"
+     }
+    },
+    "no_reason": {
+     "passed": true,
+     "outcome": {
+      "status": "not_selected"
+     }
+    },
+    "ui_validation": {
+     "passed": true,
+     "message": "候補IDが重複しています。"
+    }
+   }
+  },
+  "attempt": {
+   "passed": true,
+   "components": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "bundle_manifest",
+    "chat_template.jinja",
+    "config.json",
+    "decision_config.json",
+    "model.safetensors",
+    "policy",
+    "processor_config.json",
+    "prompt",
+    "readout.safetensors",
+    "rendered_prompt",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "wasm_engine"
+   ]
+  },
+  "save": {
+   "passed": true,
+   "file": "attempt-demo-1791757994011.json",
+   "fields": [
+    "schema_version",
+    "request",
+    "provider_calls_started",
+    "outcome"
+   ]
+  },
+  "repeat": {
+   "passed": true
+  },
+  "main_thread": {
+   "passed": true,
+   "max_gap_ms": {
+    "eval_sample0": 65.2999997138977,
+    "eval_sample2": 64,
+    "eval_sample5": 64.09999990463257,
+    "eval_sample6": 62.19999980926514,
+    "eval_after_cancel": 62.89999961853027,
+    "eval_after_reload": 65.30000019073486
+   }
+  },
+  "delete": {
+   "passed": true,
+   "usage_before": 1726551808,
+   "usage_after": 1726551808
+  }
+ },
+ "timings": {
+  "download_and_open": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 134131.09999990463,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 1.5,
+    "hashed_at_open": [],
+    "tokenizer_ms": 545.8000001907349
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "load_from_cache": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 6782.800000190735,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 0.5999999046325684,
+    "hashed_at_open": [],
+    "tokenizer_ms": 731
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "evaluations_ms": {
+   "eval_sample0": 6306,
+   "eval_sample2": 10906.299999713898,
+   "eval_sample5": 28124,
+   "eval_sample6": 0.9000000953674316,
+   "eval_no_reason": 0,
+   "eval_after_cancel": 10887.400000095367,
+   "eval_after_reload": 6522
+  }
+ },
+ "passed": true
+}

@@ -21,7 +21,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 公式Jeffとの1 threadの比較（[結果](docs/benchmark-results-2026-10-11.md)）：
 
 - 1要求ごとに起動する場合、Nativeは公式Jeffの1.65〜2.78倍速く、メモリは半分以下。
-- モデルを常駐させると、公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断する。Nativeの改善案は[計画](docs/native-fp32-retention-plan.md)にある。
+- モデルを常駐させると、公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断する。Nativeのforwardは行列積が約半分、DeltaNetの逐次更新が約4分の1を占める（[内訳](docs/native-forward-profile-2026-10-12.md)、[改善計画](docs/native-fp32-retention-plan.md)）。
 
 ## 必要なもの
 
@@ -56,7 +56,7 @@ cargo test --locked --manifest-path apps/web-demo/engine/Cargo.toml
 python -m unittest discover -s runtime -p "test_*.py"
 ```
 
-CI（`.github/workflows/ci.yml`）は、これらに加えてclippy・fmt、Native release build、Wasm build、ライセンス監査を行う。モデルを使う照合は、ダウンロード量が大きいためCIに含めない。clone・build・モデル取得・goldenの照合を一度に行うには`bash tools/clean_check.sh <repository> <workdir>`を使う（[記録](docs/clean-environment-check.md)）。
+CI（`.github/workflows/ci.yml`、WindowsとLinux）は、これらに加えてclippy・fmt、Native release build、Wasm build（host pathを含まないことも検査）、ライセンス監査を行う。モデルの配信元（Hugging Face）は週1回、`model-availability.yml`で照合する。モデルを使う照合は、ダウンロード量が大きいためCIに含めない。clone・build・モデル取得・goldenの照合を一度に行うには`bash tools/clean_check.sh <repository> <workdir>`を使う（[記録](docs/clean-environment-check.md)）。
 
 ## 構成
 

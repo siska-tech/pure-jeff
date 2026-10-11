@@ -1,0 +1,1193 @@
+{
+ "marks": [
+  {
+   "name": "abort:click",
+   "time": 1791758083.676
+  },
+  {
+   "name": "abort:stopped",
+   "time": 1791758107.197
+  },
+  {
+   "name": "download:click",
+   "time": 1791758108.819
+  },
+  {
+   "name": "download:ready",
+   "time": 1791758241.578
+  },
+  {
+   "name": "eval0:start",
+   "time": 1791758242.024
+  },
+  {
+   "name": "eval0:end",
+   "time": 1791758247.529
+  },
+  {
+   "name": "save:click",
+   "time": 1791758247.663
+  },
+  {
+   "name": "eval2:start",
+   "time": 1791758247.938
+  },
+  {
+   "name": "eval2:end",
+   "time": 1791758256.124
+  },
+  {
+   "name": "eval5:start",
+   "time": 1791758256.136
+  },
+  {
+   "name": "eval5:end",
+   "time": 1791758276.099
+  },
+  {
+   "name": "eval6:start",
+   "time": 1791758276.113
+  },
+  {
+   "name": "eval6:end",
+   "time": 1791758276.378
+  },
+  {
+   "name": "eval-no-reason:start",
+   "time": 1791758276.497
+  },
+  {
+   "name": "eval-no-reason:end",
+   "time": 1791758276.498
+  },
+  {
+   "name": "invalid:start",
+   "time": 1791758276.5
+  },
+  {
+   "name": "invalid:end",
+   "time": 1791758277.01
+  },
+  {
+   "name": "cancel:start",
+   "time": 1791758277.015
+  },
+  {
+   "name": "cancel:clicked",
+   "time": 1791758280.028
+  },
+  {
+   "name": "cancel:reloaded",
+   "time": 1791758286.335
+  },
+  {
+   "name": "eval-after-cancel:start",
+   "time": 1791758286.337
+  },
+  {
+   "name": "eval-after-cancel:end",
+   "time": 1791758291.864
+  },
+  {
+   "name": "page-reload",
+   "time": 1791758291.869
+  },
+  {
+   "name": "load-cached:click",
+   "time": 1791758292.71
+  },
+  {
+   "name": "load-cached:ready",
+   "time": 1791758298.51
+  },
+  {
+   "name": "eval-after-reload:start",
+   "time": 1791758298.514
+  },
+  {
+   "name": "eval-after-reload:end",
+   "time": 1791758304.052
+  }
+ ],
+ "network": [
+  {
+   "time": 1791758082.047,
+   "url": "https://pure-jeff.siska-tech.workers.dev/index.html",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.233,
+   "url": "https://pure-jeff.siska-tech.workers.dev/",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.284,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.284,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.326,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.376,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.678,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.706,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.957,
+   "url": "https://pure-jeff.siska-tech.workers.dev/bundle/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758083.982,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758084.226,
+   "url": "https://huggingface.co/api/resolve-cache/models/jeff-legacy/Jeff-Qwen3.5-0.8B/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json?%2Fjeff-legacy%2FJeff-Qwen3.5-0.8B%2Fresolve%2F51552f39a943d62e8387c4ea5e17026a1408729f%2Fdecision_config.json=&etag=%22ad311f43b0cca5d8e4a0104532f226c6e0a64047%22",
+   "method": "GET"
+  },
+  {
+   "time": 1791758084.246,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758084.42,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/a534f7c9d12bb01a2bc21781b55369e077043baed4c8f646fdeff5ff02dfd4d6?response-content-type=application%2Fjson%3B+charset%3Dutf-8&X-Xet-Cas-Uid=public&xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27tokenizer.json%3B+filename%3D%22tokenizer.json%22%3B&user_id=public&Expires=1791761685&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxL2E1MzRmN2M5ZDEyYmIwMWEyYmMyMTc4MWI1NTM2OWUwNzcwNDNiYWVkNGM4ZjY0NmZkZWZmNWZmMDJkZmQ0ZDZcXD9yZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZqc29uJTNCK2NoYXJzZXQlM0R1dGYtOCZYLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3Rva2VuaXplci5qc29uJTNCK2ZpbGVuYW1lJTNEJTIydG9rZW5pemVyLmpzb24lMjIlM0ImdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc2MTY4NX19fV19&Signature=MEUCIDXY4MB7tGFxpze4zbjBOgXvkS6E72fXriBsq7w1xeAUAiEA7FOwDNbiblAAnsn8MFd-PxhyCTLIZCplaQ81cjjGdT8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758087.133,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791758087.307,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/478f3c72ade20a0a231fd3e2cd8a5b048a25a0aab02c4204ec39024e85555b62?X-Xet-Cas-Uid=public&xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27readout.safetensors%3B+filename%3D%22readout.safetensors%22%3B&user_id=public&Expires=1791761688&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzQ3OGYzYzcyYWRlMjBhMGEyMzFmZDNlMmNkOGE1YjA0OGEyNWEwYWFiMDJjNDIwNGVjMzkwMjRlODU1NTViNjJcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3JlYWRvdXQuc2FmZXRlbnNvcnMlM0IrZmlsZW5hbWUlM0QlMjJyZWFkb3V0LnNhZmV0ZW5zb3JzJTIyJTNCJnVzZXJfaWQ9cHVibGljIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTE3NjE2ODh9fX1dfQ__&Signature=MEUCIQC-BE-au97I9FTdE0QnDncHKcfuVTUFXRpARI7O3UNM6QIgD%7EB9WOIFAprrukDHnZ%7Ew2qmYumxCcJ6oxQzUF3T%7EFnc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758087.98,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791758088.155,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/992ead0ebb3fbd05ba74bf43f3910cb1b6a770777bc7cb101a382861b8a23221?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&user_id=public&xip=-_kd0wZV3P0&Expires=1791761689&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzk5MmVhZDBlYmIzZmJkMDViYTc0YmY0M2YzOTEwY2IxYjZhNzcwNzc3YmM3Y2IxMDFhMzgyODYxYjhhMjMyMjFcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWwuc2FmZXRlbnNvcnMlM0IrZmlsZW5hbWUlM0QlMjJtb2RlbC5zYWZldGVuc29ycyUyMiUzQiZ1c2VyX2lkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc2MTY4OX19fV19&Signature=MEUCIQDem5eLfDM5YwPwo0%7ES6PpkrtZOVPbFnSn-kkBLJ-E5TwIgY2vjn2SwdBgdPk7T%7Ef4gDn3J2Hevu9I05wcD7gJQbZM_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758108.822,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758108.849,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791758109.008,
+   "url": "https://pure-jeff.siska-tech.workers.dev/bundle/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758109.031,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758109.21,
+   "url": "https://huggingface.co/api/resolve-cache/models/jeff-legacy/Jeff-Qwen3.5-0.8B/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json?%2Fjeff-legacy%2FJeff-Qwen3.5-0.8B%2Fresolve%2F51552f39a943d62e8387c4ea5e17026a1408729f%2Fdecision_config.json=&etag=%22ad311f43b0cca5d8e4a0104532f226c6e0a64047%22",
+   "method": "GET"
+  },
+  {
+   "time": 1791758109.227,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758109.407,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/a534f7c9d12bb01a2bc21781b55369e077043baed4c8f646fdeff5ff02dfd4d6?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27tokenizer.json%3B+filename%3D%22tokenizer.json%22%3B&response-content-type=application%2Fjson%3B+charset%3Dutf-8&user_id=public&xip=-_kd0wZV3P0&X-Xet-Cas-Uid=public&Expires=1791761710&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxL2E1MzRmN2M5ZDEyYmIwMWEyYmMyMTc4MWI1NTM2OWUwNzcwNDNiYWVkNGM4ZjY0NmZkZWZmNWZmMDJkZmQ0ZDZcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dG9rZW5pemVyLmpzb24lM0IrZmlsZW5hbWUlM0QlMjJ0b2tlbml6ZXIuanNvbiUyMiUzQiZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZqc29uJTNCK2NoYXJzZXQlM0R1dGYtOCZ1c2VyX2lkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc2MTcxMH19fV19&Signature=MEUCIEEPkYgd9gWVxFIFz8CArkUvM7RtaNT2GQBswMfvMvvYAiEA0QxKIETONIV3JWCmVvyQ7CPiD2nrL7BSrtLmZekldSc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758111.524,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791758111.698,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/478f3c72ade20a0a231fd3e2cd8a5b048a25a0aab02c4204ec39024e85555b62?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27readout.safetensors%3B+filename%3D%22readout.safetensors%22%3B&user_id=public&xip=-_kd0wZV3P0&X-Xet-Cas-Uid=public&Expires=1791761712&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzQ3OGYzYzcyYWRlMjBhMGEyMzFmZDNlMmNkOGE1YjA0OGEyNWEwYWFiMDJjNDIwNGVjMzkwMjRlODU1NTViNjJcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3cmVhZG91dC5zYWZldGVuc29ycyUzQitmaWxlbmFtZSUzRCUyMnJlYWRvdXQuc2FmZXRlbnNvcnMlMjIlM0ImdXNlcl9pZD1wdWJsaWMmeGlwPS1fa2Qwd1pWM1AwJlgtWGV0LUNhcy1VaWQ9cHVibGljIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTE3NjE3MTJ9fX1dfQ__&Signature=MEUCIBVoZcKBT-e9ufr%7EeVg%7Ev5FMW4SCoZT6rK2a9LXXOkFcAiEA6Zczz2aEqVRFzMORaVST-YIjZPMxtQhS86hSWIrU2F4_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758112.401,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791758112.578,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/992ead0ebb3fbd05ba74bf43f3910cb1b6a770777bc7cb101a382861b8a23221?X-Xet-Cas-Uid=public&user_id=public&xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1791761713&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzk5MmVhZDBlYmIzZmJkMDViYTc0YmY0M2YzOTEwY2IxYjZhNzcwNzc3YmM3Y2IxMDFhMzgyODYxYjhhMjMyMjFcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc2MTcxM319fV19&Signature=MEUCIQCAG39o%7EVOP8K8DDr9L3DV6vFCOuDkCqlFb1hiXT7oZjwIgXii1mYr7c3UhL%7EtT6x0vRx5TC6a-7XAmZcpGGZfYFSc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791758280.03,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758280.086,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791758291.881,
+   "url": "https://pure-jeff.siska-tech.workers.dev/",
+   "method": "GET"
+  },
+  {
+   "time": 1791758291.923,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791758291.924,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758291.938,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758291.954,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758292.711,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758292.734,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791758304.335,
+   "url": "https://pure-jeff.siska-tech.workers.dev/",
+   "method": "GET"
+  },
+  {
+   "time": 1791758304.377,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791758304.377,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791758304.396,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791758304.413,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  }
+ ],
+ "steps": {
+  "initial": {
+   "model": "absent",
+   "status": "モデルはまだ取得していません。",
+   "privacy": "入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（huggingface.co）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。",
+   "download_label": "モデルを取得して読み込む（約1.73 GB）"
+  },
+  "abort": {
+   "state": "partial",
+   "delete_enabled": true,
+   "status": "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。（読み込みを中止しました）",
+   "model_in_cache": false,
+   "evaluate_disabled": true,
+   "cache_after_cleanup": false
+  },
+  "download": {
+   "status": "読み込み済み（このブラウザに保存済み）",
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 131999.10000038147,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 0.5,
+     "hashed_at_open": [],
+     "tokenizer_ms": 509.40000009536743
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   },
+   "storage": "このサイトの保存領域：1.73 GB 使用 / 上限の目安 12.46 GB"
+  },
+  "eval_sample0": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758242025",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5297.099999904633,
+   "stages": [
+    {
+     "ms": 0.5,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5294.699999809265,
+     "name": "forward"
+    },
+    {
+     "ms": 0.40000009536743164,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 63.69999980926514,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "save": {
+   "file": "attempt-demo-1791758242025.json",
+   "content": "{\n  \"schema_version\": \"kaze_judge.attempt.v1\",\n  \"request\": {\n    \"request_id\": \"demo-1791758242025\",\n    \"document_id\": \"demo-document\",\n    \"segment_id\": \"segment-1\",\n    \"original_text\": \"節約する\",\n    \"source\": \"ocr\",\n    \"profile_id\": \"ja.ocr.demo\",\n    \"domain\": null,\n    \"question_id\": \"transcription-candidate.v1\",\n    \"candidates\": [\n      {\n        \"id\": \"original\",\n        \"text\": \"節約する\"\n      },\n      {\n        \"id\": \"alternative\",\n        \"text\": \"節税する\"\n      }\n    ],\n    \"reason\": \"candidate_competition\"\n  },\n  \"provider_calls_started\": 1,\n  \"outcome\": {\n    \"status\": \"completed\",\n    \"value\": {\n      \"scores\": [\n        {\n          \"candidate_id\": \"original\",\n          \"option_probability\": 0.9285955429077148\n        },\n        {\n          \"candidate_id\": \"alternative\",\n          \"option_probability\": 0.07140449434518814\n        }\n      ],\n      \"judgment\": {\n        \"kind\": \"selected\",\n        \"candidate_id\": \"original\"\n      },\n      \"temperature\": 1.0845714325759162,\n      \"input_tokens\": 128,\n      \"forwards\": 1,\n      \"artifacts\": [\n        {\n          \"component\": \"LICENSE\",\n          \"sha256\": \"c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c\"\n        },\n        {\n          \"component\": \"NOTICE\",\n          \"sha256\": \"bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74\"\n        },\n        {\n          \"component\": \"README.md\",\n          \"sha256\": \"1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa\"\n        },\n        {\n          \"component\": \"chat_template.jinja\",\n          \"sha256\": \"273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80\"\n        },\n        {\n          \"component\": \"config.json\",\n          \"sha256\": \"e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25\"\n        },\n        {\n          \"component\": \"decision_config.json\",\n          \"sha256\": \"4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03\"\n        },\n        {\n          \"component\": \"model.safetensors\",\n          \"sha256\": \"080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f\"\n        },\n        {\n          \"component\": \"processor_config.json\",\n          \"sha256\": \"abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f\"\n        },\n        {\n          \"component\": \"readout.safetensors\",\n          \"sha256\": \"86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9\"\n        },\n        {\n          \"component\": \"tokenizer.json\",\n          \"sha256\": \"6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706\"\n        },\n        {\n          \"component\": \"tokenizer_config.json\",\n          \"sha256\": \"5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f\"\n        },\n        {\n          \"component\": \"bundle_manifest\",\n          \"sha256\": \"11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9\"\n        },\n        {\n          \"component\": \"wasm_engine\",\n          \"sha256\": \"ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e\"\n        },\n        {\n          \"component\": \"prompt\",\n          \"sha256\": \"d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c\"\n        },\n        {\n          \"component\": \"rendered_prompt\",\n          \"sha256\": \"60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a\"\n        },\n        {\n          \"component\": \"policy\",\n          \"sha256\": \"887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8\"\n        }\n      ]\n    }\n  }\n}\n"
+  },
+  "eval_sample2": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758247939",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "明日１０時にCaféで会いましょう。\n予算は１００円です。",
+     "source": "asr",
+     "profile_id": "ja.asr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "明日１０時にCaféで会いましょう。\n予算は１００円です。"
+      },
+      {
+       "id": "normalized",
+       "text": "明日10時にCaféで会いましょう。\n予算は100円です。"
+      },
+      {
+       "id": "conflicting",
+       "text": "明日7時にCaféで会いましょう。\n予算は700円です。"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.6359894871711731
+       },
+       {
+        "candidate_id": "normalized",
+        "option_probability": 0.3610733151435852
+       },
+       {
+        "candidate_id": "conflicting",
+        "option_probability": 0.0029371571727097034
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 206,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 8005.400000095367,
+   "stages": [
+    {
+     "ms": 0.7999997138977051,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 8004.300000190735,
+     "name": "forward"
+    },
+    {
+     "ms": 0.19999980926513672,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 62.90000009536743,
+   "gap_samples": 163,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample5": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758256137",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "cat a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "a",
+       "text": "a"
+      },
+      {
+       "id": "b",
+       "text": "b"
+      },
+      {
+       "id": "c",
+       "text": "c"
+      },
+      {
+       "id": "d",
+       "text": "d"
+      },
+      {
+       "id": "e",
+       "text": "e"
+      },
+      {
+       "id": "f",
+       "text": "f"
+      },
+      {
+       "id": "g",
+       "text": "g"
+      },
+      {
+       "id": "h",
+       "text": "h"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "a",
+        "option_probability": 0.5633876919746399
+       },
+       {
+        "candidate_id": "b",
+        "option_probability": 0.08941920846700668
+       },
+       {
+        "candidate_id": "c",
+        "option_probability": 0.06949273496866226
+       },
+       {
+        "candidate_id": "d",
+        "option_probability": 0.05251272767782211
+       },
+       {
+        "candidate_id": "e",
+        "option_probability": 0.07833318412303925
+       },
+       {
+        "candidate_id": "f",
+        "option_probability": 0.06976419687271118
+       },
+       {
+        "candidate_id": "g",
+        "option_probability": 0.026990355923771858
+       },
+       {
+        "candidate_id": "h",
+        "option_probability": 0.050099968910217285
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 512,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 19843.5,
+   "stages": [
+    {
+     "ms": 1.5999999046325684,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 19841.599999904633,
+     "name": "forward"
+    },
+    {
+     "ms": 0.20000028610229492,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 65,
+   "gap_samples": 399,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample6": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758276114",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n"
+      },
+      {
+       "id": "alternative",
+       "text": "資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "failed",
+     "value": "budget_exceeded"
+    }
+   },
+   "elapsed_ms": 1.3999996185302734,
+   "stages": [],
+   "max_main_thread_gap_ms": 62.90000009536743,
+   "gap_samples": 5,
+   "judgment_text": "失敗：予算超過：入力が長すぎます（最大512 tokens）",
+   "run_status": "完了しました。"
+  },
+  "eval_no_reason": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758276497",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": null
+    },
+    "provider_calls_started": 0,
+    "outcome": {
+     "status": "not_selected"
+    }
+   },
+   "elapsed_ms": 0,
+   "stages": [],
+   "max_main_thread_gap_ms": null,
+   "gap_samples": 0,
+   "judgment_text": "評価しませんでした（評価する理由が「なし」）",
+   "run_status": "完了しました。"
+  },
+  "ui_validation": {
+   "run_status": "候補IDが重複しています。",
+   "running": false
+  },
+  "cancel": {
+   "run_status": "取消しました。保存済みモデルを読み込み直しました。"
+  },
+  "eval_after_cancel": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758286337",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5393.300000190735,
+   "stages": [
+    {
+     "ms": 0.5,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5392.5,
+     "name": "forward"
+    },
+    {
+     "ms": 0.3000001907348633,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64.19999980926514,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "after_reload": {
+   "status": "このブラウザに保存済みです。読み込むと使えます（通信は発生しません）。"
+  },
+  "load_cached": {
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 5114.200000286102,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 0.5,
+     "hashed_at_open": [],
+     "tokenizer_ms": 491.69999980926514
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   }
+  },
+  "eval_after_reload": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791758298515",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "11f874d7400abc481bd80b145e5d1151971a291427eab4b186dea1e9734775b9"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "ed6641dfc6f942ceb6d79df03c7cae0914140b98f5bf3d0ea45f982bce819a6e"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5479.900000095367,
+   "stages": [
+    {
+     "ms": 1.0999999046325684,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5476.400000095367,
+     "name": "forward"
+    },
+    {
+     "ms": 0.5,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 63.40000009536743,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "delete": {
+   "status": "読み込み済み（保存データはありません）　保存データを削除しました。",
+   "cache_names": [],
+   "usage_before": 1726551808,
+   "usage_after": 1726551808
+  },
+  "after_delete_reload": {
+   "status": "モデルはまだ取得していません。"
+  }
+ },
+ "completed": true
+}

@@ -68,3 +68,11 @@ KazeJudge時代の名称は、証跡に結び付いたfile（W0／W1のprobe画�
 ## 公開（2026-10-12）
 
 利用者の決定（Apache-2.0、`siska-tech/pure-jeff`での公開、`pure-jeff.siska-tech.workers.dev`へのdeploy、旧名称の変更）に基づき、ライセンスを付け、旧名称を改め、Webデモを公開した（[公開の記録](web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する構成にしたため、R2などの有料設定は使っていない。`kaze_judge`のcrate名とschema名は、KazeJudgeと共有する契約・wire formatとして残している。
+
+## 公開後の対応（2026-10-12）
+
+- 利用者名を含むローカルpathがあった証跡script（`export_all.sh`）を、履歴全体で`${KAZEJUDGE}`に置き換え、force pushした（[commit対応表](commit-map.md)）。公開した`engine.wasm`に残っていたhost pathも除いて再deployした。
+- KazeJudgeの7 commitのmessageからtrailerを除いた（切り出し元は`885e7ff`）。
+- CIにLinux jobを加えた。actionsはNode 24版にした。Hugging Faceの固定revisionを週1回照合するworkflowを加えた。
+- 中止したダウンロードの残りをページから削除できるようにした。
+- Native forwardの内訳を測り、改善計画の優先順位を見直した。
