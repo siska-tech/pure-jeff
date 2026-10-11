@@ -110,3 +110,8 @@ jigor exporterの固定source、Apache-2.0本文、出典とNOTICE確認結果�
 初回exportはcp932でTorchの進捗記号を出力できず停止し、UTF-8へ修正して新規出力先で成功した。実行時のwrapper版とhashも証跡に保存している。現在のwrapperにはgolden hashと4件gateの追加検査があり、保存した実行版とはhashが異なる。
 
 既存CIは不変。追加CIは小型graph用の独立workflowを作成したが、GitHub上では未実行。実モデルTractの標準最適化・公開API統合、性能SLO、実認識品質、clean host配布受入は未完了である。
+
+
+## 単体デモを優先する方針（2026-10-11）
+
+[単体デモリリース計画](standalone-demo-release-plan.md)を次の主計画とする。既存Native経路で単体の対話式コンソール／CLIとportable配布を完成させ、最終デモのE2E計測・clean host確認を行う。Tract追加比較と実N-bestによる品質評価は独立した後続作業とし、過去の証跡・数値基準は維持する。これは計画変更であり、デモの実装完了や公開を意味しない。
