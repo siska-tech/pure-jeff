@@ -6,7 +6,7 @@
 
 | 項目 | 状態 |
 | --- | --- |
-| Rustのbuild・試験 | 4 crateとも単独でbuild・試験に合格（`13a35d0`時点）。Cargo依存はcrates.ioとCandleのgit revisionのみ |
+| Rustのbuild・試験 | 4 crateとも単独でbuild・試験に合格（`23eed84`時点）。Cargo依存はcrates.ioとCandleのgit revisionのみ |
 | KazeJudgeへの依存 | 公式JeffのPython環境（`../KazeJudge/vendor/jeff/.venv`）を借用している。ほかに、Webデモの表示名とcache名、W0／W1の画面title、`runtime/package_rust_runtime.py`の文言に「KazeJudge」が残る |
 | モデルの入手 | `models/`はgit管理外。checkpointは公開repo `jeff-legacy/Jeff-Qwen3.5-0.8B`（旧`mstrasser/…`）の固定revision `51552f39…`から取得でき、gateなし、Apache-2.0。`main`は`d86f657`へ進んでいる |
 | ライセンス | 本家Jeffのコード：MIT（Mathias Strasser、Denis Yarats）。重み：Apache-2.0とNOTICE（Qwen3.5-0.8Bの派生）。base model Qwen3.5-0.8B：Apache-2.0。**pure-jeff自身のライセンスは未定。** 重みのREADMEは、学習データに条件の異なるdataset（CC BY-SAを含む）を混ぜたと記載している |

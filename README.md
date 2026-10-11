@@ -77,7 +77,7 @@ crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判
 ## 出典
 
 - 本家Jeff（MIT）、Jeffの重み（Apache-2.0）、Qwen3.5-0.8B（Apache-2.0）、依存crate：[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
-- 切り出し元：KazeJudge commit `43f315b`。複製したファイルとhashは[PROVENANCE.json](PROVENANCE.json)
+- 切り出し元：KazeJudge commit `885e7ff`。複製したファイルとhashは[PROVENANCE.json](PROVENANCE.json)
 
 ## ライセンス
 

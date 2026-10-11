@@ -25,7 +25,7 @@ Native（`runtime/rust`）は、`model.safetensors`をmmapし、forwardのたび
 | 全473 → text用320 tensorのみ保持 | 9.21 → 8.93秒（記述的） | 3.82 → 3.54秒 | 5.19 → 4.59 GB |
 | FP32 text320で1／2／4／8 threads | 9.10／7.12／6.74／7.16秒 | — | — |
 
-出典：KazeJudge commit `43f315b`の`docs/onnx-tract-native-retained.md`、`docs/onnx-tract-native-text.md`、`docs/onnx-tract-native-threads.md`。
+出典：KazeJudge commit `885e7ff`の`docs/onnx-tract-native-retained.md`、`docs/onnx-tract-native-text.md`、`docs/onnx-tract-native-threads.md`。
 
 ## 評価
 

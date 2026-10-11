@@ -15,7 +15,7 @@
 
 ## KazeJudgeから引き継いだ記録
 
-本文は当時のまま変更していない。文中の`architecture.md`、`kaze-nhanh-integration.md`、`onnx-tract-*.md`などへのリンクは、KazeJudgeにだけある文書を指す（KazeJudge commit `43f315b`で参照できる）。
+本文は当時のまま変更していない。文中の`architecture.md`、`kaze-nhanh-integration.md`、`onnx-tract-*.md`などへのリンクは、KazeJudgeにだけある文書を指す（KazeJudge commit `885e7ff`で参照できる）。
 
 | 文書 | 内容 |
 | --- | --- |

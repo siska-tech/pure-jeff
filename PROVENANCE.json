@@ -1,7 +1,7 @@
 {
  "schema_version": "pure_jeff.provenance.v1",
  "source_repository": "KazeJudge (local)",
- "source_commit": "43f315b33fcc401c4a677901bb92384d5f263820",
+ "source_commit": "885e7ff6c6b05481430a22abaf483ffaef23dfcc",
  "method": "git archive of selected paths; history not carried over",
  "removed_after_export": [
   "tests/fixtures/kaze-nhanh/ (KazeNhanh adapter fixtures)",
@@ -330,10 +330,6 @@
   {
    "path": "docs/research/wasm-demo/w2-2026-10-11/edge/summary.json",
    "sha256": "8d24bde0ad6e01eb2570908dfadee921221e2aded2e7f3e626fb2d73fa305c87"
-  },
-  {
-   "path": "docs/research/wasm-demo/w2-2026-10-11/official-references/export_all.sh",
-   "sha256": "71a3da6b0984121169b00a0e99ff55567e771c398236c1e8ce959e34c3a76149"
   },
   {
    "path": "docs/research/wasm-demo/w2-2026-10-11/official-references/requests/synthetic-asr-mixed-2-512.json",
@@ -912,5 +908,13 @@
  "replaced_in_pure_jeff": [
   ".gitignore",
   "README.md"
+ ],
+ "source_commit_note": "KazeJudge 43f315b before its 2026-10-12 message-only rewrite (same tree)",
+ "anonymized_in_pure_jeff": [
+  {
+   "path": "docs/research/wasm-demo/w2-2026-10-11/official-references/export_all.sh",
+   "sha256": "a5cc40ee7460405e7bf93d022fd9ced74d887c361f70f74680f10bca6cf0d1e2",
+   "change": "a local absolute path containing the user name replaced by ${KAZEJUDGE}"
+  }
  ]
 }

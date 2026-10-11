@@ -4,7 +4,7 @@ Webデモを **https://pure-jeff.siska-tech.workers.dev** に公開し、公開�
 
 ## 構成
 
-- Cloudflare Workersの静的assets（Worker名`pure-jeff`、server codeなし）。配信物はcommit `893a474`の内容からbuildした（`build-info.json`の`source_dirty`はfalse）。
+- Cloudflare Workersの静的assets（Worker名`pure-jeff`、server codeなし）。配信物はcommit `a112b04`の内容からbuildした（`build-info.json`の`source_dirty`はfalse）。
 - モデルは、ブラウザがHugging Faceの固定revision（`jeff-legacy/Jeff-Qwen3.5-0.8B` `51552f39…`）から直接取得する。pure-jeffは重みを再配布しない。bundle manifestだけをサイトの`bundle/manifest.json`に置く。
 - `_headers`で`nosniff`、`no-referrer`と、自サイト・`huggingface.co`・`*.hf.co`だけを許可するCSPを適用した（応答headerで確認）。
 - 構成の理由と料金は[W4 hosting](w4-hosting.md)にある。
@@ -26,8 +26,8 @@ Webデモを **https://pure-jeff.siska-tech.workers.dev** に公開し、公開�
 
 ## 途中の失敗
 
-- **ローカルでのHugging Face取得のrun**（`failed-local-hf/`）：判定が1件不合格になった。Hugging Faceはresolve URLを`/api/resolve-cache/…`へredirectする。判断中の通信がないことを確かめる判定が、このredirectを「想定外の通信先」と数えた。判定の規則（許可するURLのprefix）がhost単位の判定と食い違っていたためで、判断中の通信は0件だった。規則をhost単位に揃え（`893a474`）、記録は不合格のまま残した。
-- **公開サイトへの最初のrun**：browser側の手順はすべて完了したが、最後にdriverが公開物を取得する確認で、CloudflareがPythonの既定User-Agentを403で拒否した。User-Agentを付けるよう直し（`e26eb00`）、両browserで新しく実行し直した。
+- **ローカルでのHugging Face取得のrun**（`failed-local-hf/`）：判定が1件不合格になった。Hugging Faceはresolve URLを`/api/resolve-cache/…`へredirectする。判断中の通信がないことを確かめる判定が、このredirectを「想定外の通信先」と数えた。判定の規則（許可するURLのprefix）がhost単位の判定と食い違っていたためで、判断中の通信は0件だった。規則をhost単位に揃え（`a112b04`）、記録は不合格のまま残した。
+- **公開サイトへの最初のrun**：browser側の手順はすべて完了したが、最後にdriverが公開物を取得する確認で、CloudflareがPythonの既定User-Agentを403で拒否した。User-Agentを付けるよう直し（`fdf1c79`）、両browserで新しく実行し直した。
 
 ## 証跡
 
