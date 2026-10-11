@@ -1,0 +1,38 @@
+--- frozen-main.rs
++++ diagnostic-main.rs
+@@ -2,0 +3 @@
++mod cache_diagnostic;
+@@ -29,0 +31,4 @@
++    if args[0] == "--cache-probe" {
++        emit(cache_diagnostic::initialize(args[1].parse()?)?)?;
++        return Ok(());
++    }
+@@ -33,0 +39,5 @@
++    let cache_diagnostic = cache_diagnostic::initialize(
++        job["cache_init_cpu"]
++            .as_u64()
++            .ok_or_else(|| anyhow::anyhow!("cache_init_cpu required"))? as usize,
++    )?;
+@@ -75 +85 @@
+-        json!({"event":"initialized","backend":"native","verify_ns":verify_ns,
++        json!({"event":"initialized","backend":"native","cache_diagnostic":cache_diagnostic,"verify_ns":verify_ns,
+@@ -115,0 +126 @@
++        let processor_before = cache_diagnostic::processor();
+@@ -119 +130 @@
+-        let probabilities = if let Some(head) = &head_weights {
++        let (probabilities, raw_logits) = if let Some(head) = &head_weights {
+@@ -127,6 +138 @@
+-            kaze_judge_jeff::readout::probabilities(
+-                &bundle.root,
+-                &hidden,
+-                request.candidates.len(),
+-                bundle.decision.temperature,
+-            )?
++            anyhow::bail!("diagnostic requires retained head")
+@@ -137,0 +144,2 @@
++        let processor_after = cache_diagnostic::processor();
++        let hidden_values = hidden.flatten_all()?.to_vec1::<f32>()?;
+@@ -139 +147,2 @@
+-            json!({"event":"request","case":case["id"],"iteration":iteration,"warmup":item["warmup"],
++            json!({"input_ids":prepared.ids,"hidden_values":hidden_values,"raw_logits":raw_logits,
++            "processor_before":processor_before,"processor_after":processor_after,"event":"request","case":case["id"],"iteration":iteration,"warmup":item["warmup"],

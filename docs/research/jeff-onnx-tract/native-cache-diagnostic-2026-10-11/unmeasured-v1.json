@@ -1,0 +1,6 @@
+{
+  "generation_sha256": "df332795ed64a527fdb1fb2a6c621bbd909c0edeb0cddfff3786d19e2c6e3b3b",
+  "executable_sha256": "d2bee416a277db6a64a27ecd95c22b27abdec82aee2ade88a3c94d51c1539764",
+  "model_forwards": 0,
+  "reason": "feature preflight changed default label; excluded before inference, v2 uses distinct bin name"
+}

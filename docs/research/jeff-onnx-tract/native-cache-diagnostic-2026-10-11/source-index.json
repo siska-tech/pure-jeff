@@ -1,0 +1,22 @@
+[
+  {
+    "path": "runtime/onnx/diagnose_native_cache.py",
+    "sha256": "10015c6af5442d9c4ac63ce568ec9be68703734b0a6e99494bfc3c10660777ed"
+  },
+  {
+    "path": "runtime/onnx/prepare_native_cache_diagnostic.py",
+    "sha256": "fc13916cf9aff42031381167c626fc9202dac60ff3550d0abde22c2db31cf81a"
+  },
+  {
+    "path": "runtime/onnx/benchmark_pilot.py",
+    "sha256": "92a62d58597ed6512a2afe75ff616b81521280eae701d9d231092be8deb78b6a"
+  },
+  {
+    "path": "runtime/onnx/diagnose_native_repeats.py",
+    "sha256": "17d4294a5896638ae8719b908715b2ee0089bdb65eed523e02ecbfc4069d4a1b"
+  },
+  {
+    "path": "runtime/onnx/prepare_native_retained.py",
+    "sha256": "b2c65b39104606fe367aadb9e870b2d82abfa69f54f2a251cc2e55a526ebf9cd"
+  }
+]

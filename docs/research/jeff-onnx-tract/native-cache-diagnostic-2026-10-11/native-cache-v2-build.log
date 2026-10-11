@@ -1,0 +1,12 @@
+   Compiling gemm-common v0.19.0
+   Compiling gemm-f32 v0.19.0
+   Compiling gemm-c64 v0.19.0
+   Compiling gemm-f64 v0.19.0
+   Compiling gemm-c32 v0.19.0
+   Compiling gemm-f16 v0.19.0
+   Compiling gemm v0.19.0
+   Compiling candle-core v0.11.0 (https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a#c68b2499)
+   Compiling candle-nn v0.11.0 (https://github.com/huggingface/candle.git?rev=c68b24997319b8d76e5a4e775dab197c7f26322a#c68b2499)
+   Compiling kaze_judge_jeff v0.1.0 (C:\Users\<user>\Documents\Projects\KazeJudge\runtime\rust)
+   Compiling kaze_judge_native_bench v0.1.0 (C:\Users\<user>\Documents\Projects\KazeJudge\.venv\native-cache-diagnostic-v2)
+    Finished `release` profile [optimized] target(s) in 8m 58s

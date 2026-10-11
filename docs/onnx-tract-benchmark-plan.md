@@ -153,3 +153,6 @@ host/build/power/ISA metadataへの参照
 [Native4／Tract4長さ別比較](onnx-tract-length-compare.md)は3組・各長さn=12を事前登録したが、2組目Nativeの反復誤差上限1e-6違反で停止した。全6 child／156 forwardはONNX候補確率1e-4・判断・tokens条件に合格し、Tract全78 rawは旧gateと一致。一方Native6観測・4ケースが反復条件不合格、最大3.546476364135742e-6。閾値は変えず、第3組50 forwardは未実施。各長さn=8の生観測はあるが、不合格sessionを含む未完了runの診断値とし、pooled性能・採用・SLOは未受入。Native有効長／Tract左padding物理512のshape差も区別する。両backendの時間増大、Nativeの組間変動、512の8秒超を観測し、従来の8秒候補の安定性は未確認。process snapshotは累積CPUのみで原因を断定しない。次は固定4失敗ケースの1／4-thread反復診断、元の数値条件の再受入、AC／温度／背景負荷／CPU配置の記録・制御方針を先に固定して別runへ進む。実OCR／ASR正解付きN-bestはユーザー確認により未準備でPhase 5はデータ準備待ち。
 
 [反復数値診断](onnx-tract-native-repeat-diagnostic.md)では失敗4ケース＋512 controlを固定exeの1／4 threads・各2 process・同process3反復、全60 forwardで調べた。ONNX確率／判断／tokens条件は全件合格。最大の同process spanは1 thread 0.0、4 threads 0.0、全6観測spanは1 thread 0.0、4 threads 0.0。性能評価の再試行ではなく、元の不合格・閾値は維持する。全28件再受入・原因修正・正式SLOは未完了。
+
+
+追加の[cache初期化診断](onnx-tract-native-cache-diagnostic.md)では独立crateでCPUごとのCACHE_INFOを記録し、初期化時だけmain threadを固定後に元maskへ復元した。2条件・AB／BA各2 process、128／512の2ケース・各2反復、全16 forwardがONNX確率／判断／tokens条件に合格した。入力ID・hidden・raw logitsと旧gate／停止sessionとの差は生ログから独立照合した。原因の判定範囲と実測差は同reportを参照。全28件再受入・原因修正・性能再開・正式SLOは未完了で、元失敗と閾値1e-6は維持する。

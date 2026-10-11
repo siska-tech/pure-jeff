@@ -59,3 +59,6 @@ host snapshot：
 停止run証跡とfrozen assetsのhash一致、Native baseline127ファイル（既知.gitignore差のみ）、隣接KazeNhanh 21ファイルの不変を確認した。実行時依存・公開APIの変更はない。
 
 [診断証跡・事前登録・生ログ・独立validator](research/jeff-onnx-tract/native-repeat-diagnostic-2026-10-11/README.md)。[診断ハーネス](../runtime/onnx/diagnose_native_repeats.py)。
+
+
+追加の[cache初期化診断](onnx-tract-native-cache-diagnostic.md)では独立crateでCPUごとのCACHE_INFOを記録し、初期化時だけmain threadを固定後に元maskへ復元した。2条件・AB／BA各2 process、128／512の2ケース・各2反復、全16 forwardがONNX確率／判断／tokens条件に合格した。入力ID・hidden・raw logitsと旧gate／停止sessionとの差は生ログから独立照合した。原因の判定範囲と実測差は同reportを参照。全28件再受入・原因修正・性能再開・正式SLOは未完了で、元失敗と閾値1e-6は維持する。

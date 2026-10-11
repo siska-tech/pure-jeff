@@ -1,0 +1,14 @@
+{
+  "raw_schedule_pool_resource_inputs_finite_hidden_raw_and_reference_deltas_independently_checked": true,
+  "affinity_restore_and_cache_inventory_checked": true,
+  "processes": 4,
+  "forwards": 16,
+  "features_identical_packages": 156,
+  "generated_files_reproduced": 17,
+  "native_baseline_unchanged": 127,
+  "known_gitignore_difference_only": true,
+  "sibling_files_unchanged": 21,
+  "previous_archives_and_frozen_assets_unchanged": true,
+  "performance_acceptance": false,
+  "global_28_case_reacceptance": false
+}

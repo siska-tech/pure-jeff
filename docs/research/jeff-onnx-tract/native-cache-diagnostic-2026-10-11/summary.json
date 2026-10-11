@@ -1,0 +1,60 @@
+{
+  "observed_forwards": 16,
+  "all_numeric_resource_gates_passed": true,
+  "max_onnx_error": 2.4139881134033203e-06,
+  "global_28_case_reacceptance": false,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false,
+  "cases": {
+    "synthetic-ocr-ascii-3-128": {
+      "tokens": 128,
+      "classes": {
+        "cacheA": {
+          "observations": 4,
+          "probabilities_exact": true,
+          "hidden_exact": true,
+          "raw_exact": true,
+          "max_old_gate_error": 3.546476364135742e-06,
+          "max_failed_session_error": 0.0
+        },
+        "cacheB": {
+          "observations": 4,
+          "probabilities_exact": true,
+          "hidden_exact": true,
+          "raw_exact": true,
+          "max_old_gate_error": 0.0,
+          "max_failed_session_error": 3.546476364135742e-06
+        }
+      },
+      "probability_class_delta": 3.546476364135742e-06,
+      "hidden_class_delta": 1.430511474609375e-05,
+      "raw_class_delta": 1.621246337890625e-05,
+      "input_ids_equal": true
+    },
+    "synthetic-asr-unicode-2-512": {
+      "tokens": 512,
+      "classes": {
+        "cacheA": {
+          "observations": 4,
+          "probabilities_exact": true,
+          "hidden_exact": true,
+          "raw_exact": true,
+          "max_old_gate_error": 4.76837158203125e-07,
+          "max_failed_session_error": 0.0
+        },
+        "cacheB": {
+          "observations": 4,
+          "probabilities_exact": true,
+          "hidden_exact": true,
+          "raw_exact": true,
+          "max_old_gate_error": 0.0,
+          "max_failed_session_error": 4.76837158203125e-07
+        }
+      },
+      "probability_class_delta": 4.76837158203125e-07,
+      "hidden_class_delta": 1.71661376953125e-05,
+      "raw_class_delta": 1.049041748046875e-05,
+      "input_ids_equal": true
+    }
+  }
+}

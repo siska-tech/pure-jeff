@@ -1,0 +1,8 @@
+--- frozen-readout.rs
++++ diagnostic-readout.rs
+@@ -9 +9 @@
+-) -> Result<Vec<f64>> {
++) -> Result<(Vec<f64>, Vec<f32>)> {
+@@ -35 +35 @@
+-    Ok(p.into_iter().map(f64::from).collect())
++    Ok((p.into_iter().map(f64::from).collect(), logits))

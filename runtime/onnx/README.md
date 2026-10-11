@@ -344,3 +344,17 @@ process span, cross-process first delta, all-six span and old Native4 gate
 errors are independently audited. Power and system-wide CPU snapshots before/
 after each child do not measure child utilization, temperature or affinity.
 No 28-case reacceptance, performance acceptance, backend adoption or SLO.
+
+`prepare_native_cache_diagnostic.py` generates an isolated Windows diagnostic
+crate from the frozen Native thread wrapper. Use a fresh output directory,
+build its `native_cache_diagnostic` release binary into a separate target,
+and verify dependency package/features against the frozen wrapper before use.
+`diagnose_native_cache.py --output experiments/runs/native-cache-diagnostic-20261011`
+enumerates allowed logical CPUs, rejects invalid CPU64, and requires exactly
+two observed cache classes before its fixed16-forward AB/BA diagnosis. The
+main thread is pinned only during explicit CACHE_INFO initialization and its
+mask restored before pool/model/forward. Input IDs, hidden and raw logits are
+recorded; hypothetical kernel_params are not actual call telemetry. Keep
+repeat1e-6, ONNX1e-4 and existing failed evidence; no global28 reacceptance,
+performance/SLO acceptance or production API changes. See the cache diagnostic
+report and its independent raw/source/feature/affinity validator.
