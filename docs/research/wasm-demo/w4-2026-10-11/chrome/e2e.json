@@ -1,0 +1,1145 @@
+{
+ "marks": [
+  {
+   "name": "abort:click",
+   "time": 1791729706.255
+  },
+  {
+   "name": "abort:stopped",
+   "time": 1791729708.054
+  },
+  {
+   "name": "download:click",
+   "time": 1791729709.424
+  },
+  {
+   "name": "download:ready",
+   "time": 1791729722.278
+  },
+  {
+   "name": "eval0:start",
+   "time": 1791729722.411
+  },
+  {
+   "name": "eval0:end",
+   "time": 1791729728.453
+  },
+  {
+   "name": "save:click",
+   "time": 1791729728.565
+  },
+  {
+   "name": "eval2:start",
+   "time": 1791729728.838
+  },
+  {
+   "name": "eval2:end",
+   "time": 1791729737.787
+  },
+  {
+   "name": "eval5:start",
+   "time": 1791729737.798
+  },
+  {
+   "name": "eval5:end",
+   "time": 1791729759.871
+  },
+  {
+   "name": "eval6:start",
+   "time": 1791729759.886
+  },
+  {
+   "name": "eval6:end",
+   "time": 1791729760.15
+  },
+  {
+   "name": "eval-no-reason:start",
+   "time": 1791729760.277
+  },
+  {
+   "name": "eval-no-reason:end",
+   "time": 1791729760.277
+  },
+  {
+   "name": "invalid:start",
+   "time": 1791729760.279
+  },
+  {
+   "name": "invalid:end",
+   "time": 1791729760.786
+  },
+  {
+   "name": "cancel:start",
+   "time": 1791729760.792
+  },
+  {
+   "name": "cancel:clicked",
+   "time": 1791729763.814
+  },
+  {
+   "name": "cancel:reloaded",
+   "time": 1791729770.06
+  },
+  {
+   "name": "eval-after-cancel:start",
+   "time": 1791729770.063
+  },
+  {
+   "name": "eval-after-cancel:end",
+   "time": 1791729780.838
+  },
+  {
+   "name": "page-reload",
+   "time": 1791729780.84
+  },
+  {
+   "name": "load-cached:click",
+   "time": 1791729781.274
+  },
+  {
+   "name": "load-cached:ready",
+   "time": 1791729787.573
+  },
+  {
+   "name": "eval-after-reload:start",
+   "time": 1791729787.578
+  },
+  {
+   "name": "eval-after-reload:end",
+   "time": 1791729793.621
+  }
+ ],
+ "network": [
+  {
+   "time": 1791729705.844,
+   "url": "https://demo.test:9443/index.html",
+   "method": "GET"
+  },
+  {
+   "time": 1791729705.866,
+   "url": "https://demo.test:9443/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791729705.866,
+   "url": "https://demo.test:9443/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729705.928,
+   "url": "https://demo.test:9443/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729705.937,
+   "url": "https://demo.test:9443/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.258,
+   "url": "https://demo.test:9443/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.267,
+   "url": "https://demo.test:9443/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.316,
+   "url": "https://models.test:9444/model/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.333,
+   "url": "https://models.test:9444/model/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.339,
+   "url": "https://models.test:9444/model/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.575,
+   "url": "https://models.test:9444/model/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791729706.589,
+   "url": "https://models.test:9444/model/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.426,
+   "url": "https://demo.test:9443/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.434,
+   "url": "https://demo.test:9443/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.459,
+   "url": "https://models.test:9444/model/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.465,
+   "url": "https://models.test:9444/model/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.472,
+   "url": "https://models.test:9444/model/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.655,
+   "url": "https://models.test:9444/model/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791729709.665,
+   "url": "https://models.test:9444/model/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791729763.816,
+   "url": "https://demo.test:9443/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729763.825,
+   "url": "https://demo.test:9443/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791729780.844,
+   "url": "https://demo.test:9443/index.html",
+   "method": "GET"
+  },
+  {
+   "time": 1791729780.858,
+   "url": "https://demo.test:9443/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791729780.858,
+   "url": "https://demo.test:9443/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729780.925,
+   "url": "https://demo.test:9443/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729780.932,
+   "url": "https://demo.test:9443/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729781.276,
+   "url": "https://demo.test:9443/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729781.285,
+   "url": "https://demo.test:9443/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791729793.897,
+   "url": "https://demo.test:9443/index.html",
+   "method": "GET"
+  },
+  {
+   "time": 1791729793.913,
+   "url": "https://demo.test:9443/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791729793.914,
+   "url": "https://demo.test:9443/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791729793.922,
+   "url": "https://demo.test:9443/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791729793.93,
+   "url": "https://demo.test:9443/samples.json",
+   "method": "GET"
+  }
+ ],
+ "steps": {
+  "initial": {
+   "model": "absent",
+   "status": "モデルはまだ取得していません。",
+   "privacy": "入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（models.test:9444）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。",
+   "download_label": "モデルを取得して読み込む（約1.73 GB）"
+  },
+  "abort": {
+   "status": "モデルはまだ取得していません。（読み込みを中止しました）",
+   "model_in_cache": false,
+   "evaluate_disabled": true
+  },
+  "download": {
+   "status": "読み込み済み（このブラウザに保存済み）",
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 12165.299999713898,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 1,
+     "hashed_at_open": [],
+     "tokenizer_ms": 485.2000002861023
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   },
+   "storage": "このサイトの保存領域：1.73 GB 使用 / 上限の目安 12.46 GB"
+  },
+  "eval_sample0": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729722412",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5794.699999809265,
+   "stages": [
+    {
+     "ms": 0.9000000953674316,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5791.699999809265,
+     "name": "forward"
+    },
+    {
+     "ms": 0.40000009536743164,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64.7999997138977,
+   "gap_samples": 120,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "save": {
+   "file": "attempt-demo-1791729722412.json",
+   "content": "{\n  \"schema_version\": \"kaze_judge.attempt.v1\",\n  \"request\": {\n    \"request_id\": \"demo-1791729722412\",\n    \"document_id\": \"demo-document\",\n    \"segment_id\": \"segment-1\",\n    \"original_text\": \"節約する\",\n    \"source\": \"ocr\",\n    \"profile_id\": \"ja.ocr.demo\",\n    \"domain\": null,\n    \"question_id\": \"transcription-candidate.v1\",\n    \"candidates\": [\n      {\n        \"id\": \"original\",\n        \"text\": \"節約する\"\n      },\n      {\n        \"id\": \"alternative\",\n        \"text\": \"節税する\"\n      }\n    ],\n    \"reason\": \"candidate_competition\"\n  },\n  \"provider_calls_started\": 1,\n  \"outcome\": {\n    \"status\": \"completed\",\n    \"value\": {\n      \"scores\": [\n        {\n          \"candidate_id\": \"original\",\n          \"option_probability\": 0.9285955429077148\n        },\n        {\n          \"candidate_id\": \"alternative\",\n          \"option_probability\": 0.07140449434518814\n        }\n      ],\n      \"judgment\": {\n        \"kind\": \"selected\",\n        \"candidate_id\": \"original\"\n      },\n      \"temperature\": 1.0845714325759162,\n      \"input_tokens\": 128,\n      \"forwards\": 1,\n      \"artifacts\": [\n        {\n          \"component\": \"LICENSE\",\n          \"sha256\": \"c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c\"\n        },\n        {\n          \"component\": \"NOTICE\",\n          \"sha256\": \"bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74\"\n        },\n        {\n          \"component\": \"README.md\",\n          \"sha256\": \"1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa\"\n        },\n        {\n          \"component\": \"chat_template.jinja\",\n          \"sha256\": \"273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80\"\n        },\n        {\n          \"component\": \"config.json\",\n          \"sha256\": \"e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25\"\n        },\n        {\n          \"component\": \"decision_config.json\",\n          \"sha256\": \"4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03\"\n        },\n        {\n          \"component\": \"model.safetensors\",\n          \"sha256\": \"080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f\"\n        },\n        {\n          \"component\": \"processor_config.json\",\n          \"sha256\": \"abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f\"\n        },\n        {\n          \"component\": \"readout.safetensors\",\n          \"sha256\": \"86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9\"\n        },\n        {\n          \"component\": \"tokenizer.json\",\n          \"sha256\": \"6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706\"\n        },\n        {\n          \"component\": \"tokenizer_config.json\",\n          \"sha256\": \"5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f\"\n        },\n        {\n          \"component\": \"bundle_manifest\",\n          \"sha256\": \"7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5\"\n        },\n        {\n          \"component\": \"wasm_engine\",\n          \"sha256\": \"dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749\"\n        },\n        {\n          \"component\": \"prompt\",\n          \"sha256\": \"d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c\"\n        },\n        {\n          \"component\": \"rendered_prompt\",\n          \"sha256\": \"60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a\"\n        },\n        {\n          \"component\": \"policy\",\n          \"sha256\": \"887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8\"\n        }\n      ]\n    }\n  }\n}\n"
+  },
+  "eval_sample2": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729728839",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "明日１０時にCaféで会いましょう。\n予算は１００円です。",
+     "source": "asr",
+     "profile_id": "ja.asr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "明日１０時にCaféで会いましょう。\n予算は１００円です。"
+      },
+      {
+       "id": "normalized",
+       "text": "明日10時にCaféで会いましょう。\n予算は100円です。"
+      },
+      {
+       "id": "conflicting",
+       "text": "明日7時にCaféで会いましょう。\n予算は700円です。"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.6359894871711731
+       },
+       {
+        "candidate_id": "normalized",
+        "option_probability": 0.3610733151435852
+       },
+       {
+        "candidate_id": "conflicting",
+        "option_probability": 0.0029371571727097034
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 206,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 8767.5,
+   "stages": [
+    {
+     "ms": 0.8000001907348633,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 8766.400000095367,
+     "name": "forward"
+    },
+    {
+     "ms": 0.19999980926513672,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 63.200000286102295,
+   "gap_samples": 178,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample5": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729737798",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "cat a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "a",
+       "text": "a"
+      },
+      {
+       "id": "b",
+       "text": "b"
+      },
+      {
+       "id": "c",
+       "text": "c"
+      },
+      {
+       "id": "d",
+       "text": "d"
+      },
+      {
+       "id": "e",
+       "text": "e"
+      },
+      {
+       "id": "f",
+       "text": "f"
+      },
+      {
+       "id": "g",
+       "text": "g"
+      },
+      {
+       "id": "h",
+       "text": "h"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "a",
+        "option_probability": 0.5633876919746399
+       },
+       {
+        "candidate_id": "b",
+        "option_probability": 0.08941920846700668
+       },
+       {
+        "candidate_id": "c",
+        "option_probability": 0.06949273496866226
+       },
+       {
+        "candidate_id": "d",
+        "option_probability": 0.05251272767782211
+       },
+       {
+        "candidate_id": "e",
+        "option_probability": 0.07833318412303925
+       },
+       {
+        "candidate_id": "f",
+        "option_probability": 0.06976419687271118
+       },
+       {
+        "candidate_id": "g",
+        "option_probability": 0.026990355923771858
+       },
+       {
+        "candidate_id": "h",
+        "option_probability": 0.050099968910217285
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 512,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 21855,
+   "stages": [
+    {
+     "ms": 0.8000001907348633,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 21853.800000190735,
+     "name": "forward"
+    },
+    {
+     "ms": 0.19999980926513672,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64.90000009536743,
+   "gap_samples": 441,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample6": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729759887",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n"
+      },
+      {
+       "id": "alternative",
+       "text": "資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "failed",
+     "value": "budget_exceeded"
+    }
+   },
+   "elapsed_ms": 1,
+   "stages": [],
+   "max_main_thread_gap_ms": 61.69999980926514,
+   "gap_samples": 5,
+   "judgment_text": "失敗：予算超過：入力が長すぎます（最大512 tokens）",
+   "run_status": "完了しました。"
+  },
+  "eval_no_reason": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729760277",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": null
+    },
+    "provider_calls_started": 0,
+    "outcome": {
+     "status": "not_selected"
+    }
+   },
+   "elapsed_ms": 0,
+   "stages": [],
+   "max_main_thread_gap_ms": null,
+   "gap_samples": 0,
+   "judgment_text": "評価しませんでした（評価する理由が「なし」）",
+   "run_status": "完了しました。"
+  },
+  "ui_validation": {
+   "run_status": "候補IDが重複しています。",
+   "running": false
+  },
+  "cancel": {
+   "run_status": "取消しました。保存済みモデルを読み込み直しました。"
+  },
+  "eval_after_cancel": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729770065",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 10752.700000286102,
+   "stages": [
+    {
+     "ms": 0.8000001907348633,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 10751.599999904633,
+     "name": "forward"
+    },
+    {
+     "ms": 0.3000001907348633,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64.19999980926514,
+   "gap_samples": 215,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "after_reload": {
+   "status": "このブラウザに保存済みです。読み込むと使えます（通信は発生しません）。"
+  },
+  "load_cached": {
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 5618.900000095367,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 0.5,
+     "hashed_at_open": [],
+     "tokenizer_ms": 520.4000000953674
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   }
+  },
+  "eval_after_reload": {
+   "attempt": {
+    "schema_version": "kaze_judge.attempt.v1",
+    "request": {
+     "request_id": "demo-1791729787579",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749"
+       },
+       {
+        "component": "prompt",
+        "sha256": "d8139cd0cb1b2c792ae887b86d52a26fc7573f07de4205cb75c8ad16a0ebbf6c"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5786.200000286102,
+   "stages": [
+    {
+     "ms": 1.0999999046325684,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5782.300000190735,
+     "name": "forward"
+    },
+    {
+     "ms": 0.5999999046325684,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64.40000009536743,
+   "gap_samples": 120,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "delete": {
+   "status": "読み込み済み（保存データはありません）　保存データを削除しました。",
+   "cache_names": [],
+   "usage_before": 1726550784,
+   "usage_after": 1726550784
+  },
+  "after_delete_reload": {
+   "status": "モデルはまだ取得していません。"
+  }
+ },
+ "completed": true
+}

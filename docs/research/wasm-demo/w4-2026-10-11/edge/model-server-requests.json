@@ -1,0 +1,82 @@
+[
+ {
+  "time": 1791729797.1264787,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1872,
+  "complete": true
+ },
+ {
+  "time": 1791729797.1354806,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635,
+  "complete": true
+ },
+ {
+  "time": 1791729797.2400076,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492,
+  "complete": true
+ },
+ {
+  "time": 1791729797.3596652,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320,
+  "complete": true
+ },
+ {
+  "time": 1791729798.7740347,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 318767104,
+  "complete": false
+ },
+ {
+  "time": 1791729799.9726045,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1872,
+  "complete": true
+ },
+ {
+  "time": 1791729799.9913006,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635,
+  "complete": true
+ },
+ {
+  "time": 1791729800.1052084,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492,
+  "complete": true
+ },
+ {
+  "time": 1791729800.2591715,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320,
+  "complete": true
+ },
+ {
+  "time": 1791729807.9757276,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 1706027688,
+  "complete": true
+ }
+]

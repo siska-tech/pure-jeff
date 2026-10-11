@@ -1,0 +1,81 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
+ "created_utc": "2026-10-11T14:43:15.272930+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "max_main_thread_gap_ms": 250,
+  "consent": "no model/ request before the download button is pressed",
+  "single_download": "each model file is fetched from the server exactly once in the whole session (cancel recovery and page reload read Cache Storage)",
+  "private_inference": "no network request from the page or its Workers while any evaluation runs, and every request goes to the demo origin",
+  "results": "sample 0/2/5 completed Attempts match the official prompt hash, candidate order, judgment and probabilities; sample 6 (874 tokens) fails budget_exceeded after one provider call; reason none is not_selected with no provider call; duplicate IDs are rejected in the UI",
+  "attempt": "schema kaze_judge.attempt.v1; artifacts include the manifest files, bundle_manifest, wasm_engine (= deployed engine hash), prompt, rendered_prompt and policy",
+  "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in kaze_judge::Attempt order",
+  "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
+  "delete": "after delete no pure-jeff-model cache remains and a reload shows the model as not downloaded"
+ },
+ "mode": "w4",
+ "gates_w4": {
+  "https": "every page/Worker request is https and goes to the site origin or the model origin; the site origin serves no model/ file and the model origin serves only model/ files",
+  "abort": "after stopping a download while model.safetensors streams, it is not in Cache Storage, the UI shows the model as not downloaded with evaluation disabled, and the server saw an incomplete transfer",
+  "single_download": "model.safetensors is transferred completely exactly once, and no model/ request follows the first completed download (cancel recovery and reload read Cache Storage)"
+ },
+ "origins": {
+  "site": "https://demo.test:9443",
+  "model": "https://models.test:9444"
+ },
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+ },
+ "dist": {
+  "build_info_sha256": "4353f8bfb29a4eea3ef4e3fcf563c2160de949a6ed21b193e2b8f4f4d8f141be",
+  "build_info": {
+   "source_commit": "a5c27c0bbaa6a89892c40f1b350119290d879997",
+   "source_dirty": true,
+   "copy_model": false,
+   "model_base_url": "https://models.test:9444/model/",
+   "engine_input_sha256": "066c031d041e154892f6cc767d4c590d6a634c594479b53ea23baec9a90182af",
+   "engine_removed_exports": [
+    "__getrandom_v03_custom",
+    "kj_alloc",
+    "kj_decide",
+    "kj_environment",
+    "kj_free",
+    "kj_init",
+    "kj_ops",
+    "kj_output_len",
+    "kj_output_ptr",
+    "kj_session_close",
+    "kj_session_decide",
+    "kj_session_open",
+    "kj_tokenize"
+   ],
+   "files": {
+    "app.js": "ca84703ebd9ec8289f4ffb98d67be484c05f2030997ac8e1ee0b243aab39f2b8",
+    "demo-config.json": "d280c1086d93d2a86f24a75c84fdc00a9a22b6c7c9afb8b44d594441caf48d95",
+    "engine-worker.js": "b5503f4b527edd7c02e5f50d43884f58f85c7b59172f8f2bced56dea48b410e1",
+    "engine.wasm": "dc1f098d0359b649c95dc4bbba13f63bc67ac767b26325d5e39fcf2f57214749",
+    "index.html": "099503f6b98e325505067a8d2abcefb2540879c843138a950606726945e0f7e5",
+    "licenses/JEFF_SOURCE_LICENSE.txt": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+    "licenses/MODEL_LICENSE.txt": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+    "licenses/MODEL_NOTICE.txt": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74",
+    "licenses/THIRD_PARTY_LICENSES.txt": "f0a745e29f475d495ec3efbf9a3a266c4bc3093571bb9ac294874d0c950f9a83",
+    "licenses/THIRD_PARTY_NOTICES.md": "37e2453a81d61099631071b804ae3516107e33949a52a2228dcc24c69622696f",
+    "samples.json": "239bc25b95cb7022c48b3645a28bb482942541cdb60882086d8c69dbb47dca2a",
+    "style.css": "d40576c29c3b43ed1af1265042b71a47c46d1c88ce89386c4593d5eb391b834d"
+   }
+  }
+ },
+ "driver_sha256": "d97824b4b10b8bd9b5be5ef86491f2116f0ef18d8c939235864ea27e1ff5f0b4",
+ "e2e_sha256": "b0e393e91c68dabc8b43152b4cd4d93340e508bdf83fdf8264aaab572bdb32fa",
+ "samples": {
+  "OCR：2候補（128 tokens）": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "OCR：同じ2候補を逆順（128 tokens）": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "ASR：Unicode文字を含む3候補（206 tokens）": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "区切り記号に似た文字列を含む2候補（182 tokens）": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "日本語OCR：2候補（256 tokens）": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+  "OCR：8候補（512 tokens、上限ちょうど）": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3",
+  "上限を超える長文（874 tokens、予算超過の例）": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995"
+ },
+ "headless": true
+}
