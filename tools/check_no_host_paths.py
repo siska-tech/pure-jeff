@@ -7,7 +7,9 @@ Used in CI on engine.wasm after tools/build_wasm.py, so no user name or home dir
 import re
 import sys
 
-PATTERN = re.compile(rb"(?:[A-Za-z]:[\\/]|/home/|/Users/)[ -~]{0,60}")
+# A drive letter not preceded by a letter (so "https://" is not a path) followed by a backslash
+# or a single slash, or a Unix home directory prefix.
+PATTERN = re.compile(rb"(?:(?<![A-Za-z])[A-Za-z]:(?:\\|/(?!/))|/home/|/Users/)[ -~]{0,60}")
 
 
 def main():
