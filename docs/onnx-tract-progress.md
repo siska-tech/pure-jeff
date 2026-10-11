@@ -115,3 +115,6 @@ jigor exporterの固定source、Apache-2.0本文、出典とNOTICE確認結果�
 ## 単体デモを優先する方針（2026-10-11）
 
 [単体デモリリース計画](standalone-demo-release-plan.md)を次の主計画とする。既存Native経路で単体の対話式コンソール／CLIとportable配布を完成させ、最終デモのE2E計測・clean host確認を行う。Tract追加比較と実N-bestによる品質評価は独立した後続作業とし、過去の証跡・数値基準は維持する。これは計画変更であり、デモの実装完了や公開を意味しない。
+
+
+同日追加更新：ユーザーの希望により[Wasmデモ成立性計画](wasm-demo-feasibility-plan.md)を先行する。ブラウザ内CPU推論を第一候補とし、W0コンパイル・小型演算とW1実モデル1件のgateを確認する。Windows Native単体版は代替案。Wasm成立はまだ未確認。
