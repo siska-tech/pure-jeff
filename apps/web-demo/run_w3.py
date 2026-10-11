@@ -47,6 +47,18 @@ GATES_W4 = {
     "single_download": "model.safetensors is transferred completely exactly once, and no model/ request "
                        "follows the first completed download (cancel recovery and reload read Cache Storage)",
 }
+# External model host (e.g. Hugging Face) and/or a deployed site: there is no model server log, so
+# download checks use the browser's own network log (page and Workers). Registered before the first run.
+GATES_EXTERNAL = {
+    "consent": "no request to the model host before the download button is pressed",
+    "abort": "after stopping a download while model.safetensors streams, it is not in Cache Storage and the UI "
+             "shows the model as not downloaded with evaluation disabled",
+    "single_download": "after the second download click, model.safetensors is requested exactly once from the "
+                       "model host, and no model-host request follows the completed download",
+    "hosts": "every page/Worker request goes to the site origin, the model host or its download CDN (*.hf.co), "
+             "over https except a local http site",
+    "deployed": "with --site-url, the deployed demo-config.json and engine.wasm equal the local build",
+}
 
 
 def sha(path):
@@ -96,7 +108,11 @@ def main():
     parser.add_argument("--w4", action="store_true", help="HTTPS, separate model origin with CORS, download abort")
     parser.add_argument("--site-port", type=int, default=9443)
     parser.add_argument("--model-port", type=int, default=9444)
+    parser.add_argument("--external-model", action="store_true",
+                        help="the build fetches the model from an external https host (e.g. Hugging Face)")
+    parser.add_argument("--site-url", help="test an already deployed site instead of serving --dist locally")
     args = parser.parse_args()
+    external = args.external_model or bool(args.site_url)
     args.output.mkdir(parents=True)
     config = json.loads((args.dist / "demo-config.json").read_text(encoding="utf-8"))
     site_origin = f"https://demo.test:{args.site_port}" if args.w4 else None
@@ -107,7 +123,9 @@ def main():
     save(args.output / "preregistration.json", {
         "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
         "created_utc": datetime.now(timezone.utc).isoformat(), "gates": GATES,
-        "mode": "w4" if args.w4 else "w3", "gates_w4": GATES_W4 if args.w4 else None,
+        "mode": "external" if external else "w4" if args.w4 else "w3",
+        "gates_w4": GATES_W4 if args.w4 else None, "gates_external": GATES_EXTERNAL if external else None,
+        "site_url": args.site_url, "model_base_url": config.get("model_base_url"),
         "origins": {"site": site_origin, "model": model_origin},
         "browser": {"path": str(args.browser), "sha256": sha(args.browser)},
         "dist": {"build_info_sha256": sha(args.dist / "build-info.json"),
@@ -138,11 +156,15 @@ def main():
         # Only this throwaway certificate is trusted, and only the two test names resolve locally.
         flags = ["--host-resolver-rules=MAP demo.test 127.0.0.1,MAP models.test 127.0.0.1",
                  f"--ignore-certificate-errors-spki-list={spki}"]
+    elif args.site_url:
+        server, requests, model_server, model_requests_log = None, [], None, None
+        origin = args.site_url.rstrip("/")
     else:
-        server, requests = make_server(args.dist, args.manifest)
+        server, requests = make_server(args.dist, args.manifest, role="site" if external else "all")
         model_server, model_requests_log = None, None
         origin = f"http://127.0.0.1:{server.server_port}"
-    threading.Thread(target=server.serve_forever, daemon=True).start()
+    if server:
+        threading.Thread(target=server.serve_forever, daemon=True).start()
     profile = Path(tempfile.mkdtemp(prefix="pj-w3-profile-"))
     browser = subprocess.Popen([str(args.browser), "--headless=new", f"--user-data-dir={profile}",
                                 "--remote-debugging-port=0", "--no-first-run", "--no-default-browser-check",
@@ -156,12 +178,14 @@ def main():
             time.sleep(0.1)
         port, ws_path = port_file.read_text().split()[:2]
         e2e = subprocess.run(["node", str(HERE / "e2e_w3.mjs"), f"ws://127.0.0.1:{port}{ws_path}",
-                              f"{origin}/index.html", str(args.output), *(["--abort-download"] if args.w4 else [])],
+                              f"{origin}/index.html", str(args.output),
+                              *(["--abort-download"] if args.w4 or external else [])],
                              timeout=args.timeout, capture_output=True, text=True)
     finally:
         subprocess.run(["taskkill", "/PID", str(browser.pid), "/T", "/F"], capture_output=True)
         browser.wait()
-        server.shutdown()
+        if server:
+            server.shutdown()
         if model_server:
             model_server.shutdown()
         shutil.rmtree(profile, ignore_errors=True)
@@ -181,7 +205,7 @@ def main():
         raise SystemExit(f"e2e failed: {result.get('error')}")
 
     click, ready = window(marks, "download:click", "download:ready")
-    first_click = window(marks, "abort:click", "abort:stopped")[0] if args.w4 else click
+    first_click = window(marks, "abort:click", "abort:stopped")[0] if args.w4 or external else click
     all_requests = requests + (model_requests_log or [])
     model_requests = [r for r in all_requests if r["path"].startswith("/model/")]
     g["consent"] = {"passed": not [r for r in model_requests if r["time"] < first_click],
@@ -189,7 +213,32 @@ def main():
     counts = {}
     for r in model_requests:
         counts[r["path"]] = counts.get(r["path"], 0) + 1
-    if args.w4:
+    if external:
+        base = config["model_base_url"]
+        host_net = [n for n in result["network"] if n["url"].startswith(base) or ".hf.co/" in n["url"]]
+        g["consent"] = {"passed": not [n for n in host_net if n["time"] < first_click],
+                        "model_host_requests_before_click": [n["url"] for n in host_net if n["time"] < first_click]}
+        weights = [n for n in result["network"] if n["url"] == base + "model.safetensors"]
+        g["single_download"] = {"passed": len([n for n in weights if n["time"] > click]) == 1
+                                and not [n for n in host_net if n["time"] > ready],
+                                "model_requests": len(weights), "after_second_click": len([n for n in weights if n["time"] > click])}
+        abort = steps["abort"]
+        g["abort"] = {"passed": abort["model_in_cache"] is False and abort["evaluate_disabled"]
+                      and "取得していません" in abort["status"] and bool([n for n in weights if n["time"] < click]),
+                      "step": abort}
+        net = [n["url"] for n in result["network"] if not n["url"].startswith(("blob:", "about:", "data:"))]
+        hosts = sorted({u.split("/")[2] for u in net})
+        site_host = origin.split("/")[2]
+        model_host = base.split("/")[2]
+        g["hosts"] = {"passed": all(h in (site_host, model_host) or h.endswith(".hf.co") for h in hosts)
+                      and all(u.startswith("https://") or u.startswith(origin) for u in net), "hosts": hosts}
+        if args.site_url:
+            import urllib.request
+            deployed = json.loads(urllib.request.urlopen(f"{origin}/demo-config.json", timeout=60).read())
+            engine = urllib.request.urlopen(f"{origin}/engine.wasm", timeout=120).read()
+            g["deployed"] = {"passed": deployed == config and hashlib.sha256(engine).hexdigest() == config["engine"]["sha256"],
+                             "engine_sha256": hashlib.sha256(engine).hexdigest()}
+    elif args.w4:
         weights = [r for r in model_requests if r["path"].endswith("/model.safetensors")]
         g["single_download"] = {"passed": sum(r["complete"] for r in weights) == 1
                                 and not [r for r in model_requests if r["time"] > ready],
@@ -212,9 +261,13 @@ def main():
                     ("eval0", "eval2", "eval5", "eval6", "eval-no-reason", "eval-after-cancel", "eval-after-reload")]
     during = [n for n in result["network"] if any(s <= n["time"] <= e for s, e in eval_windows)]
     during += [r for r in all_requests if any(s <= r["time"] <= e for s, e in eval_windows)]
-    allowed = tuple(o for o in (origin, model_origin) if o)
+    # External mode allows the whole model host (its redirects, e.g. Hugging Face's /api/resolve-cache/,
+    # are outside the pinned resolve/ prefix) and its *.hf.co CDN, matching the "hosts" gate.
+    external_host = config["model_base_url"].split("/")[2] if external else None
+    allowed = tuple(o for o in (origin, model_origin, f"https://{external_host}/" if external_host else None) if o)
     foreign = [n["url"] for n in result["network"] if not n["url"].startswith(allowed)
-               and not n["url"].startswith(("blob:", "about:", "data:"))]
+               and not n["url"].startswith(("blob:", "about:", "data:"))
+               and not (external and ".hf.co/" in n["url"])]
     g["private_inference"] = {"passed": not during and not foreign, "during_evaluation": during, "foreign": foreign}
 
     rows = {}

@@ -54,10 +54,15 @@ def main():
     parser.add_argument("--copy-model", action="store_true")
     parser.add_argument("--model-base-url", default="model/",
                         help="where the page fetches model files (relative, or an https origin with CORS)")
+    parser.add_argument("--manifest-url",
+                        help="where the page fetches the bundle manifest (default: next to the model files). "
+                             "A relative path is written into the output, e.g. bundle/manifest.json when the "
+                             "model files come from Hugging Face")
     args = parser.parse_args()
     base = args.model_base_url if args.model_base_url.endswith("/") else args.model_base_url + "/"
+    manifest_url = args.manifest_url or f"{base}manifest.json"
     args.output.mkdir(parents=True)
-    for name in ("index.html", "app.js", "engine-worker.js", "style.css"):
+    for name in ("index.html", "app.js", "engine-worker.js", "style.css", "_headers"):
         shutil.copyfile(WEB / name, args.output / name)
     engine, kept, removed = strip(args.engine_wasm.read_bytes())
     (args.output / "engine.wasm").write_bytes(engine)
@@ -82,7 +87,7 @@ def main():
         "schema_version": "kaze_judge.web_demo_config.v1",
         "engine": {"url": "engine.wasm", "sha256": sha(args.output / "engine.wasm"), "bytes": len(engine),
                    "removed_exports": removed},
-        "manifest": {"path": "manifest.json", "url": f"{base}manifest.json", "sha256": manifest_sha,
+        "manifest": {"path": "manifest.json", "url": manifest_url, "sha256": manifest_sha,
                      "bytes": args.manifest.stat().st_size},
         "assets": assets,
         "total_download_bytes": args.manifest.stat().st_size + sum(a["bytes"] for a in assets),
@@ -96,6 +101,10 @@ def main():
     write_json(args.output / "samples.json", [
         {"label": label, "request": json.loads((ROOT / path).read_text(encoding="utf-8"))["request"]}
         for label, path in SAMPLES])
+    if "://" not in manifest_url and not manifest_url.startswith("model/"):
+        target = args.output / manifest_url
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(args.manifest, target)
     if args.copy_model:
         (args.output / "model").mkdir()
         shutil.copyfile(args.manifest, args.output / "model/manifest.json")

@@ -1,8 +1,28 @@
-# W4：Webデモの配信構成（Cloudflare Pages＋R2）
+# W4：Webデモの配信構成
 
 2026-10-11調査。Webデモ（`apps/web-demo`）を公開する場合の構成・料金・制約を整理した。**remote・Cloudflareのaccount・domain・有料設定はまだ何も作っていない。** 料金と制約は下の出典（Cloudflare公式文書）を2026-10-11に確認した値で、変わることがある。公開前に必ず再確認する。ローカルで模した検証の結果は[W4 E2E](web-demo-w4-results.md)にある。
 
-## 構成
+## 採用した構成（2026-10-12）
+
+利用者の決定により、デモは**Cloudflare Workersの静的assets**として`https://pure-jeff.siska-tech.workers.dev`に置く。モデルはR2に置かず、ブラウザが**Hugging Faceの固定revisionから直接取得**する（下の「代替案」を採用）。
+
+- Worker：`apps/web-demo/wrangler.jsonc`（名前`pure-jeff`、server codeなし、`dist/`を配信）。Workersの静的assetsは1 fileあたり25 MiBまで。最大のfileは`engine.wasm`（4.7 MB）。
+- モデル：`demo-config.json`の4資産は`https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39…/`を指す。bundle manifestだけはHugging Faceにないので、サイトの`bundle/manifest.json`に置く。
+- 再配布：pure-jeffは重みを配らない（[ライセンスの決定](licensing.md)の4）。checkpointのLICENSEとNOTICEは、サイトの`licenses/`にも置く。
+- 費用：Workersの静的assetsへのrequestは無料・無制限（Cloudflare公式、2026-10-12確認。Freeは1 versionあたり20,000 fileまで）。モデルはHugging Faceから取得するので、R2などの有料設定は使わない。
+- `_headers`：`nosniff`、`no-referrer`と、自サイト・`huggingface.co`・`*.hf.co`（Hugging FaceのCDN）だけを許可するCSPを置く。
+
+```powershell
+cd apps/web-demo
+python build_demo.py --engine-wasm <engine.wasm> --manifest ../../models/jeff-rust-bundle.json `
+  --model-base-url https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/ `
+  --manifest-url bundle/manifest.json --output dist
+npx wrangler deploy
+```
+
+以下は、比較のために残すPages＋R2の調査である。
+
+## 構成（Pages＋R2の場合）
 
 | 置き場所 | 中身 | 大きさ |
 | --- | --- | --- |
