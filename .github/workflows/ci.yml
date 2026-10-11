@@ -117,3 +117,53 @@ jobs:
             if ($LASTEXITCODE) { exit $LASTEXITCODE }
           }
           python -B tools/audit_licenses.py --strict
+  linux:
+    # The same model-free checks on Linux; the validated runtime target is Windows x86_64.
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Rust toolchain
+        run: |
+          rustup toolchain install "$RUST_TOOLCHAIN" --profile minimal --component rustfmt --component clippy --target wasm32-unknown-unknown
+          rustup default "$RUST_TOOLCHAIN"
+      - uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            target
+            runtime/rust/target
+            .ci-target
+          key: cargo-${{ runner.os }}-${{ env.RUST_TOOLCHAIN }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Rust crates
+        run: |
+          set -e
+          export KAZE_JUDGE_PYTHON="$(command -v python)"
+          cargo test --locked --all-features
+          cargo clippy --locked --all-features --all-targets -- -D warnings
+          cargo test --locked --manifest-path runtime/rust/Cargo.toml
+          cargo clippy --locked --manifest-path runtime/rust/Cargo.toml --all-targets -- -D warnings
+          cargo build --locked --release --manifest-path runtime/rust/Cargo.toml --bins --examples
+          CARGO_TARGET_DIR=.ci-target/probe cargo test --locked --manifest-path runtime/wasm/Cargo.toml
+          CARGO_TARGET_DIR=.ci-target/engine cargo test --locked --manifest-path apps/web-demo/engine/Cargo.toml
+      - name: Wasm builds
+        run: |
+          set -e
+          python -B tools/build_wasm.py probe --target-dir .ci-target/wasm
+          python -B tools/build_wasm.py engine --target-dir .ci-target/wasm
+          python -B tools/check_no_host_paths.py .ci-target/wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm
+      - name: Python tools (no model)
+        run: |
+          set -e
+          python -m pip install --disable-pip-version-check numpy==2.5.3
+          python -B -m unittest discover -s runtime -p "test_*.py"
+          (cd runtime/wasm && python -B -m unittest test_run_w0 test_run_w1 test_run_w2)
+          (cd apps/web-demo && python -B -m unittest discover -p "test_*.py")
