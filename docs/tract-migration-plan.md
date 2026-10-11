@@ -1,6 +1,6 @@
 # ONNX／Tract資産の移管計画
 
-2026-10-12。KazeJudgeに残っているJeff向けのONNX export・Tract推論実験・性能最適化・benchmark・数値検証と研究証跡を、pure-jeffへ移す。pure-jeffを、Native（Candle）・ONNX／Tract・ブラウザWasmの3系統の推論基盤として整理する。
+2026-10-12。**実施済み**（結果：[tract-migration-results-2026-10-12.md](tract-migration-results-2026-10-12.md)）。KazeJudgeに残っているJeff向けのONNX export・Tract推論実験・性能最適化・benchmark・数値検証と研究証跡を、pure-jeffへ移す。pure-jeffを、Native（Candle）・ONNX／Tract・ブラウザWasmの3系統の推論基盤として整理する。
 
 ## 前提と制約
 
