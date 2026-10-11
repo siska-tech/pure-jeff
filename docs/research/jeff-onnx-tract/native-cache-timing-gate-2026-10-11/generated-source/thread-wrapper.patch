@@ -1,0 +1,11 @@
+--- text320-main
++++ thread-matrix-main
+@@ -3,0 +4 @@
++mod threads;
+@@ -33,2 +34 @@
+-    std::env::set_var("CANDLE_NUM_THREADS", "1");
+-    std::env::set_var("RAYON_NUM_THREADS", "1");
++    let requested_threads = threads::configure(&job)?;
+@@ -77 +77 @@
+-        "threads":candle_core::utils::get_num_threads(),"retained_f32":retained,"retention_load_ns":retention_load_ns,"cached_tensors":cached_tensors,"cached_bytes":cached_bytes,"head_cached_tensors":head_cached_tensors,"head_cached_bytes":head_cached_bytes}),
++        "threads":candle_core::utils::get_num_threads(),"requested_threads":requested_threads,"rayon_pool_threads":rayon::current_num_threads(),"candle_env_threads":std::env::var("CANDLE_NUM_THREADS")?,"expected_barrier_aux_workers":requested_threads-1,"manifest_cpu_threads":header.policy.cpu_threads,"retained_f32":retained,"retention_load_ns":retention_load_ns,"cached_tensors":cached_tensors,"cached_bytes":cached_bytes,"head_cached_tensors":head_cached_tensors,"head_cached_bytes":head_cached_bytes}),

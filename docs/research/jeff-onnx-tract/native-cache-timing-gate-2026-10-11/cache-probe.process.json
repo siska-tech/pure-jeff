@@ -1,0 +1,18 @@
+{
+  "run_id": "cache-probe",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-cache-fixed-target\\release\\native_cache_fixed_bench.exe",
+    "--cache-probe",
+    "0"
+  ],
+  "timeout_seconds": 30,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 507653600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 5513216,
+  "memory_samples": 3,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

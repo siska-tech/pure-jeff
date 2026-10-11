@@ -1,0 +1,17 @@
+[
+  {
+    "path": "native-cache-fixed-build.log",
+    "original_sha256": "6fb3517d18f4440429cd6495b3cdb9c1bc8f87abd02bb3ad0de074108221f030",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  },
+  {
+    "path": "native-cache-fixed-clippy.log",
+    "original_sha256": "15cbd7c198698aea3dbecc75859b7fe29ba7f8a21b0f8d0824b21021b1ceaaa3",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  },
+  {
+    "path": "native-cache-fixed-test.log",
+    "original_sha256": "06c223e1306223edd2052fe4a4d6bbf864a7583b82b652db28d65a972e83335a",
+    "change": "strip trailing whitespace/CRLF; ignored original retained"
+  }
+]

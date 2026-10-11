@@ -368,3 +368,14 @@ cache/resource checks unchanged. No all-case within-process repeat or long
 resident history. This accepts only the instrumented fixture/host condition,
 not an uninstrumented timing build, production backend, performance or SLO.
 CPU0 is host-specific; main mask is restored before pool/model/forward.
+
+`prepare_native_cache_fixed.py` generates a separate timing wrapper from the
+frozen Native thread source plus the accepted cache-init module. Only main's
+initialization changes; backbone/weights/readout/threads and request output
+remain original. `validate_native_cache_timing.py --output
+experiments/runs/native-cache-timing-gate-20261011` checks a separate release
+exe: gate28 plus7 cases twice in4 resident children =84 forwards/8 children.
+Old/diagnostic/gate probabilities<=1e-6, existing ONNX/reference/pool/cache/
+resource gates unchanged; per-request diagnostic fields must be absent.
+Build/test/clippy/fmt hashes preregistered, CPU0 probe and invalid64 rejection.
+Numerical acceptance only, not latency/SLO; resident14 is not long history.

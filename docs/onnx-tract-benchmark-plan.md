@@ -159,3 +159,6 @@ host/build/power/ISA metadataへの参照
 
 
 追加の[全28ケース固定cache検証](onnx-tract-native-cache-fixed-gate.md)で、前回の診断exeとcacheB初期化条件を固定し、8独立process・56 forward（各ケース2 process）を検査した。元の反復閾値1e-6・旧gate・ONNX条件を維持した局所再受入で、性能用exe・長時間resident・正式SLO・backend採用は未受入。次は診断出力を持たない独立性能wrapperの数値同等性を検証する。
+
+
+追加の[固定cache性能用wrapper検証](onnx-tract-native-cache-timing-gate.md)で、request診断出力を除いた別crate／targetのexeを作成した。backbone／weights／readout／threadsは元wrapperと同一、156 package feature一致・16生成ファイル再現・Rust9試験／clippy／fmtに合格。全28件gate＋resident各2反復の84 forwardで診断版同等性と元の反復1e-6条件を局所受入した。次は固定exeでNative／Tractの新規長さ別pilotを行う。正式性能・SLO・長期resident・製品採用は未受入。

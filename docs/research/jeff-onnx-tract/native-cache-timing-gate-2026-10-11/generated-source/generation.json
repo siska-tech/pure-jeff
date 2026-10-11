@@ -1,0 +1,70 @@
+{
+  "generator_sha256": "a00994145e018b386724cef1873339a1028434ddde1c4a70f558c0aab99a763e",
+  "previous_generation_sha256": "4eb546360473762e4f3a9f4657cc548b8d70e189ab5d8289dc35f3a72206e719",
+  "diagnostic_generation_sha256": "d28e06930dcc62241e90d5d845d26250f7bdb744ba12f3828098873b8d8a36c2",
+  "files": [
+    {
+      "path": "backbone.patch",
+      "sha256": "256557d58c538764c11672230aae9bf9dd2802dd28382f21f9e57e861cf6b730"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "a2127fa33790cf18bb3dba503add22e73acf01fc9f50588b44bb5692240e0041"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "e414f2665e5b3c95ad79a632742b94b6c112f8a7a210d066cb6f8427b94c4373"
+    },
+    {
+      "path": "main.rs.cache-fixed.patch",
+      "sha256": "fd49e733fc5d936ae70371f0d578926dbed97ffb44679e432c089786a295eb9e"
+    },
+    {
+      "path": "readout.patch",
+      "sha256": "66b02ba7d44229d2d75b2f2356fd6383375aed9b4b76aa184784cbbad424b712"
+    },
+    {
+      "path": "src/backbone.rs",
+      "sha256": "97844fba2269538f10662bbfde1496a09cf1f8e4f28228f49626aa95e99508c0"
+    },
+    {
+      "path": "src/cache_diagnostic.rs",
+      "sha256": "2b0a3713c772ecab21a0e825e03a62276e0987ecb145a0b8efdb8d885445d57e"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "ff7183246038c6239dda7c0377815cc8e5f5c01fc80ffa65d1803451b51ddd1f"
+    },
+    {
+      "path": "src/readout.rs",
+      "sha256": "32168dee026d4e91ce5558bb5de6f626256d4c6ed8776731627468aebe3b88e2"
+    },
+    {
+      "path": "src/text_inventory.rs",
+      "sha256": "d214160d1188546a2ccbc993b6fba5cb8e950bc7431cb07ed3854d9fd78f4e69"
+    },
+    {
+      "path": "src/threads.rs",
+      "sha256": "ca24aa0cbfd65d45015b29d70c67edd42f239bbcb06d4137fe537a3806bb4c93"
+    },
+    {
+      "path": "src/weights.rs",
+      "sha256": "a52d022b479b711a338f2a625d1d8674f748fd2681624a273e08d5fcf199b22c"
+    },
+    {
+      "path": "text-selection.patch",
+      "sha256": "23b5995999756cd43de41bc27a3b42e66feb9ad350a8572f8f94a80419ca9928"
+    },
+    {
+      "path": "thread-wrapper.patch",
+      "sha256": "47b414f10447e0d57b66f7c6a1119a70a0e3fc369285fe5a7835850fe79cea13"
+    },
+    {
+      "path": "wrapper.patch",
+      "sha256": "f409e23570d9b566740289ca3f67d64a36337d9cf98e81afafa435d156ff70b1"
+    }
+  ],
+  "scope": "explicit cache init before pool/model/forward, restore main thread mask; original request output and backbone/weights/readout/threads unchanged",
+  "runtime_api_changed": false,
+  "performance_acceptance": false
+}
