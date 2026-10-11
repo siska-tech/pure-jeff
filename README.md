@@ -12,7 +12,7 @@ Jeff（Qwen3.5-0.8BベースのDecision Model）の候補判断を、Python・Py
 | ブラウザWasm（`runtime/wasm`） | Chrome／Edgeで128〜512 tokens・2〜8候補の12件が公式参照と一致（最大2.38e-6）。反復・不正入力・資産破損・取消・再読込を確認 | [W0](docs/wasm-w0-results.md)〜[W2](docs/wasm-w2-results.md) |
 | Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存ができる。Chrome／Edgeの自動E2Eに合格。未公開 | [W3](docs/web-demo-w3-results.md) |
 
-性能の許容値（SLO）、配布用のライセンス確定、Python未導入の端末での検証、公開は未完了。
+公式Jeffとの1 thread横並びベンチマーク（[結果](docs/benchmark-results-2026-10-11.md)）では、1要求ごとに起動するone-shotでNativeが1.65〜2.78倍速く、メモリは半分以下だった。モデル常駐では公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断した。性能の許容値（SLO）、配布用のライセンス確定、Python未導入の端末での検証、公開は未完了。
 
 ## 構成
 
@@ -31,7 +31,7 @@ docs/                      計画・進捗・検証記録と証跡（docs/README
 ## 必要なもの
 
 - Rust 1.99.0、`wasm32-unknown-unknown` target（Wasm／デモ）
-- `models/`（git管理外）：`models/jeff-checkpoint/`に固定checkpointの11ファイル、`models/jeff-rust-bundle-p3.json`にbundle manifest。照合方法は[Rust実行手順](runtime/rust/README.md)を参照
+- `models/`（git管理外）：`models/jeff-checkpoint/`に固定checkpointの11ファイル。bundle manifestは`jeff lock`で作る（runtimeのsourceのhashを固定するため、契約crateやruntimeを変えたら作り直す）。照合方法は[Rust実行手順](runtime/rust/README.md)を参照
 - 公式Jeffとの照合やベンチマークだけ：固定commitのJeff sourceと依存環境（[手順](docs/jeff-runtime.md)）
 
 ## 検証

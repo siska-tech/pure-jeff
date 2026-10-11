@@ -1,0 +1,1070 @@
+[
+ {
+  "index": 0,
+  "arm": "native",
+  "case": "candidate-request",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 5.446782799903303,
+  "memory": {
+   "max_tree_working_set": 1594961920,
+   "max_tree_private": 578912256,
+   "max_process_peak_working_set": 1601032192,
+   "samples": 45
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.928595244884491,
+   0.07140474766492844
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 2.384185791015625e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 1,
+  "arm": "jeff",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 17.85051740007475,
+  "memory": {
+   "max_tree_working_set": 4022235136,
+   "max_tree_private": 4706332672,
+   "max_process_peak_working_set": 4010520576,
+   "samples": 142
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:11,  6.60it/s]\rLoading weights:  22%|██▏       | 106/473 [00:00<00:00, 501.69it/s]\rLoading weights:  35%|███▌      | 166/473 [00:00<00:00, 472.69it/s]\rLoading weights:  46%|████▋     | 219/473 [00:00<00:00, 428.70it/s]\rLoading weights:  56%|█████▌    | 266/473 [00:00<00:00, 434.20it/s]\rLoading weights:  66%|██████▌   | 312/473 [00:00<00:00, 379.57it/s]\rLoading weights:  84%|████████▎ | 396/473 [00:00<00:00, 492.04it/s]\rLoading weights:  96%|█████████▌| 453/473 [00:01<00:00, 513.05it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 469.43it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.633741021156311,
+   0.3662589490413666
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 2,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 16.235462500248104,
+  "memory": {
+   "max_tree_working_set": 4009701376,
+   "max_tree_private": 4633382912,
+   "max_process_peak_working_set": 3997478912,
+   "samples": 129
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<00:55,  8.50it/s]\rLoading weights:  22%|██▏       | 102/473 [00:00<00:00, 479.38it/s]\rLoading weights:  33%|███▎      | 157/473 [00:00<00:00, 492.56it/s]\rLoading weights:  44%|████▎     | 206/473 [00:00<00:00, 486.56it/s]\rLoading weights:  54%|█████▍    | 255/473 [00:00<00:00, 438.31it/s]\rLoading weights:  63%|██████▎   | 299/473 [00:00<00:00, 397.49it/s]\rLoading weights:  79%|███████▉  | 376/473 [00:00<00:00, 489.67it/s]\rLoading weights:  97%|█████████▋| 460/473 [00:00<00:00, 558.88it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 493.94it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380380511283875,
+   0.06196190044283867
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 3,
+  "arm": "jeff",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 17.80256999982521,
+  "memory": {
+   "max_tree_working_set": 4024852480,
+   "max_tree_private": 4694134784,
+   "max_process_peak_working_set": 4013322240,
+   "samples": 142
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:13,  6.42it/s]\rLoading weights:  22%|██▏       | 106/473 [00:00<00:00, 496.97it/s]\rLoading weights:  35%|███▌      | 166/473 [00:00<00:00, 451.21it/s]\rLoading weights:  46%|████▌     | 218/473 [00:00<00:00, 434.00it/s]\rLoading weights:  56%|█████▌    | 265/473 [00:00<00:00, 429.79it/s]\rLoading weights:  66%|██████▌   | 311/473 [00:00<00:00, 413.01it/s]\rLoading weights:  79%|███████▉  | 376/473 [00:00<00:00, 477.88it/s]\rLoading weights:  97%|█████████▋| 458/473 [00:00<00:00, 560.77it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 478.54it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.633741021156311,
+   0.3662589490413666
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 4,
+  "arm": "native",
+  "case": "asr-unicode",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 6.624640599824488,
+  "memory": {
+   "max_tree_working_set": 1602293760,
+   "max_tree_private": 578842624,
+   "max_process_peak_working_set": 1602334720,
+   "samples": 53
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.635992169380188,
+   0.3610706627368927,
+   0.002937160898000002
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 5.066394805908203e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 5,
+  "arm": "native",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 7.475223199930042,
+  "memory": {
+   "max_tree_working_set": 1598377984,
+   "max_tree_private": 578342912,
+   "max_process_peak_working_set": 1603670016,
+   "samples": 60
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380379319190979,
+   0.06196201220154762
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 1.1920928955078125e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 6,
+  "arm": "jeff",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 19.88593679992482,
+  "memory": {
+   "max_tree_working_set": 4045541376,
+   "max_tree_private": 4707827712,
+   "max_process_peak_working_set": 4039446528,
+   "samples": 159
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:  14%|█▎        | 65/473 [00:00<00:00, 598.09it/s]\rLoading weights:  26%|██▋       | 125/473 [00:00<00:00, 497.42it/s]\rLoading weights:  37%|███▋      | 176/473 [00:00<00:00, 432.92it/s]\rLoading weights:  48%|████▊     | 226/473 [00:00<00:00, 429.31it/s]\rLoading weights:  58%|█████▊    | 273/473 [00:00<00:00, 435.25it/s]\rLoading weights:  67%|██████▋   | 317/473 [00:00<00:00, 404.61it/s]\rLoading weights:  85%|████████▍ | 401/473 [00:00<00:00, 514.07it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 503.81it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364819526672363,
+   0.06351809203624725
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 7,
+  "arm": "native",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 12.140993899665773,
+  "memory": {
+   "max_tree_working_set": 1610756096,
+   "max_tree_private": 578412544,
+   "max_process_peak_working_set": 1626550272,
+   "samples": 97
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633882880210876,
+   0.0894194021821022,
+   0.06949261575937271,
+   0.05251253768801689,
+   0.07833296805620193,
+   0.06976400315761566,
+   0.026990283280611038,
+   0.05009987950325012
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 2.384185791015625e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 8,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 16.763822400011122,
+  "memory": {
+   "max_tree_working_set": 4011696128,
+   "max_tree_private": 4664324096,
+   "max_process_peak_working_set": 4000751616,
+   "samples": 135
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:06,  7.12it/s]\rLoading weights:  24%|██▍       | 114/473 [00:00<00:00, 560.69it/s]\rLoading weights:  38%|███▊      | 178/473 [00:00<00:00, 469.10it/s]\rLoading weights:  49%|████▉     | 231/473 [00:00<00:00, 473.36it/s]\rLoading weights:  60%|█████▉    | 282/473 [00:00<00:00, 443.38it/s]\rLoading weights:  70%|██████▉   | 329/473 [00:00<00:00, 436.62it/s]\rLoading weights:  87%|████████▋ | 411/473 [00:00<00:00, 537.69it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 497.34it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380380511283875,
+   0.06196190044283867
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 9,
+  "arm": "jeff",
+  "case": "asr-unicode",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 16.172095600049943,
+  "memory": {
+   "max_tree_working_set": 4006604800,
+   "max_tree_private": 4666556416,
+   "max_process_peak_working_set": 3995422720,
+   "samples": 129
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:09,  6.74it/s]\rLoading weights:  22%|██▏       | 103/473 [00:00<00:00, 501.79it/s]\rLoading weights:  34%|███▍      | 163/473 [00:00<00:00, 437.98it/s]\rLoading weights:  45%|████▌     | 213/473 [00:00<00:00, 433.85it/s]\rLoading weights:  55%|█████▍    | 260/473 [00:00<00:00, 385.51it/s]\rLoading weights:  64%|██████▍   | 304/473 [00:00<00:00, 387.64it/s]\rLoading weights:  78%|███████▊  | 368/473 [00:00<00:00, 456.47it/s]\rLoading weights:  95%|█████████▍| 448/473 [00:00<00:00, 546.27it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 456.66it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.6359871029853821,
+   0.3610756993293762,
+   0.002937162760645151
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 10,
+  "arm": "jeff",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 19.9089302001521,
+  "memory": {
+   "max_tree_working_set": 4051681280,
+   "max_tree_private": 4715098112,
+   "max_process_peak_working_set": 4045324288,
+   "samples": 159
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:22,  5.73it/s]\rLoading weights:  22%|██▏       | 106/473 [00:00<00:00, 444.20it/s]\rLoading weights:  34%|███▍      | 160/473 [00:00<00:00, 437.39it/s]\rLoading weights:  44%|████▍     | 209/473 [00:00<00:00, 428.43it/s]\rLoading weights:  54%|█████▍    | 255/473 [00:00<00:00, 424.01it/s]\rLoading weights:  64%|██████▎   | 301/473 [00:00<00:00, 398.91it/s]\rLoading weights:  76%|███████▌  | 360/473 [00:00<00:00, 446.42it/s]\rLoading weights:  95%|█████████▍| 449/473 [00:00<00:00, 566.36it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 461.52it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364819526672363,
+   0.06351809203624725
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 11,
+  "arm": "jeff",
+  "case": "candidate-request",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 15.138868799898773,
+  "memory": {
+   "max_tree_working_set": 3994492928,
+   "max_tree_private": 4596838400,
+   "max_process_peak_working_set": 3983798272,
+   "samples": 122
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<00:49,  9.49it/s]\rLoading weights:  22%|██▏       | 102/473 [00:00<00:00, 584.83it/s]\rLoading weights:  34%|███▍      | 162/473 [00:00<00:00, 508.10it/s]\rLoading weights:  45%|████▌     | 215/473 [00:00<00:00, 442.50it/s]\rLoading weights:  55%|█████▌    | 262/473 [00:00<00:00, 448.62it/s]\rLoading weights:  65%|██████▌   | 309/473 [00:00<00:00, 392.07it/s]\rLoading weights:  83%|████████▎ | 394/473 [00:00<00:00, 508.18it/s]\rLoading weights:  97%|█████████▋| 460/473 [00:00<00:00, 547.93it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 488.43it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9285950064659119,
+   0.07140493392944336
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 12,
+  "arm": "jeff",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 20.098373000044376,
+  "memory": {
+   "max_tree_working_set": 4054642688,
+   "max_tree_private": 4703113216,
+   "max_process_peak_working_set": 4050034688,
+   "samples": 161
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:13,  6.39it/s]\rLoading weights:  22%|██▏       | 103/473 [00:00<00:00, 441.92it/s]\rLoading weights:  32%|███▏      | 153/473 [00:00<00:00, 439.42it/s]\rLoading weights:  42%|████▏     | 200/473 [00:00<00:00, 413.84it/s]\rLoading weights:  51%|█████▏    | 243/473 [00:00<00:00, 372.28it/s]\rLoading weights:  63%|██████▎   | 298/473 [00:00<00:00, 421.30it/s]\rLoading weights:  79%|███████▊  | 372/473 [00:00<00:00, 507.18it/s]\rLoading weights:  93%|█████████▎| 441/473 [00:00<00:00, 556.78it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 468.91it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364819526672363,
+   0.06351809203624725
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 13,
+  "arm": "jeff",
+  "case": "asr-unicode",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 16.077489899937063,
+  "memory": {
+   "max_tree_working_set": 4008275968,
+   "max_tree_private": 4698230784,
+   "max_process_peak_working_set": 3996024832,
+   "samples": 129
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:22,  5.72it/s]\rLoading weights:  22%|██▏       | 105/473 [00:00<00:00, 456.66it/s]\rLoading weights:  34%|███▍      | 163/473 [00:00<00:00, 455.01it/s]\rLoading weights:  45%|████▌     | 215/473 [00:00<00:00, 437.96it/s]\rLoading weights:  56%|█████▌    | 264/473 [00:00<00:00, 437.52it/s]\rLoading weights:  66%|██████▌   | 311/473 [00:00<00:00, 429.86it/s]\rLoading weights:  84%|████████▎ | 396/473 [00:00<00:00, 532.29it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 486.20it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.6359871029853821,
+   0.3610756993293762,
+   0.002937162760645151
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 14,
+  "arm": "native",
+  "case": "candidate-request",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 5.6865166001953185,
+  "memory": {
+   "max_tree_working_set": 1598005248,
+   "max_tree_private": 579182592,
+   "max_process_peak_working_set": 1600630784,
+   "samples": 46
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.928595244884491,
+   0.07140474766492844
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 2.384185791015625e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 15,
+  "arm": "native",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 7.724208700004965,
+  "memory": {
+   "max_tree_working_set": 1596850176,
+   "max_tree_private": 577695744,
+   "max_process_peak_working_set": 1603928064,
+   "samples": 62
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380379319190979,
+   0.06196201220154762
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 1.1920928955078125e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 16,
+  "arm": "native",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 9.88888859981671,
+  "memory": {
+   "max_tree_working_set": 1608876032,
+   "max_tree_private": 577372160,
+   "max_process_peak_working_set": 1607348224,
+   "samples": 79
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.6337430477142334,
+   0.366256982088089
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 2.0265579223632812e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 17,
+  "arm": "jeff",
+  "case": "asr-unicode",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 16.406833599787205,
+  "memory": {
+   "max_tree_working_set": 4009222144,
+   "max_tree_private": 4676218880,
+   "max_process_peak_working_set": 3997044736,
+   "samples": 131
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:07,  6.99it/s]\rLoading weights:  19%|█▉        | 90/473 [00:00<00:00, 409.28it/s]\rLoading weights:  30%|██▉       | 140/473 [00:00<00:00, 432.29it/s]\rLoading weights:  39%|███▉      | 186/473 [00:00<00:00, 418.35it/s]\rLoading weights:  49%|████▊     | 230/473 [00:00<00:00, 415.36it/s]\rLoading weights:  59%|█████▉    | 279/473 [00:00<00:00, 424.31it/s]\rLoading weights:  69%|██████▉   | 326/473 [00:00<00:00, 437.48it/s]\rLoading weights:  86%|████████▋ | 408/473 [00:00<00:00, 528.17it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 472.22it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.6359871029853821,
+   0.3610756993293762,
+   0.002937162760645151
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 18,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 20.521006799768656,
+  "memory": {
+   "max_tree_working_set": 4052815872,
+   "max_tree_private": 4691951616,
+   "max_process_peak_working_set": 4043173888,
+   "samples": 165
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:19,  5.96it/s]\rLoading weights:  24%|██▎       | 112/473 [00:00<00:00, 505.63it/s]\rLoading weights:  37%|███▋      | 176/473 [00:00<00:00, 415.60it/s]\rLoading weights:  48%|████▊     | 226/473 [00:00<00:00, 428.60it/s]\rLoading weights:  58%|█████▊    | 275/473 [00:00<00:00, 410.49it/s]\rLoading weights:  71%|███████   | 335/473 [00:00<00:00, 454.94it/s]\rLoading weights:  86%|████████▌ | 407/473 [00:00<00:00, 526.96it/s]\rLoading weights: 100%|██████████| 473/473 [00:01<00:00, 472.94it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633859038352966,
+   0.08941944688558578,
+   0.06949298083782196,
+   0.052512913942337036,
+   0.07833345979452133,
+   0.06976456940174103,
+   0.026990476995706558,
+   0.050100285559892654
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 19,
+  "arm": "native",
+  "case": "candidate-request",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 5.443377499934286,
+  "memory": {
+   "max_tree_working_set": 1558532096,
+   "max_tree_private": 579166208,
+   "max_process_peak_working_set": 1600618496,
+   "samples": 44
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.928595244884491,
+   0.07140474766492844
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 2.384185791015625e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 20,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 16.89632899966091,
+  "memory": {
+   "max_tree_working_set": 4004106240,
+   "max_tree_private": 4674375680,
+   "max_process_peak_working_set": 3992395776,
+   "samples": 137
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:09,  6.80it/s]\rLoading weights:  22%|██▏       | 106/473 [00:00<00:00, 493.37it/s]\rLoading weights:  34%|███▍      | 162/473 [00:00<00:00, 471.34it/s]\rLoading weights:  45%|████▌     | 213/473 [00:00<00:00, 439.30it/s]\rLoading weights:  55%|█████▍    | 260/473 [00:00<00:00, 441.67it/s]\rLoading weights:  65%|██████▍   | 306/473 [00:00<00:00, 418.32it/s]\rLoading weights:  84%|████████▎ | 396/473 [00:00<00:00, 540.09it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 496.68it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380380511283875,
+   0.06196190044283867
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 21,
+  "arm": "native",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 9.875637999735773,
+  "memory": {
+   "max_tree_working_set": 1592922112,
+   "max_tree_private": 577687552,
+   "max_process_peak_working_set": 1607630848,
+   "samples": 80
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.6337430477142334,
+   0.366256982088089
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 2.0265579223632812e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 22,
+  "arm": "native",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 12.09524489985779,
+  "memory": {
+   "max_tree_working_set": 1614618624,
+   "max_tree_private": 578969600,
+   "max_process_peak_working_set": 1626214400,
+   "samples": 98
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364815950393677,
+   0.06351837515830994
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 3.5762786865234375e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 23,
+  "arm": "native",
+  "case": "synthetic-ocr-ja-2-256",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 7.743299399968237,
+  "memory": {
+   "max_tree_working_set": 1593004032,
+   "max_tree_private": 577986560,
+   "max_process_peak_working_set": 1603780608,
+   "samples": 63
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9380379319190979,
+   0.06196201220154762
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 256,
+  "gate": {
+   "error": 1.1920928955078125e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 24,
+  "arm": "jeff",
+  "case": "candidate-request",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 15.220253399573267,
+  "memory": {
+   "max_tree_working_set": 3988340736,
+   "max_tree_private": 4664557568,
+   "max_process_peak_working_set": 3976097792,
+   "samples": 123
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:03,  7.40it/s]\rLoading weights:  24%|██▎       | 112/473 [00:00<00:00, 540.60it/s]\rLoading weights:  36%|███▌      | 171/473 [00:00<00:00, 494.46it/s]\rLoading weights:  47%|████▋     | 224/473 [00:00<00:00, 459.64it/s]\rLoading weights:  58%|█████▊    | 272/473 [00:00<00:00, 429.62it/s]\rLoading weights:  67%|██████▋   | 317/473 [00:00<00:00, 428.48it/s]\rLoading weights:  89%|████████▉ | 421/473 [00:00<00:00, 602.95it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 516.58it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9285950064659119,
+   0.07140493392944336
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 25,
+  "arm": "native",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 11.987309099640697,
+  "memory": {
+   "max_tree_working_set": 1622331392,
+   "max_tree_private": 579792896,
+   "max_process_peak_working_set": 1626472448,
+   "samples": 98
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633882880210876,
+   0.0894194021821022,
+   0.06949261575937271,
+   0.05251253768801689,
+   0.07833296805620193,
+   0.06976400315761566,
+   0.026990283280611038,
+   0.05009987950325012
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 2.384185791015625e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 26,
+  "arm": "native",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 9.921026700176299,
+  "memory": {
+   "max_tree_working_set": 1612210176,
+   "max_tree_private": 579690496,
+   "max_process_peak_working_set": 1607532544,
+   "samples": 80
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.6337430477142334,
+   0.366256982088089
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 2.0265579223632812e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 27,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 19.935925900004804,
+  "memory": {
+   "max_tree_working_set": 4050173952,
+   "max_tree_private": 4744032256,
+   "max_process_peak_working_set": 4043522048,
+   "samples": 160
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<00:51,  9.16it/s]\rLoading weights:  22%|██▏       | 106/473 [00:00<00:00, 570.12it/s]\rLoading weights:  35%|███▍      | 164/473 [00:00<00:00, 518.24it/s]\rLoading weights:  46%|████▌     | 217/473 [00:00<00:00, 452.63it/s]\rLoading weights:  56%|█████▌    | 264/473 [00:00<00:00, 444.23it/s]\rLoading weights:  65%|██████▌   | 309/473 [00:00<00:00, 420.81it/s]\rLoading weights:  85%|████████▍ | 400/473 [00:00<00:00, 559.30it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 533.10it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633859038352966,
+   0.08941944688558578,
+   0.06949298083782196,
+   0.052512913942337036,
+   0.07833345979452133,
+   0.06976456940174103,
+   0.026990476995706558,
+   0.050100285559892654
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 28,
+  "arm": "jeff",
+  "case": "synthetic-asr-unicode-2-384",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 18.196231000125408,
+  "memory": {
+   "max_tree_working_set": 4028325888,
+   "max_tree_private": 4708782080,
+   "max_process_peak_working_set": 4016087040,
+   "samples": 147
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:05,  7.24it/s]\rLoading weights:  24%|██▍       | 114/473 [00:00<00:00, 571.95it/s]\rLoading weights:  38%|███▊      | 180/473 [00:00<00:00, 474.98it/s]\rLoading weights:  49%|████▉     | 234/473 [00:00<00:00, 450.95it/s]\rLoading weights:  60%|█████▉    | 283/473 [00:00<00:00, 452.72it/s]\rLoading weights:  70%|███████   | 333/473 [00:00<00:00, 455.86it/s]\rLoading weights:  94%|█████████▎| 443/473 [00:00<00:00, 625.81it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 525.75it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.633741021156311,
+   0.3662589490413666
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 384,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 29,
+  "arm": "native",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 12.032668099738657,
+  "memory": {
+   "max_tree_working_set": 1599709184,
+   "max_tree_private": 579072000,
+   "max_process_peak_working_set": 1625997312,
+   "samples": 97
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364815950393677,
+   0.06351837515830994
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 3.5762786865234375e-07,
+   "passed": true
+  }
+ },
+ {
+  "index": 30,
+  "arm": "jeff",
+  "case": "candidate-request",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 14.978495500050485,
+  "memory": {
+   "max_tree_working_set": 3992686592,
+   "max_tree_private": 4671148032,
+   "max_process_peak_working_set": 3981983744,
+   "samples": 122
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:13,  6.45it/s]\rLoading weights:  21%|██        | 100/473 [00:00<00:00, 471.03it/s]\rLoading weights:  33%|███▎      | 157/473 [00:00<00:00, 445.16it/s]\rLoading weights:  44%|████▍     | 207/473 [00:00<00:00, 448.25it/s]\rLoading weights:  54%|█████▍    | 256/473 [00:00<00:00, 423.42it/s]\rLoading weights:  64%|██████▎   | 301/473 [00:00<00:00, 418.00it/s]\rLoading weights:  82%|████████▏ | 388/473 [00:00<00:00, 540.31it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 503.64it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.9285950064659119,
+   0.07140493392944336
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "original"
+  },
+  "input_tokens": 128,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 31,
+  "arm": "jeff",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 20.09485789993778,
+  "memory": {
+   "max_tree_working_set": 4081192960,
+   "max_tree_private": 4703252480,
+   "max_process_peak_working_set": 4100841472,
+   "samples": 163
+  },
+  "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:08,  6.87it/s]\rLoading weights:  25%|██▍       | 118/473 [00:00<00:00, 522.88it/s]\rLoading weights:  37%|███▋      | 175/473 [00:00<00:00, 496.93it/s]\rLoading weights:  48%|████▊     | 227/473 [00:00<00:00, 447.83it/s]\rLoading weights:  58%|█████▊    | 274/473 [00:00<00:00, 444.66it/s]\rLoading weights:  68%|██████▊   | 320/473 [00:00<00:00, 436.68it/s]\rLoading weights:  91%|█████████ | 431/473 [00:00<00:00, 626.64it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 517.58it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633859038352966,
+   0.08941944688558578,
+   0.06949298083782196,
+   0.052512913942337036,
+   0.07833345979452133,
+   0.06976456940174103,
+   0.026990476995706558,
+   0.050100285559892654
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 0.0,
+   "passed": true
+  }
+ },
+ {
+  "index": 32,
+  "arm": "native",
+  "case": "asr-unicode",
+  "rep": 0,
+  "returncode": 0,
+  "wall_s": 6.800501300022006,
+  "memory": {
+   "max_tree_working_set": 1603194880,
+   "max_tree_private": 579891200,
+   "max_process_peak_working_set": 1603235840,
+   "samples": 55
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.635992169380188,
+   0.3610706627368927,
+   0.002937160898000002
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 5.066394805908203e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 33,
+  "arm": "native",
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "returncode": 0,
+  "wall_s": 12.168753100093454,
+  "memory": {
+   "max_tree_working_set": 1600221184,
+   "max_tree_private": 579485696,
+   "max_process_peak_working_set": 1626505216,
+   "samples": 98
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.5633882880210876,
+   0.0894194021821022,
+   0.06949261575937271,
+   0.05251253768801689,
+   0.07833296805620193,
+   0.06976400315761566,
+   0.026990283280611038,
+   0.05009987950325012
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 2.384185791015625e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 34,
+  "arm": "native",
+  "case": "asr-unicode",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 6.882278600241989,
+  "memory": {
+   "max_tree_working_set": 1609838592,
+   "max_tree_private": 580493312,
+   "max_process_peak_working_set": 1603248128,
+   "samples": 56
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.635992169380188,
+   0.3610706627368927,
+   0.002937160898000002
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 206,
+  "gate": {
+   "error": 5.066394805908203e-06,
+   "passed": true
+  }
+ },
+ {
+  "index": 35,
+  "arm": "native",
+  "case": "synthetic-asr-mixed-2-512",
+  "rep": 1,
+  "returncode": 0,
+  "wall_s": 12.14054589997977,
+  "memory": {
+   "max_tree_working_set": 1613438976,
+   "max_tree_private": 577953792,
+   "max_process_peak_working_set": 1626357760,
+   "samples": 99
+  },
+  "stderr": "",
+  "result_status": "completed",
+  "probabilities": [
+   0.9364815950393677,
+   0.06351837515830994
+  ],
+  "judgment": {
+   "kind": "selected",
+   "candidate_id": "a"
+  },
+  "input_tokens": 512,
+  "gate": {
+   "error": 3.5762786865234375e-07,
+   "passed": true
+  }
+ }
+]

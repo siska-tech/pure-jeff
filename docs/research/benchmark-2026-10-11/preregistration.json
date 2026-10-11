@@ -1,0 +1,380 @@
+{
+ "schema_version": "pure_jeff.side_by_side_preregistration.v1",
+ "created_utc": "2026-10-11T13:51:35.464060+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "decision": "every recorded decision (one-shot, resident and warm-up) completes with the official judgment and input token count and probabilities within the bound",
+  "repeat": "within an arm and mode, every decision of the same case has bitwise identical probabilities",
+  "threads": "jeff torch intra-op threads 1 (OMP/MKL 1); native compute threads 1; wasm single-threaded",
+  "environment": "AC power at start and end; no other benchmark/build process at start"
+ },
+ "cases": [
+  "candidate-request",
+  "asr-unicode",
+  "synthetic-ocr-ja-2-256",
+  "synthetic-asr-unicode-2-384",
+  "synthetic-asr-mixed-2-512",
+  "synthetic-ocr-ascii-8-512"
+ ],
+ "warmup": "candidate-request",
+ "oneshot_plan": [
+  [
+   "native",
+   "candidate-request",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-asr-unicode-2-384",
+   0
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ja-2-256",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-asr-unicode-2-384",
+   1
+  ],
+  [
+   "native",
+   "asr-unicode",
+   2
+  ],
+  [
+   "native",
+   "synthetic-ocr-ja-2-256",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-asr-mixed-2-512",
+   2
+  ],
+  [
+   "native",
+   "synthetic-ocr-ascii-8-512",
+   0
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ja-2-256",
+   1
+  ],
+  [
+   "jeff",
+   "asr-unicode",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-asr-mixed-2-512",
+   0
+  ],
+  [
+   "jeff",
+   "candidate-request",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-asr-mixed-2-512",
+   1
+  ],
+  [
+   "jeff",
+   "asr-unicode",
+   0
+  ],
+  [
+   "native",
+   "candidate-request",
+   0
+  ],
+  [
+   "native",
+   "synthetic-ocr-ja-2-256",
+   0
+  ],
+  [
+   "native",
+   "synthetic-asr-unicode-2-384",
+   0
+  ],
+  [
+   "jeff",
+   "asr-unicode",
+   1
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ascii-8-512",
+   1
+  ],
+  [
+   "native",
+   "candidate-request",
+   1
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ja-2-256",
+   0
+  ],
+  [
+   "native",
+   "synthetic-asr-unicode-2-384",
+   1
+  ],
+  [
+   "native",
+   "synthetic-asr-mixed-2-512",
+   2
+  ],
+  [
+   "native",
+   "synthetic-ocr-ja-2-256",
+   1
+  ],
+  [
+   "jeff",
+   "candidate-request",
+   0
+  ],
+  [
+   "native",
+   "synthetic-ocr-ascii-8-512",
+   1
+  ],
+  [
+   "native",
+   "synthetic-asr-unicode-2-384",
+   2
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ascii-8-512",
+   0
+  ],
+  [
+   "jeff",
+   "synthetic-asr-unicode-2-384",
+   2
+  ],
+  [
+   "native",
+   "synthetic-asr-mixed-2-512",
+   0
+  ],
+  [
+   "jeff",
+   "candidate-request",
+   1
+  ],
+  [
+   "jeff",
+   "synthetic-ocr-ascii-8-512",
+   2
+  ],
+  [
+   "native",
+   "asr-unicode",
+   0
+  ],
+  [
+   "native",
+   "synthetic-ocr-ascii-8-512",
+   2
+  ],
+  [
+   "native",
+   "asr-unicode",
+   1
+  ],
+  [
+   "native",
+   "synthetic-asr-mixed-2-512",
+   1
+  ]
+ ],
+ "resident_plan": [
+  {
+   "block": 0,
+   "arm_order": [
+    "jeff",
+    "native",
+    "wasm"
+   ],
+   "job": [
+    "candidate-request",
+    "synthetic-ocr-ascii-8-512",
+    "synthetic-ocr-ja-2-256",
+    "asr-unicode",
+    "synthetic-asr-mixed-2-512",
+    "synthetic-asr-unicode-2-384",
+    "candidate-request",
+    "synthetic-ocr-ja-2-256",
+    "asr-unicode",
+    "synthetic-asr-unicode-2-384",
+    "candidate-request",
+    "synthetic-ocr-ascii-8-512",
+    "synthetic-asr-mixed-2-512"
+   ]
+  },
+  {
+   "block": 1,
+   "arm_order": [
+    "native",
+    "wasm",
+    "jeff"
+   ],
+   "job": [
+    "candidate-request",
+    "asr-unicode",
+    "synthetic-asr-mixed-2-512",
+    "synthetic-ocr-ascii-8-512",
+    "synthetic-ocr-ja-2-256",
+    "synthetic-ocr-ascii-8-512",
+    "synthetic-ocr-ja-2-256",
+    "candidate-request",
+    "synthetic-asr-unicode-2-384",
+    "candidate-request",
+    "asr-unicode",
+    "synthetic-asr-mixed-2-512",
+    "synthetic-asr-unicode-2-384"
+   ]
+  },
+  {
+   "block": 2,
+   "arm_order": [
+    "wasm",
+    "jeff",
+    "native"
+   ],
+   "job": [
+    "candidate-request",
+    "synthetic-asr-mixed-2-512",
+    "synthetic-ocr-ja-2-256",
+    "candidate-request",
+    "asr-unicode",
+    "synthetic-asr-mixed-2-512",
+    "asr-unicode",
+    "synthetic-ocr-ascii-8-512",
+    "candidate-request",
+    "synthetic-ocr-ja-2-256",
+    "synthetic-asr-unicode-2-384",
+    "synthetic-ocr-ascii-8-512",
+    "synthetic-asr-unicode-2-384"
+   ]
+  }
+ ],
+ "seed": 20261011,
+ "hashes": {
+  "python": "2204195cec25879507d958a8b6949add67091244b8b4da9cf3672f993548fa49",
+  "py_manifest": "b561a98bf81d68a700c50f04ed88e3b903340895003eb63a7514b50ff97ef322",
+  "rust_manifest": "7de618cb0e2631a3776dbc15cabc37f5068997109277ab362896405f807ce9f5",
+  "jeff_exe": "f9c2d7024bf7dab2c7c775ffdaf2cdf604d66d24edbad9790cf6e9c1f6cd0d30",
+  "resident_exe": "5b64ae6e9be744afa79cf3a4fd1c6f3f09aee6edc1f0bc7650ea9f88e6b431e1",
+  "wasm": "113fdbd257700f12927fbce27773aa57cee05c9fa043d560da1c3e360478a910",
+  "browser": "392dec76f7d4a54f6bc9c360e8d21a56c428173b6c6a90f2be38a2714d606227",
+  "driver": "3f16306925153bdb95d2b8a10b9b3282b45fa816e522cd77aacae606e4fb3050",
+  "jeff_resident": "d2eb9d67a9ce044187b57c12e50ed30db782d74f8724bac60c4149f8695a0360",
+  "bench_page": "16708be8b4c689e117c9168d1cba200a3e2a3c71aa752fc94ea4dbc7933d0d9d",
+  "w2_worker": "838e5fca525cbd06de0e07df41fe0d803dd89e6315d19fde43ac08a2f7059768",
+  "jeff_worker": "a7f1ed0a8dac713a4ada6937811a694c99a254b690bbfaa07cd2589c030e22ad",
+  "references": {
+   "candidate-request": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+   "asr-unicode": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+   "synthetic-ocr-ja-2-256": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+   "synthetic-asr-unicode-2-384": "356fa7fa9779d5ad1ca72eb2bf17294e8302a19058452fc87c54a63e92df8902",
+   "synthetic-asr-mixed-2-512": "b46bb3e6ebde5d68ded59e21dd1ba604193efb237133e98be739bbc9ecd0237f",
+   "synthetic-ocr-ascii-8-512": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3"
+  }
+ },
+ "environment_start": {
+  "time_utc": "2026-10-11T13:51:35.353107+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 79,
+  "battery_saver": 0,
+  "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "logical_cpus": 16,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 42620,
+    "CPU": 32849.25,
+    "WS_MB": 98
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16952,
+    "CPU": 32365.5,
+    "WS_MB": 171
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 7740,
+    "CPU": 30121.953125,
+    "WS_MB": 377
+   },
+   {
+    "ProcessName": "Taskmgr",
+    "Id": 7932,
+    "CPU": 28487.65625,
+    "WS_MB": 157
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 18028,
+    "CPU": 14748.71875,
+    "WS_MB": 138
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 9504,
+    "CPU": 14233.359375,
+    "WS_MB": 181
+   },
+   {
+    "ProcessName": "esbuild",
+    "Id": 39492,
+    "CPU": 13653.796875,
+    "WS_MB": 18
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 35080,
+    "CPU": 9146.15625,
+    "WS_MB": 188
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 43804,
+    "CPU": 7914.375,
+    "WS_MB": 153
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 33992,
+    "CPU": 7731.6875,
+    "WS_MB": 182
+   },
+   {
+    "ProcessName": "explorer",
+    "Id": 13512,
+    "CPU": 7457.015625,
+    "WS_MB": 285
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 40500,
+    "CPU": 7141.65625,
+    "WS_MB": 241
+   }
+  ]
+ }
+}

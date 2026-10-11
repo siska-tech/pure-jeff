@@ -1,0 +1,84 @@
+{
+ "time_utc": "2026-10-11T14:15:50.583852+00:00",
+ "ac_line_status": 1,
+ "battery_percent": 79,
+ "battery_saver": 0,
+ "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+ "platform": "Windows-11-10.0.26200-SP0",
+ "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+ "logical_cpus": 16,
+ "top_processes": [
+  {
+   "ProcessName": "Code",
+   "Id": 42620,
+   "CPU": 32851.40625,
+   "WS_MB": 95
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 16952,
+   "CPU": 32378.96875,
+   "WS_MB": 148
+  },
+  {
+   "ProcessName": "chrome",
+   "Id": 7740,
+   "CPU": 30163.484375,
+   "WS_MB": 364
+  },
+  {
+   "ProcessName": "Taskmgr",
+   "Id": 7932,
+   "CPU": 28631.8125,
+   "WS_MB": 148
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 18028,
+   "CPU": 14771.59375,
+   "WS_MB": 124
+  },
+  {
+   "ProcessName": "chrome",
+   "Id": 9504,
+   "CPU": 14242.40625,
+   "WS_MB": 144
+  },
+  {
+   "ProcessName": "esbuild",
+   "Id": 39492,
+   "CPU": 13670.171875,
+   "WS_MB": 17
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 35080,
+   "CPU": 9165.109375,
+   "WS_MB": 180
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 43804,
+   "CPU": 7918.375,
+   "WS_MB": 153
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 33992,
+   "CPU": 7732.515625,
+   "WS_MB": 34
+  },
+  {
+   "ProcessName": "explorer",
+   "Id": 13512,
+   "CPU": 7460.59375,
+   "WS_MB": 266
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 40500,
+   "CPU": 7148.828125,
+   "WS_MB": 236
+  }
+ ]
+}
