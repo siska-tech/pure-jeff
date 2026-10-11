@@ -26,7 +26,35 @@ const FROZEN: [(&str, &str); 4] = [
 type Substitutions = &'static [(&'static str, &'static str)];
 
 /// (generated file, frozen source, substitutions)
-const SLICE_COPIES: [(&str, &str, Substitutions); 2] = [
+const SLICE_COPIES: [(&str, &str, Substitutions); 3] = [
+    // Native diagnostic copy with timers (crate::profile); the arithmetic is unchanged and the
+    // profile example checks that its output is bitwise equal to the frozen forward.
+    (
+        "backbone_profiled.rs",
+        "backbone.rs",
+        &[
+            (
+                "    weights.load(name, &Device::Cpu)?.to_dtype(DType::F32)\n}",
+                "    let t = std::time::Instant::now();\n    let loaded = weights.load(name, &Device::Cpu)?;\n    crate::profile::add(crate::profile::LOAD, t);\n    let t = std::time::Instant::now();\n    let converted = loaded.to_dtype(DType::F32);\n    crate::profile::add(crate::profile::CONVERT, t);\n    converted\n}",
+            ),
+            (
+                "    x.matmul(&weight(weights, &format!(\"{name}.weight\"))?.t()?)\n}",
+                "    let w = weight(weights, &format!(\"{name}.weight\"))?;\n    let t = std::time::Instant::now();\n    let out = x.matmul(&w.t()?);\n    crate::profile::add(crate::profile::MATMUL, t);\n    out\n}",
+            ),
+            (
+                "    let embedding = weights.load(\"language_model.embed_tokens.weight\", &Device::Cpu)?;",
+                "    let t = std::time::Instant::now();\n    let embedding = weights.load(\"language_model.embed_tokens.weight\", &Device::Cpu)?;\n    crate::profile::add(crate::profile::EMBED, t);",
+            ),
+            ("fn mlp(x: &Tensor", "fn mlp_untimed(x: &Tensor"),
+            ("fn full_attention(x: &Tensor", "fn full_attention_untimed(x: &Tensor"),
+            ("fn linear_attention(x: &Tensor", "fn linear_attention_untimed(x: &Tensor"),
+            ("fn delta_recurrence(\n", "fn delta_recurrence_untimed(\n"),
+            (
+                "#[cfg(test)]\nmod tests {",
+                "fn mlp(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {\n    let t = std::time::Instant::now();\n    let out = mlp_untimed(x, weights, prefix);\n    crate::profile::add(crate::profile::MLP, t);\n    out\n}\n\nfn full_attention(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {\n    let t = std::time::Instant::now();\n    let out = full_attention_untimed(x, weights, prefix);\n    crate::profile::add(crate::profile::FULL_ATTENTION, t);\n    out\n}\n\nfn linear_attention(x: &Tensor, weights: &MmapedSafetensors, prefix: &str) -> Result<Tensor> {\n    let t = std::time::Instant::now();\n    let out = linear_attention_untimed(x, weights, prefix);\n    crate::profile::add(crate::profile::LINEAR_ATTENTION, t);\n    out\n}\n\nfn delta_recurrence(q: &Tensor, k: &Tensor, v: &Tensor, beta: &Tensor, g: &Tensor) -> Result<Tensor> {\n    let t = std::time::Instant::now();\n    let out = delta_recurrence_untimed(q, k, v, beta, g);\n    crate::profile::add(crate::profile::DELTA, t);\n    out\n}\n\n#[cfg(test)]\nmod tests {",
+            ),
+        ],
+    ),
     (
         "backbone_slice.rs",
         "backbone.rs",
