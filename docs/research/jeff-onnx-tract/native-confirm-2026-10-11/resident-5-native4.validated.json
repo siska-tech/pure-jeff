@@ -1,0 +1,174 @@
+{
+  "run_id": "resident-5-native4",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-threads-target\\release\\native_retained_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\native-confirm-20261011\\resident-5-native4.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 37724437200,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4591382528,
+  "memory_samples": 3585,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "configuration": "native4",
+  "events": [
+    {
+      "backend": "native",
+      "cached_bytes": 3009572096,
+      "cached_tensors": 320,
+      "candle_env_threads": "4",
+      "event": "initialized",
+      "expected_barrier_aux_workers": 3,
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "manifest_cpu_threads": 1,
+      "mmap_ns": 582000,
+      "rayon_pool_threads": 4,
+      "requested_threads": 4,
+      "retained_f32": true,
+      "retention_load_ns": 1503768000,
+      "startup_ns": 3452917900,
+      "threads": 4,
+      "tokenizer_load_ns": 801009800,
+      "verify_ns": 1125114200
+    },
+    {
+      "backbone_ns": 6523733900,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 108300,
+      "iteration": 0,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 7100,
+      "probabilities": [
+        0.6114295721054077,
+        0.3885704576969147
+      ],
+      "request_ns": 6524696900,
+      "tokenize_ns": 814500,
+      "warmup": true,
+      "probability_max_abs_error": 0.0,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6523842200
+    },
+    {
+      "backbone_ns": 6949101500,
+      "case": "synthetic-asr-unicode-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 126800,
+      "iteration": 1,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.6114295721054077,
+        0.3885704576969147
+      ],
+      "request_ns": 6950070500,
+      "tokenize_ns": 822400,
+      "warmup": false,
+      "probability_max_abs_error": 0.0,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6949228300
+    },
+    {
+      "backbone_ns": 6821721700,
+      "case": "synthetic-asr-mixed-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 72400,
+      "iteration": 2,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 800,
+      "probabilities": [
+        0.9364815950393677,
+        0.06351837515830994
+      ],
+      "request_ns": 6823194300,
+      "tokenize_ns": 1379500,
+      "warmup": false,
+      "probability_max_abs_error": 1.1920928955078125e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6821794100
+    },
+    {
+      "backbone_ns": 6826523100,
+      "case": "synthetic-ocr-ja-2-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 73100,
+      "iteration": 3,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 900,
+      "probabilities": [
+        0.9305989742279053,
+        0.06940098851919174
+      ],
+      "request_ns": 6827543100,
+      "tokenize_ns": 921500,
+      "warmup": false,
+      "probability_max_abs_error": 2.60770320892334e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6826596200
+    },
+    {
+      "backbone_ns": 6966289500,
+      "case": "synthetic-ocr-ascii-3-512",
+      "effective_tokens": 512,
+      "event": "request",
+      "head_softmax_ns": 69400,
+      "iteration": 4,
+      "judgment": {
+        "candidate_id": "a",
+        "kind": "selected"
+      },
+      "physical_tokens": 512,
+      "policy_ns": 600,
+      "probabilities": [
+        0.7541912198066711,
+        0.16195550560951233,
+        0.08385329693555832
+      ],
+      "request_ns": 6967748200,
+      "tokenize_ns": 1374600,
+      "warmup": false,
+      "probability_max_abs_error": 3.5762786865234375e-07,
+      "judgment_match": true,
+      "native_probability_max_abs_error": 0.0,
+      "repeat_probability_max_abs_error": 0.0,
+      "compute_ns": 6966358900
+    },
+    {
+      "event": "completed",
+      "total_ns": 37554597800
+    }
+  ]
+}

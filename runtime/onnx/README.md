@@ -296,3 +296,20 @@ Next-pilot eligibility requires all four block medians and pooled median/p95
 below1 thread; choose the lowest eligible pooled median. This selects an
 exploration candidate, not a formal SLO, product or Tract adoption. At n=16
 nearest-rank p95=max. DeltaNet stays serial; no per-kernel speedup attribution.
+
+## Independent Native2/4 confirmation and Tract4 comparison
+
+`benchmark_native_confirm.py --output <new-run-dir>` reuses the frozen Native
+thread exe and accepted Scatter Tract exe without rebuilds. After eight gates
+per configuration, all six permutations of Native2/Native4/Tract4 balance the
+order, with warmup1 + measured4/session: n=24/configuration, n=6/input,
+114 total forwards. These are new independent sessions/seed on the SAME four
+common512 artificial inputs, not held-out input data or recognition quality.
+Native frozen probability tolerance1e-4, repeat1e-6; Tract raw exactly matches
+the prior four-thread gate; ONNX probability/judgment/token gates apply to all.
+Native4 local warm confirmation requires all six block medians and pooled
+median/p95 below Native2. No post-hoc criterion changes or optional stopping.
+Native4/Tract4 remains descriptive: dtype/shape/threads common, layout,
+algorithm, stage/startup verification/request scopes unequal. No backend
+adoption, runtime-only claim, API E2E or formal SLO. n=24 p95=second-largest;
+startup/lifetime peaks n=6 incidental, not cold/private warm memory evidence.
