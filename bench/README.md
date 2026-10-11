@@ -20,3 +20,16 @@ Pop-Location
 ```
 
 The driver refuses to start when another build or benchmark process is running, or when on battery. It writes `preregistration.json` before measuring and exits non-zero if any validity gate fails.
+
+## Experimental Tract path
+
+`tract_resident.py` runs the patched Tract `bench.exe` (`runtime/tract`) resident at one thread on the four golden cases padded to 512 tokens. It needs the normalized ONNX graph and a passed `runtime/onnx/check_tract.py --stage run-no-change-axes` output directory, and fails unless every request's raw logits equal that gate's bit for bit. See [docs/tract-development.md](../docs/tract-development.md).
+
+```powershell
+python -B bench/tract_resident.py --bench runtime/tract/target/release/bench.exe `
+  --model experiments/runs/tract/onnx/model.normalized.onnx --gate experiments/runs/tract/gate `
+  --output experiments/runs/tract-bench --warmup 1 --samples 3
+```
+
+The `runtime/onnx/benchmark_*.py` harnesses are the archived KazeJudge experiments: they read fixed KazeJudge-era run directories and executable hashes and are kept unchanged as the record of those runs.
+
