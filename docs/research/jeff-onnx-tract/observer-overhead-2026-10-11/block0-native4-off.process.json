@@ -1,0 +1,18 @@
+{
+  "run_id": "block0-native4-off",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-cache-fixed-target\\release\\native_cache_fixed_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\observer-overhead-20261011\\block0-native4-off.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 21721141600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4590993408,
+  "memory_samples": 2073,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS"
+}

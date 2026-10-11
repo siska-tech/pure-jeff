@@ -1,0 +1,18 @@
+{
+  "sampled_conditions_passed": true,
+  "reasons": [],
+  "samples": 21,
+  "elapsed_seconds": 19.4604268,
+  "maximum_gap_seconds": 1.0158052,
+  "collection_ms_max": 1.3086,
+  "system_busy_percent_min": 17.357001972386588,
+  "system_busy_percent_max": 43.273753527751644,
+  "os_reported_current_mhz_min": 1466,
+  "os_reported_current_mhz_max": 2200,
+  "temperature_available": false,
+  "hardware_frequency_measured": false,
+  "compute_affinity_controlled": false,
+  "background_load_controlled": false,
+  "formal_slo_acceptance": false,
+  "scope": "sampled host state only; gaps may hide changes; system busy includes all processes; observer masks are not child worker placement"
+}

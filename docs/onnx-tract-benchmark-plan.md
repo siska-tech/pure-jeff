@@ -168,3 +168,6 @@ host/build/power/ISA metadataへの参照
 
 
 追加：Windows環境の[継続記録・結合検証](onnx-tract-host-observer.md)を実施した。既存invokeと固定exeを変えず、各3 forward・電源／CPU情報のraw記録と独立監査に合格。性能受入ではなく、次はobserver overheadのAB／BA比較、配置変更時の全数値再gate、未使用本文と正式標本数への拡大を行う。温度は取得不可、OS報告MHzはhardware実測値ではない。
+
+
+追加の[observerあり／なし比較pilot](onnx-tract-observer-overhead.md)は、既存128-token入力・各backend2組の順序反転・5 warmup＋3測定で8 child／64 forwardを実施し、数値・resource・host条件と独立再計算に合格した。各条件n=6の記述的比較であり、observer負荷の同等性・正式性能・SLOは未受入。

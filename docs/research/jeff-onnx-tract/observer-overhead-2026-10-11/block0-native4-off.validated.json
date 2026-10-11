@@ -1,0 +1,956 @@
+{
+  "run_id": "block0-native4-off",
+  "command": [
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\.venv\\native-cache-fixed-target\\release\\native_cache_fixed_bench.exe",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\models\\jeff-rust-bundle-p3.json",
+    "C:\\Users\\<user>\\Documents\\Projects\\KazeJudge\\experiments\\runs\\observer-overhead-20261011\\block0-native4-off.job.json"
+  ],
+  "timeout_seconds": 600,
+  "memory_limit_bytes": 8589934592,
+  "status": "completed",
+  "parent_process_ns": 21721141600,
+  "exit_code": 0,
+  "guard_trigger": null,
+  "peak_working_set_bytes": 4590993408,
+  "memory_samples": 2073,
+  "post_exit_query_succeeded": true,
+  "memory_scope": "process lifetime peak, mapped/shared pages included; not private RSS",
+  "events": [
+    {
+      "backend": "native",
+      "cache_diagnostic": {
+        "actual_cpu_at_initialization": 0,
+        "affinity_restored": true,
+        "cache_info": [
+          {
+            "associativity": 12,
+            "cache_bytes": 49152,
+            "cache_line_bytes": 64
+          },
+          {
+            "associativity": 10,
+            "cache_bytes": 1310720,
+            "cache_line_bytes": 64
+          },
+          {
+            "associativity": 12,
+            "cache_bytes": 18874368,
+            "cache_line_bytes": 64
+          }
+        ],
+        "hypothetical_kernel_params": [
+          {
+            "k": 1024,
+            "kc": 1024,
+            "m": 128,
+            "mc": 64,
+            "mr": 8,
+            "n": 1024,
+            "nc": 1024,
+            "nr": 8,
+            "scalar_bytes": 4
+          },
+          {
+            "k": 1024,
+            "kc": 1024,
+            "m": 512,
+            "mc": 64,
+            "mr": 8,
+            "n": 1024,
+            "nc": 1024,
+            "nr": 8,
+            "scalar_bytes": 4
+          }
+        ],
+        "process_allowed_mask": 65535,
+        "requested_cpu": 0,
+        "system_mask": 65535,
+        "thread_mask_restored": 65535
+      },
+      "cached_bytes": 3009572096,
+      "cached_tensors": 320,
+      "candle_env_threads": "4",
+      "event": "initialized",
+      "expected_barrier_aux_workers": 3,
+      "head_cached_bytes": 1044480,
+      "head_cached_tensors": 1,
+      "manifest_cpu_threads": 1,
+      "mmap_ns": 565500,
+      "rayon_pool_threads": 4,
+      "requested_threads": 4,
+      "retained_f32": true,
+      "retention_load_ns": 1862770100,
+      "startup_ns": 3911806600,
+      "threads": 4,
+      "tokenizer_load_ns": 866779900,
+      "verify_ns": 1165900600
+    },
+    {
+      "backbone_ns": 2475793200,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 104000,
+      "iteration": 0,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 900,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2476583400,
+      "tokenize_ns": 571900,
+      "warmup": true,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2475897200
+    },
+    {
+      "backbone_ns": 2279319000,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 57300,
+      "iteration": 1,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 400,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2279823900,
+      "tokenize_ns": 429100,
+      "warmup": true,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2279376300
+    },
+    {
+      "backbone_ns": 2423792600,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 89900,
+      "iteration": 2,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 1000,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2424144500,
+      "tokenize_ns": 248600,
+      "warmup": true,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2423882500
+    },
+    {
+      "backbone_ns": 2319313700,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 93200,
+      "iteration": 3,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 900,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2319741900,
+      "tokenize_ns": 319500,
+      "warmup": true,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2319406900
+    },
+    {
+      "backbone_ns": 2165668700,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 60400,
+      "iteration": 4,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 400,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2166182400,
+      "tokenize_ns": 438500,
+      "warmup": true,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2165729100
+    },
+    {
+      "backbone_ns": 1836783500,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 86700,
+      "iteration": 5,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 700,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 1837221500,
+      "tokenize_ns": 336800,
+      "warmup": false,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 1836870200
+    },
+    {
+      "backbone_ns": 1914401800,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 61500,
+      "iteration": 6,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 400,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 1914923100,
+      "tokenize_ns": 445400,
+      "warmup": false,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 1914463300
+    },
+    {
+      "backbone_ns": 2091694900,
+      "case": "synthetic-ocr-ascii-3-128",
+      "effective_tokens": 128,
+      "event": "request",
+      "head_softmax_ns": 85500,
+      "iteration": 7,
+      "judgment": {
+        "kind": "abstained"
+      },
+      "physical_tokens": 128,
+      "policy_ns": 900,
+      "probabilities": [
+        0.4489733874797821,
+        0.30723264813423157,
+        0.24379387497901917
+      ],
+      "request_ns": 2092041600,
+      "tokenize_ns": 248500,
+      "warmup": false,
+      "probability_max_abs_error": 2.4139881134033203e-06,
+      "judgment_match": true,
+      "compute_ns": 2091780400
+    },
+    {
+      "event": "completed",
+      "total_ns": 21423768900
+    }
+  ],
+  "block": 0,
+  "backend": "native4",
+  "mode": "off",
+  "host_before": {
+    "utc": "2026-10-11T07:35:26.773706+00:00",
+    "power_status_raw": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_cpu_100ns": {
+      "idle": 293398406406250,
+      "kernel_including_idle": 299732387187500,
+      "user": 11290387656250
+    },
+    "active_scheme_guid": "381b4222-f694-41f0-9685-ff5bb260df2e",
+    "observer_affinity": {
+      "process_mask": 65535,
+      "system_mask": 65535
+    },
+    "cpu_sets": [
+      {
+        "id": 256,
+        "group": 0,
+        "logical_processor": 0,
+        "core": 0,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 257,
+        "group": 0,
+        "logical_processor": 1,
+        "core": 0,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 258,
+        "group": 0,
+        "logical_processor": 2,
+        "core": 2,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 259,
+        "group": 0,
+        "logical_processor": 3,
+        "core": 2,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 260,
+        "group": 0,
+        "logical_processor": 4,
+        "core": 4,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 261,
+        "group": 0,
+        "logical_processor": 5,
+        "core": 4,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 262,
+        "group": 0,
+        "logical_processor": 6,
+        "core": 6,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 263,
+        "group": 0,
+        "logical_processor": 7,
+        "core": 6,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 264,
+        "group": 0,
+        "logical_processor": 8,
+        "core": 8,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 265,
+        "group": 0,
+        "logical_processor": 9,
+        "core": 9,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 266,
+        "group": 0,
+        "logical_processor": 10,
+        "core": 10,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 267,
+        "group": 0,
+        "logical_processor": 11,
+        "core": 11,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 268,
+        "group": 0,
+        "logical_processor": 12,
+        "core": 12,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 269,
+        "group": 0,
+        "logical_processor": 13,
+        "core": 13,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 270,
+        "group": 0,
+        "logical_processor": 14,
+        "core": 14,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 271,
+        "group": 0,
+        "logical_processor": 15,
+        "core": 15,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 0,
+        "parked": false
+      }
+    ],
+    "processor_power_os_report": [
+      {
+        "number": 0,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 1,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 2,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 3,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 4,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 5,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 6,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 7,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 8,
+        "max_mhz": 2200,
+        "current_mhz": 1500,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 9,
+        "max_mhz": 2200,
+        "current_mhz": 1500,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 10,
+        "max_mhz": 2200,
+        "current_mhz": 1500,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 11,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 12,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 13,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 14,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 15,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 1
+      }
+    ],
+    "monotonic_ns": 2243033872305700,
+    "collection_ns": 499200,
+    "temperature_celsius": null,
+    "temperature_status": "unavailable; no temperature sensor queried by sampler"
+  },
+  "host_after": {
+    "utc": "2026-10-11T07:35:48.496124+00:00",
+    "power_status_raw": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_cpu_100ns": {
+      "idle": 293400945781250,
+      "kernel_including_idle": 299735196250000,
+      "user": 11291062187500
+    },
+    "active_scheme_guid": "381b4222-f694-41f0-9685-ff5bb260df2e",
+    "observer_affinity": {
+      "process_mask": 65535,
+      "system_mask": 65535
+    },
+    "cpu_sets": [
+      {
+        "id": 256,
+        "group": 0,
+        "logical_processor": 0,
+        "core": 0,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 257,
+        "group": 0,
+        "logical_processor": 1,
+        "core": 0,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 258,
+        "group": 0,
+        "logical_processor": 2,
+        "core": 2,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 259,
+        "group": 0,
+        "logical_processor": 3,
+        "core": 2,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 260,
+        "group": 0,
+        "logical_processor": 4,
+        "core": 4,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 261,
+        "group": 0,
+        "logical_processor": 5,
+        "core": 4,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 262,
+        "group": 0,
+        "logical_processor": 6,
+        "core": 6,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 263,
+        "group": 0,
+        "logical_processor": 7,
+        "core": 6,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 1,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 264,
+        "group": 0,
+        "logical_processor": 8,
+        "core": 8,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 0,
+        "parked": false
+      },
+      {
+        "id": 265,
+        "group": 0,
+        "logical_processor": 9,
+        "core": 9,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 266,
+        "group": 0,
+        "logical_processor": 10,
+        "core": 10,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 267,
+        "group": 0,
+        "logical_processor": 11,
+        "core": 11,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 268,
+        "group": 0,
+        "logical_processor": 12,
+        "core": 12,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 269,
+        "group": 0,
+        "logical_processor": 13,
+        "core": 13,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 270,
+        "group": 0,
+        "logical_processor": 14,
+        "core": 14,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      },
+      {
+        "id": 271,
+        "group": 0,
+        "logical_processor": 15,
+        "core": 15,
+        "last_level_cache": 0,
+        "numa_node": 0,
+        "efficiency_class": 0,
+        "flags": 1,
+        "parked": true
+      }
+    ],
+    "processor_power_os_report": [
+      {
+        "number": 0,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 1
+      },
+      {
+        "number": 1,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 2,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 2
+      },
+      {
+        "number": 3,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 4,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 5,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 6,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 7,
+        "max_mhz": 2200,
+        "current_mhz": 2200,
+        "mhz_limit": 2200,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 8,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 2
+      },
+      {
+        "number": 9,
+        "max_mhz": 2200,
+        "current_mhz": 1500,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 10,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 11,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 12,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 13,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 14,
+        "max_mhz": 2200,
+        "current_mhz": 1600,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      },
+      {
+        "number": 15,
+        "max_mhz": 2200,
+        "current_mhz": 1500,
+        "mhz_limit": 1584,
+        "max_idle_state": 11,
+        "current_idle_state": 3
+      }
+    ],
+    "monotonic_ns": 2243055595375800,
+    "collection_ns": 553300,
+    "temperature_celsius": null,
+    "temperature_status": "unavailable; no temperature sensor queried by sampler"
+  },
+  "wrapper_wall_ns": 21722530100,
+  "parent_cpu_ns": 281250000
+}

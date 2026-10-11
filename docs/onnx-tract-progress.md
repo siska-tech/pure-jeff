@@ -69,6 +69,8 @@
 
 | Windows環境継続記録 | 30秒31標本、7 unit tests、正常／exit7／deadlineの3 child検証、固定Native／Tract各3 forwardとraw独立監査に合格。電源・CPU topology／park・OS報告周波数を継続保存 | 記録機能のみ受入。温度取得不可、observer負荷・compute配置・背景負荷は未制御。次は記録あり／なし比較と未使用入力。[詳細](onnx-tract-host-observer.md) |
 
+| observer on／off負荷pilot | 固定Native4／Tract4、既存128入力、各2組順序反転、5 warmup＋3測定、8 child・64 forward。各条件n=6、raw／全統計・数値／host／resource独立監査に合格 | 記述的比較のみ。observer因果負荷・同等性能・正式SLOは未受入。未使用本文と独立組・環境条件の拡充へ進む。[詳細](onnx-tract-observer-overhead.md) |
+
 再現可能なNativeの基準commitは `eb77645b89ae8bf7d07f6a8572ec474be3c61c68`。初回commit `6b80547`では先行stage時の改行変換が一部blobに残ったため、作業ファイルを変えず元bytesへ修正し、全113 blobをhash照合した。実装着手後の128 baselineとの差は`.gitignore`のTract target除外追加だけである。
 
 再export資産はignoredな `experiments/runs/onnx-current-step1113-v2/` に保存した。

@@ -397,3 +397,9 @@ JSONL retained; no hardware-clock/temperature or worker-placement guarantee.
 validate_observed_backends.py --output PATH runs fixed Native4/Tract4 each3
 forwards on the old512 case to check integration, not performance/SLO.
 Observer overhead calibration and new hold-out inputs remain pending.
+
+benchmark_observer_overhead.py --output PATH: fixed Native4/Tract4 on/off,
+two order-reversed pairs/backend,old artificial128 fixture,5 warmups+3 measured
+=8 children64 forwards,n6/mode/backend,p95=max. Parent CPU and wrapper wall
+recorded separately. Existing numerical/host/resource gates;5% descriptive
+screen only,no equivalence/SLO/causal overhead acceptance or holdout.

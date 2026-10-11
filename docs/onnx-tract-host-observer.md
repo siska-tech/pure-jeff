@@ -43,3 +43,6 @@ ACPI thermal zone queryはaccess deniedだった。温度は取得不可とし�
 暫定8秒SLOは未達成のまま。今回の作業は観測機能の受入であり、遅延原因の確定、高速化、正式SLO、TractBackend採用、Phase 5品質改善の受入ではない。
 
 [生記録・事前登録・独立監査](research/jeff-onnx-tract/host-observer-2026-10-11/README.md)。
+
+
+追加の[observerあり／なし比較pilot](onnx-tract-observer-overhead.md)は、既存128-token入力・各backend2組の順序反転・5 warmup＋3測定で8 child／64 forwardを実施し、数値・resource・host条件と独立再計算に合格した。各条件n=6の記述的比較であり、observer負荷の同等性・正式性能・SLOは未受入。
