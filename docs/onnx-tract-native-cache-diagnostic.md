@@ -50,3 +50,6 @@ process allowed maskは65535、全16 logical CPUを記録した。不正CPU inde
 Native baseline127ファイル（既知.gitignore差のみ）、隣接KazeNhanh21ファイル、既存失敗／反復診断の証跡とfrozen assetsの不変を確認した。Pythonは開発用診断のみで、通常推論への実行時依存追加はない。ライセンス／NOTICE snapshotを引き継ぎ、配布受入の未完了事項は残す。
 
 [事前登録・生ログ・独立validator・生成source・検証証跡](research/jeff-onnx-tract/native-cache-diagnostic-2026-10-11/README.md)。[診断ハーネス](../runtime/onnx/diagnose_native_cache.py)。
+
+
+追加の[全28ケース固定cache検証](onnx-tract-native-cache-fixed-gate.md)で、前回の診断exeとcacheB初期化条件を固定し、8独立process・56 forward（各ケース2 process）を検査した。元の反復閾値1e-6・旧gate・ONNX条件を維持した局所再受入で、性能用exe・長時間resident・正式SLO・backend採用は未受入。次は診断出力を持たない独立性能wrapperの数値同等性を検証する。

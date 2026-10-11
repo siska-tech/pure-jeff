@@ -1,0 +1,32 @@
+{
+  "source_sha256": "47dac0db8129beede4608b3c0af965b14e2ed4df4f8ba1d67a404553422463c1",
+  "previous_archive_index_sha256": "6af3e9e00754cf476dc1f98bc5c0a21a09876e0b6835425da30c557708a2d01c",
+  "check_script_sha256": "a23d8ff72f25b63d5ade399a07228d09f8bc9e13e0e06ef34b9314b6d94dc19d",
+  "checks": [
+    "accepted frozen cacheB events",
+    {
+      "rejected": "old gate drift 2e-6 while ONNX tolerance still holds",
+      "error": "unchanged Native numeric gate failed: synthetic-ocr-ascii-3-128 old=2.000000000002e-06 repeat=0.0 native=None"
+    },
+    {
+      "rejected": "cross-process drift 1.6e-6, both within old gate1e-6",
+      "error": "unchanged Native numeric gate failed: synthetic-ocr-ascii-3-128 old=8.000000000230045e-07 repeat=1.600000000046009e-06 native=None"
+    },
+    {
+      "rejected": "input ID changed",
+      "error": "input IDs mismatch"
+    },
+    {
+      "rejected": "raw nonfinite",
+      "error": "nonfinite or wrong-size diagnostic vector"
+    },
+    {
+      "rejected": "affinity restore metadata changed",
+      "error": "cache initialization/affinity restoration mismatch"
+    },
+    {
+      "rejected": "event missing",
+      "error": "event count mismatch"
+    }
+  ]
+}

@@ -156,3 +156,6 @@ host/build/power/ISA metadataへの参照
 
 
 追加の[cache初期化診断](onnx-tract-native-cache-diagnostic.md)では独立crateでCPUごとのCACHE_INFOを記録し、初期化時だけmain threadを固定後に元maskへ復元した。2条件・AB／BA各2 process、128／512の2ケース・各2反復、全16 forwardがONNX確率／判断／tokens条件に合格した。入力ID・hidden・raw logitsと旧gate／停止sessionとの差は生ログから独立照合した。原因の判定範囲と実測差は同reportを参照。全28件再受入・原因修正・性能再開・正式SLOは未完了で、元失敗と閾値1e-6は維持する。
+
+
+追加の[全28ケース固定cache検証](onnx-tract-native-cache-fixed-gate.md)で、前回の診断exeとcacheB初期化条件を固定し、8独立process・56 forward（各ケース2 process）を検査した。元の反復閾値1e-6・旧gate・ONNX条件を維持した局所再受入で、性能用exe・長時間resident・正式SLO・backend採用は未受入。次は診断出力を持たない独立性能wrapperの数値同等性を検証する。

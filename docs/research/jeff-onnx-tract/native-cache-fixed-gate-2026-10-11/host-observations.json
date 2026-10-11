@@ -1,0 +1,162 @@
+[
+  {
+    "run_id": "gate-0-chunk0",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 57.026099206172944
+  },
+  {
+    "run_id": "gate-0-chunk1",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 56.946225295300025
+  },
+  {
+    "run_id": "gate-0-chunk2",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 56.915309489418654
+  },
+  {
+    "run_id": "gate-0-chunk3",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 56.37130108674824
+  },
+  {
+    "run_id": "gate-1-chunk3",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 34.991128392917815
+  },
+  {
+    "run_id": "gate-1-chunk2",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 31.017781100672885
+  },
+  {
+    "run_id": "gate-1-chunk1",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 30.945402671508234
+  },
+  {
+    "run_id": "gate-1-chunk0",
+    "before_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "after_power": {
+      "ac_line_status": 1,
+      "battery_flag": 1,
+      "battery_life_percent": 100,
+      "system_status_flag": 0,
+      "battery_life_seconds": 4294967295,
+      "battery_full_life_seconds": 4294967295
+    },
+    "system_wide_average_busy_percent": 31.581267217630852
+  }
+]

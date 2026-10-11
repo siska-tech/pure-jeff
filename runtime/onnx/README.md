@@ -358,3 +358,13 @@ recorded; hypothetical kernel_params are not actual call telemetry. Keep
 repeat1e-6, ONNX1e-4 and existing failed evidence; no global28 reacceptance,
 performance/SLO acceptance or production API changes. See the cache diagnostic
 report and its independent raw/source/feature/affinity validator.
+
+`validate_native_cache_fixed.py --output experiments/runs/native-cache-fixed-gate-20261011`
+reuses the frozen instrumented diagnostic exe with verified cacheB/CPU0 init.
+Eight children process7 cases each in two passes:56 forwards, two independent
+process observations/case. The old28-case Native gate and cross-process
+probability deltas must remain<=1e-6, with existing ONNX/reference/input/pool/
+cache/resource checks unchanged. No all-case within-process repeat or long
+resident history. This accepts only the instrumented fixture/host condition,
+not an uninstrumented timing build, production backend, performance or SLO.
+CPU0 is host-specific; main mask is restored before pool/model/forward.

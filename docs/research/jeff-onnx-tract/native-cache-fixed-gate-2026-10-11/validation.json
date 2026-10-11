@@ -1,0 +1,14 @@
+{
+  "independent_raw_numeric_input_hidden_raw_pool_cache_affinity_schedule_resource_and_summary_audit": true,
+  "processes": 8,
+  "forwards": 56,
+  "cases": 28,
+  "independent_process_observations_per_case": 2,
+  "native_baseline_unchanged": 127,
+  "known_gitignore_difference_only": true,
+  "sibling_files_unchanged": 21,
+  "prior_archives_and_frozen_assets_unchanged": true,
+  "performance_acceptance": false,
+  "formal_slo_acceptance": false,
+  "production_backend_acceptance": false
+}
