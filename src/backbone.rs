@@ -2,7 +2,11 @@
 //! Equations checked against Transformers 5.17.0 Qwen3.5 (Apache-2.0).
 //! No cache, padding, image inputs, quantization, or production deadline guarantee.
 use crate::WeightSource;
-use candle_core::{CpuStorage, Device, Result, Storage, Tensor, D};
+use candle_core::{CpuStorage, Device, InplaceOp1, Layout, Result, Storage, Tensor, D};
+use std::{
+    cell::{Cell, RefCell},
+    collections::HashMap,
+};
 
 const H: usize = 16;
 const K: usize = 128;
@@ -271,15 +275,119 @@ fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Res
     )
 }
 
+/// The weight's name without its layer prefix: tensors of the same role in different layers
+/// share one conversion buffer.
+fn slot_key(name: &str) -> &str {
+    name.strip_prefix("language_model.layers.")
+        .and_then(|rest| rest.split_once('.'))
+        .map_or(name, |(_, role)| role)
+}
+
+/// Writes one tensor of `source`, converted to F32, into a buffer in place.
+struct Fill<'a> {
+    source: &'a dyn WeightSource,
+    name: &'a str,
+    converted: Cell<bool>,
+}
+
+impl InplaceOp1 for Fill<'_> {
+    fn name(&self) -> &'static str {
+        "pure-jeff-fill-f32"
+    }
+
+    fn cpu_fwd(&self, storage: &mut CpuStorage, layout: &Layout) -> Result<()> {
+        let (CpuStorage::F32(data), Some((start, end))) = (storage, layout.contiguous_offsets())
+        else {
+            candle_core::bail!("conversion buffer must be contiguous F32")
+        };
+        self.converted.set(self.source.load_f32_into(
+            self.name,
+            layout.dims(),
+            &mut data[start..end],
+        )?);
+        Ok(())
+    }
+}
+
+/// Conversion buffers of one forward. The first tensor of each role (see [`slot_key`]) is
+/// converted into new memory as before and kept; the same role in a later layer is converted
+/// into that memory again instead of newly allocated memory, so most of the forward writes to
+/// pages that are already mapped. The layers run one after another and every weight tensor is
+/// consumed (matrix product, element-wise op or copy) before the next layer starts, so no
+/// tensor that is still used is overwritten. Tensors a source keeps (`converts_into` false,
+/// e.g. retained F32 weights) are passed through and never get a buffer. The buffers belong
+/// to this forward only and are dropped with it, so no values reach another request.
+struct Reused<'a> {
+    inner: &'a dyn WeightSource,
+    slots: RefCell<HashMap<String, Tensor>>,
+}
+
+impl WeightSource for Reused<'_> {
+    fn load(&self, name: &str, device: &Device) -> Result<Tensor> {
+        self.inner.load(name, device)
+    }
+
+    fn load_f32(&self, name: &str) -> Result<Tensor> {
+        if !self.inner.converts_into(name) {
+            return self.inner.load_f32(name);
+        }
+        let key = slot_key(name);
+        if let Some(slot) = self.slots.borrow().get(key) {
+            let fill = Fill {
+                source: self.inner,
+                name,
+                converted: Cell::new(false),
+            };
+            // A shape that differs from the buffer's fails here and falls back to new memory.
+            if slot.inplace_op1(&fill).is_ok() && fill.converted.get() {
+                return Ok(slot.clone());
+            }
+        }
+        let fresh = self.inner.load_f32(name)?;
+        self.slots
+            .borrow_mut()
+            .insert(key.to_owned(), fresh.clone());
+        Ok(fresh)
+    }
+
+    fn load_f32_rows(&self, name: &str, ids: &[u32]) -> Result<Tensor> {
+        self.inner.load_f32_rows(name, ids)
+    }
+}
+
 /// Only call with the pinned 0.8B config and an unpadded text sequence.
 pub fn forward(weights: &dyn WeightSource, ids: &[u32]) -> Result<Tensor> {
     forward_checked(weights, ids, &|| Ok(()))
 }
+
+/// [`forward_checked_with`] converting every weight into new memory.
 pub fn forward_checked(
     weights: &dyn WeightSource,
     ids: &[u32],
     check: &dyn Fn() -> Result<()>,
 ) -> Result<Tensor> {
+    forward_checked_with(weights, ids, check, false)
+}
+
+/// The forward with `check` before and after every layer. With `reuse_buffers`, converted
+/// weights of the same role share one buffer across layers (see [`Reused`]); the result is
+/// bitwise the same either way.
+pub fn forward_checked_with(
+    weights: &dyn WeightSource,
+    ids: &[u32],
+    check: &dyn Fn() -> Result<()>,
+    reuse_buffers: bool,
+) -> Result<Tensor> {
+    let reused;
+    let weights: &dyn WeightSource = if reuse_buffers {
+        reused = Reused {
+            inner: weights,
+            slots: RefCell::new(HashMap::new()),
+        };
+        &reused
+    } else {
+        weights
+    };
     check()?;
     let seq = ids.len();
     if seq == 0 || seq > 8192 {
@@ -442,6 +550,152 @@ mod tests {
             .iter()
             .map(|v| v.to_bits())
             .collect())
+    }
+
+    /// A safetensors file of BF16 tensors whose values are `seed + index` (exact in BF16).
+    fn bf16_file(tensors: &[(&str, &[usize], f32)]) -> Vec<u8> {
+        let mut header = serde_json::Map::new();
+        let mut data = Vec::new();
+        for (name, shape, seed) in tensors {
+            let count: usize = shape.iter().product();
+            let start = data.len();
+            for i in 0..count {
+                let value = half::bf16::from_f32(seed + i as f32);
+                data.extend_from_slice(&value.to_le_bytes());
+            }
+            header.insert(
+                (*name).into(),
+                serde_json::json!({"dtype": "BF16", "shape": shape, "data_offsets": [start, data.len()]}),
+            );
+        }
+        let header = serde_json::to_vec(&header).unwrap();
+        let mut file = (header.len() as u64).to_le_bytes().to_vec();
+        file.extend(header);
+        file.extend(data);
+        file
+    }
+
+    #[test]
+    fn buffers_are_shared_by_role_across_layers() {
+        assert_eq!(
+            slot_key("language_model.layers.0.mlp.up_proj.weight"),
+            "mlp.up_proj.weight"
+        );
+        assert_eq!(
+            slot_key("language_model.layers.23.mlp.up_proj.weight"),
+            "mlp.up_proj.weight"
+        );
+        assert_eq!(
+            slot_key("language_model.norm.weight"),
+            "language_model.norm.weight"
+        );
+        assert_eq!(slot_key("weight"), "weight");
+    }
+
+    #[test]
+    fn reused_buffers_give_each_layer_its_own_values() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+            ("language_model.layers.2.mlp.up_proj.weight", &[3, 2], 20.0),
+            ("language_model.layers.3.mlp.up_proj.weight", &[2, 3], 30.0),
+        ]);
+        let source = candle_core::safetensors::SliceSafetensors::new(&file)?;
+        let reused = Reused {
+            inner: &source,
+            slots: RefCell::new(HashMap::new()),
+        };
+        let name = |i: usize| format!("language_model.layers.{i}.mlp.up_proj.weight");
+        let first = reused.load_f32(&name(0))?;
+        let first_bits = bits(&first)?;
+        assert_eq!(first_bits, bits(&source.load_f32(&name(0))?)?);
+        drop(first);
+        // Same role and shape: converted into the first layer's buffer.
+        let second = reused.load_f32(&name(1))?;
+        assert_eq!(bits(&second)?, bits(&source.load_f32(&name(1))?)?);
+        let (storage, _) = second.storage_and_layout();
+        let slot = reused.slots.borrow()["mlp.up_proj.weight"].clone();
+        let (slot_storage, _) = slot.storage_and_layout();
+        assert!(
+            std::ptr::eq(&*storage, &*slot_storage),
+            "the buffer was not reused"
+        );
+        drop((storage, slot_storage));
+        // Another shape (same element count): new memory with the right shape and values.
+        let third = reused.load_f32(&name(2))?;
+        assert_eq!(third.dims(), [3, 2]);
+        assert_eq!(bits(&third)?, bits(&source.load_f32(&name(2))?)?);
+        let fourth = reused.load_f32(&name(3))?;
+        assert_eq!(fourth.dims(), [2, 3]);
+        assert_eq!(bits(&fourth)?, bits(&source.load_f32(&name(3))?)?);
+        Ok(())
+    }
+
+    #[test]
+    fn a_failed_retention_returns_the_error() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+        ]);
+        let mut calls = 0;
+        let result = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            [
+                "language_model.layers.0.mlp.up_proj.weight",
+                "language_model.layers.1.mlp.up_proj.weight",
+            ],
+            &mut || {
+                calls += 1;
+                if calls > 1 {
+                    candle_core::bail!("deadline exceeded")
+                }
+                Ok(())
+            },
+        );
+        assert!(result.is_err());
+        let missing = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            ["language_model.layers.9.mlp.up_proj.weight"],
+            &mut || Ok(()),
+        );
+        assert!(missing.is_err());
+        Ok(())
+    }
+
+    #[test]
+    fn retained_tensors_are_passed_through_and_never_overwritten() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+            ("language_model.embed_tokens.weight", &[4, 3], 50.0),
+        ]);
+        let mapped = candle_core::safetensors::SliceSafetensors::new(&file)?;
+        let retained = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            ["language_model.layers.0.mlp.up_proj.weight"],
+            &mut || Ok(()),
+        )?;
+        assert_eq!(retained.retained_bytes(), 6 * 4);
+        let reused = Reused {
+            inner: &retained,
+            slots: RefCell::new(HashMap::new()),
+        };
+        let layer0 = "language_model.layers.0.mlp.up_proj.weight";
+        let kept = bits(&reused.load_f32(layer0)?)?;
+        assert!(
+            reused.slots.borrow().is_empty(),
+            "a kept tensor got a buffer"
+        );
+        let _ = reused.load_f32("language_model.layers.1.mlp.up_proj.weight")?;
+        let _ = reused.load_f32("language_model.layers.1.mlp.up_proj.weight")?;
+        assert_eq!(bits(&retained.load_f32(layer0)?)?, kept);
+        assert_eq!(kept, bits(&mapped.load_f32(layer0)?)?);
+        let rows = reused.load_f32_rows("language_model.embed_tokens.weight", &[3, 1])?;
+        assert_eq!(
+            bits(&rows)?,
+            bits(&mapped.load_f32_rows("language_model.embed_tokens.weight", &[3, 1])?)?
+        );
+        Ok(())
     }
 
     #[test]

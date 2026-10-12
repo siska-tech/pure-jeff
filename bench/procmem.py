@@ -64,6 +64,7 @@ class TreeSampler:
         self.max_tree_working_set = 0
         self.max_tree_private = 0
         self.max_process_peak_working_set = 0
+        self.max_process_page_faults = 0
         self.samples = 0
         self._stop = threading.Event()
         self._thread = threading.Thread(target=self._run, daemon=True)
@@ -78,6 +79,7 @@ class TreeSampler:
                 tree_ws += value.WorkingSetSize
                 tree_private += value.PrivateUsage
                 self.max_process_peak_working_set = max(self.max_process_peak_working_set, value.PeakWorkingSetSize)
+                self.max_process_page_faults = max(self.max_process_page_faults, value.PageFaultCount)
             self.max_tree_working_set = max(self.max_tree_working_set, tree_ws)
             self.max_tree_private = max(self.max_tree_private, tree_private)
             self.samples += 1
@@ -93,6 +95,7 @@ class TreeSampler:
 
     def result(self):
         return {"max_tree_working_set": self.max_tree_working_set, "max_tree_private": self.max_tree_private,
-                "max_process_peak_working_set": self.max_process_peak_working_set, "samples": self.samples}
+                "max_process_peak_working_set": self.max_process_peak_working_set,
+                "max_process_page_faults": self.max_process_page_faults, "samples": self.samples}
 
 

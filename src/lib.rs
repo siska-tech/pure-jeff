@@ -116,6 +116,8 @@ const SOURCES: [(&str, &[u8]); 18] = [
 ];
 
 mod weights;
+#[doc(hidden)]
+pub use weights::Retained;
 pub use weights::WeightSource;
 
 #[cfg(test)]

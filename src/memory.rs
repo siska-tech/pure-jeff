@@ -148,6 +148,8 @@ impl<'a> Session<'a> {
             tokenizer: &self.tokenizer,
             weights: &weights,
             readout: &readout,
+            // Not validated in the browser yet (linear memory only grows); see issue #14.
+            reuse_buffers: false,
         }
         .decide(request, max_input_tokens, &|| false, stage)
     }
