@@ -1,8 +1,8 @@
 # pure-jeff
 
-Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/jeff)の候補判断（decision model）を実行する実装。CPUのNative実行と、ブラウザ内のWebAssembly実行がある。ONNX＋Tractによる実行も実験として含む。
+Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/jeff)の候補判断（decision model）を実行する実装。Rustから直接呼べるライブラリ（crate `pure-jeff`）、CPUのNative実行（CLI `jeff`）、ブラウザ内のWebAssembly実行がある。ONNX＋Tractによる実行も実験として含む。
 
-*Pure-Rust (Candle) inference for the Jeff-Qwen3.5-0.8B decision model, as a native CPU worker and in the browser via WebAssembly, verified against the official Python implementation. Not affiliated with the Jeff authors.*
+*Pure-Rust (Candle) inference for the Jeff-Qwen3.5-0.8B decision model, as a Rust library, a native CPU worker and in the browser via WebAssembly, verified against the official Python implementation. Not affiliated with the Jeff authors.*
 
 > 本プロジェクトは本家Jeff・Qwenとは無関係の非公式実装です。
 
@@ -12,7 +12,8 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 
 | 系統 | 内容 | 検証 |
 | --- | --- | --- |
-| Native（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
+| ライブラリ（`pure-jeff`、`src/`） | `Model::load`でbundleを照合してモデルを常駐させ、`Model::decide`で判断する。crates.io向けの説明は[README.crate.md](README.crate.md) | crates.ioの依存だけでbuildした利用者projectで、公式参照7件の判断・tokens数が一致。確率差は最大3.457e-6 |
+| Native CLI（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
 | ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
 | ONNX／Tract（`runtime/onnx`、`runtime/tract`）**実験** | 512 tokens固定のONNXへexportし、局所修正したTractで実行する開発用CLI。公開API・デモには組み込んでいない（[手順と判断](docs/tract-development.md)） | 公式参照のうち512 tokens以下の4件で判断が一致。最大4.917e-6 |
 | Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存。**https://pure-jeff.siska-tech.workers.dev** | 公開サイトに対するChrome／EdgeのE2Eに合格（[公開の記録](docs/web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する |
@@ -37,7 +38,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 # 1. モデルを取得し、11ファイルのSHA-256を照合する（Python 3.12以上、標準ライブラリのみ）
 python tools/fetch_model.py
 
-# 2. Native workerをbuildし、このbuildに対応するbundle manifestを作る
+# 2. CLIをbuildし、このbuildに対応するbundle manifestを作る
 cargo build --locked --release --manifest-path runtime/rust/Cargo.toml
 runtime/rust/target/release/jeff.exe lock models/jeff-checkpoint models/jeff-rust-bundle.json 51552f39a943d62e8387c4ea5e17026a1408729f 0.7 0.1 1
 
@@ -45,29 +46,40 @@ runtime/rust/target/release/jeff.exe lock models/jeff-checkpoint models/jeff-rus
 python runtime/validate_migration_cases.py --executable runtime/rust/target/release/jeff.exe --manifest models/jeff-rust-bundle.json --output experiments/runs/golden.json
 ```
 
-bundle manifestは、runtimeのsourceから計算したbuild hashを固定する。runtimeや契約crateを変えたら`jeff lock`で作り直す。0.7／0.1は選択・保留の閾値の例で、推奨値ではない。1要求の実行やprocess境界は[Rust実行手順](runtime/rust/README.md)、Wasmは[runtime/wasm](runtime/wasm/README.md)、デモは[apps/web-demo](apps/web-demo/README.md)を参照。
+bundle manifest（`pure_jeff.bundle.v1`）は、checkpoint 11ファイルのSHA-256、policy、promptの契約と、lockしたbuildのhashを記録する。CLIはbuild hashの一致も要求するので、ライブラリやCLIを変えたら`jeff lock`で作り直す。ライブラリはbuild hashの一致を既定では要求しない（`LoadOptions::require_runtime_build`）。0.7／0.1は選択・保留の閾値の例で、推奨値ではない。1要求の実行やprocess境界は[Rust実行手順](runtime/rust/README.md)、Wasmは[runtime/wasm](runtime/wasm/README.md)、デモは[apps/web-demo](apps/web-demo/README.md)を参照。
+
+Rustから使う場合：
+
+```rust
+pure_jeff::configure_threads(1)?;  // bundleのpolicyと同じthread数。推論より前に1回
+let model = pure_jeff::Model::load("models/jeff-rust-bundle.json", &Default::default())?;
+let observation = model.decide(&request, limits)?;  // 候補内の分布と、選択／保留
+```
+
+詳しくは[README.crate.md](README.crate.md)とAPI文書（`cargo doc --open`）。リポジトリ内のbuildは、`[patch.crates-io]`で検証済みのCandle revisionを使う。公開crateはcrates.ioのCandle 0.11.0を使い、こちらも公式参照7件で照合した（[結果](docs/crate-release-results-2026-10-12.md)）。
 
 ## 試験
 
 ```powershell
-cargo test --locked                                  # 判断契約（process試験はKAZE_JUDGE_PYTHONが必要）
+cargo test --locked --all-features                   # ライブラリ（process試験はPURE_JEFF_PYTHONが必要）
 cargo test --locked --manifest-path runtime/rust/Cargo.toml
 cargo test --locked --manifest-path runtime/wasm/Cargo.toml
 cargo test --locked --manifest-path apps/web-demo/engine/Cargo.toml
 python -m unittest discover -s runtime -p "test_*.py"
+python tools/check_package.py --work <新しいdirectory>   # crates.io用package、利用者projectからのbuild
 ```
 
-CI（`.github/workflows/ci.yml`、WindowsとLinux）は、これらに加えてclippy・fmt、Native release build、Wasm build（host pathを含まないことも検査）、ライセンス監査を行う。モデルの配信元（Hugging Face）は週1回、`model-availability.yml`で照合する。モデルを使う照合は、ダウンロード量が大きいためCIに含めない。clone・build・モデル取得・goldenの照合を一度に行うには`bash tools/clean_check.sh <repository> <workdir>`を使う（[記録](docs/clean-environment-check.md)）。
+CI（`.github/workflows/ci.yml`、WindowsとLinux）は、これらに加えてclippy・fmt、Native release build、Wasm build（host pathを含まないことも検査）、ライセンス監査、crates.io用packageの検査（`cargo publish --dry-run`と利用者projectのbuild）を行う。モデルの配信元（Hugging Face）は週1回、`model-availability.yml`で照合する。モデルを使う照合は、ダウンロード量が大きいためCIに含めない。clone・build・モデル取得・goldenの照合を一度に行うには`bash tools/clean_check.sh <repository> <workdir>`を使う（[記録](docs/clean-environment-check.md)）。
 
 ## 構成
 
 ```
-Cargo.toml, src/, tests/   判断契約crate（kaze_judge）：要求・結果の型と検証
-runtime/rust/              Native実行（worker、bundle検証、tokenizer、backbone、readout、policy）
-runtime/wasm/              ブラウザ用probe。凍結したNative sourceをhashで固定して再利用する
+Cargo.toml, src/, tests/   ライブラリ（pure-jeff）：判断契約、bundle照合、tokenizer、backbone、readout、policy、Model、memory::Session、worker
+runtime/rust/              CLI（pure-jeff-cli）：jeff lock／prepare／decide／worker、開発用example
+runtime/wasm/              W0〜W2の研究用probe。当時のNative sourceをfrozen/にbytesのまま置き、hashで固定する
 apps/web-demo/             Webデモ（Wasm engine、静的ページ、build・配信・E2E script）
 runtime/*.py               公式Jeffの参照worker、参照出力の採取、照合、package用の開発tool
-tools/                     モデル取得、ライセンス監査
+tools/                     モデル取得、ライセンス監査、Wasm build、package検査（tools/consumer）
 tests/fixtures/            公式参照（golden）と要求
 bench/                     公式Jeff・Native・Wasmの比較benchmark、Tractの常駐benchmark
 runtime/onnx/, runtime/tract/   ONNX export・数値gate・Tract probe（実験。docs/tract-development.md）
@@ -76,7 +88,7 @@ runtime/tract-driver-profile/, runtime/bench-native/, runtime/native-retained/
 docs/                      計画、結果、検証記録と証跡（docs/README.md）
 ```
 
-crate名とschema名に残る`kaze_judge`は、このコードがKazeJudge（判断契約を利用する側のproject）から切り出されたことによる。改名すると既存のAPI、hash固定、検証証跡が変わるため、そのままにしている。ONNX／Tractの実験コードも、証跡が自身のhashを記録しているため移管時のbytesのまま残している。
+crate名・schema名は2026-10-12に`kaze_judge`（切り出し元KazeJudgeの名前）から`pure-jeff`／`pure_jeff.*`へ改めた（[対応表](docs/naming-map.md)）。公式golden（`kaze_judge.jeff_golden.v1`）、`docs/`の記録と証跡、ONNX／Tractの研究資産は、hashが記録されているため当時の名前のまま残している。
 
 ## 出典
 

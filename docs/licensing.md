@@ -25,4 +25,4 @@
 - checkpointのrepoは`mstrasser/…`から`jeff-legacy/…`へ移っている。固定revisionのhashで内容を照合しているので、取得物の同一性は保証される。ただし、legacy repoが将来削除されると`tools/fetch_model.py`が使えなくなる。
 - 証跡script `docs/research/wasm-demo/w2-2026-10-11/official-references/export_all.sh`は、利用者名を含むローカルの絶対pathを含む。証跡なので変更していない。公開してよいか確認する。
 - git履歴のauthor名とメールアドレスが公開される。
-- crate名、schema名（`kaze_judge.*`）は、KazeJudgeとの互換と既存の証跡を保つため残している。改名すると既存のAPI・hash固定・証跡が変わる。
+- crate名、schema名は2026-10-12に`pure-jeff`／`pure_jeff.*`へ改めた（[対応表](naming-map.md)）。公式goldenと記録・証跡は当時の`kaze_judge.*`のまま残している。

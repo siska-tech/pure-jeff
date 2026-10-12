@@ -7,7 +7,7 @@ pure-jeff reimplements and verifies the inference of a third-party model. This f
 - Source: https://github.com/firelex/jeff, commit `3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0`
 - Copyright (c) 2026 Mathias Strasser (Jeff); Copyright (c) 2026 Denis Yarats (AutoJev, on which Jeff's training code is based)
 - Full text: [runtime/licenses/jeff-source/LICENSE](runtime/licenses/jeff-source/LICENSE)
-- Use in pure-jeff: the Rust runtime reproduces Jeff's decision procedure, including its prompt layout and instruction texts (`runtime/rust/src/prompt.rs`), the answer-code vocabulary, temperature scaling and option masking. Its outputs are validated against Jeff. The Python reference tools (`runtime/jeff_worker.py`, `runtime/export_jeff_reference.py`) import Jeff from a local checkout; no Jeff source file is included in this repository.
+- Use in pure-jeff: the Rust runtime reproduces Jeff's decision procedure, including its prompt layout and instruction texts (`src/prompt.rs`), the answer-code vocabulary, temperature scaling and option masking. Its outputs are validated against Jeff. The Python reference tools (`runtime/jeff_worker.py`, `runtime/export_jeff_reference.py`) import Jeff from a local checkout; no Jeff source file is included in this repository.
 
 ## Jeff-Qwen3.5-0.8B weights — Apache-2.0
 
@@ -20,12 +20,12 @@ pure-jeff reimplements and verifies the inference of a third-party model. This f
 ## Qwen3.5-0.8B — Apache-2.0
 
 - Source: https://huggingface.co/Qwen/Qwen3.5-0.8B, by the Qwen team, Alibaba Cloud.
-- The base model of the Jeff weights. pure-jeff implements its text architecture (gated DeltaNet linear attention and full attention layers) in `runtime/rust/src/backbone.rs`.
+- The base model of the Jeff weights. pure-jeff implements its text architecture (gated DeltaNet linear attention and full attention layers) in `src/backbone.rs`.
 
 ## Hugging Face Transformers — Apache-2.0
 
 - Source: https://github.com/huggingface/transformers, version 5.17.0
-- `runtime/rust/src/backbone.rs` states that its equations were checked against the Transformers Qwen3.5 implementation. The official Jeff reference runs on Transformers.
+- `src/backbone.rs` states that its equations were checked against the Transformers Qwen3.5 implementation. The official Jeff reference runs on Transformers.
 
 ## Rust dependencies
 

@@ -5,7 +5,7 @@ A static page that runs the Jeff candidate decision entirely in the browser (Rus
 - Input text and candidates never leave the browser; there is no inference server.
 - The model (about 1.73 GB) is downloaded only when the user presses the download button. It is stored in Cache Storage and can be deleted from the page.
 - Each asset's SHA-256 is computed while it streams in and checked against the bundle manifest before use. The engine binary's hash is checked against the deployment config.
-- Output is a `kaze_judge::Attempt` (`kaze_judge.attempt.v1`); a failure is never shown as a judgment.
+- Output is a `pure_jeff::Attempt` (`pure_jeff.attempt.v1`); a failure is never shown as a judgment. The engine verifies and decides with `pure_jeff::memory::Session`, the same library code as the Native CLI.
 - Validated range: up to 512 tokens and 2–8 candidates in the UI. Longer prompts return `budget_exceeded` without truncation.
 - Requires WebAssembly SIMD and Cache Storage (HTTPS or localhost). Tested only on desktop Chrome/Edge 153 on Windows (headless).
 - The build strips the Wasm probe's development exports (`kj_*`) from `engine.wasm` (`strip_exports.py`) and ships `licenses/`: the engine's dependency license texts, the checkpoint's LICENSE and NOTICE, Jeff's MIT license and the notices.
@@ -16,7 +16,7 @@ A static page that runs the Jeff candidate decision entirely in the browser (Rus
 # Engine (wasm32, SIMD128). build_wasm.py remaps host paths, so no user or home directory ships
 # in engine.wasm, and the bytes do not depend on CARGO_HOME or the target directory.
 python tools/build_wasm.py engine --target-dir .venv/demo-target-wasm
-python tools/check_no_host_paths.py .venv/demo-target-wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm
+python tools/check_no_host_paths.py .venv/demo-target-wasm/wasm32-unknown-unknown/release/pure_jeff_web_demo.wasm
 
 # Native checks
 $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/demo-target'
@@ -27,7 +27,7 @@ cargo clippy --locked --offline --release --manifest-path apps/web-demo/engine/C
 # or --model-base-url https://models.example/model/ to fetch the model from another origin (CORS required).
 Push-Location apps/web-demo
 & python -B build_demo.py `
-  --engine-wasm ../../.venv/demo-target-wasm/wasm32-unknown-unknown/release/kaze_judge_web_demo.wasm `
+  --engine-wasm ../../.venv/demo-target-wasm/wasm32-unknown-unknown/release/pure_jeff_web_demo.wasm `
   --output ../../experiments/runs/web-demo-dist
 Pop-Location
 ```

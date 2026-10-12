@@ -13,7 +13,7 @@ Push-Location bench
 & <official-jeff-python> -B run_benchmark.py `
   --python <official-jeff-python> --py-manifest ../models/jeff-bundle.json `
   --rust-manifest ../models/jeff-rust-bundle-pj.json `
-  --wasm ../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm `
+  --wasm ../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/pure_jeff_wasm_probe.wasm `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --output ../experiments/runs/bench-repeat
 Pop-Location

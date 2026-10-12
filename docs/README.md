@@ -12,6 +12,8 @@
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
+| [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
+| [naming-map.md](naming-map.md) | KazeJudge由来の名前・pathと、改名後の対応 |
 | [tract-development.md](tract-development.md) | ONNX／Tract経路（実験）の準備・build・数値gate・benchmarkの手順と、統合の判断 |
 | [tract-migration-plan.md](tract-migration-plan.md)、[tract-migration-results-2026-10-12.md](tract-migration-results-2026-10-12.md)、[tract-migration-provenance.json](tract-migration-provenance.json) | KazeJudgeからのONNX／Tract資産の移管計画・pure-jeffでの再検証結果・移管したファイルのhash |
 

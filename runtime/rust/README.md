@@ -1,8 +1,8 @@
-# Rust Jeff runtime（開発版）
+# jeff CLI（pure-jeff-cli）
 
-固定Jeff-Qwen3.5-0.8B、Windows x86_64 CPU FP32、batch=1、text-only、cacheなしのRust実装。requestからprompt、tokenize、24層forward、readout、候補分布、選択/保留まで独立実行する。`RustProvider`はcoreの`DecisionProvider`を実装し、`NativeProcessProvider`経由ではRust workerを呼び出す。Python/PyTorchは通常実行と資産固定には不要。[KazeNhanh CLI](../../docs/kaze-nhanh-integration.md)も`--backend rust`で接続できる。
+ライブラリ`pure-jeff`（リポジトリroot）の上の薄いCLI。推論の実装（prompt、tokenize、24層forward、readout、候補分布、選択／保留、bundle照合、worker）はすべてライブラリにある。固定Jeff-Qwen3.5-0.8B、Windows x86_64 CPU FP32、batch=1、text-only、cacheなし。Python/PyTorchは通常実行と資産固定には不要。開発用example（`probe`、`profile`、`resident_bench`、`verify_portable`）もこのcrateにある。
 
-Candle commit `c68b24997319b8d76e5a4e775dab197c7f26322a`のCPU演算を使用し、Qwen3.5 text backboneとgated deltaの逐次式を実装した。tokenizersは0.23.2、default features無効、fancy-regexのみ有効。検証toolchainはrustc/cargo 1.99.0、x86_64-pc-windows-msvc。
+Candle commit `c68b24997319b8d76e5a4e775dab197c7f26322a`のCPU演算を使用し（`Cargo.toml`の`[patch.crates-io]`）、Qwen3.5 text backboneとgated deltaの逐次式を実装した。tokenizersは0.23.2、default features無効、fancy-regexのみ有効。検証toolchainはrustc/cargo 1.99.0、x86_64-pc-windows-msvc。
 
 ## Rustだけで実行する
 
@@ -15,26 +15,26 @@ cargo build --release --locked --offline --manifest-path runtime/rust/Cargo.toml
 & runtime/rust/target/release/jeff.exe decide-process models/jeff-rust-bundle.json examples/candidate-request.json 120000 512
 ```
 
-`prepare`はpromptとtoken IDsを返し、forwardしない。`decide-process`は同じexeをworkerとして起動し、coreのAttempt JSONを返す。親のdeadline超過時は直接の子をkill/waitし、期限後の結果を破棄する。終了codeだけでなく`outcome.status`も確認する。起動時の不正JSON/config等は非zero終了する。CLIは最大1 MiBのrequest、1 forward、8192 tokensまで。token予算超過は切り詰めず拒否し、単一sequenceなのでpaddingしない。
+`prepare`はpromptとtoken IDsを返し、forwardしない。`decide-process`は同じexeをworkerとして起動し、Attempt JSON（`pure_jeff.attempt.v1`）を返す。親のdeadline超過時は直接の子をkill/waitし、期限後の結果を破棄する。終了codeだけでなく`outcome.status`も確認する。起動時の不正JSON/config等は非zero終了する。CLIは最大1 MiBのrequest、1 forward、8192 tokensまで。token予算超過は切り詰めず拒否し、単一sequenceなのでpaddingしない。
 
-workerは`jeff worker --manifest path --request path --response path`で`kaze_judge.worker.v1`のファイル通信を行う。応答は新規作成のみ、親の応答上限は1 MiB。親はschema、request ID、観測契約を検査し、異常終了・不正応答を成功にしない。workerは子孫プロセスを起動しない。OS sandbox、RSS上限、queue、累計予算はこの境界に含まない。
+workerは`jeff worker --manifest path --request path --response path`で`pure_jeff.worker.v1`のファイル通信を行う（ライブラリの`pure_jeff::worker::run`）。応答は新規作成のみ、親の応答上限は1 MiB。親はschema、request ID、観測契約を検査し、異常終了・不正応答を成功にしない。workerは子孫プロセスを起動しない。OS sandbox、RSS上限、queue、累計予算はこの境界に含まない。
 
-Rust bundleは`kaze_judge.rust_jeff_bundle.v1`。旧Python bundleとは別schema/別ファイルで、checkpointの相対path、revisionラベル、11資産のSHA-256、policy、prompt実装とruntime buildのfingerprintを保存する。build fingerprintは実装source・Cargo.lock・tensor spec・toolchain/target/profile/Rust flagsから生成する。build変更後は別名で再lockする。checkpoint revisionは呼出側が与えるラベルであり、Rust CLIがリモートrepository由来を証明するものではない。
+bundleは`pure_jeff.bundle.v1`。Python参照worker用のbundle（`pure_jeff.reference_bundle.v1`）とは別schema/別ファイルで、checkpointの相対path、revisionラベル、11資産のSHA-256、policy、prompt実装とruntime buildのfingerprintを保存する。build fingerprint（`pure_jeff::runtime_build_hash`）はライブラリのsource・tensor spec・toolchain/target/profile/Rust flagsから生成する。CLIはbuild fingerprintの一致を要求するので、build変更後は別名で再lockする。checkpoint revisionは呼出側が与えるラベルであり、Rust CLIがリモートrepository由来を証明するものではない。
 
 使用時に全資産のhash・完全なファイル集合、固定config/template、tensor名/shape/dtype、回答code/token ID対応を再検証する。重複JSON key、未知manifest field、不正相対path、資産内のsymlink/Windows reparse pointを拒否する。信頼した不変ローカル資産向けで、hash確認からmmap終了までファイルが変更されないことを呼出側が保証する必要がある。
 
-`decide`は同一process内で実行する診断経路として維持する。`RustProvider::new(manifest)`をlibraryから使う場合、推論開始前にprocess-wideの`RAYON_NUM_THREADS`と`CANDLE_NUM_THREADS`をbundleの`policy.cpu_threads`へ設定する。CLI/workerは設定を行う。Providerは不一致を拒否し、要求間でglobal thread設定を変更しない。hashの各read、tokenize後、各層の前後、出力後にdeadlineを検査するが、同期演算の途中では即時停止できない。強制停止が必要な呼出ではcoreの`process` featureと`NativeProcessProvider::new(executable, manifest)`を使う。
+`decide`は同一process内で実行する診断経路として維持する（`pure_jeff::ColdProvider`：呼出ごとに照合・読込）。ライブラリを直接使う場合は、推論開始前に`pure_jeff::configure_threads`でprocess-wideのthread数をbundleの`policy.cpu_threads`へ設定し、`pure_jeff::Model`を常駐させる。CLI/workerは設定を行う。不一致は拒否し、要求間でglobal thread設定を変更しない。hashの各read、tokenize後、各層の前後、出力後にdeadlineを検査するが、同期演算の途中では即時停止できない。強制停止が必要な呼出ではライブラリの`process` featureと`NativeProcessProvider::new(executable, manifest)`を使う。
 
 ## 検証
 
 ```powershell
 cargo test --locked --offline --manifest-path runtime/rust/Cargo.toml
-cargo test --locked --offline --features process --test native_process
+cargo test --locked --offline --all-features   # ライブラリ（root）
 cargo clippy --locked --offline --manifest-path runtime/rust/Cargo.toml --all-targets -- -D warnings
 cargo fmt --manifest-path runtime/rust/Cargo.toml -- --check
 ```
 
-（pure-jeff）KazeJudgeでは`models/jeff-rust-bundle-p3.json`を使っていた。runtimeのbuild hashが変わったため、pure-jeffでは上の`jeff lock`で`models/jeff-rust-bundle.json`を作り直す。KazeNhanh CLIとの接続を検証する`validate_rust_process.py`はKazeJudgeに残した。
+（pure-jeff）KazeJudgeでは`models/jeff-rust-bundle-p3.json`（`kaze_judge.rust_jeff_bundle.v1`）を使っていた。2026-10-12の改名以降は旧schemaを受け付けないので、上の`jeff lock`で作り直す。KazeNhanh CLIとの接続を検証する`validate_rust_process.py`はKazeJudgeに残した。
 
 開発用Python harnessはRust executableを起動して保存済み公式参照と比較する。Pythonでモデル推論は行わない。検証出力も上書きしない。
 

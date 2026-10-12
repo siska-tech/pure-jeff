@@ -4,7 +4,7 @@ Development-only browser feasibility probe ([plan](../../docs/wasm-demo-feasibil
 
 The drivers default to `models/jeff-rust-bundle.json`. The W0-W2 evidence was recorded with the KazeJudge-era versions of these drivers and pages (default manifest `jeff-rust-bundle-p3.json`, KazeJudge page titles); their hashes in the evidence correspond to those versions ([commit map](../../docs/commit-map.md)).
 
-`build.rs` checks the SHA-256 of the frozen Native `backbone.rs`, `prompt.rs`, `readout.rs` and `policy.rs`; a changed frozen source fails the build. W0 includes the backbone byte-for-byte. W1 (`decide`) uses generated copies of the backbone and readout whose only change is reading weights from a byte slice (`SliceSafetensors`) instead of a memory map; every substitution must match exactly once. The wasm module uses a raw C ABI (no wasm-bindgen) and imports only `env.kj_random_fill`, `env.kj_now_ms` and `env.kj_panic`. `getrandom` 0.3 uses its custom backend, fed by `crypto.getRandomValues`.
+`build.rs` checks the SHA-256 of the frozen Native `backbone.rs`, `prompt.rs`, `readout.rs` and `policy.rs`; a changed frozen source fails the build. Since the Native code became the `pure-jeff` library (2026-10-12), these four files are kept byte for byte in `frozen/` (taken from `runtime/rust/src` at `471dc5d`), and a dependency alias (`kaze_judge` = the `pure-jeff` package) resolves their `use kaze_judge::...` lines. The web demo engine no longer uses this probe; it calls the library directly. W0 includes the backbone byte-for-byte. W1 (`decide`) uses generated copies of the backbone and readout whose only change is reading weights from a byte slice (`SliceSafetensors`) instead of a memory map; every substitution must match exactly once. The wasm module uses a raw C ABI (no wasm-bindgen) and imports only `env.kj_random_fill`, `env.kj_now_ms` and `env.kj_panic`. `getrandom` 0.3 uses its custom backend, fed by `crypto.getRandomValues`.
 
 ```powershell
 # Native reference and tests (1 thread is enforced by the driver at run time).
@@ -27,8 +27,8 @@ Remove-Item Env:RUSTFLAGS
 python -B runtime/wasm/run_w0.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference .venv/wasm-target/release/w0_reference.exe `
-  --variant "baseline=.venv/wasm-target-baseline/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm" `
-  --variant "simd128=.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm" `
+  --variant "baseline=.venv/wasm-target-baseline/wasm32-unknown-unknown/release/pure_jeff_wasm_probe.wasm" `
+  --variant "simd128=.venv/wasm-target-simd128/wasm32-unknown-unknown/release/pure_jeff_wasm_probe.wasm" `
   --output experiments/runs/wasm-w0-repeat
 
 # W1: one real-model decision (run A), a Worker terminated mid-forward (B) and a fresh rerun (C).
@@ -37,7 +37,7 @@ Push-Location runtime/wasm
 python -B run_w1.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference ../../.venv/wasm-target/release/w1_reference.exe `
-  --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm `
+  --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/pure_jeff_wasm_probe.wasm `
   --heap-reserve-bytes 805306368 --output ../../experiments/runs/wasm-w1-repeat
 python -B -m unittest test_run_w0 test_run_w1 test_run_w2 -v
 Pop-Location
@@ -50,7 +50,7 @@ Push-Location runtime/wasm
 python -B run_w2.py `
   --browser "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --reference ../../.venv/wasm-target/release/w2_reference.exe `
-  --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/kaze_judge_wasm_probe.wasm `
+  --wasm ../../.venv/wasm-target-simd128/wasm32-unknown-unknown/release/pure_jeff_wasm_probe.wasm `
   --official ../../docs/research/wasm-demo/w2-2026-10-11/official-references `
   --output ../../experiments/runs/wasm-w2-repeat
 Pop-Location
