@@ -1,0 +1,1234 @@
+{
+ "marks": [
+  {
+   "name": "abort:click",
+   "time": 1791782525.353
+  },
+  {
+   "name": "abort:stopped",
+   "time": 1791782563.467
+  },
+  {
+   "name": "download:click",
+   "time": 1791782565.121
+  },
+  {
+   "name": "download:ready",
+   "time": 1791782757.687
+  },
+  {
+   "name": "eval0:start",
+   "time": 1791782757.815
+  },
+  {
+   "name": "eval0:end",
+   "time": 1791782763.348
+  },
+  {
+   "name": "save:click",
+   "time": 1791782763.479
+  },
+  {
+   "name": "eval2:start",
+   "time": 1791782763.741
+  },
+  {
+   "name": "eval2:end",
+   "time": 1791782771.894
+  },
+  {
+   "name": "eval5:start",
+   "time": 1791782771.907
+  },
+  {
+   "name": "eval5:end",
+   "time": 1791782791.417
+  },
+  {
+   "name": "eval6:start",
+   "time": 1791782791.426
+  },
+  {
+   "name": "eval6:end",
+   "time": 1791782791.697
+  },
+  {
+   "name": "eval-no-reason:start",
+   "time": 1791782791.838
+  },
+  {
+   "name": "eval-no-reason:end",
+   "time": 1791782792.102
+  },
+  {
+   "name": "invalid:start",
+   "time": 1791782792.109
+  },
+  {
+   "name": "invalid:end",
+   "time": 1791782792.625
+  },
+  {
+   "name": "cancel:start",
+   "time": 1791782792.63
+  },
+  {
+   "name": "cancel:clicked",
+   "time": 1791782795.649
+  },
+  {
+   "name": "cancel:reloaded",
+   "time": 1791782801.678
+  },
+  {
+   "name": "eval-after-cancel:start",
+   "time": 1791782801.681
+  },
+  {
+   "name": "eval-after-cancel:end",
+   "time": 1791782807.206
+  },
+  {
+   "name": "page-reload",
+   "time": 1791782807.211
+  },
+  {
+   "name": "load-cached:click",
+   "time": 1791782807.622
+  },
+  {
+   "name": "load-cached:ready",
+   "time": 1791782813.615
+  },
+  {
+   "name": "eval-after-reload:start",
+   "time": 1791782813.619
+  },
+  {
+   "name": "eval-after-reload:end",
+   "time": 1791782819.12
+  }
+ ],
+ "network": [
+  {
+   "time": 1791782524.527,
+   "url": "https://pure-jeff.siska-tech.workers.dev/index.html?lang=ja",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.623,
+   "url": "https://pure-jeff.siska-tech.workers.dev/?lang=ja",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.659,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.66,
+   "url": "https://pure-jeff.siska-tech.workers.dev/i18n.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.66,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.702,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782524.756,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782525.355,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782525.39,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791782525.681,
+   "url": "https://pure-jeff.siska-tech.workers.dev/bundle/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782525.708,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782526.037,
+   "url": "https://huggingface.co/api/resolve-cache/models/jeff-legacy/Jeff-Qwen3.5-0.8B/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json?%2Fjeff-legacy%2FJeff-Qwen3.5-0.8B%2Fresolve%2F51552f39a943d62e8387c4ea5e17026a1408729f%2Fdecision_config.json=&etag=%22ad311f43b0cca5d8e4a0104532f226c6e0a64047%22",
+   "method": "GET"
+  },
+  {
+   "time": 1791782526.057,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782526.237,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/a534f7c9d12bb01a2bc21781b55369e077043baed4c8f646fdeff5ff02dfd4d6?X-Xet-Cas-Uid=public&xip=-_kd0wZV3P0&response-content-type=application%2Fjson%3B+charset%3Dutf-8&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27tokenizer.json%3B+filename%3D%22tokenizer.json%22%3B&user_id=public&Expires=1791786126&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxL2E1MzRmN2M5ZDEyYmIwMWEyYmMyMTc4MWI1NTM2OWUwNzcwNDNiYWVkNGM4ZjY0NmZkZWZmNWZmMDJkZmQ0ZDZcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGanNvbiUzQitjaGFyc2V0JTNEdXRmLTgmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3Rva2VuaXplci5qc29uJTNCK2ZpbGVuYW1lJTNEJTIydG9rZW5pemVyLmpzb24lMjIlM0ImdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc4NjEyNn19fV19&Signature=MEQCIBdd607DSMpegz2fuLdkMYbQrYho8UmiK6e%7EhzhC6ZLmAiAjWiQn7cWJNqTBtpfu1f-iWZzWvxvmSmluRht-RsNN9g__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782530.582,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791782530.762,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/478f3c72ade20a0a231fd3e2cd8a5b048a25a0aab02c4204ec39024e85555b62?xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27readout.safetensors%3B+filename%3D%22readout.safetensors%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1791786130&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzQ3OGYzYzcyYWRlMjBhMGEyMzFmZDNlMmNkOGE1YjA0OGEyNWEwYWFiMDJjNDIwNGVjMzkwMjRlODU1NTViNjJcXD94aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3JlYWRvdXQuc2FmZXRlbnNvcnMlM0IrZmlsZW5hbWUlM0QlMjJyZWFkb3V0LnNhZmV0ZW5zb3JzJTIyJTNCJlgtWGV0LUNhcy1VaWQ9cHVibGljJnVzZXJfaWQ9cHVibGljIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTE3ODYxMzB9fX1dfQ__&Signature=MEUCIQDbBsvoDs9fm7yOz5RN%7EIJlPTGz4ikAh7Cgi9J-KzkF%7EAIgSMjBcC8g5hVDvMExLbSwzGw8YcueiWJ88%7E4oI9l5bHA_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782531.47,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791782531.649,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/992ead0ebb3fbd05ba74bf43f3910cb1b6a770777bc7cb101a382861b8a23221?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&X-Xet-Cas-Uid=public&user_id=public&xip=-_kd0wZV3P0&Expires=1791786131&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzk5MmVhZDBlYmIzZmJkMDViYTc0YmY0M2YzOTEwY2IxYjZhNzcwNzc3YmM3Y2IxMDFhMzgyODYxYjhhMjMyMjFcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWwuc2FmZXRlbnNvcnMlM0IrZmlsZW5hbWUlM0QlMjJtb2RlbC5zYWZldGVuc29ycyUyMiUzQiZYLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc4NjEzMX19fV19&Signature=MEQCIDIOeYCDyWgxRXvJR4yh4qhiGOmb1ZpLzgg-DlkTtPu3AiA-rPeMEaa1Bubn4IUWYZ6DWtlna7EMvaaD0Nng8emavg__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.124,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.165,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.491,
+   "url": "https://pure-jeff.siska-tech.workers.dev/bundle/manifest.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.523,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.7,
+   "url": "https://huggingface.co/api/resolve-cache/models/jeff-legacy/Jeff-Qwen3.5-0.8B/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json?%2Fjeff-legacy%2FJeff-Qwen3.5-0.8B%2Fresolve%2F51552f39a943d62e8387c4ea5e17026a1408729f%2Fdecision_config.json=&etag=%22ad311f43b0cca5d8e4a0104532f226c6e0a64047%22",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.725,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782565.905,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/a534f7c9d12bb01a2bc21781b55369e077043baed4c8f646fdeff5ff02dfd4d6?user_id=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27tokenizer.json%3B+filename%3D%22tokenizer.json%22%3B&X-Xet-Cas-Uid=public&xip=-_kd0wZV3P0&response-content-type=application%2Fjson%3B+charset%3Dutf-8&Expires=1791786165&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxL2E1MzRmN2M5ZDEyYmIwMWEyYmMyMTc4MWI1NTM2OWUwNzcwNDNiYWVkNGM4ZjY0NmZkZWZmNWZmMDJkZmQ0ZDZcXD91c2VyX2lkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dG9rZW5pemVyLmpzb24lM0IrZmlsZW5hbWUlM0QlMjJ0b2tlbml6ZXIuanNvbiUyMiUzQiZYLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGanNvbiUzQitjaGFyc2V0JTNEdXRmLTgiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc4NjE2NX19fV19&Signature=MEYCIQCsWVMmEWF09HYX67fDXhpYk4j9IjidIRnHMrVwazmb-wIhAKTqogJq-DTcqfiyWlgKZeC5L2xS3fh-NfJLihgzX91g&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782568.886,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791782569.063,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/478f3c72ade20a0a231fd3e2cd8a5b048a25a0aab02c4204ec39024e85555b62?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27readout.safetensors%3B+filename%3D%22readout.safetensors%22%3B&user_id=public&xip=-_kd0wZV3P0&Expires=1791786169&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzQ3OGYzYzcyYWRlMjBhMGEyMzFmZDNlMmNkOGE1YjA0OGEyNWEwYWFiMDJjNDIwNGVjMzkwMjRlODU1NTViNjJcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3cmVhZG91dC5zYWZldGVuc29ycyUzQitmaWxlbmFtZSUzRCUyMnJlYWRvdXQuc2FmZXRlbnNvcnMlMjIlM0ImdXNlcl9pZD1wdWJsaWMmeGlwPS1fa2Qwd1pWM1AwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTE3ODYxNjl9fX1dfQ__&Signature=MEUCIDevYjQVjekKkZNHnPtEf4Ng-gMVUVLNQ54mu9aBJewbAiEAxfi9avwikDVSILln1ogBD94k5EU7QQSWxIyeI8mlimw_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782569.815,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+   "method": "GET"
+  },
+  {
+   "time": 1791782569.999,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/992ead0ebb3fbd05ba74bf43f3910cb1b6a770777bc7cb101a382861b8a23221?xip=-_kd0wZV3P0&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1791786170&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzk5MmVhZDBlYmIzZmJkMDViYTc0YmY0M2YzOTEwY2IxYjZhNzcwNzc3YmM3Y2IxMDFhMzgyODYxYjhhMjMyMjFcXD94aXA9LV9rZDB3WlYzUDAmdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MTc4NjE3MH19fV19&Signature=MEUCIQCsuBWD9qDGjsNoX9cOn9yJdz1V5VqSY3bj44geFXbTDgIgbiaRMKNuHmN4HhdRAkUk7YdwXhIVn6rxd2sq6RofFp4_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "method": "GET"
+  },
+  {
+   "time": 1791782795.651,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782795.741,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.217,
+   "url": "https://pure-jeff.siska-tech.workers.dev/?lang=ja",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.268,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.268,
+   "url": "https://pure-jeff.siska-tech.workers.dev/i18n.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.268,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.316,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.357,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.624,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782807.673,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.396,
+   "url": "https://pure-jeff.siska-tech.workers.dev/?lang=ja",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.457,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.457,
+   "url": "https://pure-jeff.siska-tech.workers.dev/i18n.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.458,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.492,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1791782819.527,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "method": "GET"
+  }
+ ],
+ "steps": {
+  "initial": {
+   "model": "absent",
+   "status": "モデルはまだ取得していません。",
+   "privacy": "入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（huggingface.co）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。",
+   "download_label": "モデルを取得して読み込む（約1.73 GB）"
+  },
+  "languages": {
+   "en": {
+    "lang": "en",
+    "title": "pure-jeff candidate decision demo",
+    "state_lang": "en",
+    "url_lang": "en",
+    "status": "The model has not been downloaded yet.",
+    "text": "\n\n  \n    pure-jeff candidate decision demo\n    Language\n      \n    \n  \n  The Jeff model picks the candidate that best fits the original text from OCR/ASR recognition candidates, and abstains when it cannot decide. All inference runs in this browser (WebAssembly).\n\n\n\n  \n    1. Model\n    The text and candidates you enter are processed only in this browser and are never sent anywhere. The model (about 1.73 GB) is downloaded from its host (huggingface.co) only when you press the button, and stored in this browser's Cache Storage. You can delete the stored model at any time.\n    The model has not been downloaded yet.\n    \n      \n      \n    \n    \n      Download and load the model (about 1.73 GB)\n      Load the stored model\n      Stop\n      Delete the stored model\n    \n    Storage for this site: 0 bytes used / about 10.74 GB available\n  \n\n  \n    2. Input\n    Example (artificial data)\n      — Select to fill in the form —OCR: 2 candidates (128 tokens)OCR: the same 2 candidates reversed (128 tokens)ASR: 3 candidates with Unicode characters (206 tokens)2 candidates with text resembling special tokens (182 tokens)Japanese OCR: 2 candidates (256 tokens)OCR: 8 candidates (512 tokens, exactly the limit)Long text over the limit (874 tokens, over-budget example)\n    \n    Original text (recognition result)\n      \n    \n    \n      Source\n        OCRASR\n      \n      Reason to evaluate\n        \n          Candidates compete\n          Weak textual evidence\n          Conflicting evidence\n          None (do not evaluate)\n        \n      \n    \n    \n      Candidates (2–8, order is kept)\n      RemoveRemove\n      Add candidate\n    \n    Input is limited to 512 tokens. Longer input is not truncated; it is returned as over budget.\n    \n      Decide\n      Cancel\n      \n    \n  \n\n  \n    3. Result\n    \n    \n      Candidate IDCandidateDistribution\n      \n    \n    The values are a distribution over the supplied candidates, not the probability that a recognition is correct.\n    \n    \n      Save JSON\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  Research demo. The examples are artificial data for illustration; they do not measure OCR/ASR recognition quality.\n  Unofficial implementation, not affiliated with the authors of Jeff or Qwen. Licenses:\n    attributions ·\n    model LICENSE ·\n    model NOTICE ·\n    Jeff LICENSE ·\n    licenses of the inference engine's dependencies\n\n\n\n\n\n"
+   },
+   "vi": {
+    "lang": "vi",
+    "title": "pure-jeff – Bản demo chọn ứng viên",
+    "state_lang": "vi",
+    "url_lang": "vi",
+    "status": "Chưa tải mô hình.",
+    "text": "\n\n  \n    pure-jeff – Bản demo chọn ứng viên\n    Ngôn ngữ\n      \n    \n  \n  Mô hình Jeff chọn, trong số các ứng viên nhận dạng OCR/ASR, ứng viên phù hợp nhất với văn bản gốc; khi không thể quyết định, mô hình sẽ không chọn. Mọi suy luận đều chạy trong trình duyệt này (WebAssembly).\n\n\n\n  \n    1. Mô hình\n    Văn bản và các ứng viên bạn nhập chỉ được xử lý trong trình duyệt này và không được gửi đi đâu cả. Mô hình (khoảng 1.73 GB) chỉ được tải về từ nguồn phân phối (huggingface.co) khi bạn bấm nút, và được lưu trong Cache Storage của trình duyệt này. Bạn có thể xóa mô hình đã lưu bất cứ lúc nào.\n    Chưa tải mô hình.\n    \n      \n      \n    \n    \n      Tải và nạp mô hình (khoảng 1.73 GB)\n      Nạp mô hình đã lưu\n      Dừng\n      Xóa mô hình đã lưu\n    \n    Dung lượng lưu trữ của trang: đã dùng 0 bytes / giới hạn ước tính 10.74 GB\n  \n\n  \n    2. Đầu vào\n    Ví dụ (dữ liệu nhân tạo)\n      — Chọn để điền vào biểu mẫu —OCR: 2 ứng viên (128 token)OCR: cùng 2 ứng viên theo thứ tự ngược (128 token)ASR: 3 ứng viên có ký tự Unicode (206 token)2 ứng viên có chuỗi giống ký hiệu đặc biệt (182 token)OCR tiếng Nhật: 2 ứng viên (256 token)OCR: 8 ứng viên (512 token, đúng giới hạn)Văn bản dài vượt giới hạn (874 token, ví dụ vượt ngân sách)\n    \n    Văn bản gốc (kết quả nhận dạng)\n      \n    \n    \n      Loại\n        OCRASR\n      \n      Lý do đánh giá\n        \n          Các ứng viên cạnh tranh nhau\n          Dấu hiệu từ văn bản yếu\n          Các căn cứ mâu thuẫn\n          Không có (không đánh giá)\n        \n      \n    \n    \n      Ứng viên (2–8, giữ nguyên thứ tự)\n      XóaXóa\n      Thêm ứng viên\n    \n    Đầu vào tối đa 512 token. Nếu dài hơn, đầu vào không bị cắt bớt mà được trả về là vượt ngân sách.\n    \n      Quyết định\n      Hủy\n      \n    \n  \n\n  \n    3. Kết quả\n    \n    \n      ID ứng viênỨng viênPhân phối\n      \n    \n    Các giá trị là phân phối giữa những ứng viên đã đưa vào, không phải xác suất nhận dạng đúng.\n    \n    \n      Lưu JSON\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  Bản demo phục vụ nghiên cứu. Các ví dụ là dữ liệu nhân tạo để minh họa, không dùng để đánh giá chất lượng nhận dạng OCR/ASR.\n  Bản triển khai không chính thức, không liên quan đến tác giả của Jeff hay Qwen. Giấy phép:\n    danh sách nguồn ·\n    LICENSE của mô hình ·\n    NOTICE của mô hình ·\n    LICENSE của Jeff ·\n    giấy phép của các thư viện trong engine suy luận\n\n\n\n\n\n"
+   },
+   "ja": {
+    "lang": "ja",
+    "title": "pure-jeff 候補判定デモ",
+    "state_lang": "ja",
+    "url_lang": "ja",
+    "status": "モデルはまだ取得していません。",
+    "text": "\n\n  \n    pure-jeff 候補判定デモ\n    言語\n      \n    \n  \n  OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。\n\n\n\n  \n    1. モデル\n    入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（huggingface.co）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。\n    モデルはまだ取得していません。\n    \n      \n      \n    \n    \n      モデルを取得して読み込む（約1.73 GB）\n      保存済みモデルを読み込む\n      中止\n      保存したモデルを削除\n    \n    このサイトの保存領域：0 bytes 使用 / 上限の目安 10.74 GB\n  \n\n  \n    2. 入力\n    見本（人工データ）\n      — 選択すると入力欄に反映 —OCR：2候補（128 tokens）OCR：同じ2候補を逆順（128 tokens）ASR：Unicode文字を含む3候補（206 tokens）区切り記号に似た文字列を含む2候補（182 tokens）日本語OCR：2候補（256 tokens）OCR：8候補（512 tokens、上限ちょうど）上限を超える長文（874 tokens、予算超過の例）\n    \n    原文（認識結果）\n      \n    \n    \n      種類\n        OCRASR\n      \n      評価する理由\n        \n          候補が競合している\n          文章上の手がかりが弱い\n          根拠が食い違う\n          なし（評価しない）\n        \n      \n    \n    \n      候補（2〜8件。順序は保持されます）\n      削除削除\n      候補を追加\n    \n    入力は最大512 tokensまでです。超える場合は切り詰めず、予算超過として返します。\n    \n      判断する\n      取消\n      \n    \n  \n\n  \n    3. 結果\n    \n    \n      候補ID候補分布\n      \n    \n    数値は、渡した候補の中での分布です。認識が正しい確率ではありません。\n    \n    \n      JSONを保存\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。\n  本家Jeff・Qwenとは無関係の非公式実装です。ライセンス：\n    出典の一覧 ·\n    モデルのLICENSE ·\n    モデルのNOTICE ·\n    本家JeffのLICENSE ·\n    推論エンジンが含む依存のライセンス\n\n\n\n\n\n"
+   }
+  },
+  "abort": {
+   "state": "partial",
+   "delete_enabled": true,
+   "status": "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。（読み込みを中止しました）",
+   "model_in_cache": false,
+   "evaluate_disabled": true,
+   "cache_after_cleanup": false
+  },
+  "download": {
+   "status": "読み込み済み（このブラウザに保存済み）",
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 191623.90000009537,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 1,
+     "hashed_at_open": [],
+     "tokenizer_ms": 422
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   },
+   "storage": "このサイトの保存領域：1.73 GB 使用 / 上限の目安 12.46 GB"
+  },
+  "eval_sample0": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782757815",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5376.5,
+   "stages": [
+    {
+     "ms": 3,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5372,
+     "name": "forward"
+    },
+    {
+     "ms": 0.5,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 65.7000002861023,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "save": {
+   "file": "attempt-demo-1791782757815.json",
+   "content": "{\n  \"schema_version\": \"pure_jeff.attempt.v1\",\n  \"request\": {\n    \"request_id\": \"demo-1791782757815\",\n    \"document_id\": \"demo-document\",\n    \"segment_id\": \"segment-1\",\n    \"original_text\": \"節約する\",\n    \"source\": \"ocr\",\n    \"profile_id\": \"ja.ocr.demo\",\n    \"domain\": null,\n    \"question_id\": \"transcription-candidate.v1\",\n    \"candidates\": [\n      {\n        \"id\": \"original\",\n        \"text\": \"節約する\"\n      },\n      {\n        \"id\": \"alternative\",\n        \"text\": \"節税する\"\n      }\n    ],\n    \"reason\": \"candidate_competition\"\n  },\n  \"provider_calls_started\": 1,\n  \"outcome\": {\n    \"status\": \"completed\",\n    \"value\": {\n      \"scores\": [\n        {\n          \"candidate_id\": \"original\",\n          \"option_probability\": 0.9285955429077148\n        },\n        {\n          \"candidate_id\": \"alternative\",\n          \"option_probability\": 0.07140449434518814\n        }\n      ],\n      \"judgment\": {\n        \"kind\": \"selected\",\n        \"candidate_id\": \"original\"\n      },\n      \"temperature\": 1.0845714325759162,\n      \"input_tokens\": 128,\n      \"forwards\": 1,\n      \"artifacts\": [\n        {\n          \"component\": \"LICENSE\",\n          \"sha256\": \"c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c\"\n        },\n        {\n          \"component\": \"NOTICE\",\n          \"sha256\": \"bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74\"\n        },\n        {\n          \"component\": \"README.md\",\n          \"sha256\": \"1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa\"\n        },\n        {\n          \"component\": \"chat_template.jinja\",\n          \"sha256\": \"273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80\"\n        },\n        {\n          \"component\": \"config.json\",\n          \"sha256\": \"e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25\"\n        },\n        {\n          \"component\": \"decision_config.json\",\n          \"sha256\": \"4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03\"\n        },\n        {\n          \"component\": \"model.safetensors\",\n          \"sha256\": \"080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f\"\n        },\n        {\n          \"component\": \"processor_config.json\",\n          \"sha256\": \"abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f\"\n        },\n        {\n          \"component\": \"readout.safetensors\",\n          \"sha256\": \"86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9\"\n        },\n        {\n          \"component\": \"tokenizer.json\",\n          \"sha256\": \"6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706\"\n        },\n        {\n          \"component\": \"tokenizer_config.json\",\n          \"sha256\": \"5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f\"\n        },\n        {\n          \"component\": \"bundle_manifest\",\n          \"sha256\": \"351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f\"\n        },\n        {\n          \"component\": \"wasm_engine\",\n          \"sha256\": \"4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142\"\n        },\n        {\n          \"component\": \"prompt\",\n          \"sha256\": \"bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63\"\n        },\n        {\n          \"component\": \"rendered_prompt\",\n          \"sha256\": \"60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a\"\n        },\n        {\n          \"component\": \"policy\",\n          \"sha256\": \"887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8\"\n        }\n      ]\n    }\n  }\n}\n"
+  },
+  "eval_sample2": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782763741",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "明日１０時にCaféで会いましょう。\n予算は１００円です。",
+     "source": "asr",
+     "profile_id": "ja.asr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "明日１０時にCaféで会いましょう。\n予算は１００円です。"
+      },
+      {
+       "id": "normalized",
+       "text": "明日10時にCaféで会いましょう。\n予算は100円です。"
+      },
+      {
+       "id": "conflicting",
+       "text": "明日7時にCaféで会いましょう。\n予算は700円です。"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.6359894871711731
+       },
+       {
+        "candidate_id": "normalized",
+        "option_probability": 0.3610733151435852
+       },
+       {
+        "candidate_id": "conflicting",
+        "option_probability": 0.0029371571727097034
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 206,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 8041.400000095367,
+   "stages": [
+    {
+     "ms": 0.9000000953674316,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 8040.099999904633,
+     "name": "forward"
+    },
+    {
+     "ms": 0.3000001907348633,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 63.30000019073486,
+   "gap_samples": 163,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample5": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782771909",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "cat a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "a",
+       "text": "a"
+      },
+      {
+       "id": "b",
+       "text": "b"
+      },
+      {
+       "id": "c",
+       "text": "c"
+      },
+      {
+       "id": "d",
+       "text": "d"
+      },
+      {
+       "id": "e",
+       "text": "e"
+      },
+      {
+       "id": "f",
+       "text": "f"
+      },
+      {
+       "id": "g",
+       "text": "g"
+      },
+      {
+       "id": "h",
+       "text": "h"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "a",
+        "option_probability": 0.5633876919746399
+       },
+       {
+        "candidate_id": "b",
+        "option_probability": 0.08941920846700668
+       },
+       {
+        "candidate_id": "c",
+        "option_probability": 0.06949273496866226
+       },
+       {
+        "candidate_id": "d",
+        "option_probability": 0.05251272767782211
+       },
+       {
+        "candidate_id": "e",
+        "option_probability": 0.07833318412303925
+       },
+       {
+        "candidate_id": "f",
+        "option_probability": 0.06976419687271118
+       },
+       {
+        "candidate_id": "g",
+        "option_probability": 0.026990355923771858
+       },
+       {
+        "candidate_id": "h",
+        "option_probability": 0.050099968910217285
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 512,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 19367.900000095367,
+   "stages": [
+    {
+     "ms": 2.799999713897705,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 19364.800000190735,
+     "name": "forward"
+    },
+    {
+     "ms": 0.09999990463256836,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 66,
+   "gap_samples": 390,
+   "judgment_text": "保留：候補を決めきれませんでした",
+   "run_status": "完了しました。"
+  },
+  "eval_sample6": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782791427",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n資料の識別子はＡＢＣ１２３です。値は100円です。\n"
+      },
+      {
+       "id": "alternative",
+       "text": "資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n資料の識別子はＡＢＣ１２３です。値は700円です。\n"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "failed",
+     "value": "budget_exceeded"
+    }
+   },
+   "elapsed_ms": 2.4000000953674316,
+   "stages": [],
+   "max_main_thread_gap_ms": 55.5,
+   "gap_samples": 5,
+   "judgment_text": "失敗：予算超過：入力が長すぎます（最大512 tokens）",
+   "run_status": "完了しました。"
+  },
+  "eval_no_reason": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782791839",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": null
+    },
+    "provider_calls_started": 0,
+    "outcome": {
+     "status": "not_selected"
+    }
+   },
+   "elapsed_ms": 0,
+   "stages": [],
+   "max_main_thread_gap_ms": 61.89999961853027,
+   "gap_samples": 5,
+   "judgment_text": "評価しませんでした（評価する理由が「なし」）",
+   "run_status": "完了しました。"
+  },
+  "ui_validation": {
+   "run_status": "候補IDが重複しています。",
+   "running": false
+  },
+  "cancel": {
+   "run_status": "取消しました。保存済みモデルを読み込み直しました。"
+  },
+  "eval_after_cancel": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782801682",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5328.599999904633,
+   "stages": [
+    {
+     "ms": 1.0999999046325684,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5327.200000286102,
+     "name": "forward"
+    },
+    {
+     "ms": 0.19999980926513672,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 63.90000009536743,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "after_reload": {
+   "status": "このブラウザに保存済みです。読み込むと使えます（通信は発生しません）。"
+  },
+  "load_cached": {
+   "report": {
+    "id": 1,
+    "ok": true,
+    "load_ms": 5076.300000190735,
+    "open": {
+     "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+     "hash_ms": 1,
+     "hashed_at_open": [],
+     "tokenizer_ms": 529.1000003814697
+    },
+    "linear_memory_bytes": 2533752832,
+    "panic": null
+   }
+  },
+  "eval_after_reload": {
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1791782813621",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "4b1d280ed217d5e868a7b096a1a1883447d60191e6b2fd09235cf5efc5583142"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   },
+   "elapsed_ms": 5416,
+   "stages": [
+    {
+     "ms": 4.5,
+     "name": "prompt_tokenize"
+    },
+    {
+     "ms": 5409.599999904633,
+     "name": "forward"
+    },
+    {
+     "ms": 0.40000009536743164,
+     "name": "readout_policy"
+    }
+   ],
+   "max_main_thread_gap_ms": 64,
+   "gap_samples": 110,
+   "judgment_text": "選択：original",
+   "run_status": "完了しました。"
+  },
+  "delete": {
+   "status": "読み込み済み（保存データはありません）　保存データを削除しました。",
+   "cache_names": [],
+   "usage_before": 1726551808,
+   "usage_after": 1726551808
+  },
+  "after_delete_reload": {
+   "status": "モデルはまだ取得していません。"
+  }
+ },
+ "completed": true
+}
