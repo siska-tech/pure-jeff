@@ -185,7 +185,10 @@ mod tests {
                 .unwrap()
                 .to_string()
         };
-        assert_eq!(open(&"0".repeat(64), &"0".repeat(64)), "bundle manifest hash mismatch");
+        assert_eq!(
+            open(&"0".repeat(64), &"0".repeat(64)),
+            "bundle manifest hash mismatch"
+        );
         assert_eq!(open(&sha256(b"{}"), "short"), "invalid engine hash");
     }
 }
