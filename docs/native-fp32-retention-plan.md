@@ -60,3 +60,7 @@ Native（`runtime/rust`）は、`model.safetensors`をmmapし、forwardのたび
 ## 要素ごとの演算の結果（2026-10-12）
 
 「その他」を処理ごとに分けて測り、conv1dとsiluなどを融合した（[記録](native-elementwise-2026-10-12.md)）。出力は変わらず、forwardは3〜9%短くなった。短い入力では、重みの読込とBF16→FP32変換が128 tokensで約20%を占めたままである。
+
+## 重みの読込の結果（2026-10-12）
+
+重みをmmapのbytesから直接FP32へ変換し、embeddingは必要な行だけ読むようにした（[記録](native-weight-load-2026-10-12.md)）。出力は変わらず、forwardは128 tokensで17%短くなり、private commitのpeakは553 MiBから203 MiBに減った。残る重みの変換（128 tokensで約17%）の約半分は新しく確保したメモリへの最初の書き込みで、変換先の配列を使い回せば減らせる見込みがある。変換そのものをなくすには、上の2（FP32保持）が必要になる。
