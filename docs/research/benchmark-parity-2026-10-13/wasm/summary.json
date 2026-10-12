@@ -1,0 +1,162 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "wasm",
+ "smoke": false,
+ "path": "api",
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "wasm": 2.86102294921875e-06
+ },
+ "blocks_used": 6,
+ "extended": false,
+ "cases": {
+  "synthetic-ocr-ja-2-127": {
+   "wasm": {
+    "n": 24,
+    "median": 3.5694499999955296,
+    "min": 3.25829999999702,
+    "max": 5.44809999999404,
+    "mean": 3.8476500000003724
+   }
+  },
+  "candidate-request": {
+   "wasm": {
+    "n": 24,
+    "median": 3.566249999992549,
+    "min": 3.3295,
+    "max": 7.322800000011921,
+    "mean": 4.01396249999913
+   }
+  },
+  "synthetic-ocr-ja-2-128": {
+   "wasm": {
+    "n": 24,
+    "median": 3.5888500000014902,
+    "min": 3.2507999999970196,
+    "max": 7.34,
+    "mean": 3.9526916666645557
+   }
+  },
+  "synthetic-ocr-ja-2-129": {
+   "wasm": {
+    "n": 24,
+    "median": 3.6259500000029803,
+    "min": 3.3067999999970197,
+    "max": 5.588800000011921,
+    "mean": 3.8180958333313466
+   }
+  },
+  "synthetic-ocr-ja-2-256": {
+   "wasm": {
+    "n": 24,
+    "median": 6.963749999992549,
+    "min": 6.318,
+    "max": 10.81629999999702,
+    "mean": 7.532858333332464
+   }
+  },
+  "synthetic-ocr-ascii-8-256": {
+   "wasm": {
+    "n": 24,
+    "median": 6.94170000000298,
+    "min": 6.39020000000298,
+    "max": 12.508100000008941,
+    "mean": 7.603866666666543
+   }
+  },
+  "synthetic-asr-unicode-2-384": {
+   "wasm": {
+    "n": 24,
+    "median": 10.26614999999106,
+    "min": 9.934300000011921,
+    "max": 16.07040000000596,
+    "mean": 11.187237500000125
+   }
+  },
+  "synthetic-ocr-ascii-8-384": {
+   "wasm": {
+    "n": 24,
+    "median": 10.288,
+    "min": 9.307099999994039,
+    "max": 16.105300000011923,
+    "mean": 10.91915416666617
+   }
+  },
+  "synthetic-ocr-ja-2-511": {
+   "wasm": {
+    "n": 24,
+    "median": 13.771999999999998,
+    "min": 12.762299999997019,
+    "max": 21.467699999988078,
+    "mean": 14.641470833333209
+   }
+  },
+  "synthetic-ocr-ja-2-512": {
+   "wasm": {
+    "n": 24,
+    "median": 13.758550000004469,
+    "min": 12.92740000000596,
+    "max": 21.55940000000596,
+    "mean": 14.71442083333619
+   }
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "wasm": {
+    "n": 24,
+    "median": 13.77545000000298,
+    "min": 12.5945,
+    "max": 21.592899999991058,
+    "mean": 14.592816666665797
+   }
+  }
+ },
+ "load": {
+  "wasm": {
+   "n": 6,
+   "median": 8.34054999999702,
+   "min": 8.17559999999404,
+   "max": 8.77479999999702,
+   "mean": 8.404533333331347
+  }
+ },
+ "first": {
+  "wasm": {
+   "n": 6,
+   "median": 12.92814999999851,
+   "min": 12.654799999997019,
+   "max": 13.039899999991059,
+   "mean": 12.90711666666468
+  }
+ },
+ "groups": {},
+ "memory": {
+  "wasm": {
+   "max_tree_working_set": {
+    "n": 6,
+    "median": 4694362112.0,
+    "min": 4690825216,
+    "max": 4701757440,
+    "mean": 4694763520.0
+   },
+   "max_process_peak_working_set": {
+    "n": 6,
+    "median": 4088975360.0,
+    "min": 4088008704,
+    "max": 4095426560,
+    "mean": 4089943381.3333335
+   }
+  }
+ },
+ "kernel": {
+  "wasm": null
+ },
+ "wasm_page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 32,
+  "crossOriginIsolated": false
+ },
+ "valid": true
+}

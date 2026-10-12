@@ -1,0 +1,135 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "oneshot",
+ "smoke": false,
+ "path": "api",
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 3.7997961044311523e-07
+ },
+ "cases": {
+  "candidate-request": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 13.041498999999021,
+     "min": 12.986080399990897,
+     "max": 13.207622699992498,
+     "mean": 13.055567049997626
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 3992926208.0,
+     "min": 3986034688,
+     "max": 3999576064,
+     "mean": 3992779161.6
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4005560320.0,
+     "min": 3998625792,
+     "max": 4012167168,
+     "mean": 4005277696.0
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 4.040313750003406,
+     "min": 4.018419200001517,
+     "max": 4.092363200004911,
+     "mean": 4.043575660001079
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1087596544.0,
+     "min": 1087340544,
+     "max": 1088110592,
+     "mean": 1087650201.6
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1061672960.0,
+     "min": 1041444864,
+     "max": 1095946240,
+     "mean": 1065599795.2
+    }
+   }
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 18.067665000002307,
+     "min": 17.86983209999744,
+     "max": 18.30060840000806,
+     "mean": 18.050227140002242
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 4102445056.0,
+     "min": 4047671296,
+     "max": 4122820608,
+     "mean": 4089432473.6
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4099901440.0,
+     "min": 4046299136,
+     "max": 4132462592,
+     "mean": 4093143859.2
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 7.866090349998558,
+     "min": 7.815215099995839,
+     "max": 7.885008500001277,
+     "mean": 7.859879750000255
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1114697728.0,
+     "min": 1113260032,
+     "max": 1114988544,
+     "mean": 1114486374.4
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1100578816.0,
+     "min": 1083662336,
+     "max": 1120690176,
+     "mean": 1101111296.0
+    }
+   }
+  }
+ },
+ "probabilities": {
+  "candidate-request": {
+   "jeff": [
+    0.9285950064659119,
+    0.07140493392944336
+   ],
+   "native": [
+    0.928595244884491,
+    0.07140474766492844
+   ]
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": [
+    0.9305986762046814,
+    0.06940136849880219
+   ],
+   "native": [
+    0.9305989742279053,
+    0.06940098851919174
+   ]
+  }
+ },
+ "valid": true
+}
