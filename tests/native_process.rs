@@ -147,7 +147,9 @@ fn native_timeout_kills_and_waits_even_after_response_written() {
         )
         .unwrap();
         assert_eq!(result.outcome, Outcome::Failed(Failure::Timeout));
-        assert!(started.elapsed() < Duration::from_secs(2));
+        // Killing and reaping can take over a second on a loaded CI runner. A child that was not
+        // killed is still caught below: it writes `.survived` 2 seconds after it starts.
+        assert!(started.elapsed() < Duration::from_secs(3));
         assert!(dir.path().join("manifest.json.started").exists());
         std::thread::sleep(Duration::from_millis(1300));
         assert!(!dir.path().join("manifest.json.survived").exists());
