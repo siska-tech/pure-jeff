@@ -44,6 +44,8 @@ jobs:
       - name: Library (pure-jeff)
         run: |
           $env:PURE_JEFF_PYTHON = (Get-Command python).Source
+          # The first start of a fresh interpreter can exceed the process tests' deadlines here.
+          & $env:PURE_JEFF_PYTHON -c "import argparse, json, pathlib, time"
           cargo test --locked --all-features
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           cargo clippy --locked --all-features --all-targets -- -D warnings
