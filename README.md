@@ -20,10 +20,11 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 
 対象は固定checkpoint（`jeff-legacy/Jeff-Qwen3.5-0.8B` revision `51552f39…`）、text-only、batch 1。検証は人工データで行い、日本語OCR／ASRの認識品質は評価していない。
 
-公式Jeffとの1 threadの比較（[結果](docs/benchmark-results-2026-10-11.md)）：
+公式Jeffとの1 threadの比較（[結果](docs/benchmark-results-2026-10-12.md)、[前回](docs/benchmark-results-2026-10-11.md)）：
 
-- 1要求ごとに起動する場合、Nativeは公式Jeffの1.65〜2.78倍速く、メモリは半分以下。
-- モデルを常駐させると、公式Jeff（PyTorch）の方が速く、Nativeの0.51〜0.66倍の時間で判断する。Nativeのforwardは行列積が約半分、DeltaNetの逐次更新が約4分の1を占めていた（[内訳](docs/native-forward-profile-2026-10-12.md)、[改善計画](docs/native-fp32-retention-plan.md)）。その後、逐次更新（[記録](docs/native-delta-recurrence-2026-10-12.md)）、要素ごとの演算（[記録](docs/native-elementwise-2026-10-12.md)）、重みの読込（[記録](docs/native-weight-load-2026-10-12.md)）を、出力をbit単位で変えずに書き換えた。forwardはそれぞれ16〜20%、3〜9%、1〜17%（短い入力ほど大きい）短くなった（公式Jeffとの比較は測り直していない）。
+- 1要求ごとに起動する場合、Nativeは公式Jeffの1.97〜3.02倍速く、メモリは3分の1以下（1.03 GiB対3.84 GiB）。
+- モデルを常駐させると、公式Jeff（PyTorch）の方がまだ速く、Nativeの0.74〜0.94倍の時間で判断する（前回は0.51〜0.66倍）。Nativeのresidentのメモリは1.07 GiB、公式Jeffは3.82 GiB。
+- 前回からの改善は、DeltaNetの逐次更新（[記録](docs/native-delta-recurrence-2026-10-12.md)）、要素ごとの演算（[記録](docs/native-elementwise-2026-10-12.md)）、重みの読込（[記録](docs/native-weight-load-2026-10-12.md)）の書き換えによる。どれも出力をbit単位で変えていない。Nativeのforwardは、今は行列積が6〜7割を占める。
 
 ## 必要なもの
 
