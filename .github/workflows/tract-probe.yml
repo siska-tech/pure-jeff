@@ -64,6 +64,8 @@ jobs:
       - name: Development oracle and small ONNX regression tests
         shell: pwsh
         run: |
+          # The frozen host-observer tests create their temporary directories under .venv/.
+          New-Item -ItemType Directory -Force .venv | Out-Null
           python -m pip install --require-hashes --only-binary=:all: -r runtime/onnx/requirements.lock
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           $env:TRACT_PROBE = Join-Path $PWD 'runtime/tract/target/release/kaze_judge_tract_probe.exe'
