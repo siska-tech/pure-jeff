@@ -52,3 +52,7 @@ Native（`runtime/rust`）は、`model.safetensors`をmmapし、forwardのたび
 1. **DeltaNetの逐次更新**（約25%）：各出力要素への加算の順序を変えずに、loopの構造と命令（SIMD、FMAは使わない）を改める。要素ごとの計算順が同じなら、結果はbit単位で一致する見込みがある。受入条件は、凍結版のforwardとbit単位で一致し、goldenとbenchmarkの全caseで確率が変わらないこと。
 2. **FP32保持はoptionとして後回し**：短い入力（128 tokensで最大約20%）では効果があるが、メモリが約2.5倍になる。短い入力を多く扱う用途が出たときに検討する。
 3. **行列積**（約半分）：1 threadではCandleのgemmに依存する。複数threadは、反復時の数値差の原因を特定してから扱う。
+
+## 逐次更新の結果（2026-10-12）
+
+上の1を実施した（[記録](native-delta-recurrence-2026-10-12.md)）。公式参照7件で最終hidden stateが変更前とbit単位で一致し、forwardは16〜20%短くなった。
