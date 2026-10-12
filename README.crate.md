@@ -75,7 +75,7 @@ println!("{:?}", observation.judgment); // Selected { candidate_id } or Abstaine
 
 - One fixed checkpoint (revision above), text only, batch one, FP32 compute on CPU, at most 8192 input tokens.
 - Checked against the official Python implementation on seven reference cases (up to 8192 tokens and 255 candidates; artificial inputs): all judgments and token counts match. With this crate's crates.io dependencies the largest probability difference was 3.5e-6. Recognition quality on real OCR/ASR data has not been evaluated.
-- Validated with the model on Windows x86_64 only; other platforms are untested.
+- Validated with the model on Windows x86_64. On Linux x86_64 the crate builds and passes the model-free tests in CI (GitHub Actions); other platforms are untested.
 - Candle 0.11.0 from crates.io depends on `tokenizers` with the Oniguruma C library, so building needs a C compiler. The repository's browser (wasm32) build uses a later Candle revision. This crate does not support wasm32 on crates.io dependencies.
 
 ## License
