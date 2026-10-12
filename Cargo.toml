@@ -1,22 +1,57 @@
 [package]
-name = "kaze_judge"
+name = "pure-jeff"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.88"
 license = "Apache-2.0"
-description = "Local candidate decision contracts for recognition evidence"
+description = "Pure-Rust (Candle) CPU inference for the Jeff-Qwen3.5-0.8B candidate decision model, with hash-verified model bundles"
+repository = "https://github.com/siska-tech/pure-jeff"
+readme = "README.crate.md"
+keywords = ["jeff", "inference", "candle", "ocr", "asr"]
+categories = ["science", "text-processing"]
+include = [
+    "/src/**/*.rs",
+    "/spec/jeff-0.8b-tensors.json",
+    "/build.rs",
+    "/README.crate.md",
+    "/LICENSE",
+    "/NOTICE",
+    "/THIRD_PARTY_NOTICES.md",
+    "/runtime/licenses/jeff-source/LICENSE",
+]
+
+[lib]
+name = "pure_jeff"
 
 [dependencies]
+anyhow = "1"
+candle-core = { version = "=0.11.0", default-features = false }
+candle-nn = { version = "=0.11.0", default-features = false }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+sha2 = "0.10"
+tempfile = { version = "3", optional = true }
+tokenizers = { version = "=0.23.2", default-features = false, features = ["fancy-regex"] }
+
+[dev-dependencies]
+tempfile = "3"
 
 [features]
-default = []
-process = ["dep:tempfile"]
-
-[dependencies.tempfile]
-version = "3"
-optional = true
+default = ["native"]
+# Files, memory-mapped weights, bundle lock/verify and the resident `Model`.
+native = []
+# One-request worker processes: `NativeProcessProvider`, `LocalProcessProvider`, `worker::run`.
+process = ["native", "dep:tempfile"]
 
 [[example]]
 name = "jeff_decide"
 required-features = ["process"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+# In this repository the pinned Candle revision replaces the crates.io release (see
+# docs/crate-release-plan.md). Not part of the published package.
+[patch.crates-io]
+candle-core = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a" }
+candle-nn = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a" }

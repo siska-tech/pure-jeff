@@ -2,13 +2,13 @@
 //! then decides every request of a job with the unchanged worker modules (mmap weights,
 //! BF16-to-FP32 conversion inside each forward). Emits one JSON line per event.
 use anyhow::{ensure, Result};
-use kaze_judge::{DecisionRequest, Limits};
-use kaze_judge_jeff::{
+use pure_jeff::{
     backbone,
     bundle::{self, Bundle, Manifest},
     readout,
     tokenize::Tokenizer,
 };
+use pure_jeff::{DecisionRequest, Limits};
 use std::{
     path::Path,
     time::{Duration, Instant},
@@ -31,7 +31,7 @@ fn main() -> Result<()> {
     std::env::set_var("CANDLE_NUM_THREADS", header.policy.cpu_threads.to_string());
     let cases: Vec<Case> = bundle::read_json(Path::new(&args[2]), 16 * 1024 * 1024)?;
     let step = Instant::now();
-    let bundle = Bundle::verify(Path::new(&args[1]), deadline)?;
+    let bundle = Bundle::verify(Path::new(&args[1]), deadline, true)?;
     let verify_s = step.elapsed().as_secs_f64();
     let step = Instant::now();
     let tokenizer = Tokenizer::load(&bundle)?;
@@ -39,6 +39,10 @@ fn main() -> Result<()> {
     // SAFETY: fixed verified local assets must remain immutable throughout the benchmark.
     let weights = unsafe {
         candle_core::safetensors::MmapedSafetensors::new(bundle.root.join("model.safetensors"))?
+    };
+    // SAFETY: as above.
+    let readout_weights = unsafe {
+        candle_core::safetensors::MmapedSafetensors::new(bundle.root.join("readout.safetensors"))?
     };
     ensure!(
         candle_core::utils::get_num_threads() == bundle.manifest.policy.cpu_threads,
@@ -54,7 +58,7 @@ fn main() -> Result<()> {
     for case in cases {
         let begin = Instant::now();
         let prepared = tokenizer.prepare(
-            &bundle,
+            &bundle.decision,
             &case.request,
             Limits {
                 max_input_bytes: 1024 * 1024,
@@ -69,7 +73,7 @@ fn main() -> Result<()> {
         let forward_s = step.elapsed().as_secs_f64();
         let step = Instant::now();
         let probabilities = readout::probabilities(
-            &bundle.root,
+            &readout_weights,
             &hidden,
             case.request.candidates.len(),
             bundle.decision.temperature,

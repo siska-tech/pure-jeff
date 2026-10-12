@@ -1,4 +1,4 @@
-use kaze_judge::*;
+use pure_jeff::*;
 use std::time::{Duration, Instant};
 fn request() -> DecisionRequest {
     DecisionRequest {

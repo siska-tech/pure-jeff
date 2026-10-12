@@ -1,246 +1,136 @@
-//! Candidate decision evidence, never calibrated recognition risk.
-use serde::{Deserialize, Serialize};
-use std::{collections::HashSet, time::Instant};
+//! Pure-Rust CPU inference for the Jeff-Qwen3.5-0.8B candidate decision model.
+//!
+//! Given an original recognized text and 2–255 transcription candidates, the model returns a
+//! distribution over the supplied candidates and a decision: one candidate is *selected*, or
+//! the call *abstains*. The distribution compares the supplied choices only; it is not a
+//! probability that any candidate is a correct transcription.
+//!
+//! The model files are not part of this crate. A *bundle manifest* fixes the SHA-256 of every
+//! checkpoint file, the selection policy and the prompt; [`lock`] writes one for a downloaded
+//! checkpoint and [`Model::load`] verifies it before anything is read.
+//!
+//! ```no_run
+//! use pure_jeff::{DecisionRequest, Limits, LoadOptions, Model};
+//! use std::time::{Duration, Instant};
+//!
+//! # fn main() -> Result<(), Box<dyn std::error::Error>> {
+//! // Process-wide compute threads; must equal the bundle policy and precede any inference.
+//! pure_jeff::configure_threads(1)?;
+//! let model = Model::load("models/jeff-bundle.json", &LoadOptions::default())?;
+//! let request: DecisionRequest = serde_json::from_str(&std::fs::read_to_string("request.json")?)?;
+//! let limits = Limits {
+//!     max_input_bytes: 1024 * 1024,
+//!     max_input_tokens: 8192,
+//!     max_forwards: 1,
+//!     deadline: Instant::now() + Duration::from_secs(600),
+//! };
+//! let observation = model.decide(&request, limits)?;
+//! println!("{:?}", observation.judgment);
+//! # Ok(())
+//! # }
+//! ```
+//!
+//! Only the fixed checkpoint `jeff-legacy/Jeff-Qwen3.5-0.8B` (text only, batch one, at most
+//! 8192 input tokens, FP32 compute) is supported.
+mod contract;
+mod decide;
+mod error;
+mod manifest;
+pub mod policy;
+pub mod prompt;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum Source {
-    Ocr,
-    Asr,
-}
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum RoutingReason {
-    CandidateCompetition,
-    WeakTextSignal,
-    EvidenceConflict,
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Candidate {
-    pub id: String,
-    pub text: String,
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct DecisionRequest {
-    pub request_id: String,
-    pub document_id: String,
-    pub segment_id: String,
-    pub original_text: String,
-    pub source: Source,
-    pub profile_id: String,
-    pub domain: Option<String>,
-    /// Fixed, versioned question/prompt definition owned by the backend.
-    pub question_id: String,
-    /// Order is significant and must be retained in the observation.
-    pub candidates: Vec<Candidate>,
-    pub reason: Option<RoutingReason>,
-}
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Artifact {
-    pub component: String,
-    pub sha256: String,
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct CandidateScore {
-    pub candidate_id: String,
-    /// Distribution over supplied choices; NOT a probability of correct recognition.
-    pub option_probability: f64,
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
-pub enum Judgment {
-    Selected { candidate_id: String },
-    Abstained,
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Observation {
-    pub scores: Vec<CandidateScore>,
-    pub judgment: Judgment,
-    pub temperature: f64,
-    pub input_tokens: usize,
-    pub forwards: usize,
-    /// Backend must identify all relevant checkpoint, tokenizer, readout,
-    /// prompt, adapter (when used), quantization and scoring artifacts.
-    pub artifacts: Vec<Artifact>,
-}
-#[derive(Debug, Clone, Copy)]
-pub struct Limits {
-    pub max_input_bytes: usize,
-    pub max_input_tokens: usize,
-    pub max_forwards: usize,
-    pub deadline: Instant,
-}
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum Failure {
-    InvalidRequest,
-    InvalidOutput,
-    BudgetExceeded,
-    Timeout,
-    Unavailable,
-}
-impl std::fmt::Display for Failure {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{self:?}")
-    }
-}
-impl std::error::Error for Failure {}
-/// Implementations must preflight token cost and check deadline before each forward.
-/// This synchronous API cannot interrupt a native inference call.
-pub trait DecisionProvider {
-    fn decide(&mut self, request: &DecisionRequest, limits: Limits)
-        -> Result<Observation, Failure>;
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(tag = "status", content = "value", rename_all = "snake_case")]
-pub enum Outcome {
-    NotSelected,
-    Completed(Observation),
-    Failed(Failure),
-}
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Attempt {
-    pub schema_version: String,
-    pub request: DecisionRequest,
-    pub provider_calls_started: usize,
-    pub outcome: Outcome,
-}
-impl DecisionRequest {
-    pub fn validate(&self) -> Result<(), Failure> {
-        let identities = [
-            &self.request_id,
-            &self.document_id,
-            &self.segment_id,
-            &self.profile_id,
-            &self.question_id,
-        ];
-        let mut ids = HashSet::new();
-        if identities.iter().any(|s| s.trim().is_empty())
-            || self.original_text.trim().is_empty()
-            || self.domain.as_ref().is_some_and(|s| s.trim().is_empty())
-            || self.candidates.len() < 2
-            || self
-                .candidates
-                .iter()
-                .any(|c| c.id.trim().is_empty() || c.text.trim().is_empty() || !ids.insert(&c.id))
-        {
-            return Err(Failure::InvalidRequest);
-        }
-        Ok(())
-    }
-}
-impl Observation {
-    pub fn validate(&self, request: &DecisionRequest, limits: Limits) -> Result<(), Failure> {
-        self.validate_within(request, limits.max_input_tokens, limits.max_forwards)
-    }
-    /// The same checks as `validate` without a deadline, for hosts without `Instant`
-    /// (browser Wasm). The caller is responsible for its own time limit.
-    pub fn validate_within(
-        &self,
-        request: &DecisionRequest,
-        max_input_tokens: usize,
-        max_forwards: usize,
-    ) -> Result<(), Failure> {
-        request.validate()?;
-        let mut components = HashSet::new();
-        if self.scores.len() != request.candidates.len()
-            || self.scores.iter().zip(&request.candidates).any(|(s, c)| {
-                s.candidate_id != c.id
-                    || !s.option_probability.is_finite()
-                    || !(0.0..=1.0).contains(&s.option_probability)
-            })
-            || (self
-                .scores
-                .iter()
-                .map(|s| s.option_probability)
-                .sum::<f64>()
-                - 1.0)
-                .abs()
-                > 1e-6
-            || !self.temperature.is_finite()
-            || self.temperature <= 0.0
-            || self.input_tokens == 0
-            || self.forwards == 0
-            || self.artifacts.is_empty()
-            || self.artifacts.iter().any(|a| {
-                a.component.trim().is_empty()
-                    || !components.insert(&a.component)
-                    || a.sha256.len() != 64
-                    || !a.sha256.bytes().all(|b| b.is_ascii_hexdigit())
-            })
-        {
-            return Err(Failure::InvalidOutput);
-        }
-        if let Judgment::Selected { candidate_id } = &self.judgment {
-            let selected = self
-                .scores
-                .iter()
-                .find(|s| &s.candidate_id == candidate_id)
-                .ok_or(Failure::InvalidOutput)?;
-            if self
-                .scores
-                .iter()
-                .any(|s| s.option_probability > selected.option_probability)
-            {
-                return Err(Failure::InvalidOutput);
-            }
-        }
-        if self.input_tokens > max_input_tokens || self.forwards > max_forwards {
-            return Err(Failure::BudgetExceeded);
-        }
-        Ok(())
-    }
-}
-/// Explicit opt-in only. Failure never becomes a successful judgment.
-/// Panics propagate: the host must discard a panicking provider.
-pub fn evaluate(
-    provider: &mut impl DecisionProvider,
-    request: DecisionRequest,
-    limits: Limits,
-) -> Result<Attempt, Failure> {
-    request.validate()?;
-    let mut attempt = Attempt {
-        schema_version: "kaze_judge.attempt.v1".into(),
-        request,
-        provider_calls_started: 0,
-        outcome: Outcome::NotSelected,
-    };
-    if attempt.request.reason.is_none() {
-        return Ok(attempt);
-    }
-    let encoded = serde_json::to_vec(&attempt.request).map_err(|_| Failure::InvalidRequest)?;
-    if encoded.len() > limits.max_input_bytes
-        || limits.max_input_tokens == 0
-        || limits.max_forwards == 0
-    {
-        attempt.outcome = Outcome::Failed(Failure::BudgetExceeded);
-    } else if Instant::now() >= limits.deadline {
-        attempt.outcome = Outcome::Failed(Failure::Timeout);
-    } else {
-        attempt.provider_calls_started = 1;
-        let result = provider.decide(&attempt.request, limits);
-        attempt.outcome = if Instant::now() >= limits.deadline {
-            Outcome::Failed(Failure::Timeout)
-        } else {
-            match result {
-                Ok(observation) => match observation.validate(&attempt.request, limits) {
-                    Ok(()) => Outcome::Completed(observation),
-                    Err(error) => Outcome::Failed(error),
-                },
-                Err(error) => Outcome::Failed(error),
-            }
-        };
-    }
-    Ok(attempt)
-}
+pub mod memory;
 
+#[doc(hidden)]
+pub mod backbone;
+#[doc(hidden)]
+pub mod config;
+#[doc(hidden)]
+pub mod json;
+#[doc(hidden)]
+pub mod readout;
+#[doc(hidden)]
+pub mod tokenize;
+
+#[cfg(feature = "native")]
+pub mod bundle;
+#[cfg(feature = "native")]
+mod model;
 #[cfg(feature = "process")]
 mod process;
 #[cfg(feature = "process")]
+pub mod worker;
+
+pub use contract::{
+    evaluate, Artifact, Attempt, Candidate, CandidateScore, DecisionProvider, DecisionRequest,
+    Failure, Judgment, Limits, Observation, Outcome, RoutingReason, Source, ATTEMPT_SCHEMA,
+};
+pub use error::{Error, ErrorKind};
+pub use manifest::{FileRecord, Manifest, SCHEMA as BUNDLE_SCHEMA};
+pub use policy::Policy;
+
+#[cfg(feature = "native")]
+pub use bundle::lock;
+#[cfg(feature = "native")]
+pub use model::{configure_threads, ColdProvider, LoadOptions, Model};
+#[cfg(feature = "process")]
 pub use process::{LocalProcessProvider, NativeProcessProvider};
+
+/// SHA-256 identifying this build of the library: its sources, the tensor specification and
+/// the compiler, target, profile and flags. Recorded as the `runtime_build` artifact of every
+/// Native observation and in bundles written by [`lock`].
+pub fn runtime_build_hash() -> String {
+    use sha2::{Digest, Sha256};
+    let mut h = Sha256::new();
+    for source in SOURCES.iter().map(|(_, bytes)| *bytes).chain([
+        include_bytes!("../Cargo.toml").as_slice(),
+        include_bytes!("../build.rs"),
+        include_bytes!("../spec/jeff-0.8b-tensors.json"),
+        env!("PURE_JEFF_BUILD_INFO").as_bytes(),
+    ]) {
+        h.update(Sha256::digest(source));
+    }
+    format!("{:x}", h.finalize())
+}
+
+/// Every source file of the library, in a fixed order (a test checks the list is complete).
+const SOURCES: [(&str, &[u8]); 18] = [
+    ("lib.rs", include_bytes!("lib.rs")),
+    ("contract.rs", include_bytes!("contract.rs")),
+    ("decide.rs", include_bytes!("decide.rs")),
+    ("error.rs", include_bytes!("error.rs")),
+    ("manifest.rs", include_bytes!("manifest.rs")),
+    ("policy.rs", include_bytes!("policy.rs")),
+    ("prompt.rs", include_bytes!("prompt.rs")),
+    ("memory.rs", include_bytes!("memory.rs")),
+    ("backbone.rs", include_bytes!("backbone.rs")),
+    ("config.rs", include_bytes!("config.rs")),
+    ("json.rs", include_bytes!("json.rs")),
+    ("readout.rs", include_bytes!("readout.rs")),
+    ("tokenize.rs", include_bytes!("tokenize.rs")),
+    ("weights.rs", include_bytes!("weights.rs")),
+    ("bundle.rs", include_bytes!("bundle.rs")),
+    ("model.rs", include_bytes!("model.rs")),
+    ("process.rs", include_bytes!("process.rs")),
+    ("worker.rs", include_bytes!("worker.rs")),
+];
+
+mod weights;
+pub use weights::WeightSource;
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn build_hash_covers_every_source_file() {
+        let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src");
+        let mut files: Vec<String> = std::fs::read_dir(dir)
+            .unwrap()
+            .map(|e| e.unwrap().file_name().into_string().unwrap())
+            .filter(|n| n.ends_with(".rs"))
+            .collect();
+        files.sort();
+        let mut listed: Vec<String> = super::SOURCES.iter().map(|(n, _)| n.to_string()).collect();
+        listed.sort();
+        assert_eq!(files, listed);
+    }
+}

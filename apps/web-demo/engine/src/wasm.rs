@@ -1,11 +1,32 @@
-//! Raw browser ABI. The page imports are the probe's (`env.kj_random_fill`, `env.kj_now_ms`,
-//! `env.kj_panic`); the probe also supplies the getrandom custom backend.
+//! Raw browser ABI (no wasm-bindgen). The page provides randomness, a clock and a panic sink
+//! (`env.kj_random_fill`, `env.kj_now_ms`, `env.kj_panic`, the import names of the earlier
+//! Wasm probe); results are JSON bytes read back from linear memory.
 use crate::{Assets, Session, StreamHash};
 use std::cell::RefCell;
 
 #[link(wasm_import_module = "env")]
 extern "C" {
+    fn kj_random_fill(ptr: *mut u8, len: usize) -> i32;
+    fn kj_now_ms() -> f64;
     fn kj_panic(ptr: *const u8, len: usize);
+}
+
+pub fn now_ms() -> f64 {
+    unsafe { kj_now_ms() }
+}
+
+/// getrandom 0.3 custom backend (built with `--cfg getrandom_backend="custom"`).
+/// Used only by hash-map seeding in dependencies; inference does not sample.
+#[no_mangle]
+unsafe extern "Rust" fn __getrandom_v03_custom(
+    dest: *mut u8,
+    len: usize,
+) -> Result<(), getrandom::Error> {
+    if kj_random_fill(dest, len) == 0 {
+        Ok(())
+    } else {
+        Err(getrandom::Error::UNSUPPORTED)
+    }
 }
 
 thread_local! {
@@ -29,7 +50,7 @@ fn finish<T: serde::Serialize>(result: anyhow::Result<T>) -> i32 {
 
 #[derive(serde::Serialize)]
 struct Evaluated {
-    attempt: kaze_judge::Attempt,
+    attempt: pure_jeff::Attempt,
     stages: Vec<serde_json::Value>,
 }
 
@@ -159,7 +180,7 @@ pub unsafe extern "C" fn demo_evaluate(
     max_input_tokens: usize,
 ) -> i32 {
     let result = (|| {
-        let request: kaze_judge::DecisionRequest =
+        let request: pure_jeff::DecisionRequest =
             serde_json::from_slice(bytes(request, request_len))?;
         SESSION.with(|s| {
             let session = s.borrow();

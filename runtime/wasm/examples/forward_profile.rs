@@ -6,7 +6,7 @@
 use anyhow::{ensure, Context, Result};
 use candle_core::safetensors::MmapedSafetensors;
 use kaze_judge::DecisionRequest;
-use kaze_judge_wasm_probe::{frozen, profile, profiled, prompt, tokenize};
+use pure_jeff_wasm_probe::{frozen, profile, profiled, prompt, tokenize};
 use std::{path::Path, time::Instant};
 
 fn main() -> Result<()> {

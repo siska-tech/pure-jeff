@@ -1,5 +1,5 @@
 //! Explicit one-request local smoke runner; no automatic model acquisition.
-use kaze_judge::{evaluate, DecisionRequest, Limits, LocalProcessProvider};
+use pure_jeff::{evaluate, DecisionRequest, Limits, LocalProcessProvider};
 use std::{
     path::PathBuf,
     time::{Duration, Instant},

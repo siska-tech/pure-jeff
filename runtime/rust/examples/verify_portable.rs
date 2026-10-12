@@ -1,7 +1,7 @@
 //! Rust-only local package verification, requiring no Python or PowerShell scripts.
 use anyhow::{ensure, Context, Result};
-use kaze_judge::{evaluate, DecisionRequest, Judgment, Limits, NativeProcessProvider, Outcome};
-use kaze_judge_jeff::bundle;
+use pure_jeff::bundle;
+use pure_jeff::{evaluate, DecisionRequest, Judgment, Limits, NativeProcessProvider, Outcome};
 use serde::Deserialize;
 use std::{
     collections::HashSet,
@@ -26,7 +26,7 @@ struct Record {
 struct Expected {
     input_tokens: usize,
     judgment: Judgment,
-    scores: Vec<kaze_judge::CandidateScore>,
+    scores: Vec<pure_jeff::CandidateScore>,
 }
 fn plain(path: &Path) -> Result<()> {
     let m = fs::symlink_metadata(path)?;

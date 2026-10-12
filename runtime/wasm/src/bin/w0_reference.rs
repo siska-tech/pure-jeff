@@ -8,10 +8,10 @@ fn main() -> anyhow::Result<()> {
         !std::path::Path::new(output).exists(),
         "output already exists"
     );
-    let environment = kaze_judge_wasm_probe::environment();
-    let ops = kaze_judge_wasm_probe::ops::run()?;
+    let environment = pure_jeff_wasm_probe::environment();
+    let ops = pure_jeff_wasm_probe::ops::run()?;
     let tokenize =
-        kaze_judge_wasm_probe::tokenize::run(&std::fs::read(tokenizer)?, &std::fs::read(job)?)?;
+        pure_jeff_wasm_probe::tokenize::run(&std::fs::read(tokenizer)?, &std::fs::read(job)?)?;
     let value = serde_json::json!({"environment": environment, "ops": ops, "tokenize": tokenize});
     std::fs::write(output, serde_json::to_vec(&value)?)?;
     Ok(())

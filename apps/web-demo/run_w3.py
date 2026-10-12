@@ -32,9 +32,9 @@ GATES = {
     "results": "sample 0/2/5 completed Attempts match the official prompt hash, candidate order, judgment and "
                "probabilities; sample 6 (874 tokens) fails budget_exceeded after one provider call; "
                "reason none is not_selected with no provider call; duplicate IDs are rejected in the UI",
-    "attempt": "schema kaze_judge.attempt.v1; artifacts include the manifest files, bundle_manifest, "
+    "attempt": "schema pure_jeff.attempt.v1; artifacts include the manifest files, bundle_manifest, "
                "wasm_engine (= deployed engine hash), prompt, rendered_prompt and policy",
-    "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in kaze_judge::Attempt order",
+    "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in pure_jeff::Attempt order",
     "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
     "delete": "after delete no pure-jeff-model cache remains and a reload shows the model as not downloaded",
 }
@@ -294,7 +294,7 @@ def main():
     attempt = steps["eval_sample0"]["attempt"]
     artifacts = {a["component"]: a["sha256"] for a in attempt["outcome"]["value"]["artifacts"]}
     required = {a["path"] for a in config["assets"]} | {"bundle_manifest", "wasm_engine", "prompt", "rendered_prompt", "policy"}
-    g["attempt"] = {"passed": attempt["schema_version"] == "kaze_judge.attempt.v1" and required <= set(artifacts)
+    g["attempt"] = {"passed": attempt["schema_version"] == "pure_jeff.attempt.v1" and required <= set(artifacts)
                     and artifacts["wasm_engine"] == config["engine"]["sha256"]
                     and artifacts["bundle_manifest"] == config["manifest"]["sha256"],
                     "components": sorted(artifacts)}

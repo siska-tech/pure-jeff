@@ -1,3 +1,4 @@
+//! Records the compiler, target, profile and flags in `runtime_build_hash`.
 use std::{env, process::Command};
 fn main() {
     let rustc = Command::new(env::var_os("RUSTC").unwrap())
@@ -12,6 +13,6 @@ fn main() {
         env::var("PROFILE").unwrap(),
         env::var("CARGO_ENCODED_RUSTFLAGS").unwrap_or_default()
     );
-    println!("cargo:rustc-env=KAZE_JEFF_BUILD_INFO={info}");
+    println!("cargo:rustc-env=PURE_JEFF_BUILD_INFO={info}");
     println!("cargo:rerun-if-env-changed=CARGO_ENCODED_RUSTFLAGS");
 }

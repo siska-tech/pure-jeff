@@ -1,5 +1,5 @@
-use kaze_judge::{DecisionProvider, DecisionRequest, Failure, Judgment, Limits};
-use kaze_judge_jeff::{json, policy::Policy, prompt, RustProvider};
+use pure_jeff::{json, policy::Policy, prompt, ColdProvider};
+use pure_jeff::{DecisionProvider, DecisionRequest, Failure, Judgment, Limits};
 use serde_json::Value;
 use std::time::{Duration, Instant};
 const GOLDENS: [&[u8]; 7] = [
@@ -69,7 +69,7 @@ fn selection_boundaries_and_invalid_distributions() {
 }
 #[test]
 fn preflight_stops_without_loading_a_missing_bundle() {
-    let mut provider = RustProvider::new("nonexistent-bundle.json");
+    let mut provider = ColdProvider::new("nonexistent-bundle.json");
     let mut r = request();
     let limits = Limits {
         max_input_bytes: 1_000_000,
@@ -105,4 +105,22 @@ fn preflight_stops_without_loading_a_missing_bundle() {
     );
     r.reason = None;
     assert_eq!(provider.decide(&r, limits), Err(Failure::InvalidRequest));
+}
+#[test]
+fn a_missing_bundle_is_unavailable_and_a_load_error() {
+    let mut provider = ColdProvider::new("nonexistent-bundle.json");
+    let limits = Limits {
+        max_input_bytes: 1_000_000,
+        max_input_tokens: 512,
+        max_forwards: 1,
+        deadline: Instant::now() + Duration::from_secs(10),
+    };
+    assert_eq!(
+        provider.decide(&request(), limits),
+        Err(Failure::Unavailable)
+    );
+    let error = pure_jeff::Model::load("nonexistent-bundle.json", &Default::default())
+        .err()
+        .unwrap();
+    assert_eq!(error.kind(), pure_jeff::ErrorKind::Bundle);
 }

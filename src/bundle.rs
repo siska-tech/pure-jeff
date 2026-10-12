@@ -1,7 +1,8 @@
-use crate::{json, policy::Policy};
+//! Bundle manifests: the SHA-256 of every checkpoint file, the policy and the prompt contract.
+use crate::{config::DecisionConfig, json, policy::Policy, Error, ErrorKind};
 use anyhow::{ensure, Context, Result};
 use candle_core::safetensors::MmapedSafetensors;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, HashSet},
@@ -11,7 +12,7 @@ use std::{
     time::Instant,
 };
 
-pub const SCHEMA: &str = "kaze_judge.rust_jeff_bundle.v1";
+pub use crate::manifest::{FileRecord, Manifest, SCHEMA};
 const REQUIRED: [&str; 11] = [
     "LICENSE",
     "NOTICE",
@@ -30,13 +31,16 @@ const TEMPLATE_HASH: &str = "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681
 const TOKENIZER_CONFIG_HASH: &str =
     "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f";
 
+#[doc(hidden)]
 pub fn check_time(deadline: Instant) -> Result<()> {
     ensure!(Instant::now() < deadline, "deadline exceeded");
     Ok(())
 }
+#[doc(hidden)]
 pub fn hash_bytes(bytes: &[u8]) -> String {
     format!("{:x}", Sha256::digest(bytes))
 }
+#[doc(hidden)]
 pub fn hash_file(path: &Path, deadline: Instant) -> Result<String> {
     plain(path)?;
     let mut f = File::open(path)?;
@@ -52,6 +56,8 @@ pub fn hash_file(path: &Path, deadline: Instant) -> Result<String> {
     }
     Ok(format!("{:x}", h.finalize()))
 }
+/// Reads a JSON file of at most `limit` bytes, rejecting duplicate keys.
+#[doc(hidden)]
 pub fn read_json<T: serde::de::DeserializeOwned>(path: &Path, limit: u64) -> Result<T> {
     plain(path)?;
     let mut bytes = Vec::new();
@@ -84,12 +90,6 @@ fn relative(path: &Path) -> Result<()> {
     );
     Ok(())
 }
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-#[serde(deny_unknown_fields)]
-pub struct FileRecord {
-    pub path: String,
-    pub sha256: String,
-}
 fn inventory(root: &Path, deadline: Instant) -> Result<Vec<FileRecord>> {
     fn walk(root: &Path, dir: &Path, out: &mut Vec<FileRecord>, deadline: Instant) -> Result<()> {
         plain(dir)?;
@@ -118,88 +118,12 @@ fn inventory(root: &Path, deadline: Instant) -> Result<Vec<FileRecord>> {
     out.sort_by(|a, b| a.path.cmp(&b.path));
     Ok(out)
 }
-pub fn runtime_build_hash() -> String {
-    let mut h = Sha256::new();
-    for source in [
-        include_bytes!("lib.rs").as_slice(),
-        include_bytes!("bundle.rs"),
-        include_bytes!("json.rs"),
-        include_bytes!("prompt.rs"),
-        include_bytes!("tokenize.rs"),
-        include_bytes!("backbone.rs"),
-        include_bytes!("readout.rs"),
-        include_bytes!("policy.rs"),
-        include_bytes!("worker.rs"),
-        include_bytes!("bin/jeff.rs"),
-        include_bytes!("../../../src/lib.rs"),
-        include_bytes!("../../../src/process.rs"),
-        include_bytes!("../../../Cargo.toml"),
-        include_bytes!("../Cargo.lock"),
-        include_bytes!("../Cargo.toml"),
-        include_bytes!("../build.rs"),
-        include_bytes!("../spec/jeff-0.8b-tensors.json"),
-        env!("KAZE_JEFF_BUILD_INFO").as_bytes(),
-    ] {
-        h.update(Sha256::digest(source));
-    }
-    format!("{:x}", h.finalize())
-}
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Manifest {
-    pub schema_version: String,
-    pub checkpoint_dir: String,
-    pub checkpoint_revision: String,
-    pub files: Vec<FileRecord>,
-    pub policy: Policy,
-    pub prompt_sha256: String,
-    pub runtime_build_sha256: String,
-}
+#[doc(hidden)]
 pub struct Bundle {
     pub manifest: Manifest,
     pub root: PathBuf,
     pub manifest_sha256: String,
     pub decision: DecisionConfig,
-}
-#[derive(Debug, Clone, Deserialize)]
-pub struct DecisionConfig {
-    pub format_version: u32,
-    pub base_model: String,
-    pub revision: String,
-    pub codes: Vec<String>,
-    pub token_ids: Vec<u32>,
-    pub temperature: f64,
-    #[serde(default = "default_layout")]
-    pub prompt_layout: String,
-}
-fn default_layout() -> String {
-    "state-first".into()
-}
-impl DecisionConfig {
-    pub fn validate(&self) -> Result<()> {
-        ensure!(
-            self.format_version == 1
-                && self.base_model == "Qwen/Qwen3.5-0.8B"
-                && self.revision.len() == 40
-                && self.revision.bytes().all(|b| b.is_ascii_hexdigit()),
-            "unsupported decision config"
-        );
-        ensure!(
-            self.codes.len() == 255
-                && self.token_ids.len() == 255
-                && self.codes.iter().all(|c| !c.trim().is_empty())
-                && self.codes.iter().collect::<HashSet<_>>().len() == 255
-                && self.token_ids.iter().collect::<HashSet<_>>().len() == 255,
-            "invalid answer vocabulary"
-        );
-        ensure!(
-            self.temperature.is_finite()
-                && self.temperature > 0.0
-                && ["state-first", "live-last"].contains(&self.prompt_layout.as_str()),
-            "invalid temperature/layout"
-        );
-        Ok(())
-    }
 }
 fn validate_records(records: &[FileRecord]) -> Result<()> {
     let names: HashSet<_> = records.iter().map(|r| r.path.as_str()).collect();
@@ -300,7 +224,7 @@ impl Bundle {
             files,
             policy,
             prompt_sha256: hash_bytes(include_bytes!("prompt.rs")),
-            runtime_build_sha256: runtime_build_hash(),
+            runtime_build_sha256: crate::runtime_build_hash(),
         };
         let bundle = Self {
             manifest,
@@ -323,14 +247,19 @@ impl Bundle {
             ..bundle
         })
     }
-    pub fn verify(path: &Path, deadline: Instant) -> Result<Self> {
+    /// Verifies the manifest and every checkpoint file. The prompt contract must match this
+    /// library; the build that wrote the manifest must match only with `require_runtime_build`.
+    pub fn verify(path: &Path, deadline: Instant, require_runtime_build: bool) -> Result<Self> {
         check_time(deadline)?;
         let manifest: Manifest = read_json(path, 2 * 1024 * 1024)?;
         ensure!(
             manifest.schema_version == SCHEMA
-                && manifest.runtime_build_sha256 == runtime_build_hash()
                 && manifest.prompt_sha256 == hash_bytes(include_bytes!("prompt.rs")),
-            "unsupported manifest/runtime/prompt"
+            "unsupported manifest/prompt"
+        );
+        ensure!(
+            !require_runtime_build || manifest.runtime_build_sha256 == crate::runtime_build_hash(),
+            "manifest was locked by a different runtime build"
         );
         manifest.policy.validate()?;
         validate_records(&manifest.files)?;
@@ -373,6 +302,31 @@ impl Bundle {
             decision,
         })
     }
+}
+
+/// Writes a new bundle manifest for a downloaded checkpoint directory and returns the
+/// manifest's SHA-256. The manifest must not exist yet and must be placed outside and above the
+/// checkpoint directory; `revision` is the checkpoint's immutable 40-hex revision. Every file
+/// is hashed and the tensor set, decision config and tokenizer are checked first.
+pub fn lock(
+    checkpoint: impl AsRef<Path>,
+    manifest: impl AsRef<Path>,
+    revision: &str,
+    policy: Policy,
+    deadline: Instant,
+) -> std::result::Result<String, Error> {
+    if policy.validate().is_err() {
+        return Err(Error::new(ErrorKind::InvalidArgument, "invalid policy"));
+    }
+    Bundle::lock(
+        checkpoint.as_ref(),
+        manifest.as_ref(),
+        revision,
+        policy,
+        deadline,
+    )
+    .map(|bundle| bundle.manifest_sha256)
+    .map_err(|e| Error::bundle(e, deadline))
 }
 
 #[cfg(test)]

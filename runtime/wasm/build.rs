@@ -1,4 +1,5 @@
-//! Reuses the frozen Native sources; a changed source fails the build. The W1 copies differ
+//! Reuses the frozen Native sources (copies in frozen/, taken from runtime/rust/src at 471dc5d);
+//! a changed source fails the build. The W1 copies differ
 //! from the frozen files only by the listed weight-access substitutions.
 use sha2::{Digest, Sha256};
 use std::{env, fs, path::Path};
@@ -92,7 +93,7 @@ fn main() {
     let out = Path::new(&env::var("OUT_DIR").unwrap()).to_path_buf();
     let mut sources = std::collections::HashMap::new();
     for (name, expected) in FROZEN {
-        let path = Path::new("../rust/src").join(name);
+        let path = Path::new("frozen").join(name);
         println!("cargo:rerun-if-changed={}", path.display());
         let bytes = fs::read(&path).unwrap();
         let actual = format!("{:x}", Sha256::digest(&bytes));

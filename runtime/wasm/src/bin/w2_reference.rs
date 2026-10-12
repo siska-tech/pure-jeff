@@ -23,14 +23,14 @@ fn main() -> anyhow::Result<()> {
         read("readout.safetensors")?,
         read("model.safetensors")?,
     );
-    let assets = kaze_judge_wasm_probe::decide::Assets {
+    let assets = pure_jeff_wasm_probe::decide::Assets {
         manifest: &manifest_bytes,
         decision_config: &config,
         tokenizer: &tokenizer,
         readout: &readout,
         model: &model,
     };
-    let (session, open_stages) = kaze_judge_wasm_probe::decide::Session::open(&assets)?;
+    let (session, open_stages) = pure_jeff_wasm_probe::decide::Session::open(&assets)?;
     // cases.json: [{"name": ..., "request": <path relative to cases.json>}]
     let cases_path = Path::new(cases);
     let cases: Vec<serde_json::Value> = serde_json::from_slice(&fs::read(cases_path)?)?;

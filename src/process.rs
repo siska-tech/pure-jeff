@@ -1,5 +1,7 @@
 //! One-shot local process boundary. No shell, network client or automatic retry.
-use crate::{DecisionProvider, DecisionRequest, Failure, Limits, Observation};
+use crate::{
+    worker::WORKER_SCHEMA, DecisionProvider, DecisionRequest, Failure, Limits, Observation,
+};
 use serde::{Deserialize, Serialize};
 use std::{
     fs::File,
@@ -16,7 +18,8 @@ pub struct LocalProcessProvider {
     inner: ProcessProvider,
 }
 /// Starts a trusted Rust worker executable; Python is not involved.
-/// The executable accepts `worker --manifest ... --request ... --response ...`.
+/// The executable accepts `worker --manifest ... --request ... --response ...` and speaks
+/// [`WORKER_SCHEMA`](crate::worker::WORKER_SCHEMA); [`worker::run`](crate::worker::run) implements it.
 /// As with LocalProcessProvider, termination covers only the direct child.
 pub struct NativeProcessProvider {
     inner: ProcessProvider,
@@ -146,13 +149,13 @@ impl DecisionProvider for ProcessProvider {
             return Err(Failure::Timeout);
         }
         let exchange = tempfile::Builder::new()
-            .prefix("kaze-judge-")
+            .prefix("pure-jeff-")
             .tempdir()
             .map_err(|_| Failure::Unavailable)?;
         let input = exchange.path().join("request.json");
         let output = exchange.path().join("response.json");
         let wire = WireRequest {
-            schema_version: "kaze_judge.worker.v1",
+            schema_version: WORKER_SCHEMA,
             request,
             max_input_tokens: limits.max_input_tokens,
             max_forwards: limits.max_forwards,
@@ -233,9 +236,7 @@ impl DecisionProvider for ProcessProvider {
         if Instant::now() >= limits.deadline {
             return Err(Failure::Timeout);
         }
-        if response.schema_version != "kaze_judge.worker.v1"
-            || response.request_id != request.request_id
-        {
+        if response.schema_version != WORKER_SCHEMA || response.request_id != request.request_id {
             return Err(Failure::InvalidOutput);
         }
         match response.result {

@@ -1,7 +1,7 @@
 use serde_json::{json, Value};
 use std::{path::Path, process::Command};
 fn wire() -> Value {
-    json!({"schema_version":"kaze_judge.worker.v1",
+    json!({"schema_version":"pure_jeff.worker.v1",
         "request":serde_json::from_slice::<Value>(include_bytes!("../../../examples/candidate-request.json")).unwrap(),
         "max_input_tokens":512,"max_forwards":1,"timeout_ms":10000})
 }
@@ -36,7 +36,7 @@ fn worker_preflight_and_unavailable_are_typed_responses() {
         let output: Value =
             serde_json::from_slice(&std::fs::read(dir.path().join("response.json")).unwrap())
                 .unwrap();
-        assert_eq!(output["schema_version"], "kaze_judge.worker.v1");
+        assert_eq!(output["schema_version"], "pure_jeff.worker.v1");
         assert_eq!(output["request_id"], request["request"]["request_id"]);
         assert_eq!(output["result"], json!({"status":"failed","value":failure}));
     }

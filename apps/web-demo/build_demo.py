@@ -84,7 +84,7 @@ def main():
         shutil.copyfile(checkpoint / name, licenses / f"MODEL_{name}.txt")
     manifest_sha = sha(args.manifest)
     config = {
-        "schema_version": "kaze_judge.web_demo_config.v1",
+        "schema_version": "pure_jeff.web_demo_config.v1",
         "engine": {"url": "engine.wasm", "sha256": sha(args.output / "engine.wasm"), "bytes": len(engine),
                    "removed_exports": removed},
         "manifest": {"path": "manifest.json", "url": manifest_url, "sha256": manifest_sha,

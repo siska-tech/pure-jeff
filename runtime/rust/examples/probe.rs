@@ -177,7 +177,7 @@ fn main() -> Result<()> {
     // throughout this probe. This does not prevent concurrent file mutation.
     let hidden = if full {
         let weights = unsafe { MmapedSafetensors::new(checkpoint.join("model.safetensors"))? };
-        kaze_judge_jeff::backbone::forward(&weights, ids)?
+        pure_jeff::backbone::forward(&weights, ids)?
     } else {
         Tensor::from_vec(expected_hidden.clone(), (1, 1024), &Device::Cpu)?
     };
@@ -242,7 +242,7 @@ fn main() -> Result<()> {
         "judgment":judgment, "judgment_matches":judgment_match,
         "gemm_threads":candle_core::utils::get_num_threads(),
         "candle_revision":"c68b24997319b8d76e5a4e775dab197c7f26322a",
-        "backbone_sha256":format!("{:x}",Sha256::digest(include_bytes!("../src/backbone.rs"))),
+        "backbone_sha256":format!("{:x}",Sha256::digest(include_bytes!("../../../src/backbone.rs"))),
         "probe_sha256":format!("{:x}",Sha256::digest(include_bytes!("probe.rs"))),
         "elapsed_ms":started.elapsed().as_millis(), "probability_target":1e-4, "target_passed":error<=1e-4 && judgment_match});
     if let Some(parent) = output.parent() {

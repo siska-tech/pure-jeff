@@ -1,5 +1,5 @@
 #![cfg(feature = "process")]
-use kaze_judge::*;
+use pure_jeff::*;
 use std::{
     path::PathBuf,
     process::Command,

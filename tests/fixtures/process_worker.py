@@ -31,5 +31,5 @@ if mode == "budget":
     observation["forwards"]=2
 if mode == "unavailable":
     result={"status":"failed","value":"unavailable"}
-Path(a.response).write_text(json.dumps({"schema_version":"kaze_judge.worker.v1",
+Path(a.response).write_text(json.dumps({"schema_version":"pure_jeff.worker.v1",
     "request_id":"wrong" if mode == "wrong_id" else r["request_id"],"result":result}),encoding="utf-8")

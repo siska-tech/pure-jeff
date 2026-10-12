@@ -23,7 +23,7 @@ fn main() -> anyhow::Result<()> {
         read("readout.safetensors")?,
         read("model.safetensors")?,
     );
-    let assets = kaze_judge_wasm_probe::decide::Assets {
+    let assets = pure_jeff_wasm_probe::decide::Assets {
         manifest: &manifest_bytes,
         decision_config: &config,
         tokenizer: &tokenizer,
@@ -31,7 +31,7 @@ fn main() -> anyhow::Result<()> {
         model: &model,
     };
     let result =
-        kaze_judge_wasm_probe::decide::decide(&assets, &fs::read(request)?, max_tokens.parse()?)?;
+        pure_jeff_wasm_probe::decide::decide(&assets, &fs::read(request)?, max_tokens.parse()?)?;
     fs::write(output, serde_json::to_vec(&result)?)?;
     Ok(())
 }

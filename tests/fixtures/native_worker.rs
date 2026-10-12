@@ -20,9 +20,9 @@ fn main() {
                 else if is("budget") { r#"{"status":"failed","value":"budget_exceeded"}"#.into() }
                 else { format!(r#"{{"status":"completed","value":{{"scores":[{{"candidate_id":"first","option_probability":0.8}},{{"candidate_id":"second","option_probability":0.2}}],"judgment":{{"kind":"selected","candidate_id":"first"}},"temperature":1.0,"input_tokens":10,"forwards":1,"artifacts":[{{"component":"fixture","sha256":"{}"}}]}}}}"#, "a".repeat(64)) };
             if is("duplicate_key") {
-                format!(r#"{{"schema_version":"kaze_judge.worker.v1","request_id":"wrong","request_id":"{id}","result":{result}}}"#)
+                format!(r#"{{"schema_version":"pure_jeff.worker.v1","request_id":"wrong","request_id":"{id}","result":{result}}}"#)
             } else {
-                let schema = if is("wrong_schema") { "wrong" } else { "kaze_judge.worker.v1" };
+                let schema = if is("wrong_schema") { "wrong" } else { "pure_jeff.worker.v1" };
                 format!(r#"{{"schema_version":"{schema}","request_id":"{id}","result":{result}}}"#)
             }
         };

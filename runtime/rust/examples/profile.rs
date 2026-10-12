@@ -1,12 +1,12 @@
 //! Diagnostic one-shot stage timings. Not a worker protocol or warm model service.
 use anyhow::{ensure, Result};
-use kaze_judge::{DecisionRequest, Limits};
-use kaze_judge_jeff::{
+use pure_jeff::{
     backbone,
     bundle::{self, Bundle, Manifest},
     readout,
     tokenize::Tokenizer,
 };
+use pure_jeff::{DecisionRequest, Limits};
 use std::{
     collections::BTreeMap,
     path::Path,
@@ -25,7 +25,7 @@ fn main() -> Result<()> {
     let mut timings = BTreeMap::new();
     timings.insert("request_and_header", started.elapsed().as_secs_f64());
     let step = Instant::now();
-    let bundle = Bundle::verify(Path::new(&args[1]), deadline)?;
+    let bundle = Bundle::verify(Path::new(&args[1]), deadline, true)?;
     timings.insert(
         "bundle_hash_and_metadata_validation",
         step.elapsed().as_secs_f64(),
@@ -38,7 +38,7 @@ fn main() -> Result<()> {
     );
     let step = Instant::now();
     let prepared = tokenizer.prepare(
-        &bundle,
+        &bundle.decision,
         &request,
         Limits {
             max_input_bytes: 1024 * 1024,
@@ -52,6 +52,10 @@ fn main() -> Result<()> {
     // SAFETY: fixed verified local assets must remain immutable throughout profiling.
     let weights = unsafe {
         candle_core::safetensors::MmapedSafetensors::new(bundle.root.join("model.safetensors"))?
+    };
+    // SAFETY: as above.
+    let readout_weights = unsafe {
+        candle_core::safetensors::MmapedSafetensors::new(bundle.root.join("readout.safetensors"))?
     };
     timings.insert("model_mmap", step.elapsed().as_secs_f64());
     let step = Instant::now();
@@ -67,7 +71,7 @@ fn main() -> Result<()> {
     );
     let step = Instant::now();
     let probabilities = readout::probabilities(
-        &bundle.root,
+        &readout_weights,
         &hidden,
         request.candidates.len(),
         bundle.decision.temperature,

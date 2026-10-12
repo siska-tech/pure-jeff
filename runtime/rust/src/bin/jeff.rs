@@ -1,11 +1,12 @@
 //! Rust-only local asset locking, request preparation and native evaluation.
+//! Bundles must be locked by this build (`require_runtime_build`), as before the library split.
 use anyhow::{ensure, Context, Result};
-use kaze_judge::{evaluate, DecisionRequest, Limits, NativeProcessProvider};
-use kaze_judge_jeff::{
-    bundle::{self, Bundle, Manifest},
+use pure_jeff::{
+    bundle::{self, Bundle},
+    evaluate,
     policy::Policy,
     tokenize::Tokenizer,
-    RustProvider,
+    ColdProvider, DecisionRequest, Limits, Manifest, NativeProcessProvider,
 };
 use std::{
     path::Path,
@@ -23,12 +24,14 @@ fn main() -> Result<()> {
                 && args[6] == "--response",
             "invalid worker arguments"
         );
-        return kaze_judge_jeff::worker::run(
+        return pure_jeff::worker::run(
             Path::new(&args[3]),
             Path::new(&args[5]),
             Path::new(&args[7]),
             started,
-        );
+            true,
+        )
+        .map_err(Into::into);
     }
     if command == "lock" {
         ensure!(
@@ -40,7 +43,7 @@ fn main() -> Result<()> {
             min_margin: args[6].parse()?,
             cpu_threads: args[7].parse()?,
         };
-        let result = Bundle::lock(
+        let manifest_sha256 = pure_jeff::lock(
             Path::new(&args[2]),
             Path::new(&args[3]),
             &args[4],
@@ -49,7 +52,7 @@ fn main() -> Result<()> {
         )?;
         println!(
             "{}",
-            serde_json::json!({"schema_version":bundle::SCHEMA,"manifest_sha256":result.manifest_sha256})
+            serde_json::json!({"schema_version":bundle::SCHEMA,"manifest_sha256":manifest_sha256})
         );
         return Ok(());
     }
@@ -85,17 +88,18 @@ fn main() -> Result<()> {
         let attempt = evaluate(&mut provider, request, limits)?;
         println!("{}", serde_json::to_string(&attempt)?);
     } else if command == "decide" || command == "decide-process" {
-        let attempt = evaluate(&mut RustProvider::new(&args[2]), request, limits)?;
+        let mut provider = ColdProvider::new(&args[2]).require_runtime_build(true);
+        let attempt = evaluate(&mut provider, request, limits)?;
         println!("{}", serde_json::to_string(&attempt)?);
     } else if request.reason.is_none() {
         println!("{}", serde_json::json!({"status":"not_selected"}));
     } else {
-        let bundle = Bundle::verify(Path::new(&args[2]), deadline)?;
+        let bundle = Bundle::verify(Path::new(&args[2]), deadline, true)?;
         let tokenizer = Tokenizer::load(&bundle)?;
-        let prepared = tokenizer.prepare(&bundle, &request, limits)?;
+        let prepared = tokenizer.prepare(&bundle.decision, &request, limits)?;
         println!(
             "{}",
-            serde_json::json!({"schema_version":"kaze_judge.rust_prepared.v1","request":request,
+            serde_json::json!({"schema_version":"pure_jeff.prepared.v1","request":request,
             "prompt":prepared.prompt,"input_tokens":prepared.ids.len(),"token_ids":prepared.ids,
             "manifest_sha256":bundle.manifest_sha256,"forwards":0})
         );

@@ -1,7 +1,10 @@
-//! One request per process. No subprocesses or network operations.
-use crate::{bundle, RustProvider};
+//! The worker side of [`NativeProcessProvider`](crate::NativeProcessProvider): one request per
+//! process. No subprocesses or network operations.
+use crate::{
+    bundle, ColdProvider, DecisionProvider, DecisionRequest, Error, ErrorKind, Failure, Limits,
+    Observation,
+};
 use anyhow::{ensure, Result};
-use kaze_judge::{DecisionProvider, DecisionRequest, Failure, Limits, Observation};
 use serde::{Deserialize, Serialize};
 use std::{
     fs::OpenOptions,
@@ -9,7 +12,9 @@ use std::{
     path::Path,
     time::{Duration, Instant},
 };
-const SCHEMA: &str = "kaze_judge.worker.v1";
+/// Schema identifier of the worker request and response files.
+pub const WORKER_SCHEMA: &str = "pure_jeff.worker.v1";
+const SCHEMA: &str = WORKER_SCHEMA;
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct WireRequest {
@@ -31,7 +36,28 @@ enum WorkerResult {
     Completed(Observation),
     Failed(Failure),
 }
-pub fn run(manifest: &Path, input: &Path, output: &Path, started: Instant) -> Result<()> {
+/// Answers one worker request file: reads `input`, decides with a [`ColdProvider`] (thread
+/// count from the bundle policy, deadline from the request's `timeout_ms` counted from
+/// `started`) and writes `output`, which must not exist. Failures of the decision are written
+/// as typed responses; only unusable request or response files are errors.
+pub fn run(
+    manifest: &Path,
+    input: &Path,
+    output: &Path,
+    started: Instant,
+    require_runtime_build: bool,
+) -> std::result::Result<(), Error> {
+    respond(manifest, input, output, started, require_runtime_build)
+        .map_err(|e| Error::new(ErrorKind::Io, format!("{e:#}")))
+}
+
+fn respond(
+    manifest: &Path,
+    input: &Path,
+    output: &Path,
+    started: Instant,
+    require_runtime_build: bool,
+) -> Result<()> {
     let wire: WireRequest = bundle::read_json(input, 2 * 1024 * 1024)?;
     ensure!(wire.schema_version == SCHEMA, "unsupported worker schema");
     wire.request.validate()?;
@@ -65,7 +91,9 @@ pub fn run(manifest: &Path, input: &Path, output: &Path, started: Instant) -> Re
         header.policy.validate().map_err(|_| Failure::Unavailable)?;
         std::env::set_var("RAYON_NUM_THREADS", header.policy.cpu_threads.to_string());
         std::env::set_var("CANDLE_NUM_THREADS", header.policy.cpu_threads.to_string());
-        RustProvider::new(manifest).decide(&wire.request, limits)
+        ColdProvider::new(manifest)
+            .require_runtime_build(require_runtime_build)
+            .decide(&wire.request, limits)
     };
     let result = infer();
     let result = if Instant::now() >= deadline {

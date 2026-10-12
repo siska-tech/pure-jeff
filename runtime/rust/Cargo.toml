@@ -1,20 +1,30 @@
 [package]
-name = "kaze_judge_jeff"
+name = "pure-jeff-cli"
 version = "0.1.0"
 edition = "2021"
 license = "Apache-2.0"
 publish = false
-description = "Development probes for the Pure Rust Jeff runtime"
+description = "The jeff command (lock, prepare, decide, worker) and development probes for pure-jeff"
+
+[[bin]]
+name = "jeff"
+path = "src/bin/jeff.rs"
 
 [dependencies]
-kaze_judge = { path = "../..", features = ["process"] }
+pure-jeff = { path = "../..", features = ["process"] }
 anyhow = "1"
-candle-core = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a", default-features = false }
-candle-nn = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a", default-features = false }
-serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+
+# Used by the development examples (probe, profile, resident_bench, verify_portable).
+[dev-dependencies]
+candle-core = { version = "=0.11.0", default-features = false }
+candle-nn = { version = "=0.11.0", default-features = false }
+serde = { version = "1", features = ["derive"] }
 sha2 = "0.10"
+tempfile = "3"
 tokenizers = { version = "=0.23.2", default-features = false, features = ["fancy-regex"] }
 
-[dev-dependencies]
-tempfile = "3"
+# The pinned Candle revision, as for the library (see docs/crate-release-plan.md).
+[patch.crates-io]
+candle-core = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a" }
+candle-nn = { git = "https://github.com/huggingface/candle.git", rev = "c68b24997319b8d76e5a4e775dab197c7f26322a" }

@@ -1,19 +1,23 @@
-use crate::{
-    bundle::{self, Bundle},
-    prompt,
-};
+//! Tokenizer of the checkpoint, checked against the decision config's answer vocabulary.
+use crate::{config::DecisionConfig, prompt, DecisionRequest, Failure, Limits};
 use anyhow::{ensure, Result};
-use kaze_judge::{DecisionRequest, Failure, Limits};
 pub struct Tokenizer(tokenizers::Tokenizer);
 pub struct Prepared {
     pub prompt: String,
     pub ids: Vec<u32>,
 }
 impl Tokenizer {
-    pub fn load(bundle: &Bundle) -> Result<Self> {
+    /// Reads `tokenizer.json` from a verified bundle, rejecting duplicate JSON keys first.
+    #[cfg(feature = "native")]
+    pub fn load(bundle: &crate::bundle::Bundle) -> Result<Self> {
         let path = bundle.root.join("tokenizer.json");
-        let _: serde_json::Value = bundle::read_json(&path, 64 * 1024 * 1024)?;
-        let mut tokenizer = tokenizers::Tokenizer::from_bytes(std::fs::read(path)?)
+        let _: serde_json::Value = crate::bundle::read_json(&path, 64 * 1024 * 1024)?;
+        Self::from_bytes(&std::fs::read(path)?, &bundle.decision)
+    }
+    /// Builds the tokenizer and checks that the answer codes it implies (single tokens, also
+    /// after the chat prefix) are exactly the config's codes and token IDs.
+    pub fn from_bytes(tokenizer_json: &[u8], config: &DecisionConfig) -> Result<Self> {
+        let mut tokenizer = tokenizers::Tokenizer::from_bytes(tokenizer_json)
             .map_err(|e| anyhow::anyhow!("{e}"))?;
         // One unpadded sequence, with length checked explicitly after encoding.
         // The official tokenizer stores BatchLongest padding for Python batches.
@@ -45,7 +49,7 @@ impl Tokenizer {
             }
         }
         ensure!(
-            codes == bundle.decision.codes && ids == bundle.decision.token_ids,
+            codes == config.codes && ids == config.token_ids,
             "answer vocabulary differs from tokenizer"
         );
         let prefix="<|im_start|>user\nChoose an option.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n";
@@ -60,9 +64,19 @@ impl Tokenizer {
         }
         Ok(Self(tokenizer))
     }
+    pub fn encode(&self, text: &str) -> Result<Vec<u32>> {
+        Ok(self
+            .0
+            .encode(text, false)
+            .map_err(|e| anyhow::anyhow!("{e}"))?
+            .get_ids()
+            .to_vec())
+    }
+    /// Renders and tokenizes one request within its byte, token (at most 8192) and time
+    /// limits; never truncates.
     pub fn prepare(
         &self,
-        bundle: &Bundle,
+        config: &DecisionConfig,
         request: &DecisionRequest,
         limits: Limits,
     ) -> Result<Prepared, Failure> {
@@ -85,18 +99,9 @@ impl Tokenizer {
         if std::time::Instant::now() >= limits.deadline {
             return Err(Failure::Timeout);
         }
-        let prompt = prompt::render(
-            request,
-            &bundle.decision.codes,
-            &bundle.decision.prompt_layout,
-        )
-        .map_err(|_| Failure::InvalidRequest)?;
-        let ids = self
-            .0
-            .encode(prompt.as_str(), false)
-            .map_err(|_| Failure::Unavailable)?
-            .get_ids()
-            .to_vec();
+        let prompt = prompt::render(request, &config.codes, &config.prompt_layout)
+            .map_err(|_| Failure::InvalidRequest)?;
+        let ids = self.encode(&prompt).map_err(|_| Failure::Unavailable)?;
         if std::time::Instant::now() >= limits.deadline {
             return Err(Failure::Timeout);
         }

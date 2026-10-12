@@ -1,13 +1,13 @@
 #![cfg(feature = "process")]
-use kaze_judge::*;
+use pure_jeff::*;
 use std::{
     path::PathBuf,
     time::{Duration, Instant},
 };
-/// None (test skipped with a message) unless KAZE_JUDGE_PYTHON names a Python 3.12+ executable.
+/// None (test skipped with a message) unless PURE_JEFF_PYTHON names a Python 3.12+ executable.
 fn setup() -> Option<(LocalProcessProvider, tempfile::TempDir)> {
-    let Some(python) = std::env::var_os("KAZE_JUDGE_PYTHON").map(PathBuf::from) else {
-        eprintln!("skipped: set KAZE_JUDGE_PYTHON to an absolute Python 3.12+ executable");
+    let Some(python) = std::env::var_os("PURE_JEFF_PYTHON").map(PathBuf::from) else {
+        eprintln!("skipped: set PURE_JEFF_PYTHON to an absolute Python 3.12+ executable");
         return None;
     };
     let dir = tempfile::tempdir().unwrap();

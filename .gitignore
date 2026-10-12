@@ -10,3 +10,5 @@ __pycache__/
 /apps/web-demo/.wrangler/
 /runtime/tract/target/
 /runtime/bench-native/target/
+/runtime/wasm/target/
+/apps/web-demo/engine/target/

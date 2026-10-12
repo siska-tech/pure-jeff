@@ -108,7 +108,7 @@ impl<'a> Session<'a> {
         };
         let manifest: Manifest = serde_json::from_slice(assets.manifest)?;
         ensure!(
-            manifest.schema_version == "kaze_judge.rust_jeff_bundle.v1",
+            manifest.schema_version == "pure_jeff.bundle.v1",
             "unsupported manifest"
         );
         manifest.policy.validate()?;
