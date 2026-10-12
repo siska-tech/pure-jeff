@@ -108,8 +108,13 @@ fn full_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Resul
     )
 }
 
-// Reference recurrence: S <- exp(g) S; delta <- beta (v - k^T S);
-// S <- S + k delta^T; output <- q^T S. No fused/native inference dependency.
+// Columns of one head's state processed together; 128 rows of them (16 KiB) stay in L1 cache.
+const COLUMNS: usize = 32;
+
+// Recurrence: S <- exp(g) S; delta <- beta (v - k^T S); S <- S + k delta^T; output <- q^T S.
+// Column j of S, delta and output depends only on column j, so each head runs in blocks of
+// COLUMNS columns over every token. Every element sees the same operations in the same order as
+// the token-major reference in the tests (no FMA), so the result is bitwise identical.
 fn delta_recurrence(
     q: &Tensor,
     k: &Tensor,
@@ -117,37 +122,48 @@ fn delta_recurrence(
     beta: &Tensor,
     g: &Tensor,
 ) -> Result<Tensor> {
-    let q = q.to_vec3::<f32>()?;
-    let k = k.to_vec3::<f32>()?;
-    let v = v.to_vec3::<f32>()?;
-    let beta = beta.to_vec2::<f32>()?;
-    let g = g.to_vec2::<f32>()?;
-    let seq = q.len();
-    let mut state = vec![0_f32; H * K * V];
+    let seq = q.dim(0)?;
+    let scale = (K as f32).sqrt();
+    let q: Vec<f32> = q
+        .flatten_all()?
+        .to_vec1::<f32>()?
+        .iter()
+        .map(|x| x / scale)
+        .collect();
+    let k = k.flatten_all()?.to_vec1::<f32>()?;
+    let v = v.flatten_all()?.to_vec1::<f32>()?;
+    let beta = beta.flatten_all()?.to_vec1::<f32>()?;
+    let decay: Vec<f32> = g
+        .flatten_all()?
+        .to_vec1::<f32>()?
+        .iter()
+        .map(|g| g.exp())
+        .collect();
     let mut out = vec![0_f32; seq * H * V];
-    for t in 0..seq {
-        for h in 0..H {
-            let state = &mut state[h * K * V..(h + 1) * K * V];
-            let decay = g[t][h].exp();
-            for s in state.iter_mut() {
-                *s *= decay;
-            }
-            let mut delta = [0_f32; V];
-            for (i, row) in state.as_chunks::<V>().0.iter().enumerate() {
-                for (j, value) in row.iter().enumerate() {
-                    delta[j] += value * k[t][h][i];
+    for h in 0..H {
+        for column in (0..V).step_by(COLUMNS) {
+            let mut state = [[0_f32; COLUMNS]; K];
+            for t in 0..seq {
+                let at = t * H + h;
+                let (q, k) = (&q[at * K..][..K], &k[at * K..][..K]);
+                let mut delta = [0_f32; COLUMNS];
+                for (row, ki) in state.iter_mut().zip(k) {
+                    for (s, d) in row.iter_mut().zip(&mut delta) {
+                        *s *= decay[at];
+                        *d += *s * ki;
+                    }
                 }
-            }
-            for (j, d) in delta.iter_mut().enumerate() {
-                *d = (v[t][h][j] - *d) * beta[t][h];
-            }
-            let output = &mut out[(t * H + h) * V..(t * H + h + 1) * V];
-            for (i, row) in state.as_chunks_mut::<V>().0.iter_mut().enumerate() {
-                let qi = q[t][h][i] / (K as f32).sqrt();
-                for (j, s) in row.iter_mut().enumerate() {
-                    *s += k[t][h][i] * delta[j];
-                    output[j] += *s * qi;
+                for (d, vj) in delta.iter_mut().zip(&v[at * V + column..][..COLUMNS]) {
+                    *d = (vj - *d) * beta[at];
                 }
+                let mut output = [0_f32; COLUMNS];
+                for ((row, ki), qi) in state.iter_mut().zip(k).zip(q) {
+                    for ((s, d), o) in row.iter_mut().zip(&delta).zip(&mut output) {
+                        *s += ki * d;
+                        *o += *s * qi;
+                    }
+                }
+                out[at * V + column..][..COLUMNS].copy_from_slice(&output);
             }
         }
     }
@@ -256,6 +272,94 @@ mod tests {
             assert!((first_head[0] - 1.0 / (K as f32).sqrt()).abs() < 1e-6);
             assert!((second_head[0] - 2.25 / (K as f32).sqrt()).abs() < 1e-6);
             assert!(second_head[1..].iter().all(|v| *v == 0.0));
+        }
+        Ok(())
+    }
+
+    // The token-major recurrence that pure-jeff 0.1.0 shipped (and runtime/wasm/frozen keeps).
+    fn reference_recurrence(
+        q: &Tensor,
+        k: &Tensor,
+        v: &Tensor,
+        beta: &Tensor,
+        g: &Tensor,
+    ) -> Result<Tensor> {
+        let q = q.to_vec3::<f32>()?;
+        let k = k.to_vec3::<f32>()?;
+        let v = v.to_vec3::<f32>()?;
+        let beta = beta.to_vec2::<f32>()?;
+        let g = g.to_vec2::<f32>()?;
+        let seq = q.len();
+        let mut state = vec![0_f32; H * K * V];
+        let mut out = vec![0_f32; seq * H * V];
+        for t in 0..seq {
+            for h in 0..H {
+                let state = &mut state[h * K * V..(h + 1) * K * V];
+                let decay = g[t][h].exp();
+                for s in state.iter_mut() {
+                    *s *= decay;
+                }
+                let mut delta = [0_f32; V];
+                for (i, row) in state.as_chunks::<V>().0.iter().enumerate() {
+                    for (j, value) in row.iter().enumerate() {
+                        delta[j] += value * k[t][h][i];
+                    }
+                }
+                for (j, d) in delta.iter_mut().enumerate() {
+                    *d = (v[t][h][j] - *d) * beta[t][h];
+                }
+                let output = &mut out[(t * H + h) * V..(t * H + h + 1) * V];
+                for (i, row) in state.as_chunks_mut::<V>().0.iter_mut().enumerate() {
+                    let qi = q[t][h][i] / (K as f32).sqrt();
+                    for (j, s) in row.iter_mut().enumerate() {
+                        *s += k[t][h][i] * delta[j];
+                        output[j] += *s * qi;
+                    }
+                }
+            }
+        }
+        Tensor::from_vec(out, (seq, H, V), &Device::Cpu)
+    }
+
+    #[test]
+    fn delta_recurrence_is_bitwise_equal_to_the_reference() -> Result<()> {
+        let mut seed = 0x2545_f491_4f6c_dd1d_u64;
+        let mut uniform = |n: usize, low: f32, high: f32| -> Vec<f32> {
+            (0..n)
+                .map(|_| {
+                    seed ^= seed << 13;
+                    seed ^= seed >> 7;
+                    seed ^= seed << 17;
+                    low + (high - low) * ((seed >> 40) as f32 / (1u64 << 24) as f32)
+                })
+                .collect()
+        };
+        for seq in [1, 3, 37] {
+            let q = l2(&Tensor::from_vec(
+                uniform(seq * H * K, -1.0, 1.0),
+                (seq, H, K),
+                &Device::Cpu,
+            )?)?;
+            let k = l2(&Tensor::from_vec(
+                uniform(seq * H * K, -1.0, 1.0),
+                (seq, H, K),
+                &Device::Cpu,
+            )?)?;
+            let v = Tensor::from_vec(uniform(seq * H * V, -4.0, 4.0), (seq, H, V), &Device::Cpu)?;
+            let beta = Tensor::from_vec(uniform(seq * H, 0.0, 1.0), (seq, H), &Device::Cpu)?;
+            let g = Tensor::from_vec(uniform(seq * H, -3.0, 0.0), (seq, H), &Device::Cpu)?;
+            let bits = |t: Tensor| -> Result<Vec<u32>> {
+                Ok(t.flatten_all()?
+                    .to_vec1::<f32>()?
+                    .iter()
+                    .map(|v| v.to_bits())
+                    .collect())
+            };
+            assert_eq!(
+                bits(delta_recurrence(&q, &k, &v, &beta, &g)?)?,
+                bits(reference_recurrence(&q, &k, &v, &beta, &g)?)?,
+                "seq {seq}"
+            );
         }
         Ok(())
     }
