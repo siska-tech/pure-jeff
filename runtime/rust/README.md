@@ -1,6 +1,6 @@
 # jeff CLI（pure-jeff-cli）
 
-ライブラリ`pure-jeff`（リポジトリroot）の上の薄いCLI。推論の実装（prompt、tokenize、24層forward、readout、候補分布、選択／保留、bundle照合、worker）はすべてライブラリにある。固定Jeff-Qwen3.5-0.8B、Windows x86_64 CPU FP32、batch=1、text-only、cacheなし。Python/PyTorchは通常実行と資産固定には不要。開発用example（`probe`、`profile`、`resident_bench`、`verify_portable`、`forward_check`）もこのcrateにある。
+ライブラリ`pure-jeff`（リポジトリroot）の上の薄いCLI。推論の実装（prompt、tokenize、24層forward、readout、候補分布、選択／保留、bundle照合、worker）はすべてライブラリにある。固定Jeff-Qwen3.5-0.8B、Windows x86_64 CPU FP32、batch=1、text-only、cacheなし。Python/PyTorchは通常実行と資産固定には不要。開発用example（`probe`、`profile`、`resident_bench`、`verify_portable`、`forward_check`、`forward_breakdown`）もこのcrateにある。
 
 Candle commit `c68b24997319b8d76e5a4e775dab197c7f26322a`のCPU演算を使用し（`Cargo.toml`の`[patch.crates-io]`）、Qwen3.5 text backboneとgated deltaの逐次式を実装した。tokenizersは0.23.2、default features無効、fancy-regexのみ有効。検証toolchainはrustc/cargo 1.99.0、x86_64-pc-windows-msvc。
 

@@ -2,7 +2,7 @@
 //! Equations checked against Transformers 5.17.0 Qwen3.5 (Apache-2.0).
 //! No cache, padding, image inputs, quantization, or production deadline guarantee.
 use crate::WeightSource;
-use candle_core::{DType, Device, Result, Tensor, D};
+use candle_core::{CpuStorage, DType, Device, Result, Storage, Tensor, D};
 
 const H: usize = 16;
 const K: usize = 128;
@@ -28,10 +28,44 @@ fn l2(x: &Tensor) -> Result<Tensor> {
     x.broadcast_div(&(x.sqr()?.sum_keepdim(D::Minus1)? + 1e-6)?.sqrt()?)
 }
 
+// The element-wise steps below compute each element with the same operations, in the same order,
+// as the Candle ops they replace, so the results are bitwise identical (see the tests). Sums,
+// means, softmax and matrix products stay in Candle: their summation order is Candle's.
+
+/// Candle's f32 SiLU, written out so it can be fused with its neighbours.
+fn silu(v: f32) -> f32 {
+    v / (1.0 + (-v).exp())
+}
+
+/// Calls `f` with the tensor's f32 elements in row-major order, without a copy when contiguous.
+fn with_f32<R>(t: &Tensor, f: impl FnOnce(&[f32]) -> R) -> Result<R> {
+    {
+        let (storage, layout) = t.storage_and_layout();
+        if let (Storage::Cpu(CpuStorage::F32(data)), Some((start, end))) =
+            (&*storage, layout.contiguous_offsets())
+        {
+            return Ok(f(&data[start..end]));
+        }
+    }
+    Ok(f(&t.flatten_all()?.to_vec1::<f32>()?))
+}
+
+/// `f(a, b)` for each pair of elements of two tensors of the same shape.
+fn zip_map(a: &Tensor, b: &Tensor, f: impl Fn(f32, f32) -> f32) -> Result<Tensor> {
+    if a.shape() != b.shape() {
+        candle_core::bail!("shape mismatch: {:?} and {:?}", a.shape(), b.shape())
+    }
+    let out = with_f32(a, |a| {
+        with_f32(b, |b| a.iter().zip(b).map(|(&x, &y)| f(x, y)).collect())
+    })??;
+    Tensor::from_vec(out, a.shape(), &Device::Cpu)
+}
+
 fn mlp(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Result<Tensor> {
-    let gate = linear(x, weights, &format!("{prefix}.gate_proj"))?.silu()?;
+    let gate = linear(x, weights, &format!("{prefix}.gate_proj"))?;
     let up = linear(x, weights, &format!("{prefix}.up_proj"))?;
-    linear(&(gate * up)?, weights, &format!("{prefix}.down_proj"))
+    let hidden = zip_map(&gate, &up, |g, u| silu(g) * u)?;
+    linear(&hidden, weights, &format!("{prefix}.down_proj"))
 }
 
 fn rotary(x: &Tensor) -> Result<Tensor> {
@@ -170,20 +204,47 @@ fn delta_recurrence(
     Tensor::from_vec(out, (seq, H, V), &Device::Cpu)
 }
 
+// Causal depthwise convolution over tokens (4 taps), then SiLU. Each output starts at 0.0 and
+// adds tap j = 0..4 (the input `3 - j` tokens earlier, zero before the first token) times its
+// weight, as the zero-initialised sum of shifted, padded products did.
+fn conv_silu(x: &Tensor, kernel: &Tensor) -> Result<Tensor> {
+    let (seq, channels) = x.dims2()?;
+    let kernel = kernel.squeeze(1)?.t()?.contiguous()?.to_vec2::<f32>()?;
+    if kernel.len() != 4 || kernel[0].len() != channels {
+        candle_core::bail!("conv1d kernel must be (channels, 1, 4)")
+    }
+    let out = with_f32(x, |x| {
+        let mut out = vec![0_f32; seq * channels];
+        for (t, row) in out.chunks_exact_mut(channels).enumerate() {
+            for (j, taps) in kernel.iter().enumerate() {
+                let delay = 3 - j;
+                if delay >= seq {
+                    continue;
+                }
+                if let Some(source) = t.checked_sub(delay) {
+                    let input = &x[source * channels..][..channels];
+                    for ((o, i), w) in row.iter_mut().zip(input).zip(taps) {
+                        *o += i * w;
+                    }
+                } else {
+                    for (o, w) in row.iter_mut().zip(taps) {
+                        *o += 0.0 * w;
+                    }
+                }
+            }
+            for o in row.iter_mut() {
+                *o = silu(*o);
+            }
+        }
+        out
+    })?;
+    Tensor::from_vec(out, (seq, channels), &Device::Cpu)
+}
+
 fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Result<Tensor> {
     let seq = x.dim(0)?;
     let qkv = linear(x, weights, &format!("{prefix}.in_proj_qkv"))?;
-    let kernel = weight(weights, &format!("{prefix}.conv1d.weight"))?.squeeze(1)?;
-    let mut convolved = Tensor::zeros(qkv.shape(), DType::F32, &Device::Cpu)?;
-    for j in 0..4 {
-        let delay = 3 - j;
-        if delay < seq {
-            let shifted = qkv.narrow(0, 0, seq - delay)?.pad_with_zeros(0, delay, 0)?;
-            convolved =
-                (convolved + shifted.broadcast_mul(&kernel.narrow(1, j, 1)?.squeeze(1)?)?)?;
-        }
-    }
-    let qkv = convolved.silu()?;
+    let qkv = conv_silu(&qkv, &weight(weights, &format!("{prefix}.conv1d.weight"))?)?;
     let q = l2(&qkv.narrow(1, 0, H * K)?.reshape((seq, H, K))?)?;
     let k = l2(&qkv.narrow(1, H * K, H * K)?.reshape((seq, H, K))?)?;
     let v = qkv.narrow(1, H * K * 2, H * V)?.reshape((seq, H, V))?;
@@ -204,7 +265,7 @@ fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Res
     let attention = normalized(&attention, 1e-6)?
         .broadcast_mul(&weight(weights, &format!("{prefix}.norm.weight"))?)?;
     linear(
-        &(attention * z.silu()?)?.reshape((seq, H * V))?,
+        &zip_map(&attention, &z, |a, z| a * silu(z))?.reshape((seq, H * V))?,
         weights,
         &format!("{prefix}.out_proj"),
     )
@@ -324,30 +385,32 @@ mod tests {
     #[test]
     fn delta_recurrence_is_bitwise_equal_to_the_reference() -> Result<()> {
         let mut seed = 0x2545_f491_4f6c_dd1d_u64;
-        let mut uniform = |n: usize, low: f32, high: f32| -> Vec<f32> {
-            (0..n)
-                .map(|_| {
-                    seed ^= seed << 13;
-                    seed ^= seed >> 7;
-                    seed ^= seed << 17;
-                    low + (high - low) * ((seed >> 40) as f32 / (1u64 << 24) as f32)
-                })
-                .collect()
-        };
         for seq in [1, 3, 37] {
             let q = l2(&Tensor::from_vec(
-                uniform(seq * H * K, -1.0, 1.0),
+                uniform(&mut seed, seq * H * K, -1.0, 1.0),
                 (seq, H, K),
                 &Device::Cpu,
             )?)?;
             let k = l2(&Tensor::from_vec(
-                uniform(seq * H * K, -1.0, 1.0),
+                uniform(&mut seed, seq * H * K, -1.0, 1.0),
                 (seq, H, K),
                 &Device::Cpu,
             )?)?;
-            let v = Tensor::from_vec(uniform(seq * H * V, -4.0, 4.0), (seq, H, V), &Device::Cpu)?;
-            let beta = Tensor::from_vec(uniform(seq * H, 0.0, 1.0), (seq, H), &Device::Cpu)?;
-            let g = Tensor::from_vec(uniform(seq * H, -3.0, 0.0), (seq, H), &Device::Cpu)?;
+            let v = Tensor::from_vec(
+                uniform(&mut seed, seq * H * V, -4.0, 4.0),
+                (seq, H, V),
+                &Device::Cpu,
+            )?;
+            let beta = Tensor::from_vec(
+                uniform(&mut seed, seq * H, 0.0, 1.0),
+                (seq, H),
+                &Device::Cpu,
+            )?;
+            let g = Tensor::from_vec(
+                uniform(&mut seed, seq * H, -3.0, 0.0),
+                (seq, H),
+                &Device::Cpu,
+            )?;
             let bits = |t: Tensor| -> Result<Vec<u32>> {
                 Ok(t.flatten_all()?
                     .to_vec1::<f32>()?
@@ -359,6 +422,80 @@ mod tests {
                 bits(delta_recurrence(&q, &k, &v, &beta, &g)?)?,
                 bits(reference_recurrence(&q, &k, &v, &beta, &g)?)?,
                 "seq {seq}"
+            );
+        }
+        Ok(())
+    }
+
+    fn uniform(seed: &mut u64, n: usize, low: f32, high: f32) -> Vec<f32> {
+        (0..n)
+            .map(|_| {
+                *seed ^= *seed << 13;
+                *seed ^= *seed >> 7;
+                *seed ^= *seed << 17;
+                low + (high - low) * ((*seed >> 40) as f32 / (1u64 << 24) as f32)
+            })
+            .collect()
+    }
+
+    fn bits(t: &Tensor) -> Result<Vec<u32>> {
+        Ok(t.flatten_all()?
+            .to_vec1::<f32>()?
+            .iter()
+            .map(|v| v.to_bits())
+            .collect())
+    }
+
+    #[test]
+    fn fused_element_wise_steps_are_bitwise_equal_to_candle_ops() -> Result<()> {
+        let mut seed = 0x9e37_79b9_7f4a_7c15_u64;
+        let channels = 40;
+        let kernel = Tensor::from_vec(
+            uniform(&mut seed, channels * 4, -1.0, 1.0),
+            (channels, 1, 4),
+            &Device::Cpu,
+        )?;
+        for seq in [1, 2, 3, 4, 9] {
+            let x = Tensor::from_vec(
+                uniform(&mut seed, seq * channels, -6.0, 6.0),
+                (seq, channels),
+                &Device::Cpu,
+            )?;
+            // The Candle sequence that linear_attention used before conv_silu.
+            let taps = kernel.squeeze(1)?;
+            let mut convolved = Tensor::zeros(x.shape(), DType::F32, &Device::Cpu)?;
+            for j in 0..4 {
+                let delay = 3 - j;
+                if delay < seq {
+                    let shifted = x.narrow(0, 0, seq - delay)?.pad_with_zeros(0, delay, 0)?;
+                    convolved =
+                        (convolved + shifted.broadcast_mul(&taps.narrow(1, j, 1)?.squeeze(1)?)?)?;
+                }
+            }
+            assert_eq!(
+                bits(&conv_silu(&x, &kernel)?)?,
+                bits(&convolved.silu()?)?,
+                "seq {seq}"
+            );
+            let y = Tensor::from_vec(
+                uniform(&mut seed, seq * channels, -6.0, 6.0),
+                (seq, channels),
+                &Device::Cpu,
+            )?;
+            assert_eq!(
+                bits(&zip_map(&x, &y, |g, u| silu(g) * u)?)?,
+                bits(&(x.silu()? * &y)?)?
+            );
+            assert_eq!(
+                bits(&zip_map(&x, &y, |a, z| a * silu(z))?)?,
+                bits(&(&x * y.silu()?)?)?
+            );
+            // A non-contiguous input takes the copying path.
+            let xt = x.t()?;
+            let yt = y.t()?.contiguous()?;
+            assert_eq!(
+                bits(&zip_map(&xt, &yt, |g, u| silu(g) * u)?)?,
+                bits(&(xt.silu()? * &yt)?)?
             );
         }
         Ok(())

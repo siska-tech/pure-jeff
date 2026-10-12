@@ -12,6 +12,7 @@
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |
 | [native-delta-recurrence-2026-10-12.md](native-delta-recurrence-2026-10-12.md) | DeltaNetの逐次更新の高速化（出力はbit単位で不変） |
+| [native-elementwise-2026-10-12.md](native-elementwise-2026-10-12.md) | forwardの処理ごとの内訳と、要素ごとの演算の融合（出力はbit単位で不変） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [naming-map.md](naming-map.md) | KazeJudge由来の名前・pathと、改名後の対応 |
