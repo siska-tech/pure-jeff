@@ -174,3 +174,25 @@ jobs:
           python -B -m unittest discover -s runtime -p "test_*.py"
           (cd runtime/wasm && python -B -m unittest test_run_w0 test_run_w1 test_run_w2)
           (cd apps/web-demo && python -B -m unittest discover -p "test_*.py")
+  package:
+    # The crates.io package, built and used by a separate project with dependencies from
+    # crates.io only (no repository [patch]); nothing is published. Model-free.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Rust toolchain
+        shell: bash
+        run: |
+          rustup toolchain install "$RUST_TOOLCHAIN" --profile minimal
+          rustup default "$RUST_TOOLCHAIN"
+      - name: Package and consumer
+        shell: bash
+        run: python -B tools/check_package.py --work "$RUNNER_TEMP/package-check"
