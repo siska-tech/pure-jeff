@@ -1,0 +1,25 @@
+{
+ "provenance": "synthetic-ocr-ja-2-128 from docs/research/jeff-onnx-tract/accepted-threads-2026-10-11/length-inputs.json with the original text's filler suffix shortened by one ' a'",
+ "intended_tokens": 127,
+ "request": {
+  "candidates": [
+   {
+    "id": "a",
+    "text": "猫"
+   },
+   {
+    "id": "b",
+    "text": "犬"
+   }
+  ],
+  "document_id": "length-pilot",
+  "domain": null,
+  "original_text": "猫 a a a",
+  "profile_id": "synthetic.length-pilot",
+  "question_id": "transcription-candidate.v1",
+  "reason": "candidate_competition",
+  "request_id": "synthetic-ocr-ja-2-127",
+  "segment_id": "ocr-ja-2",
+  "source": "ocr"
+ }
+}

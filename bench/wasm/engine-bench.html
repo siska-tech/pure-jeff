@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<title>pure-jeff engine benchmark session</title>
+</head>
+<body>
+<p id="status">starting</p>
+<script>
+// One resident session of the current web demo engine through the demo's own Worker
+// (apps/web-demo/web/engine-worker.js): init (engine hash), load from the network (streamed
+// hashes, Cache API write, open), then the job in order. Posts one report to "result".
+const status = document.getElementById("status");
+const report = (body) => fetch("result", { method: "POST", headers: { "content-type": "application/json" },
+                                           body: JSON.stringify(body) });
+(async () => {
+  const config = await (await fetch("bench-config.json", { cache: "no-store" })).json();
+  const worker = new Worker("engine-worker.js");
+  let next = 0;
+  const pending = new Map();
+  worker.onmessage = ({ data }) => { if (data.event) return; pending.get(data.id)(data); pending.delete(data.id); };
+  const call = (cmd, args = {}) => new Promise((resolve) => {
+    const id = next++; pending.set(id, resolve); worker.postMessage({ id, cmd, ...args }); });
+  const fail = (step, reply) => { throw new Error(`${step}: ${JSON.stringify(reply.error)} ${reply.panic || ""}`); };
+  status.textContent = "init";
+  let started = performance.now();
+  const init = await call("init", { config });
+  if (!init.ok) fail("init", init);
+  const initMs = performance.now() - started;
+  status.textContent = "load";
+  started = performance.now();
+  const load = await call("load", { config, source: "network" });
+  if (!load.ok) fail("load", load);
+  const loadMs = performance.now() - started;
+  const decisions = [];
+  for (const item of config.job) {
+    status.textContent = item.name;
+    const request = await (await fetch(item.url, { cache: "no-store" })).text();
+    const reply = await call("evaluate", { request, max_input_bytes: config.max_input_bytes,
+                                           max_input_tokens: item.max_input_tokens });
+    decisions.push({ name: item.name, phase: item.phase, ok: reply.ok, code: reply.code, value: reply.value,
+                     error: reply.error, panic: reply.panic, elapsed_ms: reply.elapsed_ms,
+                     linear_memory_bytes: reply.linear_memory_bytes });
+  }
+  worker.terminate();
+  await caches.delete(config.cache_name);
+  await report({
+    page: { userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+            crossOriginIsolated: self.crossOriginIsolated },
+    load: { init_ms: initMs, load_s: (loadMs + initMs) / 1000, worker_load_ms: load.load_ms, open: load.open,
+            linear_memory_bytes: load.linear_memory_bytes },
+    decisions });
+  status.textContent = "done";
+})().catch((error) => report({ fatal: String(error && error.stack || error) }));
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+ "provenance": "bench/search_policy_boundary.py variant v5-27-3c of 651; Native API search result below (the reference is the official one in the catalog)",
+ "search": {
+  "top1": 0.44383540749549866,
+  "margin": 0.08594268560409546,
+  "probabilities": [
+   0.19827184081077576,
+   0.3578927218914032,
+   0.44383540749549866
+  ],
+  "judgment": {
+   "kind": "abstained"
+  },
+  "input_tokens": 192
+ },
+ "policy": {
+  "min_probability": 0.7,
+  "min_margin": 0.1,
+  "cpu_threads": 1
+ },
+ "request": {
+  "request_id": "policy-margin-near",
+  "document_id": "policy-boundary",
+  "segment_id": "v5-27-3c",
+  "original_text": "Lot 7B shipped on 2026-03-1?",
+  "source": "ocr",
+  "profile_id": "synthetic.policy-boundary",
+  "domain": null,
+  "question_id": "transcription-candidate.v1",
+  "candidates": [
+   {
+    "id": "original",
+    "text": "Lot 7B shipped on 2026-03-14"
+   },
+   {
+    "id": "alternative",
+    "text": "Lot 7B shipped on 2026-03-1A"
+   },
+   {
+    "id": "third",
+    "text": "Lot 7B shipped on 2026-03-?A"
+   }
+  ],
+  "reason": "candidate_competition"
+ }
+}

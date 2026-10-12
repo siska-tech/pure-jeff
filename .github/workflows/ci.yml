@@ -111,7 +111,10 @@ jobs:
           python -B -m unittest discover -p "test_*.py"
           $code = $LASTEXITCODE
           Pop-Location
-          exit $code
+          if ($code) { exit $code }
+          # The benchmark driver samples Windows process memory, so these run on Windows only.
+          python -B -m unittest bench/test_bench.py
+          exit $LASTEXITCODE
       - name: JavaScript syntax
         run: |
           foreach ($f in @("apps/web-demo/web/app.js", "apps/web-demo/web/i18n.js", "apps/web-demo/web/engine-worker.js", "apps/web-demo/e2e_w3.mjs", "runtime/wasm/web/worker.js", "runtime/wasm/web/w1-worker.js", "runtime/wasm/web/w2-worker.js")) {

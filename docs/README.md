@@ -8,6 +8,7 @@
 | [clean-environment-check.md](clean-environment-check.md) | clean環境でのbuild・試験・数値再現 |
 | [licensing.md](licensing.md)、[license-audit.json](license-audit.json) | ライセンスの監査と公開blocker |
 | [benchmark-plan.md](benchmark-plan.md)、[benchmark-results-2026-10-11.md](benchmark-results-2026-10-11.md)、[benchmark-results-2026-10-12.md](benchmark-results-2026-10-12.md) | 公式Jeff・Native・Wasmの比較（2回目はNative改善後の再測定） |
+| [benchmark-parity-plan.md](benchmark-parity-plan.md) | 性能同等の判定基盤：公開API経路、入力catalog、共通数値gate、事前登録の統計と受入規則 |
 | [web-demo-w4-results.md](web-demo-w4-results.md)、[w4-hosting.md](w4-hosting.md) | Webデモの公開準備と配信構成 |
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |
