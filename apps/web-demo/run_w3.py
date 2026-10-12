@@ -9,6 +9,7 @@ import base64
 from datetime import datetime, timezone
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -37,6 +38,9 @@ GATES = {
     "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in pure_jeff::Attempt order",
     "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
     "delete": "after delete no pure-jeff-model cache remains and a reload shows the model as not downloaded",
+    "languages": "the language selector switches to English, Vietnamese and back to Japanese: the document "
+                 "language, URL ?lang=, page state and title follow; English and Vietnamese pages contain no "
+                 "Japanese text outside the selector; the rest of the run is in Japanese (opened with ?lang=ja)",
 }
 # Added for W4 (replaces single_download); registered before the first W4 run.
 GATES_W4 = {
@@ -120,7 +124,7 @@ def main():
     model_origin = f"https://models.test:{args.model_port}" if args.w4 else None
     if args.w4 and config.get("model_base_url") != f"{model_origin}/model/":
         raise SystemExit(f"build the demo with --model-base-url {model_origin}/model/")
-    refs = [json.loads((ROOT / path).read_text(encoding="utf-8")) for _, path in SAMPLES]
+    refs = [json.loads((ROOT / path).read_text(encoding="utf-8")) for _, _, path in SAMPLES]
     save(args.output / "preregistration.json", {
         "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
         "created_utc": datetime.now(timezone.utc).isoformat(), "gates": GATES,
@@ -132,7 +136,7 @@ def main():
         "dist": {"build_info_sha256": sha(args.dist / "build-info.json"),
                  "build_info": json.loads((args.dist / "build-info.json").read_text(encoding="utf-8"))},
         "driver_sha256": sha(__file__), "e2e_sha256": sha(HERE / "e2e_w3.mjs"),
-        "samples": {label: sha(ROOT / path) for label, path in SAMPLES},
+        "samples": {label: sha(ROOT / path) for _, label, path in SAMPLES},
         "headless": True,
     })
 
@@ -179,7 +183,7 @@ def main():
             time.sleep(0.1)
         port, ws_path = port_file.read_text().split()[:2]
         e2e = subprocess.run(["node", str(HERE / "e2e_w3.mjs"), f"ws://127.0.0.1:{port}{ws_path}",
-                              f"{origin}/index.html", str(args.output),
+                              f"{origin}/index.html?lang=ja", str(args.output),
                               *(["--abort-download"] if args.w4 or external else [])],
                              timeout=args.timeout, capture_output=True, text=True)
     finally:
@@ -310,6 +314,15 @@ def main():
             if isinstance(v, dict) and v.get("max_main_thread_gap_ms") is not None}
     g["main_thread"] = {"passed": max(gaps.values()) <= GATES["max_main_thread_gap_ms"], "max_gap_ms": gaps}
     deleted = steps["delete"]
+    languages = steps["languages"]
+    # kana, CJK ideographs and full-width forms
+    japanese = re.compile("[%s-%s%s-%s%s-%s]" % tuple(map(chr, (0x3040, 0x30FF, 0x3400, 0x9FFF, 0xFF01, 0xFF60))))
+    g["languages"] = {"passed": all(languages[c]["lang"] == c and languages[c]["state_lang"] == c
+                                    and languages[c]["url_lang"] == c for c in ("en", "vi", "ja"))
+                      and len({languages[c]["title"] for c in ("en", "vi", "ja")}) == 3
+                      and not japanese.search(languages["en"]["text"]) and not japanese.search(languages["vi"]["text"])
+                      and "取得していません" in languages["ja"]["status"],
+                      "status": {c: languages[c]["status"] for c in ("en", "vi", "ja")}}
     g["delete"] = {"passed": not [n for n in deleted["cache_names"] if n.startswith("pure-jeff-model-")]
                    and "取得していません" in steps["after_delete_reload"]["status"],
                    "usage_before": deleted["usage_before"], "usage_after": deleted["usage_after"]}

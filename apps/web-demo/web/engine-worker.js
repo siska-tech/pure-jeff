@@ -1,6 +1,14 @@
 // Inference Worker: owns the wasm engine and the model bytes in its linear memory.
 // Commands: init, load (network|cache), evaluate. Progress is posted as events.
+// Errors are posted as messages ({ key, params } of i18n.js, or { text }); the page translates them.
 "use strict";
+
+class Localized extends Error {
+  constructor(key, params = {}) {
+    super(key);
+    this.localized = { key, params };
+  }
+}
 
 let instance = null;
 let panic = null;
@@ -26,22 +34,22 @@ function put(bytes) {
 async function stream(asset, body, onBytes) {
   const e = instance.exports;
   const ptr = e.demo_alloc(asset.bytes);
-  if (ptr === 0) throw new Error(`メモリを確保できませんでした（${asset.path}）`);
+  if (ptr === 0) throw new Localized("worker.alloc", { path: asset.path });
   if (asset.slot !== null) e.demo_hash_begin(asset.slot, asset.bytes);
   const reader = body.getReader();
   let offset = 0;
   for (;;) {
     const { done, value } = await reader.read();
     if (done) break;
-    if (offset + value.byteLength > asset.bytes) throw new Error(`${asset.path}: サイズが想定より大きい`);
+    if (offset + value.byteLength > asset.bytes) throw new Localized("worker.tooLarge", { path: asset.path });
     view().set(value, ptr + offset);
     if (asset.slot !== null && e.demo_hash_update(asset.slot, offset, ptr + offset, value.byteLength) !== 0) {
-      throw new Error(`${asset.path}: hash更新の順序が不正`);
+      throw new Localized("worker.hashOrder", { path: asset.path });
     }
     offset += value.byteLength;
     onBytes(value.byteLength);
   }
-  if (offset !== asset.bytes) throw new Error(`${asset.path}: ${offset} / ${asset.bytes} bytesで終了`);
+  if (offset !== asset.bytes) throw new Localized("worker.truncated", { path: asset.path, got: offset, expected: asset.bytes });
   return [ptr, asset.bytes];
 }
 
@@ -49,7 +57,7 @@ const commands = {
   async init({ config }) {
     const bytes = await (await fetch(config.engine.url, { cache: "no-store" })).arrayBuffer();
     const sha = hex(await crypto.subtle.digest("SHA-256", bytes));
-    if (sha !== config.engine.sha256) throw new Error("推論エンジン（wasm）のhashが一致しません");
+    if (sha !== config.engine.sha256) throw new Localized("worker.engineHash");
     ({ instance } = await WebAssembly.instantiate(bytes, { env: {
       kj_now_ms: () => performance.now(),
       kj_random_fill: (ptr, len) => {
@@ -84,11 +92,11 @@ const commands = {
       let saving = null;
       if (source === "cache") {
         const cached = await cache.match(asset.url);
-        if (!cached) throw new Error(`保存済みデータに ${asset.path} がありません`);
+        if (!cached) throw new Localized("worker.cacheMissing", { path: asset.path });
         body = cached.body;
       } else {
         const response = await fetch(asset.url, { cache: "no-store" });
-        if (!response.ok) throw new Error(`${asset.path} を取得できません（HTTP ${response.status}）`);
+        if (!response.ok) throw new Localized("worker.http", { path: asset.path, status: response.status });
         const [toMemory, toCache] = response.body.tee();
         body = toMemory;
         saving = cache.put(asset.url, new Response(toCache, {
@@ -100,7 +108,7 @@ const commands = {
     const loadMs = performance.now() - started;
     // One memory.grow instead of many small ones during tokenizer setup and inference (W1).
     const reserve = instance.exports.demo_alloc(config.heap_reserve_bytes);
-    if (reserve === 0) throw new Error("推論用のメモリを確保できませんでした");
+    if (reserve === 0) throw new Localized("worker.reserve");
     instance.exports.demo_free(reserve, config.heap_reserve_bytes);
     self.postMessage({ event: "verifying" });
     const m = config.manifest;
@@ -110,7 +118,7 @@ const commands = {
       ...a["readout.safetensors"], ...a["model.safetensors"],
       ...put(encoder.encode(m.sha256)), ...put(encoder.encode(config.engine.sha256)));
     const result = output(code);
-    if (code !== 0) throw new Error(`検証に失敗しました: ${result.value.error}`);
+    if (code !== 0) throw new Localized("worker.verify", { error: { text: result.value.error } });
     return { load_ms: loadMs, open: result.value, linear_memory_bytes: instance.exports.memory.buffer.byteLength };
   },
 
@@ -130,6 +138,7 @@ self.onmessage = async ({ data }) => {
     const reply = await commands[data.cmd](data);
     self.postMessage({ id: data.id, ok: true, ...reply, panic });
   } catch (error) {
-    self.postMessage({ id: data.id, ok: false, error: String(error && error.message || error), panic });
+    const message = error && error.localized ? error.localized : { text: String(error && error.message || error) };
+    self.postMessage({ id: data.id, ok: false, error: message, panic });
   }
 };

@@ -33,8 +33,11 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.6 system-ui, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  /* Latin fonts first: on Japanese Windows system-ui is a Japanese UI font without the
+     precomposed Vietnamese letters, which would then be drawn as letter plus separate mark. */
+  font: 16px/1.6 "Segoe UI", -apple-system, Roboto, "Noto Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
 }
+html:lang(ja) body { font-family: system-ui, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif; }
 header, main, footer { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 header { padding-top: 24px; }
 h1 { font-size: 1.6rem; margin: 0 0 8px; }
@@ -95,3 +98,7 @@ td.text { word-break: break-all; }
 tr.best td { font-weight: 600; }
 pre { white-space: pre-wrap; word-break: break-all; font-size: 0.8rem; max-height: 24rem; overflow: auto; }
 footer { padding-bottom: 32px; }
+.title-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.title-row h1 { margin-right: auto; }
+.lang { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.9rem; }
+.lang select { width: auto; padding: 2px 6px; }

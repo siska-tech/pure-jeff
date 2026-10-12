@@ -112,10 +112,11 @@ jobs:
           exit $code
       - name: JavaScript syntax
         run: |
-          foreach ($f in @("apps/web-demo/web/app.js", "apps/web-demo/web/engine-worker.js", "apps/web-demo/e2e_w3.mjs", "runtime/wasm/web/worker.js", "runtime/wasm/web/w1-worker.js", "runtime/wasm/web/w2-worker.js")) {
+          foreach ($f in @("apps/web-demo/web/app.js", "apps/web-demo/web/i18n.js", "apps/web-demo/web/engine-worker.js", "apps/web-demo/e2e_w3.mjs", "runtime/wasm/web/worker.js", "runtime/wasm/web/w1-worker.js", "runtime/wasm/web/w2-worker.js")) {
             node --check $f
             if ($LASTEXITCODE) { exit $LASTEXITCODE }
           }
+          node --test apps/web-demo/test_i18n.cjs
       - name: Dependency licenses
         run: |
           # cargo metadata runs offline; fetch every locked package (all platforms) first.
@@ -174,6 +175,7 @@ jobs:
           python -B -m unittest discover -s runtime -p "test_*.py"
           (cd runtime/wasm && python -B -m unittest test_run_w0 test_run_w1 test_run_w2)
           (cd apps/web-demo && python -B -m unittest discover -p "test_*.py")
+          node --test apps/web-demo/test_i18n.cjs
   package:
     # The crates.io package, built and used by a separate project with dependencies from
     # crates.io only (no repository [patch]); nothing is published. Model-free.

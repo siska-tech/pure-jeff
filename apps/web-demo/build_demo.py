@@ -22,16 +22,17 @@ ASSET_PATHS = ["decision_config.json", "tokenizer.json", "readout.safetensors", 
 MAX_INPUT_TOKENS = 512  # range validated in W2
 MAX_INPUT_BYTES = 1 << 20
 HEAP_RESERVE_BYTES = 768 << 20
-SAMPLES = [  # (label, reference file relative to ROOT)
-    ("OCR：2候補（128 tokens）", "tests/fixtures/jeff-golden/candidate-request.json"),
-    ("OCR：同じ2候補を逆順（128 tokens）", "tests/fixtures/jeff-golden/reversed.json"),
-    ("ASR：Unicode文字を含む3候補（206 tokens）", "tests/fixtures/jeff-golden/asr-unicode.json"),
-    ("区切り記号に似た文字列を含む2候補（182 tokens）", "tests/fixtures/jeff-golden/special-token-text.json"),
-    ("日本語OCR：2候補（256 tokens）",
+SAMPLES = [  # (id for the page's translated label, Japanese label, reference file relative to ROOT)
+    ("ocr-2", "OCR：2候補（128 tokens）", "tests/fixtures/jeff-golden/candidate-request.json"),
+    ("ocr-2-reversed", "OCR：同じ2候補を逆順（128 tokens）", "tests/fixtures/jeff-golden/reversed.json"),
+    ("asr-unicode-3", "ASR：Unicode文字を含む3候補（206 tokens）", "tests/fixtures/jeff-golden/asr-unicode.json"),
+    ("special-token-2", "区切り記号に似た文字列を含む2候補（182 tokens）",
+     "tests/fixtures/jeff-golden/special-token-text.json"),
+    ("ocr-ja-2", "日本語OCR：2候補（256 tokens）",
      "docs/research/wasm-demo/w2-2026-10-11/official-references/synthetic-ocr-ja-2-256.json"),
-    ("OCR：8候補（512 tokens、上限ちょうど）",
+    ("ocr-8", "OCR：8候補（512 tokens、上限ちょうど）",
      "docs/research/wasm-demo/w2-2026-10-11/official-references/synthetic-ocr-ascii-8-512.json"),
-    ("上限を超える長文（874 tokens、予算超過の例）", "tests/fixtures/jeff-golden/long-text.json"),
+    ("over-limit", "上限を超える長文（874 tokens、予算超過の例）", "tests/fixtures/jeff-golden/long-text.json"),
 ]
 
 
@@ -62,7 +63,7 @@ def main():
     base = args.model_base_url if args.model_base_url.endswith("/") else args.model_base_url + "/"
     manifest_url = args.manifest_url or f"{base}manifest.json"
     args.output.mkdir(parents=True)
-    for name in ("index.html", "app.js", "engine-worker.js", "style.css", "_headers"):
+    for name in ("index.html", "i18n.js", "app.js", "engine-worker.js", "style.css", "_headers"):
         shutil.copyfile(WEB / name, args.output / name)
     engine, kept, removed = strip(args.engine_wasm.read_bytes())
     (args.output / "engine.wasm").write_bytes(engine)
@@ -99,8 +100,8 @@ def main():
     }
     write_json(args.output / "demo-config.json", config)
     write_json(args.output / "samples.json", [
-        {"label": label, "request": json.loads((ROOT / path).read_text(encoding="utf-8"))["request"]}
-        for label, path in SAMPLES])
+        {"id": key, "label": label, "request": json.loads((ROOT / path).read_text(encoding="utf-8"))["request"]}
+        for key, label, path in SAMPLES])
     if "://" not in manifest_url and not manifest_url.startswith("model/"):
         target = args.output / manifest_url
         target.parent.mkdir(parents=True, exist_ok=True)

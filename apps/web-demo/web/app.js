@@ -1,27 +1,83 @@
 // Main thread: UI, model cache management and the inference Worker's lifecycle.
+// Texts come from i18n.js; every shown message is kept as { key, params } so a language
+// change re-renders it.
 "use strict";
 
 const $ = (id) => document.getElementById(id);
 const SIMD_PROBE = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0,
   10, 10, 1, 8, 0, 65, 0, 253, 15, 253, 98, 11]);
-const FAILURES = {
-  budget_exceeded: "予算超過：入力が長すぎます（最大512 tokens）",
-  invalid_request: "入力が不正です",
-  invalid_output: "出力の検証に失敗しました",
-  unavailable: "推論できませんでした",
-  timeout: "時間切れです",
-};
+const LANGUAGE_KEY = "pure-jeff-language";
 
 // Read-only view of the state for people and automated checks.
-const state = { model: "unknown", running: false, last: null, config: null };
+const state = { model: "unknown", running: false, last: null, config: null, lang: null };
 window.kazeDemo = state;
 
 let config = null;
 let samples = [];
 let worker = null;
+let lang = FALLBACK_LANGUAGE;
+const tr = (key, params) => t(lang, key, params);
+const msg = (key, params) => ({ key, params });
+// Currently shown messages, re-rendered on a language change.
+const shown = { model: msg("model.checking"), modelSuffixes: [], run: [], storage: null, storageLag: false };
+let lastReply = null;
 
 function formatBytes(n) {
   return n >= 1e9 ? `${(n / 1e9).toFixed(2)} GB` : n >= 1e6 ? `${(n / 1e6).toFixed(1)} MB` : `${n} bytes`;
+}
+
+function savedLanguage() {
+  try { return localStorage.getItem(LANGUAGE_KEY); } catch { return null; }
+}
+
+function setLanguage(code, remember) {
+  lang = code;
+  state.lang = code;
+  if (remember) {
+    try { localStorage.setItem(LANGUAGE_KEY, code); } catch { /* storage unavailable: keep the URL only */ }
+    const url = new URL(location.href);
+    url.searchParams.set("lang", code);
+    history.replaceState(null, "", url);
+  }
+  applyLanguage();
+}
+
+function applyLanguage() {
+  document.documentElement.lang = lang;
+  document.title = tr("app.title");
+  $("lang").value = lang;
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = tr(el.dataset.i18n); });
+  const size = config ? formatBytes(config.total_download_bytes) : "1.7 GB";
+  const modelOrigin = config ? new URL(config.model_base_url || "model/", location.href) : null;
+  const host = modelOrigin && modelOrigin.origin !== location.origin ? modelOrigin.host : msg("model.thisSite");
+  $("privacy").textContent = tr("model.privacy", { size, host });
+  $("download").textContent = tr("model.download", { size });
+  [...$("sample").options].slice(1).forEach((option) => {
+    const sample = samples[Number(option.value)];
+    option.textContent = sample.id ? tr(`sample.${sample.id}`) : sample.label;
+  });
+  [...$("candidates").children].forEach(labelCandidate);
+  renderModelStatus();
+  renderRunStatus();
+  renderStorage();
+  if (lastReply) renderResult(lastReply);
+}
+
+function renderModelStatus() {
+  $("model-status").textContent = [shown.model, ...shown.modelSuffixes].map((m) => render(lang, m)).join("");
+}
+
+function renderRunStatus() {
+  $("run-status").textContent = shown.run.map((m) => render(lang, m)).join(" ");
+}
+
+function renderStorage() {
+  $("storage").textContent = shown.storage ? tr("storage.usage", shown.storage) + (shown.storageLag ? tr("storage.lag") : "") : "";
+}
+
+function showRun(...messages) {
+  shown.run = messages;
+  renderRunStatus();
 }
 
 function spawn() {
@@ -36,7 +92,7 @@ function spawn() {
     if (resolve) resolve(data);
   };
   w.onerror = (event) => {
-    for (const resolve of pending.values()) resolve({ ok: false, error: `Workerエラー: ${event.message}` });
+    for (const resolve of pending.values()) resolve({ ok: false, error: msg("worker.error", { message: event.message }) });
     pending.clear();
   };
   return {
@@ -69,12 +125,16 @@ async function removeOldCaches() {
 async function showStorage() {
   if (!navigator.storage || !navigator.storage.estimate) return;
   const { usage, quota } = await navigator.storage.estimate();
-  $("storage").textContent = `このサイトの保存領域：${formatBytes(usage)} 使用 / 上限の目安 ${formatBytes(quota)}`;
+  shown.storage = { usage: formatBytes(usage), quota: formatBytes(quota) };
+  shown.storageLag = false;
+  renderStorage();
 }
 
 function setModel(model, message) {
   state.model = model;
-  $("model-status").textContent = message;
+  shown.model = message;
+  shown.modelSuffixes = [];
+  renderModelStatus();
   const busy = model === "loading";
   $("download").disabled = busy || model === "unsupported" || model.startsWith("ready");
   $("load-cached").disabled = busy || !["cached", "ready-cached"].includes(model) || model.startsWith("ready");
@@ -84,18 +144,23 @@ function setModel(model, message) {
   $("evaluate").disabled = !model.startsWith("ready") || state.running;
 }
 
+function setModelMessage(message, ...suffixes) {
+  shown.model = message;
+  shown.modelSuffixes = suffixes;
+  renderModelStatus();
+}
+
 async function refreshModel() {
   const cached = await cachedComplete();
   if (state.model.startsWith("ready")) {
-    setModel(cached ? "ready-cached" : "ready",
-      cached ? "読み込み済み（このブラウザに保存済み）" : "読み込み済み（保存データはありません）");
+    setModel(cached ? "ready-cached" : "ready", msg(cached ? "model.readyCached" : "model.readyNoCache"));
   } else if (cached) {
-    setModel("cached", "このブラウザに保存済みです。読み込むと使えます（通信は発生しません）。");
+    setModel("cached", msg("model.cached"));
   } else if ("caches" in self && await caches.has(config.cache_name)) {
     // A stopped download can leave the smaller files; they are useless alone, so offer deletion.
-    setModel("partial", "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。");
+    setModel("partial", msg("model.partial"));
   } else {
-    setModel("absent", "モデルはまだ取得していません。");
+    setModel("absent", msg("model.absent"));
   }
   await showStorage();
 }
@@ -103,13 +168,13 @@ async function refreshModel() {
 async function loadModel(source) {
   if (worker) worker.terminate();
   worker = spawn();
-  setModel("loading", source === "cache" ? "保存済みモデルを読み込んでいます…" : "モデルを取得しています…");
+  setModel("loading", msg(source === "cache" ? "model.loadingCache" : "model.loadingNetwork"));
   worker.listen((event) => {
     if (event.event === "progress") {
       $("model-bar").value = event.done / event.total;
       $("model-progress-text").textContent = `${formatBytes(event.done)} / ${formatBytes(event.total)}`;
     } else if (event.event === "verifying") {
-      $("model-status").textContent = "モデルを検証しています（hash・設定・tokenizer）…";
+      setModelMessage(msg("model.verifying"));
     }
   });
   const init = await worker.call("init", { config });
@@ -120,7 +185,7 @@ async function loadModel(source) {
     worker = null;
     state.model = "error";
     await refreshModel();
-    $("model-status").textContent = `読み込みに失敗しました：${reply.error}`;
+    setModelMessage(msg("model.loadFailed", { error: reply.error }));
     return;
   }
   state.model = "ready";
@@ -133,14 +198,25 @@ async function stopLoad() {
   worker = null;
   state.model = "unknown";
   await refreshModel();
-  $("model-status").textContent += "（読み込みを中止しました）";
+  setModelMessage(shown.model, msg("model.stopped"));
 }
 
 async function deleteCache() {
   await caches.delete(config.cache_name);
   await refreshModel();
-  $("model-status").textContent += "　保存データを削除しました。";
-  $("storage").textContent += "（使用量の表示は、ブラウザが見積もりを更新するまで少し遅れることがあります）";
+  setModelMessage(shown.model, msg("model.deleted"));
+  shown.storageLag = true;
+  renderStorage();
+}
+
+function labelCandidate(row, index) {
+  const n = index + 1;
+  row.querySelector(".cid").setAttribute("aria-label", tr("input.candidateId", { n }));
+  row.querySelector(".ctext").setAttribute("aria-label", tr("input.candidateText", { n }));
+  row.querySelector(".ctext").placeholder = tr("input.candidateTextPlaceholder");
+  const remove = row.querySelector(".remove");
+  remove.setAttribute("aria-label", tr("input.removeLabel", { n }));
+  remove.textContent = tr("input.remove");
 }
 
 function addCandidate(id = "", text = "") {
@@ -148,11 +224,10 @@ function addCandidate(id = "", text = "") {
   if (rows.children.length >= 8) return;
   const row = document.createElement("div");
   row.className = "candidate";
-  const n = rows.children.length + 1;
-  row.innerHTML = `<input type="text" class="cid" aria-label="候補${n}のID" placeholder="ID">` +
+  row.innerHTML = `<input type="text" class="cid" placeholder="ID">` +
     // textarea, not input: an input element would silently drop line breaks in the candidate.
-    `<textarea class="ctext" rows="1" aria-label="候補${n}の文字列" placeholder="候補の文字列"></textarea>` +
-    `<button type="button" class="secondary remove" aria-label="候補${n}を削除">削除</button>`;
+    `<textarea class="ctext" rows="1"></textarea>` +
+    `<button type="button" class="secondary remove"></button>`;
   row.querySelector(".cid").value = id;
   row.querySelector(".ctext").value = text;
   row.querySelector(".remove").addEventListener("click", () => { row.remove(); syncCandidates(); });
@@ -162,7 +237,10 @@ function addCandidate(id = "", text = "") {
 
 function syncCandidates() {
   const rows = [...$("candidates").children];
-  rows.forEach((row) => { row.querySelector(".remove").disabled = rows.length <= 2; });
+  rows.forEach((row, i) => {
+    row.querySelector(".remove").disabled = rows.length <= 2;
+    labelCandidate(row, i);
+  });
   $("add-candidate").disabled = rows.length >= 8;
 }
 
@@ -182,10 +260,10 @@ function buildRequest() {
     id: row.querySelector(".cid").value.trim(), text: row.querySelector(".ctext").value }));
   const original = $("original").value;
   const problems = [];
-  if (!original.trim()) problems.push("原文を入力してください。");
-  if (candidates.length < 2) problems.push("候補は2件以上必要です。");
-  if (candidates.some((c) => !c.id || !c.text.trim())) problems.push("候補のIDと文字列をすべて入力してください。");
-  if (new Set(candidates.map((c) => c.id)).size !== candidates.length) problems.push("候補IDが重複しています。");
+  if (!original.trim()) problems.push(msg("problem.original"));
+  if (candidates.length < 2) problems.push(msg("problem.count"));
+  if (candidates.some((c) => !c.id || !c.text.trim())) problems.push(msg("problem.empty"));
+  if (new Set(candidates.map((c) => c.id)).size !== candidates.length) problems.push(msg("problem.duplicate"));
   if (problems.length) return { problems };
   const source = $("source").value;
   return { request: {
@@ -195,6 +273,7 @@ function buildRequest() {
 }
 
 function renderResult(reply) {
+  lastReply = reply;
   const attempt = reply.value.attempt;
   state.last = { attempt, elapsed_ms: reply.elapsed_ms, stages: reply.value.stages };
   const outcome = attempt.outcome;
@@ -207,27 +286,27 @@ function renderResult(reply) {
     const obs = outcome.value;
     const selected = obs.judgment.kind === "selected" ? obs.judgment.candidate_id : null;
     judgment.className = `judgment ${obs.judgment.kind}`;
-    judgment.textContent = selected ? `選択：${selected}` : "保留：候補を決めきれませんでした";
+    judgment.textContent = selected ? tr("result.selected", { id: selected }) : tr("result.abstained");
     const best = Math.max(...obs.scores.map((s) => s.option_probability));
     obs.scores.forEach((s, i) => {
-      const tr = document.createElement("tr");
-      if (s.option_probability === best) tr.className = "best";
+      const tr_ = document.createElement("tr");
+      if (s.option_probability === best) tr_.className = "best";
       const pct = (s.option_probability * 100).toFixed(1);
-      tr.innerHTML = `<td></td><td class="text"></td><td class="bar"><i style="width:${pct}%"></i><span>${pct}%</span></td>`;
-      tr.children[0].textContent = s.candidate_id;
-      tr.children[1].textContent = attempt.request.candidates[i].text;
-      body.appendChild(tr);
+      tr_.innerHTML = `<td></td><td class="text"></td><td class="bar"><i style="width:${pct}%"></i><span>${pct}%</span></td>`;
+      tr_.children[0].textContent = s.candidate_id;
+      tr_.children[1].textContent = attempt.request.candidates[i].text;
+      body.appendChild(tr_);
     });
-    $("result-meta").textContent =
-      `入力 ${obs.input_tokens} tokens・forward ${obs.forwards}回・温度 ${obs.temperature.toFixed(4)}・所要 ${(reply.elapsed_ms / 1000).toFixed(1)}秒`;
+    $("result-meta").textContent = tr("result.meta", { tokens: obs.input_tokens, forwards: obs.forwards,
+      temperature: obs.temperature.toFixed(4), seconds: (reply.elapsed_ms / 1000).toFixed(1) });
   } else if (outcome.status === "failed") {
     judgment.className = "judgment failed";
-    judgment.textContent = `失敗：${FAILURES[outcome.value] ?? outcome.value}`;
-    $("result-meta").textContent = "失敗は判断として扱いません。";
+    judgment.textContent = tr("result.failed", { reason: msg(`failure.${outcome.value}`) });
+    $("result-meta").textContent = tr("result.failedMeta");
   } else {
     judgment.className = "judgment";
-    judgment.textContent = "評価しませんでした（評価する理由が「なし」）";
-    $("result-meta").textContent = "モデルは呼び出していません。";
+    judgment.textContent = tr("result.notSelected");
+    $("result-meta").textContent = tr("result.notSelectedMeta");
   }
   $("attempt-json").textContent = JSON.stringify(attempt, null, 2);
   $("result").hidden = false;
@@ -235,13 +314,13 @@ function renderResult(reply) {
 
 async function evaluate() {
   const built = buildRequest();
-  if (built.problems) { $("run-status").textContent = built.problems.join(" "); return; }
+  if (built.problems) { showRun(...built.problems); return; }
   state.running = true;
   $("evaluate").disabled = true;
   $("cancel").hidden = false;
   const started = performance.now();
   const timer = setInterval(() => {
-    $("run-status").textContent = `推論中… ${((performance.now() - started) / 1000).toFixed(1)}秒`;
+    showRun(msg("run.running", { seconds: ((performance.now() - started) / 1000).toFixed(1) }));
   }, 100);
   const reply = await worker.call("evaluate", { request: JSON.stringify(built.request),
     max_input_bytes: config.max_input_bytes, max_input_tokens: config.max_input_tokens });
@@ -250,9 +329,9 @@ async function evaluate() {
   $("cancel").hidden = true;
   if (reply.terminated) return;
   if (!reply.ok || reply.code !== 0) {
-    $("run-status").textContent = `判断できませんでした：${reply.error || reply.value.error}`;
+    showRun(msg("run.failed", { error: reply.error || { text: reply.value.error } }));
   } else {
-    $("run-status").textContent = "完了しました。";
+    showRun(msg("run.done"));
     renderResult(reply);
   }
   await refreshModel();
@@ -263,11 +342,11 @@ async function cancelRun() {
   worker = null;
   state.running = false;
   $("cancel").hidden = true;
-  $("run-status").textContent = "取消しました。";
+  showRun(msg("run.cancelled"));
   state.model = "unknown";
   if (await cachedComplete()) {
     await loadModel("cache");
-    $("run-status").textContent = "取消しました。保存済みモデルを読み込み直しました。";
+    showRun(msg("run.cancelledReloaded"));
   } else {
     await refreshModel();
   }
@@ -284,12 +363,12 @@ function saveJson() {
 }
 
 (async () => {
+  Object.entries(LANGUAGES).forEach(([code, name]) => $("lang").add(new Option(name, code)));
+  $("lang").addEventListener("change", (e) => setLanguage(e.target.value, true));
+  setLanguage(pickLanguage(location.search, savedLanguage(), navigator.languages || [navigator.language]), false);
   config = await (await fetch("demo-config.json", { cache: "no-store" })).json();
   state.config = config;
   samples = await (await fetch("samples.json", { cache: "no-store" })).json();
-  document.querySelectorAll("[data-total-size]").forEach((el) => { el.textContent = formatBytes(config.total_download_bytes); });
-  const modelOrigin = new URL(config.model_base_url || "model/", location.href);
-  if (modelOrigin.origin !== location.origin) $("model-host").textContent = modelOrigin.host;
   samples.forEach((s, i) => $("sample").add(new Option(s.label, String(i))));
   $("sample").addEventListener("change", (e) => fillSample(Number(e.target.value)));
   $("add-candidate").addEventListener("click", () => addCandidate());
@@ -301,14 +380,15 @@ function saveJson() {
   $("cancel").addEventListener("click", cancelRun);
   $("save-json").addEventListener("click", saveJson);
   addCandidate(); addCandidate();
+  applyLanguage();
   if (!WebAssembly.validate(SIMD_PROBE)) {
-    setModel("unsupported", "このブラウザはWebAssembly SIMDに対応していないため、使用できません。");
+    setModel("unsupported", msg("model.unsupportedSimd"));
     return;
   }
   if (!("caches" in self)) {
-    setModel("unsupported", "このブラウザではCache Storageを使用できません（HTTPSまたはlocalhostで開いてください）。");
+    setModel("unsupported", msg("model.unsupportedCache"));
     return;
   }
   await removeOldCaches();
   await refreshModel();
-})().catch((error) => { $("model-status").textContent = `初期化に失敗しました：${error.message}`; });
+})().catch((error) => { setModelMessage(msg("model.initFailed", { error: { text: error.message } })); });

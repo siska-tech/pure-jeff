@@ -9,73 +9,78 @@
 </head>
 <body>
 <header>
-  <h1>pure-jeff 候補判定デモ</h1>
-  <p class="lead">OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。</p>
+  <div class="title-row">
+    <h1 data-i18n="app.title">pure-jeff 候補判定デモ</h1>
+    <label class="lang"><span data-i18n="lang.label">言語</span>
+      <select id="lang"></select>
+    </label>
+  </div>
+  <p class="lead" data-i18n="app.lead">OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。</p>
 </header>
 
 <main>
   <section id="model" aria-labelledby="model-title">
-    <h2 id="model-title">1. モデル</h2>
-    <p class="note" id="privacy">入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約<span data-total-size>1.7 GB</span>）は、ボタンを押したときだけ配信元（<span id="model-host">このサイト</span>）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。</p>
-    <p class="status" id="model-status" role="status" aria-live="polite">確認中…</p>
+    <h2 id="model-title" data-i18n="model.title">1. モデル</h2>
+    <p class="note" id="privacy"></p>
+    <p class="status" id="model-status" role="status" aria-live="polite"></p>
     <div class="progress" id="model-progress" hidden>
       <progress id="model-bar" max="1" value="0"></progress>
       <span id="model-progress-text"></span>
     </div>
     <div class="actions">
-      <button type="button" id="download" disabled>モデルを取得して読み込む（約<span data-total-size>1.7 GB</span>）</button>
-      <button type="button" id="load-cached" disabled>保存済みモデルを読み込む</button>
-      <button type="button" id="stop-load" hidden>中止</button>
-      <button type="button" id="delete-cache" class="secondary" disabled>保存したモデルを削除</button>
+      <button type="button" id="download" disabled></button>
+      <button type="button" id="load-cached" disabled data-i18n="model.loadCached">保存済みモデルを読み込む</button>
+      <button type="button" id="stop-load" hidden data-i18n="model.stop">中止</button>
+      <button type="button" id="delete-cache" class="secondary" disabled data-i18n="model.delete">保存したモデルを削除</button>
     </div>
     <p class="note" id="storage"></p>
   </section>
 
   <section id="input" aria-labelledby="input-title">
-    <h2 id="input-title">2. 入力</h2>
-    <label class="field">見本（人工データ）
-      <select id="sample"><option value="">— 選択すると入力欄に反映 —</option></select>
+    <h2 id="input-title" data-i18n="input.title">2. 入力</h2>
+    <label class="field"><span data-i18n="input.sample">見本（人工データ）</span>
+      <select id="sample"><option value="" data-i18n="input.samplePlaceholder">— 選択すると入力欄に反映 —</option></select>
     </label>
-    <label class="field">原文（認識結果）
+    <label class="field"><span data-i18n="input.original">原文（認識結果）</span>
       <textarea id="original" rows="3" required></textarea>
     </label>
     <div class="row">
-      <label class="field">種類
+      <label class="field"><span data-i18n="input.source">種類</span>
         <select id="source"><option value="ocr">OCR</option><option value="asr">ASR</option></select>
       </label>
-      <label class="field">評価する理由
+      <label class="field"><span data-i18n="input.reason">評価する理由</span>
         <select id="reason">
-          <option value="candidate_competition">候補が競合している</option>
-          <option value="weak_text_signal">文章上の手がかりが弱い</option>
-          <option value="evidence_conflict">根拠が食い違う</option>
-          <option value="">なし（評価しない）</option>
+          <option value="candidate_competition" data-i18n="reason.candidate_competition">候補が競合している</option>
+          <option value="weak_text_signal" data-i18n="reason.weak_text_signal">文章上の手がかりが弱い</option>
+          <option value="evidence_conflict" data-i18n="reason.evidence_conflict">根拠が食い違う</option>
+          <option value="" data-i18n="reason.none">なし（評価しない）</option>
         </select>
       </label>
     </div>
     <fieldset>
-      <legend>候補（2〜8件。順序は保持されます）</legend>
+      <legend data-i18n="input.candidates">候補（2〜8件。順序は保持されます）</legend>
       <div id="candidates"></div>
-      <button type="button" id="add-candidate" class="secondary">候補を追加</button>
+      <button type="button" id="add-candidate" class="secondary" data-i18n="input.addCandidate">候補を追加</button>
     </fieldset>
-    <p class="note">入力は最大512 tokensまでです。超える場合は切り詰めず、予算超過として返します。</p>
+    <p class="note" data-i18n="input.tokenNote">入力は最大512 tokensまでです。超える場合は切り詰めず、予算超過として返します。</p>
     <div class="actions">
-      <button type="button" id="evaluate" disabled>判断する</button>
-      <button type="button" id="cancel" hidden>取消</button>
+      <button type="button" id="evaluate" disabled data-i18n="input.evaluate">判断する</button>
+      <button type="button" id="cancel" hidden data-i18n="input.cancel">取消</button>
       <span class="status" id="run-status" role="status" aria-live="polite"></span>
     </div>
   </section>
 
   <section id="result" aria-labelledby="result-title" hidden>
-    <h2 id="result-title">3. 結果</h2>
+    <h2 id="result-title" data-i18n="result.title">3. 結果</h2>
     <p class="judgment" id="judgment"></p>
     <table id="scores">
-      <thead><tr><th scope="col">候補ID</th><th scope="col">候補</th><th scope="col">分布</th></tr></thead>
+      <thead><tr><th scope="col" data-i18n="result.id">候補ID</th><th scope="col" data-i18n="result.text">候補</th><th scope="col" data-i18n="result.distribution">分布</th></tr></thead>
       <tbody></tbody>
     </table>
-    <p class="note" id="distribution-note">数値は、渡した候補の中での分布です。認識が正しい確率ではありません。</p>
+    <p class="note" id="distribution-note" data-i18n="result.note">数値は、渡した候補の中での分布です。認識が正しい確率ではありません。</p>
     <p class="note" id="result-meta"></p>
     <div class="actions">
-      <button type="button" id="save-json" class="secondary">JSONを保存</button>
+      <button type="button" id="save-json" class="secondary" data-i18n="result.save">JSONを保存</button>
     </div>
     <details>
       <summary>Attempt JSON</summary>
@@ -85,14 +90,15 @@
 </main>
 
 <footer>
-  <p class="note">研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。</p>
-  <p class="note">本家Jeff・Qwenとは無関係の非公式実装です。ライセンス：
-    <a href="licenses/THIRD_PARTY_NOTICES.md">出典の一覧</a>・
-    <a href="licenses/MODEL_LICENSE.txt">モデルのLICENSE</a>・
-    <a href="licenses/MODEL_NOTICE.txt">モデルのNOTICE</a>・
-    <a href="licenses/JEFF_SOURCE_LICENSE.txt">本家JeffのLICENSE</a>・
-    <a href="licenses/THIRD_PARTY_LICENSES.txt">推論エンジンが含む依存のライセンス</a></p>
+  <p class="note" data-i18n="footer.research">研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。</p>
+  <p class="note"><span data-i18n="footer.unofficial">本家Jeff・Qwenとは無関係の非公式実装です。ライセンス：</span>
+    <a href="licenses/THIRD_PARTY_NOTICES.md" data-i18n="footer.notices">出典の一覧</a> ·
+    <a href="licenses/MODEL_LICENSE.txt" data-i18n="footer.modelLicense">モデルのLICENSE</a> ·
+    <a href="licenses/MODEL_NOTICE.txt" data-i18n="footer.modelNotice">モデルのNOTICE</a> ·
+    <a href="licenses/JEFF_SOURCE_LICENSE.txt" data-i18n="footer.jeffLicense">本家JeffのLICENSE</a> ·
+    <a href="licenses/THIRD_PARTY_LICENSES.txt" data-i18n="footer.engineLicenses">推論エンジンが含む依存のライセンス</a></p>
 </footer>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

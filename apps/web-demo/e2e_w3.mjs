@@ -97,6 +97,20 @@ try {
   results.steps.initial = { model: await model(), status: await text("model-status"), privacy: await text("privacy"),
     download_label: await text("download") };
   await shot("01-initial");
+  // Language selector: English, Vietnamese, then back to Japanese for the rest of the run.
+  results.steps.languages = {};
+  for (const code of ["en", "vi", "ja"]) {
+    await js(`(() => { const s = document.getElementById("lang"); s.value = "${code}";
+      s.dispatchEvent(new Event("change")); return true; })()`);
+    results.steps.languages[code] = await js(`(() => {
+      const body = document.body.cloneNode(true);
+      body.querySelector("#lang").remove();  // the language names are written in their own languages
+      return { lang: document.documentElement.lang, title: document.title, state_lang: window.kazeDemo.lang,
+               url_lang: new URL(location.href).searchParams.get("lang"),
+               status: document.getElementById("model-status").textContent, text: body.textContent };
+    })()`);
+    await shot(`01-language-${code}`);
+  }
   if (abortDownload) {
     // Stop a download once the large model file is streaming; nothing partial may count as saved.
     mark("abort:click");
