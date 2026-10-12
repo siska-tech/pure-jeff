@@ -12,7 +12,7 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 
 | 系統 | 内容 | 検証 |
 | --- | --- | --- |
-| ライブラリ（`pure-jeff`、`src/`） | `Model::load`でbundleを照合してモデルを常駐させ、`Model::decide`で判断する。crates.io向けの説明は[README.crate.md](README.crate.md) | crates.ioの依存だけでbuildした利用者projectで、公式参照7件の判断・tokens数が一致。確率差は最大3.457e-6 |
+| ライブラリ（`pure-jeff`、`src/`） | `Model::load`でbundleを照合してモデルを常駐させ、`Model::decide`で判断する。[crates.io](https://crates.io/crates/pure-jeff)で0.1.0を公開（[API文書](https://docs.rs/pure-jeff)、[README.crate.md](README.crate.md)） | crates.ioの依存だけでbuildした利用者projectで、公式参照7件の判断・tokens数が一致。確率差は最大3.457e-6 |
 | Native CLI（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
 | ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
 | ONNX／Tract（`runtime/onnx`、`runtime/tract`）**実験** | 512 tokens固定のONNXへexportし、局所修正したTractで実行する開発用CLI。公開API・デモには組み込んでいない（[手順と判断](docs/tract-development.md)） | 公式参照のうち512 tokens以下の4件で判断が一致。最大4.917e-6 |

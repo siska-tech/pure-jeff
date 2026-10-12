@@ -38,3 +38,10 @@
 - crates.ioへの公開、Webデモの再デプロイは行っていない。次にデプロイするときは、新しいmanifest（`pure_jeff.bundle.v1`）でsiteを作り直す。Attempt・設定のschema名が変わり、キャッシュ名（manifestのhash由来）も変わるので、利用者のブラウザではモデルの再取得が起きる。
 - 公開crateは、リポジトリ内のbuildと異なるcandleのcodeで計算する。公式参照との一致は確認したが、bit単位の再現性はリポジトリ内のbuild（CLI・デモ）でのみ保たれる。
 - 既存のbundle manifest（旧schema）は作り直しが必要。ローカルでは`models/pure-jeff-bundle-b85016c.json`（CLI）と`models/pure-jeff-reference-bundle.json`（Python参照）を作った。
+
+## 公開（2026-10-12）
+
+- 公開前の最終確認：crate名`pure-jeff`／`pure_jeff`はいずれも未登録。`.crate`は29ファイル（約47 KB）で、公開manifestに`[patch]`は含まれない。crates.ioで解決される依存157件のライセンスは、すべて許容的なもの（MIT、Apache-2.0、BSD、Zlib、Unicode、BSL、Unlicenseと、それらの選択式）だった。crate READMEのLinuxの記述をCIの実績に合わせて更新した（`f3ddf65`）。
+- リリース候補`f3ddf65`でCI（Windows、Linux、packageのWindows／Linux）がすべて合格した後、tag `v0.1.0`を付けて`cargo publish`した。crates.io上の`pure-jeff 0.1.0`：所有者は`siska-tech`、checksum `38ae6a045645a192…`、MSRV 1.88、`.cargo_vcs_info.json`のcommitは`f3ddf65`。docs.rsのbuildも成功した（https://docs.rs/pure-jeff/0.1.0）。
+- 公開後の確認：新しい空のprojectで`cargo add pure-jeff@0.1.0`を実行し、crates.ioだけからbuildした（Rust 1.99.0、crates.io版candle 0.11.0）。モデル不要の確認と公式golden 7件に合格した（最大確率差3.457e-6、判断・tokens数はすべて一致）。値は公開前の検証と同じ。
+- GitHub Release：https://github.com/siska-tech/pure-jeff/releases/tag/v0.1.0 （Rust Nativeの対応範囲とブラウザ版デモの案内）。
