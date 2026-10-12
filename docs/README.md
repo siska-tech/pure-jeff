@@ -7,7 +7,7 @@
 | [oss-release-plan.md](oss-release-plan.md) | 独立OSS公開に向けた計画と進捗 |
 | [clean-environment-check.md](clean-environment-check.md) | clean環境でのbuild・試験・数値再現 |
 | [licensing.md](licensing.md)、[license-audit.json](license-audit.json) | ライセンスの監査と公開blocker |
-| [benchmark-plan.md](benchmark-plan.md)、[benchmark-results-2026-10-11.md](benchmark-results-2026-10-11.md) | 公式Jeff・Native・Wasmの比較 |
+| [benchmark-plan.md](benchmark-plan.md)、[benchmark-results-2026-10-11.md](benchmark-results-2026-10-11.md)、[benchmark-results-2026-10-12.md](benchmark-results-2026-10-12.md) | 公式Jeff・Native・Wasmの比較（2回目はNative改善後の再測定） |
 | [web-demo-w4-results.md](web-demo-w4-results.md)、[w4-hosting.md](w4-hosting.md) | Webデモの公開準備と配信構成 |
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |

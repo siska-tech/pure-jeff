@@ -1,6 +1,6 @@
 # Benchmark harness
 
-Side-by-side measurement of official Jeff (Python/PyTorch), Rust Native and browser Wasm at one thread. Design: [docs/benchmark-plan.md](../docs/benchmark-plan.md). Results: [docs/benchmark-results-2026-10-11.md](../docs/benchmark-results-2026-10-11.md).
+Side-by-side measurement of official Jeff (Python/PyTorch), Rust Native and browser Wasm at one thread. Design: [docs/benchmark-plan.md](../docs/benchmark-plan.md). Results: [docs/benchmark-results-2026-10-11.md](../docs/benchmark-results-2026-10-11.md), [docs/benchmark-results-2026-10-12.md](../docs/benchmark-results-2026-10-12.md).
 
 Prerequisites:
 - `runtime/rust/target/release/jeff.exe` and `examples/resident_bench.exe` (`cargo build --release --example resident_bench`).

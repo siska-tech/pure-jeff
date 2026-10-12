@@ -1,0 +1,465 @@
+{
+ "schema_version": "pure_jeff.side_by_side_summary.v1",
+ "failures": [],
+ "repeat_failures": [],
+ "environment_ok": true,
+ "threads": {
+  "jeff": [
+   1,
+   1,
+   1
+  ],
+  "native": [
+   1,
+   1,
+   1
+  ]
+ },
+ "max_error_vs_official": {
+  "jeff": 0.0,
+  "native": 5.066394805908203e-06,
+  "wasm": 2.384185791015625e-06
+ },
+ "oneshot": {
+  "jeff": {
+   "candidate-request": {
+    "n": 3,
+    "median": 13.019624900072813,
+    "min": 12.920194000005722,
+    "max": 13.419074300210923
+   },
+   "asr-unicode": {
+    "n": 3,
+    "median": 14.112149199936539,
+    "min": 13.917393800336868,
+    "max": 14.283766500186175
+   },
+   "synthetic-ocr-ja-2-256": {
+    "n": 3,
+    "median": 14.753401900175959,
+    "min": 14.66978310002014,
+    "max": 14.832527699880302
+   },
+   "synthetic-asr-unicode-2-384": {
+    "n": 3,
+    "median": 16.099634299986064,
+    "min": 15.989207100123167,
+    "max": 36.8721499000676
+   },
+   "synthetic-asr-mixed-2-512": {
+    "n": 3,
+    "median": 18.14135369984433,
+    "min": 17.51954529993236,
+    "max": 18.314785700291395
+   },
+   "synthetic-ocr-ascii-8-512": {
+    "n": 3,
+    "median": 17.75609209993854,
+    "min": 17.5968647999689,
+    "max": 17.786583999637514
+   }
+  },
+  "native": {
+   "candidate-request": {
+    "n": 3,
+    "median": 4.314830000046641,
+    "min": 4.301363899838179,
+    "max": 4.335193699691445
+   },
+   "asr-unicode": {
+    "n": 3,
+    "median": 5.234012700151652,
+    "min": 5.217232400085777,
+    "max": 5.308366100303829
+   },
+   "synthetic-ocr-ja-2-256": {
+    "n": 3,
+    "median": 5.890567499678582,
+    "min": 5.755225600209087,
+    "max": 5.892114200163633
+   },
+   "synthetic-asr-unicode-2-384": {
+    "n": 3,
+    "median": 7.471856699790806,
+    "min": 7.361904699821025,
+    "max": 7.481855699792504
+   },
+   "synthetic-asr-mixed-2-512": {
+    "n": 3,
+    "median": 9.046989699825644,
+    "min": 9.028108200058341,
+    "max": 9.049088199622929
+   },
+   "synthetic-ocr-ascii-8-512": {
+    "n": 3,
+    "median": 9.027242199983448,
+    "min": 8.735817699693143,
+    "max": 9.18821440031752
+   }
+  }
+ },
+ "resident": {
+  "jeff": {
+   "candidate-request": {
+    "total_s": {
+     "n": 6,
+     "median": 1.5185207000467926,
+     "min": 1.4936528000980616,
+     "max": 1.5318702002987266
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 1.5173631999641657,
+     "min": 1.4924466996453702,
+     "max": 1.5306315002962947
+    }
+   },
+   "asr-unicode": {
+    "total_s": {
+     "n": 6,
+     "median": 2.467036300105974,
+     "min": 2.424612700007856,
+     "max": 2.552714499644935
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 2.465502299834043,
+     "min": 2.4232435999438167,
+     "max": 2.5512761999852955
+    }
+   },
+   "synthetic-ocr-ja-2-256": {
+    "total_s": {
+     "n": 6,
+     "median": 2.9785509002394974,
+     "min": 2.913677900098264,
+     "max": 3.0911000999622047
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 2.977150000166148,
+     "min": 2.912224399857223,
+     "max": 3.089619900099933
+    }
+   },
+   "synthetic-asr-unicode-2-384": {
+    "total_s": {
+     "n": 6,
+     "median": 4.587867649970576,
+     "min": 4.531097199767828,
+     "max": 4.640277300029993
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 4.586301850154996,
+     "min": 4.52948629995808,
+     "max": 4.638549400027841
+    }
+   },
+   "synthetic-asr-mixed-2-512": {
+    "total_s": {
+     "n": 6,
+     "median": 6.336360849905759,
+     "min": 6.2448076996952295,
+     "max": 6.369561899919063
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 6.334654700243846,
+     "min": 6.242846299894154,
+     "max": 6.36753679998219
+    }
+   },
+   "synthetic-ocr-ascii-8-512": {
+    "total_s": {
+     "n": 6,
+     "median": 6.356468750163913,
+     "min": 6.2477286998182535,
+     "max": 6.422862799838185
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 6.3546409998089075,
+     "min": 6.246020800434053,
+     "max": 6.42112739989534
+    }
+   }
+  },
+  "native": {
+   "candidate-request": {
+    "total_s": {
+     "n": 6,
+     "median": 2.05693155,
+     "min": 2.0466415,
+     "max": 2.0722117
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 2.05638525,
+     "min": 2.046102,
+     "max": 2.0716403
+    }
+   },
+   "asr-unicode": {
+    "total_s": {
+     "n": 6,
+     "median": 2.9822762999999997,
+     "min": 2.964146,
+     "max": 3.0844684
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 2.9816297,
+     "min": 2.9635426000000002,
+     "max": 3.0836269
+    }
+   },
+   "synthetic-ocr-ja-2-256": {
+    "total_s": {
+     "n": 6,
+     "median": 3.56336865,
+     "min": 3.5362817,
+     "max": 3.6045588
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 3.56271465,
+     "min": 3.5356406,
+     "max": 3.6038896
+    }
+   },
+   "synthetic-asr-unicode-2-384": {
+    "total_s": {
+     "n": 6,
+     "median": 5.122994500000001,
+     "min": 5.099691,
+     "max": 5.3164363
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 5.1222481,
+     "min": 5.0988804,
+     "max": 5.3156818
+    }
+   },
+   "synthetic-asr-mixed-2-512": {
+    "total_s": {
+     "n": 6,
+     "median": 6.76574435,
+     "min": 6.6887803,
+     "max": 6.832647
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 6.7647641499999995,
+     "min": 6.6879206,
+     "max": 6.831729
+    }
+   },
+   "synthetic-ocr-ascii-8-512": {
+    "total_s": {
+     "n": 6,
+     "median": 6.7367535499999995,
+     "min": 6.6869146,
+     "max": 6.7570147
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 6.73585935,
+     "min": 6.6859468,
+     "max": 6.7561434
+    }
+   }
+  },
+  "wasm": {
+   "candidate-request": {
+    "total_s": {
+     "n": 6,
+     "median": 5.4755499999523165,
+     "min": 5.266900000095368,
+     "max": 5.518400000095367
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 5.470199999809265,
+     "min": 5.26089999961853,
+     "max": 5.512799999713898
+    }
+   },
+   "asr-unicode": {
+    "total_s": {
+     "n": 6,
+     "median": 8.423750000238417,
+     "min": 8.10789999961853,
+     "max": 8.590599999904633
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 8.410900000095367,
+     "min": 8.10039999961853,
+     "max": 8.584599999904633
+    }
+   },
+   "synthetic-ocr-ja-2-256": {
+    "total_s": {
+     "n": 6,
+     "median": 10.510299999952316,
+     "min": 10.44610000038147,
+     "max": 11.465799999713898
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 10.504249999999999,
+     "min": 10.425199999809266,
+     "max": 11.459599999904633
+    }
+   },
+   "synthetic-asr-unicode-2-384": {
+    "total_s": {
+     "n": 6,
+     "median": 15.341000000000001,
+     "min": 14.75510000038147,
+     "max": 15.629099999904632
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 15.334550000190735,
+     "min": 14.749,
+     "max": 15.606099999904632
+    }
+   },
+   "synthetic-asr-mixed-2-512": {
+    "total_s": {
+     "n": 6,
+     "median": 21.022400000095367,
+     "min": 20.044699999809264,
+     "max": 22.251400000095366
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 21.010650000095367,
+     "min": 20.03760000038147,
+     "max": 22.2457999997139
+    }
+   },
+   "synthetic-ocr-ascii-8-512": {
+    "total_s": {
+     "n": 6,
+     "median": 21.063200000047683,
+     "min": 20.05759999990463,
+     "max": 21.731199999809267
+    },
+    "forward_s": {
+     "n": 6,
+     "median": 21.056599999904634,
+     "min": 20.051099999904633,
+     "max": 21.72259999990463
+    }
+   }
+  }
+ },
+ "startup": {
+  "jeff": {
+   "n": 3,
+   "median": 10.437010299880058,
+   "min": 10.397481600288302,
+   "max": 10.53193229995668
+  },
+  "native": {
+   "n": 3,
+   "median": 1.9334805,
+   "min": 1.926248,
+   "max": 1.9699183
+  },
+  "wasm": {
+   "n": 3,
+   "median": 7.669100000381469,
+   "min": 7.54920000076294,
+   "max": 8.196400000095368
+  }
+ },
+ "memory": {
+  "oneshot/jeff": {
+   "n": 18,
+   "median": 4017438720.0,
+   "min": 3989983232,
+   "max": 4123590656
+  },
+  "oneshot/native": {
+   "n": 18,
+   "median": 1085773824.0,
+   "min": 1047547904,
+   "max": 1107615744
+  },
+  "resident/jeff": {
+   "n": 3,
+   "median": 4100935680,
+   "min": 4054814720,
+   "max": 4102533120
+  },
+  "resident/jeff/process_peak": {
+   "n": 3,
+   "median": 4096258048,
+   "min": 4044427264,
+   "max": 4102553600
+  },
+  "resident/native": {
+   "n": 3,
+   "median": 1145053184,
+   "min": 1144950784,
+   "max": 1146077184
+  },
+  "resident/native/process_peak": {
+   "n": 3,
+   "median": 1138384896,
+   "min": 1137774592,
+   "max": 1138802688
+  },
+  "resident/wasm": {
+   "n": 3,
+   "median": 3017555968,
+   "min": 2999406592,
+   "max": 3047608320
+  },
+  "resident/wasm/process_peak": {
+   "n": 3,
+   "median": 2447642624,
+   "min": 2444328960,
+   "max": 2447806464
+  }
+ },
+ "threads_ok": true,
+ "passed": true,
+ "ratios_of_medians": {
+  "candidate-request": {
+   "resident_total_jeff_over_native": 0.7382456164118795,
+   "resident_total_wasm_over_native": 2.661999131644569,
+   "oneshot_jeff_over_native": 3.0174131773284416
+  },
+  "asr-unicode": {
+   "resident_total_jeff_over_native": 0.8272326410889476,
+   "resident_total_wasm_over_native": 2.8246041455777986,
+   "oneshot_jeff_over_native": 2.6962390059786534
+  },
+  "synthetic-ocr-ja-2-256": {
+   "resident_total_jeff_over_native": 0.835880649126634,
+   "resident_total_wasm_over_native": 2.949540458002378,
+   "oneshot_jeff_over_native": 2.5045807387795787
+  },
+  "synthetic-asr-unicode-2-384": {
+   "resident_total_jeff_over_native": 0.8955441295067905,
+   "resident_total_wasm_over_native": 2.9945376673740327,
+   "oneshot_jeff_over_native": 2.154703301581897
+  },
+  "synthetic-asr-mixed-2-512": {
+   "resident_total_jeff_over_native": 0.9365356599537726,
+   "resident_total_wasm_over_native": 3.1071821388130583,
+   "oneshot_jeff_over_native": 2.0052364711097166
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "resident_total_jeff_over_native": 0.9435507330031263,
+   "resident_total_wasm_over_native": 3.1266098490492773,
+   "oneshot_jeff_over_native": 1.9669453534736332
+  }
+ }
+}
