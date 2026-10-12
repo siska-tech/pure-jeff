@@ -1,0 +1,270 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "long",
+ "smoke": false,
+ "path": "api",
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 4.738569259643555e-06
+ },
+ "blocks_used": 6,
+ "extended": false,
+ "cases": {
+  "long-text": {
+   "jeff": {
+    "n": 24,
+    "median": 10.900818800000707,
+    "min": 9.922725700002047,
+    "max": 11.597424000006868,
+    "mean": 10.798343554167028
+   },
+   "native": {
+    "n": 24,
+    "median": 9.4865303,
+    "min": 9.3905693,
+    "max": 9.56101,
+    "mean": 9.477400225
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.8633104814169558,
+     0.8998957403259239,
+     0.8675618603182296,
+     0.8757508418869544,
+     0.8523219534320311,
+     0.9532861667002506
+    ],
+    "point": 0.8847309055850778,
+    "lower95": 0.8555001509851933,
+    "upper95": 0.9149604174774008,
+    "verdict": "equivalent"
+   }
+  },
+  "maximum-candidates": {
+   "jeff": {
+    "n": 24,
+    "median": 43.57674890000635,
+    "min": 43.07551300000341,
+    "max": 44.73917719999736,
+    "mean": 43.617264941666996
+   },
+   "native": {
+    "n": 24,
+    "median": 38.17833145,
+    "min": 37.9332124,
+    "max": 38.3579644,
+    "mean": 38.1684335875
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.8699557323366608,
+     0.8727821746433103,
+     0.8808627127746925,
+     0.8835411936827713,
+     0.8663833238343832,
+     0.8836888814335095
+    ],
+    "point": 0.8761758011775996,
+    "lower95": 0.8700511130102072,
+    "upper95": 0.8823436038294021,
+    "verdict": "equivalent"
+   }
+  },
+  "token-limit-8192": {
+   "jeff": {
+    "n": 24,
+    "median": 144.88115434999781,
+    "min": 139.10995519999415,
+    "max": 153.17930299999716,
+    "mean": 145.64139505000153
+   },
+   "native": {
+    "n": 24,
+    "median": 125.0333135,
+    "min": 124.2453997,
+    "max": 125.7852982,
+    "mean": 124.98719427916666
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.870688628932124,
+     0.8233589900260619,
+     0.8328024721487411,
+     0.8678869481712654,
+     0.8617629446424555,
+     0.8904051074969703
+    ],
+    "point": 0.857509198870856,
+    "lower95": 0.8370110262731972,
+    "upper95": 0.878509366145591,
+    "verdict": "equivalent"
+   }
+  }
+ },
+ "load": {
+  "jeff": {
+   "n": 6,
+   "median": 10.537852200002817,
+   "min": 10.429258799995296,
+   "max": 11.149180599997635,
+   "mean": 10.6848499333355
+  },
+  "native": {
+   "n": 6,
+   "median": 1.88600725,
+   "min": 1.8576139999999999,
+   "max": 1.9029851,
+   "mean": 1.8851566666666668
+  }
+ },
+ "first": {
+  "jeff": {
+   "n": 6,
+   "median": 144.80466349999188,
+   "min": 142.83904019999318,
+   "max": 152.2876929000049,
+   "mean": 145.99483088332877
+  },
+  "native": {
+   "n": 6,
+   "median": 125.7509236,
+   "min": 125.246799,
+   "max": 126.5293009,
+   "mean": 125.79842851666666
+  }
+ },
+ "groups": {
+  "874": {
+   "cases": [
+    "long-text"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.8633104814169558,
+    0.8998957403259239,
+    0.8675618603182296,
+    0.8757508418869544,
+    0.8523219534320311,
+    0.9532861667002506
+   ],
+   "point": 0.8847309055850778,
+   "lower95": 0.8555001509851933,
+   "upper95": 0.9149604174774008,
+   "verdict": "equivalent"
+  },
+  "3206": {
+   "cases": [
+    "maximum-candidates"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.8699557323366608,
+    0.8727821746433103,
+    0.8808627127746925,
+    0.8835411936827713,
+    0.8663833238343832,
+    0.8836888814335095
+   ],
+   "point": 0.8761758011775996,
+   "lower95": 0.8700511130102072,
+   "upper95": 0.8823436038294021,
+   "verdict": "equivalent"
+  },
+  "8192": {
+   "cases": [
+    "token-limit-8192"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.870688628932124,
+    0.8233589900260619,
+    0.8328024721487411,
+    0.8678869481712654,
+    0.8617629446424555,
+    0.8904051074969703
+   ],
+   "point": 0.857509198870856,
+   "lower95": 0.8370110262731972,
+   "upper95": 0.878509366145591,
+   "verdict": "equivalent"
+  }
+ },
+ "memory": {
+  "jeff": {
+   "max_tree_working_set": {
+    "n": 6,
+    "median": 5527193600.0,
+    "min": 5439131648,
+    "max": 5548834816,
+    "mean": 5509554176.0
+   },
+   "max_process_peak_working_set": {
+    "n": 6,
+    "median": 5514252288.0,
+    "min": 5477412864,
+    "max": 5553668096,
+    "mean": 5514737664.0
+   }
+  },
+  "native": {
+   "max_tree_working_set": {
+    "n": 6,
+    "median": 8367460352.0,
+    "min": 8354672640,
+    "max": 8376991744,
+    "mean": 8366705322.666667
+   },
+   "max_process_peak_working_set": {
+    "n": 6,
+    "median": 8372162560.0,
+    "min": 8372060160,
+    "max": 8383090688,
+    "mean": 8373985962.666667
+   }
+  }
+ },
+ "kernel": {
+  "jeff": {
+   "cpu_capability": "AVX512",
+   "mkldnn": true,
+   "mkl": true,
+   "parallel_info": "ATen/Parallel:\n\tat::get_num_threads() : 1\n\tat::get_num_interop_threads() : 16\nOpenMP 2019\n\tomp_get_max_threads() : 1\nIntel(R) oneAPI Math Kernel Library Version 2026.1-Product Build 20260612 for Intel(R) 64 architecture applications\n\tmkl_get_max_threads() : 1\nIntel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\nstd::thread::hardware_concurrency() : 32\nEnvironment variables:\n\tOMP_NUM_THREADS : 1\n\tMKL_NUM_THREADS : 1\nATen parallel backend: OpenMP\n"
+  },
+  "native": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": true,
+    "with_f16c": true
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  }
+ },
+ "verdict": {
+  "874": "equivalent",
+  "3206": "equivalent",
+  "8192": "equivalent"
+ },
+ "valid": true,
+ "accepted": true
+}

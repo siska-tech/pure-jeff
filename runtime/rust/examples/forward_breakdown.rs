@@ -447,6 +447,18 @@ fn main() -> Result<()> {
         )?;
         let expected = bits(&backbone::forward(&weights, &prepared.ids)?)?;
         for rep in 0..reps {
+            // The library forward (no timers) in alternating order, for the timer overhead.
+            let library = || -> Result<f64> {
+                let step = Instant::now();
+                let hidden = backbone::forward(&weights, &prepared.ids)?;
+                let elapsed = step.elapsed().as_secs_f64();
+                ensure!(
+                    bits(&hidden)? == expected,
+                    "{path}: library forward not repeatable"
+                );
+                Ok(elapsed)
+            };
+            let library_before = if rep % 2 == 0 { Some(library()?) } else { None };
             prof::take();
             let step = Instant::now();
             let hidden = profiled::forward(&weights, &prepared.ids)?;
@@ -456,6 +468,10 @@ fn main() -> Result<()> {
                 bits(&hidden)? == expected,
                 "{path}: profiled forward differs"
             );
+            let library_s = match library_before {
+                Some(s) => s,
+                None => library()?,
+            };
             let categories: serde_json::Map<_, _> = prof::NAMES
                 .iter()
                 .zip(&seconds)
@@ -465,6 +481,7 @@ fn main() -> Result<()> {
                 "{}",
                 serde_json::json!({"case": Path::new(path).file_stem().unwrap().to_string_lossy(),
                     "input_tokens": prepared.ids.len(), "rep": rep, "forward_s": forward_s,
+                    "library_forward_s": library_s, "timer_overhead": forward_s / library_s - 1.0,
                     "timed_s": seconds.iter().sum::<f64>(), "bitwise_equal": true,
                     "seconds": categories})
             );

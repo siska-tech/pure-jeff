@@ -1,0 +1,9696 @@
+{
+ "policy": {
+  "min_probability": 0.7,
+  "min_margin": 0.1,
+  "cpu_threads": 1
+ },
+ "variants": 651,
+ "decided": [
+  {
+   "name": "v0-2-0-0",
+   "top1": 0.9043633937835693,
+   "margin": 0.8087267726659775,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9043633937835693,
+    0.09563662111759186
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-2-0-1",
+   "top1": 0.8092361092567444,
+   "margin": 0.6184721887111664,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.190763920545578,
+    0.8092361092567444
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-2-1-0",
+   "top1": 0.9559938311576843,
+   "margin": 0.9119876623153687,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9559938311576843,
+    0.044006168842315674
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-2-1-1",
+   "top1": 0.9130455851554871,
+   "margin": 0.8260911330580711,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.08695445209741592,
+    0.9130455851554871
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-2-2-0",
+   "top1": 0.9581452012062073,
+   "margin": 0.9162903539836407,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9581452012062073,
+    0.041854847222566605
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-2-2-1",
+   "top1": 0.9215444326400757,
+   "margin": 0.843088909983635,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.07845552265644073,
+    0.9215444326400757
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-2-3c",
+   "top1": 0.8183864951133728,
+   "margin": 0.6493090391159058,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8183864951133728,
+    0.16907745599746704,
+    0.012536026537418365
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v0-3-0-0",
+   "top1": 0.9959447979927063,
+   "margin": 0.9918895550072193,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9959447979927063,
+    0.004055242985486984
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v0-3-0-1",
+   "top1": 0.9790562987327576,
+   "margin": 0.9581125807017088,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.020943718031048775,
+    0.9790562987327576
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v0-3-1-0",
+   "top1": 0.9954202175140381,
+   "margin": 0.9908404005691409,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9954202175140381,
+    0.004579816944897175
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v0-3-1-1",
+   "top1": 0.9812282919883728,
+   "margin": 0.962456600740552,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.018771691247820854,
+    0.9812282919883728
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v0-3-2-0",
+   "top1": 0.9978523254394531,
+   "margin": 0.9957046008203179,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9978523254394531,
+    0.0021477246191352606
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-3-2-1",
+   "top1": 0.985343337059021,
+   "margin": 0.9706866247579455,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.014656712301075459,
+    0.985343337059021
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-3-3c",
+   "top1": 0.9936595559120178,
+   "margin": 0.9886857378296554,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9936595559120178,
+    0.004973818082362413,
+    0.0013666563900187612
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v0-5-0-0",
+   "top1": 0.8003748059272766,
+   "margin": 0.6007496118545532,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8003748059272766,
+    0.1996251940727234
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-5-0-1",
+   "top1": 0.5879031419754028,
+   "margin": 0.17580628395080566,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5879031419754028,
+    0.41209685802459717
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-5-1-0",
+   "top1": 0.8699135184288025,
+   "margin": 0.7398270219564438,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8699135184288025,
+    0.1300864964723587
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-5-1-1",
+   "top1": 0.5978773236274719,
+   "margin": 0.19575464725494385,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4021226763725281,
+    0.5978773236274719
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-5-2-0",
+   "top1": 0.7848237156867981,
+   "margin": 0.5696474462747574,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7848237156867981,
+    0.2151762694120407
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-5-2-1",
+   "top1": 0.6372243762016296,
+   "margin": 0.2744487226009369,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6372243762016296,
+    0.36277565360069275
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-5-3c",
+   "top1": 0.6527891159057617,
+   "margin": 0.4496225118637085,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6527891159057617,
+    0.20316660404205322,
+    0.14404430985450745
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v0-6-0-0",
+   "top1": 0.983363151550293,
+   "margin": 0.9667263440787792,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.016636807471513748,
+    0.983363151550293
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-6-0-1",
+   "top1": 0.9687909483909607,
+   "margin": 0.9375818707048893,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9687909483909607,
+    0.031209077686071396
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-6-1-0",
+   "top1": 0.9748123288154602,
+   "margin": 0.949624590575695,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.025187738239765167,
+    0.9748123288154602
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-6-1-1",
+   "top1": 0.9616860151290894,
+   "margin": 0.9233720228075981,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9616860151290894,
+    0.03831399232149124
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-6-2-0",
+   "top1": 0.9939905405044556,
+   "margin": 0.9879810167476535,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.006009523756802082,
+    0.9939905405044556
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-6-2-1",
+   "top1": 0.9892796874046326,
+   "margin": 0.9785594241693616,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9892796874046326,
+    0.010720263235270977
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-6-3c",
+   "top1": 0.845243513584137,
+   "margin": 0.7079620808362961,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.017475027590990067,
+    0.845243513584137,
+    0.13728143274784088
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v0-8-0-0",
+   "top1": 0.9693474769592285,
+   "margin": 0.9386949762701988,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.030652500689029694,
+    0.9693474769592285
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-8-0-1",
+   "top1": 0.9186961650848389,
+   "margin": 0.8373922929167747,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9186961650848389,
+    0.08130387216806412
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-8-1-0",
+   "top1": 0.9784181714057922,
+   "margin": 0.9568363539874554,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.02158181741833687,
+    0.9784181714057922
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-8-1-1",
+   "top1": 0.9144265651702881,
+   "margin": 0.8288531303405762,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9144265651702881,
+    0.08557343482971191
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-8-2-0",
+   "top1": 0.9973958730697632,
+   "margin": 0.9947917291428894,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.002604143926873803,
+    0.9973958730697632
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v0-8-2-1",
+   "top1": 0.9884926676750183,
+   "margin": 0.9769853102043271,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9884926676750183,
+    0.011507357470691204
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v0-8-3c",
+   "top1": 0.82381272315979,
+   "margin": 0.6791586875915527,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03153320029377937,
+    0.82381272315979,
+    0.1446540355682373
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v0-9-0-0",
+   "top1": 0.995456337928772,
+   "margin": 0.9909126376733184,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.995456337928772,
+    0.004543700255453587
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-9-0-1",
+   "top1": 0.9440143704414368,
+   "margin": 0.8880287520587444,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05598561838269234,
+    0.9440143704414368
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-9-1-0",
+   "top1": 0.9671160578727722,
+   "margin": 0.934232123196125,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9671160578727722,
+    0.032883934676647186
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-9-1-1",
+   "top1": 0.7905312776565552,
+   "margin": 0.5810625553131104,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20946872234344482,
+    0.7905312776565552
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-9-2-0",
+   "top1": 0.6667140126228333,
+   "margin": 0.3334280550479889,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6667140126228333,
+    0.33328595757484436
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-9-2-1",
+   "top1": 0.958111584186554,
+   "margin": 0.9162232242524624,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04188835993409157,
+    0.958111584186554
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-9-3c",
+   "top1": 0.9859850406646729,
+   "margin": 0.976709202863276,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9859850406646729,
+    0.004739157389849424,
+    0.009275837801396847
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v0-10-0-0",
+   "top1": 0.6657981276512146,
+   "margin": 0.3315962851047516,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6657981276512146,
+    0.334201842546463
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-10-0-1",
+   "top1": 0.8356012105941772,
+   "margin": 0.6712024211883545,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16439878940582275,
+    0.8356012105941772
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-10-1-0",
+   "top1": 0.8663373589515686,
+   "margin": 0.7326747477054596,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8663373589515686,
+    0.133662611246109
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-10-1-1",
+   "top1": 0.6260799765586853,
+   "margin": 0.2521599531173706,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3739200234413147,
+    0.6260799765586853
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-10-2-0",
+   "top1": 0.5719487071037292,
+   "margin": 0.14389744400978088,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5719487071037292,
+    0.42805126309394836
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-10-2-1",
+   "top1": 0.9024345874786377,
+   "margin": 0.8048691749572754,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.0975654125213623,
+    0.9024345874786377
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-10-3c",
+   "top1": 0.6662606596946716,
+   "margin": 0.4410681575536728,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.22519250214099884,
+    0.10854686796665192,
+    0.6662606596946716
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v0-11-0-0",
+   "top1": 0.8938344717025757,
+   "margin": 0.7876689061522484,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8938344717025757,
+    0.1061655655503273
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-11-0-1",
+   "top1": 0.916128933429718,
+   "margin": 0.8322578966617584,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.0838710367679596,
+    0.916128933429718
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-11-1-0",
+   "top1": 0.8978958129882812,
+   "margin": 0.7957916781306267,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8978958129882812,
+    0.10210413485765457
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-11-1-1",
+   "top1": 0.9358997344970703,
+   "margin": 0.8717994689941406,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06410026550292969,
+    0.9358997344970703
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v0-11-2-0",
+   "top1": 0.9344290494918823,
+   "margin": 0.8688581064343452,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9344290494918823,
+    0.06557094305753708
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-11-2-1",
+   "top1": 0.9498285055160522,
+   "margin": 0.8996570408344269,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.050171464681625366,
+    0.9498285055160522
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v0-11-3c",
+   "top1": 0.8631170392036438,
+   "margin": 0.7508691623806953,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8631170392036438,
+    0.11224787682294846,
+    0.02463497593998909
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v1-2-0-0",
+   "top1": 0.8210588693618774,
+   "margin": 0.6421176940202713,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8210588693618774,
+    0.17894117534160614
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-2-0-1",
+   "top1": 0.7807604074478149,
+   "margin": 0.5615208595991135,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.21923954784870148,
+    0.7807604074478149
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-2-1-0",
+   "top1": 0.8404234647750854,
+   "margin": 0.6808470040559769,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8404234647750854,
+    0.15957646071910858
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-2-1-1",
+   "top1": 0.786743700504303,
+   "margin": 0.5734873563051224,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2132563441991806,
+    0.786743700504303
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-2-2-0",
+   "top1": 0.9113723039627075,
+   "margin": 0.8227446228265762,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9113723039627075,
+    0.08862768113613129
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-2-2-1",
+   "top1": 0.8258548974990845,
+   "margin": 0.6517097502946854,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1741451472043991,
+    0.8258548974990845
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-2-3c",
+   "top1": 0.733270525932312,
+   "margin": 0.4951073080301285,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.733270525932312,
+    0.23816321790218353,
+    0.028566300868988037
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v1-5-0-0",
+   "top1": 0.8104172348976135,
+   "margin": 0.6208344548940659,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8104172348976135,
+    0.18958278000354767
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-5-0-1",
+   "top1": 0.8316500782966614,
+   "margin": 0.6633001863956451,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16834989190101624,
+    0.8316500782966614
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-5-1-0",
+   "top1": 0.8023624420166016,
+   "margin": 0.6047249436378479,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8023624420166016,
+    0.19763749837875366
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-5-1-1",
+   "top1": 0.8331640958786011,
+   "margin": 0.6663282215595245,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16683587431907654,
+    0.8331640958786011
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-5-2-0",
+   "top1": 0.8114182949066162,
+   "margin": 0.6228365898132324,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8114182949066162,
+    0.1885817050933838
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-5-2-1",
+   "top1": 0.8493141531944275,
+   "margin": 0.6986282914876938,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1506858617067337,
+    0.8493141531944275
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-5-3c",
+   "top1": 0.683041512966156,
+   "margin": 0.3914550840854645,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.683041512966156,
+    0.29158642888069153,
+    0.0253719724714756
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v1-6-0-0",
+   "top1": 0.8320539593696594,
+   "margin": 0.6641078442335129,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8320539593696594,
+    0.16794611513614655
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-6-0-1",
+   "top1": 0.780795693397522,
+   "margin": 0.5615914165973663,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.21920427680015564,
+    0.780795693397522
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-6-1-0",
+   "top1": 0.8020080327987671,
+   "margin": 0.6040161103010178,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8020080327987671,
+    0.19799192249774933
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-6-1-1",
+   "top1": 0.8295804262161255,
+   "margin": 0.6591608971357346,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17041952908039093,
+    0.8295804262161255
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-6-2-0",
+   "top1": 0.8216759562492371,
+   "margin": 0.6433518528938293,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8216759562492371,
+    0.17832410335540771
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-6-2-1",
+   "top1": 0.8249250054359436,
+   "margin": 0.649850070476532,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17507493495941162,
+    0.8249250054359436
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-6-3c",
+   "top1": 0.7206536531448364,
+   "margin": 0.46864938735961914,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7206536531448364,
+    0.2520042657852173,
+    0.027342012152075768
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v1-7-0-0",
+   "top1": 0.8727650046348572,
+   "margin": 0.7455300092697144,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8727650046348572,
+    0.12723499536514282
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-7-0-1",
+   "top1": 0.6881709098815918,
+   "margin": 0.37634187936782837,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3118290305137634,
+    0.6881709098815918
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-7-1-0",
+   "top1": 0.8705857992172241,
+   "margin": 0.7411715686321259,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8705857992172241,
+    0.12941423058509827
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-7-1-1",
+   "top1": 0.7964109778404236,
+   "margin": 0.5928219109773636,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20358906686306,
+    0.7964109778404236
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-7-2-0",
+   "top1": 0.8126593828201294,
+   "margin": 0.6253187358379364,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8126593828201294,
+    0.187340646982193
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-7-2-1",
+   "top1": 0.8017297387123108,
+   "margin": 0.6034594774246216,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1982702612876892,
+    0.8017297387123108
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-7-3c",
+   "top1": 0.7653687596321106,
+   "margin": 0.5710721015930176,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7653687596321106,
+    0.19429665803909302,
+    0.040334541350603104
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v1-8-0-0",
+   "top1": 0.7332215309143066,
+   "margin": 0.4664430618286133,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7332215309143066,
+    0.26677846908569336
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-8-0-1",
+   "top1": 0.8221026659011841,
+   "margin": 0.6442053318023682,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17789733409881592,
+    0.8221026659011841
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-8-1-0",
+   "top1": 0.6955535411834717,
+   "margin": 0.39110711216926575,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6955535411834717,
+    0.30444642901420593
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-8-1-1",
+   "top1": 0.8130549192428589,
+   "margin": 0.6261098980903625,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18694502115249634,
+    0.8130549192428589
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-8-2-0",
+   "top1": 0.685573160648346,
+   "margin": 0.3711463510990143,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.685573160648346,
+    0.31442680954933167
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-8-2-1",
+   "top1": 0.8237355947494507,
+   "margin": 0.6474711894989014,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17626440525054932,
+    0.8237355947494507
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-8-3c",
+   "top1": 0.5899985432624817,
+   "margin": 0.21456503868103027,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5899985432624817,
+    0.3754335045814514,
+    0.034568000584840775
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v1-9-0-0",
+   "top1": 0.7616258859634399,
+   "margin": 0.5232518166303635,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7616258859634399,
+    0.23837406933307648
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-9-0-1",
+   "top1": 0.8146727681159973,
+   "margin": 0.6293455213308334,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18532724678516388,
+    0.8146727681159973
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-9-1-0",
+   "top1": 0.7568262815475464,
+   "margin": 0.5136526077985764,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7568262815475464,
+    0.24317367374897003
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-9-1-1",
+   "top1": 0.8142161965370178,
+   "margin": 0.6284323632717133,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18578383326530457,
+    0.8142161965370178
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-9-2-0",
+   "top1": 0.7732618451118469,
+   "margin": 0.5465236902236938,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7732618451118469,
+    0.22673815488815308
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-9-2-1",
+   "top1": 0.8203728795051575,
+   "margin": 0.6407458037137985,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17962707579135895,
+    0.8203728795051575
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-9-3c",
+   "top1": 0.6063002347946167,
+   "margin": 0.24295228719711304,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6063002347946167,
+    0.36334794759750366,
+    0.03035183623433113
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v1-12-0-0",
+   "top1": 0.9709128141403198,
+   "margin": 0.9418255835771561,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9709128141403198,
+    0.029087230563163757
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v1-12-0-1",
+   "top1": 0.945924699306488,
+   "margin": 0.8918494209647179,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05407527834177017,
+    0.945924699306488
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v1-12-1-0",
+   "top1": 0.974411129951477,
+   "margin": 0.9488222170621157,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.974411129951477,
+    0.02558891288936138
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v1-12-1-1",
+   "top1": 0.9484826326370239,
+   "margin": 0.8969652317464352,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05151740089058876,
+    0.9484826326370239
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v1-12-2-0",
+   "top1": 0.9801795482635498,
+   "margin": 0.9603590872138739,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9801795482635498,
+    0.01982046104967594
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-12-2-1",
+   "top1": 0.9397802352905273,
+   "margin": 0.8795604072511196,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06021982803940773,
+    0.9397802352905273
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v1-12-3c",
+   "top1": 0.9169365763664246,
+   "margin": 0.8710283637046814,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9169365763664246,
+    0.045908212661743164,
+    0.037155166268348694
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v1-13-0-0",
+   "top1": 0.8132458925247192,
+   "margin": 0.6264918446540833,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8132458925247192,
+    0.186754047870636
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-13-0-1",
+   "top1": 0.8181943297386169,
+   "margin": 0.6363887041807175,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18180562555789948,
+    0.8181943297386169
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-13-1-0",
+   "top1": 0.7544876933097839,
+   "margin": 0.5089754313230515,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7544876933097839,
+    0.24551226198673248
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-13-1-1",
+   "top1": 0.8903946280479431,
+   "margin": 0.7807892188429832,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.10960540920495987,
+    0.8903946280479431
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-13-2-0",
+   "top1": 0.841878354549408,
+   "margin": 0.6837566941976547,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.841878354549408,
+    0.15812166035175323
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-13-2-1",
+   "top1": 0.9163858294487,
+   "margin": 0.8327717110514641,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.08361411839723587,
+    0.9163858294487
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-13-3c",
+   "top1": 0.6980494856834412,
+   "margin": 0.4453527629375458,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6980494856834412,
+    0.2526967227458954,
+    0.04925376549363136
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v1-14-0-0",
+   "top1": 0.8943957090377808,
+   "margin": 0.7887913733720779,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8943957090377808,
+    0.10560433566570282
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-14-0-1",
+   "top1": 0.8680828809738159,
+   "margin": 0.7361657619476318,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13191711902618408,
+    0.8680828809738159
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-14-1-0",
+   "top1": 0.7769298553466797,
+   "margin": 0.5538597106933594,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7769298553466797,
+    0.2230701446533203
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-14-1-1",
+   "top1": 0.8896976709365845,
+   "margin": 0.7793953716754913,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11030229926109314,
+    0.8896976709365845
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-14-2-0",
+   "top1": 0.9332395792007446,
+   "margin": 0.8664791360497475,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9332395792007446,
+    0.06676044315099716
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-14-2-1",
+   "top1": 0.9007651805877686,
+   "margin": 0.8015303164720535,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.09923486411571503,
+    0.9007651805877686
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-14-3c",
+   "top1": 0.7865233421325684,
+   "margin": 0.6215326339006424,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7865233421325684,
+    0.16499070823192596,
+    0.04848603904247284
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v1-15-0-0",
+   "top1": 0.8111201524734497,
+   "margin": 0.622240275144577,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8111201524734497,
+    0.18887987732887268
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-15-0-1",
+   "top1": 0.8536478877067566,
+   "margin": 0.7072957307100296,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.146352156996727,
+    0.8536478877067566
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-15-1-0",
+   "top1": 0.7961899042129517,
+   "margin": 0.5923797786235809,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7961899042129517,
+    0.20381012558937073
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-15-1-1",
+   "top1": 0.8915809392929077,
+   "margin": 0.783161923289299,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1084190160036087,
+    0.8915809392929077
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-15-2-0",
+   "top1": 0.6896117329597473,
+   "margin": 0.37922340631484985,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.31038832664489746,
+    0.6896117329597473
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-15-2-1",
+   "top1": 0.8214225769042969,
+   "margin": 0.6428451240062714,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8214225769042969,
+    0.1785774528980255
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-15-3c",
+   "top1": 0.6753244400024414,
+   "margin": 0.4063369631767273,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6753244400024414,
+    0.2689874768257141,
+    0.055688079446554184
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v1-16-0-0",
+   "top1": 0.8848000764846802,
+   "margin": 0.7696001380681992,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8848000764846802,
+    0.11519993841648102
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-16-0-1",
+   "top1": 0.8097398281097412,
+   "margin": 0.61947962641716,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19026020169258118,
+    0.8097398281097412
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-16-1-0",
+   "top1": 0.8811389803886414,
+   "margin": 0.7622779756784439,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8811389803886414,
+    0.11886100471019745
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-16-1-1",
+   "top1": 0.8032684326171875,
+   "margin": 0.6065368950366974,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1967315375804901,
+    0.8032684326171875
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v1-16-2-0",
+   "top1": 0.771284282207489,
+   "margin": 0.5425685495138168,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.771284282207489,
+    0.22871573269367218
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-16-2-1",
+   "top1": 0.8243340849876404,
+   "margin": 0.6486681699752808,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17566591501235962,
+    0.8243340849876404
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-16-3c",
+   "top1": 0.7682381868362427,
+   "margin": 0.6246111392974854,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7682381868362427,
+    0.14362704753875732,
+    0.0881347805261612
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v1-17-0-0",
+   "top1": 0.7716173529624939,
+   "margin": 0.5432347357273102,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7716173529624939,
+    0.22838261723518372
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-17-0-1",
+   "top1": 0.7166348099708557,
+   "margin": 0.43326959013938904,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2833652198314667,
+    0.7166348099708557
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-17-1-0",
+   "top1": 0.7904874086380005,
+   "margin": 0.5809747576713562,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7904874086380005,
+    0.2095126509666443
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-17-1-1",
+   "top1": 0.8396696448326111,
+   "margin": 0.6793393045663834,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16033034026622772,
+    0.8396696448326111
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v1-17-2-0",
+   "top1": 0.7954133152961731,
+   "margin": 0.5908266305923462,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7954133152961731,
+    0.2045866847038269
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-17-2-1",
+   "top1": 0.8633340001106262,
+   "margin": 0.7266680151224136,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13666598498821259,
+    0.8633340001106262
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-17-3c",
+   "top1": 0.6366984844207764,
+   "margin": 0.3080436885356903,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6366984844207764,
+    0.32865479588508606,
+    0.03464673087000847
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v1-19-0-0",
+   "top1": 0.8190850019454956,
+   "margin": 0.63816998898983,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8190850019454956,
+    0.1809150129556656
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-19-0-1",
+   "top1": 0.8146489262580872,
+   "margin": 0.6292979121208191,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18535101413726807,
+    0.8146489262580872
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-19-1-0",
+   "top1": 0.9364975094795227,
+   "margin": 0.8729950189590454,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9364975094795227,
+    0.0635024905204773
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-19-1-1",
+   "top1": 0.7986617088317871,
+   "margin": 0.5973233729600906,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20133833587169647,
+    0.7986617088317871
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-19-2-0",
+   "top1": 0.9686360359191895,
+   "margin": 0.9372721277177334,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9686360359191895,
+    0.03136390820145607
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-19-2-1",
+   "top1": 0.8617328405380249,
+   "margin": 0.7234657108783722,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1382671296596527,
+    0.8617328405380249
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-19-3c",
+   "top1": 0.7149702310562134,
+   "margin": 0.45010051131248474,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7149702310562134,
+    0.26486971974372864,
+    0.020160017535090446
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v1-20-0-0",
+   "top1": 0.8162276148796082,
+   "margin": 0.6324552446603775,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8162276148796082,
+    0.18377237021923065
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-20-0-1",
+   "top1": 0.8321094512939453,
+   "margin": 0.6642189025878906,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1678905487060547,
+    0.8321094512939453
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-20-1-0",
+   "top1": 0.914063572883606,
+   "margin": 0.8281271308660507,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.914063572883606,
+    0.08593644201755524
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-20-1-1",
+   "top1": 0.8619763255119324,
+   "margin": 0.7239526212215424,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13802370429039001,
+    0.8619763255119324
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v1-20-2-0",
+   "top1": 0.9417701959609985,
+   "margin": 0.8835404105484486,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9417701959609985,
+    0.05822978541254997
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-20-2-1",
+   "top1": 0.9024903178215027,
+   "margin": 0.804980643093586,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.09750967472791672,
+    0.9024903178215027
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-20-3c",
+   "top1": 0.6902152299880981,
+   "margin": 0.5081977993249893,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6902152299880981,
+    0.18201743066310883,
+    0.12776735424995422
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v1-22-0-0",
+   "top1": 0.9415542483329773,
+   "margin": 0.8831085152924061,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9415542483329773,
+    0.05844573304057121
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-0-1",
+   "top1": 0.9452546834945679,
+   "margin": 0.8905094154179096,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05474526807665825,
+    0.9452546834945679
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-1-0",
+   "top1": 0.7686588764190674,
+   "margin": 0.5373177975416183,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7686588764190674,
+    0.23134107887744904
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-1-1",
+   "top1": 0.8306406736373901,
+   "margin": 0.6612813472747803,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16935932636260986,
+    0.8306406736373901
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-2-0",
+   "top1": 0.5113005638122559,
+   "margin": 0.02260112762451172,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.48869943618774414,
+    0.5113005638122559
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-2-1",
+   "top1": 0.5021815299987793,
+   "margin": 0.004363030195236206,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4978184998035431,
+    0.5021815299987793
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-22-3c",
+   "top1": 0.8777928352355957,
+   "margin": 0.7982643023133278,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8777928352355957,
+    0.07952853292226791,
+    0.0426785945892334
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v1-23-0-0",
+   "top1": 0.6840946674346924,
+   "margin": 0.3681893050670624,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6840946674346924,
+    0.31590536236763
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-23-0-1",
+   "top1": 0.6060017347335815,
+   "margin": 0.21200346946716309,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.39399826526641846,
+    0.6060017347335815
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-23-1-0",
+   "top1": 0.5758642554283142,
+   "margin": 0.1517285704612732,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.424135684967041,
+    0.5758642554283142
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-23-1-1",
+   "top1": 0.5577991604804993,
+   "margin": 0.11559838056564331,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.44220077991485596,
+    0.5577991604804993
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-23-2-0",
+   "top1": 0.6930935382843018,
+   "margin": 0.3861870765686035,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.30690646171569824,
+    0.6930935382843018
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-23-2-1",
+   "top1": 0.7209866046905518,
+   "margin": 0.4419732391834259,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.27901336550712585,
+    0.7209866046905518
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-23-3c",
+   "top1": 0.5066244602203369,
+   "margin": 0.15241196751594543,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5066244602203369,
+    0.3542124927043915,
+    0.1391630321741104
+   ],
+   "input_tokens": 162
+  },
+  {
+   "name": "v1-25-0-0",
+   "top1": 0.7474645972251892,
+   "margin": 0.4949291944503784,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2525354027748108,
+    0.7474645972251892
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-25-0-1",
+   "top1": 0.8362305164337158,
+   "margin": 0.6724610328674316,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8362305164337158,
+    0.16376948356628418
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-25-1-0",
+   "top1": 0.7679705023765564,
+   "margin": 0.5359410494565964,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.23202945291996002,
+    0.7679705023765564
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-25-1-1",
+   "top1": 0.7702294588088989,
+   "margin": 0.5404588878154755,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7702294588088989,
+    0.22977057099342346
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-25-2-0",
+   "top1": 0.5672335028648376,
+   "margin": 0.1344670057296753,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.43276649713516235,
+    0.5672335028648376
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-25-2-1",
+   "top1": 0.718912661075592,
+   "margin": 0.43782535195350647,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.718912661075592,
+    0.28108730912208557
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-25-3c",
+   "top1": 0.4736587405204773,
+   "margin": 0.19307607412338257,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.24575857818126678,
+    0.4736587405204773,
+    0.2805826663970947
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v1-26-0-0",
+   "top1": 0.6256232857704163,
+   "margin": 0.2512465715408325,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.37437671422958374,
+    0.6256232857704163
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-26-0-1",
+   "top1": 0.8236950039863586,
+   "margin": 0.6473900079727173,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8236950039863586,
+    0.17630499601364136
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-26-1-0",
+   "top1": 0.6055855751037598,
+   "margin": 0.2111712098121643,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.39441436529159546,
+    0.6055855751037598
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-26-1-1",
+   "top1": 0.8442435264587402,
+   "margin": 0.6884870678186417,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8442435264587402,
+    0.15575645864009857
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v1-26-2-0",
+   "top1": 0.5680742263793945,
+   "margin": 0.13614842295646667,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5680742263793945,
+    0.43192580342292786
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-26-2-1",
+   "top1": 0.8390252590179443,
+   "margin": 0.6780505180358887,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8390252590179443,
+    0.16097474098205566
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v1-26-3c",
+   "top1": 0.39847925305366516,
+   "margin": 0.006343930959701538,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.20938549935817719,
+    0.3921353220939636,
+    0.39847925305366516
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v2-3-0-0",
+   "top1": 0.9712870717048645,
+   "margin": 0.9425741452723742,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9712870717048645,
+    0.02871292643249035
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-3-0-1",
+   "top1": 0.7708253860473633,
+   "margin": 0.541650727391243,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2291746586561203,
+    0.7708253860473633
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-3-1-0",
+   "top1": 0.9769407510757446,
+   "margin": 0.9538814313709736,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9769407510757446,
+    0.023059319704771042
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-3-1-1",
+   "top1": 0.7797349095344543,
+   "margin": 0.5594697743654251,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.22026513516902924,
+    0.7797349095344543
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-3-2-0",
+   "top1": 0.9593976140022278,
+   "margin": 0.9187951758503914,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9593976140022278,
+    0.040602438151836395
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-3-2-1",
+   "top1": 0.7097760438919067,
+   "margin": 0.4195520877838135,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.29022395610809326,
+    0.7097760438919067
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-3-3c",
+   "top1": 0.9649149775505066,
+   "margin": 0.9378669187426567,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9649149775505066,
+    0.027048058807849884,
+    0.008036894723773003
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v2-9-0-0",
+   "top1": 0.9807586073875427,
+   "margin": 0.961517259478569,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9807586073875427,
+    0.019241347908973694
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v2-9-0-1",
+   "top1": 0.9597156643867493,
+   "margin": 0.9194314032793045,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04028426110744476,
+    0.9597156643867493
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v2-9-1-0",
+   "top1": 0.9124941229820251,
+   "margin": 0.8249882459640503,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9124941229820251,
+    0.08750587701797485
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v2-9-1-1",
+   "top1": 0.8788620233535767,
+   "margin": 0.7577240765094757,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.12113794684410095,
+    0.8788620233535767
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v2-9-2-0",
+   "top1": 0.970568060874939,
+   "margin": 0.9411360621452332,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.970568060874939,
+    0.02943199872970581
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v2-9-2-1",
+   "top1": 0.9621278643608093,
+   "margin": 0.9242556653916836,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03787219896912575,
+    0.9621278643608093
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v2-9-3c",
+   "top1": 0.9851157069206238,
+   "margin": 0.9741369159892201,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9851157069206238,
+    0.010978790931403637,
+    0.003905495395883918
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v2-10-0-0",
+   "top1": 0.5887538194656372,
+   "margin": 0.17750763893127441,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5887538194656372,
+    0.4112461805343628
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-10-0-1",
+   "top1": 0.5657109022140503,
+   "margin": 0.13142183423042297,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5657109022140503,
+    0.4342890679836273
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-10-1-0",
+   "top1": 0.7162078022956848,
+   "margin": 0.43241554498672485,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7162078022956848,
+    0.28379225730895996
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-10-1-1",
+   "top1": 0.5787360668182373,
+   "margin": 0.15747210383415222,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4212639629840851,
+    0.5787360668182373
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-10-2-0",
+   "top1": 0.6877463459968567,
+   "margin": 0.3754926919937134,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6877463459968567,
+    0.3122536540031433
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-10-2-1",
+   "top1": 0.6595816612243652,
+   "margin": 0.3191632926464081,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.34041836857795715,
+    0.6595816612243652
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-10-3c",
+   "top1": 0.38961130380630493,
+   "margin": 0.02080509066581726,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.36880621314048767,
+    0.2415824681520462,
+    0.38961130380630493
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v2-12-0-0",
+   "top1": 0.5026357173919678,
+   "margin": 0.005271404981613159,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5026357173919678,
+    0.4973643124103546
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-12-0-1",
+   "top1": 0.6135454773902893,
+   "margin": 0.2270909547805786,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3864545226097107,
+    0.6135454773902893
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-12-1-0",
+   "top1": 0.6375060677528381,
+   "margin": 0.27501216530799866,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6375060677528381,
+    0.3624939024448395
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-12-1-1",
+   "top1": 0.714819610118866,
+   "margin": 0.42963919043540955,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2851804196834564,
+    0.714819610118866
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v2-12-2-0",
+   "top1": 0.6576698422431946,
+   "margin": 0.3153396546840668,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6576698422431946,
+    0.3423301875591278
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-12-2-1",
+   "top1": 0.7350685596466064,
+   "margin": 0.4701370894908905,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.26493147015571594,
+    0.7350685596466064
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v2-12-3c",
+   "top1": 0.36420756578445435,
+   "margin": 0.022119075059890747,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.36420756578445435,
+    0.3420884907245636,
+    0.29370391368865967
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v3-1-0-0",
+   "top1": 0.6970062255859375,
+   "margin": 0.3940124809741974,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6970062255859375,
+    0.3029937446117401
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-1-0-1",
+   "top1": 0.7333652973175049,
+   "margin": 0.46673062443733215,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.26663467288017273,
+    0.7333652973175049
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-1-1-0",
+   "top1": 0.6046987175941467,
+   "margin": 0.20939746499061584,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6046987175941467,
+    0.3953012526035309
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-1-1-1",
+   "top1": 0.6168643832206726,
+   "margin": 0.23372876644134521,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3831356167793274,
+    0.6168643832206726
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-1-2-0",
+   "top1": 0.6034067869186401,
+   "margin": 0.20681360363960266,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6034067869186401,
+    0.3965931832790375
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-1-2-1",
+   "top1": 0.5510332584381104,
+   "margin": 0.1020665168762207,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.44896674156188965,
+    0.5510332584381104
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-1-3c",
+   "top1": 0.5950884222984314,
+   "margin": 0.21917623281478882,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5950884222984314,
+    0.3759121894836426,
+    0.02899940125644207
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v3-2-0-0",
+   "top1": 0.693758487701416,
+   "margin": 0.3875170052051544,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.693758487701416,
+    0.3062414824962616
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-2-0-1",
+   "top1": 0.6754932999610901,
+   "margin": 0.35098662972450256,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3245066702365875,
+    0.6754932999610901
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-2-1-0",
+   "top1": 0.8064126372337341,
+   "margin": 0.6128252446651459,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8064126372337341,
+    0.19358739256858826
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-2-1-1",
+   "top1": 0.8096188306808472,
+   "margin": 0.6192376911640167,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19038113951683044,
+    0.8096188306808472
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v3-2-2-0",
+   "top1": 0.73907870054245,
+   "margin": 0.4781573414802551,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.73907870054245,
+    0.2609213590621948
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-2-2-1",
+   "top1": 0.7935779690742493,
+   "margin": 0.5871559679508209,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20642200112342834,
+    0.7935779690742493
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-2-3c",
+   "top1": 0.607734203338623,
+   "margin": 0.2332107424736023,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.607734203338623,
+    0.37452346086502075,
+    0.017742371186614037
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v3-3-0-0",
+   "top1": 0.530673086643219,
+   "margin": 0.06134617328643799,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.530673086643219,
+    0.469326913356781
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-3-0-1",
+   "top1": 0.6999601125717163,
+   "margin": 0.3999202251434326,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3000398874282837,
+    0.6999601125717163
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-3-1-0",
+   "top1": 0.5115188360214233,
+   "margin": 0.02303767204284668,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5115188360214233,
+    0.48848116397857666
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-3-1-1",
+   "top1": 0.7470957636833191,
+   "margin": 0.4941914975643158,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2529042661190033,
+    0.7470957636833191
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v3-3-2-0",
+   "top1": 0.6375660300254822,
+   "margin": 0.27513206005096436,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6375660300254822,
+    0.3624339699745178
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v3-3-2-1",
+   "top1": 0.7627279758453369,
+   "margin": 0.5254559367895126,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.23727203905582428,
+    0.7627279758453369
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v3-3-3c",
+   "top1": 0.5319369435310364,
+   "margin": 0.0841996967792511,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4477372467517853,
+    0.5319369435310364,
+    0.020325854420661926
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v3-7-0-0",
+   "top1": 0.8243860006332397,
+   "margin": 0.6487720161676407,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17561398446559906,
+    0.8243860006332397
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v3-7-0-1",
+   "top1": 0.7677825689315796,
+   "margin": 0.5355650782585144,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7677825689315796,
+    0.23221749067306519
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v3-7-1-0",
+   "top1": 0.9264897704124451,
+   "margin": 0.8529795408248901,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.07351022958755493,
+    0.9264897704124451
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v3-7-1-1",
+   "top1": 0.8366237282752991,
+   "margin": 0.6732475161552429,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8366237282752991,
+    0.16337621212005615
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v3-7-2-0",
+   "top1": 0.9435526728630066,
+   "margin": 0.8871054016053677,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05644727125763893,
+    0.9435526728630066
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v3-7-2-1",
+   "top1": 0.9229524731636047,
+   "margin": 0.8459049463272095,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9229524731636047,
+    0.07704752683639526
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v3-7-3c",
+   "top1": 0.6536614894866943,
+   "margin": 0.4315570741891861,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.12423405051231384,
+    0.6536614894866943,
+    0.22210441529750824
+   ],
+   "input_tokens": 160
+  },
+  {
+   "name": "v3-9-0-0",
+   "top1": 0.5775577425956726,
+   "margin": 0.15511545538902283,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4224422872066498,
+    0.5775577425956726
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-9-0-1",
+   "top1": 0.6650416851043701,
+   "margin": 0.33008334040641785,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6650416851043701,
+    0.33495834469795227
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-9-1-0",
+   "top1": 0.6537178158760071,
+   "margin": 0.30743563175201416,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3462821841239929,
+    0.6537178158760071
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-9-1-1",
+   "top1": 0.729320228099823,
+   "margin": 0.45864051580429077,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.729320228099823,
+    0.2706797122955322
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-9-2-0",
+   "top1": 0.8089893460273743,
+   "margin": 0.6179787069559097,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19101063907146454,
+    0.8089893460273743
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v3-9-2-1",
+   "top1": 0.7845360636711121,
+   "margin": 0.5690721869468689,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7845360636711121,
+    0.21546387672424316
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v3-9-3c",
+   "top1": 0.4072340726852417,
+   "margin": 0.08354872465133667,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.32368534803390503,
+    0.4072340726852417,
+    0.26908057928085327
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v3-10-0-0",
+   "top1": 0.5410969853401184,
+   "margin": 0.0821940004825592,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4589029848575592,
+    0.5410969853401184
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-10-0-1",
+   "top1": 0.5388246774673462,
+   "margin": 0.07764935493469238,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4611753225326538,
+    0.5388246774673462
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-10-1-0",
+   "top1": 0.7150121927261353,
+   "margin": 0.4300243854522705,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.28498780727386475,
+    0.7150121927261353
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-10-1-1",
+   "top1": 0.7021963596343994,
+   "margin": 0.40439265966415405,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7021963596343994,
+    0.29780369997024536
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-10-2-0",
+   "top1": 0.9530325531959534,
+   "margin": 0.9060651287436485,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04696742445230484,
+    0.9530325531959534
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-10-2-1",
+   "top1": 0.9337700009346008,
+   "margin": 0.867540031671524,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9337700009346008,
+    0.06622996926307678
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-10-3c",
+   "top1": 0.43709269165992737,
+   "margin": 0.03688493371009827,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.43709269165992737,
+    0.4002077579498291,
+    0.16269952058792114
+   ],
+   "input_tokens": 164
+  },
+  {
+   "name": "v3-11-0-0",
+   "top1": 0.9051511883735657,
+   "margin": 0.8103023394942284,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9051511883735657,
+    0.09484884887933731
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-11-0-1",
+   "top1": 0.5685124397277832,
+   "margin": 0.1370248794555664,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4314875602722168,
+    0.5685124397277832
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-11-1-0",
+   "top1": 0.9416967034339905,
+   "margin": 0.8833934478461742,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9416967034339905,
+    0.05830325558781624
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-11-1-1",
+   "top1": 0.8269820213317871,
+   "margin": 0.6539640128612518,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17301800847053528,
+    0.8269820213317871
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v3-11-2-0",
+   "top1": 0.9465569257736206,
+   "margin": 0.8931138589978218,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9465569257736206,
+    0.0534430667757988
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-11-2-1",
+   "top1": 0.874264121055603,
+   "margin": 0.7485283017158508,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1257358193397522,
+    0.874264121055603
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v3-11-3c",
+   "top1": 0.8300802111625671,
+   "margin": 0.6958422064781189,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8300802111625671,
+    0.13423800468444824,
+    0.03568178415298462
+   ],
+   "input_tokens": 164
+  },
+  {
+   "name": "v4-2-0-0",
+   "top1": 0.9717532992362976,
+   "margin": 0.9435066170990467,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9717532992362976,
+    0.0282466821372509
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v4-2-0-1",
+   "top1": 0.9539711475372314,
+   "margin": 0.9079422689974308,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.046028878539800644,
+    0.9539711475372314
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v4-2-1-0",
+   "top1": 0.9710615873336792,
+   "margin": 0.9421232510358095,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9710615873336792,
+    0.028938336297869682
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v4-2-1-1",
+   "top1": 0.9497343897819519,
+   "margin": 0.8994687646627426,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05026562511920929,
+    0.9497343897819519
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v4-2-2-0",
+   "top1": 0.9836844205856323,
+   "margin": 0.9673688001930714,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9836844205856323,
+    0.01631562039256096
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v4-2-2-1",
+   "top1": 0.957183301448822,
+   "margin": 0.914366576820612,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04281672462821007,
+    0.957183301448822
+   ],
+   "input_tokens": 146
+  },
+  {
+   "name": "v4-2-3c",
+   "top1": 0.9727733731269836,
+   "margin": 0.9502029698342085,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9727733731269836,
+    0.022570403292775154,
+    0.004656240344047546
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v4-7-0-0",
+   "top1": 0.8145707845687866,
+   "margin": 0.6291415691375732,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8145707845687866,
+    0.18542921543121338
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-7-0-1",
+   "top1": 0.6384523510932922,
+   "margin": 0.2769046723842621,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6384523510932922,
+    0.36154767870903015
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-7-1-0",
+   "top1": 0.7710264325141907,
+   "margin": 0.5420528650283813,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7710264325141907,
+    0.22897356748580933
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-7-1-1",
+   "top1": 0.730847954750061,
+   "margin": 0.46169590950012207,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.730847954750061,
+    0.26915204524993896
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-7-2-0",
+   "top1": 0.8622602820396423,
+   "margin": 0.7245205640792847,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8622602820396423,
+    0.13773971796035767
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-7-2-1",
+   "top1": 0.5084034204483032,
+   "margin": 0.01680690050125122,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.491596519947052,
+    0.5084034204483032
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-7-3c",
+   "top1": 0.64163738489151,
+   "margin": 0.40043245255947113,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.64163738489151,
+    0.1171577051281929,
+    0.24120493233203888
+   ],
+   "input_tokens": 159
+  },
+  {
+   "name": "v4-8-0-0",
+   "top1": 0.7497566342353821,
+   "margin": 0.49951326847076416,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7497566342353821,
+    0.2502433657646179
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-8-0-1",
+   "top1": 0.6699025630950928,
+   "margin": 0.3398051857948303,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6699025630950928,
+    0.33009737730026245
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-8-1-0",
+   "top1": 0.8713254928588867,
+   "margin": 0.7426510602235794,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8713254928588867,
+    0.1286744326353073
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-8-1-1",
+   "top1": 0.5896368026733398,
+   "margin": 0.1792735457420349,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5896368026733398,
+    0.41036325693130493
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-8-2-0",
+   "top1": 0.6426986455917358,
+   "margin": 0.2853972315788269,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6426986455917358,
+    0.35730141401290894
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-8-2-1",
+   "top1": 0.6322274208068848,
+   "margin": 0.26445481181144714,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6322274208068848,
+    0.3677726089954376
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-8-3c",
+   "top1": 0.6553877592086792,
+   "margin": 0.4517579525709152,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6553877592086792,
+    0.20362980663776398,
+    0.1409824639558792
+   ],
+   "input_tokens": 159
+  },
+  {
+   "name": "v4-9-0-0",
+   "top1": 0.5532941222190857,
+   "margin": 0.106588214635849,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5532941222190857,
+    0.4467059075832367
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-9-0-1",
+   "top1": 0.5945954322814941,
+   "margin": 0.1891908049583435,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.40540462732315063,
+    0.5945954322814941
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-9-1-0",
+   "top1": 0.6883105039596558,
+   "margin": 0.3766210079193115,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.31168949604034424,
+    0.6883105039596558
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-9-1-1",
+   "top1": 0.661964476108551,
+   "margin": 0.32392898201942444,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.661964476108551,
+    0.3380354940891266
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-9-2-0",
+   "top1": 0.5943073034286499,
+   "margin": 0.1886146366596222,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4056926667690277,
+    0.5943073034286499
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-9-2-1",
+   "top1": 0.6595174074172974,
+   "margin": 0.31903478503227234,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6595174074172974,
+    0.340482622385025
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-9-3c",
+   "top1": 0.46423399448394775,
+   "margin": 0.1680954098701477,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.46423399448394775,
+    0.29613858461380005,
+    0.239627406001091
+   ],
+   "input_tokens": 159
+  },
+  {
+   "name": "v4-10-0-0",
+   "top1": 0.8728740811347961,
+   "margin": 0.7457481175661087,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.12712596356868744,
+    0.8728740811347961
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-10-0-1",
+   "top1": 0.9169903993606567,
+   "margin": 0.8339807912707329,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9169903993606567,
+    0.08300960808992386
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-10-1-0",
+   "top1": 0.9102279543876648,
+   "margin": 0.8204559162259102,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.08977203816175461,
+    0.9102279543876648
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-10-1-1",
+   "top1": 0.9612023234367371,
+   "margin": 0.9224046841263771,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9612023234367371,
+    0.038797639310359955
+   ],
+   "input_tokens": 145
+  },
+  {
+   "name": "v4-10-2-0",
+   "top1": 0.8833075165748596,
+   "margin": 0.7666149884462357,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11669252812862396,
+    0.8833075165748596
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-10-2-1",
+   "top1": 0.9627125263214111,
+   "margin": 0.9254250302910805,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9627125263214111,
+    0.03728749603033066
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v4-10-3c",
+   "top1": 0.8396603465080261,
+   "margin": 0.7053486555814743,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13431169092655182,
+    0.8396603465080261,
+    0.026027951389551163
+   ],
+   "input_tokens": 159
+  },
+  {
+   "name": "v5-1-0-0",
+   "top1": 0.9036006927490234,
+   "margin": 0.8072013631463051,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9036006927490234,
+    0.09639932960271835
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-1-0-1",
+   "top1": 0.7794303894042969,
+   "margin": 0.5588607937097549,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.22056959569454193,
+    0.7794303894042969
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-1-1-0",
+   "top1": 0.9492440223693848,
+   "margin": 0.8984879963099957,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9492440223693848,
+    0.050756026059389114
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-1-1-1",
+   "top1": 0.8413516879081726,
+   "margin": 0.6827033460140228,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.15864834189414978,
+    0.8413516879081726
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-1-2-0",
+   "top1": 0.8572426438331604,
+   "margin": 0.7144853174686432,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8572426438331604,
+    0.1427573263645172
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-1-2-1",
+   "top1": 0.6476850509643555,
+   "margin": 0.2953701317310333,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.35231491923332214,
+    0.6476850509643555
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-1-3c",
+   "top1": 0.8259553909301758,
+   "margin": 0.664029985666275,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8259553909301758,
+    0.16192540526390076,
+    0.012119102291762829
+   ],
+   "input_tokens": 197
+  },
+  {
+   "name": "v5-2-0-0",
+   "top1": 0.9371035695075989,
+   "margin": 0.8742070868611336,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9371035695075989,
+    0.0628964826464653
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-2-0-1",
+   "top1": 0.6358367204666138,
+   "margin": 0.2716735005378723,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.36416321992874146,
+    0.6358367204666138
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-2-1-0",
+   "top1": 0.9403958916664124,
+   "margin": 0.8807917796075344,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9403958916664124,
+    0.059604112058877945
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-2-1-1",
+   "top1": 0.7276450395584106,
+   "margin": 0.4552900493144989,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.27235499024391174,
+    0.7276450395584106
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-2-2-0",
+   "top1": 0.9578148722648621,
+   "margin": 0.9156298004090786,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9578148722648621,
+    0.04218507185578346
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-2-2-1",
+   "top1": 0.7974653244018555,
+   "margin": 0.5949306488037109,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20253467559814453,
+    0.7974653244018555
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-2-3c",
+   "top1": 0.9154768586158752,
+   "margin": 0.8468530178070068,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9154768586158752,
+    0.06862384080886841,
+    0.015899311751127243
+   ],
+   "input_tokens": 195
+  },
+  {
+   "name": "v5-4-0-0",
+   "top1": 0.8554031252861023,
+   "margin": 0.7108062654733658,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8554031252861023,
+    0.1445968598127365
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-4-0-1",
+   "top1": 0.5784255862236023,
+   "margin": 0.15685123205184937,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5784255862236023,
+    0.42157435417175293
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-4-1-0",
+   "top1": 0.51569664478302,
+   "margin": 0.031393229961395264,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.51569664478302,
+    0.48430341482162476
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-4-1-1",
+   "top1": 0.8378444910049438,
+   "margin": 0.6756889820098877,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8378444910049438,
+    0.16215550899505615
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-4-2-0",
+   "top1": 0.7078291177749634,
+   "margin": 0.41565823554992676,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7078291177749634,
+    0.2921708822250366
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-4-2-1",
+   "top1": 0.7350487112998962,
+   "margin": 0.4700973629951477,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7350487112998962,
+    0.26495134830474854
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-4-3c",
+   "top1": 0.8179193735122681,
+   "margin": 0.7110973596572876,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8179193735122681,
+    0.10682201385498047,
+    0.07525859028100967
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v5-7-0-0",
+   "top1": 0.9674903750419617,
+   "margin": 0.9349807240068913,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9674903750419617,
+    0.03250965103507042
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-7-0-1",
+   "top1": 0.9637084603309631,
+   "margin": 0.9274169616401196,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03629149869084358,
+    0.9637084603309631
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-7-1-0",
+   "top1": 0.9699428677558899,
+   "margin": 0.9398856814950705,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9699428677558899,
+    0.030057186260819435
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-7-1-1",
+   "top1": 0.9695571064949036,
+   "margin": 0.9391142502427101,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03044285625219345,
+    0.9695571064949036
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-7-2-0",
+   "top1": 0.8558329939842224,
+   "margin": 0.7116660326719284,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8558329939842224,
+    0.144166961312294
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-7-2-1",
+   "top1": 0.908508837223053,
+   "margin": 0.817017637193203,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.09149120002985,
+    0.908508837223053
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-7-3c",
+   "top1": 0.9488306641578674,
+   "margin": 0.9193705692887306,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9488306641578674,
+    0.021709216758608818,
+    0.02946009486913681
+   ],
+   "input_tokens": 200
+  },
+  {
+   "name": "v5-9-0-0",
+   "top1": 0.908308207988739,
+   "margin": 0.8166164085268974,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.908308207988739,
+    0.09169179946184158
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-9-0-1",
+   "top1": 0.8116281032562256,
+   "margin": 0.6232561469078064,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1883719563484192,
+    0.8116281032562256
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-9-1-0",
+   "top1": 0.9114056825637817,
+   "margin": 0.8228113502264023,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9114056825637817,
+    0.08859433233737946
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-9-1-1",
+   "top1": 0.837507963180542,
+   "margin": 0.6750159561634064,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16249200701713562,
+    0.837507963180542
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-9-2-0",
+   "top1": 0.9308801889419556,
+   "margin": 0.861760325729847,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9308801889419556,
+    0.06911986321210861
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-9-2-1",
+   "top1": 0.8664947748184204,
+   "margin": 0.7329895496368408,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1335052251815796,
+    0.8664947748184204
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-9-3c",
+   "top1": 0.8527008295059204,
+   "margin": 0.7644625380635262,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8527008295059204,
+    0.08823829144239426,
+    0.05906094238162041
+   ],
+   "input_tokens": 198
+  },
+  {
+   "name": "v5-12-0-0",
+   "top1": 0.7831152081489563,
+   "margin": 0.566230446100235,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7831152081489563,
+    0.2168847620487213
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-12-0-1",
+   "top1": 0.8950934410095215,
+   "margin": 0.7901868671178818,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.10490657389163971,
+    0.8950934410095215
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-12-1-0",
+   "top1": 0.8733088970184326,
+   "margin": 0.7466177642345428,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8733088970184326,
+    0.12669113278388977
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-12-1-1",
+   "top1": 0.9293097853660583,
+   "margin": 0.8586195483803749,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.07069023698568344,
+    0.9293097853660583
+   ],
+   "input_tokens": 175
+  },
+  {
+   "name": "v5-12-2-0",
+   "top1": 0.8500636219978333,
+   "margin": 0.7001271843910217,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8500636219978333,
+    0.14993643760681152
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-12-2-1",
+   "top1": 0.8940544724464417,
+   "margin": 0.7881088927388191,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.10594557970762253,
+    0.8940544724464417
+   ],
+   "input_tokens": 174
+  },
+  {
+   "name": "v5-12-3c",
+   "top1": 0.7374240756034851,
+   "margin": 0.48099270462989807,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7374240756034851,
+    0.25643137097358704,
+    0.006144538056105375
+   ],
+   "input_tokens": 199
+  },
+  {
+   "name": "v5-15-0-0",
+   "top1": 0.7156080603599548,
+   "margin": 0.4312160611152649,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7156080603599548,
+    0.28439199924468994
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-15-0-1",
+   "top1": 0.8188521265983582,
+   "margin": 0.6377042382955551,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18114788830280304,
+    0.8188521265983582
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-15-1-0",
+   "top1": 0.9142760634422302,
+   "margin": 0.8285521417856216,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9142760634422302,
+    0.08572392165660858
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-15-1-1",
+   "top1": 0.9129936695098877,
+   "margin": 0.825987420976162,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.08700624853372574,
+    0.9129936695098877
+   ],
+   "input_tokens": 173
+  },
+  {
+   "name": "v5-15-2-0",
+   "top1": 0.9641115069389343,
+   "margin": 0.9282230250537395,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9641115069389343,
+    0.03588848188519478
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-15-2-1",
+   "top1": 0.9366371035575867,
+   "margin": 0.8732742145657539,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06336288899183273,
+    0.9366371035575867
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v5-15-3c",
+   "top1": 0.7065848708152771,
+   "margin": 0.44660913944244385,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7065848708152771,
+    0.25997573137283325,
+    0.033439356833696365
+   ],
+   "input_tokens": 197
+  },
+  {
+   "name": "v5-16-0-0",
+   "top1": 0.8965741991996765,
+   "margin": 0.7931483536958694,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8965741991996765,
+    0.10342584550380707
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-16-0-1",
+   "top1": 0.9302575588226318,
+   "margin": 0.8605151176452637,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06974244117736816,
+    0.9302575588226318
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-16-1-0",
+   "top1": 0.8657878637313843,
+   "margin": 0.7315756678581238,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8657878637313843,
+    0.1342121958732605
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-16-1-1",
+   "top1": 0.8789436221122742,
+   "margin": 0.7578872889280319,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.12105633318424225,
+    0.8789436221122742
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v5-16-2-0",
+   "top1": 0.9323514103889465,
+   "margin": 0.8647027760744095,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9323514103889465,
+    0.06764863431453705
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-16-2-1",
+   "top1": 0.9472675323486328,
+   "margin": 0.8945350311696529,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.052732501178979874,
+    0.9472675323486328
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-16-3c",
+   "top1": 0.8699311017990112,
+   "margin": 0.7605603337287903,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8699311017990112,
+    0.10937076807022095,
+    0.020698202773928642
+   ],
+   "input_tokens": 194
+  },
+  {
+   "name": "v5-18-0-0",
+   "top1": 0.9704904556274414,
+   "margin": 0.9409809373319149,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.029509518295526505,
+    0.9704904556274414
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-0-1",
+   "top1": 0.9264773726463318,
+   "margin": 0.8529548048973083,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9264773726463318,
+    0.07352256774902344
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-1-0",
+   "top1": 0.8893916606903076,
+   "margin": 0.7787833213806152,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11060833930969238,
+    0.8893916606903076
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-1-1",
+   "top1": 0.7716953754425049,
+   "margin": 0.543390691280365,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7716953754425049,
+    0.2283046841621399
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-2-0",
+   "top1": 0.9311062693595886,
+   "margin": 0.8622124865651131,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06889378279447556,
+    0.9311062693595886
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-2-1",
+   "top1": 0.9387967586517334,
+   "margin": 0.8775934763252735,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9387967586517334,
+    0.061203282326459885
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v5-18-3c",
+   "top1": 0.7161726355552673,
+   "margin": 0.4547542631626129,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.02240898087620735,
+    0.7161726355552673,
+    0.2614183723926544
+   ],
+   "input_tokens": 190
+  },
+  {
+   "name": "v5-19-0-0",
+   "top1": 0.6813525557518005,
+   "margin": 0.3627050817012787,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.31864747405052185,
+    0.6813525557518005
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-19-0-1",
+   "top1": 0.7490376830101013,
+   "margin": 0.4980754256248474,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7490376830101013,
+    0.2509622573852539
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-19-1-0",
+   "top1": 0.7648387551307678,
+   "margin": 0.529677540063858,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2351612150669098,
+    0.7648387551307678
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-19-1-1",
+   "top1": 0.8386268019676208,
+   "margin": 0.6772536635398865,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8386268019676208,
+    0.16137313842773438
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-19-2-0",
+   "top1": 0.8630174994468689,
+   "margin": 0.726035013794899,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8630174994468689,
+    0.1369824856519699
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-19-2-1",
+   "top1": 0.6579459309577942,
+   "margin": 0.315891832113266,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6579459309577942,
+    0.3420540988445282
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-19-3c",
+   "top1": 0.580197274684906,
+   "margin": 0.29316964745521545,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.13277509808540344,
+    0.28702762722969055,
+    0.580197274684906
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v5-20-0-0",
+   "top1": 0.9463150501251221,
+   "margin": 0.8926301524043083,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05368489772081375,
+    0.9463150501251221
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-20-0-1",
+   "top1": 0.9538993239402771,
+   "margin": 0.9077986143529415,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9538993239402771,
+    0.04610070958733559
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-20-1-0",
+   "top1": 0.9841540455818176,
+   "margin": 0.9683080147951841,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.01584603078663349,
+    0.9841540455818176
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-20-1-1",
+   "top1": 0.9649306535720825,
+   "margin": 0.929861307144165,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9649306535720825,
+    0.03506934642791748
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-20-2-0",
+   "top1": 0.5396139621734619,
+   "margin": 0.07922792434692383,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4603860378265381,
+    0.5396139621734619
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-20-2-1",
+   "top1": 0.8929482102394104,
+   "margin": 0.7858964204788208,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8929482102394104,
+    0.1070517897605896
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-20-3c",
+   "top1": 0.8295045495033264,
+   "margin": 0.7209892496466637,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06198010593652725,
+    0.8295045495033264,
+    0.10851529985666275
+   ],
+   "input_tokens": 192
+  },
+  {
+   "name": "v5-21-0-0",
+   "top1": 0.6376510858535767,
+   "margin": 0.2753021717071533,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6376510858535767,
+    0.36234891414642334
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-21-0-1",
+   "top1": 0.7111794948577881,
+   "margin": 0.4223589301109314,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7111794948577881,
+    0.2888205647468567
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-21-1-0",
+   "top1": 0.9391829967498779,
+   "margin": 0.8783659748733044,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06081702187657356,
+    0.9391829967498779
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-21-1-1",
+   "top1": 0.9388113617897034,
+   "margin": 0.8776227124035358,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9388113617897034,
+    0.061188649386167526
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-21-2-0",
+   "top1": 0.8809559345245361,
+   "margin": 0.7619119361042976,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1190439984202385,
+    0.8809559345245361
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-21-2-1",
+   "top1": 0.9387273192405701,
+   "margin": 0.8774546310305595,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9387273192405701,
+    0.06127268821001053
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-21-3c",
+   "top1": 0.4141101539134979,
+   "margin": 0.005829155445098877,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.40828099846839905,
+    0.1776089072227478,
+    0.4141101539134979
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v5-23-0-0",
+   "top1": 0.923885703086853,
+   "margin": 0.8477713987231255,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.923885703086853,
+    0.07611430436372757
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-23-0-1",
+   "top1": 0.9454835653305054,
+   "margin": 0.8909671306610107,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05451643466949463,
+    0.9454835653305054
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-23-1-0",
+   "top1": 0.8879497647285461,
+   "margin": 0.7758995592594147,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8879497647285461,
+    0.11205020546913147
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-23-1-1",
+   "top1": 0.9509254693984985,
+   "margin": 0.9018509201705456,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04907454922795296,
+    0.9509254693984985
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-23-2-0",
+   "top1": 0.902944803237915,
+   "margin": 0.8058895543217659,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.902944803237915,
+    0.09705524891614914
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-23-2-1",
+   "top1": 0.9794207215309143,
+   "margin": 0.9588414058089256,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.020579315721988678,
+    0.9794207215309143
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-23-3c",
+   "top1": 0.9283143877983093,
+   "margin": 0.8825605884194374,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9283143877983093,
+    0.04575379937887192,
+    0.025931788608431816
+   ],
+   "input_tokens": 192
+  },
+  {
+   "name": "v5-24-0-0",
+   "top1": 0.7374917268753052,
+   "margin": 0.47498345375061035,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7374917268753052,
+    0.2625082731246948
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-24-0-1",
+   "top1": 0.6589159965515137,
+   "margin": 0.31783202290534973,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6589159965515137,
+    0.34108397364616394
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-24-1-0",
+   "top1": 0.7827320098876953,
+   "margin": 0.5654640793800354,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7827320098876953,
+    0.2172679305076599
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-24-1-1",
+   "top1": 0.6895143389701843,
+   "margin": 0.37902864813804626,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6895143389701843,
+    0.31048569083213806
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-24-2-0",
+   "top1": 0.5378360748291016,
+   "margin": 0.07567217946052551,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5378360748291016,
+    0.46216389536857605
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-24-2-1",
+   "top1": 0.6435012817382812,
+   "margin": 0.2870025634765625,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.35649871826171875,
+    0.6435012817382812
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-24-3c",
+   "top1": 0.5900479555130005,
+   "margin": 0.3084005117416382,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5900479555130005,
+    0.128304585814476,
+    0.2816474437713623
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v5-26-0-0",
+   "top1": 0.5518784523010254,
+   "margin": 0.10375693440437317,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4481215178966522,
+    0.5518784523010254
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-26-0-1",
+   "top1": 0.692500650882721,
+   "margin": 0.3850013315677643,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.30749931931495667,
+    0.692500650882721
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-26-1-0",
+   "top1": 0.8063928484916687,
+   "margin": 0.6127856522798538,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19360719621181488,
+    0.8063928484916687
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-26-1-1",
+   "top1": 0.5065196752548218,
+   "margin": 0.013039350509643555,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4934803247451782,
+    0.5065196752548218
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-26-2-0",
+   "top1": 0.9066309332847595,
+   "margin": 0.8132618591189384,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.09336907416582108,
+    0.9066309332847595
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-26-2-1",
+   "top1": 0.7405622601509094,
+   "margin": 0.48112452030181885,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7405622601509094,
+    0.2594377398490906
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-26-3c",
+   "top1": 0.5862570405006409,
+   "margin": 0.3707311302423477,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.19821709394454956,
+    0.21552591025829315,
+    0.5862570405006409
+   ],
+   "input_tokens": 192
+  },
+  {
+   "name": "v5-27-0-0",
+   "top1": 0.6867496967315674,
+   "margin": 0.37349942326545715,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.31325027346611023,
+    0.6867496967315674
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-27-0-1",
+   "top1": 0.6957699656486511,
+   "margin": 0.391539990901947,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6957699656486511,
+    0.3042299747467041
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-27-1-0",
+   "top1": 0.9014940857887268,
+   "margin": 0.802988164126873,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.09850592166185379,
+    0.9014940857887268
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-27-1-1",
+   "top1": 0.9275224804878235,
+   "margin": 0.8550449311733246,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9275224804878235,
+    0.0724775493144989
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v5-27-2-0",
+   "top1": 0.8171783089637756,
+   "margin": 0.6343566030263901,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18282170593738556,
+    0.8171783089637756
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-27-2-1",
+   "top1": 0.8928713798522949,
+   "margin": 0.7857428044080734,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8928713798522949,
+    0.1071285754442215
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v5-27-3c",
+   "top1": 0.44383540749549866,
+   "margin": 0.08594268560409546,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.19827184081077576,
+    0.3578927218914032,
+    0.44383540749549866
+   ],
+   "input_tokens": 192
+  },
+  {
+   "name": "v6-1-0-0",
+   "top1": 0.9018170237541199,
+   "margin": 0.8036340549588203,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9018170237541199,
+    0.09818296879529953
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-1-0-1",
+   "top1": 0.6094833612442017,
+   "margin": 0.21896666288375854,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3905166983604431,
+    0.6094833612442017
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-1-1-0",
+   "top1": 0.9579672813415527,
+   "margin": 0.9159345403313637,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9579672813415527,
+    0.042032741010189056
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-1-1-1",
+   "top1": 0.7829121947288513,
+   "margin": 0.5658243894577026,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.21708780527114868,
+    0.7829121947288513
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-1-2-0",
+   "top1": 0.9766892194747925,
+   "margin": 0.9533785004168749,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9766892194747925,
+    0.023310719057917595
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v6-1-2-1",
+   "top1": 0.8334875702857971,
+   "margin": 0.6669751703739166,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1665123999118805,
+    0.8334875702857971
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v6-1-3c",
+   "top1": 0.8202622532844543,
+   "margin": 0.6566357463598251,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8202622532844543,
+    0.1636265069246292,
+    0.016111237928271294
+   ],
+   "input_tokens": 165
+  },
+  {
+   "name": "v6-3-0-0",
+   "top1": 0.9958581328392029,
+   "margin": 0.9917162102647126,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9958581328392029,
+    0.004141922574490309
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-3-0-1",
+   "top1": 0.9604129791259766,
+   "margin": 0.9208259880542755,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03958699107170105,
+    0.9604129791259766
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-3-1-0",
+   "top1": 0.9949224591255188,
+   "margin": 0.9898448698222637,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9949224591255188,
+    0.005077589303255081
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-3-1-1",
+   "top1": 0.9792018532752991,
+   "margin": 0.9584037158638239,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.02079813741147518,
+    0.9792018532752991
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v6-3-2-0",
+   "top1": 0.9973614811897278,
+   "margin": 0.9947230075486004,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9973614811897278,
+    0.002638473641127348
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v6-3-2-1",
+   "top1": 0.9826256036758423,
+   "margin": 0.9652512092143297,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.017374394461512566,
+    0.9826256036758423
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v6-3-3c",
+   "top1": 0.9908558130264282,
+   "margin": 0.9846924445591867,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9908558130264282,
+    0.006163368467241526,
+    0.0029808790422976017
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v6-6-0-0",
+   "top1": 0.7869880795478821,
+   "margin": 0.5739761143922806,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7869880795478821,
+    0.2130119651556015
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-6-0-1",
+   "top1": 0.5270167589187622,
+   "margin": 0.054033517837524414,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5270167589187622,
+    0.4729832410812378
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-6-1-0",
+   "top1": 0.7929742932319641,
+   "margin": 0.5859486013650894,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7929742932319641,
+    0.2070256918668747
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-6-1-1",
+   "top1": 0.5426890850067139,
+   "margin": 0.08537817001342773,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.45731091499328613,
+    0.5426890850067139
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-6-2-0",
+   "top1": 0.6940925121307373,
+   "margin": 0.3881850242614746,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6940925121307373,
+    0.3059074878692627
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v6-6-2-1",
+   "top1": 0.5640230178833008,
+   "margin": 0.1280459761619568,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5640230178833008,
+    0.435977041721344
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v6-6-3c",
+   "top1": 0.7128934264183044,
+   "margin": 0.5554496347904205,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7128934264183044,
+    0.12966272234916687,
+    0.1574437916278839
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v6-10-0-0",
+   "top1": 0.6872994899749756,
+   "margin": 0.37459897994995117,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6872994899749756,
+    0.3127005100250244
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-10-0-1",
+   "top1": 0.5833839178085327,
+   "margin": 0.16676786541938782,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4166160523891449,
+    0.5833839178085327
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-10-1-0",
+   "top1": 0.5154610276222229,
+   "margin": 0.03092208504676819,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5154610276222229,
+    0.4845389425754547
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-10-1-1",
+   "top1": 0.5540291666984558,
+   "margin": 0.10805833339691162,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4459708333015442,
+    0.5540291666984558
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v6-10-2-0",
+   "top1": 0.5527759194374084,
+   "margin": 0.10555186867713928,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.44722405076026917,
+    0.5527759194374084
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v6-10-2-1",
+   "top1": 0.5193222761154175,
+   "margin": 0.03864458203315735,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5193222761154175,
+    0.48067769408226013
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v6-10-3c",
+   "top1": 0.457582026720047,
+   "margin": 0.1307508945465088,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.457582026720047,
+    0.21558690071105957,
+    0.3268311321735382
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v7-1-0-0",
+   "top1": 0.9557369351387024,
+   "margin": 0.9114738404750824,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9557369351387024,
+    0.044263094663619995
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-1-0-1",
+   "top1": 0.824518620967865,
+   "margin": 0.6490372717380524,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17548134922981262,
+    0.824518620967865
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-1-1-0",
+   "top1": 0.9535289406776428,
+   "margin": 0.9070578962564468,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9535289406776428,
+    0.046471044421195984
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-1-1-1",
+   "top1": 0.8551381230354309,
+   "margin": 0.7102762311697006,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.14486189186573029,
+    0.8551381230354309
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-1-2-0",
+   "top1": 0.9430529475212097,
+   "margin": 0.8861058764159679,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9430529475212097,
+    0.056947071105241776
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-1-2-1",
+   "top1": 0.8689616322517395,
+   "margin": 0.7379232197999954,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13103841245174408,
+    0.8689616322517395
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-1-3c",
+   "top1": 0.9012438058853149,
+   "margin": 0.8241553455591202,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9012438058853149,
+    0.07708846032619476,
+    0.021667703986167908
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v7-5-0-0",
+   "top1": 0.9856194257736206,
+   "margin": 0.9712388813495636,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9856194257736206,
+    0.014380544424057007
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-0-1",
+   "top1": 0.859498143196106,
+   "margin": 0.7189962565898895,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.14050188660621643,
+    0.859498143196106
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-1-0",
+   "top1": 0.9758475422859192,
+   "margin": 0.9516950398683548,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9758475422859192,
+    0.024152502417564392
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-1-1",
+   "top1": 0.9306349754333496,
+   "margin": 0.8612700030207634,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06936497241258621,
+    0.9306349754333496
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-2-0",
+   "top1": 0.9806718230247498,
+   "margin": 0.9613436460494995,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9806718230247498,
+    0.019328176975250244
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-2-1",
+   "top1": 0.9746012091636658,
+   "margin": 0.9492024593055248,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.025398749858140945,
+    0.9746012091636658
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-5-3c",
+   "top1": 0.9831647276878357,
+   "margin": 0.9697535000741482,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9831647276878357,
+    0.013411227613687515,
+    0.0034240286331623793
+   ],
+   "input_tokens": 187
+  },
+  {
+   "name": "v7-6-0-0",
+   "top1": 0.6041918396949768,
+   "margin": 0.208383709192276,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3958081305027008,
+    0.6041918396949768
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-6-0-1",
+   "top1": 0.7965999841690063,
+   "margin": 0.5931999832391739,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7965999841690063,
+    0.20340000092983246
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-6-1-0",
+   "top1": 0.6886048316955566,
+   "margin": 0.3772096633911133,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6886048316955566,
+    0.31139516830444336
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-6-1-1",
+   "top1": 0.7280188798904419,
+   "margin": 0.4560377597808838,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7280188798904419,
+    0.2719811201095581
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-6-2-0",
+   "top1": 0.5797236561775208,
+   "margin": 0.1594473421573639,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5797236561775208,
+    0.42027631402015686
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-6-2-1",
+   "top1": 0.8581079840660095,
+   "margin": 0.7162159532308578,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8581079840660095,
+    0.14189203083515167
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-6-3c",
+   "top1": 0.47663185000419617,
+   "margin": 0.15190234780311584,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3247295022010803,
+    0.47663185000419617,
+    0.19863873720169067
+   ],
+   "input_tokens": 186
+  },
+  {
+   "name": "v7-8-0-0",
+   "top1": 0.9699832201004028,
+   "margin": 0.9399664346128702,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9699832201004028,
+    0.030016785487532616
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-8-0-1",
+   "top1": 0.9524478316307068,
+   "margin": 0.9048956520855427,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04755217954516411,
+    0.9524478316307068
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-8-1-0",
+   "top1": 0.6114956736564636,
+   "margin": 0.22299140691757202,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6114956736564636,
+    0.3885042667388916
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-8-1-1",
+   "top1": 0.8079210519790649,
+   "margin": 0.6158420890569687,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19207896292209625,
+    0.8079210519790649
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-8-2-0",
+   "top1": 0.6511449813842773,
+   "margin": 0.3022899627685547,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6511449813842773,
+    0.34885501861572266
+   ],
+   "input_tokens": 165
+  },
+  {
+   "name": "v7-8-2-1",
+   "top1": 0.8728220462799072,
+   "margin": 0.7456441223621368,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.12717792391777039,
+    0.8728220462799072
+   ],
+   "input_tokens": 165
+  },
+  {
+   "name": "v7-8-3c",
+   "top1": 0.940881073474884,
+   "margin": 0.895521741360426,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.940881073474884,
+    0.045359332114458084,
+    0.013759580440819263
+   ],
+   "input_tokens": 187
+  },
+  {
+   "name": "v7-9-0-0",
+   "top1": 0.872435986995697,
+   "margin": 0.7448720186948776,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.872435986995697,
+    0.1275639683008194
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-9-0-1",
+   "top1": 0.7411697506904602,
+   "margin": 0.4823395013809204,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2588302493095398,
+    0.7411697506904602
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-9-1-0",
+   "top1": 0.7165554165840149,
+   "margin": 0.433110773563385,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7165554165840149,
+    0.2834446430206299
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-9-1-1",
+   "top1": 0.8001112341880798,
+   "margin": 0.6002224385738373,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19988879561424255,
+    0.8001112341880798
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-9-2-0",
+   "top1": 0.717115044593811,
+   "margin": 0.4342300295829773,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.717115044593811,
+    0.28288501501083374
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-9-2-1",
+   "top1": 0.954048752784729,
+   "margin": 0.9080974906682968,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04595126211643219,
+    0.954048752784729
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-9-3c",
+   "top1": 0.8385213613510132,
+   "margin": 0.733315572142601,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8385213613510132,
+    0.10520578920841217,
+    0.05627281963825226
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-10-0-0",
+   "top1": 0.8825482726097107,
+   "margin": 0.7650964930653572,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8825482726097107,
+    0.11745177954435349
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-10-0-1",
+   "top1": 0.8827101588249207,
+   "margin": 0.7654203176498413,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11728984117507935,
+    0.8827101588249207
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-10-1-0",
+   "top1": 0.6792998313903809,
+   "margin": 0.3585996627807617,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6792998313903809,
+    0.32070016860961914
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-10-1-1",
+   "top1": 0.8393274545669556,
+   "margin": 0.6786549240350723,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16067253053188324,
+    0.8393274545669556
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-10-2-0",
+   "top1": 0.7505324482917786,
+   "margin": 0.5010648369789124,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7505324482917786,
+    0.2494676113128662
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-10-2-1",
+   "top1": 0.9729549884796143,
+   "margin": 0.9459100253880024,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.027044963091611862,
+    0.9729549884796143
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-10-3c",
+   "top1": 0.8386124968528748,
+   "margin": 0.718610979616642,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8386124968528748,
+    0.12000151723623276,
+    0.04138603433966637
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-11-0-0",
+   "top1": 0.9556318521499634,
+   "margin": 0.9112637042999268,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9556318521499634,
+    0.04436814785003662
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-11-0-1",
+   "top1": 0.9689452052116394,
+   "margin": 0.9378903396427631,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.031054865568876266,
+    0.9689452052116394
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-11-1-0",
+   "top1": 0.7969900369644165,
+   "margin": 0.5939800590276718,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7969900369644165,
+    0.2030099779367447
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-11-1-1",
+   "top1": 0.9571520686149597,
+   "margin": 0.9143041484057903,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.04284792020916939,
+    0.9571520686149597
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-11-2-0",
+   "top1": 0.8018497228622437,
+   "margin": 0.6036995053291321,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8018497228622437,
+    0.19815021753311157
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-11-2-1",
+   "top1": 0.9896496534347534,
+   "margin": 0.9792993701994419,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.010350283235311508,
+    0.9896496534347534
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-11-3c",
+   "top1": 0.9186861515045166,
+   "margin": 0.8698778562247753,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9186861515045166,
+    0.04880829527974129,
+    0.03250555321574211
+   ],
+   "input_tokens": 187
+  },
+  {
+   "name": "v7-13-0-0",
+   "top1": 0.9288995862007141,
+   "margin": 0.8577992171049118,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9288995862007141,
+    0.07110036909580231
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-13-0-1",
+   "top1": 0.9175080060958862,
+   "margin": 0.8350160345435143,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.08249197155237198,
+    0.9175080060958862
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-13-1-0",
+   "top1": 0.8400744795799255,
+   "margin": 0.6801489144563675,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8400744795799255,
+    0.15992556512355804
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-13-1-1",
+   "top1": 0.8955031633377075,
+   "margin": 0.7910062968730927,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.10449686646461487,
+    0.8955031633377075
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-13-2-0",
+   "top1": 0.8228720426559448,
+   "margin": 0.6457441598176956,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8228720426559448,
+    0.1771278828382492
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-13-2-1",
+   "top1": 0.8402486443519592,
+   "margin": 0.6804972440004349,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.15975140035152435,
+    0.8402486443519592
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-13-3c",
+   "top1": 0.8733282685279846,
+   "margin": 0.8085228726267815,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8733282685279846,
+    0.06480539590120316,
+    0.06186641380190849
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-14-0-0",
+   "top1": 0.7329196333885193,
+   "margin": 0.4658392071723938,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2670804262161255,
+    0.7329196333885193
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-14-0-1",
+   "top1": 0.6386781334877014,
+   "margin": 0.2773562967777252,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6386781334877014,
+    0.3613218367099762
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-14-1-0",
+   "top1": 0.6379472017288208,
+   "margin": 0.2758943736553192,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3620528280735016,
+    0.6379472017288208
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-14-1-1",
+   "top1": 0.6956167817115784,
+   "margin": 0.39123356342315674,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.30438321828842163,
+    0.6956167817115784
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-14-2-0",
+   "top1": 0.6549186706542969,
+   "margin": 0.30983731150627136,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3450813591480255,
+    0.6549186706542969
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-14-2-1",
+   "top1": 0.5698776245117188,
+   "margin": 0.13975530862808228,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5698776245117188,
+    0.4301223158836365
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-14-3c",
+   "top1": 0.5017922520637512,
+   "margin": 0.23298001289367676,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.22939549386501312,
+    0.5017922520637512,
+    0.26881223917007446
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-15-0-0",
+   "top1": 0.7635827660560608,
+   "margin": 0.5271655321121216,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2364172339439392,
+    0.7635827660560608
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-15-0-1",
+   "top1": 0.8137360215187073,
+   "margin": 0.6274720281362534,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8137360215187073,
+    0.18626399338245392
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-15-1-0",
+   "top1": 0.5660101175308228,
+   "margin": 0.1320202350616455,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.43398988246917725,
+    0.5660101175308228
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-15-1-1",
+   "top1": 0.6052069664001465,
+   "margin": 0.21041396260261536,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.39479300379753113,
+    0.6052069664001465
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-15-2-0",
+   "top1": 0.838893711566925,
+   "margin": 0.6777874231338501,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.16110628843307495,
+    0.838893711566925
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-15-2-1",
+   "top1": 0.5059961676597595,
+   "margin": 0.011992335319519043,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5059961676597595,
+    0.4940038323402405
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-15-3c",
+   "top1": 0.4669569432735443,
+   "margin": 0.03473597764968872,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.1008220687508583,
+    0.4322209656238556,
+    0.4669569432735443
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-16-0-0",
+   "top1": 0.5833579301834106,
+   "margin": 0.16671591997146606,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5833579301834106,
+    0.4166420102119446
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-16-0-1",
+   "top1": 0.5038315653800964,
+   "margin": 0.007663130760192871,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.49616843461990356,
+    0.5038315653800964
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-16-1-0",
+   "top1": 0.5826863050460815,
+   "margin": 0.16537261009216309,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5826863050460815,
+    0.41731369495391846
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-16-1-1",
+   "top1": 0.574141800403595,
+   "margin": 0.14828357100486755,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4258582293987274,
+    0.574141800403595
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-16-2-0",
+   "top1": 0.5898213386535645,
+   "margin": 0.1796427071094513,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5898213386535645,
+    0.41017863154411316
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-16-2-1",
+   "top1": 0.5617468953132629,
+   "margin": 0.12349379062652588,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.43825310468673706,
+    0.5617468953132629
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v7-16-3c",
+   "top1": 0.37903717160224915,
+   "margin": 0.00247955322265625,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.37903717160224915,
+    0.24440523982048035,
+    0.3765576183795929
+   ],
+   "input_tokens": 188
+  },
+  {
+   "name": "v7-19-0-0",
+   "top1": 0.8919812440872192,
+   "margin": 0.7839624956250191,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8919812440872192,
+    0.10801874846220016
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-19-0-1",
+   "top1": 0.6990188956260681,
+   "margin": 0.3980378210544586,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3009810745716095,
+    0.6990188956260681
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-19-1-0",
+   "top1": 0.8426077365875244,
+   "margin": 0.6852154433727264,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8426077365875244,
+    0.15739229321479797
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-19-1-1",
+   "top1": 0.7053031921386719,
+   "margin": 0.41060638427734375,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2946968078613281,
+    0.7053031921386719
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-19-2-0",
+   "top1": 0.9432230591773987,
+   "margin": 0.8864460922777653,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9432230591773987,
+    0.05677696689963341
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-19-2-1",
+   "top1": 0.898564875125885,
+   "margin": 0.7971297353506088,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.10143513977527618,
+    0.898564875125885
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-19-3c",
+   "top1": 0.8094900846481323,
+   "margin": 0.6547832936048508,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8094900846481323,
+    0.15470679104328156,
+    0.035803165286779404
+   ],
+   "input_tokens": 194
+  },
+  {
+   "name": "v7-20-0-0",
+   "top1": 0.941803514957428,
+   "margin": 0.8836069777607918,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.941803514957428,
+    0.0581965371966362
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-20-0-1",
+   "top1": 0.8697106838226318,
+   "margin": 0.7394213825464249,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13028930127620697,
+    0.8697106838226318
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-20-1-0",
+   "top1": 0.9471622705459595,
+   "margin": 0.8943245336413383,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9471622705459595,
+    0.052837736904621124
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-20-1-1",
+   "top1": 0.8296927809715271,
+   "margin": 0.6593855172395706,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.17030726373195648,
+    0.8296927809715271
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-20-2-0",
+   "top1": 0.9722126126289368,
+   "margin": 0.944425156340003,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9722126126289368,
+    0.027787456288933754
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-20-2-1",
+   "top1": 0.8867268562316895,
+   "margin": 0.7734536603093147,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11327319592237473,
+    0.8867268562316895
+   ],
+   "input_tokens": 167
+  },
+  {
+   "name": "v7-20-3c",
+   "top1": 0.922221839427948,
+   "margin": 0.8713852576911449,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.922221839427948,
+    0.050836581736803055,
+    0.02694161981344223
+   ],
+   "input_tokens": 191
+  },
+  {
+   "name": "v7-22-0-0",
+   "top1": 0.9447349905967712,
+   "margin": 0.8894700184464455,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9447349905967712,
+    0.055264972150325775
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-0-1",
+   "top1": 0.8676258325576782,
+   "margin": 0.7352516502141953,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.13237418234348297,
+    0.8676258325576782
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-1-0",
+   "top1": 0.9546732902526855,
+   "margin": 0.9093465059995651,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9546732902526855,
+    0.04532678425312042
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-1-1",
+   "top1": 0.8556241989135742,
+   "margin": 0.7112483531236649,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.14437584578990936,
+    0.8556241989135742
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-2-0",
+   "top1": 0.9811484217643738,
+   "margin": 0.9622967969626188,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9811484217643738,
+    0.01885162480175495
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-2-1",
+   "top1": 0.8729024529457092,
+   "margin": 0.7458048462867737,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.12709760665893555,
+    0.8729024529457092
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-22-3c",
+   "top1": 0.9161028265953064,
+   "margin": 0.8528867289423943,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9161028265953064,
+    0.06321609765291214,
+    0.02068103291094303
+   ],
+   "input_tokens": 193
+  },
+  {
+   "name": "v7-26-0-0",
+   "top1": 0.9599757790565491,
+   "margin": 0.9199514910578728,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9599757790565491,
+    0.0400242879986763
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-26-0-1",
+   "top1": 0.7591021060943604,
+   "margin": 0.5182042419910431,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.24089786410331726,
+    0.7591021060943604
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-26-1-0",
+   "top1": 0.9216127991676331,
+   "margin": 0.8432255759835243,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9216127991676331,
+    0.07838722318410873
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-26-1-1",
+   "top1": 0.5550976991653442,
+   "margin": 0.11019545793533325,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.444902241230011,
+    0.5550976991653442
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-26-2-0",
+   "top1": 0.9829068779945374,
+   "margin": 0.9658138006925583,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9829068779945374,
+    0.017093077301979065
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-26-2-1",
+   "top1": 0.8137380480766296,
+   "margin": 0.6274760961532593,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18626195192337036,
+    0.8137380480766296
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-26-3c",
+   "top1": 0.9044159650802612,
+   "margin": 0.8233448415994644,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9044159650802612,
+    0.08107112348079681,
+    0.014512895606458187
+   ],
+   "input_tokens": 195
+  },
+  {
+   "name": "v7-27-0-0",
+   "top1": 0.94704270362854,
+   "margin": 0.8940854258835316,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.94704270362854,
+    0.05295727774500847
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-27-0-1",
+   "top1": 0.9008142352104187,
+   "margin": 0.801628477871418,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.0991857573390007,
+    0.9008142352104187
+   ],
+   "input_tokens": 170
+  },
+  {
+   "name": "v7-27-1-0",
+   "top1": 0.9004486203193665,
+   "margin": 0.8008972257375717,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9004486203193665,
+    0.09955139458179474
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-27-1-1",
+   "top1": 0.8174423575401306,
+   "margin": 0.6348846554756165,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.18255770206451416,
+    0.8174423575401306
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v7-27-2-0",
+   "top1": 0.9644896388053894,
+   "margin": 0.92897929251194,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9644896388053894,
+    0.0355103462934494
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-27-2-1",
+   "top1": 0.8675781488418579,
+   "margin": 0.735156312584877,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1324218362569809,
+    0.8675781488418579
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-27-3c",
+   "top1": 0.8862311840057373,
+   "margin": 0.8158827871084213,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8862311840057373,
+    0.07034839689731598,
+    0.04342036321759224
+   ],
+   "input_tokens": 193
+  },
+  {
+   "name": "v7-28-0-0",
+   "top1": 0.9744275212287903,
+   "margin": 0.9488550610840321,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9744275212287903,
+    0.025572460144758224
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-28-0-1",
+   "top1": 0.9413384795188904,
+   "margin": 0.882676936686039,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05866154283285141,
+    0.9413384795188904
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-28-1-0",
+   "top1": 0.891797661781311,
+   "margin": 0.7835952714085579,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.891797661781311,
+    0.10820239037275314
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-28-1-1",
+   "top1": 0.881982147693634,
+   "margin": 0.7639643400907516,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.11801780760288239,
+    0.881982147693634
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v7-28-2-0",
+   "top1": 0.9591594338417053,
+   "margin": 0.9183188751339912,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9591594338417053,
+    0.04084055870771408
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-28-2-1",
+   "top1": 0.9258824586868286,
+   "margin": 0.8517649173736572,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.07411754131317139,
+    0.9258824586868286
+   ],
+   "input_tokens": 168
+  },
+  {
+   "name": "v7-28-3c",
+   "top1": 0.9464380741119385,
+   "margin": 0.9037002809345722,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9464380741119385,
+    0.04273779317736626,
+    0.010824165306985378
+   ],
+   "input_tokens": 192
+  },
+  {
+   "name": "v8-0-0-0",
+   "top1": 0.9340035319328308,
+   "margin": 0.868007093667984,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9340035319328308,
+    0.0659964382648468
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-0-0-1",
+   "top1": 0.9393178224563599,
+   "margin": 0.8786356449127197,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06068217754364014,
+    0.9393178224563599
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-0-1-0",
+   "top1": 0.971126914024353,
+   "margin": 0.9422538690268993,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.971126914024353,
+    0.02887304499745369
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-0-1-1",
+   "top1": 0.9617041945457458,
+   "margin": 0.9234083965420723,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.03829579800367355,
+    0.9617041945457458
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-0-2-0",
+   "top1": 0.9663636088371277,
+   "margin": 0.9327272325754166,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9663636088371277,
+    0.03363637626171112
+   ],
+   "input_tokens": 143
+  },
+  {
+   "name": "v8-0-2-1",
+   "top1": 0.9473207592964172,
+   "margin": 0.894641537219286,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.05267922207713127,
+    0.9473207592964172
+   ],
+   "input_tokens": 143
+  },
+  {
+   "name": "v8-0-3c",
+   "top1": 0.9174226522445679,
+   "margin": 0.8522206619381905,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9174226522445679,
+    0.06520199030637741,
+    0.017375418916344643
+   ],
+   "input_tokens": 159
+  },
+  {
+   "name": "v8-3-0-0",
+   "top1": 0.9867528676986694,
+   "margin": 0.9735057083889842,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9867528676986694,
+    0.01324715930968523
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-3-0-1",
+   "top1": 0.9875877499580383,
+   "margin": 0.9751755082979798,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.012412241660058498,
+    0.9875877499580383
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-3-1-0",
+   "top1": 0.9909452199935913,
+   "margin": 0.9818904343992472,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9909452199935913,
+    0.009054785594344139
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-3-1-1",
+   "top1": 0.9909886717796326,
+   "margin": 0.9819773565977812,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.009011315181851387,
+    0.9909886717796326
+   ],
+   "input_tokens": 144
+  },
+  {
+   "name": "v8-3-2-0",
+   "top1": 0.9659639000892639,
+   "margin": 0.931927714496851,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9659639000892639,
+    0.03403618559241295
+   ],
+   "input_tokens": 143
+  },
+  {
+   "name": "v8-3-2-1",
+   "top1": 0.9818335175514221,
+   "margin": 0.9636670686304569,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.018166448920965195,
+    0.9818335175514221
+   ],
+   "input_tokens": 143
+  },
+  {
+   "name": "v8-3-3c",
+   "top1": 0.9778428673744202,
+   "margin": 0.9636750761419535,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9778428673744202,
+    0.014167791232466698,
+    0.007989304140210152
+   ],
+   "input_tokens": 158
+  },
+  {
+   "name": "v8-5-0-0",
+   "top1": 0.6727521419525146,
+   "margin": 0.3455043137073517,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6727521419525146,
+    0.32724782824516296
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-5-0-1",
+   "top1": 0.5548579692840576,
+   "margin": 0.10971593856811523,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5548579692840576,
+    0.4451420307159424
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-5-1-0",
+   "top1": 0.7337154150009155,
+   "margin": 0.46743080019950867,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7337154150009155,
+    0.26628461480140686
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-5-1-1",
+   "top1": 0.6597021818161011,
+   "margin": 0.31940436363220215,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3402978181838989,
+    0.6597021818161011
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-5-2-0",
+   "top1": 0.8507817983627319,
+   "margin": 0.7015635371208191,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8507817983627319,
+    0.14921826124191284
+   ],
+   "input_tokens": 141
+  },
+  {
+   "name": "v8-5-2-1",
+   "top1": 0.9224401712417603,
+   "margin": 0.8448802903294563,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.07755988091230392,
+    0.9224401712417603
+   ],
+   "input_tokens": 141
+  },
+  {
+   "name": "v8-5-3c",
+   "top1": 0.6654118895530701,
+   "margin": 0.3882012367248535,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6654118895530701,
+    0.27721065282821655,
+    0.057377491146326065
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v8-8-0-0",
+   "top1": 0.9858742952346802,
+   "margin": 0.9717485681176186,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9858742952346802,
+    0.014125727117061615
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-8-0-1",
+   "top1": 0.9737904667854309,
+   "margin": 0.9475808907300234,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.026209576055407524,
+    0.9737904667854309
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-8-1-0",
+   "top1": 0.9835842847824097,
+   "margin": 0.9671686161309481,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9835842847824097,
+    0.0164156686514616
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-8-1-1",
+   "top1": 0.9744857549667358,
+   "margin": 0.9489715229719877,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.025514231994748116,
+    0.9744857549667358
+   ],
+   "input_tokens": 142
+  },
+  {
+   "name": "v8-8-2-0",
+   "top1": 0.9845520853996277,
+   "margin": 0.9691041251644492,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9845520853996277,
+    0.01544796023517847
+   ],
+   "input_tokens": 141
+  },
+  {
+   "name": "v8-8-2-1",
+   "top1": 0.9664204716682434,
+   "margin": 0.9328409656882286,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.0335795059800148,
+    0.9664204716682434
+   ],
+   "input_tokens": 141
+  },
+  {
+   "name": "v8-8-3c",
+   "top1": 0.9794446229934692,
+   "margin": 0.9651351468637586,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9794446229934692,
+    0.014309476129710674,
+    0.0062459297478199005
+   ],
+   "input_tokens": 156
+  },
+  {
+   "name": "v9-1-0-0",
+   "top1": 0.5995749235153198,
+   "margin": 0.19914981722831726,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.40042510628700256,
+    0.5995749235153198
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-1-0-1",
+   "top1": 0.8284167051315308,
+   "margin": 0.6568334400653839,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8284167051315308,
+    0.17158326506614685
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-1-1-0",
+   "top1": 0.5088351368904114,
+   "margin": 0.017670243978500366,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.491164892911911,
+    0.5088351368904114
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-1-1-1",
+   "top1": 0.8181571960449219,
+   "margin": 0.6363144069910049,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8181571960449219,
+    0.18184278905391693
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-1-2-0",
+   "top1": 0.916143536567688,
+   "margin": 0.8322870805859566,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.916143536567688,
+    0.08385645598173141
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v9-1-2-1",
+   "top1": 0.5205187201499939,
+   "margin": 0.041037410497665405,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4794813096523285,
+    0.5205187201499939
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v9-1-3c",
+   "top1": 0.5226647257804871,
+   "margin": 0.24698513746261597,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.2756795883178711,
+    0.5226647257804871,
+    0.20165573060512543
+   ],
+   "input_tokens": 169
+  },
+  {
+   "name": "v9-3-0-0",
+   "top1": 0.8495804071426392,
+   "margin": 0.6991607844829559,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8495804071426392,
+    0.15041962265968323
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-3-0-1",
+   "top1": 0.8499704003334045,
+   "margin": 0.6999408453702927,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.15002955496311188,
+    0.8499704003334045
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-3-1-0",
+   "top1": 0.7501118183135986,
+   "margin": 0.5002236664295197,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7501118183135986,
+    0.24988815188407898
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-3-1-1",
+   "top1": 0.7771908640861511,
+   "margin": 0.5543817430734634,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.22280912101268768,
+    0.7771908640861511
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-3-2-0",
+   "top1": 0.7808573842048645,
+   "margin": 0.5617147982120514,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7808573842048645,
+    0.2191425859928131
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-3-2-1",
+   "top1": 0.6294650435447693,
+   "margin": 0.2589300870895386,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.3705349564552307,
+    0.6294650435447693
+   ],
+   "input_tokens": 152
+  },
+  {
+   "name": "v9-3-3c",
+   "top1": 0.757746696472168,
+   "margin": 0.5460131764411926,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.757746696472168,
+    0.21173352003097534,
+    0.030519867315888405
+   ],
+   "input_tokens": 171
+  },
+  {
+   "name": "v9-4-0-0",
+   "top1": 0.8899028897285461,
+   "margin": 0.7798057571053505,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8899028897285461,
+    0.11009713262319565
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-4-0-1",
+   "top1": 0.806603729724884,
+   "margin": 0.6132074296474457,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19339630007743835,
+    0.806603729724884
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-4-1-0",
+   "top1": 0.6882612109184265,
+   "margin": 0.37652239203453064,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6882612109184265,
+    0.3117388188838959
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-4-1-1",
+   "top1": 0.7911931276321411,
+   "margin": 0.5823862552642822,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2088068723678589,
+    0.7911931276321411
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-4-2-0",
+   "top1": 0.7210963368415833,
+   "margin": 0.4421926736831665,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.7210963368415833,
+    0.27890366315841675
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-4-2-1",
+   "top1": 0.797779381275177,
+   "margin": 0.5955587476491928,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.2022206336259842,
+    0.797779381275177
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-4-3c",
+   "top1": 0.8347561955451965,
+   "margin": 0.6930250227451324,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8347561955451965,
+    0.1417311728000641,
+    0.02351260744035244
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v9-6-0-0",
+   "top1": 0.9592583775520325,
+   "margin": 0.9185167774558067,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9592583775520325,
+    0.04074160009622574
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-6-0-1",
+   "top1": 0.7710838317871094,
+   "margin": 0.5421676784753799,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.22891615331172943,
+    0.7710838317871094
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-6-1-0",
+   "top1": 0.9188485145568848,
+   "margin": 0.8376970291137695,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9188485145568848,
+    0.08115148544311523
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-6-1-1",
+   "top1": 0.8446611762046814,
+   "margin": 0.689322367310524,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1553388088941574,
+    0.8446611762046814
+   ],
+   "input_tokens": 154
+  },
+  {
+   "name": "v9-6-2-0",
+   "top1": 0.857437252998352,
+   "margin": 0.7148744761943817,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.857437252998352,
+    0.14256277680397034
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-6-2-1",
+   "top1": 0.7928912043571472,
+   "margin": 0.5857823640108109,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.20710884034633636,
+    0.7928912043571472
+   ],
+   "input_tokens": 153
+  },
+  {
+   "name": "v9-6-3c",
+   "top1": 0.9441325068473816,
+   "margin": 0.9024529382586479,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9441325068473816,
+    0.04167956858873367,
+    0.014187888242304325
+   ],
+   "input_tokens": 172
+  },
+  {
+   "name": "v9-9-0-0",
+   "top1": 0.99355149269104,
+   "margin": 0.9871030296199024,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.99355149269104,
+    0.006448463071137667
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v9-9-0-1",
+   "top1": 0.9786937236785889,
+   "margin": 0.9573874901980162,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.0213062334805727,
+    0.9786937236785889
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v9-9-1-0",
+   "top1": 0.9879988431930542,
+   "margin": 0.9759976789355278,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9879988431930542,
+    0.012001164257526398
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v9-9-1-1",
+   "top1": 0.9537496566772461,
+   "margin": 0.907499335706234,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.046250320971012115,
+    0.9537496566772461
+   ],
+   "input_tokens": 151
+  },
+  {
+   "name": "v9-9-2-0",
+   "top1": 0.9829045534133911,
+   "margin": 0.9658091347664595,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9829045534133911,
+    0.017095418646931648
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v9-9-2-1",
+   "top1": 0.9558899402618408,
+   "margin": 0.9117798209190369,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.044110119342803955,
+    0.9558899402618408
+   ],
+   "input_tokens": 150
+  },
+  {
+   "name": "v9-9-3c",
+   "top1": 0.9909809231758118,
+   "margin": 0.9834474148228765,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9909809231758118,
+    0.007533508352935314,
+    0.0014855663757771254
+   ],
+   "input_tokens": 166
+  },
+  {
+   "name": "v9-12-0-0",
+   "top1": 0.9120654463768005,
+   "margin": 0.8241308927536011,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9120654463768005,
+    0.08793455362319946
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-0-1",
+   "top1": 0.6433674097061157,
+   "margin": 0.28673478960990906,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6433674097061157,
+    0.35663262009620667
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-1-0",
+   "top1": 0.6918219327926636,
+   "margin": 0.38364389538764954,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6918219327926636,
+    0.30817803740501404
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-1-1",
+   "top1": 0.8981801867485046,
+   "margin": 0.7963603660464287,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8981801867485046,
+    0.10181982070207596
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-2-0",
+   "top1": 0.60139399766922,
+   "margin": 0.20278799533843994,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.60139399766922,
+    0.39860600233078003
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-2-1",
+   "top1": 0.9008784294128418,
+   "margin": 0.8017568960785866,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9008784294128418,
+    0.09912153333425522
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-12-3c",
+   "top1": 0.8936085104942322,
+   "margin": 0.8150499314069748,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.8936085104942322,
+    0.07855857908725739,
+    0.027832888066768646
+   ],
+   "input_tokens": 161
+  },
+  {
+   "name": "v9-13-0-0",
+   "top1": 0.523308277130127,
+   "margin": 0.046616584062576294,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.523308277130127,
+    0.47669169306755066
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-13-0-1",
+   "top1": 0.6321367025375366,
+   "margin": 0.26427337527275085,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6321367025375366,
+    0.36786332726478577
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-13-1-0",
+   "top1": 0.8229236602783203,
+   "margin": 0.6458473354578018,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1770763248205185,
+    0.8229236602783203
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-13-1-1",
+   "top1": 0.6367118954658508,
+   "margin": 0.2734237611293793,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6367118954658508,
+    0.36328813433647156
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-13-2-0",
+   "top1": 0.5045379400253296,
+   "margin": 0.009075909852981567,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.5045379400253296,
+    0.495462030172348
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-13-2-1",
+   "top1": 0.5616599917411804,
+   "margin": 0.12332001328468323,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4383399784564972,
+    0.5616599917411804
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-13-3c",
+   "top1": 0.4148187041282654,
+   "margin": 0.083304762840271,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4148187041282654,
+    0.3315139412879944,
+    0.253667414188385
+   ],
+   "input_tokens": 162
+  },
+  {
+   "name": "v9-15-0-0",
+   "top1": 0.6498644948005676,
+   "margin": 0.2997289299964905,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6498644948005676,
+    0.35013556480407715
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-15-0-1",
+   "top1": 0.7372292876243591,
+   "margin": 0.47445857524871826,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.26277071237564087,
+    0.7372292876243591
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-15-1-0",
+   "top1": 0.516247034072876,
+   "margin": 0.03249406814575195,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.516247034072876,
+    0.483752965927124
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-15-1-1",
+   "top1": 0.606258749961853,
+   "margin": 0.21251752972602844,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.606258749961853,
+    0.3937412202358246
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-15-2-0",
+   "top1": 0.8081543445587158,
+   "margin": 0.6163086593151093,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.19184568524360657,
+    0.8081543445587158
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-15-2-1",
+   "top1": 0.5568001866340637,
+   "margin": 0.11360034346580505,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.44319984316825867,
+    0.5568001866340637
+   ],
+   "input_tokens": 147
+  },
+  {
+   "name": "v9-15-3c",
+   "top1": 0.48748302459716797,
+   "margin": 0.14676329493522644,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.34071972966194153,
+    0.17179730534553528,
+    0.48748302459716797
+   ],
+   "input_tokens": 163
+  },
+  {
+   "name": "v9-16-0-0",
+   "top1": 0.9802346229553223,
+   "margin": 0.9604692626744509,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.01976536028087139,
+    0.9802346229553223
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-16-0-1",
+   "top1": 0.9715555906295776,
+   "margin": 0.9431111235171556,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9715555906295776,
+    0.02844446711242199
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-16-1-0",
+   "top1": 0.9329754710197449,
+   "margin": 0.8659509122371674,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.06702455878257751,
+    0.9329754710197449
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-16-1-1",
+   "top1": 0.9293335676193237,
+   "margin": 0.8586671352386475,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9293335676193237,
+    0.07066643238067627
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-16-2-0",
+   "top1": 0.871367871761322,
+   "margin": 0.7427357733249664,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.1286320984363556,
+    0.871367871761322
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-16-2-1",
+   "top1": 0.6696516275405884,
+   "margin": 0.339303195476532,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6696516275405884,
+    0.3303484320640564
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-16-3c",
+   "top1": 0.984569251537323,
+   "margin": 0.9727229876443744,
+   "candidates": 3,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.011846263892948627,
+    0.984569251537323,
+    0.0035845066886395216
+   ],
+   "input_tokens": 164
+  },
+  {
+   "name": "v9-17-0-0",
+   "top1": 0.531827986240387,
+   "margin": 0.06365597248077393,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.531827986240387,
+    0.46817201375961304
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-17-0-1",
+   "top1": 0.6940643787384033,
+   "margin": 0.38812875747680664,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.6940643787384033,
+    0.3059356212615967
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-17-1-0",
+   "top1": 0.739965558052063,
+   "margin": 0.47993114590644836,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.739965558052063,
+    0.2600344121456146
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-17-1-1",
+   "top1": 0.9460144639015198,
+   "margin": 0.8920288719236851,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.9460144639015198,
+    0.0539855919778347
+   ],
+   "input_tokens": 149
+  },
+  {
+   "name": "v9-17-2-0",
+   "top1": 0.5370345115661621,
+   "margin": 0.07406902313232422,
+   "candidates": 2,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.4629654884338379,
+    0.5370345115661621
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-17-2-1",
+   "top1": 0.830553412437439,
+   "margin": 0.6611068695783615,
+   "candidates": 2,
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "probabilities": [
+    0.830553412437439,
+    0.16944654285907745
+   ],
+   "input_tokens": 148
+  },
+  {
+   "name": "v9-17-3c",
+   "top1": 0.370278924703598,
+   "margin": 0.0055984556674957275,
+   "candidates": 3,
+   "judgment": {
+    "kind": "abstained"
+   },
+   "probabilities": [
+    0.370278924703598,
+    0.2650406062602997,
+    0.3646804690361023
+   ],
+   "input_tokens": 164
+  }
+ ]
+}

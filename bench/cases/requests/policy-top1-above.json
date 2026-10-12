@@ -1,0 +1,42 @@
+{
+ "provenance": "bench/search_policy_boundary.py variant v3-10-1-1 of 651; Native API search result below (the reference is the official one in the catalog)",
+ "search": {
+  "top1": 0.7021963596343994,
+  "margin": 0.40439265966415405,
+  "probabilities": [
+   0.7021963596343994,
+   0.29780369997024536
+  ],
+  "judgment": {
+   "candidate_id": "alternative",
+   "kind": "selected"
+  },
+  "input_tokens": 149
+ },
+ "policy": {
+  "min_probability": 0.7,
+  "min_margin": 0.1,
+  "cpu_threads": 1
+ },
+ "request": {
+  "request_id": "policy-top1-above",
+  "document_id": "policy-boundary",
+  "segment_id": "v3-10-1-1",
+  "original_text": "Total: 4,5■0 JPY",
+  "source": "ocr",
+  "profile_id": "synthetic.policy-boundary",
+  "domain": null,
+  "question_id": "transcription-candidate.v1",
+  "candidates": [
+   {
+    "id": "alternative",
+    "text": "Total: 4,5b0 JPY"
+   },
+   {
+    "id": "original",
+    "text": "Total: 4,560 JPY"
+   }
+  ],
+  "reason": "candidate_competition"
+ }
+}
