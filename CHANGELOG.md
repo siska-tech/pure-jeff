@@ -2,7 +2,7 @@
 
 Changes to the `pure-jeff` crate. Records of how each change was verified are linked from each entry.
 
-## [0.1.1] - unreleased
+## [0.1.1] - 2026-10-12
 
 Faster and smaller Native inference. **Outputs are bitwise identical to 0.1.0.**
 
@@ -54,5 +54,5 @@ One thread, Windows 11, Core i7-1360P, artificial inputs. These are descriptive 
 
 First release: verified bundle manifests, `Model` (resident) and `ColdProvider`, in-memory `memory::Session`, one-request worker processes (`process` feature), and the decision contract (`DecisionRequest`, `Observation`, `Attempt`). Checked against the official implementation on seven reference cases ([record](docs/crate-release-results-2026-10-12.md)).
 
-[0.1.1]: https://github.com/siska-tech/pure-jeff/compare/v0.1.0...main
+[0.1.1]: https://github.com/siska-tech/pure-jeff/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/siska-tech/pure-jeff/releases/tag/v0.1.0
