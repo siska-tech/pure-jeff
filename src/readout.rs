@@ -1,7 +1,7 @@
 //! Answer-code readout: masked, temperature-scaled softmax over the supplied candidates.
 use crate::WeightSource;
 use anyhow::{ensure, Result};
-use candle_core::{DType, Device, Tensor};
+use candle_core::{Device, Tensor};
 pub fn probabilities(
     readout: &dyn WeightSource,
     hidden: &Tensor,
@@ -12,7 +12,7 @@ pub fn probabilities(
         (2..=255).contains(&count) && temperature.is_finite() && temperature > 0.0,
         "invalid readout request"
     );
-    let weight = readout.load("weight", &Device::Cpu)?.to_dtype(DType::F32)?;
+    let weight = readout.load_f32("weight")?;
     ensure!(
         weight.dims() == [255, 1024] && hidden.dims() == [1, 1024],
         "readout shape mismatch"

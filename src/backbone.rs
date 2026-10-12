@@ -2,14 +2,14 @@
 //! Equations checked against Transformers 5.17.0 Qwen3.5 (Apache-2.0).
 //! No cache, padding, image inputs, quantization, or production deadline guarantee.
 use crate::WeightSource;
-use candle_core::{CpuStorage, DType, Device, Result, Storage, Tensor, D};
+use candle_core::{CpuStorage, Device, Result, Storage, Tensor, D};
 
 const H: usize = 16;
 const K: usize = 128;
 const V: usize = 128;
 
 fn weight(weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-    weights.load(name, &Device::Cpu)?.to_dtype(DType::F32)
+    weights.load_f32(name)
 }
 
 fn linear(x: &Tensor, weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
@@ -285,10 +285,7 @@ pub fn forward_checked(
     if seq == 0 || seq > 8192 {
         candle_core::bail!("probe requires 1..=8192 unpadded text tokens")
     }
-    let embedding = weights.load("language_model.embed_tokens.weight", &Device::Cpu)?;
-    let indices = Tensor::new(ids, &Device::Cpu)?;
-    let mut x = embedding.index_select(&indices, 0)?.to_dtype(DType::F32)?;
-    drop(embedding);
+    let mut x = weights.load_f32_rows("language_model.embed_tokens.weight", ids)?;
     for i in 0..24 {
         check()?;
         let prefix = format!("language_model.layers.{i}");
@@ -309,6 +306,7 @@ pub fn forward_checked(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use candle_core::DType;
 
     #[test]
     fn delta_update_decay_and_state_isolation() -> Result<()> {

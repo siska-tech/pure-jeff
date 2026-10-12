@@ -20,9 +20,8 @@ use std::{
 mod prof {
     use std::{cell::RefCell, time::Instant};
 
-    pub const NAMES: [&str; 23] = [
-        "weight_load",
-        "bf16_to_f32",
+    pub const NAMES: [&str; 22] = [
+        "weight_load_f32",
         "embedding",
         "linear_matmul",
         "rmsnorm",
@@ -75,40 +74,38 @@ mod prof {
 
 mod profiled {
     use super::prof::timed;
-    use candle_core::{CpuStorage, DType, Device, Result, Storage, Tensor, D};
+    use candle_core::{CpuStorage, Device, Result, Storage, Tensor, D};
     use pure_jeff::WeightSource;
 
-    const WEIGHT_LOAD: usize = 0;
-    const BF16_TO_F32: usize = 1;
-    const EMBEDDING: usize = 2;
-    const LINEAR_MATMUL: usize = 3;
-    const RMSNORM: usize = 4;
-    const RESIDUAL_ADD: usize = 5;
-    const MLP_SILU_MUL: usize = 6;
-    const CONV1D_SILU: usize = 7;
-    const QK_L2: usize = 8;
-    const BETA_SIGMOID: usize = 9;
-    const SOFTPLUS_G: usize = 10;
-    const DELTA_RECURRENCE: usize = 11;
-    const DELTA_OUT_NORM: usize = 12;
-    const Z_SILU_GATE: usize = 13;
-    const LINEAR_ATTN_LAYOUT: usize = 14;
-    const FULL_QKV_LAYOUT: usize = 15;
-    const ROTARY: usize = 16;
-    const KV_REPEAT: usize = 17;
-    const SCORES_MATMUL: usize = 18;
-    const MASK_SOFTMAX: usize = 19;
-    const PROBS_MATMUL: usize = 20;
-    const FULL_OUT_GATE: usize = 21;
-    const FINAL_NORM: usize = 22;
+    const WEIGHT_LOAD_F32: usize = 0;
+    const EMBEDDING: usize = 1;
+    const LINEAR_MATMUL: usize = 2;
+    const RMSNORM: usize = 3;
+    const RESIDUAL_ADD: usize = 4;
+    const MLP_SILU_MUL: usize = 5;
+    const CONV1D_SILU: usize = 6;
+    const QK_L2: usize = 7;
+    const BETA_SIGMOID: usize = 8;
+    const SOFTPLUS_G: usize = 9;
+    const DELTA_RECURRENCE: usize = 10;
+    const DELTA_OUT_NORM: usize = 11;
+    const Z_SILU_GATE: usize = 12;
+    const LINEAR_ATTN_LAYOUT: usize = 13;
+    const FULL_QKV_LAYOUT: usize = 14;
+    const ROTARY: usize = 15;
+    const KV_REPEAT: usize = 16;
+    const SCORES_MATMUL: usize = 17;
+    const MASK_SOFTMAX: usize = 18;
+    const PROBS_MATMUL: usize = 19;
+    const FULL_OUT_GATE: usize = 20;
+    const FINAL_NORM: usize = 21;
 
     const H: usize = 16;
     const K: usize = 128;
     const V: usize = 128;
 
     fn weight(weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-        let loaded = timed(WEIGHT_LOAD, || weights.load(name, &Device::Cpu))?;
-        timed(BF16_TO_F32, || loaded.to_dtype(DType::F32))
+        timed(WEIGHT_LOAD_F32, || weights.load_f32(name))
     }
 
     fn linear(x: &Tensor, weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
@@ -372,9 +369,7 @@ mod profiled {
     pub fn forward(weights: &dyn WeightSource, ids: &[u32]) -> Result<Tensor> {
         let seq = ids.len();
         let mut x = timed(EMBEDDING, || {
-            let embedding = weights.load("language_model.embed_tokens.weight", &Device::Cpu)?;
-            let indices = Tensor::new(ids, &Device::Cpu)?;
-            embedding.index_select(&indices, 0)?.to_dtype(DType::F32)
+            weights.load_f32_rows("language_model.embed_tokens.weight", ids)
         })?;
         for i in 0..24 {
             let prefix = format!("language_model.layers.{i}");
