@@ -15,12 +15,12 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 CRATES = {  # name -> (manifest, targets that are shipped)
-    "core": ("Cargo.toml", ["x86_64-pc-windows-msvc"]),
-    "native": ("runtime/rust/Cargo.toml", ["x86_64-pc-windows-msvc"]),
+    "library": ("Cargo.toml", ["x86_64-pc-windows-msvc"]),
+    "cli": ("runtime/rust/Cargo.toml", ["x86_64-pc-windows-msvc"]),
     "probe": ("runtime/wasm/Cargo.toml", ["wasm32-unknown-unknown", "x86_64-pc-windows-msvc"]),
     "engine": ("apps/web-demo/engine/Cargo.toml", ["wasm32-unknown-unknown", "x86_64-pc-windows-msvc"]),
 }
-OWN = {"kaze_judge", "kaze_judge_jeff", "kaze_judge_wasm_probe", "kaze_judge_web_demo"}
+OWN = {"pure-jeff", "pure-jeff-cli", "pure-jeff-wasm-probe", "pure-jeff-web-demo"}
 PERMISSIVE = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Zlib", "Unicode-3.0",
               "Unicode-DFS-2016", "BSL-1.0", "CC0-1.0", "Unlicense", "Apache-2.0 WITH LLVM-exception", "0BSD"}
 TEXT_NAMES = re.compile(r"^(LICEN[CS]E|COPYING|NOTICE|UNLICENSE)([-_.].*)?$", re.IGNORECASE)

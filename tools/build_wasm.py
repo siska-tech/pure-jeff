@@ -19,8 +19,8 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 SEPARATOR = "\x1f"  # CARGO_ENCODED_RUSTFLAGS field separator
-CRATES = {"probe": ("runtime/wasm/Cargo.toml", "kaze_judge_wasm_probe"),
-          "engine": ("apps/web-demo/engine/Cargo.toml", "kaze_judge_web_demo")}
+CRATES = {"probe": ("runtime/wasm/Cargo.toml", "pure_jeff_wasm_probe"),
+          "engine": ("apps/web-demo/engine/Cargo.toml", "pure_jeff_web_demo")}
 
 
 def main():

@@ -72,7 +72,7 @@ fn main() -> Result<()> {
         "unsupported reference"
     );
     ensure!(
-        manifest["schema_version"] == "kaze_judge.jeff_bundle.v1",
+        manifest["schema_version"] == "pure_jeff.reference_bundle.v1",
         "unsupported bundle"
     );
     ensure!(

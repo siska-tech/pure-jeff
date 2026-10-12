@@ -352,9 +352,11 @@ mod tests {
     }
     #[test]
     fn paths_deadlines_and_required_sets_are_enforced() {
-        for p in ["", "../model", "/model", "C:\\model", "a/../b"] {
+        for p in ["", "../model", "/model", "a/../b"] {
             assert!(relative(Path::new(p)).is_err(), "{p}");
         }
+        // A drive prefix is absolute only on Windows; elsewhere `C:\model` is one plain name.
+        assert_eq!(relative(Path::new("C:\\model")).is_err(), cfg!(windows));
         assert!(validate_records(&[]).is_err());
         assert!(check_time(Instant::now()).is_err());
     }

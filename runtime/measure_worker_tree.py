@@ -57,7 +57,7 @@ def main():
         for name in ("candidate-request","reversed","asr-unicode"):
             golden = json.loads((Path("tests/fixtures/jeff-golden")/(name+".json")).read_text(encoding="utf-8"))
             wire, output = work/"wire.json",work/(name+".json")
-            wire.write_text(json.dumps({"schema_version":"kaze_judge.worker.v1","request":golden["request"],
+            wire.write_text(json.dumps({"schema_version":"pure_jeff.worker.v1","request":golden["request"],
                 "max_input_tokens":512,"max_forwards":1,"timeout_ms":120000},ensure_ascii=False),encoding="utf-8")
             process = subprocess.Popen([str(args.python.resolve()),"-I","-B",str(Path("runtime/jeff_worker.py").resolve()),
                 "--manifest",str(args.manifest.resolve()),"--request",str(wire),"--response",str(output)],

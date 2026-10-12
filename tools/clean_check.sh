@@ -24,8 +24,8 @@ step() {
   [ "$code" -eq 0 ] || failed=1
 }
 step "fetch model" "$PY" -B tools/fetch_model.py
-export KAZE_JUDGE_PYTHON
-KAZE_JUDGE_PYTHON=$(command -v "$PY")
+export PURE_JEFF_PYTHON
+PURE_JEFF_PYTHON=$(command -v "$PY")
 export CARGO_TARGET_DIR="$WORK/target-native"
 step "contract test" cargo test --locked --all-features
 step "native test" cargo test --locked --release --manifest-path runtime/rust/Cargo.toml

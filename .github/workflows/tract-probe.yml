@@ -8,8 +8,6 @@ on:
       - runtime/tract-driver-profile/**
       - runtime/onnx/**
       - runtime/bench-native/**
-      - runtime/rust/**
-      - src/**
       - docs/research/jeff-onnx-tract/**
       - docs/tract-migration-provenance.json
       - tools/verify_tract_migration.py
@@ -21,8 +19,6 @@ on:
       - runtime/tract-driver-profile/**
       - runtime/onnx/**
       - runtime/bench-native/**
-      - runtime/rust/**
-      - src/**
       - docs/research/jeff-onnx-tract/**
       - docs/tract-migration-provenance.json
       - tools/verify_tract_migration.py
@@ -238,10 +234,16 @@ jobs:
       - name: Build and lint isolated native benchmark wrapper
         shell: pwsh
         run: |
+          # The frozen wrapper depends on the Native crates by their names before the pure-jeff
+          # library (kaze_judge, kaze_judge_jeff); build it from the last commit that has them.
+          $archive = Join-Path $PWD '.venv/bench-native-6dd46bf'
+          New-Item -ItemType Directory -Force $archive | Out-Null
+          git archive 6dd46bf Cargo.toml Cargo.lock src examples runtime/rust runtime/bench-native | tar -x -C $archive
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
           $env:CARGO_TARGET_DIR = Join-Path $PWD '.venv/bench-native-target'
-          cargo build --locked --release --manifest-path runtime/bench-native/Cargo.toml
+          cargo build --locked --release --manifest-path (Join-Path $archive 'runtime/bench-native/Cargo.toml')
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-          cargo clippy --locked --release --manifest-path runtime/bench-native/Cargo.toml -- -D warnings
+          cargo clippy --locked --release --manifest-path (Join-Path $archive 'runtime/bench-native/Cargo.toml') -- -D warnings
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-          cargo fmt --manifest-path runtime/bench-native/Cargo.toml -- --check
+          cargo fmt --manifest-path (Join-Path $archive 'runtime/bench-native/Cargo.toml') -- --check
           exit $LASTEXITCODE

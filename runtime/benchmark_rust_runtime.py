@@ -98,7 +98,7 @@ def main():
             request = work/(name+".json")
             request.write_text(json.dumps(golden["request"],ensure_ascii=False),encoding="utf-8")
             wire = work/(name+"-wire.json")
-            wire.write_text(json.dumps({"schema_version":"kaze_judge.worker.v1","request":golden["request"],
+            wire.write_text(json.dumps({"schema_version":"pure_jeff.worker.v1","request":golden["request"],
                 "max_input_tokens":512,"max_forwards":1,"timeout_ms":120000},ensure_ascii=False),encoding="utf-8")
             def check(observed):
                 assert observed["judgment"] == golden["official"]["judgment"]
@@ -116,7 +116,7 @@ def main():
                     command += ["--manifest",manifest if backend == "rust_worker" else python_manifest,"--request",wire,"--response",output]
                     _, measurement = invoke(command,restricted if backend == "rust_worker" else None)
                     response = json.loads(output.read_text(encoding="utf-8"))
-                    assert response["schema_version"] == "kaze_judge.worker.v1" and response["request_id"] == golden["request"]["request_id"]
+                    assert response["schema_version"] == "pure_jeff.worker.v1" and response["request_id"] == golden["request"]["request_id"]
                     assert response["result"]["status"] == "completed"
                     measurement["probability_max_absolute_error"] = check(response["result"]["value"])
                     runs[backend].append(measurement)

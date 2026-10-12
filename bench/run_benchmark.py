@@ -238,7 +238,7 @@ def main():
     # One-shot: one new process per request, the existing CLI worker protocol for both runtimes.
     oneshot = []
     for i, (arm, case, rep) in enumerate(oneshot_plan):
-        wire = {"schema_version": "kaze_judge.worker.v1", "request": refs[case]["request"],
+        wire = {"schema_version": "pure_jeff.worker.v1", "request": refs[case]["request"],
                 "max_input_tokens": 512, "max_forwards": 1, "timeout_ms": 600000}
         request_path, response_path = work / f"oneshot-{i}.request.json", work / f"oneshot-{i}.response.json"
         request_path.write_text(json.dumps(wire, ensure_ascii=False), encoding="utf-8")

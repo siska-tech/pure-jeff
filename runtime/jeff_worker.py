@@ -15,8 +15,8 @@ import subprocess
 import time
 import tomllib
 
-SCHEMA = "kaze_judge.worker.v1"
-BUNDLE_SCHEMA = "kaze_judge.jeff_bundle.v1"
+SCHEMA = "pure_jeff.worker.v1"
+BUNDLE_SCHEMA = "pure_jeff.reference_bundle.v1"
 QUESTION_ID = "transcription-candidate.v1"
 INSTRUCTIONS = (
     "Compare the supplied transcription candidates using the original recognized text. "
