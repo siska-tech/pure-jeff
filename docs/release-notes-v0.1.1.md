@@ -47,13 +47,15 @@ One thread, Windows 11, Core i7-1360P, artificial inputs, same benchmark plan an
 
 ## Browser demo
 
-The public demo at https://pure-jeff.siska-tech.workers.dev has **not** been redeployed for this release. It still runs the engine built from commit `63324e0`, before these changes.
+The public demo at https://pure-jeff.siska-tech.workers.dev now runs the engine built from this release (commit `12a8f15`). The bundle manifest is unchanged, so a model already saved in the browser is reused and does not need to be downloaded again.
+
+The end-to-end check against the live site passed every gate in Chrome and Edge. The probabilities equal those of the previous deployment bit for bit, and differ from the official implementation by at most 2.4e-6. **Inference speed in the browser was not measured.**
 
 ## 日本語の要約
 
 - `pure-jeff` 0.1.1は、Native推論の高速化とメモリ削減のリリースです。**出力（確率・判断・tokens数）は0.1.0とbit単位で同じです。** リポジトリ内のbuildでは、公式参照7件で最終hidden stateのhashが一致しました。crates.ioの依存だけでbuildした場合も、0.1.0と0.1.1で全268個の確率が一致しました。
 - 1 thread・Windows・Core i7-1360Pでの測定です。モデル常駐の判断は31〜32%短くなりました（128 tokensで3.00秒→2.06秒、512 tokensで9.60秒→6.77秒）。常駐時のメモリは1.94 GiBから1.07 GiBに減りました。常駐時は、公式Jeff（PyTorch）の方がまだ速いです（Nativeの0.74〜0.94倍の時間）。数値はリポジトリ内のbuild（固定revisionのCandle）で測ったもので、crates.io版Candleでの性能は測っていません。
-- ブラウザ（WebAssembly）での性能は測っていません。公開中のWebデモは今回のリリースに合わせて再デプロイしておらず、改善前のcommit `63324e0`の版のままです。
+- 公開中のWebデモは、このリリース（commit `12a8f15`）からbuildしたengineに更新しました。bundle manifestは変えていないので、ブラウザに保存済みのモデルはそのまま使え、再取得は不要です。公開サイトに対するE2Eは、Chrome・Edgeとも全条件に合格し、確率は前回の公開版とbit単位で一致しました。ブラウザでの推論速度は測っていません。
 - `WeightSource`に既定の実装を持つメソッドが2つ増えました。既存の実装はそのままbuildできます。build hashが変わるため、`require_runtime_build`を使う場合とCLIでは、bundle manifestを作り直してください。
 
 ## License

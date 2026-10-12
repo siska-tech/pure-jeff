@@ -49,3 +49,29 @@ commit `63324e0`からbuildして置き換えた（Version `b6d629ac-a129-4fca-9
 - 公開物のうち`demo-config.json`、`engine.wasm`、`app.js`、`i18n.js`、`index.html`、`bundle/manifest.json`がbuildと同一であることを確認した。`/index.html`は`/`へ307でredirectし、queryは保たれる。応答headerのCSP等は従来どおり。
 
 公開サイトに対するE2E（`run_w3.py --site-url`、ページは`?lang=ja`で開く）は、Chrome・Edgeとも全条件に合格した。条件は従来の項目（公開物の同一性、取得の同意、中止、取得は1回だけ、通信先、判断中の通信なし、公式参照との一致、失敗系、Attempt、JSON保存、取消・再読込後のbit一致、main thread、削除）と、新しい`languages`（英語・ベトナム語へ切り替えて日本語が残らず、日本語へ戻る）である。公式参照との確率差は最大2.384e-6（従来と同じ）、main threadの最大間隔は約65 ms。証跡は[research/wasm-demo/deploy-2026-10-12/redeploy-63324e0/](research/wasm-demo/deploy-2026-10-12/redeploy-63324e0)（英語・ベトナム語画面のスクリーンショットを含む）。
+
+## 再deploy：v0.1.1（2026-10-12）
+
+pure-jeff 0.1.1のcommit `12a8f15`からbuildして置き換えた（Version `f3375f3e-3961-4e06-9075-62e307606a60`、Cloudflare account `siska-tech`）。旧version `b6d629ac…`はCloudflareのversion履歴に残る。
+
+- engineは、0.1.1のNative改善（DeltaNetの逐次更新、要素ごとの演算の融合、重みのbytesからの直接変換）を含むライブラリでbuildした。`engine.wasm`（strip前のSHA-256 `f1614589…`、strip後`655bc8e1…`）は、リリースブランチの検査でbuildしたものとbyte単位で同一。host pathは0件。
+- bundle manifestは前回と同じ（`351c907e…`）。そのためCache Storageの名前`pure-jeff-model-351c907ed106c6fb`も変わらず、モデルを保存済みの利用者は再取得しなくてよい。
+- 前回の配信物から変わったのは、`engine.wasm`と、そのhashを記録する`demo-config.json`（と`build-info.json`）だけ。ほかの12ファイルはbyte単位で同一で、Cloudflareへのuploadも3ファイルだった。
+
+### 確認
+
+| 確認 | 結果 |
+| --- | --- |
+| deploy前のローカルE2E（Chrome、同じengineとmanifestで、モデルはローカルから配信） | 全条件に合格 |
+| 公開サイトのE2E（`run_w3.py --site-url`、Chrome・Edge） | 両方とも全13条件に合格（公開物の同一性、取得の同意、中止、取得は1回だけ、通信先、判断中の通信なし、公式参照との一致と失敗系、Attempt、JSON保存、取消・再読込後のbit一致、main thread、言語、削除） |
+| 公式参照との確率差 | 5.4e-7、2.4e-6、1.8e-6（128／206／512 tokens）。従来と同じ |
+| 前回の公開版との比較 | 3つのsampleと取消後・再読込後の判断の確率（各browser 17個）が、前回の公開サイトでのE2Eの記録と完全に一致した |
+| main threadの最大間隔（基準250 ms） | Chrome 65.5 ms、Edge 71 ms |
+
+Hugging Faceからの取得と準備は約130秒、保存済みからの読込は約5秒だった（この測定環境の回線での単発の値）。**ブラウザでの推論速度は測っていない。**
+
+### 途中の失敗
+
+deploy前の最初のローカルE2Eは、`run_w3.py`に`--manifest`を渡し忘れたため、既定の古いmanifest（`models/jeff-rust-bundle.json`）が配信された。ページはmanifestの大きさの不一致を検出して読込を止め、E2Eはダウンロード待ちのtimeoutで失敗した（ページの動作は想定どおり）。正しいmanifestを指定して新しくやり直し、合格した。
+
+証跡は[research/wasm-demo/deploy-2026-10-12/redeploy-12a8f15/](research/wasm-demo/deploy-2026-10-12/redeploy-12a8f15)。
