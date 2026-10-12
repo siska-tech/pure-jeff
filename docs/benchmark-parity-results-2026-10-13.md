@@ -1,6 +1,6 @@
 # 公式Jeff／Native：性能同等の判定（baseline）
 
-2026-10-13。issue #13。[計画](benchmark-parity-plan.md)どおりに、HEAD（commit `ebe0870`。ライブラリは`0c71911`から変更なし）と公式Jeffのbaselineを、公開APIの経路で取得した。計画、入力、統計、規則は測定前にcommitし、各runの`preregistration.json`にも保存した。測定後に変更したものはない。
+2026-10-13。issue #13。[計画](benchmark-parity-plan.md)どおりに、HEAD（測定時のcommit `ebe0870`。commit messageだけを直した`112ff8a`とtreeが同一。ライブラリは`0c71911`から変更なし）と公式Jeffのbaselineを、公開APIの経路で取得した。計画、入力、統計、規則は測定前にcommitし、各runの`preregistration.json`にも保存した。測定後に変更したものはない。
 
 ## 要点
 
