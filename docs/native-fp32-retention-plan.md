@@ -56,3 +56,7 @@ Native（`runtime/rust`）は、`model.safetensors`をmmapし、forwardのたび
 ## 逐次更新の結果（2026-10-12）
 
 上の1を実施した（[記録](native-delta-recurrence-2026-10-12.md)）。公式参照7件で最終hidden stateが変更前とbit単位で一致し、forwardは16〜20%短くなった。
+
+## 要素ごとの演算の結果（2026-10-12）
+
+「その他」を処理ごとに分けて測り、conv1dとsiluなどを融合した（[記録](native-elementwise-2026-10-12.md)）。出力は変わらず、forwardは3〜9%短くなった。短い入力では、重みの読込とBF16→FP32変換が128 tokensで約20%を占めたままである。
