@@ -1,0 +1,28 @@
+block 0 jeff 389.1s decisions 95 gate failures 0
+block 0 native 308.5s decisions 95 gate failures 0
+block 1 native 197.5s decisions 60 gate failures 0
+block 1 jeff 250.6s decisions 60 gate failures 0
+block 2 jeff 250.7s decisions 60 gate failures 0
+block 2 native 197.8s decisions 60 gate failures 0
+block 3 native 197.9s decisions 60 gate failures 0
+block 3 jeff 250.6s decisions 60 gate failures 0
+block 4 jeff 251.4s decisions 60 gate failures 0
+block 4 native 198.1s decisions 60 gate failures 0
+block 5 native 198.5s decisions 60 gate failures 0
+block 5 jeff 248.3s decisions 60 gate failures 0
+{
+ "valid": true,
+ "accepted": true,
+ "verdict": {
+  "128": "equivalent",
+  "256": "equivalent",
+  "384": "equivalent",
+  "512": "equivalent"
+ },
+ "repeat_violations": [],
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 4.738569259643555e-06
+ }
+}
+gate failures: 0

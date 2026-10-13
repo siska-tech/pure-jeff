@@ -27,6 +27,35 @@ pub trait WeightSource {
             .index_select(&ids, 0)?
             .to_dtype(DType::F32)
     }
+
+    /// The shape of the named tensor when [`load_f32_into`](Self::load_f32_into) converts it
+    /// into a caller's buffer; `None` otherwise. Sources that hand out tensors they keep (for
+    /// example retained F32 weights) return `None`, so their tensors are never overwritten.
+    fn convertible_shape(&self, _name: &str) -> Option<Vec<usize>> {
+        None
+    }
+
+    /// Writes the named tensor, converted to F32, into `out` (row-major) and returns `true`;
+    /// `false` when this source does not convert into a buffer. Fails unless the tensor has
+    /// exactly `shape`. Must give bitwise the same values as [`load_f32`](Self::load_f32).
+    fn load_f32_into(&self, _name: &str, _shape: &[usize], _out: &mut [f32]) -> Result<bool> {
+        Ok(false)
+    }
+}
+
+/// Little-endian BF16 bytes converted into `out`, with the same `bf16::to_f32` as Candle.
+fn bf16_into(data: &[u8], out: &mut [f32]) -> Result<()> {
+    if data.len() != 2 * out.len() {
+        candle_core::bail!(
+            "BF16 tensor of {} bytes into {} values",
+            data.len(),
+            out.len()
+        )
+    }
+    for (o, b) in out.iter_mut().zip(data.as_chunks::<2>().0) {
+        *o = bf16::from_le_bytes(*b).to_f32();
+    }
+    Ok(())
 }
 
 /// F32 values of a little-endian BF16 safetensors tensor (all rows, or rows `ids`), converted
@@ -93,12 +122,99 @@ macro_rules! direct_bf16 {
                     }
                 }
             }
+
+            fn convertible_shape(&self, name: &str) -> Option<Vec<usize>> {
+                let view = self.get(name).ok()?;
+                DType::try_from(view.dtype())
+                    .is_ok_and(|d| d == DType::BF16)
+                    .then(|| view.shape().to_vec())
+            }
+
+            fn load_f32_into(&self, name: &str, shape: &[usize], out: &mut [f32]) -> Result<bool> {
+                let view = self.get(name)?;
+                if !DType::try_from(view.dtype()).is_ok_and(|d| d == DType::BF16) {
+                    return Ok(false);
+                }
+                if view.shape() != shape {
+                    candle_core::bail!("{name} has shape {:?}, not {shape:?}", view.shape())
+                }
+                bf16_into(view.data(), out)?;
+                Ok(true)
+            }
         }
     };
 }
 
 direct_bf16!(MmapedSafetensors);
 direct_bf16!(SliceSafetensors<'_>);
+
+/// A source whose named tensors were converted to F32 once and are kept; every other request
+/// (embedding rows, raw tensors, tensors not listed) goes to `inner`. The kept values are the
+/// ones `inner.load_f32` gave, so decisions are bitwise unchanged.
+pub struct Retained<S> {
+    inner: S,
+    tensors: std::collections::HashMap<String, Tensor>,
+}
+
+impl<S: WeightSource> Retained<S> {
+    /// Keeps nothing: every request goes to `inner`.
+    pub fn none(inner: S) -> Self {
+        Self {
+            inner,
+            tensors: Default::default(),
+        }
+    }
+
+    /// Converts and keeps `names`; `check` runs between tensors (e.g. a deadline).
+    pub fn new<'n>(
+        inner: S,
+        names: impl IntoIterator<Item = &'n str>,
+        check: &mut dyn FnMut() -> Result<()>,
+    ) -> Result<Self> {
+        let mut tensors = std::collections::HashMap::new();
+        for name in names {
+            check()?;
+            tensors.insert(name.to_owned(), inner.load_f32(name)?);
+        }
+        Ok(Self { inner, tensors })
+    }
+
+    /// Bytes of the kept F32 values.
+    pub fn retained_bytes(&self) -> usize {
+        self.tensors.values().map(|t| t.elem_count() * 4).sum()
+    }
+}
+
+impl<S: WeightSource> WeightSource for Retained<S> {
+    fn load(&self, name: &str, device: &Device) -> Result<Tensor> {
+        self.inner.load(name, device)
+    }
+
+    fn load_f32(&self, name: &str) -> Result<Tensor> {
+        match self.tensors.get(name) {
+            Some(t) => Ok(t.clone()),
+            None => self.inner.load_f32(name),
+        }
+    }
+
+    fn load_f32_rows(&self, name: &str, ids: &[u32]) -> Result<Tensor> {
+        self.inner.load_f32_rows(name, ids)
+    }
+
+    fn convertible_shape(&self, name: &str) -> Option<Vec<usize>> {
+        if self.tensors.contains_key(name) {
+            return None;
+        }
+        self.inner.convertible_shape(name)
+    }
+
+    fn load_f32_into(&self, name: &str, shape: &[usize], out: &mut [f32]) -> Result<bool> {
+        if self.tensors.contains_key(name) {
+            return Ok(false);
+        }
+        self.inner.load_f32_into(name, shape, out)
+    }
+}
 
 #[cfg(test)]
 mod tests {

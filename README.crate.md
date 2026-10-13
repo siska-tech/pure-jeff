@@ -62,6 +62,8 @@ println!("{:?}", observation.judgment); // Selected { candidate_id } or Abstaine
 
 `LoadOptions::require_runtime_build` additionally requires that the manifest was written by exactly this build of the library (same sources, compiler, target, profile and flags).
 
+`LoadOptions::retain_f32` converts the backbone weights (except the embedding table) and the readout to F32 once at load and keeps them, instead of converting them from the mapped BF16 file in every forward. Decisions are bitwise the same. It costs about 1.9 GiB more memory and about 0.6 s more load time, and saves about 5% of a short (128-token) decision on the reference machine, so it pays off for a resident `Model` after roughly ten decisions; leave it off for one-request processes.
+
 ## Features
 
 | Feature | Default | Adds |

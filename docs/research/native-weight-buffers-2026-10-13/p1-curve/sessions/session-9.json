@@ -1,0 +1,94 @@
+{
+ "case": "token-limit-8192",
+ "count": 2,
+ "rep": 0,
+ "variant": "main",
+ "returncode": 0,
+ "process_wall_s": 253.85725099997944,
+ "init": {
+  "compute_threads": 1,
+  "event": "init",
+  "kernel": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": true,
+    "with_f16c": true
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  },
+  "load_s": 1.8540448,
+  "manifest_sha256": "f0412b48584e10e6f30aabe85d1e10e3b650b5928a73e249c1d648dcad28000c",
+  "mode": "api",
+  "runtime_build": "6b2f3120cba5d62da4416ecfcd242b4b8faa0da1e5010e8419dbffc14d439cc1",
+  "source_sha256": "38d52a61ac1f8c58626b08c311923d14f4bc0c00abf1c90226c31277b63e8d04",
+  "startup_s": 1.8722411
+ },
+ "walls": [
+  126.9205986,
+  124.8742065
+ ],
+ "cumulative_s": {
+  "1": 128.7928397
+ },
+ "memory": {
+  "max_tree_working_set": 8361545728,
+  "max_tree_private": 7384252416,
+  "max_process_peak_working_set": 8367513600,
+  "max_process_page_faults": 53820238,
+  "samples": 2020
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-13T00:56:30.162257+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 122,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-13T01:00:46.036440+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 116,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "probabilities": [
+  [
+   0.17470434308052063,
+   0.8252956867218018
+  ]
+ ]
+}

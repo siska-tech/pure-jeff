@@ -1,0 +1,21 @@
+1/12 candidate-request x100 main: startup 1.90s warm median 1.711s peak 1.02 GiB
+2/12 candidate-request x100 reuse: startup 1.88s warm median 1.461s peak 1.12 GiB
+3/12 candidate-request x100 retain: startup 2.51s warm median 1.358s peak 2.87 GiB
+4/12 candidate-request x100 retain: startup 2.50s warm median 1.356s peak 2.87 GiB
+5/12 candidate-request x100 reuse: startup 1.85s warm median 1.463s peak 1.12 GiB
+6/12 candidate-request x100 main: startup 1.86s warm median 1.699s peak 1.02 GiB
+7/12 synthetic-ocr-ja-2-512 x100 main: startup 1.86s warm median 5.567s peak 1.06 GiB
+8/12 synthetic-ocr-ja-2-512 x100 reuse: startup 1.95s warm median 5.313s peak 1.17 GiB
+9/12 synthetic-ocr-ja-2-512 x100 retain: startup 2.53s warm median 5.186s peak 2.92 GiB
+10/12 token-limit-8192 x2 main: startup 1.87s warm median 124.874s peak 7.79 GiB
+11/12 token-limit-8192 x2 reuse: startup 1.87s warm median 125.558s peak 7.90 GiB
+12/12 token-limit-8192 x2 retain: startup 2.48s warm median 126.454s peak 9.65 GiB
+{
+ "valid": true,
+ "failures": 0,
+ "bits": {
+  "candidate-request": true,
+  "synthetic-ocr-ja-2-512": true,
+  "token-limit-8192": true
+ }
+}

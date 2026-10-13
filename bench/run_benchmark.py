@@ -403,6 +403,8 @@ def main():
     parser.add_argument("--jeff-exe", type=Path, default=ROOT / "runtime/rust/target/release/jeff.exe")
     parser.add_argument("--resident-exe", type=Path,
                         default=ROOT / "runtime/rust/target/release/examples/resident_bench.exe")
+    parser.add_argument("--retain-f32", action="store_true",
+                        help="Native resident loads with LoadOptions::retain_f32 (API path only)")
     parser.add_argument("--engine-wasm", type=Path, help="unstripped web demo engine (tools/build_wasm.py engine)")
     parser.add_argument("--browser", type=Path)
     parser.add_argument("--blocks", type=int)
@@ -420,6 +422,8 @@ def main():
     if args.stage in ("short", "long", "oneshot") and blocks < stats.MIN_BLOCKS and not args.smoke:
         raise SystemExit(f"at least {stats.MIN_BLOCKS} blocks are required")
     arms = ["wasm"] if args.stage == "wasm" else ["jeff", "native"]
+    if args.retain_f32 and (args.path != "api" or args.stage not in ("short", "long")):
+        raise SystemExit("--retain-f32 needs a resident stage on the API path")
     if "jeff" in arms and (args.python is None or args.py_manifest is None):
         raise SystemExit("--python and --py-manifest are required")
     if "wasm" in arms and (args.engine_wasm is None or args.browser is None):
@@ -475,7 +479,8 @@ def main():
     env_start = sample_environment(full=True)
     save(args.output / "preregistration.json", {
         "schema_version": f"{SCHEMA}.preregistration.v1", "created_utc": datetime.now(timezone.utc).isoformat(),
-        "stage": args.stage, "smoke": args.smoke, "arms": arms, "path": args.path, "threads": args.threads, "budget_tokens": budget,
+        "stage": args.stage, "smoke": args.smoke, "arms": arms, "path": args.path,
+        "native_options": {"retain_f32": args.retain_f32}, "threads": args.threads, "budget_tokens": budget,
         "boundaries": {
             "api": "resident: wall time around Model::decide (Native) / jeff_worker.infer after loading (Jeff); "
                    "includes request checks, budgets, deadline, artifacts and output validation",
@@ -567,7 +572,8 @@ def main():
                 else:
                     command = ([str(args.python), "-B", str(HERE / "jeff_resident.py"), "--mode", args.path,
                                 str(args.py_manifest), str(job_path)] if arm == "jeff" else
-                               [str(args.resident_exe), "--mode", args.path, str(args.rust_manifest), str(job_path)])
+                               [str(args.resident_exe), *(["--retain-f32"] if args.retain_f32 else []),
+                                "--mode", args.path, str(args.rust_manifest), str(job_path)])
                     run = guarded(lambda: run_process(command, child_env, args.timeout))
                     events = [json.loads(line) for line in run["stdout"].splitlines() if line.startswith("{")]
                     session = {"block": entry["block"], "arm": arm, **{
@@ -602,6 +608,7 @@ def main():
     save(args.output / "environment-end.json", env_end)
     repeat = validate.repeat_violations(records)
     summary = {"schema_version": f"{SCHEMA}.summary.v1", "stage": args.stage, "smoke": args.smoke, "path": args.path,
+               "native_options": {"retain_f32": args.retain_f32},
                "threads": args.threads, "gate_failures": failures, "repeat_violations": repeat,
                "environment_ok": env_end["ac_line_status"] == 1 and all(
                    s["environment"]["before"]["ac_line_status"] == 1 and s["environment"]["after"]["ac_line_status"] == 1
@@ -616,6 +623,10 @@ def main():
                                                             for s in sessions if s["arm"] == arm and s["case"] == case]),
             "max_tree_working_set": stats.describe([s["memory"]["max_tree_working_set"]
                                                     for s in sessions if s["arm"] == arm and s["case"] == case]),
+            "max_tree_private": stats.describe([s["memory"]["max_tree_private"]
+                                                for s in sessions if s["arm"] == arm and s["case"] == case]),
+            "max_process_page_faults": stats.describe([s["memory"].get("max_process_page_faults")
+                                                       for s in sessions if s["arm"] == arm and s["case"] == case]),
         } for arm in arms} for case in TIMED["oneshot"]}
         summary["probabilities"] = {case: {arm: next((o["probabilities"] for a, _, c, o in records
                                                       if a == arm and c == case and o.get("status") == "completed"), None)
@@ -628,7 +639,10 @@ def main():
             "max_tree_working_set": stats.describe([s["memory"]["max_tree_working_set"]
                                                     for s in sessions if s["arm"] == arm]),
             "max_process_peak_working_set": stats.describe([s["memory"]["max_process_peak_working_set"]
-                                                            for s in sessions if s["arm"] == arm])} for arm in arms}
+                                                            for s in sessions if s["arm"] == arm]),
+            "max_tree_private": stats.describe([s["memory"]["max_tree_private"] for s in sessions if s["arm"] == arm]),
+            "max_process_page_faults": stats.describe([s["memory"].get("max_process_page_faults")
+                                                       for s in sessions if s["arm"] == arm])} for arm in arms}
         summary["kernel"] = {arm: next(((s.get("init") or {}).get("kernel") for s in sessions if s["arm"] == arm), None)
                              for arm in arms}
         if "wasm" in arms:

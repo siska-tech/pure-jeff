@@ -1,7 +1,9 @@
 //! Benchmark-only resident Native session. One process loads the bundle once, then runs a job
 //! of requests in order and emits one JSON line per event.
 //!
-//!   resident_bench --mode api|internal manifest job.json
+//!   resident_bench [--retain-f32] --mode api|internal manifest job.json
+//!
+//! `--retain-f32` loads with `LoadOptions::retain_f32` (API mode only).
 //!
 //! `api` (the measured boundary for speed comparisons): `pure_jeff::Model::load`, then
 //! `Model::decide` per request, which includes the request checks, the byte/token/forward
@@ -88,11 +90,19 @@ fn emit(value: Value) {
 
 fn main() -> Result<()> {
     let started = Instant::now();
-    let args: Vec<_> = std::env::args().collect();
+    let mut args: Vec<_> = std::env::args().collect();
+    let retain = match args.iter().position(|a| a == "--retain-f32") {
+        Some(i) => {
+            args.remove(i);
+            true
+        }
+        None => false,
+    };
     ensure!(
         args.len() == 5 && args[1] == "--mode" && (args[2] == "api" || args[2] == "internal"),
-        "usage: resident_bench --mode api|internal manifest job.json"
+        "usage: resident_bench [--retain-f32] --mode api|internal manifest job.json"
     );
+    ensure!(!retain || args[2] == "api", "--retain-f32 needs --mode api");
     let (mode, manifest, job) = (&args[2], Path::new(&args[3]), Path::new(&args[4]));
     let deadline = started + Duration::from_secs(4 * 3600);
     let header: Manifest = bundle::read_json(manifest, 2 * 1024 * 1024)?;
@@ -100,7 +110,7 @@ fn main() -> Result<()> {
     pure_jeff::configure_threads(header.policy.cpu_threads)?;
     let cases: Vec<Case> = bundle::read_json(job, 64 * 1024 * 1024)?;
     let common = json!({
-        "event": "init", "mode": mode,
+        "event": "init", "mode": mode, "retain_f32": retain,
         "compute_threads": candle_core::utils::get_num_threads(),
         "runtime_build": pure_jeff::runtime_build_hash(),
         "source_sha256": bundle::hash_bytes(include_bytes!("resident_bench.rs")),
@@ -113,9 +123,11 @@ fn main() -> Result<()> {
             &LoadOptions {
                 deadline: Some(deadline),
                 require_runtime_build: true,
+                retain_f32: retain,
             },
         )?;
         let mut init = common;
+        init["retained_f32_bytes"] = json!(model.retained_f32_bytes());
         init["load_s"] = json!(step.elapsed().as_secs_f64());
         init["startup_s"] = json!(started.elapsed().as_secs_f64());
         init["manifest_sha256"] = json!(model.manifest_sha256());

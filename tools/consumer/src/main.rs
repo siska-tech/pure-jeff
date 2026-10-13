@@ -63,6 +63,16 @@ fn model_free() {
 fn goldens(manifest: &str, dir: &str) {
     pure_jeff::configure_threads(1).unwrap();
     let model = Model::load(manifest, &LoadOptions::default()).unwrap();
+    // The same decisions with the F32 weights kept must be bitwise the same.
+    let retained = Model::load(
+        manifest,
+        &LoadOptions {
+            retain_f32: true,
+            ..LoadOptions::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(retained.retained_f32_bytes(), 1_992_453_376 + 1_044_480);
     let mut worst = 0.0_f64;
     for name in GOLDENS {
         let path = std::path::Path::new(dir).join(format!("{name}.json"));
@@ -70,6 +80,15 @@ fn goldens(manifest: &str, dir: &str) {
             serde_json::from_slice(&std::fs::read(path).unwrap()).unwrap();
         let request: DecisionRequest = serde_json::from_value(golden["request"].clone()).unwrap();
         let observation = model.decide(&request, limits()).unwrap();
+        let kept = retained.decide(&request, limits()).unwrap();
+        assert!(
+            observation
+                .scores
+                .iter()
+                .zip(&kept.scores)
+                .all(|(a, b)| a.option_probability.to_bits() == b.option_probability.to_bits()),
+            "{name}: retained F32 weights changed the probabilities"
+        );
         let official: Vec<f64> =
             serde_json::from_value(golden["official"]["probabilities"].clone()).unwrap();
         let judgment: Judgment =

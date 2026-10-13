@@ -4,6 +4,7 @@ use crate::{
     decide::{check_request, Decider},
     manifest::Manifest,
     tokenize::Tokenizer,
+    weights::Retained,
     Artifact, DecisionProvider, DecisionRequest, Error, ErrorKind, Failure, Limits, Observation,
 };
 use candle_core::safetensors::MmapedSafetensors;
@@ -22,7 +23,19 @@ pub struct LoadOptions {
     /// ([`runtime_build_hash`](crate::runtime_build_hash)). Checkpoint hashes, the prompt
     /// contract, the decision config and the tokenizer are always verified.
     pub require_runtime_build: bool,
+    /// Convert the backbone weights except the embedding table (319 tensors, 1,992,453,376
+    /// bytes) and the readout (1,044,480 bytes) to F32 once while loading, and keep them for
+    /// every decision, instead of converting them from the mapped BF16 file in each forward.
+    /// Decisions are bitwise the same. Costs about 1.9 GiB more memory and a longer load, and
+    /// pays off only for a resident model that makes several decisions (see
+    /// [`Model::retained_f32_bytes`]); the embedding rows are still read per request.
+    pub retain_f32: bool,
 }
+
+/// Backbone tensors kept by [`LoadOptions::retain_f32`]: every text tensor but the embedding.
+const RETAINED_TENSORS: usize = 319;
+const RETAINED_BYTES: usize = 1_992_453_376;
+const EMBEDDING: &str = "language_model.embed_tokens.weight";
 
 /// A verified model bundle with its tokenizer and memory-mapped weights, reused across
 /// decisions.
@@ -32,8 +45,8 @@ pub struct LoadOptions {
 pub struct Model {
     bundle: Bundle,
     tokenizer: Tokenizer,
-    weights: MmapedSafetensors,
-    readout: MmapedSafetensors,
+    weights: Retained<MmapedSafetensors>,
+    readout: Retained<MmapedSafetensors>,
     runtime: Artifact,
 }
 
@@ -108,6 +121,11 @@ impl Model {
         let weights = map("model.safetensors").map_err(|e| Error::bundle(e.into(), deadline))?;
         let readout = map("readout.safetensors").map_err(|e| Error::bundle(e.into(), deadline))?;
         bundle::check_time(deadline).map_err(|e| Error::bundle(e, deadline))?;
+        let (weights, readout) = if options.retain_f32 {
+            Self::retain(weights, readout, deadline)?
+        } else {
+            (Retained::none(weights), Retained::none(readout))
+        };
         Ok(Self {
             bundle,
             tokenizer,
@@ -118,6 +136,40 @@ impl Model {
                 sha256: crate::runtime_build_hash(),
             },
         })
+    }
+
+    /// Converts and keeps the text tensors but the embedding (only those; the set and the size
+    /// are checked) and the readout. A failure drops everything converted so far.
+    fn retain(
+        weights: MmapedSafetensors,
+        readout: MmapedSafetensors,
+        deadline: Instant,
+    ) -> Result<(Retained<MmapedSafetensors>, Retained<MmapedSafetensors>), Error> {
+        let mut names: Vec<String> = weights
+            .tensors()
+            .into_iter()
+            .map(|(name, _)| name)
+            .filter(|name| name.starts_with("language_model.") && name != EMBEDDING)
+            .collect();
+        names.sort();
+        let mut check =
+            || bundle::check_time(deadline).map_err(|e| candle_core::Error::Msg(format!("{e:#}")));
+        let fail = |e: candle_core::Error| Error::bundle(e.into(), deadline);
+        let weights =
+            Retained::new(weights, names.iter().map(String::as_str), &mut check).map_err(fail)?;
+        if names.len() != RETAINED_TENSORS || weights.retained_bytes() != RETAINED_BYTES {
+            return Err(Error::new(
+                ErrorKind::Bundle,
+                "unexpected tensors for F32 retention",
+            ));
+        }
+        let readout = Retained::new(readout, ["weight"], &mut check).map_err(fail)?;
+        Ok((weights, readout))
+    }
+
+    /// Bytes of F32 weights kept by [`LoadOptions::retain_f32`] (0 without it).
+    pub fn retained_f32_bytes(&self) -> usize {
+        self.weights.retained_bytes() + self.readout.retained_bytes()
     }
 
     /// One decision. Checks the request (supported question, at most 255 candidates), the byte,
@@ -143,6 +195,7 @@ impl Model {
             tokenizer: &self.tokenizer,
             weights: &self.weights,
             readout: &self.readout,
+            reuse_buffers: true,
         }
         .decide(request, limits.max_input_tokens, &expired, &mut |_| {})?;
         observation.validate(request, limits)?;
@@ -219,6 +272,7 @@ impl DecisionProvider for ColdProvider {
         let options = LoadOptions {
             deadline: Some(limits.deadline),
             require_runtime_build: self.require_runtime_build,
+            retain_f32: false,
         };
         let model = Model::load(&self.manifest, &options).map_err(|e| {
             if e.kind() == ErrorKind::Timeout || Instant::now() >= limits.deadline {

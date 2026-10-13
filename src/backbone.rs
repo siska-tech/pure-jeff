@@ -2,26 +2,24 @@
 //! Equations checked against Transformers 5.17.0 Qwen3.5 (Apache-2.0).
 //! No cache, padding, image inputs, quantization, or production deadline guarantee.
 use crate::WeightSource;
-use candle_core::{CpuStorage, Device, Result, Storage, Tensor, D};
+use candle_core::{CpuStorage, Device, InplaceOp1, Layout, Result, Storage, Tensor, D};
+use std::cell::{Cell, RefCell};
 
 const H: usize = 16;
 const K: usize = 128;
 const V: usize = 128;
 
-fn weight(weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-    weights.load_f32(name)
-}
-
-fn linear(x: &Tensor, weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-    x.matmul(&weight(weights, &format!("{name}.weight"))?.t()?)
+fn linear(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
+    weights.with(&format!("{name}.weight"), |w| x.matmul(&w.t()?))
 }
 
 fn normalized(x: &Tensor, eps: f64) -> Result<Tensor> {
     x.broadcast_div(&(x.sqr()?.mean_keepdim(D::Minus1)? + eps)?.sqrt()?)
 }
 
-fn norm(x: &Tensor, weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-    normalized(x, 1e-6)?.broadcast_mul(&(weight(weights, &format!("{name}.weight"))? + 1.0)?)
+fn norm(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
+    let x = normalized(x, 1e-6)?;
+    weights.with(&format!("{name}.weight"), |w| x.broadcast_mul(&(w + 1.0)?))
 }
 
 fn l2(x: &Tensor) -> Result<Tensor> {
@@ -61,7 +59,7 @@ fn zip_map(a: &Tensor, b: &Tensor, f: impl Fn(f32, f32) -> f32) -> Result<Tensor
     Tensor::from_vec(out, a.shape(), &Device::Cpu)
 }
 
-fn mlp(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Result<Tensor> {
+fn mlp(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
     let gate = linear(x, weights, &format!("{prefix}.gate_proj"))?;
     let up = linear(x, weights, &format!("{prefix}.up_proj"))?;
     let hidden = zip_map(&gate, &up, |g, u| silu(g) * u)?;
@@ -96,7 +94,7 @@ fn rotary(x: &Tensor) -> Result<Tensor> {
     Tensor::cat(&[&out, &x.narrow(2, 64, 192)?], 2)
 }
 
-fn full_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Result<Tensor> {
+fn full_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
     let seq = x.dim(0)?;
     let q_gate = linear(x, weights, &format!("{prefix}.q_proj"))?.reshape((seq, 8, 512))?;
     let q = norm(
@@ -241,17 +239,17 @@ fn conv_silu(x: &Tensor, kernel: &Tensor) -> Result<Tensor> {
     Tensor::from_vec(out, (seq, channels), &Device::Cpu)
 }
 
-fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Result<Tensor> {
+fn linear_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
     let seq = x.dim(0)?;
     let qkv = linear(x, weights, &format!("{prefix}.in_proj_qkv"))?;
-    let qkv = conv_silu(&qkv, &weight(weights, &format!("{prefix}.conv1d.weight"))?)?;
+    let qkv = weights.with(&format!("{prefix}.conv1d.weight"), |k| conv_silu(&qkv, k))?;
     let q = l2(&qkv.narrow(1, 0, H * K)?.reshape((seq, H, K))?)?;
     let k = l2(&qkv.narrow(1, H * K, H * K)?.reshape((seq, H, K))?)?;
     let v = qkv.narrow(1, H * K * 2, H * V)?.reshape((seq, H, V))?;
     let z = linear(x, weights, &format!("{prefix}.in_proj_z"))?.reshape((seq, H, V))?;
     let beta = candle_nn::ops::sigmoid(&linear(x, weights, &format!("{prefix}.in_proj_b"))?)?;
-    let a = linear(x, weights, &format!("{prefix}.in_proj_a"))?
-        .broadcast_add(&weight(weights, &format!("{prefix}.dt_bias"))?)?;
+    let a = linear(x, weights, &format!("{prefix}.in_proj_a"))?;
+    let a = weights.with(&format!("{prefix}.dt_bias"), |b| a.broadcast_add(b))?;
     // Stable softplus matches PyTorch's beta=1, threshold=20 behavior.
     let softplus: Vec<f32> = a
         .flatten_all()?
@@ -259,11 +257,15 @@ fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Res
         .iter()
         .map(|&v| if v > 20.0 { v } else { v.exp().ln_1p() })
         .collect();
-    let g = Tensor::from_vec(softplus, (seq, H), &Device::Cpu)?
-        .broadcast_mul(&weight(weights, &format!("{prefix}.A_log"))?.exp()?.neg()?)?;
+    let softplus = Tensor::from_vec(softplus, (seq, H), &Device::Cpu)?;
+    let g = weights.with(&format!("{prefix}.A_log"), |a| {
+        softplus.broadcast_mul(&a.exp()?.neg()?)
+    })?;
     let attention = delta_recurrence(&q, &k, &v, &beta, &g)?;
-    let attention = normalized(&attention, 1e-6)?
-        .broadcast_mul(&weight(weights, &format!("{prefix}.norm.weight"))?)?;
+    let attention = normalized(&attention, 1e-6)?;
+    let attention = weights.with(&format!("{prefix}.norm.weight"), |w| {
+        attention.broadcast_mul(w)
+    })?;
     linear(
         &zip_map(&attention, &z, |a, z| a * silu(z))?.reshape((seq, H * V))?,
         weights,
@@ -271,36 +273,135 @@ fn linear_attention(x: &Tensor, weights: &dyn WeightSource, prefix: &str) -> Res
     )
 }
 
+/// Writes one tensor of `source`, converted to F32, into a buffer in place.
+struct Fill<'a> {
+    source: &'a dyn WeightSource,
+    name: &'a str,
+    converted: Cell<bool>,
+}
+
+impl InplaceOp1 for Fill<'_> {
+    fn name(&self) -> &'static str {
+        "pure-jeff-fill-f32"
+    }
+
+    fn cpu_fwd(&self, storage: &mut CpuStorage, layout: &Layout) -> Result<()> {
+        let (CpuStorage::F32(data), Some((start, end))) = (storage, layout.contiguous_offsets())
+        else {
+            candle_core::bail!("conversion buffer must be contiguous F32")
+        };
+        self.converted.set(self.source.load_f32_into(
+            self.name,
+            layout.dims(),
+            &mut data[start..end],
+        )?);
+        Ok(())
+    }
+}
+
+fn same_storage(a: &Tensor, b: &Tensor) -> bool {
+    std::ptr::eq(&*a.storage_and_layout().0, &*b.storage_and_layout().0)
+}
+
+/// The weights of one forward. Each weight is lent to a closure only, and every use is a
+/// product, element-wise op or copy that makes a new tensor, so at most one weight is in use
+/// at a time. With a buffer, every weight a source converts (`convertible_shape`) is converted
+/// into the same F32 buffer instead of newly allocated memory: after the first layers the
+/// forward writes only to pages already mapped, and the memory held for weights stays that of
+/// the largest one. A closure's result that shares the buffer's storage is an error, so a lent
+/// weight cannot outlive its closure through the result. Tensors a source keeps (retained F32
+/// weights) are lent as they are. The buffer belongs to this forward only.
+struct Weights<'a> {
+    source: &'a dyn WeightSource,
+    buffer: Option<RefCell<Option<Tensor>>>,
+}
+
+impl Weights<'_> {
+    fn with(&self, name: &str, f: impl FnOnce(&Tensor) -> Result<Tensor>) -> Result<Tensor> {
+        let (Some(buffer), Some(shape)) = (&self.buffer, self.source.convertible_shape(name))
+        else {
+            return f(&self.source.load_f32(name)?);
+        };
+        let count: usize = shape.iter().product();
+        let current = buffer.borrow().clone();
+        let storage = match current {
+            Some(t) if t.elem_count() >= count => t,
+            _ => {
+                let fresh = Tensor::zeros(count, candle_core::DType::F32, &Device::Cpu)?;
+                *buffer.borrow_mut() = Some(fresh.clone());
+                fresh
+            }
+        };
+        let weight = storage.narrow(0, 0, count)?.reshape(shape)?;
+        let fill = Fill {
+            source: self.source,
+            name,
+            converted: Cell::new(false),
+        };
+        weight.inplace_op1(&fill)?;
+        if !fill.converted.get() {
+            return f(&self.source.load_f32(name)?);
+        }
+        let out = f(&weight)?;
+        if same_storage(&out, &storage) {
+            candle_core::bail!("{name}: a lent weight was kept past its use")
+        }
+        Ok(out)
+    }
+
+    fn rows(&self, name: &str, ids: &[u32]) -> Result<Tensor> {
+        self.source.load_f32_rows(name, ids)
+    }
+}
+
 /// Only call with the pinned 0.8B config and an unpadded text sequence.
 pub fn forward(weights: &dyn WeightSource, ids: &[u32]) -> Result<Tensor> {
     forward_checked(weights, ids, &|| Ok(()))
 }
+
+/// [`forward_checked_with`] converting every weight into new memory.
 pub fn forward_checked(
     weights: &dyn WeightSource,
     ids: &[u32],
     check: &dyn Fn() -> Result<()>,
 ) -> Result<Tensor> {
+    forward_checked_with(weights, ids, check, false)
+}
+
+/// The forward with `check` before and after every layer. With `reuse_buffers`, every converted
+/// weight is written into one buffer that is lent to each use in turn; the result is bitwise the
+/// same either way.
+pub fn forward_checked_with(
+    weights: &dyn WeightSource,
+    ids: &[u32],
+    check: &dyn Fn() -> Result<()>,
+    reuse_buffers: bool,
+) -> Result<Tensor> {
+    let weights = Weights {
+        source: weights,
+        buffer: reuse_buffers.then(|| RefCell::new(None)),
+    };
     check()?;
     let seq = ids.len();
     if seq == 0 || seq > 8192 {
         candle_core::bail!("probe requires 1..=8192 unpadded text tokens")
     }
-    let mut x = weights.load_f32_rows("language_model.embed_tokens.weight", ids)?;
+    let mut x = weights.rows("language_model.embed_tokens.weight", ids)?;
     for i in 0..24 {
         check()?;
         let prefix = format!("language_model.layers.{i}");
-        let normalized = norm(&x, weights, &format!("{prefix}.input_layernorm"))?;
+        let normalized = norm(&x, &weights, &format!("{prefix}.input_layernorm"))?;
         let attention = if i % 4 == 3 {
-            full_attention(&normalized, weights, &format!("{prefix}.self_attn"))?
+            full_attention(&normalized, &weights, &format!("{prefix}.self_attn"))?
         } else {
-            linear_attention(&normalized, weights, &format!("{prefix}.linear_attn"))?
+            linear_attention(&normalized, &weights, &format!("{prefix}.linear_attn"))?
         };
         x = (x + attention)?;
-        let normalized = norm(&x, weights, &format!("{prefix}.post_attention_layernorm"))?;
-        x = (x + mlp(&normalized, weights, &format!("{prefix}.mlp"))?)?;
+        let normalized = norm(&x, &weights, &format!("{prefix}.post_attention_layernorm"))?;
+        x = (x + mlp(&normalized, &weights, &format!("{prefix}.mlp"))?)?;
         check()?;
     }
-    norm(&x, weights, "language_model.norm")?.narrow(0, seq - 1, 1)
+    norm(&x, &weights, "language_model.norm")?.narrow(0, seq - 1, 1)
 }
 
 #[cfg(test)]
@@ -442,6 +543,182 @@ mod tests {
             .iter()
             .map(|v| v.to_bits())
             .collect())
+    }
+
+    /// A safetensors file of BF16 tensors whose values are `seed + index` (exact in BF16).
+    fn bf16_file(tensors: &[(&str, &[usize], f32)]) -> Vec<u8> {
+        let mut header = serde_json::Map::new();
+        let mut data = Vec::new();
+        for (name, shape, seed) in tensors {
+            let count: usize = shape.iter().product();
+            let start = data.len();
+            for i in 0..count {
+                let value = half::bf16::from_f32(seed + i as f32);
+                data.extend_from_slice(&value.to_le_bytes());
+            }
+            header.insert(
+                (*name).into(),
+                serde_json::json!({"dtype": "BF16", "shape": shape, "data_offsets": [start, data.len()]}),
+            );
+        }
+        let header = serde_json::to_vec(&header).unwrap();
+        let mut file = (header.len() as u64).to_le_bytes().to_vec();
+        file.extend(header);
+        file.extend(data);
+        file
+    }
+
+    fn lent(weights: &Weights, name: &str) -> Result<Tensor> {
+        weights.with(name, |w| w.copy())
+    }
+
+    #[test]
+    fn one_buffer_gives_every_weight_its_own_values() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+            (
+                "language_model.layers.2.mlp.down_proj.weight",
+                &[3, 2],
+                20.0,
+            ),
+            (
+                "language_model.layers.3.linear_attn.in_proj_qkv.weight",
+                &[4, 3],
+                30.0,
+            ),
+            ("language_model.layers.4.input_layernorm.weight", &[3], 40.0),
+        ]);
+        let source = candle_core::safetensors::SliceSafetensors::new(&file)?;
+        let weights = Weights {
+            source: &source,
+            buffer: Some(RefCell::new(None)),
+        };
+        let names = [
+            "language_model.layers.0.mlp.up_proj.weight",
+            "language_model.layers.1.mlp.up_proj.weight",
+            "language_model.layers.2.mlp.down_proj.weight",
+            "language_model.layers.3.linear_attn.in_proj_qkv.weight",
+            "language_model.layers.4.input_layernorm.weight",
+            "language_model.layers.0.mlp.up_proj.weight",
+        ];
+        for name in names {
+            let got = lent(&weights, name)?;
+            let expected = source.load_f32(name)?;
+            assert_eq!(got.dims(), expected.dims(), "{name}");
+            assert_eq!(bits(&got)?, bits(&expected)?, "{name}");
+        }
+        // The buffer grew to the largest weight (12 values) and was kept.
+        let buffer = weights.buffer.as_ref().unwrap().borrow().clone().unwrap();
+        assert_eq!(buffer.elem_count(), 12);
+        // A weight lent twice in a row is written into the same storage.
+        let mut seen = None;
+        for name in &names[..2] {
+            weights.with(name, |w| {
+                let (storage, _) = w.storage_and_layout();
+                let address = &*storage as *const _ as usize;
+                assert!(
+                    seen.is_none_or(|s| s == address),
+                    "the buffer was not reused"
+                );
+                seen = Some(address);
+                w.copy()
+            })?;
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn a_result_that_keeps_the_lent_weight_is_rejected() -> Result<()> {
+        let file = bf16_file(&[("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0)]);
+        let source = candle_core::safetensors::SliceSafetensors::new(&file)?;
+        let weights = Weights {
+            source: &source,
+            buffer: Some(RefCell::new(None)),
+        };
+        let name = "language_model.layers.0.mlp.up_proj.weight";
+        assert!(weights.with(name, |w| Ok(w.clone())).is_err());
+        assert!(weights.with(name, |w| w.t()).is_err());
+        assert!(weights.with(name, |w| w.copy()).is_ok());
+        // Without a buffer nothing is lent from shared memory.
+        let plain = Weights {
+            source: &source,
+            buffer: None,
+        };
+        assert!(plain.with(name, |w| Ok(w.clone())).is_ok());
+        Ok(())
+    }
+
+    #[test]
+    fn retained_tensors_are_lent_as_kept_and_never_overwritten() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+            ("language_model.embed_tokens.weight", &[4, 3], 50.0),
+        ]);
+        let mapped = candle_core::safetensors::SliceSafetensors::new(&file)?;
+        let retained = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            ["language_model.layers.0.mlp.up_proj.weight"],
+            &mut || Ok(()),
+        )?;
+        assert_eq!(retained.retained_bytes(), 6 * 4);
+        let weights = Weights {
+            source: &retained,
+            buffer: Some(RefCell::new(None)),
+        };
+        let layer0 = "language_model.layers.0.mlp.up_proj.weight";
+        let layer1 = "language_model.layers.1.mlp.up_proj.weight";
+        let kept = bits(&lent(&weights, layer0)?)?;
+        assert!(
+            weights.buffer.as_ref().unwrap().borrow().is_none(),
+            "a kept tensor used the buffer"
+        );
+        // A kept tensor may be returned as it is (it is not shared memory).
+        assert!(weights.with(layer0, |w| Ok(w.clone())).is_ok());
+        assert_eq!(
+            bits(&lent(&weights, layer1)?)?,
+            bits(&mapped.load_f32(layer1)?)?
+        );
+        assert_eq!(bits(&retained.load_f32(layer0)?)?, kept);
+        assert_eq!(kept, bits(&mapped.load_f32(layer0)?)?);
+        let rows = weights.rows("language_model.embed_tokens.weight", &[3, 1])?;
+        assert_eq!(
+            bits(&rows)?,
+            bits(&mapped.load_f32_rows("language_model.embed_tokens.weight", &[3, 1])?)?
+        );
+        Ok(())
+    }
+
+    #[test]
+    fn a_failed_retention_returns_the_error() -> Result<()> {
+        let file = bf16_file(&[
+            ("language_model.layers.0.mlp.up_proj.weight", &[2, 3], 1.0),
+            ("language_model.layers.1.mlp.up_proj.weight", &[2, 3], 10.0),
+        ]);
+        let mut calls = 0;
+        let result = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            [
+                "language_model.layers.0.mlp.up_proj.weight",
+                "language_model.layers.1.mlp.up_proj.weight",
+            ],
+            &mut || {
+                calls += 1;
+                if calls > 1 {
+                    candle_core::bail!("deadline exceeded")
+                }
+                Ok(())
+            },
+        );
+        assert!(result.is_err());
+        let missing = crate::weights::Retained::new(
+            candle_core::safetensors::SliceSafetensors::new(&file)?,
+            ["language_model.layers.9.mlp.up_proj.weight"],
+            &mut || Ok(()),
+        );
+        assert!(missing.is_err());
+        Ok(())
     }
 
     #[test]

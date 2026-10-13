@@ -18,6 +18,8 @@ pub(crate) struct Decider<'a> {
     pub tokenizer: &'a Tokenizer,
     pub weights: &'a dyn WeightSource,
     pub readout: &'a dyn WeightSource,
+    /// Convert every weight into one reused buffer (Native).
+    pub reuse_buffers: bool,
 }
 
 fn sha256(bytes: &[u8]) -> String {
@@ -78,8 +80,8 @@ impl Decider<'_> {
             }
             Ok(())
         };
-        let hidden =
-            backbone::forward_checked(self.weights, &ids, &check).map_err(|_| unavailable())?;
+        let hidden = backbone::forward_checked_with(self.weights, &ids, &check, self.reuse_buffers)
+            .map_err(|_| unavailable())?;
         stage("forward");
         timeout()?;
         let probabilities = readout::probabilities(
