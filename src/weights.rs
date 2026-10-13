@@ -28,11 +28,11 @@ pub trait WeightSource {
             .to_dtype(DType::F32)
     }
 
-    /// Whether [`load_f32_into`](Self::load_f32_into) converts the named tensor. Sources that
-    /// hand out tensors they keep (for example retained F32 weights) return `false`, so their
-    /// tensors are never overwritten.
-    fn converts_into(&self, _name: &str) -> bool {
-        false
+    /// The shape of the named tensor when [`load_f32_into`](Self::load_f32_into) converts it
+    /// into a caller's buffer; `None` otherwise. Sources that hand out tensors they keep (for
+    /// example retained F32 weights) return `None`, so their tensors are never overwritten.
+    fn convertible_shape(&self, _name: &str) -> Option<Vec<usize>> {
+        None
     }
 
     /// Writes the named tensor, converted to F32, into `out` (row-major) and returns `true`;
@@ -123,9 +123,11 @@ macro_rules! direct_bf16 {
                 }
             }
 
-            fn converts_into(&self, name: &str) -> bool {
-                self.get(name)
-                    .is_ok_and(|view| DType::try_from(view.dtype()).is_ok_and(|d| d == DType::BF16))
+            fn convertible_shape(&self, name: &str) -> Option<Vec<usize>> {
+                let view = self.get(name).ok()?;
+                DType::try_from(view.dtype())
+                    .is_ok_and(|d| d == DType::BF16)
+                    .then(|| view.shape().to_vec())
             }
 
             fn load_f32_into(&self, name: &str, shape: &[usize], out: &mut [f32]) -> Result<bool> {
@@ -199,8 +201,11 @@ impl<S: WeightSource> WeightSource for Retained<S> {
         self.inner.load_f32_rows(name, ids)
     }
 
-    fn converts_into(&self, name: &str) -> bool {
-        !self.tensors.contains_key(name) && self.inner.converts_into(name)
+    fn convertible_shape(&self, name: &str) -> Option<Vec<usize>> {
+        if self.tensors.contains_key(name) {
+            return None;
+        }
+        self.inner.convertible_shape(name)
     }
 
     fn load_f32_into(&self, name: &str, shape: &[usize], out: &mut [f32]) -> Result<bool> {

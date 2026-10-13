@@ -18,7 +18,7 @@ pub(crate) struct Decider<'a> {
     pub tokenizer: &'a Tokenizer,
     pub weights: &'a dyn WeightSource,
     pub readout: &'a dyn WeightSource,
-    /// Convert weights of the same role into one buffer across layers (Native).
+    /// Convert every weight into one reused buffer (Native).
     pub reuse_buffers: bool,
 }
 
