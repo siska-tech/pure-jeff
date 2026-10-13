@@ -369,8 +369,8 @@ pub fn forward_checked(
 }
 
 /// The forward with `check` before and after every layer. With `reuse_buffers`, every converted
-/// weight is written into one buffer (see [`Weights`]); the result is bitwise the same either
-/// way.
+/// weight is written into one buffer that is lent to each use in turn; the result is bitwise the
+/// same either way.
 pub fn forward_checked_with(
     weights: &dyn WeightSource,
     ids: &[u32],
