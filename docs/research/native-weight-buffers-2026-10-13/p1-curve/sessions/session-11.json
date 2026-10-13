@@ -1,0 +1,96 @@
+{
+ "case": "token-limit-8192",
+ "count": 2,
+ "rep": 0,
+ "variant": "retain",
+ "returncode": 0,
+ "process_wall_s": 256.2755791999807,
+ "init": {
+  "compute_threads": 1,
+  "event": "init",
+  "kernel": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": true,
+    "with_f16c": true
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  },
+  "load_s": 2.4620688,
+  "manifest_sha256": "99a5917469a212b88078b6afc08e35bbca6cda91249050bd0b7afe3de6589a8b",
+  "mode": "api",
+  "retain_f32": true,
+  "retained_f32_bytes": 1993497856,
+  "runtime_build": "79842d801900a7f64be7995ce241dbbca2f287ddfeb36293c19460c14767dc44",
+  "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+  "startup_s": 2.4762691
+ },
+ "walls": [
+  127.1230947,
+  126.4542951
+ ],
+ "cumulative_s": {
+  "1": 129.5993638
+ },
+ "memory": {
+  "max_tree_working_set": 10335973376,
+  "max_tree_private": 9383092224,
+  "max_process_peak_working_set": 10360868864,
+  "max_process_page_faults": 53426698,
+  "samples": 2038
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-13T01:05:12.088218+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 10,
+    "processor_performance_percent": 119,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-13T01:09:30.396171+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 132,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "probabilities": [
+  [
+   0.17470434308052063,
+   0.8252956867218018
+  ]
+ ]
+}

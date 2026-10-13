@@ -1,0 +1,194 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "oneshot",
+ "smoke": false,
+ "path": "api",
+ "native_options": {
+  "retain_f32": false
+ },
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 3.7997961044311523e-07
+ },
+ "cases": {
+  "candidate-request": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 13.075425100003486,
+     "min": 12.988389099977212,
+     "max": 13.459196899988456,
+     "mean": 13.129624309996142
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 3992268800.0,
+     "min": 3986399232,
+     "max": 3996450816,
+     "mean": 3992231116.8
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4005064704.0,
+     "min": 3999195136,
+     "max": 4013772800,
+     "mean": 4005977702.4
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 4667586560.0,
+     "min": 4627628032,
+     "max": 4694253568,
+     "mean": 4663878041.6
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 1980906.0,
+     "min": 1968535,
+     "max": 1995548,
+     "mean": 1981334.1
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 3.825607949998812,
+     "min": 3.791775999998208,
+     "max": 3.9244709000049625,
+     "mean": 3.831623830003082
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1098426368.0,
+     "min": 1097912320,
+     "max": 1098813440,
+     "mean": 1098357145.6
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1084981248.0,
+     "min": 1050439680,
+     "max": 1106182144,
+     "mean": 1084855091.2
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 154456064.0,
+     "min": 148455424,
+     "max": 168718336,
+     "mean": 155296563.2
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 576946.5,
+     "min": 576568,
+     "max": 577601,
+     "mean": 577010.3
+    }
+   }
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 17.9838613000029,
+     "min": 17.672100899973884,
+     "max": 18.212229199998546,
+     "mean": 17.98025675000099
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 4055554048.0,
+     "min": 4048465920,
+     "max": 4129288192,
+     "mean": 4071848755.2
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4062687232.0,
+     "min": 4049817600,
+     "max": 4121305088,
+     "mean": 4074327244.8
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 4686831616.0,
+     "min": 4650164224,
+     "max": 4732370944,
+     "mean": 4690508595.2
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 2502637.0,
+     "min": 2451701,
+     "max": 2542470,
+     "mean": 2501767.7
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 7.699818249995587,
+     "min": 7.661305600020569,
+     "max": 7.7859626999998,
+     "mean": 7.706022929999745
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1132484608.0,
+     "min": 1132134400,
+     "max": 1132568576,
+     "mean": 1132399411.2
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1115185152.0,
+     "min": 1106767872,
+     "max": 1138073600,
+     "mean": 1119416320.0
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 161226752.0,
+     "min": 160931840,
+     "max": 186232832,
+     "mean": 163937075.2
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 1272057.0,
+     "min": 1271778,
+     "max": 1272455,
+     "mean": 1272068.3
+    }
+   }
+  }
+ },
+ "probabilities": {
+  "candidate-request": {
+   "jeff": [
+    0.9285950064659119,
+    0.07140493392944336
+   ],
+   "native": [
+    0.928595244884491,
+    0.07140474766492844
+   ]
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": [
+    0.9305986762046814,
+    0.06940136849880219
+   ],
+   "native": [
+    0.9305989742279053,
+    0.06940098851919174
+   ]
+  }
+ },
+ "valid": true
+}

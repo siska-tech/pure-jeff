@@ -2,6 +2,23 @@
 
 Changes to the `pure-jeff` crate. Records of how each change was verified are linked from each entry.
 
+## Unreleased
+
+**Outputs are bitwise identical to 0.1.1.**
+
+### Changed
+
+- A Native forward converts every BF16 weight into one buffer, reused for the whole forward, instead of newly allocated memory for each weight. About half of the conversion time was the first write to new pages; the memory held for weights is still that of the largest one ([#14](https://github.com/siska-tech/pure-jeff/issues/14), [record](docs/native-weight-buffers-2026-10-13.md)). Browser sessions (`memory::Session`) keep the previous path.
+
+### Added
+
+- `LoadOptions::retain_f32`: convert the backbone weights except the embedding (319 tensors, 1,992,453,376 bytes) and the readout to F32 once at load and keep them, for resident models that make several decisions; `Model::retained_f32_bytes` ([#4](https://github.com/siska-tech/pure-jeff/issues/4)). Off by default.
+- `WeightSource::convertible_shape` and `WeightSource::load_f32_into`, with default implementations (no conversion into a caller's buffer), so existing implementations compile unchanged.
+
+### Breaking
+
+- `LoadOptions` has a new public field. Code that builds it with a struct literal must add `retain_f32: false` or `..LoadOptions::default()`.
+
 ## [0.1.1] - 2026-10-12
 
 Faster and smaller Native inference. **Outputs are bitwise identical to 0.1.0.**

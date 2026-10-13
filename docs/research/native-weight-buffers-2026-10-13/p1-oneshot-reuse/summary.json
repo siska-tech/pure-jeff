@@ -1,0 +1,194 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "oneshot",
+ "smoke": false,
+ "path": "api",
+ "native_options": {
+  "retain_f32": false
+ },
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 3.7997961044311523e-07
+ },
+ "cases": {
+  "candidate-request": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 13.07827955000539,
+     "min": 12.915201600000728,
+     "max": 13.119288999994751,
+     "mean": 13.055863359999785
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 3992375296.0,
+     "min": 3985833984,
+     "max": 3995385856,
+     "mean": 3991887052.8
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4005091328.0,
+     "min": 3998621696,
+     "max": 4026064896,
+     "mean": 4006042419.2
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 4669868032.0,
+     "min": 4658786304,
+     "max": 4696092672,
+     "mean": 4674070118.4
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 1989638.5,
+     "min": 1965150,
+     "max": 2027339,
+     "mean": 1988090.1
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 3.8729297499958193,
+     "min": 3.8368951000011293,
+     "max": 3.907760000001872,
+     "mean": 3.8697714299967627
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1188483072.0,
+     "min": 1188433920,
+     "max": 1189056512,
+     "mean": 1188614963.2
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1143599104.0,
+     "min": 1133596672,
+     "max": 1187528704,
+     "mean": 1151762022.4
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 200386560.0,
+     "min": 194297856,
+     "max": 205922304,
+     "mean": 200210432.0
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 598686.5,
+     "min": 598451,
+     "max": 598854,
+     "mean": 598685.1
+    }
+   }
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": {
+    "wall_s": {
+     "n": 10,
+     "median": 17.993724299994938,
+     "min": 17.845232799998485,
+     "max": 18.22212170000421,
+     "mean": 18.016036950000853
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 4054345728.0,
+     "min": 4046090240,
+     "max": 4113502208,
+     "mean": 4068453171.2
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 4064102400.0,
+     "min": 4051734528,
+     "max": 4122099712,
+     "mean": 4075002265.6
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 4699461632.0,
+     "min": 4662296576,
+     "max": 4724928512,
+     "mean": 4703468748.8
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 2495637.0,
+     "min": 2420118,
+     "max": 2546088,
+     "mean": 2499076.0
+    }
+   },
+   "native": {
+    "wall_s": {
+     "n": 10,
+     "median": 7.732548400002997,
+     "min": 7.693203100003302,
+     "max": 7.800327100005234,
+     "mean": 7.73724914000195
+    },
+    "max_process_peak_working_set": {
+     "n": 10,
+     "median": 1224265728.0,
+     "min": 1222688768,
+     "max": 1224339456,
+     "mean": 1223949926.4
+    },
+    "max_tree_working_set": {
+     "n": 10,
+     "median": 1213231104.0,
+     "min": 1193021440,
+     "max": 1230069760,
+     "mean": 1211708620.8
+    },
+    "max_tree_private": {
+     "n": 10,
+     "median": 250134528.0,
+     "min": 247644160,
+     "max": 251133952,
+     "mean": 249962905.6
+    },
+    "max_process_page_faults": {
+     "n": 10,
+     "median": 1293273.0,
+     "min": 1293110,
+     "max": 1294153,
+     "mean": 1293452.2
+    }
+   }
+  }
+ },
+ "probabilities": {
+  "candidate-request": {
+   "jeff": [
+    0.9285950064659119,
+    0.07140493392944336
+   ],
+   "native": [
+    0.928595244884491,
+    0.07140474766492844
+   ]
+  },
+  "synthetic-ocr-ja-2-512": {
+   "jeff": [
+    0.9305986762046814,
+    0.06940136849880219
+   ],
+   "native": [
+    0.9305989742279053,
+    0.06940098851919174
+   ]
+  }
+ },
+ "valid": true
+}
