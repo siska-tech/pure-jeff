@@ -94,7 +94,43 @@ fn rotary(x: &Tensor) -> Result<Tensor> {
     Tensor::cat(&[&out, &x.narrow(2, 64, 192)?], 2)
 }
 
-fn full_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor> {
+/// Query rows per attention block (see `full_attention`). Sequences up to this length run as
+/// one block, exactly as before blocks were introduced.
+pub const QUERY_BLOCK: usize = 512;
+
+/// Causal attention for query rows `start..start + rows` against all `seq` keys: the scores,
+/// mask, softmax and value product of those rows only. Every row still spans every key (masked
+/// ones contribute exp(-inf) = 0 as before), so each row's values come from the same products,
+/// sums and softmax over the same length as with one block.
+fn attention_rows(
+    q: &Tensor,
+    kt: &Tensor,
+    v: &Tensor,
+    start: usize,
+    rows: usize,
+) -> Result<Tensor> {
+    let seq = kt.dim(2)?;
+    let q = if rows == q.dim(1)? {
+        q.clone()
+    } else {
+        q.narrow(1, start, rows)?.contiguous()?
+    };
+    let scores = (q.matmul(kt)? / 16.0)?;
+    let mask: Vec<f32> = (start..start + rows)
+        .flat_map(|i| (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 }))
+        .collect();
+    let mask = Tensor::from_vec(mask, (1, rows, seq), &Device::Cpu)?;
+    let probs = candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)?;
+    probs.matmul(v)
+}
+
+fn full_attention(
+    x: &Tensor,
+    weights: &Weights,
+    prefix: &str,
+    query_block: usize,
+    check: &dyn Fn() -> Result<()>,
+) -> Result<Tensor> {
     let seq = x.dim(0)?;
     let q_gate = linear(x, weights, &format!("{prefix}.q_proj"))?.reshape((seq, 8, 512))?;
     let q = norm(
@@ -122,17 +158,21 @@ fn full_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tensor>
     };
     let k = repeat(&k)?;
     let v = repeat(&v)?;
-    let scores = (q.matmul(&k.transpose(1, 2)?.contiguous()?)? / 16.0)?;
-    let mask: Vec<f32> = (0..seq)
-        .flat_map(|i| (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 }))
-        .collect();
-    let mask = Tensor::from_vec(mask, (1, seq, seq), &Device::Cpu)?;
-    let probs = candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)?;
-    let out = probs
-        .matmul(&v)?
-        .transpose(0, 1)?
-        .contiguous()?
-        .reshape((seq, 2048))?;
+    let kt = k.transpose(1, 2)?.contiguous()?;
+    // Scores, mask and probabilities exist for one block of query rows at a time, so their
+    // memory is (8, block, seq) instead of (8, seq, seq): 128 MiB instead of 2 GiB each at 8192.
+    let block = query_block.max(1);
+    let out = if seq <= block {
+        attention_rows(&q, &kt, &v, 0, seq)?
+    } else {
+        let mut parts = Vec::with_capacity(seq.div_ceil(block));
+        for start in (0..seq).step_by(block) {
+            check()?;
+            parts.push(attention_rows(&q, &kt, &v, start, block.min(seq - start))?);
+        }
+        Tensor::cat(&parts, 1)?
+    };
+    let out = out.transpose(0, 1)?.contiguous()?.reshape((seq, 2048))?;
     linear(
         &(out * candle_nn::ops::sigmoid(&gate)?)?,
         weights,
@@ -377,6 +417,19 @@ pub fn forward_checked_with(
     check: &dyn Fn() -> Result<()>,
     reuse_buffers: bool,
 ) -> Result<Tensor> {
+    forward_blocks(weights, ids, check, reuse_buffers, QUERY_BLOCK)
+}
+
+/// [`forward_checked_with`] with `query_block` query rows per attention block (diagnostics;
+/// `usize::MAX` runs every sequence as one block). `check` also runs between blocks.
+#[doc(hidden)]
+pub fn forward_blocks(
+    weights: &dyn WeightSource,
+    ids: &[u32],
+    check: &dyn Fn() -> Result<()>,
+    reuse_buffers: bool,
+    query_block: usize,
+) -> Result<Tensor> {
     let weights = Weights {
         source: weights,
         buffer: reuse_buffers.then(|| RefCell::new(None)),
@@ -392,7 +445,13 @@ pub fn forward_checked_with(
         let prefix = format!("language_model.layers.{i}");
         let normalized = norm(&x, &weights, &format!("{prefix}.input_layernorm"))?;
         let attention = if i % 4 == 3 {
-            full_attention(&normalized, &weights, &format!("{prefix}.self_attn"))?
+            full_attention(
+                &normalized,
+                &weights,
+                &format!("{prefix}.self_attn"),
+                query_block,
+                check,
+            )?
         } else {
             linear_attention(&normalized, &weights, &format!("{prefix}.linear_attn"))?
         };
@@ -772,6 +831,67 @@ mod tests {
                 bits(&zip_map(&xt, &yt, |g, u| silu(g) * u)?)?,
                 bits(&(xt.silu()? * &yt)?)?
             );
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn attention_in_query_blocks_is_bitwise_equal_to_one_block() -> Result<()> {
+        let mut seed = 0x5eed_u64;
+        for seq in [1, 7, 8, 9, 37] {
+            let q = Tensor::from_vec(
+                uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
+                (8, seq, 256),
+                &Device::Cpu,
+            )?;
+            let kt = Tensor::from_vec(
+                uniform(&mut seed, 8 * 256 * seq, -1.0, 1.0),
+                (8, 256, seq),
+                &Device::Cpu,
+            )?;
+            let v = Tensor::from_vec(
+                uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
+                (8, seq, 256),
+                &Device::Cpu,
+            )?;
+            let whole = bits(&attention_rows(&q, &kt, &v, 0, seq)?)?;
+            for block in [1, 3, 8] {
+                let parts: Vec<Tensor> = (0..seq)
+                    .step_by(block)
+                    .map(|start| attention_rows(&q, &kt, &v, start, block.min(seq - start)))
+                    .collect::<Result<_>>()?;
+                assert_eq!(
+                    bits(&Tensor::cat(&parts, 1)?)?,
+                    whole,
+                    "seq {seq}, block {block}"
+                );
+            }
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn a_query_block_sees_exactly_its_causal_prefix() -> Result<()> {
+        // Row i of the block starting at 5 must weight keys 0..=5+i only: with equal scores the
+        // value of every allowed key is averaged, so value j = j gives the mean of 0..=i+5.
+        let seq = 9;
+        let q = Tensor::zeros((8, seq, 256), DType::F32, &Device::Cpu)?;
+        let kt = Tensor::zeros((8, 256, seq), DType::F32, &Device::Cpu)?;
+        let values: Vec<f32> = (0..8 * seq * 256)
+            .map(|i| ((i / 256) % seq) as f32)
+            .collect();
+        let v = Tensor::from_vec(values, (8, seq, 256), &Device::Cpu)?;
+        let out = attention_rows(&q, &kt, &v, 5, 3)?;
+        assert_eq!(out.dims(), [8, 3, 256]);
+        let rows = out
+            .narrow(0, 0, 1)?
+            .squeeze(0)?
+            .narrow(1, 0, 1)?
+            .squeeze(1)?
+            .to_vec1::<f32>()?;
+        for (i, value) in rows.iter().enumerate() {
+            let last = 5 + i;
+            assert!((value - last as f32 / 2.0).abs() < 1e-5, "row {i}: {value}");
         }
         Ok(())
     }
