@@ -1,0 +1,3 @@
+{"deadline_s":3.0,"reuse_bitwise_equal":true,"stopped_after_s":3.5579492,"timeout":true}
+{"deadline_s":30.0,"reuse_bitwise_equal":true,"stopped_after_s":31.4791281,"timeout":true}
+{"deadline_s":60.0,"reuse_bitwise_equal":true,"stopped_after_s":60.034522,"timeout":true}

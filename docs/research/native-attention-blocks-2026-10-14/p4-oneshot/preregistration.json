@@ -1,0 +1,485 @@
+{
+ "schema_version": "pure_jeff.bench_parity.preregistration.v1",
+ "created_utc": "2026-10-13T20:00:31.375730+00:00",
+ "stage": "oneshot",
+ "smoke": false,
+ "arms": [
+  "jeff",
+  "native"
+ ],
+ "path": "api",
+ "native_options": {
+  "retain_f32": false
+ },
+ "threads": 1,
+ "budget_tokens": 8192,
+ "boundaries": {
+  "api": "resident: wall time around Model::decide (Native) / jeff_worker.infer after loading (Jeff); includes request checks, budgets, deadline, artifacts and output validation",
+  "internal": "resident, diagnostic: tokenize + forward + readout + policy called directly, timers between",
+  "load": "resident: bundle verification + tokenizer + weights (Native Model::load; Jeff verify, import, DecisionModel)",
+  "first": "resident: the first decision after loading (the first warm-up item)",
+  "warm": "resident: measured decisions after the warm-up of every measured length",
+  "oneshot": "parent wall time of one new worker process per request (default CLI worker path), including process start, verification, load and one decision",
+  "wasm": "browser: elapsed time of demo_evaluate in the Worker; load = download + streamed hash + open"
+ },
+ "gates": {
+  "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+  "probability_max_abs_vs_official": 0.0001,
+  "probability_sum_abs_error": 1e-06,
+  "finite": "every probability is a finite float in [0, 1]",
+  "judgment": "selected candidate or abstention equals the official reference",
+  "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+  "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+ },
+ "statistics": {
+  "unit": "block (one fresh session per arm over the same job and order); observations within a session are summarised by their median first",
+  "statistic": "per block and input group: geometric mean over the group's cases of median Native wall / median Jeff wall (API boundary, warm, warm-up excluded)",
+  "interval": "one-sided 95% Student t bound of mean(log ratio) across blocks, back-transformed",
+  "equivalent": "point estimate <= 1.00 and upper bound <= 1.05, with at least 5 blocks",
+  "slower": "lower bound > 1.00 (Native slower with 95% confidence)",
+  "insufficient": "anything else; never pooled across groups, so a short-input regression is not offset by long inputs",
+  "regression": "one-shot median wall or peak working set of the default path above 1.05 x the baseline for any case (descriptive, no interval)"
+ },
+ "extension_rule": "no extension",
+ "blocks": 10,
+ "extension_blocks": 0,
+ "reps": 1,
+ "seed": 20261012,
+ "timed": [
+  "candidate-request",
+  "synthetic-ocr-ja-2-512"
+ ],
+ "plan": [
+  {
+   "block": 0,
+   "runs": [
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  },
+  {
+   "block": 1,
+   "runs": [
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ]
+   ]
+  },
+  {
+   "block": 2,
+   "runs": [
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  },
+  {
+   "block": 3,
+   "runs": [
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  },
+  {
+   "block": 4,
+   "runs": [
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  },
+  {
+   "block": 5,
+   "runs": [
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ]
+   ]
+  },
+  {
+   "block": 6,
+   "runs": [
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ]
+   ]
+  },
+  {
+   "block": 7,
+   "runs": [
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ]
+   ]
+  },
+  {
+   "block": 8,
+   "runs": [
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  },
+  {
+   "block": 9,
+   "runs": [
+    [
+     "native",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "candidate-request"
+    ],
+    [
+     "jeff",
+     "synthetic-ocr-ja-2-512"
+    ],
+    [
+     "native",
+     "synthetic-ocr-ja-2-512"
+    ]
+   ]
+  }
+ ],
+ "source": {
+  "commit": "aa157dd8bf1f1485d0d66119aad63db0715ca31a",
+  "dirty": "",
+  "features": {
+   "library": "default (native)",
+   "cli": "pure-jeff-cli (process)",
+   "resident_bench": "pure-jeff-cli example, library default features"
+  },
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-pc-windows-msvc\nrelease: 1.97.1\nLLVM version: 22.1.6"
+ },
+ "checkpoint": {
+  "revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+  "files": [
+   {
+    "path": "LICENSE",
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+   },
+   {
+    "path": "NOTICE",
+    "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+   },
+   {
+    "path": "README.md",
+    "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+   },
+   {
+    "path": "chat_template.jinja",
+    "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+   },
+   {
+    "path": "config.json",
+    "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+   },
+   {
+    "path": "decision_config.json",
+    "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+   },
+   {
+    "path": "model.safetensors",
+    "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+   },
+   {
+    "path": "processor_config.json",
+    "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+   },
+   {
+    "path": "readout.safetensors",
+    "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+   },
+   {
+    "path": "tokenizer.json",
+    "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+   },
+   {
+    "path": "tokenizer_config.json",
+    "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+   }
+  ]
+ },
+ "policy": {
+  "min_probability": 0.7,
+  "min_margin": 0.1,
+  "cpu_threads": 1
+ },
+ "hashes": {
+  "driver": "3f6525785ed3babd69e0180bc450a752705c4d6d8a6d25b6ef37880ba3c8f0a8",
+  "catalog_module": "e93a87d2d7451edfdcc98b951c58ab1a2c32d73f63abd945fecd65b053b30fdd",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "validate": "ef41305b3118a3acba66aa340354ca1022c1398fc537f876f708ea11df9348cc",
+  "stats": "66e09a8931dd8614b3c64ba729982c3a7202816c02a7311ddb05ef4f055ff773",
+  "procmem": "9d160bf6f438cb6b2fb0c2b7da76cf8bd8dff222ba500e97ea3ab32a1f1a062c",
+  "rust_manifest": "b7924ff78198a3c9fd2c95839d262143b34d41e61c304583f01ea684f41d7de2",
+  "cargo_lock": "2a66278507e6d4ca13cebeccf73c30337d2de609adf59e52e3ab1ae35d77f8ba",
+  "cli_cargo_lock": "8f4a843866358ca8bb500964ba95f7b173a0735436fafe819f14c373f3782a09",
+  "requests": {
+   "policy-top1-above": "2e9d1b4fdbcf450e30e47ae4345366b3717f2be10fb0e31346807258fb602842",
+   "policy-top1-below": "c0ec3fbd563ca7e166f9732de5b8ffc1f9d703c015889426f93693e9badbf274",
+   "special-token-text": "66b620b287f5178b50354b808169423c264bdf6a2b3c6b315cdbce0d9d9f3663",
+   "policy-near-tie": "31592b27bf32030ea7e763b8d8006f97dcb4f586968d4eb85edec48f9c6dd701",
+   "policy-margin-near": "9a7d2cac67b9329f07887cbf55bbdfeaa01c7950635adf9401ac1f330a5354fd",
+   "asr-unicode": "b2f171b8226f54da8911b4612232b19d3c8327ef3f6b8d574d1621f3ea40b909",
+   "synthetic-ocr-ja-2-127": "25edc5930a3f084c06b67cfbee188d191ddc5a167c4ead807bef5f6c04b64e33",
+   "candidate-request": "c4521eca0d30d6cbd6ed111d9baeadf13d9deea665bc9b867f4872564417e010",
+   "reversed": "7a1f9084a7324a768761be19acc8de447bbcde9ea8c8742487b140247071a0f3",
+   "synthetic-asr-mixed-2-128": "217f15e0129e947061cac19f9c60fe0a86945cbfe2d889a1626a41ff40eab670",
+   "synthetic-asr-unicode-2-128": "96ecdf3075938dee27541a70e1543bc064fc9abc7db5fa84ad5964f9944e78d2",
+   "synthetic-ocr-ascii-3-128": "5027491384849fbed055864d948e93d758af386d9a045eac0368594b34b968f5",
+   "synthetic-ocr-ja-2-128": "59783d751c4229b09f46e721f8cb661cab799af2fd6012c34680165378799bf2",
+   "synthetic-ocr-ja-2-129": "b721e94dd06762c95cf9bb9cfc2e676307ec7c7ea8ddef16f60f18d965a7161b",
+   "synthetic-asr-mixed-2-256": "2a8e1dc2ebc7bd355cdbfa88a85035c03957b4e6381364ded2d3adfe240373f9",
+   "synthetic-asr-unicode-2-256": "e0278c16edfcda2a240048fb7820b67cde4b45dcc84b43e5da90e1d07a8c12b9",
+   "synthetic-ocr-ascii-3-256": "d2f87aa1b8a8218d893f08c42cf639ffcf9d460588e98c54014200057900ca5b",
+   "synthetic-ocr-ascii-8-256": "1d0cf1839f7ab899543466807f458997b3e7a8ad14f54c14ede1a9f362fe00b4",
+   "synthetic-ocr-ja-2-256": "0ef289ef9cc25753a263caeae89d8648620b02eae8f6aa5defd224321f173a5a",
+   "synthetic-asr-mixed-2-384": "7d80fcaf3aad8da0ffc5fe9e2a58c318dce533943ffa3fb0fb8785555ce066d4",
+   "synthetic-asr-unicode-2-384": "346268f812b91ce031633a9e85d6752f1d3beec4d3dc0b1e5c26918e479276b3",
+   "synthetic-ocr-ascii-3-384": "6802fd7071a4f844860030ef94df0cefab9088352463e3c258025f7529c30ae8",
+   "synthetic-ocr-ascii-8-384": "359eaf3358f8ce950fcdc614aea37fd59af5a789b1886fd307103cf9b42efeb6",
+   "synthetic-ocr-ja-2-384": "5c8ebd3bc9e3b03fd58870509fb952eab1ebc10fed0a7a4d06ac6040bbf68d3b",
+   "synthetic-asr-mixed-2-511": "f5ca8e244a2839bc3743d0f66eaceadfcfd070e9e3123c2850c11d409b2bc8d1",
+   "synthetic-asr-unicode-2-511": "ea5903e4202348cac45926c7c3c8318b17858f6d3bada177e0dc34aef6d95281",
+   "synthetic-ocr-ascii-3-511": "c687fd456a373edc89bcda0c70cbfe03cfd5b65adc569391181dbbe8272a78e2",
+   "synthetic-ocr-ascii-8-511": "edc704d75466cfa47004c7ce830f9a29c6c431a657641dde802a8dfceccefd4a",
+   "synthetic-ocr-ja-2-511": "d2a7e61462b14faae2c839af7aec3933fc2541bc3e09799ce944135f92b09ae0",
+   "synthetic-asr-mixed-2-512": "d1d41159ba8df40034abd89f45bd61ef4487023a2acbcc0ca691663e629f0a24",
+   "synthetic-asr-unicode-2-512": "2aff0a24a684b380e9b02a8509c59ae2152a4fc8ca6fb72b367b81ea6487e3e9",
+   "synthetic-ocr-ascii-3-512": "3d91005488f2a2e487173dc2519edf23dfdc65bfd013991f12af5c1e7ee4ee07",
+   "synthetic-ocr-ascii-8-512": "732f69e43fb17899d1752f80df8a69d5107a7b1b4440d75b18c30e65ba4066f1",
+   "synthetic-ocr-ja-2-512": "3b056c02ada3f24f9039625642f9d526aadfa18102a80778468d9ddca39ae59e",
+   "synthetic-ocr-ascii-3-513": "80e36db343cb540d78510d20b206d84a1f88315dfa668c2e6a7e751c46395be1",
+   "long-text": "41012e16f262bfff3a1bfa20ef90a2ef3978eb6fdcf1adc10753e84cba70db7e",
+   "maximum-candidates": "80a715987b60768cbb6a34557d2aa5399077931e29cd6f247397211a9fcbf0cf",
+   "token-limit-8192": "378effdd1d3395870311c8db217c419b2b6a6eb99788a3bba0810dfbcf9ca8c3",
+   "token-limit-8193": "998d609aed351aad083b943876ba71d744c6be0dd3261129d082c7dc6ed3bcc1"
+  },
+  "python": "200d001707ed494066ef00e31e38330e32490c2a74a450ca5d66d2179396fd0e",
+  "py_manifest": "04ea193ff45ef57f3f0d6e1bc986f790d821427430c04f136dc1f296f89066a5",
+  "jeff_resident": "84bbcc6d5f57b1e469292f5c0b3ab30f4be415afe559752997cb87327d6ece3b",
+  "jeff_worker": "4aa880a8182d20e6fe927d859cbc433a737c4d52f222c50201105878debbc381",
+  "jeff_source_revision": "3720e7c66d73b79a6e90189f3d5b0d6ecf03ddc0",
+  "jeff_uv_lock": "84a0e4c91dedd3bb1d42655fbd1869b155f1e93f6605516a9cf68bdc6ec6be5f",
+  "jeff_exe": "22363aa3343d01662cf8b792d8587b1338c325a6d1d253f0ad9566800f0b6dea"
+ },
+ "environment_start": {
+  "time_utc": "2026-10-13T20:00:22.239184+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 6,
+   "processor_performance_percent": 128,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 6093.5625,
+    "WS_MB": 197
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 3542.5,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "steamwebhelper",
+    "Id": 18824,
+    "CPU": 2650.484375,
+    "WS_MB": 308
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 2591,
+    "WS_MB": 20
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 2472.15625,
+    "WS_MB": 334
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 1656.921875,
+    "WS_MB": 64
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 1570.5,
+    "WS_MB": 45
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 1563.578125,
+    "WS_MB": 539
+   },
+   {
+    "ProcessName": "steamwebhelper",
+    "Id": 19956,
+    "CPU": 1467.140625,
+    "WS_MB": 49
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 1341.109375,
+    "WS_MB": 263
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 1325.0625,
+    "WS_MB": 99
+   },
+   {
+    "ProcessName": "steam",
+    "Id": 17272,
+    "CPU": 1255.359375,
+    "WS_MB": 79
+   }
+  ]
+ }
+}

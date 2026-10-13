@@ -1,0 +1,76 @@
+{
+ "block": 5,
+ "arm": "native",
+ "index": 1,
+ "case": "synthetic-ocr-ja-2-512",
+ "returncode": 0,
+ "wall_s": 7.59213780000573,
+ "memory": {
+  "max_tree_working_set": 1139888128,
+  "max_tree_private": 163500032,
+  "max_process_peak_working_set": 1134026752,
+  "max_process_page_faults": 1271152,
+  "samples": 61
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "stderr": "",
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-13T20:06:09.259524+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 4,
+    "processor_performance_percent": 127,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-13T20:06:18.872578+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 2,
+    "processor_performance_percent": 130,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "decisions": [
+  {
+   "index": 0,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 7.59213780000573,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305989742279053,
+     0.06940098851919174
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  }
+ ]
+}
