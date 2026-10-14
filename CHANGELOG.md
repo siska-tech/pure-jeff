@@ -2,7 +2,7 @@
 
 Changes to the `pure-jeff` crate. Records of how each change was verified are linked from each entry.
 
-## [0.2.0] - unreleased
+## [0.2.0] - 2026-10-14
 
 Native inference as fast as the official implementation at every tested length, with less memory. **Outputs are bitwise identical to 0.1.1.** The version is 0.2.0 because `LoadOptions` gained a public field (see Breaking).
 
