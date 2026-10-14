@@ -23,7 +23,7 @@ import sys
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
-NAME, VERSION = "pure-jeff", "0.1.1"
+NAME, VERSION = "pure-jeff", "0.2.0"
 EXPECTED = {
     ".cargo_vcs_info.json", "Cargo.lock", "Cargo.toml", "Cargo.toml.orig", "LICENSE", "NOTICE",
     "README.crate.md", "THIRD_PARTY_NOTICES.md", "build.rs", "runtime/licenses/jeff-source/LICENSE",
