@@ -75,3 +75,38 @@ Hugging Faceからの取得と準備は約130秒、保存済みからの読込�
 deploy前の最初のローカルE2Eは、`run_w3.py`に`--manifest`を渡し忘れたため、既定の古いmanifest（`models/jeff-rust-bundle.json`）が配信された。ページはmanifestの大きさの不一致を検出して読込を止め、E2Eはダウンロード待ちのtimeoutで失敗した（ページの動作は想定どおり）。正しいmanifestを指定して新しくやり直し、合格した。
 
 証跡は[research/wasm-demo/deploy-2026-10-12/redeploy-12a8f15/](research/wasm-demo/deploy-2026-10-12/redeploy-12a8f15)。
+
+## 再deploy：v0.2.0（2026-10-14）
+
+pure-jeff 0.2.0のcommit `4572a8d`からbuildして置き換えた（Version `37de8ccf-534b-4e46-ba45-bcfcb86fb300`、Cloudflare account `siska-tech`）。旧version `f3375f3e…`は、Cloudflareのversion履歴に残る。
+
+- **engine**：0.2.0のライブラリでbuildした。
+  - browserの`memory::Session`は、0.2.0のNative向けの変更（共有buffer、FP32保持）を使わない。
+  - 512 tokens以下なのでattentionも1 blockで、計算は前回と同じ。
+  - `engine.wasm`のSHA-256は、strip前が`a25d75fc…`、strip後が`8b2bc45a…`。host pathは0件。
+  - この機械のstable toolchainには`rust-src`が入っていて、標準libraryのpathが埋め込まれる。そのため、`rust-src`のない同じ版のtoolchain（1.97.1）でbuildした。
+- **bundle manifest**：前回と同じ（`351c907e…`）。Cache Storageの名前も変わらず、モデルを保存済みの利用者は再取得しなくてよい。
+- **配信物**：前回から変わったのは、`engine.wasm`、`demo-config.json`、`build-info.json`だけ。ほかの12ファイルはbyte単位で同一で、Cloudflareへのuploadも3ファイルだった。
+
+### 確認
+
+| 確認 | 結果 |
+| --- | --- |
+| deploy前のローカルE2E（Chrome、同じengineとmanifestで、モデルはローカルから配信） | 全条件に合格 |
+| 公開サイトのE2E（`run_w3.py --site-url`、Chrome・Edge） | 両方とも全14条件に合格（Chromeは2回目） |
+| 前回の公開版との比較 | 3つのsampleと、取消後・再読込後の判断の確率（各browser 17個）が、前回の公開サイトでのE2Eの記録と完全に一致した |
+
+### 途中の失敗
+
+deploy直後に実行したChromeの1回目は、ページが「推論エンジン（wasm）のhashが一致しません」と表示して読込を止めた。E2Eはダウンロード待ちのtimeoutで失敗した。
+
+- **原因の推定**：deploy直後で配信が切り替わる途中だったため、新しい`demo-config.json`と古い`engine.wasm`（またはその逆）を受け取ったと考えている。
+- **ページの動作**：設計どおりで、不一致のengineを実行しない。
+- **確認と再実行**：
+  - 直後に`demo-config.json`のengine hashと、配信中の`engine.wasm`のSHA-256を3回取得した。どれもbuildと一致した。
+  - Edge（2番目に実行）は合格していた。
+  - Chromeを新しい出力先でやり直し、合格した。
+- **利用者への影響**：deployの直後に開いた利用者も、同じ表示で読込が止まることがありうる。再読込すれば解消する。
+
+証跡は[research/wasm-demo/deploy-2026-10-14-v020/](research/wasm-demo/deploy-2026-10-14-v020)にある。Chromeの1回目の記録も、失敗時の画面を含めて残した。stack traceに含まれていたlocalのpathは`/pure-jeff`に置き換えた。
+

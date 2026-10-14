@@ -1,0 +1,198 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_summary.v1",
+ "e2e_completed": true,
+ "e2e_error": null,
+ "gates": {
+  "consent": {
+   "passed": true,
+   "model_host_requests_before_click": []
+  },
+  "single_download": {
+   "passed": true,
+   "model_requests": 2,
+   "after_second_click": 1
+  },
+  "abort": {
+   "passed": true,
+   "step": {
+    "state": "partial",
+    "delete_enabled": true,
+    "status": "モデルはまだ取得していません。途中まで取得したデータが残っています（削除できます）。（読み込みを中止しました）",
+    "model_in_cache": false,
+    "evaluate_disabled": true,
+    "cache_after_cleanup": false
+   }
+  },
+  "hosts": {
+   "passed": true,
+   "hosts": [
+    "huggingface.co",
+    "pure-jeff.siska-tech.workers.dev",
+    "us.aws.cdn.hf.co"
+   ]
+  },
+  "deployed": {
+   "passed": true,
+   "engine_sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d"
+  },
+  "private_inference": {
+   "passed": true,
+   "during_evaluation": [],
+   "foreign": []
+  },
+  "results": {
+   "passed": true,
+   "rows": {
+    "eval_sample0": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 5.364418029785156e-07
+    },
+    "eval_sample2": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 2.384185791015625e-06
+    },
+    "eval_sample5": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 1.7881393432617188e-06
+    },
+    "eval_sample6_budget": {
+     "passed": true,
+     "outcome": {
+      "status": "failed",
+      "value": "budget_exceeded"
+     }
+    },
+    "no_reason": {
+     "passed": true,
+     "outcome": {
+      "status": "not_selected"
+     }
+    },
+    "ui_validation": {
+     "passed": true,
+     "message": "候補IDが重複しています。"
+    }
+   }
+  },
+  "attempt": {
+   "passed": true,
+   "components": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "bundle_manifest",
+    "chat_template.jinja",
+    "config.json",
+    "decision_config.json",
+    "model.safetensors",
+    "policy",
+    "processor_config.json",
+    "prompt",
+    "readout.safetensors",
+    "rendered_prompt",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "wasm_engine"
+   ]
+  },
+  "save": {
+   "passed": true,
+   "file": "attempt-demo-1791982948825.json",
+   "fields": [
+    "schema_version",
+    "request",
+    "provider_calls_started",
+    "outcome"
+   ]
+  },
+  "repeat": {
+   "passed": true
+  },
+  "main_thread": {
+   "passed": true,
+   "max_gap_ms": {
+    "eval_sample0": 64.10000002384186,
+    "eval_sample2": 64.90000000596046,
+    "eval_sample5": 64.09999999403954,
+    "eval_sample6": 60.900000005960464,
+    "eval_after_cancel": 63.599999994039536,
+    "eval_after_reload": 65.2999999821186
+   }
+  },
+  "languages": {
+   "passed": true,
+   "status": {
+    "en": "The model has not been downloaded yet.",
+    "vi": "Chưa tải mô hình.",
+    "ja": "モデルはまだ取得していません。"
+   }
+  },
+  "delete": {
+   "passed": true,
+   "usage_before": 1726551808,
+   "usage_after": 1726551808
+  }
+ },
+ "timings": {
+  "download_and_open": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 242746.09999999404,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 1.0999999940395355,
+    "hashed_at_open": [],
+    "tokenizer_ms": 385.40000000596046
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "load_from_cache": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 4211.299999982119,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 1,
+    "hashed_at_open": [],
+    "tokenizer_ms": 442.60000002384186
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "evaluations_ms": {
+   "eval_sample0": 3799.7000000178814,
+   "eval_sample2": 5417.800000011921,
+   "eval_sample5": 13128.09999999404,
+   "eval_sample6": 2.0999999940395355,
+   "eval_no_reason": 0,
+   "eval_after_cancel": 3732.5999999940395,
+   "eval_after_reload": 3425.9000000059605
+  }
+ },
+ "passed": true
+}
