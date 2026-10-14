@@ -11,6 +11,7 @@ Performance-parity measurement of official Jeff (Python/PyTorch), Rust Native an
 | `make_length_requests.py`, `search_policy_boundary.py` | Generated inputs (127/129 tokens; near the 0.7 threshold and ties) |
 | `validate.py` | The common numeric gate for every decision of every arm |
 | `stats.py` | Blocks, equivalence verdicts, regression threshold |
+| `export_cases.py`, `check_outcomes.py` | Catalog inputs for outside deciders (the crates.io consumer of `tools/check_package.py --cases`) and the same gate on their outcomes |
 | `compare_runs.py` | Baseline vs candidate: one-shot median / peak > 5 %, bitwise identity |
 | `test_bench.py` | Unit tests (no model): `python -B -m unittest bench/test_bench.py` |
 | `wasm/bench.html`, `tract_resident.py`, `procmem.py` | The earlier probe page (kept for the old runs), the experimental Tract path, memory sampling |
