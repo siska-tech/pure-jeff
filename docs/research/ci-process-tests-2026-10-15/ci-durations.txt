@@ -1,0 +1,10 @@
+38652406894 a1 linux: process 4/4 10.43s, process_launch 4/4 5.67s, native_process 3/3 4.78s | windows: process 4/4 10.99s, process_launch 4/4 5.97s, native_process 3/3 8.21s
+38652406894 a2 linux: process 4/4 10.75s, process_launch 4/4 5.71s, native_process 3/3 4.83s | windows: process 4/4 10.61s, process_launch 4/4 5.93s, native_process 3/3 5.87s
+38652406894 a3 linux: process 4/4 10.22s, process_launch 4/4 5.65s, native_process 3/3 4.76s | windows: process 4/4 10.96s, process_launch 4/4 5.95s, native_process 3/3 7.97s
+38652406894 a4 linux: process 4/4 10.21s, process_launch 4/4 5.65s, native_process 3/3 4.77s | windows: process 4/4 10.54s, process_launch 4/4 5.82s, native_process 3/3 5.44s
+38652406894 a5 linux: process 4/4 10.28s, process_launch 4/4 5.71s, native_process 8/8 0.02s | windows: process 4/4 10.55s, process_launch 4/4 5.91s, native_process 3/3 7.64s
+38652400151 a1 linux: process 4/4 10.36s, process_launch 4/4 5.71s, native_process 3/3 4.83s | windows: process 4/4 10.67s, process_launch 4/4 5.96s, native_process 3/3 6.36s
+38652400151 a2 linux: process 3/3 4.78s, process_launch 4/4 10.24s, native_process ? | windows: process 4/4 10.70s, process_launch 4/4 5.80s, native_process 3/3 5.65s
+38652400151 a3 linux: process 4/4 10.32s, process_launch 4/4 5.71s, native_process 3/3 4.83s | windows: process 4/4 10.54s, process_launch 4/4 5.87s, native_process 3/3 10.45s
+38652400151 a4 linux: process 4/4 10.28s, process_launch 4/4 5.71s, native_process 3/3 4.82s | windows: process 4/4 10.81s, process_launch 4/4 5.95s, native_process 3/3 8.22s
+38652400151 a5 linux: process 4/4 10.23s, process_launch 4/4 5.66s, native_process 3/3 4.78s | windows: process 4/4 10.68s, process_launch 4/4 5.97s, native_process 3/3 6.46s
