@@ -1,0 +1,16 @@
+block 0 wasm 689.4s decisions 94 gate failures 0
+block 1 wasm 428.1s decisions 55 gate failures 0
+block 2 wasm 429.5s decisions 55 gate failures 0
+block 3 wasm 469.1s decisions 55 gate failures 0
+block 4 wasm 431.4s decisions 55 gate failures 0
+block 5 wasm 432.4s decisions 55 gate failures 0
+{
+ "valid": true,
+ "accepted": null,
+ "verdict": null,
+ "repeat_violations": [],
+ "max_abs_vs_official": {
+  "wasm": 2.86102294921875e-06
+ }
+}
+gate failures: 0

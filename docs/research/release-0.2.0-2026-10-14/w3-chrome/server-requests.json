@@ -1,0 +1,234 @@
+[
+ {
+  "time": 1791938238.548369,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true
+ },
+ {
+  "time": 1791938238.5590048,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true
+ },
+ {
+  "time": 1791938238.5612829,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true
+ },
+ {
+  "time": 1791938238.561316,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 15528,
+  "complete": true
+ },
+ {
+  "time": 1791938238.5678515,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1422,
+  "complete": true
+ },
+ {
+  "time": 1791938238.6289074,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true
+ },
+ {
+  "time": 1791938239.1697814,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true
+ },
+ {
+  "time": 1791938239.1802654,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4493482,
+  "complete": true
+ },
+ {
+  "time": 1791938239.1979172,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1861,
+  "complete": true
+ },
+ {
+  "time": 1791938239.2024434,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635,
+  "complete": true
+ },
+ {
+  "time": 1791938239.249862,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492,
+  "complete": true
+ },
+ {
+  "time": 1791938239.3545613,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320,
+  "complete": true
+ },
+ {
+  "time": 1791938243.955127,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 1706027688,
+  "complete": true
+ },
+ {
+  "time": 1791938290.746048,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true
+ },
+ {
+  "time": 1791938290.7540247,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4493482,
+  "complete": true
+ },
+ {
+  "time": 1791938298.748686,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true
+ },
+ {
+  "time": 1791938298.7549078,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true
+ },
+ {
+  "time": 1791938298.7549367,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true
+ },
+ {
+  "time": 1791938298.7556202,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 15528,
+  "complete": true
+ },
+ {
+  "time": 1791938298.7915041,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1422,
+  "complete": true
+ },
+ {
+  "time": 1791938298.7941482,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true
+ },
+ {
+  "time": 1791938299.1539674,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true
+ },
+ {
+  "time": 1791938299.1613917,
+  "method": "GET",
+  "path": "/engine.wasm",
+  "status": 200,
+  "bytes": 4493482,
+  "complete": true
+ },
+ {
+  "time": 1791938310.9915013,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true
+ },
+ {
+  "time": 1791938310.9971259,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true
+ },
+ {
+  "time": 1791938310.9977562,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true
+ },
+ {
+  "time": 1791938310.9979556,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 15528,
+  "complete": true
+ },
+ {
+  "time": 1791938311.0018861,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1422,
+  "complete": true
+ },
+ {
+  "time": 1791938311.0071924,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true
+ }
+]

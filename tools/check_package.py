@@ -11,7 +11,9 @@
    no [patch], so Candle and every other dependency come from crates.io exactly as for a user.
    The consumer runs model-free checks of the public API and, with --manifest, decides every
    official golden request and compares it with the official probabilities (<= 1e-4), judgment
-   and token count.
+   and token count. With --cases it also decides every benchmark catalog input and applies
+   the common numeric gate of bench/validate.py (bench/check_outcomes.py).
+4. With --msrv TOOLCHAIN (e.g. 1.88.0), the consumer is also checked with that toolchain.
 
 Nothing is published. The work directory must not exist.
 """
@@ -23,7 +25,7 @@ import sys
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
-NAME, VERSION = "pure-jeff", "0.1.1"
+NAME, VERSION = "pure-jeff", "0.2.0"
 EXPECTED = {
     ".cargo_vcs_info.json", "Cargo.lock", "Cargo.toml", "Cargo.toml.orig", "LICENSE", "NOTICE",
     "README.crate.md", "THIRD_PARTY_NOTICES.md", "build.rs", "runtime/licenses/jeff-source/LICENSE",
@@ -41,6 +43,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--work", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, help="bundle manifest for the golden check")
+    parser.add_argument("--cases", action="store_true", help="with --manifest: also gate every catalog input")
+    parser.add_argument("--msrv", help="rustup toolchain to `cargo check` the consumer with, e.g. 1.88.0")
     parser.add_argument("--allow-dirty", action="store_true", help="package uncommitted changes (local trials)")
     args = parser.parse_args()
     work = args.work.resolve()
@@ -86,7 +90,15 @@ serde_json = "1"
     command = [str(exe)]
     if args.manifest:
         command += [str(args.manifest.resolve()), str(ROOT / "tests/fixtures/jeff-golden")]
+        if args.cases:
+            cases, outcomes = work / "cases.json", work / "outcomes.jsonl"
+            run([sys.executable, "-B", str(ROOT / "bench/export_cases.py"), str(cases)])
+            command += [str(cases), str(outcomes)]
     run(command)
+    if args.manifest and args.cases:
+        run([sys.executable, "-B", str(ROOT / "bench/check_outcomes.py"), str(outcomes)])
+    if args.msrv:
+        run(["cargo", f"+{args.msrv}", "check", "--release"], cwd=consumer)
     print("package check passed")
 
 

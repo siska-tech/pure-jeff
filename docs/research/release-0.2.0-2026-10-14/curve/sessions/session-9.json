@@ -1,0 +1,94 @@
+{
+ "case": "token-limit-8192",
+ "count": 2,
+ "rep": 0,
+ "variant": "v011",
+ "returncode": 0,
+ "process_wall_s": 254.00156490001245,
+ "init": {
+  "compute_threads": 1,
+  "event": "init",
+  "kernel": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": true,
+    "with_f16c": true
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  },
+  "load_s": 1.8484677999999999,
+  "manifest_sha256": "f0412b48584e10e6f30aabe85d1e10e3b650b5928a73e249c1d648dcad28000c",
+  "mode": "api",
+  "runtime_build": "6b2f3120cba5d62da4416ecfcd242b4b8faa0da1e5010e8419dbffc14d439cc1",
+  "source_sha256": "38d52a61ac1f8c58626b08c311923d14f4bc0c00abf1c90226c31277b63e8d04",
+  "startup_s": 1.8638626999999999
+ },
+ "walls": [
+  126.2735371,
+  125.6823469
+ ],
+ "cumulative_s": {
+  "1": 128.1373998
+ },
+ "memory": {
+  "max_tree_working_set": 8372031488,
+  "max_tree_private": 7384207360,
+  "max_process_peak_working_set": 8367509504,
+  "max_process_page_faults": 53819910,
+  "samples": 2022
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-14T05:44:41.172489+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 1,
+    "processor_performance_percent": 156,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-14T05:48:57.208002+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 126,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "probabilities": [
+  [
+   0.17470434308052063,
+   0.8252956867218018
+  ]
+ ]
+}

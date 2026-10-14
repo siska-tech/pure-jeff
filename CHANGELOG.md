@@ -2,9 +2,9 @@
 
 Changes to the `pure-jeff` crate. Records of how each change was verified are linked from each entry.
 
-## Unreleased
+## [0.2.0] - unreleased
 
-**Outputs are bitwise identical to 0.1.1.**
+Native inference as fast as the official implementation at every tested length, with less memory. **Outputs are bitwise identical to 0.1.1.** The version is 0.2.0 because `LoadOptions` gained a public field (see Breaking).
 
 ### Changed
 
@@ -19,6 +19,18 @@ Changes to the `pure-jeff` crate. Records of how each change was verified are li
 ### Breaking
 
 - `LoadOptions` has a new public field. Code that builds it with a struct literal must add `retain_f32: false` or `..LoadOptions::default()`.
+
+### Verification
+
+Release gate ([procedure](docs/release-gate.md), [record](docs/release-0.2.0-verification-2026-10-14.md)), one thread, Windows, AMD Ryzen AI MAX+ 395:
+
+- **Same outputs as 0.1.1:** on all 39 benchmark inputs (127 to 8193 tokens, 2 to 255 candidates, policy-boundary inputs), the probabilities, judgments and failures are bitwise identical to 0.1.1, both in the repository build and in a clean project built only from crates.io.
+- **Official implementation:** every input passes the numeric gate (largest probability difference 4.74e-6 in the repository build, 3.96e-6 with crates.io Candle).
+- **Speed:** with the model resident, this crate takes 0.82 to 0.96 of the official implementation's time in every length group from 128 to 8192 tokens (preregistered statistics, upper 95% bounds 0.83 to 0.99). One request per process takes 3.8 s at 128 tokens (official 13.1 s).
+- **Memory:** peak working set 1.09 GiB up to 513 tokens (official 3.88 GiB) and 2.09 GiB up to 8192 tokens (official 5.17 GiB).
+- **Browser demo engine:** end-to-end checks pass in Chrome and Edge; outputs are unchanged.
+- **Not measured:** speed with crates.io Candle, other CPUs, Linux, more than one thread.
+- MSRV is still Rust 1.88.
 
 ## [0.1.1] - 2026-10-12
 
