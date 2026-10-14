@@ -1,0 +1,1873 @@
+{
+ "fatal": null,
+ "wall_s": 432.3647029999993,
+ "memory": {
+  "max_tree_working_set": 4697415680,
+  "max_tree_private": 4406968320,
+  "max_process_peak_working_set": 4092710912,
+  "max_process_page_faults": 1392474,
+  "samples": 3436
+ },
+ "page": {
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 32,
+  "crossOriginIsolated": false
+ },
+ "init": {
+  "init_ms": 44,
+  "load_s": 9.32709999999404,
+  "worker_load_ms": 8911.5,
+  "open": {
+   "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+   "hash_ms": 0.6000000238418579,
+   "hashed_at_open": [],
+   "tokenizer_ms": 351.59999999403954
+  },
+  "linear_memory_bytes": 2533752832
+ },
+ "decisions": [
+  {
+   "index": 0,
+   "name": "synthetic-ocr-ascii-8-512",
+   "phase": "warmup",
+   "wall_s": 14.111,
+   "stages": {
+    "prompt_tokenize": 0.003300000011920929,
+    "forward": 14.10609999999404,
+    "readout_policy": 0.00040000000596046445
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5633876919746399,
+     0.08941920846700668,
+     0.06949273496866226,
+     0.05251272767782211,
+     0.07833318412303925,
+     0.06976419687271118,
+     0.026990355923771858,
+     0.050099968910217285
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 1,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "warmup",
+   "wall_s": 14.066400000005961,
+   "stages": {
+    "prompt_tokenize": 0.001399999976158142,
+    "forward": 14.064600000023843,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305992722511292,
+     0.06940075010061264
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 2,
+   "name": "synthetic-ocr-ja-2-511",
+   "phase": "warmup",
+   "wall_s": 13.92609999999404,
+   "stages": {
+    "prompt_tokenize": 0.001199999988079071,
+    "forward": 13.924700000017882,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9319663047790527,
+     0.06803370267152786
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 511,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 3,
+   "name": "synthetic-asr-unicode-2-384",
+   "phase": "warmup",
+   "wall_s": 10.3825,
+   "stages": {
+    "prompt_tokenize": 0.0012000000178813935,
+    "forward": 10.381,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.6337414979934692,
+     0.36625850200653076
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 4,
+   "name": "synthetic-ocr-ascii-8-384",
+   "phase": "warmup",
+   "wall_s": 10.400299999982119,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 10.399,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.564815878868103,
+     0.09265214949846268,
+     0.06677934527397156,
+     0.05261322855949402,
+     0.07767459750175476,
+     0.06892208009958267,
+     0.025194605812430382,
+     0.05134804546833038
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 5,
+   "name": "synthetic-ocr-ascii-8-256",
+   "phase": "warmup",
+   "wall_s": 7.064799999982118,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 7.0635999999940395,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5753287076950073,
+     0.08748949319124222,
+     0.0662546381354332,
+     0.05117633566260338,
+     0.07374249398708344,
+     0.0678359791636467,
+     0.025298727676272392,
+     0.052873656153678894
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 6,
+   "name": "synthetic-ocr-ja-2-256",
+   "phase": "warmup",
+   "wall_s": 6.9626000000238415,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 6.961599999994039,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9380378723144531,
+     0.06196217983961105
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 7,
+   "name": "synthetic-ocr-ja-2-129",
+   "phase": "warmup",
+   "wall_s": 3.6340999999940395,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 3.6329000000059604,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9559826254844666,
+     0.04401732608675957
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 129,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 8,
+   "name": "candidate-request",
+   "phase": "warmup",
+   "wall_s": 3.630800000011921,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.629800000011921,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285955429077148,
+     0.07140449434518814
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 9,
+   "name": "synthetic-ocr-ja-2-128",
+   "phase": "warmup",
+   "wall_s": 3.2766999999880793,
+   "stages": {
+    "prompt_tokenize": 0.0008999999761581421,
+    "forward": 3.2754000000059604,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9537972807884216,
+     0.04620276764035225
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 10,
+   "name": "synthetic-ocr-ja-2-127",
+   "phase": "warmup",
+   "wall_s": 3.256300000011921,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.2550999999940395,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9546715021133423,
+     0.04532851651310921
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 127,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 11,
+   "name": "synthetic-asr-unicode-2-384",
+   "phase": "measure",
+   "wall_s": 9.247900000005961,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 9.24659999999404,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.6337414979934692,
+     0.36625850200653076
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 12,
+   "name": "synthetic-ocr-ja-2-129",
+   "phase": "measure",
+   "wall_s": 3.278,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 3.2766999999880793,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9559826254844666,
+     0.04401732608675957
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 129,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 13,
+   "name": "synthetic-ocr-ja-2-511",
+   "phase": "measure",
+   "wall_s": 12.49659999999404,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 12.49519999998808,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9319663047790527,
+     0.06803370267152786
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 511,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 14,
+   "name": "synthetic-ocr-ja-2-256",
+   "phase": "measure",
+   "wall_s": 6.269099999994039,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 6.267799999982119,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9380378723144531,
+     0.06196217983961105
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 15,
+   "name": "synthetic-ocr-ascii-8-384",
+   "phase": "measure",
+   "wall_s": 9.28909999999404,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 9.28790000000596,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.564815878868103,
+     0.09265214949846268,
+     0.06677934527397156,
+     0.05261322855949402,
+     0.07767459750175476,
+     0.06892208009958267,
+     0.025194605812430382,
+     0.05134804546833038
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 16,
+   "name": "synthetic-ocr-ja-2-127",
+   "phase": "measure",
+   "wall_s": 3.245899999976158,
+   "stages": {
+    "prompt_tokenize": 0.0007999999821186065,
+    "forward": 3.244800000011921,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9546715021133423,
+     0.04532851651310921
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 127,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 17,
+   "name": "synthetic-ocr-ja-2-128",
+   "phase": "measure",
+   "wall_s": 3.2844000000059603,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.283399999976158,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9537972807884216,
+     0.04620276764035225
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 18,
+   "name": "synthetic-ocr-ascii-8-384",
+   "phase": "measure",
+   "wall_s": 10.29959999999404,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 10.29840000000596,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.564815878868103,
+     0.09265214949846268,
+     0.06677934527397156,
+     0.05261322855949402,
+     0.07767459750175476,
+     0.06892208009958267,
+     0.025194605812430382,
+     0.05134804546833038
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 19,
+   "name": "synthetic-ocr-ja-2-129",
+   "phase": "measure",
+   "wall_s": 3.658800000011921,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 3.6575999999940394,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9559826254844666,
+     0.04401732608675957
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 129,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 20,
+   "name": "synthetic-ocr-ja-2-511",
+   "phase": "measure",
+   "wall_s": 13.9775,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 13.97619999998808,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9319663047790527,
+     0.06803370267152786
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 511,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 21,
+   "name": "synthetic-ocr-ascii-8-512",
+   "phase": "measure",
+   "wall_s": 13.9215,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 13.92009999999404,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5633876919746399,
+     0.08941920846700668,
+     0.06949273496866226,
+     0.05251272767782211,
+     0.07833318412303925,
+     0.06976419687271118,
+     0.026990355923771858,
+     0.050099968910217285
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 22,
+   "name": "synthetic-ocr-ascii-8-256",
+   "phase": "measure",
+   "wall_s": 6.308199999988079,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 6.307,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5753287076950073,
+     0.08748949319124222,
+     0.0662546381354332,
+     0.05117633566260338,
+     0.07374249398708344,
+     0.0678359791636467,
+     0.025298727676272392,
+     0.052873656153678894
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 23,
+   "name": "synthetic-ocr-ja-2-127",
+   "phase": "measure",
+   "wall_s": 3.232699999988079,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.231699999988079,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9546715021133423,
+     0.04532851651310921
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 127,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 24,
+   "name": "synthetic-ocr-ja-2-256",
+   "phase": "measure",
+   "wall_s": 6.182699999988079,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 6.1815,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9380378723144531,
+     0.06196217983961105
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 25,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 3.2324000000059603,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.2314000000059604,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285955429077148,
+     0.07140449434518814
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 26,
+   "name": "synthetic-ocr-ascii-8-256",
+   "phase": "measure",
+   "wall_s": 6.33590000000596,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 6.3347000000178815,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5753287076950073,
+     0.08748949319124222,
+     0.0662546381354332,
+     0.05117633566260338,
+     0.07374249398708344,
+     0.0678359791636467,
+     0.025298727676272392,
+     0.052873656153678894
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 27,
+   "name": "synthetic-ocr-ascii-8-256",
+   "phase": "measure",
+   "wall_s": 6.332699999988079,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 6.331299999982119,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5753287076950073,
+     0.08748949319124222,
+     0.0662546381354332,
+     0.05117633566260338,
+     0.07374249398708344,
+     0.0678359791636467,
+     0.025298727676272392,
+     0.052873656153678894
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 28,
+   "name": "synthetic-ocr-ja-2-127",
+   "phase": "measure",
+   "wall_s": 3.2225,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 3.221300000011921,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9546715021133423,
+     0.04532851651310921
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 127,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 29,
+   "name": "synthetic-asr-unicode-2-384",
+   "phase": "measure",
+   "wall_s": 9.29680000001192,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 9.2955,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.6337414979934692,
+     0.36625850200653076
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 30,
+   "name": "synthetic-ocr-ja-2-511",
+   "phase": "measure",
+   "wall_s": 12.47640000000596,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 12.47509999999404,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9319663047790527,
+     0.06803370267152786
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 511,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 31,
+   "name": "synthetic-ocr-ascii-8-512",
+   "phase": "measure",
+   "wall_s": 12.444300000011921,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 12.443,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5633876919746399,
+     0.08941920846700668,
+     0.06949273496866226,
+     0.05251272767782211,
+     0.07833318412303925,
+     0.06976419687271118,
+     0.026990355923771858,
+     0.050099968910217285
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 32,
+   "name": "synthetic-ocr-ascii-8-256",
+   "phase": "measure",
+   "wall_s": 6.297900000005961,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 6.296699999988079,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5753287076950073,
+     0.08748949319124222,
+     0.0662546381354332,
+     0.05117633566260338,
+     0.07374249398708344,
+     0.0678359791636467,
+     0.025298727676272392,
+     0.052873656153678894
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 33,
+   "name": "synthetic-ocr-ascii-8-512",
+   "phase": "measure",
+   "wall_s": 12.486799999982118,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 12.4855,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5633876919746399,
+     0.08941920846700668,
+     0.06949273496866226,
+     0.05251272767782211,
+     0.07833318412303925,
+     0.06976419687271118,
+     0.026990355923771858,
+     0.050099968910217285
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 34,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 3.258699999988079,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 3.257300000011921,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285955429077148,
+     0.07140449434518814
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 35,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 3.2770999999940393,
+   "stages": {
+    "prompt_tokenize": 0.0005999999940395355,
+    "forward": 3.276300000011921,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285955429077148,
+     0.07140449434518814
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 36,
+   "name": "synthetic-ocr-ascii-8-384",
+   "phase": "measure",
+   "wall_s": 9.27520000001788,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 9.274,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.564815878868103,
+     0.09265214949846268,
+     0.06677934527397156,
+     0.05261322855949402,
+     0.07767459750175476,
+     0.06892208009958267,
+     0.025194605812430382,
+     0.05134804546833038
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 37,
+   "name": "synthetic-ocr-ascii-8-512",
+   "phase": "measure",
+   "wall_s": 12.52319999998808,
+   "stages": {
+    "prompt_tokenize": 0.001199999988079071,
+    "forward": 12.52180000001192,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.5633876919746399,
+     0.08941920846700668,
+     0.06949273496866226,
+     0.05251272767782211,
+     0.07833318412303925,
+     0.06976419687271118,
+     0.026990355923771858,
+     0.050099968910217285
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 38,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 12.573,
+   "stages": {
+    "prompt_tokenize": 0.0011000000238418578,
+    "forward": 12.571599999994039,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305992722511292,
+     0.06940075010061264
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 39,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 12.550100000023843,
+   "stages": {
+    "prompt_tokenize": 0.0011000000238418578,
+    "forward": 12.548699999988079,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305992722511292,
+     0.06940075010061264
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 40,
+   "name": "synthetic-ocr-ja-2-128",
+   "phase": "measure",
+   "wall_s": 3.2897000000178815,
+   "stages": {
+    "prompt_tokenize": 0.0008000000119209289,
+    "forward": 3.2886999999880793,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9537972807884216,
+     0.04620276764035225
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 41,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 3.254,
+   "stages": {
+    "prompt_tokenize": 0.000699999988079071,
+    "forward": 3.2530999999940393,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285955429077148,
+     0.07140449434518814
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 42,
+   "name": "synthetic-asr-unicode-2-384",
+   "phase": "measure",
+   "wall_s": 9.2245,
+   "stages": {
+    "prompt_tokenize": 0.0008999999761581421,
+    "forward": 9.223400000005961,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.6337414979934692,
+     0.36625850200653076
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 43,
+   "name": "synthetic-ocr-ja-2-127",
+   "phase": "measure",
+   "wall_s": 3.2407000000178816,
+   "stages": {
+    "prompt_tokenize": 0.0005999999940395355,
+    "forward": 3.239699999988079,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9546715021133423,
+     0.04532851651310921
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 127,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 44,
+   "name": "synthetic-ocr-ja-2-129",
+   "phase": "measure",
+   "wall_s": 3.295199999988079,
+   "stages": {
+    "prompt_tokenize": 0.000699999988079071,
+    "forward": 3.294300000011921,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9559826254844666,
+     0.04401732608675957
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 129,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 45,
+   "name": "synthetic-ocr-ja-2-256",
+   "phase": "measure",
+   "wall_s": 6.299900000005961,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 6.298799999982118,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9380378723144531,
+     0.06196217983961105
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 46,
+   "name": "synthetic-ocr-ja-2-128",
+   "phase": "measure",
+   "wall_s": 3.2365999999940396,
+   "stages": {
+    "prompt_tokenize": 0.000699999988079071,
+    "forward": 3.235699999988079,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9537972807884216,
+     0.04620276764035225
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 47,
+   "name": "synthetic-ocr-ja-2-256",
+   "phase": "measure",
+   "wall_s": 6.244299999982118,
+   "stages": {
+    "prompt_tokenize": 0.0008999999761581421,
+    "forward": 6.2431000000238415,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9380378723144531,
+     0.06196217983961105
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 256,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 48,
+   "name": "synthetic-asr-unicode-2-384",
+   "phase": "measure",
+   "wall_s": 9.343900000005961,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 9.3425,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.6337414979934692,
+     0.36625850200653076
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 49,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 12.532599999994039,
+   "stages": {
+    "prompt_tokenize": 0.001,
+    "forward": 12.531299999982119,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305992722511292,
+     0.06940075010061264
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 50,
+   "name": "synthetic-ocr-ja-2-129",
+   "phase": "measure",
+   "wall_s": 3.283300000011921,
+   "stages": {
+    "prompt_tokenize": 0.0007000000178813934,
+    "forward": 3.2822999999821185,
+    "readout_policy": 0.00020000001788139342
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9559826254844666,
+     0.04401732608675957
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 129,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 51,
+   "name": "synthetic-ocr-ascii-8-384",
+   "phase": "measure",
+   "wall_s": 9.32369999998808,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 9.32240000000596,
+    "readout_policy": 0.00019999998807907106
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "probabilities": [
+     0.564815878868103,
+     0.09265214949846268,
+     0.06677934527397156,
+     0.05261322855949402,
+     0.07767459750175476,
+     0.06892208009958267,
+     0.025194605812430382,
+     0.05134804546833038
+    ],
+    "judgment": {
+     "kind": "abstained"
+    },
+    "input_tokens": 384,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 52,
+   "name": "synthetic-ocr-ja-2-128",
+   "phase": "measure",
+   "wall_s": 3.271,
+   "stages": {
+    "prompt_tokenize": 0.0007000000178813934,
+    "forward": 3.2700999999940397,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9537972807884216,
+     0.04620276764035225
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 53,
+   "name": "synthetic-ocr-ja-2-511",
+   "phase": "measure",
+   "wall_s": 12.475,
+   "stages": {
+    "prompt_tokenize": 0.0009000000059604645,
+    "forward": 12.47390000000596,
+    "readout_policy": 9.999999403953553e-05
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9319663047790527,
+     0.06803370267152786
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 511,
+    "forwards": 1
+   },
+   "gate": []
+  },
+  {
+   "index": 54,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 12.50009999999404,
+   "stages": {
+    "prompt_tokenize": 0.0010999999940395355,
+    "forward": 12.498699999988078,
+    "readout_policy": 0.00010000002384185791
+   },
+   "linear_memory_bytes": 2533752832,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305992722511292,
+     0.06940075010061264
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  }
+ ],
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-14T06:39:01.743528+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 2,
+    "processor_performance_percent": 157,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-14T06:46:16.180247+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 147,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "block": 5,
+ "arm": "wasm",
+ "returncode": null
+}

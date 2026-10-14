@@ -1,0 +1,187 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_summary.v1",
+ "e2e_completed": true,
+ "e2e_error": null,
+ "gates": {
+  "consent": {
+   "passed": true,
+   "requests_before_click": [
+    "/index.html?lang=ja",
+    "/style.css",
+    "/i18n.js",
+    "/app.js",
+    "/demo-config.json",
+    "/samples.json"
+   ]
+  },
+  "single_download": {
+   "passed": true,
+   "counts": {
+    "/model/manifest.json": 1,
+    "/model/decision_config.json": 1,
+    "/model/tokenizer.json": 1,
+    "/model/readout.safetensors": 1,
+    "/model/model.safetensors": 1
+   }
+  },
+  "private_inference": {
+   "passed": true,
+   "during_evaluation": [],
+   "foreign": []
+  },
+  "results": {
+   "passed": true,
+   "rows": {
+    "eval_sample0": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 5.364418029785156e-07
+    },
+    "eval_sample2": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 2.384185791015625e-06
+    },
+    "eval_sample5": {
+     "passed": true,
+     "checks": {
+      "candidate_order": true,
+      "judgment": true,
+      "rendered_prompt": true,
+      "input_tokens": true,
+      "probabilities": true,
+      "provider_calls": true
+     },
+     "probability_max_abs_vs_official": 1.7881393432617188e-06
+    },
+    "eval_sample6_budget": {
+     "passed": true,
+     "outcome": {
+      "status": "failed",
+      "value": "budget_exceeded"
+     }
+    },
+    "no_reason": {
+     "passed": true,
+     "outcome": {
+      "status": "not_selected"
+     }
+    },
+    "ui_validation": {
+     "passed": true,
+     "message": "候補IDが重複しています。"
+    }
+   }
+  },
+  "attempt": {
+   "passed": true,
+   "components": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "bundle_manifest",
+    "chat_template.jinja",
+    "config.json",
+    "decision_config.json",
+    "model.safetensors",
+    "policy",
+    "processor_config.json",
+    "prompt",
+    "readout.safetensors",
+    "rendered_prompt",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "wasm_engine"
+   ]
+  },
+  "save": {
+   "passed": true,
+   "file": "attempt-demo-1791938249038.json",
+   "fields": [
+    "schema_version",
+    "request",
+    "provider_calls_started",
+    "outcome"
+   ]
+  },
+  "repeat": {
+   "passed": true
+  },
+  "main_thread": {
+   "passed": true,
+   "max_gap_ms": {
+    "eval_sample0": 63.599999994039536,
+    "eval_sample2": 64.5,
+    "eval_sample5": 64.19999998807907,
+    "eval_sample6": 62.599999994039536,
+    "eval_after_cancel": 64,
+    "eval_after_reload": 64.10000002384186
+   }
+  },
+  "languages": {
+   "passed": true,
+   "status": {
+    "en": "The model has not been downloaded yet.",
+    "vi": "Chưa tải mô hình.",
+    "ja": "モデルはまだ取得していません。"
+   }
+  },
+  "delete": {
+   "passed": true,
+   "usage_before": 1726550784,
+   "usage_after": 1726550784
+  }
+ },
+ "timings": {
+  "download_and_open": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 9337.100000023842,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 0.5999999940395355,
+    "hashed_at_open": [],
+    "tokenizer_ms": 346.90000000596046
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "load_from_cache": {
+   "id": 1,
+   "ok": true,
+   "load_ms": 3563.699999988079,
+   "open": {
+    "checkpoint_revision": "51552f39a943d62e8387c4ea5e17026a1408729f",
+    "hash_ms": 0.7000000178813934,
+    "hashed_at_open": [],
+    "tokenizer_ms": 429.5
+   },
+   "linear_memory_bytes": 2533752832,
+   "panic": null
+  },
+  "evaluations_ms": {
+   "eval_sample0": 5762.800000011921,
+   "eval_sample2": 8944.299999982119,
+   "eval_sample5": 21990.40000000596,
+   "eval_sample6": 2.0999999940395355,
+   "eval_no_reason": 0,
+   "eval_after_cancel": 3557.399999976158,
+   "eval_after_reload": 7388.5999999940395
+  }
+ },
+ "passed": true
+}

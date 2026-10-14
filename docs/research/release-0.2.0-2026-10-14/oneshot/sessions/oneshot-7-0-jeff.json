@@ -1,0 +1,76 @@
+{
+ "block": 7,
+ "arm": "jeff",
+ "index": 0,
+ "case": "synthetic-ocr-ja-2-512",
+ "returncode": 0,
+ "wall_s": 18.003243900020607,
+ "memory": {
+  "max_tree_working_set": 4053946368,
+  "max_tree_private": 4671107072,
+  "max_process_peak_working_set": 4045860864,
+  "max_process_page_faults": 2510918,
+  "samples": 144
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<00:52,  9.06it/s]\rLoading weights:  27%|██▋       | 128/473 [00:00<00:00, 690.79it/s]\rLoading weights:  42%|████▏     | 198/473 [00:00<00:00, 668.32it/s]\rLoading weights:  56%|█████▌    | 266/473 [00:00<00:00, 636.82it/s]\rLoading weights:  74%|███████▍  | 350/473 [00:00<00:00, 704.71it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 754.23it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-14T04:58:52.040307+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 1,
+    "processor_performance_percent": 113,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-14T04:59:12.097228+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 122,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "decisions": [
+  {
+   "index": 0,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 18.003243900020607,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305986762046814,
+     0.06940136849880219
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1
+   },
+   "gate": []
+  }
+ ]
+}

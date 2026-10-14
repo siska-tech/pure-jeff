@@ -1,0 +1,76 @@
+{
+ "block": 5,
+ "arm": "native",
+ "index": 2,
+ "case": "candidate-request",
+ "returncode": 0,
+ "wall_s": 3.8224103999964427,
+ "memory": {
+  "max_tree_working_set": 1105580032,
+  "max_tree_private": 152170496,
+  "max_process_peak_working_set": 1097744384,
+  "max_process_page_faults": 577300,
+  "samples": 31
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "stderr": "",
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-14T04:57:24.077558+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 121,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-14T04:57:29.918611+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 5,
+    "processor_performance_percent": 127,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "decisions": [
+  {
+   "index": 0,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 3.8224103999964427,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.928595244884491,
+     0.07140474766492844
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  }
+ ]
+}

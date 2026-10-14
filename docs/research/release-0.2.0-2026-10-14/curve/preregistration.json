@@ -1,0 +1,221 @@
+{
+ "schema_version": "pure_jeff.request_curve.preregistration.v1",
+ "created_utc": "2026-10-14T05:02:05.514032+00:00",
+ "variants": [
+  {
+   "name": "v011",
+   "exe": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\experiments\\runs\\exe-main\\resident_bench.exe",
+   "flags": [],
+   "manifest": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\models\\pure-jeff-bundle-t1.json",
+   "exe_sha256": "45915c33928cb2f3817503ca564ebfee0d5a7cf1efe4e5ab14751c5775f45324",
+   "manifest_sha256": "f0412b48584e10e6f30aabe85d1e10e3b650b5928a73e249c1d648dcad28000c"
+  },
+  {
+   "name": "v020",
+   "exe": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\runtime\\rust\\target\\release\\examples\\resident_bench.exe",
+   "flags": [],
+   "manifest": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\models\\pure-jeff-bundle-t1-358fae4.json",
+   "exe_sha256": "2a1c8175eed011467b6cfc248275dba9afde83313f66ee5f191df27b3499a871",
+   "manifest_sha256": "2c3d0a552528a3840e184a165429c68141fa1709afb2387c2540f16d5a53f0f3"
+  },
+  {
+   "name": "retain",
+   "exe": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\runtime\\rust\\target\\release\\examples\\resident_bench.exe",
+   "flags": [
+    "--retain-f32"
+   ],
+   "manifest": "C:\\Users\\Shion\\Documents\\Projects\\pure-jeff\\models\\pure-jeff-bundle-t1-358fae4.json",
+   "exe_sha256": "2a1c8175eed011467b6cfc248275dba9afde83313f66ee5f191df27b3499a871",
+   "manifest_sha256": "2c3d0a552528a3840e184a165429c68141fa1709afb2387c2540f16d5a53f0f3"
+  }
+ ],
+ "plan": [
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 0,
+   "variant": "v011"
+  },
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 0,
+   "variant": "v020"
+  },
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 0,
+   "variant": "retain"
+  },
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 1,
+   "variant": "retain"
+  },
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 1,
+   "variant": "v020"
+  },
+  {
+   "case": "candidate-request",
+   "count": 100,
+   "rep": 1,
+   "variant": "v011"
+  },
+  {
+   "case": "synthetic-ocr-ja-2-512",
+   "count": 100,
+   "rep": 0,
+   "variant": "v011"
+  },
+  {
+   "case": "synthetic-ocr-ja-2-512",
+   "count": 100,
+   "rep": 0,
+   "variant": "v020"
+  },
+  {
+   "case": "synthetic-ocr-ja-2-512",
+   "count": 100,
+   "rep": 0,
+   "variant": "retain"
+  },
+  {
+   "case": "token-limit-8192",
+   "count": 2,
+   "rep": 0,
+   "variant": "v011"
+  },
+  {
+   "case": "token-limit-8192",
+   "count": 2,
+   "rep": 0,
+   "variant": "v020"
+  },
+  {
+   "case": "token-limit-8192",
+   "count": 2,
+   "rep": 0,
+   "variant": "retain"
+  }
+ ],
+ "gates": {
+  "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+  "probability_max_abs_vs_official": 0.0001,
+  "probability_sum_abs_error": 1e-06,
+  "finite": "every probability is a finite float in [0, 1]",
+  "judgment": "selected candidate or abstention equals the official reference",
+  "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+  "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+ },
+ "source": {
+  "commit": "e8ccda8838c5bcfcf3e400cbdf799a6cce3e9d22",
+  "dirty": "?? docs/release-gate.md"
+ },
+ "hashes": {
+  "driver": "d4eb59d514ada13a686a8387b2c2561d3901f68f63ddaf622a98c933a4f046f1",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816"
+ },
+ "environment_start": {
+  "time_utc": "2026-10-14T05:02:01.850928+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 0,
+   "processor_performance_percent": 140,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 6423.578125,
+    "WS_MB": 209
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 3855.546875,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 2870.75,
+    "WS_MB": 20
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 2716.71875,
+    "WS_MB": 333
+   },
+   {
+    "ProcessName": "steamwebhelper",
+    "Id": 18824,
+    "CPU": 2653.109375,
+    "WS_MB": 305
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 2173.84375,
+    "WS_MB": 470
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 1811.875,
+    "WS_MB": 64
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 1767.4375,
+    "WS_MB": 265
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 1766.078125,
+    "WS_MB": 49
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 1715.65625,
+    "WS_MB": 99
+   },
+   {
+    "ProcessName": "steamwebhelper",
+    "Id": 19956,
+    "CPU": 1482.28125,
+    "WS_MB": 49
+   },
+   {
+    "ProcessName": "steam",
+    "Id": 17272,
+    "CPU": 1441.59375,
+    "WS_MB": 82
+   }
+  ]
+ }
+}
