@@ -1,0 +1,31 @@
+{
+ "stage": "oneshot",
+ "arm": "native",
+ "threshold": 1.05,
+ "cases": {
+  "candidate-request": {
+   "wall_median": {
+    "ratio": 0.9949281002515725,
+    "regressed": false
+   },
+   "peak_working_set": {
+    "ratio": 1.000141650979442,
+    "regressed": false
+   },
+   "bits_identical": true
+  },
+  "synthetic-ocr-ja-2-512": {
+   "wall_median": {
+    "ratio": 0.9938178800519162,
+    "regressed": false
+   },
+   "peak_working_set": {
+    "ratio": 1.001287494665577,
+    "regressed": false
+   },
+   "bits_identical": true
+  }
+ },
+ "regressed": [],
+ "bits_differ": []
+}

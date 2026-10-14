@@ -1,0 +1,76 @@
+{
+ "block": 0,
+ "arm": "jeff",
+ "index": 0,
+ "case": "candidate-request",
+ "returncode": 0,
+ "wall_s": 14.982694300008006,
+ "memory": {
+  "max_tree_working_set": 4003864576,
+  "max_tree_private": 4692443136,
+  "max_process_peak_working_set": 3991855104,
+  "max_process_page_faults": 2031064,
+  "samples": 121
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   0%|          | 1/473 [00:00<01:12,  6.49it/s]\rLoading weights:  28%|██▊       | 132/473 [00:00<00:00, 602.07it/s]\rLoading weights:  43%|████▎     | 202/473 [00:00<00:00, 568.60it/s]\rLoading weights:  56%|█████▌    | 265/473 [00:00<00:00, 517.53it/s]\rLoading weights:  68%|██████▊   | 321/473 [00:00<00:00, 509.94it/s]\rLoading weights:  93%|█████████▎| 442/473 [00:00<00:00, 709.93it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 597.74it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n",
+ "environment": {
+  "before": {
+   "time_utc": "2026-10-13T20:00:32.375346+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 156,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  },
+  "after": {
+   "time_utc": "2026-10-13T20:00:49.400114+00:00",
+   "ac_line_status": 1,
+   "battery_percent": 255,
+   "battery_saver": 0,
+   "cpu": {
+    "load_percent": 0,
+    "processor_performance_percent": 127,
+    "processor_frequency_mhz": 3000,
+    "current_clock_mhz": 3000,
+    "max_clock_mhz": 3000
+   },
+   "thermal": null
+  }
+ },
+ "decisions": [
+  {
+   "index": 0,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 14.982694300008006,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285950064659119,
+     0.07140493392944336
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1
+   },
+   "gate": []
+  }
+ ]
+}

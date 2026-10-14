@@ -8,6 +8,7 @@ Changes to the `pure-jeff` crate. Records of how each change was verified are li
 
 ### Changed
 
+- Full attention runs in blocks of 512 query rows against all keys, so scores, mask and probabilities never exist for the whole sequence: at 8192 tokens the peak working set falls from 7.85 to 2.06 GiB, at the same speed. Sequences up to 512 tokens run exactly as before ([#17](https://github.com/siska-tech/pure-jeff/issues/17), [record](docs/native-attention-blocks-2026-10-14.md)).
 - A Native forward converts every BF16 weight into one buffer, reused for the whole forward, instead of newly allocated memory for each weight. About half of the conversion time was the first write to new pages; the memory held for weights is still that of the largest one ([#14](https://github.com/siska-tech/pure-jeff/issues/14), [record](docs/native-weight-buffers-2026-10-13.md)). Browser sessions (`memory::Session`) keep the previous path.
 
 ### Added

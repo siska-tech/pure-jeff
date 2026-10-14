@@ -1,0 +1,98 @@
+{
+ "time_utc": "2026-10-13T20:10:56.221076+00:00",
+ "ac_line_status": 1,
+ "battery_percent": 255,
+ "battery_saver": 0,
+ "cpu": {
+  "load_percent": 0,
+  "processor_performance_percent": 117,
+  "processor_frequency_mhz": 3000,
+  "current_clock_mhz": 3000,
+  "max_clock_mhz": 3000
+ },
+ "thermal": null,
+ "power_scheme": "電源設定の GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (バランス)",
+ "platform": "Windows-11-10.0.26200-SP0",
+ "processor": {
+  "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+  "NumberOfCores": 16,
+  "NumberOfLogicalProcessors": 32,
+  "L2CacheSize": 16384,
+  "L3CacheSize": 65536
+ },
+ "logical_cpus": 32,
+ "top_processes": [
+  {
+   "ProcessName": "node",
+   "Id": 2528,
+   "CPU": 6098.609375,
+   "WS_MB": 197
+  },
+  {
+   "ProcessName": "LineMediaPlayer",
+   "Id": 24528,
+   "CPU": 3549.03125,
+   "WS_MB": 26
+  },
+  {
+   "ProcessName": "steamwebhelper",
+   "Id": 18824,
+   "CPU": 2650.484375,
+   "WS_MB": 308
+  },
+  {
+   "ProcessName": "OsdShowV2.4",
+   "Id": 9912,
+   "CPU": 2596.5625,
+   "WS_MB": 20
+  },
+  {
+   "ProcessName": "Creative Cloud",
+   "Id": 6900,
+   "CPU": 2475.140625,
+   "WS_MB": 334
+  },
+  {
+   "ProcessName": "RadeonSoftware",
+   "Id": 16660,
+   "CPU": 1660.078125,
+   "WS_MB": 64
+  },
+  {
+   "ProcessName": "claude",
+   "Id": 34792,
+   "CPU": 1575.1875,
+   "WS_MB": 530
+  },
+  {
+   "ProcessName": "ChatGPT",
+   "Id": 21876,
+   "CPU": 1574.015625,
+   "WS_MB": 45
+  },
+  {
+   "ProcessName": "steamwebhelper",
+   "Id": 19956,
+   "CPU": 1467.28125,
+   "WS_MB": 49
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 28624,
+   "CPU": 1349.4375,
+   "WS_MB": 263
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 26196,
+   "CPU": 1343.796875,
+   "WS_MB": 99
+  },
+  {
+   "ProcessName": "steam",
+   "Id": 17272,
+   "CPU": 1258.953125,
+   "WS_MB": 79
+  }
+ ]
+}

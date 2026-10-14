@@ -1,0 +1,162 @@
+[
+ {
+  "block": 1099511627776,
+  "forward_s": 5.5959566,
+  "hidden_sha256": "50fb1c810359c80d32d7810fbddeb8c45ec9ac910d794f11a1717d2fec888a62",
+  "request": "experiments/runs/p4/synthetic-ocr-ascii-3-513.json",
+  "tokens": 513,
+  "block_arg": "max",
+  "peak_ws": 1133907968,
+  "private": 161689600
+ },
+ {
+  "block": 512,
+  "forward_s": 5.6293898,
+  "hidden_sha256": "50fb1c810359c80d32d7810fbddeb8c45ec9ac910d794f11a1717d2fec888a62",
+  "request": "experiments/runs/p4/synthetic-ocr-ascii-3-513.json",
+  "tokens": 513,
+  "block_arg": "512",
+  "peak_ws": 1136254976,
+  "private": 162775040
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 5.6151353,
+  "hidden_sha256": "50fb1c810359c80d32d7810fbddeb8c45ec9ac910d794f11a1717d2fec888a62",
+  "request": "experiments/runs/p4/synthetic-ocr-ascii-3-513.json",
+  "tokens": 513,
+  "block_arg": "max",
+  "peak_ws": 1132433408,
+  "private": 165453824
+ },
+ {
+  "block": 512,
+  "forward_s": 5.5796242,
+  "hidden_sha256": "50fb1c810359c80d32d7810fbddeb8c45ec9ac910d794f11a1717d2fec888a62",
+  "request": "experiments/runs/p4/synthetic-ocr-ascii-3-513.json",
+  "tokens": 513,
+  "block_arg": "512",
+  "peak_ws": 1136574464,
+  "private": 159051776
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 9.4701869,
+  "hidden_sha256": "a87228977dc64ed6f4fbedaa87c08226e2dc2dd63a1340c29ae80b273ab5e2bb",
+  "request": "tests/fixtures/jeff-golden/long-text.json",
+  "tokens": 874,
+  "block_arg": "max",
+  "peak_ws": 1212104704,
+  "private": 241115136
+ },
+ {
+  "block": 512,
+  "forward_s": 9.539094500000001,
+  "hidden_sha256": "a87228977dc64ed6f4fbedaa87c08226e2dc2dd63a1340c29ae80b273ab5e2bb",
+  "request": "tests/fixtures/jeff-golden/long-text.json",
+  "tokens": 874,
+  "block_arg": "512",
+  "peak_ws": 1185136640,
+  "private": 206221312
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 9.4105373,
+  "hidden_sha256": "a87228977dc64ed6f4fbedaa87c08226e2dc2dd63a1340c29ae80b273ab5e2bb",
+  "request": "tests/fixtures/jeff-golden/long-text.json",
+  "tokens": 874,
+  "block_arg": "max",
+  "peak_ws": 1212567552,
+  "private": 224243712
+ },
+ {
+  "block": 512,
+  "forward_s": 9.4499547,
+  "hidden_sha256": "a87228977dc64ed6f4fbedaa87c08226e2dc2dd63a1340c29ae80b273ab5e2bb",
+  "request": "tests/fixtures/jeff-golden/long-text.json",
+  "tokens": 874,
+  "block_arg": "512",
+  "peak_ws": 1185038336,
+  "private": 213549056
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 37.770322,
+  "hidden_sha256": "2a77370800d67127e5070f286f487c5a27beb752bb043299358fe6284b75d2ab",
+  "request": "tests/fixtures/jeff-golden/maximum-candidates.json",
+  "tokens": 3206,
+  "block_arg": "max",
+  "peak_ws": 2352148480,
+  "private": 1394970624
+ },
+ {
+  "block": 512,
+  "forward_s": 37.7189261,
+  "hidden_sha256": "2a77370800d67127e5070f286f487c5a27beb752bb043299358fe6284b75d2ab",
+  "request": "tests/fixtures/jeff-golden/maximum-candidates.json",
+  "tokens": 3206,
+  "block_arg": "512",
+  "peak_ws": 1513414656,
+  "private": 541679616
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 37.5903763,
+  "hidden_sha256": "2a77370800d67127e5070f286f487c5a27beb752bb043299358fe6284b75d2ab",
+  "request": "tests/fixtures/jeff-golden/maximum-candidates.json",
+  "tokens": 3206,
+  "block_arg": "max",
+  "peak_ws": 2352246784,
+  "private": 1393152000
+ },
+ {
+  "block": 512,
+  "forward_s": 37.7797435,
+  "hidden_sha256": "2a77370800d67127e5070f286f487c5a27beb752bb043299358fe6284b75d2ab",
+  "request": "tests/fixtures/jeff-golden/maximum-candidates.json",
+  "tokens": 3206,
+  "block_arg": "512",
+  "peak_ws": 1513791488,
+  "private": 537645056
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 124.5604582,
+  "hidden_sha256": "3b47a186f2990b4e0487a9189d42f5a40c198fb61e084a2e0ae8d07da252636c",
+  "request": "tests/fixtures/jeff-golden/token-limit-8192.json",
+  "tokens": 8192,
+  "block_arg": "max",
+  "peak_ws": 8432635904,
+  "private": 7475458048
+ },
+ {
+  "block": 512,
+  "forward_s": 124.9075455,
+  "hidden_sha256": "3b47a186f2990b4e0487a9189d42f5a40c198fb61e084a2e0ae8d07da252636c",
+  "request": "tests/fixtures/jeff-golden/token-limit-8192.json",
+  "tokens": 8192,
+  "block_arg": "512",
+  "peak_ws": 2208104448,
+  "private": 1238798336
+ },
+ {
+  "block": 1099511627776,
+  "forward_s": 124.2755727,
+  "hidden_sha256": "3b47a186f2990b4e0487a9189d42f5a40c198fb61e084a2e0ae8d07da252636c",
+  "request": "tests/fixtures/jeff-golden/token-limit-8192.json",
+  "tokens": 8192,
+  "block_arg": "max",
+  "peak_ws": 8432844800,
+  "private": 7475646464
+ },
+ {
+  "block": 512,
+  "forward_s": 124.9428497,
+  "hidden_sha256": "3b47a186f2990b4e0487a9189d42f5a40c198fb61e084a2e0ae8d07da252636c",
+  "request": "tests/fixtures/jeff-golden/token-limit-8192.json",
+  "tokens": 8192,
+  "block_arg": "512",
+  "peak_ws": 2208055296,
+  "private": 1238872064
+ }
+]
