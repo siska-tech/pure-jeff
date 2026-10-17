@@ -1,0 +1,445 @@
+{
+ "mode": "prepare",
+ "network": [
+  {
+   "time": 1792277930.592,
+   "url": "https://pure-jeff.siska-tech.workers.dev/index.html?lang=ja",
+   "offline": false
+  },
+  {
+   "time": 1792277930.647,
+   "url": "https://pure-jeff.siska-tech.workers.dev/?lang=ja",
+   "offline": false
+  },
+  {
+   "time": 1792277930.713,
+   "url": "https://pure-jeff.siska-tech.workers.dev/style.css",
+   "offline": false
+  },
+  {
+   "time": 1792277930.713,
+   "url": "https://pure-jeff.siska-tech.workers.dev/i18n.js",
+   "offline": false
+  },
+  {
+   "time": 1792277930.713,
+   "url": "https://pure-jeff.siska-tech.workers.dev/app.js",
+   "offline": false
+  },
+  {
+   "time": 1792277930.801,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277930.827,
+   "url": "https://pure-jeff.siska-tech.workers.dev/samples.json",
+   "offline": false
+  },
+  {
+   "time": 1792277930.977,
+   "url": "https://pure-jeff.siska-tech.workers.dev/demo-config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277931.023,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine-worker.js",
+   "offline": false
+  },
+  {
+   "time": 1792277931.058,
+   "url": "https://pure-jeff.siska-tech.workers.dev/engine.wasm",
+   "offline": false
+  },
+  {
+   "time": 1792277931.372,
+   "url": "https://pure-jeff.siska-tech.workers.dev/bundle/manifest.json",
+   "offline": false
+  },
+  {
+   "time": 1792277931.409,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277931.724,
+   "url": "https://huggingface.co/api/resolve-cache/models/jeff-legacy/Jeff-Qwen3.5-0.8B/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json?%2Fjeff-legacy%2FJeff-Qwen3.5-0.8B%2Fresolve%2F51552f39a943d62e8387c4ea5e17026a1408729f%2Fdecision_config.json=&etag=%22ad311f43b0cca5d8e4a0104532f226c6e0a64047%22",
+   "offline": false
+  },
+  {
+   "time": 1792277931.741,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+   "offline": false
+  },
+  {
+   "time": 1792277931.911,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/a534f7c9d12bb01a2bc21781b55369e077043baed4c8f646fdeff5ff02dfd4d6?X-Xet-Cas-Uid=public&user_id=public&xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27tokenizer.json%3B+filename%3D%22tokenizer.json%22%3B&response-content-type=application%2Fjson%3B+charset%3Dutf-8&Expires=1792281475&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxL2E1MzRmN2M5ZDEyYmIwMWEyYmMyMTc4MWI1NTM2OWUwNzcwNDNiYWVkNGM4ZjY0NmZkZWZmNWZmMDJkZmQ0ZDZcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3Rva2VuaXplci5qc29uJTNCK2ZpbGVuYW1lJTNEJTIydG9rZW5pemVyLmpzb24lMjIlM0ImcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGanNvbiUzQitjaGFyc2V0JTNEdXRmLTgiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MjI4MTQ3NX19fV19&Signature=MEUCIQCtvAyIchOkNHK0Xl2d%7Ez5RhjDSfvLy-SCgbcVNOhRIdQIgX58RATr%7EAqDmTSpGNNyq8lKvtKNlGoyEHlpXcHBXDfk_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "offline": false
+  },
+  {
+   "time": 1792277935.513,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+   "offline": false
+  },
+  {
+   "time": 1792277935.692,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/478f3c72ade20a0a231fd3e2cd8a5b048a25a0aab02c4204ec39024e85555b62?X-Xet-Cas-Uid=public&xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27readout.safetensors%3B+filename%3D%22readout.safetensors%22%3B&user_id=public&Expires=1792281479&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzQ3OGYzYzcyYWRlMjBhMGEyMzFmZDNlMmNkOGE1YjA0OGEyNWEwYWFiMDJjNDIwNGVjMzkwMjRlODU1NTViNjJcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN3JlYWRvdXQuc2FmZXRlbnNvcnMlM0IrZmlsZW5hbWUlM0QlMjJyZWFkb3V0LnNhZmV0ZW5zb3JzJTIyJTNCJnVzZXJfaWQ9cHVibGljIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTIyODE0Nzl9fX1dfQ__&Signature=MEUCIQDjlRTdPqFcdQ4iHUEnhDFEuSlshZPq2HHL%7EDz3HhkgmwIgQnYuP-9vJWEStvFxjif6nJHzTEobnIvb%7E-CZXjqP0gs_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "offline": false
+  },
+  {
+   "time": 1792277936.435,
+   "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+   "offline": false
+  },
+  {
+   "time": 1792277936.607,
+   "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6aba92ac82e01c557266f7e1/992ead0ebb3fbd05ba74bf43f3910cb1b6a770777bc7cb101a382861b8a23221?xip=-_kd0wZV3P0&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1792281479&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmFiYTkyYWM4MmUwMWM1NTcyNjZmN2UxLzk5MmVhZDBlYmIzZmJkMDViYTc0YmY0M2YzOTEwY2IxYjZhNzcwNzc3YmM3Y2IxMDFhMzgyODYxYjhhMjMyMjFcXD94aXA9LV9rZDB3WlYzUDAmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMlMjIlM0ImWC1YZXQtQ2FzLVVpZD1wdWJsaWMmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MjI4MTQ3OX19fV19&Signature=MEUCIQC60aHTgJ-52sYn5-WqiOS1njdEfMfepBQGo7TJMJmjGAIgWHJHbD1wUpGQScXrANSKWPqbXTCWTV2ZfEgeRNEyojs_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+   "offline": false
+  }
+ ],
+ "marks": {
+  "load_click": 1792277931.02,
+  "ready": 1792278160.639
+ },
+ "decisions": [
+  {
+   "sample": 0,
+   "offline": false,
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1792278160643",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "sample": 5,
+   "offline": false,
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1792278164717",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "cat a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "a",
+       "text": "a"
+      },
+      {
+       "id": "b",
+       "text": "b"
+      },
+      {
+       "id": "c",
+       "text": "c"
+      },
+      {
+       "id": "d",
+       "text": "d"
+      },
+      {
+       "id": "e",
+       "text": "e"
+      },
+      {
+       "id": "f",
+       "text": "f"
+      },
+      {
+       "id": "g",
+       "text": "g"
+      },
+      {
+       "id": "h",
+       "text": "h"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "a",
+        "option_probability": 0.5633876919746399
+       },
+       {
+        "candidate_id": "b",
+        "option_probability": 0.08941920846700668
+       },
+       {
+        "candidate_id": "c",
+        "option_probability": 0.06949273496866226
+       },
+       {
+        "candidate_id": "d",
+        "option_probability": 0.05251272767782211
+       },
+       {
+        "candidate_id": "e",
+        "option_probability": 0.07833318412303925
+       },
+       {
+        "candidate_id": "f",
+        "option_probability": 0.06976419687271118
+       },
+       {
+        "candidate_id": "g",
+        "option_probability": 0.026990355923771858
+       },
+       {
+        "candidate_id": "h",
+        "option_probability": 0.050099968910217285
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 512,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "config": {
+  "schema_version": "pure_jeff.web_demo_config.v1",
+  "engine": {
+   "url": "engine.wasm",
+   "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d",
+   "bytes": 4492394,
+   "removed_exports": [
+    "__getrandom_v03_custom"
+   ]
+  },
+  "manifest": {
+   "path": "manifest.json",
+   "url": "bundle/manifest.json",
+   "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f",
+   "bytes": 1861
+  },
+  "assets": [
+   {
+    "slot": 0,
+    "path": "decision_config.json",
+    "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/decision_config.json",
+    "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03",
+    "bytes": 6635
+   },
+   {
+    "slot": 1,
+    "path": "tokenizer.json",
+    "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/tokenizer.json",
+    "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706",
+    "bytes": 19989492
+   },
+   {
+    "slot": 2,
+    "path": "readout.safetensors",
+    "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/readout.safetensors",
+    "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9",
+    "bytes": 522320
+   },
+   {
+    "slot": 3,
+    "path": "model.safetensors",
+    "url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/model.safetensors",
+    "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f",
+    "bytes": 1706027688
+   }
+  ],
+  "total_download_bytes": 1726547996,
+  "cache_name": "pure-jeff-model-351c907ed106c6fb",
+  "model_base_url": "https://huggingface.co/jeff-legacy/Jeff-Qwen3.5-0.8B/resolve/51552f39a943d62e8387c4ea5e17026a1408729f/",
+  "max_input_tokens": 512,
+  "max_input_bytes": 1048576,
+  "heap_reserve_bytes": 805306368
+ },
+ "model_state_at_open": "absent",
+ "cache_names": [
+  "pure-jeff-model-351c907ed106c6fb"
+ ],
+ "completed": true
+}

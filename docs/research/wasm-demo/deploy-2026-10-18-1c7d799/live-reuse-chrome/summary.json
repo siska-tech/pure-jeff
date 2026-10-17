@@ -1,0 +1,16 @@
+{
+ "mode": "reuse",
+ "completed": true,
+ "error": null,
+ "engine_url": "engine-8b2bc45a32c742e2.wasm",
+ "model_state_at_open": "cached",
+ "gates": {
+  "results": true,
+  "engine": true,
+  "cached_at_open": true,
+  "no_model_download": true,
+  "offline": true,
+  "same_cache": true
+ },
+ "passed": true
+}

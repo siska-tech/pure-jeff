@@ -1,0 +1,12 @@
+{
+ "mode": "prepare",
+ "completed": true,
+ "error": null,
+ "engine_url": "engine.wasm",
+ "model_state_at_open": "absent",
+ "gates": {
+  "results": true,
+  "engine": true
+ },
+ "passed": true
+}
