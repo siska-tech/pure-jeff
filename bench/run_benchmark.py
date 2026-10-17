@@ -403,6 +403,9 @@ def main():
     parser.add_argument("--jeff-exe", type=Path, default=ROOT / "runtime/rust/target/release/jeff.exe")
     parser.add_argument("--resident-exe", type=Path,
                         default=ROOT / "runtime/rust/target/release/examples/resident_bench.exe")
+    parser.add_argument("--native-build", choices=["repository", "crates-io"], default="repository",
+                        help="what --resident-exe was built from: this repository (pinned Candle) or "
+                             "pure-jeff and Candle from crates.io (bench/build_cratesio_resident.py)")
     parser.add_argument("--retain-f32", action="store_true",
                         help="Native resident loads with LoadOptions::retain_f32 (API path only)")
     parser.add_argument("--engine-wasm", type=Path, help="unstripped web demo engine (tools/build_wasm.py engine)")
@@ -480,7 +483,8 @@ def main():
     save(args.output / "preregistration.json", {
         "schema_version": f"{SCHEMA}.preregistration.v1", "created_utc": datetime.now(timezone.utc).isoformat(),
         "stage": args.stage, "smoke": args.smoke, "arms": arms, "path": args.path,
-        "native_options": {"retain_f32": args.retain_f32}, "threads": args.threads, "budget_tokens": budget,
+        "native_options": {"retain_f32": args.retain_f32, "build": args.native_build}, "threads": args.threads,
+        "budget_tokens": budget,
         "boundaries": {
             "api": "resident: wall time around Model::decide (Native) / jeff_worker.infer after loading (Jeff); "
                    "includes request checks, budgets, deadline, artifacts and output validation",
@@ -501,7 +505,9 @@ def main():
         "timed": timed_cases(args.stage) if args.stage != "oneshot" else TIMED["oneshot"], "plan": plan,
         "source": {"commit": git("rev-parse", "HEAD"), "dirty": git("status", "--porcelain"),
                    "features": {"library": "default (native)", "cli": "pure-jeff-cli (process)",
-                                "resident_bench": "pure-jeff-cli example, library default features"},
+                                "resident_bench": "pure-jeff-cli example, library default features"
+                                if args.native_build == "repository" else
+                                "examples/resident_bench.rs built against pure-jeff and candle-core from crates.io"},
                    "rustc": subprocess.run(["rustc", "-Vv"], capture_output=True, text=True).stdout.strip()},
         "checkpoint": {"revision": rust_manifest.get("checkpoint_revision"), "files": rust_manifest["files"]},
         "policy": rust_manifest["policy"], "hashes": hashes, "environment_start": env_start,
@@ -608,7 +614,7 @@ def main():
     save(args.output / "environment-end.json", env_end)
     repeat = validate.repeat_violations(records)
     summary = {"schema_version": f"{SCHEMA}.summary.v1", "stage": args.stage, "smoke": args.smoke, "path": args.path,
-               "native_options": {"retain_f32": args.retain_f32},
+               "native_options": {"retain_f32": args.retain_f32, "build": args.native_build},
                "threads": args.threads, "gate_failures": failures, "repeat_violations": repeat,
                "environment_ok": env_end["ac_line_status"] == 1 and all(
                    s["environment"]["before"]["ac_line_status"] == 1 and s["environment"]["after"]["ac_line_status"] == 1
