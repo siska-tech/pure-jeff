@@ -1,0 +1,7 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_summary.v1",
+ "e2e_completed": false,
+ "e2e_error": "Error: timeout waiting for download\n    at waitFor (file:///pure-jeff/apps/web-demo/e2e_w3.mjs:64:38)\n    at async file:///pure-jeff/apps/web-demo/e2e_w3.mjs:144:3",
+ "gates": {},
+ "passed": false
+}

@@ -66,7 +66,10 @@ def main():
     for name in ("index.html", "i18n.js", "app.js", "engine-worker.js", "style.css", "_headers"):
         shutil.copyfile(WEB / name, args.output / name)
     engine, kept, removed = strip(args.engine_wasm.read_bytes())
-    (args.output / "engine.wasm").write_bytes(engine)
+    # Content-addressed name: a page never gets bytes of another build under this name, even
+    # while a deploy is switching over (the page also retries once, see app.js).
+    engine_name = f"engine-{hashlib.sha256(engine).hexdigest()[:16]}.wasm"
+    (args.output / engine_name).write_bytes(engine)
     licenses = args.output / "licenses"
     licenses.mkdir()
     audit_licenses.notices("engine", "wasm32-unknown-unknown", licenses / "THIRD_PARTY_LICENSES.txt")
@@ -86,7 +89,7 @@ def main():
     manifest_sha = sha(args.manifest)
     config = {
         "schema_version": "pure_jeff.web_demo_config.v1",
-        "engine": {"url": "engine.wasm", "sha256": sha(args.output / "engine.wasm"), "bytes": len(engine),
+        "engine": {"url": engine_name, "sha256": sha(args.output / engine_name), "bytes": len(engine),
                    "removed_exports": removed},
         "manifest": {"path": "manifest.json", "url": manifest_url, "sha256": manifest_sha,
                      "bytes": args.manifest.stat().st_size},

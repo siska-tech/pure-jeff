@@ -3,8 +3,11 @@
 Panic messages embed source paths. A plain build therefore contains absolute paths of the
 repository, CARGO_HOME (registry and git checkouts, i.e. the user's home directory) and the
 target directory (build-script output that is included). This remaps those prefixes to
-/pure-jeff, /cargo and /target, so no host path ships, and the same commit, toolchain and
-checkout path give byte-identical .wasm regardless of CARGO_HOME and target directory.
+/pure-jeff, /cargo and /target, so no host path ships. When the toolchain has the rust-src
+component, rustc also writes standard-library paths under the local toolchain (in the user's
+home directory) instead of /rustc/<commit>; that source directory is remapped back to
+/rustc/<commit> as well. The same commit, toolchain and checkout path give byte-identical
+.wasm regardless of CARGO_HOME and target directory.
 (Cargo's crate metadata hash still depends on the checkout path of path dependencies, so a
 different checkout path changes symbol names and the bytes.)
 
@@ -33,6 +36,12 @@ def main():
     target = args.target_dir.resolve()
     cargo_home = Path(os.environ.get("CARGO_HOME") or Path.home() / ".cargo").resolve()
     remaps = [(ROOT, "/pure-jeff"), (cargo_home, "/cargo"), (target, "/target")]
+    # The toolchain cargo will use (honours RUSTUP_TOOLCHAIN and rust-toolchain files).
+    rustc = lambda *a: subprocess.run(["rustc", *a], check=True, capture_output=True, text=True,
+                                      cwd=ROOT).stdout
+    commit = next(line.split(": ", 1)[1] for line in rustc("-vV").splitlines() if line.startswith("commit-hash"))
+    sysroot = Path(rustc("--print", "sysroot").strip())
+    remaps.append((sysroot / "lib" / "rustlib" / "src" / "rust", f"/rustc/{commit}"))
     flags = ["--cfg", 'getrandom_backend="custom"', "-C", "target-feature=+simd128"]
     flags += [f"--remap-path-prefix={path}={mapped}" for path, mapped in remaps]
     # One flag per field, so paths with spaces survive; RUSTFLAGS would be split on spaces.

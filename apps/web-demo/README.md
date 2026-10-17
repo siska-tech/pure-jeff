@@ -9,7 +9,7 @@ A static page that runs the Jeff candidate decision entirely in the browser (Rus
 - Validated range: up to 512 tokens and 2–8 candidates in the UI. Longer prompts return `budget_exceeded` without truncation.
 - The page is in Japanese, English and Vietnamese (`web/i18n.js`). The language comes from `?lang=ja|en|vi`, else the last choice in the selector (kept in local storage), else the browser's languages, else English. The model's input is not translated; the examples are the same artificial requests in every language.
 - Requires WebAssembly SIMD and Cache Storage (HTTPS or localhost). Tested only on desktop Chrome/Edge 153 on Windows (headless).
-- The build strips the Wasm probe's development exports (`kj_*`) from `engine.wasm` (`strip_exports.py`) and ships `licenses/`: the engine's dependency license texts, the checkpoint's LICENSE and NOTICE, Jeff's MIT license and the notices.
+- The build strips the Wasm probe's development exports (`kj_*`) from the engine (`strip_exports.py`) and ships `licenses/`: the engine's dependency license texts, the checkpoint's LICENSE and NOTICE, Jeff's MIT license and the notices.
 
 ## Build
 
@@ -33,7 +33,7 @@ Push-Location apps/web-demo
 Pop-Location
 ```
 
-The output holds `index.html`, `app.js`, `engine-worker.js`, `style.css`, `engine.wasm`, `demo-config.json` (asset sizes and hashes, cache name, limits), `samples.json` (artificial inputs) and `build-info.json` (source commit and file hashes). Any static HTTPS host works if it also serves `model/manifest.json` and the four checkpoint files listed in the config. No COOP/COEP headers are needed (single-threaded).
+The output holds `index.html`, `app.js`, `engine-worker.js`, `style.css`, the engine as `engine-<first 16 hex digits of its SHA-256>.wasm`, `demo-config.json` (engine name and hash, asset sizes and hashes, cache name, limits), `samples.json` (artificial inputs) and `build-info.json` (source commit and file hashes). Any static HTTPS host works if it also serves `model/manifest.json` and the four checkpoint files listed in the config. No COOP/COEP headers are needed (single-threaded).
 
 ## Run locally
 
@@ -46,7 +46,7 @@ python -B apps/web-demo/serve_demo.py --dist experiments/runs/web-demo-dist
 
 ## End-to-end check
 
-`run_w3.py` serves a build, starts a fresh headless browser profile with remote debugging, and runs `e2e_w3.mjs` (Node 24, Chrome DevTools Protocol). It clicks through the real UI: download, samples, JSON save, failure cases, cancel, page reload, cache load and delete. Then it evaluates the preregistered gates against the official references and the server's request log. The page is opened with `?lang=ja`; a `languages` gate also switches the selector to English and Vietnamese and checks that no Japanese text remains outside it. `node --test test_i18n.cjs` checks that the three languages define the same keys and placeholders and that every key the page, Worker and build use exists.
+`run_w3.py` serves a build, starts a fresh headless browser profile with remote debugging, and runs `e2e_w3.mjs` (Node 24, Chrome DevTools Protocol). It clicks through the real UI: download, samples, JSON save, failure cases, cancel, page reload, cache load and delete. Then it evaluates the preregistered gates against the official references and the server's request log. The page is opened with `?lang=ja`; a `languages` gate also switches the selector to English and Vietnamese and checks that no Japanese text remains outside it. With `--stale-engine-once` the local server first answers the engine request with other bytes, as a page could see while a deploy switches over: the page must fetch the config again and retry once (`engine_retry` gate). `node --test test_i18n.cjs` checks that the three languages define the same keys and placeholders and that every key the page, Worker and build use exists.
 
 ```powershell
 Push-Location apps/web-demo

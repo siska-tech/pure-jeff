@@ -177,7 +177,17 @@ async function loadModel(source) {
       setModelMessage(msg("model.verifying"));
     }
   });
-  const init = await worker.call("init", { config });
+  let init = await worker.call("init", { config });
+  if (!init.ok && init.error && init.error.key === "worker.engineHash") {
+    // During a deploy the page and its engine can come from different versions for a moment:
+    // take the current config and try once more.
+    const current = worker;
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    if (worker !== current) return; // stopped or restarted meanwhile
+    config = await (await fetch("demo-config.json", { cache: "no-store" })).json();
+    state.config = config;
+    init = await worker.call("init", { config });
+  }
   const reply = init.ok ? await worker.call("load", { config, source }) : init;
   if (reply.terminated) return;
   if (!reply.ok) {

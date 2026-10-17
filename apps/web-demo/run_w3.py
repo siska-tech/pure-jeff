@@ -62,7 +62,10 @@ GATES_EXTERNAL = {
                        "model host, and no model-host request follows the completed download",
     "hosts": "every page/Worker request goes to the site origin, the model host or its download CDN (*.hf.co), "
              "over https except a local http site",
-    "deployed": "with --site-url, the deployed demo-config.json and engine.wasm equal the local build",
+    "deployed": "with --site-url, the deployed demo-config.json and engine equal the local build",
+    "engine_retry": "with --stale-engine-once, the first engine request gets other bytes (a deploy switching "
+                    "over); the page fetches the config again, the engine is requested a second time and every "
+                    "other gate still passes",
 }
 
 
@@ -116,7 +119,11 @@ def main():
     parser.add_argument("--external-model", action="store_true",
                         help="the build fetches the model from an external https host (e.g. Hugging Face)")
     parser.add_argument("--site-url", help="test an already deployed site instead of serving --dist locally")
+    parser.add_argument("--stale-engine-once", action="store_true",
+                        help="local W3 only: serve other bytes for the first engine request")
     args = parser.parse_args()
+    if args.stale_engine_once and (args.w4 or args.site_url):
+        raise SystemExit("--stale-engine-once needs the local W3 server")
     external = args.external_model or bool(args.site_url)
     args.output.mkdir(parents=True)
     config = json.loads((args.dist / "demo-config.json").read_text(encoding="utf-8"))
@@ -165,7 +172,9 @@ def main():
         server, requests, model_server, model_requests_log = None, [], None, None
         origin = args.site_url.rstrip("/")
     else:
-        server, requests = make_server(args.dist, args.manifest, role="site" if external else "all")
+        stale = {config["engine"]["url"]} if args.stale_engine_once else ()
+        server, requests = make_server(args.dist, args.manifest, role="site" if external else "all",
+                                       stale_once=stale)
         model_server, model_requests_log = None, None
         origin = f"http://127.0.0.1:{server.server_port}"
     if server:
@@ -213,6 +222,11 @@ def main():
     first_click = window(marks, "abort:click", "abort:stopped")[0] if args.w4 or external else click
     all_requests = requests + (model_requests_log or [])
     model_requests = [r for r in all_requests if r["path"].startswith("/model/")]
+    if args.stale_engine_once:
+        engine_requests = [r for r in requests if r["path"].split("?")[0] == "/" + config["engine"]["url"]]
+        g["engine_retry"] = {"passed": len(engine_requests) >= 2 and engine_requests[0]["stale"]
+                             and engine_requests[1]["complete"],
+                             "engine_requests": [(r["status"], r["bytes"], r["stale"]) for r in engine_requests]}
     g["consent"] = {"passed": not [r for r in model_requests if r["time"] < first_click],
                     "requests_before_click": [r["path"] for r in all_requests if r["time"] < first_click]}
     counts = {}
@@ -247,7 +261,7 @@ def main():
                 request = urllib.request.Request(f"{origin}/{path}", headers={"User-Agent": "pure-jeff-e2e/1"})
                 return urllib.request.urlopen(request, timeout=timeout).read()
             deployed = json.loads(fetch("demo-config.json", 60))
-            engine = fetch("engine.wasm", 120)
+            engine = fetch(config["engine"]["url"], 120)
             g["deployed"] = {"passed": deployed == config and hashlib.sha256(engine).hexdigest() == config["engine"]["sha256"],
                              "engine_sha256": hashlib.sha256(engine).hexdigest()}
     elif args.w4:
