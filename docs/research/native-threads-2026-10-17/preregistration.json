@@ -1,0 +1,284 @@
+{
+ "schema_version": "pure_jeff.thread_diagnosis.preregistration.v1",
+ "created_utc": "2026-10-17T13:48:07.762075+00:00",
+ "threads": [
+  1,
+  2,
+  4,
+  8,
+  16
+ ],
+ "plan": [
+  [
+   "native",
+   1,
+   0
+  ],
+  [
+   "native",
+   2,
+   0
+  ],
+  [
+   "native",
+   4,
+   0
+  ],
+  [
+   "native",
+   8,
+   0
+  ],
+  [
+   "native",
+   16,
+   0
+  ],
+  [
+   "native",
+   16,
+   1
+  ],
+  [
+   "native",
+   8,
+   1
+  ],
+  [
+   "native",
+   4,
+   1
+  ],
+  [
+   "native",
+   2,
+   1
+  ],
+  [
+   "native",
+   1,
+   1
+  ],
+  [
+   "official",
+   1,
+   0
+  ],
+  [
+   "official",
+   2,
+   0
+  ],
+  [
+   "official",
+   4,
+   0
+  ],
+  [
+   "official",
+   8,
+   0
+  ],
+  [
+   "official",
+   16,
+   0
+  ]
+ ],
+ "native_job": [
+  "policy-near-tie",
+  "policy-near-tie",
+  "special-token-text",
+  "synthetic-ocr-ja-2-129",
+  "asr-unicode",
+  "policy-margin-near",
+  "candidate-request",
+  "synthetic-ocr-ja-2-512",
+  "synthetic-ocr-ja-2-512",
+  "policy-margin-near",
+  "synthetic-ocr-ascii-8-384",
+  "policy-top1-above",
+  "synthetic-ocr-ascii-3-513",
+  "synthetic-ocr-ja-2-512",
+  "synthetic-ocr-ascii-8-384",
+  "synthetic-ocr-ja-2-127",
+  "candidate-request",
+  "asr-unicode",
+  "special-token-text",
+  "synthetic-ocr-ja-2-129",
+  "policy-top1-above",
+  "synthetic-ocr-ja-2-511",
+  "synthetic-ocr-ja-2-511",
+  "candidate-request",
+  "synthetic-ocr-ja-2-127",
+  "synthetic-ocr-ascii-8-384",
+  "policy-margin-near",
+  "asr-unicode",
+  "synthetic-ocr-ja-2-256",
+  "synthetic-ocr-ascii-3-513",
+  "synthetic-ocr-ja-2-256",
+  "policy-near-tie",
+  "synthetic-ocr-ja-2-511",
+  "policy-top1-below",
+  "policy-top1-below",
+  "policy-top1-below",
+  "policy-top1-above",
+  "synthetic-ocr-ja-2-129",
+  "special-token-text",
+  "synthetic-ocr-ascii-3-513",
+  "synthetic-ocr-ja-2-127",
+  "synthetic-ocr-ja-2-256",
+  "long-text",
+  "maximum-candidates",
+  "token-limit-8192"
+ ],
+ "official_job": [
+  "candidate-request",
+  "candidate-request",
+  "candidate-request",
+  "synthetic-ocr-ja-2-512",
+  "synthetic-ocr-ja-2-512",
+  "synthetic-ocr-ja-2-512",
+  "long-text",
+  "long-text",
+  "long-text"
+ ],
+ "gates": {
+  "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+  "probability_max_abs_vs_official": 0.0001,
+  "probability_sum_abs_error": 1e-06,
+  "finite": "every probability is a finite float in [0, 1]",
+  "judgment": "selected candidate or abstention equals the official reference",
+  "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+  "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+ },
+ "source": {
+  "commit": "22212836d3f340e7884d2f3743222a527d077f51",
+  "dirty": ""
+ },
+ "hashes": {
+  "resident_exe": "19772ab04e4f8385e3a47cb664b52cc12d7332b8d58ca47e6f74a1a125307828",
+  "driver": "78759514c09bc1c1fd7e57478722ee6ff6328645cbd3f1f2e45fd5555c2a2ec0",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "bundles": {
+   "1": [
+    "2c3d0a552528a3840e184a165429c68141fa1709afb2387c2540f16d5a53f0f3",
+    "04ea193ff45ef57f3f0d6e1bc986f790d821427430c04f136dc1f296f89066a5"
+   ],
+   "2": [
+    "17f20c7cd6693a01501b0b338717f982c4ae63c7ec1ce1cfcd419465d06e4e39",
+    "525ca17c86527379ab5fa9cccf195334552ab27a7b74f55e6f3b2866cd47ed95"
+   ],
+   "4": [
+    "7571f0d3e102095fccd55956f058c34d1cb57ba5ffc20233e166eaf51745411b",
+    "176c9ed4f4cd34ea8f95fe90b1e7b389dc73502b1e0212d7ec8b3d6bf80bbf3f"
+   ],
+   "8": [
+    "98f988b7cc638096f0a7db16ca53f57f4f1c2d927e2dedaab2347f9229f190f5",
+    "2b3c2372dfbcd421f83403772c9a898fe57275b9427fe7d62f352c4efed625f6"
+   ],
+   "16": [
+    "e7dbdd4a53f6acafd01f42dbc17cd03c6c71413aefd4fff7b4302ddd51cf25bc",
+    "64d029a137de1d48fcdfc8e6ec82ecee28bf0229abdb8f56b66a87bc7d5ec49c"
+   ]
+  }
+ },
+ "environment_start": {
+  "time_utc": "2026-10-17T13:48:07.946341+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 16,
+   "processor_performance_percent": 147,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 80129.421875,
+    "WS_MB": 179
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 80047.25,
+    "WS_MB": 140
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 80013.046875,
+    "WS_MB": 145
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 26449.03125,
+    "WS_MB": 330
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 15545.375,
+    "WS_MB": 534
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 7629.984375,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 5969.421875,
+    "WS_MB": 523
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 5781.71875,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 5740.734375,
+    "WS_MB": 287
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4304.984375,
+    "WS_MB": 395
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 3700.671875,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 3635.359375,
+    "WS_MB": 66
+   }
+  ]
+ }
+}

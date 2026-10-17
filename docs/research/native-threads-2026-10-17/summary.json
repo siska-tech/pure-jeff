@@ -1,0 +1,288 @@
+{
+ "schema_version": "pure_jeff.thread_diagnosis.summary.v1",
+ "threads": {
+  "1": {
+   "gate_failures": 0,
+   "sessions_ok": true,
+   "reported_threads": [
+    1
+   ],
+   "official_threads": [
+    1
+   ],
+   "within_process_bit_mismatch": [],
+   "across_process_bit_mismatch": [],
+   "cases_not_bit_equal_to_min_threads": [],
+   "max_abs_vs_min_threads": 0,
+   "max_abs_vs_official": 4.738569259643555e-06,
+   "judgments_vs_official_ok": true,
+   "median_wall_s": {
+    "candidate-request": {
+     "native": 1.5350966499999998,
+     "official": 1.5750126000493765
+    },
+    "synthetic-ocr-ja-2-512": {
+     "native": 5.6840712,
+     "official": 6.373389000073075
+    },
+    "long-text": {
+     "native": 9.86649425,
+     "official": 11.979547299910337
+    },
+    "maximum-candidates": {
+     "native": 40.3107791
+    },
+    "token-limit-8192": {
+     "native": 135.5096367
+    }
+   },
+   "peak_working_set_gib": 2.0974502563476562
+  },
+  "2": {
+   "gate_failures": 0,
+   "sessions_ok": true,
+   "reported_threads": [
+    2
+   ],
+   "official_threads": [
+    2
+   ],
+   "within_process_bit_mismatch": [],
+   "across_process_bit_mismatch": [],
+   "cases_not_bit_equal_to_min_threads": [],
+   "max_abs_vs_min_threads": 0,
+   "max_abs_vs_official": 4.738569259643555e-06,
+   "judgments_vs_official_ok": true,
+   "median_wall_s": {
+    "candidate-request": {
+     "native": 1.0184514,
+     "official": 0.9317069000098854
+    },
+    "synthetic-ocr-ja-2-512": {
+     "native": 3.7345411,
+     "official": 3.645320800016634
+    },
+    "long-text": {
+     "native": 6.297473999999999,
+     "official": 5.981590099981986
+    },
+    "maximum-candidates": {
+     "native": 25.80510055
+    },
+    "token-limit-8192": {
+     "native": 84.18498565
+    }
+   },
+   "peak_working_set_gib": 2.091442108154297
+  },
+  "4": {
+   "gate_failures": 0,
+   "sessions_ok": true,
+   "reported_threads": [
+    4
+   ],
+   "official_threads": [
+    4
+   ],
+   "within_process_bit_mismatch": [],
+   "across_process_bit_mismatch": [],
+   "cases_not_bit_equal_to_min_threads": [],
+   "max_abs_vs_min_threads": 0,
+   "max_abs_vs_official": 4.738569259643555e-06,
+   "judgments_vs_official_ok": true,
+   "median_wall_s": {
+    "candidate-request": {
+     "native": 0.7835165500000001,
+     "official": 0.7428424999816343
+    },
+    "synthetic-ocr-ja-2-512": {
+     "native": 2.78246015,
+     "official": 2.4566316000418738
+    },
+    "long-text": {
+     "native": 4.65350895,
+     "official": 4.315402000094764
+    },
+    "maximum-candidates": {
+     "native": 18.6987187
+    },
+    "token-limit-8192": {
+     "native": 60.7258972
+    }
+   },
+   "peak_working_set_gib": 2.097919464111328
+  },
+  "8": {
+   "gate_failures": 0,
+   "sessions_ok": true,
+   "reported_threads": [
+    8
+   ],
+   "official_threads": [
+    8
+   ],
+   "within_process_bit_mismatch": [],
+   "across_process_bit_mismatch": [],
+   "cases_not_bit_equal_to_min_threads": [],
+   "max_abs_vs_min_threads": 0,
+   "max_abs_vs_official": 4.738569259643555e-06,
+   "judgments_vs_official_ok": true,
+   "median_wall_s": {
+    "candidate-request": {
+     "native": 0.6995092,
+     "official": 0.4923974999692291
+    },
+    "synthetic-ocr-ja-2-512": {
+     "native": 2.58110625,
+     "official": 1.6770090999780223
+    },
+    "long-text": {
+     "native": 4.33975315,
+     "official": 2.971744399983436
+    },
+    "maximum-candidates": {
+     "native": 16.4005669
+    },
+    "token-limit-8192": {
+     "native": 51.4255244
+    }
+   },
+   "peak_working_set_gib": 2.0993499755859375
+  },
+  "16": {
+   "gate_failures": 0,
+   "sessions_ok": true,
+   "reported_threads": [
+    16
+   ],
+   "official_threads": [
+    16
+   ],
+   "within_process_bit_mismatch": [],
+   "across_process_bit_mismatch": [],
+   "cases_not_bit_equal_to_min_threads": [],
+   "max_abs_vs_min_threads": 0,
+   "max_abs_vs_official": 4.738569259643555e-06,
+   "judgments_vs_official_ok": true,
+   "median_wall_s": {
+    "candidate-request": {
+     "native": 0.7466636499999999,
+     "official": 0.4128605000441894
+    },
+    "synthetic-ocr-ja-2-512": {
+     "native": 2.42422395,
+     "official": 1.2127009000396356
+    },
+    "long-text": {
+     "native": 4.11955,
+     "official": 2.1280868999892846
+    },
+    "maximum-candidates": {
+     "native": 15.108625700000001
+    },
+    "token-limit-8192": {
+     "native": 45.45192915
+    }
+   },
+   "peak_working_set_gib": 2.1045761108398438
+  }
+ },
+ "environment_end": {
+  "time_utc": "2026-10-17T14:22:46.705697+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 9,
+   "processor_performance_percent": 155,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 82043.6875,
+    "WS_MB": 179
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 81963.078125,
+    "WS_MB": 140
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 81921.390625,
+    "WS_MB": 146
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 27137.078125,
+    "WS_MB": 295
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 15709.21875,
+    "WS_MB": 534
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 7652.953125,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 6016.75,
+    "WS_MB": 443
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 5805.734375,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 5778.6875,
+    "WS_MB": 285
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4312.921875,
+    "WS_MB": 395
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 3723.96875,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 3646.96875,
+    "WS_MB": 66
+   }
+  ]
+ }
+}
