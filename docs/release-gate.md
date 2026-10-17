@@ -46,6 +46,8 @@ python -B bench/compare_runs.py <前回のone-shot> <今回のone-shot>
 python -B bench/request_curve.py ...                 # 1／10／100要求、FP32保持の損益分岐、メモリ
 ```
 
+公開した版が出た後に、crates.io版の依存での速度も同じ計画で測る：`bench/build_cratesio_resident.py`で計測exeとbundleを作り、`--native-build crates-io --resident-exe … --rust-manifest …`でshortとlongを実行する（[0.2.0の例](benchmark-cratesio-2026-10-17.md)）。
+
 - **数値gate**：全run・全系統の全判断で違反がないこと。反復はbit一致すること。
 - **short・long**：各入力群が同等（点推定≤1.00、片側95%上限≤1.05）であること。
   - 「遅い」群や「証拠不足」の群があれば、その範囲の同等を主張しない。

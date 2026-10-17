@@ -1,0 +1,302 @@
+{
+ "schema_version": "pure_jeff.bench_parity.summary.v1",
+ "stage": "long",
+ "smoke": false,
+ "path": "api",
+ "native_options": {
+  "retain_f32": false,
+  "build": "crates-io"
+ },
+ "threads": 1,
+ "gate_failures": [],
+ "repeat_violations": [],
+ "environment_ok": true,
+ "max_abs_vs_official": {
+  "jeff": 0.0,
+  "native": 3.9637088775634766e-06
+ },
+ "blocks_used": 6,
+ "extended": false,
+ "cases": {
+  "long-text": {
+   "jeff": {
+    "n": 24,
+    "median": 11.844152449979447,
+    "min": 11.728307700017467,
+    "max": 12.045658899995033,
+    "mean": 11.852142320834295
+   },
+   "native": {
+    "n": 24,
+    "median": 9.73786085,
+    "min": 9.6812496,
+    "max": 9.8643343,
+    "mean": 9.738883683333333
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.8265008783530146,
+     0.8182517339633869,
+     0.8207827666505998,
+     0.8215992096337371,
+     0.8280181074112539,
+     0.8153588559818422
+    ],
+    "point": 0.8217401754448391,
+    "lower95": 0.8177900755779856,
+    "upper95": 0.8257093551335491,
+    "verdict": "equivalent"
+   }
+  },
+  "maximum-candidates": {
+   "jeff": {
+    "n": 24,
+    "median": 45.99131134999334,
+    "min": 45.47514629998477,
+    "max": 46.4418122000061,
+    "mean": 45.96101830416834
+   },
+   "native": {
+    "n": 24,
+    "median": 40.33633095,
+    "min": 40.1197764,
+    "max": 40.5033323,
+    "mean": 40.3341621875
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.8785884427685101,
+     0.8758584133824654,
+     0.8801227787124524,
+     0.8815376076007789,
+     0.8781121628652412,
+     0.8671137959496792
+    ],
+    "point": 0.8768761631643587,
+    "lower95": 0.8726281999070075,
+    "upper95": 0.881144805551536,
+    "verdict": "equivalent"
+   }
+  },
+  "token-limit-8192": {
+   "jeff": {
+    "n": 24,
+    "median": 153.31702714998391,
+    "min": 145.94562369998312,
+    "max": 158.2821302000084,
+    "mean": 152.37037474165845
+   },
+   "native": {
+    "n": 24,
+    "median": 134.82984729999998,
+    "min": 134.3146441,
+    "max": 135.4565656,
+    "mean": 134.84978705
+   },
+   "native_over_jeff": {
+    "blocks": 6,
+    "ratios": [
+     0.9157904008456378,
+     0.8702235049895941,
+     0.8949881501326493,
+     0.8726746126754955,
+     0.8772390205489156,
+     0.8816577474221216
+    ],
+    "point": 0.8852903878855065,
+    "lower95": 0.8713289689117946,
+    "upper95": 0.8994755125165697,
+    "verdict": "equivalent"
+   }
+  }
+ },
+ "load": {
+  "jeff": {
+   "n": 6,
+   "median": 11.663601200008998,
+   "min": 11.48925230000168,
+   "max": 11.862526599958073,
+   "mean": 11.663655066668676
+  },
+  "native": {
+   "n": 6,
+   "median": 1.975956,
+   "min": 1.9614567,
+   "max": 2.3404176,
+   "mean": 2.03396805
+  }
+ },
+ "first": {
+  "jeff": {
+   "n": 6,
+   "median": 156.7020029000123,
+   "min": 149.5437937999959,
+   "max": 159.5657430999563,
+   "mean": 155.41882359999
+  },
+  "native": {
+   "n": 6,
+   "median": 135.28383524999998,
+   "min": 134.9017405,
+   "max": 135.7269281,
+   "mean": 135.28365255
+  }
+ },
+ "groups": {
+  "874": {
+   "cases": [
+    "long-text"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.8265008783530146,
+    0.8182517339633869,
+    0.8207827666505998,
+    0.8215992096337371,
+    0.8280181074112539,
+    0.8153588559818422
+   ],
+   "point": 0.8217401754448391,
+   "lower95": 0.8177900755779856,
+   "upper95": 0.8257093551335491,
+   "verdict": "equivalent"
+  },
+  "3206": {
+   "cases": [
+    "maximum-candidates"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.8785884427685101,
+    0.8758584133824654,
+    0.8801227787124524,
+    0.8815376076007789,
+    0.8781121628652412,
+    0.8671137959496792
+   ],
+   "point": 0.8768761631643587,
+   "lower95": 0.8726281999070075,
+   "upper95": 0.881144805551536,
+   "verdict": "equivalent"
+  },
+  "8192": {
+   "cases": [
+    "token-limit-8192"
+   ],
+   "blocks": 6,
+   "ratios": [
+    0.9157904008456378,
+    0.8702235049895941,
+    0.8949881501326493,
+    0.8726746126754955,
+    0.8772390205489156,
+    0.8816577474221216
+   ],
+   "point": 0.8852903878855065,
+   "lower95": 0.8713289689117946,
+   "upper95": 0.8994755125165697,
+   "verdict": "equivalent"
+  }
+ },
+ "memory": {
+  "jeff": {
+   "max_tree_working_set": {
+    "n": 6,
+    "median": 5524963328.0,
+    "min": 5479215104,
+    "max": 5572423680,
+    "mean": 5525411157.333333
+   },
+   "max_process_peak_working_set": {
+    "n": 6,
+    "median": 5525661696.0,
+    "min": 5473366016,
+    "max": 5578166272,
+    "mean": 5521143125.333333
+   },
+   "max_tree_private": {
+    "n": 6,
+    "median": 6402721792.0,
+    "min": 6361931776,
+    "max": 6465163264,
+    "mean": 6406416384.0
+   },
+   "max_process_page_faults": {
+    "n": 6,
+    "median": 82079335.0,
+    "min": 79585775,
+    "max": 104873120,
+    "mean": 85822533.33333333
+   }
+  },
+  "native": {
+   "max_tree_working_set": {
+    "n": 6,
+    "median": 2240602112.0,
+    "min": 2232451072,
+    "max": 2252177408,
+    "mean": 2241901226.6666665
+   },
+   "max_process_peak_working_set": {
+    "n": 6,
+    "median": 2242844672.0,
+    "min": 2240905216,
+    "max": 2251825152,
+    "mean": 2244037290.6666665
+   },
+   "max_tree_private": {
+    "n": 6,
+    "median": 1246390272.0,
+    "min": 1244237824,
+    "max": 1255088128,
+    "mean": 1247442261.3333333
+   },
+   "max_process_page_faults": {
+    "n": 6,
+    "median": 176295426.0,
+    "min": 176283659,
+    "max": 229681713,
+    "mean": 185192141.33333334
+   }
+  }
+ },
+ "kernel": {
+  "jeff": {
+   "cpu_capability": "AVX512",
+   "mkldnn": true,
+   "mkl": true,
+   "parallel_info": "ATen/Parallel:\n\tat::get_num_threads() : 1\n\tat::get_num_interop_threads() : 16\nOpenMP 2019\n\tomp_get_max_threads() : 1\nIntel(R) oneAPI Math Kernel Library Version 2026.1-Product Build 20260612 for Intel(R) 64 architecture applications\n\tmkl_get_max_threads() : 1\nIntel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\nstd::thread::hardware_concurrency() : 32\nEnvironment variables:\n\tOMP_NUM_THREADS : 1\n\tMKL_NUM_THREADS : 1\nATen parallel backend: OpenMP\n"
+  },
+  "native": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": false,
+    "with_f16c": false
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  }
+ },
+ "verdict": {
+  "874": "equivalent",
+  "3206": "equivalent",
+  "8192": "equivalent"
+ },
+ "valid": true,
+ "accepted": true
+}

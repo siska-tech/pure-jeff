@@ -22,6 +22,7 @@
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |
 | [release-gate.md](release-gate.md)、[release-0.2.0-verification-2026-10-14.md](release-0.2.0-verification-2026-10-14.md)、[release-notes-v0.2.0.md](release-notes-v0.2.0.md)、[release-0.2.0-2026-10-14.md](release-0.2.0-2026-10-14.md) | リリース前のモデル付きgate（必須手順）、0.2.0の最終受入、v0.2.0のRelease notes、v0.2.0の公開の記録 |
 | [ci-process-tests-2026-10-15.md](ci-process-tests-2026-10-15.md) | CI：Python worker試験の不安定さの原因、試験の修正、残るリスク（#26） |
+| [benchmark-cratesio-2026-10-17.md](benchmark-cratesio-2026-10-17.md) | crates.io版Candle（`pure-jeff` 0.2.0）での性能同等：short・longとも全入力群で同等（#28） |
 | [naming-map.md](naming-map.md) | KazeJudge由来の名前・pathと、改名後の対応 |
 | [tract-development.md](tract-development.md) | ONNX／Tract経路（実験）の準備・build・数値gate・benchmarkの手順と、統合の判断 |
 | [tract-migration-plan.md](tract-migration-plan.md)、[tract-migration-results-2026-10-12.md](tract-migration-results-2026-10-12.md)、[tract-migration-provenance.json](tract-migration-provenance.json) | KazeJudgeからのONNX／Tract資産の移管計画・pure-jeffでの再検証結果・移管したファイルのhash |
