@@ -1,8 +1,10 @@
 //! Diagnostic: where the library forward spends its time, split finer than matrix products.
-//! `profiled` is a copy of src/backbone.rs (as of the commit that adds this file) with exclusive
-//! timers around each step; the arithmetic is unchanged and every run checks that its final hidden
-//! state is bitwise equal to `pure_jeff::backbone::forward`. A later change to src/backbone.rs
-//! needs the copy updated by hand.
+//! `profiled` is a copy of src/backbone.rs with exclusive timers around each step, updated to the
+//! default path of 0.2.0: every weight is converted into one buffer reused for the whole forward,
+//! and full attention runs in blocks of `backbone::QUERY_BLOCK` query rows. The arithmetic is
+//! unchanged and every run checks that its final hidden state is bitwise equal to
+//! `pure_jeff::backbone::forward`. A later change to src/backbone.rs needs the copy updated by
+//! hand. Compute threads come from the bundle policy (`cpu_threads`).
 //!
 //!   cargo run --release --example forward_breakdown -- <manifest> <golden.json>... [--reps N]
 use anyhow::{ensure, Context, Result};
@@ -74,8 +76,9 @@ mod prof {
 
 mod profiled {
     use super::prof::timed;
-    use candle_core::{CpuStorage, Device, Result, Storage, Tensor, D};
+    use candle_core::{CpuStorage, Device, InplaceOp1, Layout, Result, Storage, Tensor, D};
     use pure_jeff::WeightSource;
+    use std::cell::{Cell, RefCell};
 
     const WEIGHT_LOAD_F32: usize = 0;
     const EMBEDDING: usize = 1;
@@ -104,8 +107,67 @@ mod profiled {
     const K: usize = 128;
     const V: usize = 128;
 
+    struct Fill<'a> {
+        source: &'a dyn WeightSource,
+        name: &'a str,
+        converted: Cell<bool>,
+    }
+
+    impl InplaceOp1 for Fill<'_> {
+        fn name(&self) -> &'static str {
+            "profiled-fill-f32"
+        }
+
+        fn cpu_fwd(&self, storage: &mut CpuStorage, layout: &Layout) -> Result<()> {
+            let (CpuStorage::F32(data), Some((start, end))) =
+                (storage, layout.contiguous_offsets())
+            else {
+                candle_core::bail!("conversion buffer must be contiguous F32")
+            };
+            self.converted.set(self.source.load_f32_into(
+                self.name,
+                layout.dims(),
+                &mut data[start..end],
+            )?);
+            Ok(())
+        }
+    }
+
+    thread_local! {
+        // The library's per-forward conversion buffer (reset at the start of each forward).
+        static BUFFER: RefCell<Option<Tensor>> = const { RefCell::new(None) };
+    }
+
+    /// The weight, converted into the shared buffer as the library's default path does. The
+    /// caller must use it before asking for the next weight, as the library's lending ensures.
     fn weight(weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
-        timed(WEIGHT_LOAD_F32, || weights.load_f32(name))
+        timed(WEIGHT_LOAD_F32, || {
+            let Some(shape) = weights.convertible_shape(name) else {
+                return weights.load_f32(name);
+            };
+            let count: usize = shape.iter().product();
+            let current = BUFFER.with(|b| b.borrow().clone());
+            let storage = match current {
+                Some(t) if t.elem_count() >= count => t,
+                _ => {
+                    let fresh = Tensor::zeros(count, candle_core::DType::F32, &Device::Cpu)?;
+                    BUFFER.with(|b| *b.borrow_mut() = Some(fresh.clone()));
+                    fresh
+                }
+            };
+            let weight = storage.narrow(0, 0, count)?.reshape(shape)?;
+            let fill = Fill {
+                source: weights,
+                name,
+                converted: Cell::new(false),
+            };
+            weight.inplace_op1(&fill)?;
+            if fill.converted.get() {
+                Ok(weight)
+            } else {
+                weights.load_f32(name)
+            }
+        })
     }
 
     fn linear(x: &Tensor, weights: &dyn WeightSource, name: &str) -> Result<Tensor> {
@@ -214,17 +276,37 @@ mod profiled {
         };
         let k = timed(KV_REPEAT, || repeat(&k))?;
         let v = timed(KV_REPEAT, || repeat(&v))?;
-        let scores = timed(SCORES_MATMUL, || {
-            q.matmul(&k.transpose(1, 2)?.contiguous()?)? / 16.0
+        let kt = timed(SCORES_MATMUL, || k.transpose(1, 2)?.contiguous())?;
+        let block = pure_jeff::backbone::QUERY_BLOCK;
+        let mut parts = Vec::new();
+        for start in (0..seq).step_by(block) {
+            let rows = block.min(seq - start);
+            let scores = timed(SCORES_MATMUL, || {
+                let q = if rows == seq {
+                    q.clone()
+                } else {
+                    q.narrow(1, start, rows)?.contiguous()?
+                };
+                q.matmul(&kt)? / 16.0
+            })?;
+            let probs = timed(MASK_SOFTMAX, || {
+                let mask: Vec<f32> = (start..start + rows)
+                    .flat_map(|i| {
+                        (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 })
+                    })
+                    .collect();
+                let mask = Tensor::from_vec(mask, (1, rows, seq), &Device::Cpu)?;
+                candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)
+            })?;
+            parts.push(timed(PROBS_MATMUL, || probs.matmul(&v))?);
+        }
+        let out = timed(PROBS_MATMUL, || {
+            if parts.len() == 1 {
+                Ok(parts.remove(0))
+            } else {
+                Tensor::cat(&parts, 1)
+            }
         })?;
-        let probs = timed(MASK_SOFTMAX, || {
-            let mask: Vec<f32> = (0..seq)
-                .flat_map(|i| (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 }))
-                .collect();
-            let mask = Tensor::from_vec(mask, (1, seq, seq), &Device::Cpu)?;
-            candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)
-        })?;
-        let out = timed(PROBS_MATMUL, || probs.matmul(&v))?;
         let gated = timed(FULL_OUT_GATE, || {
             out.transpose(0, 1)?.contiguous()?.reshape((seq, 2048))?
                 * candle_nn::ops::sigmoid(&gate)?
@@ -342,9 +424,9 @@ mod profiled {
         let b = linear(x, weights, &format!("{prefix}.in_proj_b"))?;
         let beta = timed(BETA_SIGMOID, || candle_nn::ops::sigmoid(&b))?;
         let a = linear(x, weights, &format!("{prefix}.in_proj_a"))?;
+        // Each weight is used before the next one is converted into the shared buffer.
         let dt_bias = weight(weights, &format!("{prefix}.dt_bias"))?;
-        let a_log = weight(weights, &format!("{prefix}.A_log"))?;
-        let g = timed(SOFTPLUS_G, || {
+        let softplus = timed(SOFTPLUS_G, || {
             let a = a.broadcast_add(&dt_bias)?;
             // Stable softplus matches PyTorch's beta=1, threshold=20 behavior.
             let softplus: Vec<f32> = a
@@ -353,8 +435,10 @@ mod profiled {
                 .iter()
                 .map(|&v| if v > 20.0 { v } else { v.exp().ln_1p() })
                 .collect();
-            Tensor::from_vec(softplus, (seq, H), &Device::Cpu)?.broadcast_mul(&a_log.exp()?.neg()?)
+            Tensor::from_vec(softplus, (seq, H), &Device::Cpu)
         })?;
+        let a_log = weight(weights, &format!("{prefix}.A_log"))?;
+        let g = timed(SOFTPLUS_G, || softplus.broadcast_mul(&a_log.exp()?.neg()?))?;
         let attention = timed(DELTA_RECURRENCE, || delta_recurrence(&q, &k, &v, &beta, &g))?;
         let norm_weight = weight(weights, &format!("{prefix}.norm.weight"))?;
         let attention = timed(DELTA_OUT_NORM, || {
@@ -367,6 +451,7 @@ mod profiled {
     }
 
     pub fn forward(weights: &dyn WeightSource, ids: &[u32]) -> Result<Tensor> {
+        BUFFER.with(|b| *b.borrow_mut() = None);
         let seq = ids.len();
         let mut x = timed(EMBEDDING, || {
             weights.load_f32_rows("language_model.embed_tokens.weight", ids)
