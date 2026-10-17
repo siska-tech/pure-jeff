@@ -19,6 +19,8 @@ serde_json = "1"
 [dev-dependencies]
 candle-core = { version = "=0.11.0", default-features = false }
 candle-nn = { version = "=0.11.0", default-features = false }
+# Only to read the cache sizes gemm uses (thread_probe); no features added.
+gemm-common = { version = "=0.19.0", default-features = false }
 serde = { version = "1", features = ["derive"] }
 sha2 = "0.10"
 tempfile = "3"
