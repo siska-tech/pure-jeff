@@ -1,0 +1,13 @@
+{
+ "pure_jeff": "0.2.0",
+ "candle_core": "0.11.0",
+ "source": "crates.io",
+ "resident_exe": "<work>/target/release/resident_bench.exe",
+ "resident_exe_sha256": "7aa2775bf4efe5bc988e00843d37193488066ba7af32f5a232e91d94b60d79a1",
+ "resident_source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+ "bundle": "models/pure-jeff-bundle-t1-cratesio-0.2.0.json",
+ "bundle_sha256": "a6e5bd386528d975deb5e5ef8e052fb55e007709d96d3bd22fbf03eca31b2388",
+ "cargo_toml_sha256": "11bbedd6cb13a0f148b06b4f64be19cafca4f758b1590c65083b6297493e3c3f",
+ "cargo_lock_sha256": "0a15c8928d2672429b7b90ea18255ddffd1aa1fe71ccdf83cbd56058965558e2",
+ "candle_tree": "candle-core v0.11.0"
+}
