@@ -29,18 +29,21 @@ def routes_for(dist, manifest, role="all"):
     return routes
 
 
-def make_server(dist, manifest, port=0, log=None, role="all", tls=None, cors_origin=None):
+def make_server(dist, manifest, port=0, log=None, role="all", tls=None, cors_origin=None, stale_once=()):
     """Returns (server, request log list). Requests are appended to `log` (and the list).
     tls=(certfile, keyfile) serves HTTPS; cors_origin adds Access-Control-Allow-Origin, as a
-    model bucket on another origin (e.g. R2 with a CORS rule) would."""
+    model bucket on another origin (e.g. R2 with a CORS rule) would. The first request for each
+    path in `stale_once` gets other bytes (as from a previous deploy while a new one is
+    switching over); later requests get the file."""
     routes = routes_for(dist, manifest, role)
+    stale = set(stale_once)
     requests = []
     lock = threading.Lock()
 
     class Handler(http.server.BaseHTTPRequestHandler):
-        def record(self, status, size, expected=0):
+        def record(self, status, size, expected=0, stale=False):
             entry = {"time": time.time(), "method": self.command, "path": self.path, "status": status, "bytes": size,
-                     "complete": status == 200 and size == expected}
+                     "complete": status == 200 and size == expected and not stale, "stale": stale}
             with lock:
                 requests.append(entry)
                 if log:
@@ -53,6 +56,19 @@ def make_server(dist, manifest, port=0, log=None, role="all", tls=None, cors_ori
             if source is None:
                 self.send_error(404)
                 self.record(404, 0)
+                return
+            with lock:
+                served_stale = path in stale
+                stale.discard(path)
+            if served_stale:
+                body = b"stale engine of a previous deploy"
+                self.send_response(200)
+                self.send_header("content-type", TYPES.get(source.suffix, "application/octet-stream"))
+                self.send_header("content-length", str(len(body)))
+                self.send_header("cache-control", "no-cache")
+                self.end_headers()
+                self.wfile.write(body)
+                self.record(200, len(body), source.stat().st_size, stale=True)
                 return
             size = source.stat().st_size
             self.send_response(200)
