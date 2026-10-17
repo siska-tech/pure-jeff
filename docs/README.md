@@ -19,6 +19,7 @@
 | [native-weight-buffers-2026-10-13.md](native-weight-buffers-2026-10-13.md) | 重み変換先の共有buffer（既定、128群で性能同等に）と、FP32保持（opt-in）の比較（出力はbit単位で不変） |
 | [native-attention-blocks-2026-10-14.md](native-attention-blocks-2026-10-14.md) | full attentionのquery-block化：8192 tokensのpeakを7.85→2.06 GiBに（出力はbit単位で不変） |
 | [native-threads-diagnosis-2026-10-17.md](native-threads-diagnosis-2026-10-17.md) | 複数threadの診断：1〜16 threadで1 threadとbit一致、速度は4 thread以上で公式に及ばない（#18、診断のみ） |
+| [native-threads-breakdown-2026-10-18.md](native-threads-breakdown-2026-10-18.md) | thread数ごとの処理別時間と、DeltaNetのhead並列化の実験（bit一致、4 threadで約8〜9%短縮、#18） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |
