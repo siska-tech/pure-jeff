@@ -6,7 +6,9 @@
 //! `pure_jeff::backbone::forward`. A later change to src/backbone.rs needs the copy updated by
 //! hand. Compute threads come from the bundle policy (`cpu_threads`).
 //!
-//!   cargo run --release --example forward_breakdown -- <manifest> <golden.json>... [--reps N]
+//!   cargo run --release --example forward_breakdown -- <manifest> <golden.json>... [--reps N] [--parallel-heads]
+//!
+//! `--parallel-heads` is an experiment: the DeltaNet heads run on the compute threads.
 use anyhow::{ensure, Context, Result};
 use pure_jeff::{
     backbone,
@@ -79,6 +81,11 @@ mod profiled {
     use candle_core::{CpuStorage, Device, InplaceOp1, Layout, Result, Storage, Tensor, D};
     use pure_jeff::WeightSource;
     use std::cell::{Cell, RefCell};
+    use std::sync::atomic::{AtomicBool, Ordering};
+
+    /// Experiment (`--parallel-heads`): run the 16 independent DeltaNet heads on the compute
+    /// threads. Off by default; the library is not changed.
+    pub static PARALLEL_HEADS: AtomicBool = AtomicBool::new(false);
 
     const WEIGHT_LOAD_F32: usize = 0;
     const EMBEDDING: usize = 1;
@@ -314,6 +321,46 @@ mod profiled {
         linear(&gated, weights, &format!("{prefix}.o_proj"))
     }
 
+    /// One head of `delta_recurrence`, written as `out[t * V + j]` (head-major).
+    fn delta_head(
+        h: usize,
+        seq: usize,
+        q: &[f32],
+        k: &[f32],
+        v: &[f32],
+        beta: &[f32],
+        decay: &[f32],
+    ) -> Vec<f32> {
+        const COLUMNS: usize = 32;
+        let mut out = vec![0_f32; seq * V];
+        for column in (0..V).step_by(COLUMNS) {
+            let mut state = [[0_f32; COLUMNS]; K];
+            for t in 0..seq {
+                let at = t * H + h;
+                let (q, k) = (&q[at * K..][..K], &k[at * K..][..K]);
+                let mut delta = [0_f32; COLUMNS];
+                for (row, ki) in state.iter_mut().zip(k) {
+                    for (s, d) in row.iter_mut().zip(&mut delta) {
+                        *s *= decay[at];
+                        *d += *s * ki;
+                    }
+                }
+                for (d, vj) in delta.iter_mut().zip(&v[at * V + column..][..COLUMNS]) {
+                    *d = (vj - *d) * beta[at];
+                }
+                let mut output = [0_f32; COLUMNS];
+                for ((row, ki), qi) in state.iter_mut().zip(k).zip(q) {
+                    for ((s, d), o) in row.iter_mut().zip(&delta).zip(&mut output) {
+                        *s += ki * d;
+                        *o += *s * qi;
+                    }
+                }
+                out[t * V + column..][..COLUMNS].copy_from_slice(&output);
+            }
+        }
+        out
+    }
+
     // Copy of src/backbone.rs's delta_recurrence (column-blocked, bitwise equal to the reference).
     fn delta_recurrence(
         q: &Tensor,
@@ -340,6 +387,36 @@ mod profiled {
             .iter()
             .map(|g| g.exp())
             .collect();
+        let threads = candle_core::utils::get_num_threads();
+        if PARALLEL_HEADS.load(Ordering::Relaxed) && threads > 1 {
+            // Each thread computes whole heads into its own head-major buffer with exactly the
+            // operations and order of the serial loop below; only where the values are written
+            // differs, so the result is bitwise the same.
+            let (q, k, v, beta, decay) = (&q, &k, &v, &beta, &decay);
+            let heads: Vec<(usize, Vec<f32>)> = std::thread::scope(|scope| {
+                let workers: Vec<_> = (0..threads.min(H))
+                    .map(|w| {
+                        scope.spawn(move || {
+                            (w..H)
+                                .step_by(threads.min(H))
+                                .map(|h| (h, delta_head(h, seq, q, k, v, beta, decay)))
+                                .collect::<Vec<_>>()
+                        })
+                    })
+                    .collect();
+                workers
+                    .into_iter()
+                    .flat_map(|w| w.join().unwrap())
+                    .collect()
+            });
+            let mut out = vec![0_f32; seq * H * V];
+            for (h, head) in heads {
+                for t in 0..seq {
+                    out[(t * H + h) * V..][..V].copy_from_slice(&head[t * V..][..V]);
+                }
+            }
+            return Tensor::from_vec(out, (seq, H, V), &Device::Cpu);
+        }
         let mut out = vec![0_f32; seq * H * V];
         for h in 0..H {
             for column in (0..V).step_by(COLUMNS) {
@@ -481,6 +558,10 @@ struct Golden {
 
 fn main() -> Result<()> {
     let mut args: Vec<String> = std::env::args().skip(1).collect();
+    if let Some(i) = args.iter().position(|a| a == "--parallel-heads") {
+        args.remove(i);
+        profiled::PARALLEL_HEADS.store(true, std::sync::atomic::Ordering::Relaxed);
+    }
     let reps = match args.iter().position(|a| a == "--reps") {
         Some(i) => {
             let value = args.remove(i + 1).parse()?;
@@ -565,6 +646,7 @@ fn main() -> Result<()> {
             println!(
                 "{}",
                 serde_json::json!({"case": Path::new(path).file_stem().unwrap().to_string_lossy(),
+                    "parallel_heads": profiled::PARALLEL_HEADS.load(std::sync::atomic::Ordering::Relaxed),
                     "input_tokens": prepared.ids.len(), "rep": rep, "forward_s": forward_s,
                     "library_forward_s": library_s, "timer_overhead": forward_s / library_s - 1.0,
                     "timed_s": seconds.iter().sum::<f64>(), "bitwise_equal": true,
