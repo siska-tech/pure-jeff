@@ -1,0 +1,278 @@
+{
+ "arm": "official",
+ "threads": 2,
+ "process": 0,
+ "returncode": 0,
+ "init": {
+  "event": "init",
+  "mode": "api",
+  "verify_s": 1.08080080000218,
+  "import_s": 8.389787000021897,
+  "model_load_s": 2.308432499994524,
+  "startup_s": 11.779414199991152,
+  "torch_threads": 2,
+  "torch_interop_threads": 16,
+  "versions": {
+   "torch": "2.14.0",
+   "torchvision": "0.29.0",
+   "transformers": "5.17.0",
+   "pillow": "12.3.0",
+   "fastapi": "0.141.1",
+   "uvicorn": "0.52.4",
+   "safetensors": "0.8.0",
+   "numpy": "2.5.3",
+   "huggingface-hub": "1.31.0"
+  },
+  "kernel": {
+   "cpu_capability": "AVX512",
+   "mkldnn": true,
+   "mkl": true,
+   "parallel_info": "ATen/Parallel:\n\tat::get_num_threads() : 2\n\tat::get_num_interop_threads() : 16\nOpenMP 2019\n\tomp_get_max_threads() : 2\nIntel(R) oneAPI Math Kernel Library Version 2026.1-Product Build 20260612 for Intel(R) 64 architecture applications\n\tmkl_get_max_threads() : 2\nIntel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\nstd::thread::hardware_concurrency() : 32\nEnvironment variables:\n\tOMP_NUM_THREADS : 2\n\tMKL_NUM_THREADS : 2\nATen parallel backend: OpenMP\n"
+  },
+  "source_sha256": "84bbcc6d5f57b1e469292f5c0b3ab30f4be415afe559752997cb87327d6ece3b"
+ },
+ "memory": {
+  "max_tree_working_set": 4254556160,
+  "max_tree_private": 4815851520,
+  "max_process_peak_working_set": 4246417408,
+  "max_process_page_faults": 5761316,
+  "samples": 359
+ },
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 1.0448272000066936,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285950064659119,
+     0.07140493392944336
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1,
+    "input_ids_sha256": "2e4c24e40ead1d5901cbbc9b571c9c39f3e3a0e4d79a8bb41e73996a03efb06f"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 1,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 0.9317069000098854,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285950064659119,
+     0.07140493392944336
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1,
+    "input_ids_sha256": "2e4c24e40ead1d5901cbbc9b571c9c39f3e3a0e4d79a8bb41e73996a03efb06f"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 2,
+   "name": "candidate-request",
+   "phase": "measure",
+   "wall_s": 0.8868530000327155,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.9285950064659119,
+     0.07140493392944336
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 128,
+    "forwards": 1,
+    "input_ids_sha256": "2e4c24e40ead1d5901cbbc9b571c9c39f3e3a0e4d79a8bb41e73996a03efb06f"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 3,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 3.6423465000698343,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305986762046814,
+     0.06940136849880219
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1,
+    "input_ids_sha256": "911ae49d7d6d741d04e8629fbc0101901cda4ab167584c649932e4fc6815c7a3"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 4,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 3.645320800016634,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305986762046814,
+     0.06940136849880219
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1,
+    "input_ids_sha256": "911ae49d7d6d741d04e8629fbc0101901cda4ab167584c649932e4fc6815c7a3"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 5,
+   "name": "synthetic-ocr-ja-2-512",
+   "phase": "measure",
+   "wall_s": 3.645732900011353,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "a",
+     "b"
+    ],
+    "probabilities": [
+     0.9305986762046814,
+     0.06940136849880219
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "a"
+    },
+    "input_tokens": 512,
+    "forwards": 1,
+    "input_ids_sha256": "911ae49d7d6d741d04e8629fbc0101901cda4ab167584c649932e4fc6815c7a3"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 6,
+   "name": "long-text",
+   "phase": "measure",
+   "wall_s": 5.981590099981986,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.995419979095459,
+     0.004580090753734112
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 874,
+    "forwards": 1,
+    "input_ids_sha256": "4e9a12f52ecf8fb7c3015ff645ddf85c4971e6af7f99367ccb40c4a66208585d"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 7,
+   "name": "long-text",
+   "phase": "measure",
+   "wall_s": 5.938024400034919,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.995419979095459,
+     0.004580090753734112
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 874,
+    "forwards": 1,
+    "input_ids_sha256": "4e9a12f52ecf8fb7c3015ff645ddf85c4971e6af7f99367ccb40c4a66208585d"
+   },
+   "gate": []
+  },
+  {
+   "event": "decision",
+   "index": 8,
+   "name": "long-text",
+   "phase": "measure",
+   "wall_s": 6.0389153000433,
+   "outcome": {
+    "status": "completed",
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "probabilities": [
+     0.995419979095459,
+     0.004580090753734112
+    ],
+    "judgment": {
+     "kind": "selected",
+     "candidate_id": "original"
+    },
+    "input_tokens": 874,
+    "forwards": 1,
+    "input_ids_sha256": "4e9a12f52ecf8fb7c3015ff645ddf85c4971e6af7f99367ccb40c4a66208585d"
+   },
+   "gate": []
+  }
+ ],
+ "stderr": "\rLoading weights:   0%|          | 0/473 [00:00<?, ?it/s]\rLoading weights:   8%|▊         | 36/473 [00:00<00:01, 345.36it/s]\rLoading weights:  19%|█▉        | 89/473 [00:00<00:00, 433.79it/s]\rLoading weights:  28%|██▊       | 134/473 [00:00<00:00, 417.26it/s]\rLoading weights:  37%|███▋      | 176/473 [00:00<00:00, 393.49it/s]\rLoading weights:  46%|████▌     | 216/473 [00:00<00:00, 375.87it/s]\rLoading weights:  54%|█████▎    | 254/473 [00:00<00:00, 366.30it/s]\rLoading weights:  64%|██████▎   | 301/473 [00:00<00:00, 395.55it/s]\rLoading weights:  80%|████████  | 380/473 [00:00<00:00, 506.38it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 631.40it/s]\rLoading weights: 100%|██████████| 473/473 [00:00<00:00, 485.62it/s]\r\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\r\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\r\n"
+}

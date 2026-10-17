@@ -889,6 +889,7 @@ dependencies = [
  "anyhow",
  "candle-core",
  "candle-nn",
+ "gemm-common",
  "pure-jeff",
  "serde",
  "serde_json",

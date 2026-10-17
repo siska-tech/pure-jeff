@@ -1,0 +1,102 @@
+native t1 p0: 45 decisions, gate failures 0, threads reported 1
+native t2 p0: 45 decisions, gate failures 0, threads reported 2
+native t4 p0: 45 decisions, gate failures 0, threads reported 4
+native t8 p0: 45 decisions, gate failures 0, threads reported 8
+native t16 p0: 45 decisions, gate failures 0, threads reported 16
+native t16 p1: 45 decisions, gate failures 0, threads reported 16
+native t8 p1: 45 decisions, gate failures 0, threads reported 8
+native t4 p1: 45 decisions, gate failures 0, threads reported 4
+native t2 p1: 45 decisions, gate failures 0, threads reported 2
+native t1 p1: 45 decisions, gate failures 0, threads reported 1
+official t1 p0: 9 decisions, gate failures 0, threads reported 1
+official t2 p0: 9 decisions, gate failures 0, threads reported 2
+official t4 p0: 9 decisions, gate failures 0, threads reported 4
+official t8 p0: 9 decisions, gate failures 0, threads reported 8
+official t16 p0: 9 decisions, gate failures 0, threads reported 16
+{
+ "1": {
+  "gate_failures": 0,
+  "sessions_ok": true,
+  "reported_threads": [
+   1
+  ],
+  "official_threads": [
+   1
+  ],
+  "within_process_bit_mismatch": [],
+  "across_process_bit_mismatch": [],
+  "cases_not_bit_equal_to_min_threads": [],
+  "max_abs_vs_min_threads": 0,
+  "max_abs_vs_official": 4.738569259643555e-06,
+  "judgments_vs_official_ok": true,
+  "peak_working_set_gib": 2.0974502563476562
+ },
+ "2": {
+  "gate_failures": 0,
+  "sessions_ok": true,
+  "reported_threads": [
+   2
+  ],
+  "official_threads": [
+   2
+  ],
+  "within_process_bit_mismatch": [],
+  "across_process_bit_mismatch": [],
+  "cases_not_bit_equal_to_min_threads": [],
+  "max_abs_vs_min_threads": 0,
+  "max_abs_vs_official": 4.738569259643555e-06,
+  "judgments_vs_official_ok": true,
+  "peak_working_set_gib": 2.091442108154297
+ },
+ "4": {
+  "gate_failures": 0,
+  "sessions_ok": true,
+  "reported_threads": [
+   4
+  ],
+  "official_threads": [
+   4
+  ],
+  "within_process_bit_mismatch": [],
+  "across_process_bit_mismatch": [],
+  "cases_not_bit_equal_to_min_threads": [],
+  "max_abs_vs_min_threads": 0,
+  "max_abs_vs_official": 4.738569259643555e-06,
+  "judgments_vs_official_ok": true,
+  "peak_working_set_gib": 2.097919464111328
+ },
+ "8": {
+  "gate_failures": 0,
+  "sessions_ok": true,
+  "reported_threads": [
+   8
+  ],
+  "official_threads": [
+   8
+  ],
+  "within_process_bit_mismatch": [],
+  "across_process_bit_mismatch": [],
+  "cases_not_bit_equal_to_min_threads": [],
+  "max_abs_vs_min_threads": 0,
+  "max_abs_vs_official": 4.738569259643555e-06,
+  "judgments_vs_official_ok": true,
+  "peak_working_set_gib": 2.0993499755859375
+ },
+ "16": {
+  "gate_failures": 0,
+  "sessions_ok": true,
+  "reported_threads": [
+   16
+  ],
+  "official_threads": [
+   16
+  ],
+  "within_process_bit_mismatch": [],
+  "across_process_bit_mismatch": [],
+  "cases_not_bit_equal_to_min_threads": [],
+  "max_abs_vs_min_threads": 0,
+  "max_abs_vs_official": 4.738569259643555e-06,
+  "judgments_vs_official_ok": true,
+  "peak_working_set_gib": 2.1045761108398438
+ }
+}
