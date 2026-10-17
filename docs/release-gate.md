@@ -64,8 +64,8 @@ python -B bench/run_benchmark.py --stage wasm ...
 
 - **E2E**：download、samples、取消と復帰、reload、Cache、削除、公式参照との一致。
 - **時間・メモリ**：現行engineの値を記録する。凍結した研究用probeの数字を、現行engineの値として引用しない。
-- **deploy用のengine**：host pathの検査に合格したbuildを使う。
-  - rustupで`rust-src`を入れた環境では、標準libraryのpathが埋め込まれて不合格になる。その場合はCIのbuildを使うか、rust-srcのない環境でbuildする。
+- **deploy用のengine**：host pathの検査に合格したbuildを使う。`build_wasm.py`は、rust-srcのdirectoryも`/rustc/<commit>`へ置き換える（[#30](web-demo-build-deploy-2026-10-17.md)）。
+- **deployの切り替え**：local E2Eに`--stale-engine-once`の回を加え、`engine_retry`の合格を確かめる。
 - **Native専用の機能はWasmに適用しない**：FP32保持と共有bufferはWasmに適用しない（browserのメモリは別に評価する）。
 
 ## 5. 記録

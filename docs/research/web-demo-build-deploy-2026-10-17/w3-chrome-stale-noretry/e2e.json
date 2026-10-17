@@ -1,0 +1,85 @@
+{
+ "marks": [
+  {
+   "name": "download:click",
+   "time": 1792220886.283
+  }
+ ],
+ "network": [
+  {
+   "time": 1792220885.577,
+   "url": "http://127.0.0.1:62925/index.html?lang=ja",
+   "method": "GET"
+  },
+  {
+   "time": 1792220885.593,
+   "url": "http://127.0.0.1:62925/style.css",
+   "method": "GET"
+  },
+  {
+   "time": 1792220885.593,
+   "url": "http://127.0.0.1:62925/i18n.js",
+   "method": "GET"
+  },
+  {
+   "time": 1792220885.593,
+   "url": "http://127.0.0.1:62925/app.js",
+   "method": "GET"
+  },
+  {
+   "time": 1792220885.654,
+   "url": "http://127.0.0.1:62925/demo-config.json",
+   "method": "GET"
+  },
+  {
+   "time": 1792220885.678,
+   "url": "http://127.0.0.1:62925/samples.json",
+   "method": "GET"
+  },
+  {
+   "time": 1792220886.286,
+   "url": "http://127.0.0.1:62925/engine-worker.js",
+   "method": "GET"
+  },
+  {
+   "time": 1792220886.293,
+   "url": "http://127.0.0.1:62925/engine-8b2bc45a32c742e2.wasm",
+   "method": "GET"
+  }
+ ],
+ "steps": {
+  "initial": {
+   "model": "absent",
+   "status": "モデルはまだ取得していません。",
+   "privacy": "入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（このサイト）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。",
+   "download_label": "モデルを取得して読み込む（約1.73 GB）"
+  },
+  "languages": {
+   "en": {
+    "lang": "en",
+    "title": "pure-jeff candidate decision demo",
+    "state_lang": "en",
+    "url_lang": "en",
+    "status": "The model has not been downloaded yet.",
+    "text": "\n\n  \n    pure-jeff candidate decision demo\n    Language\n      \n    \n  \n  The Jeff model picks the candidate that best fits the original text from OCR/ASR recognition candidates, and abstains when it cannot decide. All inference runs in this browser (WebAssembly).\n\n\n\n  \n    1. Model\n    The text and candidates you enter are processed only in this browser and are never sent anywhere. The model (about 1.73 GB) is downloaded from its host (this site) only when you press the button, and stored in this browser's Cache Storage. You can delete the stored model at any time.\n    The model has not been downloaded yet.\n    \n      \n      \n    \n    \n      Download and load the model (about 1.73 GB)\n      Load the stored model\n      Stop\n      Delete the stored model\n    \n    Storage for this site: 0 bytes used / about 10.74 GB available\n  \n\n  \n    2. Input\n    Example (artificial data)\n      — Select to fill in the form —OCR: 2 candidates (128 tokens)OCR: the same 2 candidates reversed (128 tokens)ASR: 3 candidates with Unicode characters (206 tokens)2 candidates with text resembling special tokens (182 tokens)Japanese OCR: 2 candidates (256 tokens)OCR: 8 candidates (512 tokens, exactly the limit)Long text over the limit (874 tokens, over-budget example)\n    \n    Original text (recognition result)\n      \n    \n    \n      Source\n        OCRASR\n      \n      Reason to evaluate\n        \n          Candidates compete\n          Weak textual evidence\n          Conflicting evidence\n          None (do not evaluate)\n        \n      \n    \n    \n      Candidates (2–8, order is kept)\n      RemoveRemove\n      Add candidate\n    \n    Input is limited to 512 tokens. Longer input is not truncated; it is returned as over budget.\n    \n      Decide\n      Cancel\n      \n    \n  \n\n  \n    3. Result\n    \n    \n      Candidate IDCandidateDistribution\n      \n    \n    The values are a distribution over the supplied candidates, not the probability that a recognition is correct.\n    \n    \n      Save JSON\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  Research demo. The examples are artificial data for illustration; they do not measure OCR/ASR recognition quality.\n  Unofficial implementation, not affiliated with the authors of Jeff or Qwen. Licenses:\n    attributions ·\n    model LICENSE ·\n    model NOTICE ·\n    Jeff LICENSE ·\n    licenses of the inference engine's dependencies\n\n\n\n\n\n"
+   },
+   "vi": {
+    "lang": "vi",
+    "title": "pure-jeff – Bản demo chọn ứng viên",
+    "state_lang": "vi",
+    "url_lang": "vi",
+    "status": "Chưa tải mô hình.",
+    "text": "\n\n  \n    pure-jeff – Bản demo chọn ứng viên\n    Ngôn ngữ\n      \n    \n  \n  Mô hình Jeff chọn, trong số các ứng viên nhận dạng OCR/ASR, ứng viên phù hợp nhất với văn bản gốc; khi không thể quyết định, mô hình sẽ không chọn. Mọi suy luận đều chạy trong trình duyệt này (WebAssembly).\n\n\n\n  \n    1. Mô hình\n    Văn bản và các ứng viên bạn nhập chỉ được xử lý trong trình duyệt này và không được gửi đi đâu cả. Mô hình (khoảng 1.73 GB) chỉ được tải về từ nguồn phân phối (trang này) khi bạn bấm nút, và được lưu trong Cache Storage của trình duyệt này. Bạn có thể xóa mô hình đã lưu bất cứ lúc nào.\n    Chưa tải mô hình.\n    \n      \n      \n    \n    \n      Tải và nạp mô hình (khoảng 1.73 GB)\n      Nạp mô hình đã lưu\n      Dừng\n      Xóa mô hình đã lưu\n    \n    Dung lượng lưu trữ của trang: đã dùng 0 bytes / giới hạn ước tính 10.74 GB\n  \n\n  \n    2. Đầu vào\n    Ví dụ (dữ liệu nhân tạo)\n      — Chọn để điền vào biểu mẫu —OCR: 2 ứng viên (128 token)OCR: cùng 2 ứng viên theo thứ tự ngược (128 token)ASR: 3 ứng viên có ký tự Unicode (206 token)2 ứng viên có chuỗi giống ký hiệu đặc biệt (182 token)OCR tiếng Nhật: 2 ứng viên (256 token)OCR: 8 ứng viên (512 token, đúng giới hạn)Văn bản dài vượt giới hạn (874 token, ví dụ vượt ngân sách)\n    \n    Văn bản gốc (kết quả nhận dạng)\n      \n    \n    \n      Loại\n        OCRASR\n      \n      Lý do đánh giá\n        \n          Các ứng viên cạnh tranh nhau\n          Dấu hiệu từ văn bản yếu\n          Các căn cứ mâu thuẫn\n          Không có (không đánh giá)\n        \n      \n    \n    \n      Ứng viên (2–8, giữ nguyên thứ tự)\n      XóaXóa\n      Thêm ứng viên\n    \n    Đầu vào tối đa 512 token. Nếu dài hơn, đầu vào không bị cắt bớt mà được trả về là vượt ngân sách.\n    \n      Quyết định\n      Hủy\n      \n    \n  \n\n  \n    3. Kết quả\n    \n    \n      ID ứng viênỨng viênPhân phối\n      \n    \n    Các giá trị là phân phối giữa những ứng viên đã đưa vào, không phải xác suất nhận dạng đúng.\n    \n    \n      Lưu JSON\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  Bản demo phục vụ nghiên cứu. Các ví dụ là dữ liệu nhân tạo để minh họa, không dùng để đánh giá chất lượng nhận dạng OCR/ASR.\n  Bản triển khai không chính thức, không liên quan đến tác giả của Jeff hay Qwen. Giấy phép:\n    danh sách nguồn ·\n    LICENSE của mô hình ·\n    NOTICE của mô hình ·\n    LICENSE của Jeff ·\n    giấy phép của các thư viện trong engine suy luận\n\n\n\n\n\n"
+   },
+   "ja": {
+    "lang": "ja",
+    "title": "pure-jeff 候補判定デモ",
+    "state_lang": "ja",
+    "url_lang": "ja",
+    "status": "モデルはまだ取得していません。",
+    "text": "\n\n  \n    pure-jeff 候補判定デモ\n    言語\n      \n    \n  \n  OCR／ASRの認識候補から、原文に最も合う候補をJeffモデルが選びます。判断できないときは保留します。推論はすべてこのブラウザ内（WebAssembly）で行います。\n\n\n\n  \n    1. モデル\n    入力した文章と候補は、このブラウザ内でのみ処理し、どこにも送信しません。モデル（約1.73 GB）は、ボタンを押したときだけ配信元（このサイト）から取得し、このブラウザのCache Storageに保存します。保存したモデルはいつでも削除できます。\n    モデルはまだ取得していません。\n    \n      \n      \n    \n    \n      モデルを取得して読み込む（約1.73 GB）\n      保存済みモデルを読み込む\n      中止\n      保存したモデルを削除\n    \n    このサイトの保存領域：0 bytes 使用 / 上限の目安 10.74 GB\n  \n\n  \n    2. 入力\n    見本（人工データ）\n      — 選択すると入力欄に反映 —OCR：2候補（128 tokens）OCR：同じ2候補を逆順（128 tokens）ASR：Unicode文字を含む3候補（206 tokens）区切り記号に似た文字列を含む2候補（182 tokens）日本語OCR：2候補（256 tokens）OCR：8候補（512 tokens、上限ちょうど）上限を超える長文（874 tokens、予算超過の例）\n    \n    原文（認識結果）\n      \n    \n    \n      種類\n        OCRASR\n      \n      評価する理由\n        \n          候補が競合している\n          文章上の手がかりが弱い\n          根拠が食い違う\n          なし（評価しない）\n        \n      \n    \n    \n      候補（2〜8件。順序は保持されます）\n      削除削除\n      候補を追加\n    \n    入力は最大512 tokensまでです。超える場合は切り詰めず、予算超過として返します。\n    \n      判断する\n      取消\n      \n    \n  \n\n  \n    3. 結果\n    \n    \n      候補ID候補分布\n      \n    \n    数値は、渡した候補の中での分布です。認識が正しい確率ではありません。\n    \n    \n      JSONを保存\n    \n    \n      Attempt JSON\n      \n    \n  \n\n\n\n  研究用デモです。見本は説明用の人工データで、日本語OCR／ASRの認識品質を評価したものではありません。\n  本家Jeff・Qwenとは無関係の非公式実装です。ライセンス：\n    出典の一覧 ·\n    モデルのLICENSE ·\n    モデルのNOTICE ·\n    本家JeffのLICENSE ·\n    推論エンジンが含む依存のライセンス\n\n\n\n\n\n"
+   }
+  }
+ },
+ "error": "Error: timeout waiting for download\n    at waitFor (file:///pure-jeff/apps/web-demo/e2e_w3.mjs:64:38)\n    at async file:///pure-jeff/apps/web-demo/e2e_w3.mjs:144:3"
+}

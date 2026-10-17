@@ -1,0 +1,281 @@
+[
+ {
+  "time": 1792220740.951847,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220740.9632556,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220740.965573,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220740.9658825,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220741.0190594,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220741.048211,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220741.604108,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220741.6095116,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 33,
+  "complete": false,
+  "stale": true
+ },
+ {
+  "time": 1792220743.1300373,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220743.137729,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220743.1584816,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1861,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220743.163605,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220743.2200027,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220743.3677638,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220747.9514115,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 1706027688,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220786.6286159,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220786.6386616,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.1789558,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.1862197,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.1883323,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.1883664,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.2287593,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.2319007,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.5746086,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220795.5827942,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.362166,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.369036,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.3711438,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.3711772,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.3763108,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792220804.3808968,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ }
+]

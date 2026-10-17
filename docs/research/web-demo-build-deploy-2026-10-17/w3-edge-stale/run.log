@@ -1,0 +1,14 @@
+{
+ "passed": true,
+ "engine_retry": true,
+ "consent": true,
+ "single_download": true,
+ "private_inference": true,
+ "results": true,
+ "attempt": true,
+ "save": true,
+ "repeat": true,
+ "main_thread": true,
+ "languages": true,
+ "delete": true
+}

@@ -11,6 +11,7 @@
 | [benchmark-parity-plan.md](benchmark-parity-plan.md)、[benchmark-parity-results-2026-10-13.md](benchmark-parity-results-2026-10-13.md)、[benchmark-parity-full-2026-10-14.md](benchmark-parity-full-2026-10-14.md) | 性能同等の判定基盤（公開API経路、入力catalog、共通数値gate、事前登録の統計と受入規則）と、そのbaseline、全長の受入（main `4e1794d`） |
 | [web-demo-w4-results.md](web-demo-w4-results.md)、[w4-hosting.md](w4-hosting.md) | Webデモの公開準備と配信構成 |
 | [web-demo-deployment-2026-10-12.md](web-demo-deployment-2026-10-12.md) | Webデモの公開と、公開サイトでのE2E |
+| [web-demo-build-deploy-2026-10-17.md](web-demo-build-deploy-2026-10-17.md) | Webデモ：rust-src由来のpath混入の解消と、deploy直後のengine不一致への対策（#30） |
 | [native-fp32-retention-plan.md](native-fp32-retention-plan.md)、[native-forward-profile-2026-10-12.md](native-forward-profile-2026-10-12.md) | Native推論の改善計画と、forwardの内訳 |
 | [native-delta-recurrence-2026-10-12.md](native-delta-recurrence-2026-10-12.md) | DeltaNetの逐次更新の高速化（出力はbit単位で不変） |
 | [native-elementwise-2026-10-12.md](native-elementwise-2026-10-12.md) | forwardの処理ごとの内訳と、要素ごとの演算の融合（出力はbit単位で不変） |
