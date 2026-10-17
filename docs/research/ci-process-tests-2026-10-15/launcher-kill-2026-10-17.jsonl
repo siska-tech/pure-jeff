@@ -1,0 +1,4 @@
+{"launcher": "uv venv (vendor/jeff/.venv, uv 0.13.0, CPython 3.13.7)", "separate_process": true, "interpreter_alive_after_launcher_killed": false}
+{"launcher": "CPython venv (.venv/uv-tool, python -m venv, 3.13.7)", "separate_process": true, "interpreter_alive_after_launcher_killed": false}
+{"launcher": "CPython 3.13.7 python.exe", "separate_process": false, "interpreter_alive_after_launcher_killed": false}
+{"launcher": "py.exe (Python launcher)", "separate_process": true, "interpreter_alive_after_launcher_killed": false}

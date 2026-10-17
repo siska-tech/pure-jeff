@@ -103,6 +103,12 @@
   - これは「終了処理は直接の子だけを対象とする」という既知の制約である。
   - 上の再現用wrapperも、遅らせずに使うと、この理由でtimeout試験が失敗した。
   - CIはsetup-pythonの`python.exe`を直接使うので、影響しない。
+  - **訂正（2026-10-17）**：「Windowsのvenvの`python.exe`など」という例は誤りだった。実機で確かめると、次の3つは、どれも本物のPythonを別processとして起動するが、launcherがkillされると本物のPythonも終了した。
+    - uvが作ったvenv。
+    - CPythonの`python -m venv`。
+    - `py.exe`。
+
+    `tests/process.rs`のtimeout試験も、uvのvenvの`python.exe`を指定して合格した。孫processが残るのは、子processを終了させる仕組みを持たないwrapper（上の再現用wrapperなど）を指定した場合と、workerが自分で子孫を起動した場合（workerの契約に反する）だけである。この確認を受けて、Job Objectでprocess treeを終了させる変更は見送った。確認の方法と結果は`research/ci-process-tests-2026-10-15/kill_launcher.py`と`launcher-kill-2026-10-17.jsonl`にある。
 - **極端に遅いrunner**：上限を超えると失敗する。
   - Pythonの起動が120秒を超える場合（protocolの試験）。
   - killと終了待ちが、hangの上限（20秒・60秒）を超える場合。
