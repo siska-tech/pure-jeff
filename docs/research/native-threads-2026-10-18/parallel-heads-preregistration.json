@@ -1,0 +1,152 @@
+{
+ "schema_version": "pure_jeff.parallel_heads_check.v1",
+ "created_utc": "2026-10-17T23:27:19.805222+00:00",
+ "plan": [
+  [
+   2,
+   false
+  ],
+  [
+   2,
+   true
+  ],
+  [
+   4,
+   true
+  ],
+  [
+   4,
+   false
+  ],
+  [
+   8,
+   false
+  ],
+  [
+   8,
+   true
+  ],
+  [
+   16,
+   true
+  ],
+  [
+   16,
+   false
+  ]
+ ],
+ "reps": 3,
+ "cases": [
+  "candidate-request.json",
+  "synthetic-ocr-ascii-8-512.json",
+  "long-text.json"
+ ],
+ "long": [
+  "token-limit-8192.json"
+ ],
+ "long_threads": 16,
+ "source": {
+  "commit": "e831aa447e64c87540bdb22653a2b37e0efce61a",
+  "dirty": ""
+ },
+ "exe_sha256": "923afde7b4e82f09314b8b9c8f5c4067e90b08d1147831cc42e1dc618e6f43d0",
+ "driver_sha256": "f699a867ff2c95dc89c4fbb0c0aa7fe94bc597c2816f16afe127576f347afb80",
+ "environment_start": {
+  "time_utc": "2026-10-17T23:27:19.969786+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 12,
+   "processor_performance_percent": 151,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 113111.265625,
+    "WS_MB": 183
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 113014.3125,
+    "WS_MB": 137
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 112966.1875,
+    "WS_MB": 143
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28068.546875,
+    "WS_MB": 298
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 17345.828125,
+    "WS_MB": 533
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 7869.515625,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 6454.453125,
+    "WS_MB": 504
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6278.609375,
+    "WS_MB": 292
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6004.53125,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4409.265625,
+    "WS_MB": 396
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4053.421875,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 3743.15625,
+    "WS_MB": 66
+   }
+  ]
+ }
+}

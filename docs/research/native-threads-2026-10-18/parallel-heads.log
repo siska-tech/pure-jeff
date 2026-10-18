@@ -1,0 +1,10 @@
+t2 parallel=False rc=0 rows=9 peak=1.14 GiB
+t2 parallel=True rc=0 rows=9 peak=1.14 GiB
+t4 parallel=True rc=0 rows=9 peak=1.14 GiB
+t4 parallel=False rc=0 rows=9 peak=1.14 GiB
+t8 parallel=False rc=0 rows=9 peak=1.14 GiB
+t8 parallel=True rc=0 rows=9 peak=1.14 GiB
+t16 parallel=True rc=0 rows=9 peak=1.15 GiB
+t16 parallel=False rc=0 rows=9 peak=1.14 GiB
+t16 parallel=False rc=0 rows=1 peak=2.16 GiB
+t16 parallel=True rc=0 rows=1 peak=2.16 GiB
