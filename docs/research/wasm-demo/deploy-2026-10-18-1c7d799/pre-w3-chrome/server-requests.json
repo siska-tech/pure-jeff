@@ -1,0 +1,263 @@
+[
+ {
+  "time": 1792278197.8937073,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278197.9063444,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278197.90811,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278197.908149,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278197.9723377,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278197.995424,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.5379827,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.5483317,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.5672731,
+  "method": "GET",
+  "path": "/model/manifest.json",
+  "status": 200,
+  "bytes": 1861,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.5715706,
+  "method": "GET",
+  "path": "/model/decision_config.json",
+  "status": 200,
+  "bytes": 6635,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.6192703,
+  "method": "GET",
+  "path": "/model/tokenizer.json",
+  "status": 200,
+  "bytes": 19989492,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278198.7267451,
+  "method": "GET",
+  "path": "/model/readout.safetensors",
+  "status": 200,
+  "bytes": 522320,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278203.9892254,
+  "method": "GET",
+  "path": "/model/model.safetensors",
+  "status": 200,
+  "bytes": 1706027688,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278238.6864972,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278238.6956027,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.472707,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.4793231,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.4813302,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.4813557,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.5225759,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.527085,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.8692327,
+  "method": "GET",
+  "path": "/engine-worker.js",
+  "status": 200,
+  "bytes": 6189,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278247.8771644,
+  "method": "GET",
+  "path": "/engine-8b2bc45a32c742e2.wasm",
+  "status": 200,
+  "bytes": 4492394,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.9519255,
+  "method": "GET",
+  "path": "/index.html?lang=ja",
+  "status": 200,
+  "bytes": 5671,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.957937,
+  "method": "GET",
+  "path": "/style.css",
+  "status": 200,
+  "bytes": 4120,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.960139,
+  "method": "GET",
+  "path": "/i18n.js",
+  "status": 200,
+  "bytes": 22237,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.9601822,
+  "method": "GET",
+  "path": "/app.js",
+  "status": 200,
+  "bytes": 16070,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.9651177,
+  "method": "GET",
+  "path": "/demo-config.json",
+  "status": 200,
+  "bytes": 1439,
+  "complete": true,
+  "stale": false
+ },
+ {
+  "time": 1792278256.969426,
+  "method": "GET",
+  "path": "/samples.json",
+  "status": 200,
+  "bytes": 8187,
+  "complete": true,
+  "stale": false
+ }
+]

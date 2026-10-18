@@ -1,0 +1,420 @@
+{
+ "mode": "prepare",
+ "network": [
+  {
+   "time": 1792277600.648,
+   "url": "http://127.0.0.1:8771/index.html?lang=ja",
+   "offline": false
+  },
+  {
+   "time": 1792277600.665,
+   "url": "http://127.0.0.1:8771/style.css",
+   "offline": false
+  },
+  {
+   "time": 1792277600.666,
+   "url": "http://127.0.0.1:8771/i18n.js",
+   "offline": false
+  },
+  {
+   "time": 1792277600.666,
+   "url": "http://127.0.0.1:8771/app.js",
+   "offline": false
+  },
+  {
+   "time": 1792277600.672,
+   "url": "http://127.0.0.1:8771/demo-config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277600.744,
+   "url": "http://127.0.0.1:8771/samples.json",
+   "offline": false
+  },
+  {
+   "time": 1792277600.922,
+   "url": "http://127.0.0.1:8771/demo-config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277600.928,
+   "url": "http://127.0.0.1:8771/engine-worker.js",
+   "offline": false
+  },
+  {
+   "time": 1792277600.934,
+   "url": "http://127.0.0.1:8771/engine-8b2bc45a32c742e2.wasm",
+   "offline": false
+  },
+  {
+   "time": 1792277600.958,
+   "url": "http://127.0.0.1:8771/model/manifest.json",
+   "offline": false
+  },
+  {
+   "time": 1792277600.963,
+   "url": "http://127.0.0.1:8771/model/decision_config.json",
+   "offline": false
+  },
+  {
+   "time": 1792277600.967,
+   "url": "http://127.0.0.1:8771/model/tokenizer.json",
+   "offline": false
+  },
+  {
+   "time": 1792277601.19,
+   "url": "http://127.0.0.1:8771/model/readout.safetensors",
+   "offline": false
+  },
+  {
+   "time": 1792277601.2,
+   "url": "http://127.0.0.1:8771/model/model.safetensors",
+   "offline": false
+  }
+ ],
+ "marks": {
+  "load_click": 1792277600.926,
+  "ready": 1792277617.912
+ },
+ "decisions": [
+  {
+   "sample": 0,
+   "offline": false,
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1792277617914",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "節約する",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "original",
+       "text": "節約する"
+      },
+      {
+       "id": "alternative",
+       "text": "節税する"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "original",
+        "option_probability": 0.9285955429077148
+       },
+       {
+        "candidate_id": "alternative",
+        "option_probability": 0.07140449434518814
+       }
+      ],
+      "judgment": {
+       "kind": "selected",
+       "candidate_id": "original"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 128,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "sample": 5,
+   "offline": false,
+   "attempt": {
+    "schema_version": "pure_jeff.attempt.v1",
+    "request": {
+     "request_id": "demo-1792277626168",
+     "document_id": "demo-document",
+     "segment_id": "segment-1",
+     "original_text": "cat a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+     "source": "ocr",
+     "profile_id": "ja.ocr.demo",
+     "domain": null,
+     "question_id": "transcription-candidate.v1",
+     "candidates": [
+      {
+       "id": "a",
+       "text": "a"
+      },
+      {
+       "id": "b",
+       "text": "b"
+      },
+      {
+       "id": "c",
+       "text": "c"
+      },
+      {
+       "id": "d",
+       "text": "d"
+      },
+      {
+       "id": "e",
+       "text": "e"
+      },
+      {
+       "id": "f",
+       "text": "f"
+      },
+      {
+       "id": "g",
+       "text": "g"
+      },
+      {
+       "id": "h",
+       "text": "h"
+      }
+     ],
+     "reason": "candidate_competition"
+    },
+    "provider_calls_started": 1,
+    "outcome": {
+     "status": "completed",
+     "value": {
+      "scores": [
+       {
+        "candidate_id": "a",
+        "option_probability": 0.5633876919746399
+       },
+       {
+        "candidate_id": "b",
+        "option_probability": 0.08941920846700668
+       },
+       {
+        "candidate_id": "c",
+        "option_probability": 0.06949273496866226
+       },
+       {
+        "candidate_id": "d",
+        "option_probability": 0.05251272767782211
+       },
+       {
+        "candidate_id": "e",
+        "option_probability": 0.07833318412303925
+       },
+       {
+        "candidate_id": "f",
+        "option_probability": 0.06976419687271118
+       },
+       {
+        "candidate_id": "g",
+        "option_probability": 0.026990355923771858
+       },
+       {
+        "candidate_id": "h",
+        "option_probability": 0.050099968910217285
+       }
+      ],
+      "judgment": {
+       "kind": "abstained"
+      },
+      "temperature": 1.0845714325759162,
+      "input_tokens": 512,
+      "forwards": 1,
+      "artifacts": [
+       {
+        "component": "LICENSE",
+        "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+       },
+       {
+        "component": "NOTICE",
+        "sha256": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74"
+       },
+       {
+        "component": "README.md",
+        "sha256": "1452a9398b52d9e8c2c3c4ca016322d6ee403d2f3320777c17f09d4d909fa8fa"
+       },
+       {
+        "component": "chat_template.jinja",
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+       },
+       {
+        "component": "config.json",
+        "sha256": "e430598ca8aa6228b9856573dcc0425d0710acad4a19a937da52cde724b34f25"
+       },
+       {
+        "component": "decision_config.json",
+        "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03"
+       },
+       {
+        "component": "model.safetensors",
+        "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f"
+       },
+       {
+        "component": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+       },
+       {
+        "component": "readout.safetensors",
+        "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9"
+       },
+       {
+        "component": "tokenizer.json",
+        "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+       },
+       {
+        "component": "tokenizer_config.json",
+        "sha256": "5f7aa0d810000c4a0940b35c8f16e56c3439260fccc13a321826ebc3ccf2501f"
+       },
+       {
+        "component": "bundle_manifest",
+        "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f"
+       },
+       {
+        "component": "wasm_engine",
+        "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d"
+       },
+       {
+        "component": "prompt",
+        "sha256": "bfb23267c231aac0ad6a2923ab9b8ef6478778a8f8284f9b890ee8c857c43a63"
+       },
+       {
+        "component": "rendered_prompt",
+        "sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+       },
+       {
+        "component": "policy",
+        "sha256": "887f167c316ccdc703042b425734980e974ef15e11a67e746c10ccd9677ceae8"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "config": {
+  "schema_version": "pure_jeff.web_demo_config.v1",
+  "engine": {
+   "url": "engine-8b2bc45a32c742e2.wasm",
+   "sha256": "8b2bc45a32c742e29eee2b81a534f6158ed6c972f10ca5a4840cabf289fb2b9d",
+   "bytes": 4492394,
+   "removed_exports": [
+    "__getrandom_v03_custom"
+   ]
+  },
+  "manifest": {
+   "path": "manifest.json",
+   "url": "model/manifest.json",
+   "sha256": "351c907ed106c6fb213de335f33070297ec135f7ea08393032d95ba9b2ebf44f",
+   "bytes": 1861
+  },
+  "assets": [
+   {
+    "slot": 0,
+    "path": "decision_config.json",
+    "url": "model/decision_config.json",
+    "sha256": "4b9b07551651bef87710185c0ce6983c37d29cc86952ff878c453634c7b1df03",
+    "bytes": 6635
+   },
+   {
+    "slot": 1,
+    "path": "tokenizer.json",
+    "url": "model/tokenizer.json",
+    "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706",
+    "bytes": 19989492
+   },
+   {
+    "slot": 2,
+    "path": "readout.safetensors",
+    "url": "model/readout.safetensors",
+    "sha256": "86363dc193724b4c4321bfe107d07c0a53eb903b860b8c8bcb48865039f2e4f9",
+    "bytes": 522320
+   },
+   {
+    "slot": 3,
+    "path": "model.safetensors",
+    "url": "model/model.safetensors",
+    "sha256": "080ff4a5b419aaf59f5c5059c492de88a063f34087361fb3c3ff120d95d5396f",
+    "bytes": 1706027688
+   }
+  ],
+  "total_download_bytes": 1726547996,
+  "cache_name": "pure-jeff-model-351c907ed106c6fb",
+  "model_base_url": "model/",
+  "max_input_tokens": 512,
+  "max_input_bytes": 1048576,
+  "heap_reserve_bytes": 805306368
+ },
+ "model_state_at_open": "absent",
+ "cache_names": [
+  "pure-jeff-model-351c907ed106c6fb"
+ ],
+ "completed": true
+}

@@ -68,6 +68,7 @@ python -B bench/run_benchmark.py --stage wasm ...
 - **時間・メモリ**：現行engineの値を記録する。凍結した研究用probeの数字を、現行engineの値として引用しない。
 - **deploy用のengine**：host pathの検査に合格したbuildを使う。`build_wasm.py`は、rust-srcのdirectoryも`/rustc/<commit>`へ置き換える（[#30](web-demo-build-deploy-2026-10-17.md)）。
 - **deployの切り替え**：local E2Eに`--stale-engine-once`の回を加え、`engine_retry`の合格を確かめる。
+- **キャッシュとオフライン**：deployの前に`run_deploy_cache.py prepare`で公開中の版のモデルを保存し、deployの直後に同じprofileで`reuse`を行う（再取得なし、engine hash、オフライン推論）。
 - **Native専用の機能はWasmに適用しない**：FP32保持と共有bufferはWasmに適用しない（browserのメモリは別に評価する）。
 
 ## 5. 記録

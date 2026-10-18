@@ -110,3 +110,45 @@ deploy直後に実行したChromeの1回目は、ページが「推論エンジ�
 
 証跡は[research/wasm-demo/deploy-2026-10-14-v020/](research/wasm-demo/deploy-2026-10-14-v020)にある。Chromeの1回目の記録も、失敗時の画面を含めて残した。stack traceに含まれていたlocalのpathは`/pure-jeff`に置き換えた。
 
+## 再deploy：配信切替の対策（2026-10-18）
+
+#30の修正（engineのfile名にhashを入れる、hash不一致のときに1回だけ再試行する、rust-srcのpathを置き換える）を本番に反映した。
+
+- **build**：main `1c7d799`からbuildした（`source_dirty=false`）。
+- **配信先**：Version `79e8e4be-bdfa-45db-ab58-89ccab0832b0`、Cloudflare account `siska-tech`（`99360706…`）、Worker `pure-jeff`、`https://pure-jeff.siska-tech.workers.dev`。deployの前に、`wrangler deployments list`で、配信中のversion（`37de8ccf…`、0.2.0）と記録が一致することを確かめた。旧versionは、Cloudflareのversion履歴に残る。
+- **crate**：公開crate（0.2.0）は変えていない。
+
+### 変わったもの
+
+- **engine**：bytesは0.2.0と同じ（strip前`a25d75fc…`、strip後`8b2bc45a…`）で、file名だけが`engine.wasm`から`engine-8b2bc45a32c742e2.wasm`に変わった。
+- **その他の変更**：`app.js`（再試行）と`demo-config.json`（engineの名前）。ほかの12 fileはbyte単位で同一で、uploadは3 fileだった。
+- **bundle manifestとCache Storageの名前**：前回と同じ（`351c907e…`、`pure-jeff-model-351c907ed106c6fb`）。
+
+### 確認
+
+| 確認 | 結果 |
+| --- | --- |
+| deploy前のローカルE2E（Chrome、通常と`--stale-engine-once`） | どちらも全gate合格 |
+| deploy前：公開中の0.2.0で、Chrome・Edgeの永続profileにモデルを保存（`run_deploy_cache.py prepare`） | 両方合格 |
+| deployの直後：同じprofileで新しいサイトを開く（`run_deploy_cache.py reuse`） | Chrome・Edgeとも全gate合格。詳細は下 |
+| 公開サイトのE2E（`run_w3.py --site-url`、Chrome・Edge） | 両方とも全13条件に合格。配信中のengineはbuildと一致（`8b2bc45a…`） |
+| 前回の公開版との比較 | 3つのsampleと、取消後・再読込後の判断の確率（各browser 17個）が、0.2.0の公開サイトでのE2Eの記録とbit単位で一致した |
+
+`run_deploy_cache.py reuse`の内容：
+
+- **モデルキャッシュの再利用**：0.2.0で保存したモデルが、ページを開いた時点で「保存済み」と表示され、どのモデル資産も取得せずに読み込まれた（Hugging Faceへの要求は0件）。Cache Storageの名前もprepareと同じだった。
+- **engineのhash整合性**：全Attemptの`wasm_engine`が、配信中の`demo-config.json`のengine hashと一致し、engineはhash付きの名前で取得されていた。
+- **配信切替**：deployの直後に開いたが、engineの取得は1回で、再試行は要らなかった（配信は切り替わり済みだった）。切り替えの途中に起きる場合の再試行は、ローカルの模擬（`--stale-engine-once`）で確かめている。
+- **オフライン推論**：ページとWorkerの通信を切った状態で（fetchが失敗することを確認）、sample 0と5の判断が完了した。結果は、オンラインでの判断と0.2.0でのprepareの結果に、bit単位で一致した。
+
+### 途中の失敗
+
+`run_deploy_cache.py`の最初の試行は、ローカルで2回失敗した。
+
+1. 1回目：Workerをdebuggerで止める設定のまま、自動でattachしていた。
+2. 2回目：browserのprofileのpathが長く（約150文字）、Cache Storageの`open`がinternal errorになった。Windowsでは、profileの下に深く作られるCache Storageのpathが、上限を超えるためと考えている。そのため、profileのpathを80文字までに制限した。
+
+修正後は、ローカル・本番とも合格した。
+
+証跡は[research/wasm-demo/deploy-2026-10-18-1c7d799/](research/wasm-demo/deploy-2026-10-18-1c7d799)にある（local pathは置き換えた）。
+

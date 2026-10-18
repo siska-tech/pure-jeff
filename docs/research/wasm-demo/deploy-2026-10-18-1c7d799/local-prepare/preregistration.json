@@ -1,0 +1,10 @@
+{
+ "schema_version": "pure_jeff.web_demo_deploy_cache.v1",
+ "mode": "prepare",
+ "created_utc": "2026-10-17T22:53:20.224945+00:00",
+ "site": "http://127.0.0.1:8771",
+ "browser_sha256": "6849d2982038de9f9489a7b3858f3b785b7fec06a842c93c517281d21995c8ca",
+ "driver_sha256": "31fa76d68643bc09908afb2a40a60428b0b4078b9a69e01ec1bb01aeaff7370f",
+ "e2e_sha256": "5a02586858ceb071149bef42ddd423bec0849094d0ccc64a9e2c0d23228c0b55",
+ "gates": "- cached_at_open: the page shows the model as saved before anything is clicked\n  - no_model_download: loading requests none of the model assets the config lists (bundle\n    manifest and checkpoint files, wherever they are hosted)\n  - same_cache: the Cache Storage name is the one prepare filled\n  - engine: every Attempt names the engine of the deployed demo-config.json (wasm_engine\n    artifact) and the engine was fetched under its content-addressed name\n  - offline: with the network cut for the page and its Workers a fetch fails, and samples 0\n    and 5 still complete\n  - results: every decision matches the official reference (probability <= 1e-4, judgment,\n    token count) and the offline decisions equal the online ones and prepare's bit for bit"
+}
