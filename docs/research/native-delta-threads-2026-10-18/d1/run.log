@@ -1,0 +1,27 @@
+stages s0 t1 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s0 t1 ['token-limit-8192.json'] rc=0 rows=2 peak=2.15 GiB
+stages s0 t2 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s0 t2 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s0 t4 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s0 t4 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s0 t8 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s0 t8 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s0 t16 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.15 GiB
+stages s0 t16 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s1 t16 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.15 GiB
+stages s1 t16 ['token-limit-8192.json'] rc=0 rows=2 peak=2.17 GiB
+stages s1 t8 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.15 GiB
+stages s1 t8 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s1 t4 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s1 t4 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s1 t2 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s1 t2 ['token-limit-8192.json'] rc=0 rows=2 peak=2.16 GiB
+stages s1 t1 ['candidate-request.json', 'synthetic-ocr-ascii-8-512.json', 'long-text.json'] rc=0 rows=36 peak=1.14 GiB
+stages s1 t1 ['token-limit-8192.json'] rc=0 rows=2 peak=2.15 GiB
+no_stage_timers s0 t1 ['candidate-request.json', 'long-text.json'] rc=0 rows=12 peak=1.13 GiB
+no_stage_timers s0 t2 ['candidate-request.json', 'long-text.json'] rc=0 rows=12 peak=1.14 GiB
+no_stage_timers s0 t4 ['candidate-request.json', 'long-text.json'] rc=0 rows=12 peak=1.14 GiB
+no_stage_timers s0 t8 ['candidate-request.json', 'long-text.json'] rc=0 rows=12 peak=1.14 GiB
+no_stage_timers s0 t16 ['candidate-request.json', 'long-text.json'] rc=0 rows=12 peak=1.15 GiB
+probe s0 t16 ['long-text.json', 'token-limit-8192.json'] rc=0 rows=4 peak=2.35 GiB
+rc=0
