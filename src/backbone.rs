@@ -496,7 +496,7 @@ fn delta_head_columns(
     let scale = (K as f32).sqrt();
     let mut state = [[0_f32; COLUMNS]; K];
     let mut scaled = [0_f32; K];
-    for (t, out) in out.chunks_exact_mut(V).enumerate() {
+    for (t, out) in out.as_chunks_mut::<V>().0.iter_mut().enumerate() {
         let at = t * H + h;
         let (q, k) = (&q[at * K..][..K], &k[at * K..][..K]);
         for (s, x) in scaled.iter_mut().zip(q) {
@@ -564,7 +564,7 @@ fn delta_recurrence_heads(
         .with_min_len(16)
         .enumerate()
         .for_each(|(t, row)| {
-            for (o, head) in row.chunks_exact_mut(V).zip(&heads) {
+            for (o, head) in row.as_chunks_mut::<V>().0.iter_mut().zip(&heads) {
                 o.copy_from_slice(&head[t * V..][..V]);
             }
         });

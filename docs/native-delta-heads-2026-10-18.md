@@ -108,6 +108,16 @@ headごとのbuffer（8192 tokensで出力と同じ64 MiB）は、forward全体�
 - **参考（単発）**：「各コア1 thread」は、16 thread・874 tokensで3.63秒だった。全CPU（3.37秒）より速くはならなかった。
   - 診断の文書（#36）は、16 threadで伸びない主因をSMTでの同居と全コアclockとしていた。このうちどちらがどれだけ効いているかは、未解決として扱う。
 
+## E2の後のコード変更
+
+- **変更**：CI（Rust 1.99.0）のclippyが、定数幅の`chunks_exact_mut`をerrorにした。そのため、`delta_recurrence_heads`の2か所を`as_chunks_mut::<V>()`に置き換えた（`chunks_exact_mut(V)`→`as_chunks_mut::<V>().0.iter_mut()`）。
+  - 分割は同じで、演算は変わらない。
+  - E2とE2bで測ったbuildは、この変更の前のものである。
+- **変更後の確認**：再buildしてbundleを再lockし、affinityの試験を1／2／4／16 threadで行った。
+  - 20条件すべてで、mainの1 threadとbit一致し、gate違反はなかった（`affinity-after-lint-fix/`）。
+  - 時間はE2と同じ水準だった（874 tokensで、16 thread 3.35秒、4 thread 3.95秒）。
+  - E2・E2bそのものの再実行はしていない。
+
 ## 組み込みの設計（このPR）
 
 | 項目 | 内容 |
@@ -153,3 +163,4 @@ headごとのbuffer（8192 tokensで出力と同じ64 MiB）は、forward全体�
 - `e2/`：事前登録、全process、集計、log。
 - `e2b/`：同上。
 - `affinity/`：結果。
+- `affinity-after-lint-fix/`：コード変更後の再確認。
