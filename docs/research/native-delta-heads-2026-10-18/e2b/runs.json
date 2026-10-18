@@ -1,0 +1,8862 @@
+[
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 0,
+  "returncode": 0,
+  "process_wall_s": 3.982147700036876,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1098162176,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8469107999999999,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 1,
+  "returncode": 0,
+  "process_wall_s": 3.9288961000274867,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1098596352,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8280129999999999,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 2,
+  "returncode": 0,
+  "process_wall_s": 3.9606297001009807,
+  "stderr": "",
+  "peak_private_commit": 212320256,
+  "peak_working_set": 1098833920,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8395804,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 3,
+  "returncode": 0,
+  "process_wall_s": 4.023267999989912,
+  "stderr": "",
+  "peak_private_commit": 212221952,
+  "peak_working_set": 1098158080,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8579332,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 4,
+  "returncode": 0,
+  "process_wall_s": 3.971961500006728,
+  "stderr": "",
+  "peak_private_commit": 212557824,
+  "peak_working_set": 1099595776,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8460931999999999,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 5,
+  "returncode": 0,
+  "process_wall_s": 3.9200927999336272,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1098616832,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8404205,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 6,
+  "returncode": 0,
+  "process_wall_s": 8.036137599963695,
+  "stderr": "",
+  "peak_private_commit": 212279296,
+  "peak_working_set": 1132560384,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9319477,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 7,
+  "returncode": 0,
+  "process_wall_s": 7.974356799968518,
+  "stderr": "",
+  "peak_private_commit": 212242432,
+  "peak_working_set": 1133854720,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.8845996,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 8,
+  "returncode": 0,
+  "process_wall_s": 8.026226999936625,
+  "stderr": "",
+  "peak_private_commit": 212234240,
+  "peak_working_set": 1133867008,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9209315,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 9,
+  "returncode": 0,
+  "process_wall_s": 8.065434899996035,
+  "stderr": "",
+  "peak_private_commit": 212283392,
+  "peak_working_set": 1133895680,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.952634,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 10,
+  "returncode": 0,
+  "process_wall_s": 8.078920200001448,
+  "stderr": "",
+  "peak_private_commit": 212054016,
+  "peak_working_set": 1133670400,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9541758,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 11,
+  "returncode": 0,
+  "process_wall_s": 7.983084200066514,
+  "stderr": "",
+  "peak_private_commit": 212234240,
+  "peak_working_set": 1133891584,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.8968213,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 12,
+  "returncode": 0,
+  "process_wall_s": 12.151500500040129,
+  "stderr": "",
+  "peak_private_commit": 213655552,
+  "peak_working_set": 1185353728,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.073194,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 13,
+  "returncode": 0,
+  "process_wall_s": 12.270452699973248,
+  "stderr": "",
+  "peak_private_commit": 213655552,
+  "peak_working_set": 1185419264,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.1690935,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 14,
+  "returncode": 0,
+  "process_wall_s": 12.220745499944314,
+  "stderr": "",
+  "peak_private_commit": 213458944,
+  "peak_working_set": 1185185792,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.1253213,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 15,
+  "returncode": 0,
+  "process_wall_s": 12.196113099926151,
+  "stderr": "",
+  "peak_private_commit": 213217280,
+  "peak_working_set": 1184972800,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.1028607,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 16,
+  "returncode": 0,
+  "process_wall_s": 12.206341900047846,
+  "stderr": "",
+  "peak_private_commit": 213663744,
+  "peak_working_set": 1185349632,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.1141215,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 17,
+  "returncode": 0,
+  "process_wall_s": 12.130290300003253,
+  "stderr": "",
+  "peak_private_commit": 213409792,
+  "peak_working_set": 1185157120,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0455112,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 18,
+  "returncode": 0,
+  "process_wall_s": 139.10316589998547,
+  "stderr": "",
+  "peak_private_commit": 1238331392,
+  "peak_working_set": 2207817728,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 136.9933525,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 1,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 19,
+  "returncode": 0,
+  "process_wall_s": 136.40897850005422,
+  "stderr": "",
+  "peak_private_commit": 1238450176,
+  "peak_working_set": 2207948800,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 134.2752883,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 20,
+  "returncode": 0,
+  "process_wall_s": 3.3600653000175953,
+  "stderr": "",
+  "peak_private_commit": 212574208,
+  "peak_working_set": 1099038720,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2481635,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 21,
+  "returncode": 0,
+  "process_wall_s": 3.42972410004586,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1099354112,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3011445,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 22,
+  "returncode": 0,
+  "process_wall_s": 3.3903688000282273,
+  "stderr": "",
+  "peak_private_commit": 212959232,
+  "peak_working_set": 1099165696,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3019618,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 23,
+  "returncode": 0,
+  "process_wall_s": 3.3889600000111386,
+  "stderr": "",
+  "peak_private_commit": 212574208,
+  "peak_working_set": 1099018240,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2499148,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 24,
+  "returncode": 0,
+  "process_wall_s": 3.3630121999885887,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1098985472,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2494855,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 25,
+  "returncode": 0,
+  "process_wall_s": 3.449912599986419,
+  "stderr": "",
+  "peak_private_commit": 212234240,
+  "peak_working_set": 1099333632,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3270809,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 26,
+  "returncode": 0,
+  "process_wall_s": 6.039632400032133,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1132888064,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.9266213,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 27,
+  "returncode": 0,
+  "process_wall_s": 5.838483199942857,
+  "stderr": "",
+  "peak_private_commit": 212484096,
+  "peak_working_set": 1134211072,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7231461,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 28,
+  "returncode": 0,
+  "process_wall_s": 5.812231000047177,
+  "stderr": "",
+  "peak_private_commit": 212279296,
+  "peak_working_set": 1133244416,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7238052,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 29,
+  "returncode": 0,
+  "process_wall_s": 6.009335000067949,
+  "stderr": "",
+  "peak_private_commit": 212246528,
+  "peak_working_set": 1133170688,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.9165012,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 30,
+  "returncode": 0,
+  "process_wall_s": 6.032600000035018,
+  "stderr": "",
+  "peak_private_commit": 212889600,
+  "peak_working_set": 1132920832,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.9380538,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 31,
+  "returncode": 0,
+  "process_wall_s": 5.818669399945065,
+  "stderr": "",
+  "peak_private_commit": 212459520,
+  "peak_working_set": 1134235648,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7166692,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 32,
+  "returncode": 0,
+  "process_wall_s": 8.20865619997494,
+  "stderr": "",
+  "peak_private_commit": 214945792,
+  "peak_working_set": 1186152448,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0720972,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 33,
+  "returncode": 0,
+  "process_wall_s": 8.522747499984689,
+  "stderr": "",
+  "peak_private_commit": 214810624,
+  "peak_working_set": 1185873920,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4427009,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 34,
+  "returncode": 0,
+  "process_wall_s": 8.508317100000568,
+  "stderr": "",
+  "peak_private_commit": 214794240,
+  "peak_working_set": 1185943552,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4313736,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 35,
+  "returncode": 0,
+  "process_wall_s": 8.19251089997124,
+  "stderr": "",
+  "peak_private_commit": 214712320,
+  "peak_working_set": 1185767424,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0893596,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 36,
+  "returncode": 0,
+  "process_wall_s": 8.153593499911949,
+  "stderr": "",
+  "peak_private_commit": 214425600,
+  "peak_working_set": 1185710080,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0711064,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 37,
+  "returncode": 0,
+  "process_wall_s": 8.50742799998261,
+  "stderr": "",
+  "peak_private_commit": 214650880,
+  "peak_working_set": 1185873920,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4237728,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 38,
+  "returncode": 0,
+  "process_wall_s": 86.96498990000691,
+  "stderr": "",
+  "peak_private_commit": 1238843392,
+  "peak_working_set": 2207944704,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 84.8560971,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 2,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 39,
+  "returncode": 0,
+  "process_wall_s": 83.71088439994492,
+  "stderr": "",
+  "peak_private_commit": 1238953984,
+  "peak_working_set": 2207981568,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 81.5957244,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 40,
+  "returncode": 0,
+  "process_wall_s": 3.283179400023073,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1100537856,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.1713546,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 41,
+  "returncode": 0,
+  "process_wall_s": 3.1261733999708667,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1100288000,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.025137,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 42,
+  "returncode": 0,
+  "process_wall_s": 3.11191710003186,
+  "stderr": "",
+  "peak_private_commit": 212574208,
+  "peak_working_set": 1100263424,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0002819,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 43,
+  "returncode": 0,
+  "process_wall_s": 3.202178300009109,
+  "stderr": "",
+  "peak_private_commit": 212221952,
+  "peak_working_set": 1100546048,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0873961,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 44,
+  "returncode": 0,
+  "process_wall_s": 3.1503219000296667,
+  "stderr": "",
+  "peak_private_commit": 212467712,
+  "peak_working_set": 1100689408,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0582717,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 45,
+  "returncode": 0,
+  "process_wall_s": 3.143133800011128,
+  "stderr": "",
+  "peak_private_commit": 212537344,
+  "peak_working_set": 1100181504,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0109214,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 46,
+  "returncode": 0,
+  "process_wall_s": 4.819714399985969,
+  "stderr": "",
+  "peak_private_commit": 212451328,
+  "peak_working_set": 1135509504,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.719389,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 47,
+  "returncode": 0,
+  "process_wall_s": 5.133981499937363,
+  "stderr": "",
+  "peak_private_commit": 212439040,
+  "peak_working_set": 1135443968,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0280456,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 48,
+  "returncode": 0,
+  "process_wall_s": 5.1092062999960035,
+  "stderr": "",
+  "peak_private_commit": 212217856,
+  "peak_working_set": 1134297088,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0100355,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 49,
+  "returncode": 0,
+  "process_wall_s": 4.861825000029057,
+  "stderr": "",
+  "peak_private_commit": 212295680,
+  "peak_working_set": 1135702016,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7434235,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 50,
+  "returncode": 0,
+  "process_wall_s": 4.8020558001007885,
+  "stderr": "",
+  "peak_private_commit": 212451328,
+  "peak_working_set": 1135546368,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7168783,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 51,
+  "returncode": 0,
+  "process_wall_s": 5.123277600039728,
+  "stderr": "",
+  "peak_private_commit": 212434944,
+  "peak_working_set": 1135480832,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0262106,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 52,
+  "returncode": 0,
+  "process_wall_s": 6.936105500091799,
+  "stderr": "",
+  "peak_private_commit": 217153536,
+  "peak_working_set": 1187213312,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.8441612,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 53,
+  "returncode": 0,
+  "process_wall_s": 6.395738700055517,
+  "stderr": "",
+  "peak_private_commit": 216956928,
+  "peak_working_set": 1187061760,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2957924,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 54,
+  "returncode": 0,
+  "process_wall_s": 6.3847897000378,
+  "stderr": "",
+  "peak_private_commit": 216973312,
+  "peak_working_set": 1187012608,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2916071,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 55,
+  "returncode": 0,
+  "process_wall_s": 6.922809200012125,
+  "stderr": "",
+  "peak_private_commit": 217128960,
+  "peak_working_set": 1187115008,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.8118482,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 56,
+  "returncode": 0,
+  "process_wall_s": 6.917263199924491,
+  "stderr": "",
+  "peak_private_commit": 216956928,
+  "peak_working_set": 1187143680,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.8188572,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 57,
+  "returncode": 0,
+  "process_wall_s": 6.410812700050883,
+  "stderr": "",
+  "peak_private_commit": 217260032,
+  "peak_working_set": 1187295232,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.312176,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 58,
+  "returncode": 0,
+  "process_wall_s": 56.170481299981475,
+  "stderr": "",
+  "peak_private_commit": 1241554944,
+  "peak_working_set": 2209550336,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 54.0777314,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 4,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 59,
+  "returncode": 0,
+  "process_wall_s": 61.285715400008485,
+  "stderr": "",
+  "peak_private_commit": 1241423872,
+  "peak_working_set": 2209341440,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 59.1009673,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 60,
+  "returncode": 0,
+  "process_wall_s": 3.072074899915606,
+  "stderr": "",
+  "peak_private_commit": 212582400,
+  "peak_working_set": 1103609856,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9499329,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 61,
+  "returncode": 0,
+  "process_wall_s": 3.302889300044626,
+  "stderr": "",
+  "peak_private_commit": 212451328,
+  "peak_working_set": 1103876096,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0503149999999999,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 62,
+  "returncode": 0,
+  "process_wall_s": 3.151151999947615,
+  "stderr": "",
+  "peak_private_commit": 212467712,
+  "peak_working_set": 1103241216,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.034009,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 63,
+  "returncode": 0,
+  "process_wall_s": 3.076951800030656,
+  "stderr": "",
+  "peak_private_commit": 212516864,
+  "peak_working_set": 1102757888,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9615246,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 64,
+  "returncode": 0,
+  "process_wall_s": 3.076785699930042,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1103458304,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9721811,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 65,
+  "returncode": 0,
+  "process_wall_s": 3.1248314999975264,
+  "stderr": "",
+  "peak_private_commit": 212463616,
+  "peak_working_set": 1103085568,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0328081,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 66,
+  "returncode": 0,
+  "process_wall_s": 5.014630899997428,
+  "stderr": "",
+  "peak_private_commit": 212684800,
+  "peak_working_set": 1136451584,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.8988785999999998,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 67,
+  "returncode": 0,
+  "process_wall_s": 4.7457595999585465,
+  "stderr": "",
+  "peak_private_commit": 212271104,
+  "peak_working_set": 1138008064,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.5823786,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 68,
+  "returncode": 0,
+  "process_wall_s": 4.691180799971335,
+  "stderr": "",
+  "peak_private_commit": 212283392,
+  "peak_working_set": 1138122752,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.5888674,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 69,
+  "returncode": 0,
+  "process_wall_s": 4.989661499974318,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1138102272,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.8982883,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 70,
+  "returncode": 0,
+  "process_wall_s": 4.980827599996701,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1138106368,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.887055,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 71,
+  "returncode": 0,
+  "process_wall_s": 4.671315400046296,
+  "stderr": "",
+  "peak_private_commit": 212361216,
+  "peak_working_set": 1136746496,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.5714652,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 72,
+  "returncode": 0,
+  "process_wall_s": 6.164810799993575,
+  "stderr": "",
+  "peak_private_commit": 221675520,
+  "peak_working_set": 1189388288,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.0661118,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 73,
+  "returncode": 0,
+  "process_wall_s": 6.741658599930815,
+  "stderr": "",
+  "peak_private_commit": 221798400,
+  "peak_working_set": 1189642240,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6240932,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 74,
+  "returncode": 0,
+  "process_wall_s": 6.761568499961868,
+  "stderr": "",
+  "peak_private_commit": 221782016,
+  "peak_working_set": 1189650432,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6588446,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 75,
+  "returncode": 0,
+  "process_wall_s": 6.209170200047083,
+  "stderr": "",
+  "peak_private_commit": 221642752,
+  "peak_working_set": 1189535744,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.088718,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 76,
+  "returncode": 0,
+  "process_wall_s": 6.1797915999777615,
+  "stderr": "",
+  "peak_private_commit": 221642752,
+  "peak_working_set": 1189527552,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.0960225,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 77,
+  "returncode": 0,
+  "process_wall_s": 6.749959199922159,
+  "stderr": "",
+  "peak_private_commit": 221818880,
+  "peak_working_set": 1189588992,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6467355999999995,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 78,
+  "returncode": 0,
+  "process_wall_s": 54.17626530001871,
+  "stderr": "",
+  "peak_private_commit": 1245933568,
+  "peak_working_set": 2211745792,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 52.0804539,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 8,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 79,
+  "returncode": 0,
+  "process_wall_s": 48.07845790009014,
+  "stderr": "",
+  "peak_private_commit": 1245466624,
+  "peak_working_set": 2211184640,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 45.9603647,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 80,
+  "returncode": 0,
+  "process_wall_s": 3.2088856000918895,
+  "stderr": "",
+  "peak_private_commit": 212221952,
+  "peak_working_set": 1108697088,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0508173,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 81,
+  "returncode": 0,
+  "process_wall_s": 3.049760999972932,
+  "stderr": "",
+  "peak_private_commit": 212594688,
+  "peak_working_set": 1107959808,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9573196,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 82,
+  "returncode": 0,
+  "process_wall_s": 3.060879399999976,
+  "stderr": "",
+  "peak_private_commit": 212250624,
+  "peak_working_set": 1108025344,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.960496,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 83,
+  "returncode": 0,
+  "process_wall_s": 3.1383829000405967,
+  "stderr": "",
+  "peak_private_commit": 212406272,
+  "peak_working_set": 1107640320,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0374134,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 84,
+  "returncode": 0,
+  "process_wall_s": 3.13087190000806,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1107894272,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.029666,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 85,
+  "returncode": 0,
+  "process_wall_s": 3.0933420999208465,
+  "stderr": "",
+  "peak_private_commit": 212623360,
+  "peak_working_set": 1107972096,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9558869,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 86,
+  "returncode": 0,
+  "process_wall_s": 4.483782499912195,
+  "stderr": "",
+  "peak_private_commit": 212365312,
+  "peak_working_set": 1141702656,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.3672749,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 87,
+  "returncode": 0,
+  "process_wall_s": 4.810745299910195,
+  "stderr": "",
+  "peak_private_commit": 212234240,
+  "peak_working_set": 1141899264,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7038824,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 88,
+  "returncode": 0,
+  "process_wall_s": 4.8003437999868765,
+  "stderr": "",
+  "peak_private_commit": 212434944,
+  "peak_working_set": 1141506048,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7104312,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 89,
+  "returncode": 0,
+  "process_wall_s": 4.513998300069943,
+  "stderr": "",
+  "peak_private_commit": 212275200,
+  "peak_working_set": 1143115776,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.3837469000000002,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 90,
+  "returncode": 0,
+  "process_wall_s": 4.457283099996857,
+  "stderr": "",
+  "peak_private_commit": 213012480,
+  "peak_working_set": 1142784000,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.3667984,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 91,
+  "returncode": 0,
+  "process_wall_s": 4.8116909000091255,
+  "stderr": "",
+  "peak_private_commit": 212447232,
+  "peak_working_set": 1142849536,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7070116,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 92,
+  "returncode": 0,
+  "process_wall_s": 6.434915299993008,
+  "stderr": "",
+  "peak_private_commit": 231034880,
+  "peak_working_set": 1194524672,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.3300949,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 93,
+  "returncode": 0,
+  "process_wall_s": 5.832203199970536,
+  "stderr": "",
+  "peak_private_commit": 231059456,
+  "peak_working_set": 1194610688,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7214318,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 94,
+  "returncode": 0,
+  "process_wall_s": 5.823322599986568,
+  "stderr": "",
+  "peak_private_commit": 230993920,
+  "peak_working_set": 1194483712,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7172661,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 95,
+  "returncode": 0,
+  "process_wall_s": 6.393458900041878,
+  "stderr": "",
+  "peak_private_commit": 231272448,
+  "peak_working_set": 1194524672,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2982566,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 96,
+  "returncode": 0,
+  "process_wall_s": 6.416972500039265,
+  "stderr": "",
+  "peak_private_commit": 231170048,
+  "peak_working_set": 1194504192,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.3175003,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 97,
+  "returncode": 0,
+  "process_wall_s": 5.826394299976528,
+  "stderr": "",
+  "peak_private_commit": 230903808,
+  "peak_working_set": 1194508288,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7137035000000003,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 98,
+  "returncode": 0,
+  "process_wall_s": 42.73441619996447,
+  "stderr": "",
+  "peak_private_commit": 1255325696,
+  "peak_working_set": 2216587264,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 40.6327073,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 0,
+  "threads": 16,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 99,
+  "returncode": 0,
+  "process_wall_s": 49.0223303999519,
+  "stderr": "",
+  "peak_private_commit": 1255329792,
+  "peak_working_set": 2216939520,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 46.8459874,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 100,
+  "returncode": 0,
+  "process_wall_s": 3.049308600020595,
+  "stderr": "",
+  "peak_private_commit": 212631552,
+  "peak_working_set": 1108447232,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9471318,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 101,
+  "returncode": 0,
+  "process_wall_s": 3.13136180001311,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1108815872,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0358212,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 102,
+  "returncode": 0,
+  "process_wall_s": 3.1292715000454336,
+  "stderr": "",
+  "peak_private_commit": 212217856,
+  "peak_working_set": 1107779584,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0313985,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 103,
+  "returncode": 0,
+  "process_wall_s": 3.0693067999091,
+  "stderr": "",
+  "peak_private_commit": 212598784,
+  "peak_working_set": 1108758528,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9493751,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 104,
+  "returncode": 0,
+  "process_wall_s": 3.053162300027907,
+  "stderr": "",
+  "peak_private_commit": 212643840,
+  "peak_working_set": 1107779584,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9569105,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 105,
+  "returncode": 0,
+  "process_wall_s": 3.1403876999393106,
+  "stderr": "",
+  "peak_private_commit": 212434944,
+  "peak_working_set": 1108254720,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0360759,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 106,
+  "returncode": 0,
+  "process_wall_s": 4.795538600068539,
+  "stderr": "",
+  "peak_private_commit": 212307968,
+  "peak_working_set": 1141944320,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7027619,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 107,
+  "returncode": 0,
+  "process_wall_s": 4.511026400025003,
+  "stderr": "",
+  "peak_private_commit": 212279296,
+  "peak_working_set": 1143132160,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.391041,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 108,
+  "returncode": 0,
+  "process_wall_s": 4.481776000000536,
+  "stderr": "",
+  "peak_private_commit": 212373504,
+  "peak_working_set": 1142874112,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.36047,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 109,
+  "returncode": 0,
+  "process_wall_s": 4.802035800064914,
+  "stderr": "",
+  "peak_private_commit": 212426752,
+  "peak_working_set": 1142849536,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.695664,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 110,
+  "returncode": 0,
+  "process_wall_s": 4.767666199943051,
+  "stderr": "",
+  "peak_private_commit": 212238336,
+  "peak_working_set": 1142964224,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.6664052,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 111,
+  "returncode": 0,
+  "process_wall_s": 4.486840100027621,
+  "stderr": "",
+  "peak_private_commit": 212295680,
+  "peak_working_set": 1143062528,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.372995,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 112,
+  "returncode": 0,
+  "process_wall_s": 5.815813899971545,
+  "stderr": "",
+  "peak_private_commit": 230969344,
+  "peak_working_set": 1194377216,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7109566000000003,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 113,
+  "returncode": 0,
+  "process_wall_s": 6.406400000094436,
+  "stderr": "",
+  "peak_private_commit": 230944768,
+  "peak_working_set": 1194475520,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.3013209,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 114,
+  "returncode": 0,
+  "process_wall_s": 6.395712500088848,
+  "stderr": "",
+  "peak_private_commit": 231239680,
+  "peak_working_set": 1194680320,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.293346,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 115,
+  "returncode": 0,
+  "process_wall_s": 5.777616000035778,
+  "stderr": "",
+  "peak_private_commit": 231047168,
+  "peak_working_set": 1194541056,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.6650594,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 116,
+  "returncode": 0,
+  "process_wall_s": 5.741027900017798,
+  "stderr": "",
+  "peak_private_commit": 231022592,
+  "peak_working_set": 1194610688,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.6330171,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 117,
+  "returncode": 0,
+  "process_wall_s": 6.35738359997049,
+  "stderr": "",
+  "peak_private_commit": 231272448,
+  "peak_working_set": 1194635264,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2660831,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 118,
+  "returncode": 0,
+  "process_wall_s": 47.78166410000995,
+  "stderr": "",
+  "peak_private_commit": 1255395328,
+  "peak_working_set": 2216681472,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 45.6905565,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 16,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 119,
+  "returncode": 0,
+  "process_wall_s": 41.99255379999522,
+  "stderr": "",
+  "peak_private_commit": 1255387136,
+  "peak_working_set": 2216759296,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 39.8874723,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 120,
+  "returncode": 0,
+  "process_wall_s": 3.1938183000311255,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1103093760,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0570467,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 121,
+  "returncode": 0,
+  "process_wall_s": 3.0835543000139296,
+  "stderr": "",
+  "peak_private_commit": 212512768,
+  "peak_working_set": 1102729216,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9592779,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 122,
+  "returncode": 0,
+  "process_wall_s": 3.064372400054708,
+  "stderr": "",
+  "peak_private_commit": 212520960,
+  "peak_working_set": 1103110144,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9583443,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 123,
+  "returncode": 0,
+  "process_wall_s": 3.1465108999982476,
+  "stderr": "",
+  "peak_private_commit": 212545536,
+  "peak_working_set": 1103024128,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0321318,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 124,
+  "returncode": 0,
+  "process_wall_s": 3.143206399981864,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1103069184,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0369964,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 125,
+  "returncode": 0,
+  "process_wall_s": 3.08323059999384,
+  "stderr": "",
+  "peak_private_commit": 212582400,
+  "peak_working_set": 1102643200,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9551812,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 126,
+  "returncode": 0,
+  "process_wall_s": 4.6970761000411585,
+  "stderr": "",
+  "peak_private_commit": 212287488,
+  "peak_working_set": 1136898048,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.594434,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 127,
+  "returncode": 0,
+  "process_wall_s": 4.995091199991293,
+  "stderr": "",
+  "peak_private_commit": 212246528,
+  "peak_working_set": 1137983488,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.9020483,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 128,
+  "returncode": 0,
+  "process_wall_s": 4.999338100082241,
+  "stderr": "",
+  "peak_private_commit": 212234240,
+  "peak_working_set": 1138192384,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.8951235,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 129,
+  "returncode": 0,
+  "process_wall_s": 4.706801300053485,
+  "stderr": "",
+  "peak_private_commit": 212484096,
+  "peak_working_set": 1136717824,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.6024286,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 130,
+  "returncode": 0,
+  "process_wall_s": 4.684196999995038,
+  "stderr": "",
+  "peak_private_commit": 212496384,
+  "peak_working_set": 1136574464,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.5842964999999998,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 131,
+  "returncode": 0,
+  "process_wall_s": 4.994366000057198,
+  "stderr": "",
+  "peak_private_commit": 212434944,
+  "peak_working_set": 1137934336,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.8983699,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 132,
+  "returncode": 0,
+  "process_wall_s": 6.73403920000419,
+  "stderr": "",
+  "peak_private_commit": 221798400,
+  "peak_working_set": 1189556224,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6366078,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 133,
+  "returncode": 0,
+  "process_wall_s": 6.235678400029428,
+  "stderr": "",
+  "peak_private_commit": 221544448,
+  "peak_working_set": 1189453824,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.1073668,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 134,
+  "returncode": 0,
+  "process_wall_s": 6.22091720008757,
+  "stderr": "",
+  "peak_private_commit": 221630464,
+  "peak_working_set": 1189445632,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.1062747,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 135,
+  "returncode": 0,
+  "process_wall_s": 6.771705099963583,
+  "stderr": "",
+  "peak_private_commit": 221814784,
+  "peak_working_set": 1189715968,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6708851,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 136,
+  "returncode": 0,
+  "process_wall_s": 6.780342799960636,
+  "stderr": "",
+  "peak_private_commit": 221630464,
+  "peak_working_set": 1189572608,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.6649241,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 137,
+  "returncode": 0,
+  "process_wall_s": 6.410623300005682,
+  "stderr": "",
+  "peak_private_commit": 221483008,
+  "peak_working_set": 1189462016,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.1888571,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 138,
+  "returncode": 0,
+  "process_wall_s": 48.56323249998968,
+  "stderr": "",
+  "peak_private_commit": 1246265344,
+  "peak_working_set": 2212081664,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 46.4554493,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 8,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 139,
+  "returncode": 0,
+  "process_wall_s": 53.66521729994565,
+  "stderr": "",
+  "peak_private_commit": 1245761536,
+  "peak_working_set": 2211581952,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 51.5016847,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 140,
+  "returncode": 0,
+  "process_wall_s": 3.130157900042832,
+  "stderr": "",
+  "peak_private_commit": 212574208,
+  "peak_working_set": 1100234752,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0118107,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 141,
+  "returncode": 0,
+  "process_wall_s": 3.2136910000117496,
+  "stderr": "",
+  "peak_private_commit": 212463616,
+  "peak_working_set": 1101418496,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0982718,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 142,
+  "returncode": 0,
+  "process_wall_s": 3.1837307999376208,
+  "stderr": "",
+  "peak_private_commit": 212557824,
+  "peak_working_set": 1100525568,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0768011,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 143,
+  "returncode": 0,
+  "process_wall_s": 3.13091439998243,
+  "stderr": "",
+  "peak_private_commit": 212537344,
+  "peak_working_set": 1100267520,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0110199,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 144,
+  "returncode": 0,
+  "process_wall_s": 3.1147199999541044,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1100251136,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 0.9907776,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 145,
+  "returncode": 0,
+  "process_wall_s": 3.1930382000282407,
+  "stderr": "",
+  "peak_private_commit": 212402176,
+  "peak_working_set": 1100279808,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.0779077,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 146,
+  "returncode": 0,
+  "process_wall_s": 5.1402684999629855,
+  "stderr": "",
+  "peak_private_commit": 211939328,
+  "peak_working_set": 1134317568,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0266883,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 147,
+  "returncode": 0,
+  "process_wall_s": 5.002207599929534,
+  "stderr": "",
+  "peak_private_commit": 212283392,
+  "peak_working_set": 1135489024,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.8003058,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 148,
+  "returncode": 0,
+  "process_wall_s": 4.872738300007768,
+  "stderr": "",
+  "peak_private_commit": 212361216,
+  "peak_working_set": 1135550464,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7298788,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 149,
+  "returncode": 0,
+  "process_wall_s": 5.128748000017367,
+  "stderr": "",
+  "peak_private_commit": 212316160,
+  "peak_working_set": 1135517696,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0302323,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 150,
+  "returncode": 0,
+  "process_wall_s": 5.134253300027922,
+  "stderr": "",
+  "peak_private_commit": 212385792,
+  "peak_working_set": 1135681536,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.0204964,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 151,
+  "returncode": 0,
+  "process_wall_s": 4.831446600030176,
+  "stderr": "",
+  "peak_private_commit": 212283392,
+  "peak_working_set": 1134489600,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 2.7272033,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 152,
+  "returncode": 0,
+  "process_wall_s": 6.442939199972898,
+  "stderr": "",
+  "peak_private_commit": 217063424,
+  "peak_working_set": 1187274752,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.3229545,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 153,
+  "returncode": 0,
+  "process_wall_s": 6.9290704999584705,
+  "stderr": "",
+  "peak_private_commit": 216735744,
+  "peak_working_set": 1186914304,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.8301443,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 154,
+  "returncode": 0,
+  "process_wall_s": 6.902784900041297,
+  "stderr": "",
+  "peak_private_commit": 216760320,
+  "peak_working_set": 1186811904,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.7766528,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 155,
+  "returncode": 0,
+  "process_wall_s": 6.377306999987923,
+  "stderr": "",
+  "peak_private_commit": 217268224,
+  "peak_working_set": 1187340288,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2885652,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 156,
+  "returncode": 0,
+  "process_wall_s": 6.411325299995951,
+  "stderr": "",
+  "peak_private_commit": 217260032,
+  "peak_working_set": 1187508224,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.2954767,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 157,
+  "returncode": 0,
+  "process_wall_s": 7.0206967000849545,
+  "stderr": "",
+  "peak_private_commit": 217128960,
+  "peak_working_set": 1187123200,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 4.9120564,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 158,
+  "returncode": 0,
+  "process_wall_s": 62.154803100042045,
+  "stderr": "",
+  "peak_private_commit": 1241231360,
+  "peak_working_set": 2209247232,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 60.0341791,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 4,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 159,
+  "returncode": 0,
+  "process_wall_s": 56.806577599956654,
+  "stderr": "",
+  "peak_private_commit": 1241800704,
+  "peak_working_set": 2209624064,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 54.6921866,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 160,
+  "returncode": 0,
+  "process_wall_s": 3.4221644999925047,
+  "stderr": "",
+  "peak_private_commit": 212459520,
+  "peak_working_set": 1099427840,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3084096,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 161,
+  "returncode": 0,
+  "process_wall_s": 3.370321900001727,
+  "stderr": "",
+  "peak_private_commit": 212537344,
+  "peak_working_set": 1099018240,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2655961,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 162,
+  "returncode": 0,
+  "process_wall_s": 3.3855885999510065,
+  "stderr": "",
+  "peak_private_commit": 212529152,
+  "peak_working_set": 1099382784,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2577422,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 163,
+  "returncode": 0,
+  "process_wall_s": 3.386695499997586,
+  "stderr": "",
+  "peak_private_commit": 212467712,
+  "peak_working_set": 1099407360,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3013119,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 164,
+  "returncode": 0,
+  "process_wall_s": 3.4024544999701902,
+  "stderr": "",
+  "peak_private_commit": 212226048,
+  "peak_working_set": 1099284480,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.3063354,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 165,
+  "returncode": 0,
+  "process_wall_s": 3.3403762000380084,
+  "stderr": "",
+  "peak_private_commit": 212545536,
+  "peak_working_set": 1099026432,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.2495711,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 166,
+  "returncode": 0,
+  "process_wall_s": 5.834457500022836,
+  "stderr": "",
+  "peak_private_commit": 212369408,
+  "peak_working_set": 1134190592,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7280355,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 167,
+  "returncode": 0,
+  "process_wall_s": 6.030313999974169,
+  "stderr": "",
+  "peak_private_commit": 212439040,
+  "peak_working_set": 1134301184,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.9451838,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 168,
+  "returncode": 0,
+  "process_wall_s": 6.0345542000140995,
+  "stderr": "",
+  "peak_private_commit": 212639744,
+  "peak_working_set": 1132990464,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.9380132,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 169,
+  "returncode": 0,
+  "process_wall_s": 5.832520900061354,
+  "stderr": "",
+  "peak_private_commit": 212369408,
+  "peak_working_set": 1134198784,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7241464,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 170,
+  "returncode": 0,
+  "process_wall_s": 5.8347040000371635,
+  "stderr": "",
+  "peak_private_commit": 212459520,
+  "peak_working_set": 1134247936,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.7254802,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 171,
+  "returncode": 0,
+  "process_wall_s": 6.058592100045644,
+  "stderr": "",
+  "peak_private_commit": 212262912,
+  "peak_working_set": 1134292992,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 3.941197,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 172,
+  "returncode": 0,
+  "process_wall_s": 8.511539299972355,
+  "stderr": "",
+  "peak_private_commit": 214929408,
+  "peak_working_set": 1186144256,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4142894,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 173,
+  "returncode": 0,
+  "process_wall_s": 8.152389599941671,
+  "stderr": "",
+  "peak_private_commit": 214933504,
+  "peak_working_set": 1186107392,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0561511,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 174,
+  "returncode": 0,
+  "process_wall_s": 8.167786499951035,
+  "stderr": "",
+  "peak_private_commit": 214663168,
+  "peak_working_set": 1185828864,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0800095,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 175,
+  "returncode": 0,
+  "process_wall_s": 8.544266199925914,
+  "stderr": "",
+  "peak_private_commit": 214814720,
+  "peak_working_set": 1185988608,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4473298,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 176,
+  "returncode": 0,
+  "process_wall_s": 8.529588699922897,
+  "stderr": "",
+  "peak_private_commit": 214831104,
+  "peak_working_set": 1185964032,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.4318603,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 177,
+  "returncode": 0,
+  "process_wall_s": 8.152843600022607,
+  "stderr": "",
+  "peak_private_commit": 214921216,
+  "peak_working_set": 1186127872,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 6.0423501,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 178,
+  "returncode": 0,
+  "process_wall_s": 83.96535089996178,
+  "stderr": "",
+  "peak_private_commit": 1239437312,
+  "peak_working_set": 2208473088,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 81.8635198,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 2,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 179,
+  "returncode": 0,
+  "process_wall_s": 87.01370620005764,
+  "stderr": "",
+  "peak_private_commit": 1238827008,
+  "peak_working_set": 2207977472,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 84.9139605,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 180,
+  "returncode": 0,
+  "process_wall_s": 3.9527181999292225,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1098620928,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8231552,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 181,
+  "returncode": 0,
+  "process_wall_s": 3.9022609000094235,
+  "stderr": "",
+  "peak_private_commit": 212230144,
+  "peak_working_set": 1098178560,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8164978,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 182,
+  "returncode": 0,
+  "process_wall_s": 3.9457484999438748,
+  "stderr": "",
+  "peak_private_commit": 212955136,
+  "peak_working_set": 1098051584,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8405586999999999,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 183,
+  "returncode": 0,
+  "process_wall_s": 3.9454172999830917,
+  "stderr": "",
+  "peak_private_commit": 212570112,
+  "peak_working_set": 1098592256,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8454613,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 184,
+  "returncode": 0,
+  "process_wall_s": 3.9461320000700653,
+  "stderr": "",
+  "peak_private_commit": 212578304,
+  "peak_working_set": 1098645504,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.844114,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "candidate-request",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 185,
+  "returncode": 0,
+  "process_wall_s": 3.9375486000208184,
+  "stderr": "",
+  "peak_private_commit": 212221952,
+  "peak_working_set": 1098153984,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "candidate-request",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 128,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.928595244884491,
+      0.07140474766492844
+     ],
+     "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 1.8391996000000002,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 186,
+  "returncode": 0,
+  "process_wall_s": 7.9612457999028265,
+  "stderr": "",
+  "peak_private_commit": 212320256,
+  "peak_working_set": 1133744128,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.8922513,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 187,
+  "returncode": 0,
+  "process_wall_s": 8.02277410007082,
+  "stderr": "",
+  "peak_private_commit": 212480000,
+  "peak_working_set": 1132527616,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9306862,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 188,
+  "returncode": 0,
+  "process_wall_s": 8.021125599974766,
+  "stderr": "",
+  "peak_private_commit": 212279296,
+  "peak_working_set": 1132539904,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9334595,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 189,
+  "returncode": 0,
+  "process_wall_s": 8.015857700025663,
+  "stderr": "",
+  "peak_private_commit": 212238336,
+  "peak_working_set": 1133887488,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9053576,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 190,
+  "returncode": 0,
+  "process_wall_s": 8.003361999988556,
+  "stderr": "",
+  "peak_private_commit": 212439040,
+  "peak_working_set": 1133670400,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.9106652,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "synthetic-ocr-ascii-8-512",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 191,
+  "returncode": 0,
+  "process_wall_s": 8.024638500064611,
+  "stderr": "",
+  "peak_private_commit": 212361216,
+  "peak_working_set": 1133707264,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "synthetic-ocr-ascii-8-512",
+    "outcome": {
+     "candidate_ids": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h"
+     ],
+     "forwards": 1,
+     "input_tokens": 512,
+     "judgment": {
+      "kind": "abstained"
+     },
+     "probabilities": [
+      0.5633882880210876,
+      0.0894194021821022,
+      0.06949261575937271,
+      0.05251253768801689,
+      0.07833296805620193,
+      0.06976400315761566,
+      0.026990283280611038,
+      0.05009987950325012
+     ],
+     "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 5.91486,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 192,
+  "returncode": 0,
+  "process_wall_s": 12.114551299950108,
+  "stderr": "",
+  "peak_private_commit": 213807104,
+  "peak_working_set": 1185546240,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0249298,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 193,
+  "returncode": 0,
+  "process_wall_s": 12.07973880006466,
+  "stderr": "",
+  "peak_private_commit": 213680128,
+  "peak_working_set": 1185349632,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0001733,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "baseline",
+  "index": 194,
+  "returncode": 0,
+  "process_wall_s": 12.153292000060901,
+  "stderr": "",
+  "peak_private_commit": 213671936,
+  "peak_working_set": 1185349632,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0678416,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 1,
+  "arm": "candidate",
+  "index": 195,
+  "returncode": 0,
+  "process_wall_s": 12.19020900002215,
+  "stderr": "",
+  "peak_private_commit": 213475328,
+  "peak_working_set": 1185169408,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0974609,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "candidate",
+  "index": 196,
+  "returncode": 0,
+  "process_wall_s": 12.191626099986024,
+  "stderr": "",
+  "peak_private_commit": 213790720,
+  "peak_working_set": 1185366016,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0901674,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "long-text",
+  "rep": 2,
+  "arm": "baseline",
+  "index": 197,
+  "returncode": 0,
+  "process_wall_s": 12.125096199917607,
+  "stderr": "",
+  "peak_private_commit": 213245952,
+  "peak_working_set": 1184997376,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "long-text",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 874,
+     "judgment": {
+      "candidate_id": "original",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.995419979095459,
+      0.004580068867653608
+     ],
+     "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 10.0500171,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "baseline",
+  "index": 198,
+  "returncode": 0,
+  "process_wall_s": 136.28837829991244,
+  "stderr": "",
+  "peak_private_commit": 1238462464,
+  "peak_working_set": 2207928320,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 134.2002123,
+    "gate": []
+   }
+  ]
+ },
+ {
+  "session": 1,
+  "threads": 1,
+  "case": "token-limit-8192",
+  "rep": 0,
+  "arm": "candidate",
+  "index": 199,
+  "returncode": 0,
+  "process_wall_s": 139.23902780003846,
+  "stderr": "",
+  "peak_private_commit": 1238478848,
+  "peak_working_set": 2207944704,
+  "decisions": [
+   {
+    "event": "decision",
+    "index": 0,
+    "name": "token-limit-8192",
+    "outcome": {
+     "candidate_ids": [
+      "original",
+      "alternative"
+     ],
+     "forwards": 1,
+     "input_tokens": 8192,
+     "judgment": {
+      "candidate_id": "alternative",
+      "kind": "selected"
+     },
+     "probabilities": [
+      0.17470434308052063,
+      0.8252956867218018
+     ],
+     "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+     "status": "completed"
+    },
+    "phase": "measure",
+    "wall_s": 137.1390337,
+    "gate": []
+   }
+  ]
+ }
+]

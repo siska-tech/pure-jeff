@@ -1,0 +1,293 @@
+{
+ "created_utc": "2026-10-18T07:15:56.611371+00:00",
+ "cases": [
+  "candidate-request",
+  "long-text",
+  "policy-near-tie"
+ ],
+ "reference": "main (baseline) at 1 thread without affinity",
+ "source": {
+  "commit": "583227d3dc1a63abaf1b7002e7d12bd4441d6844",
+  "dirty": "?? bench/delta_heads_affinity.py"
+ },
+ "environment": {
+  "time_utc": "2026-10-18T07:15:56.655165+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 8,
+   "processor_performance_percent": 154,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 139338.078125,
+    "WS_MB": 194
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 139199.28125,
+    "WS_MB": 138
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 139121.4375,
+    "WS_MB": 144
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28142.421875,
+    "WS_MB": 308
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 18158.390625,
+    "WS_MB": 533
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 8130.359375,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 7023.734375,
+    "WS_MB": 484
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6769.921875,
+    "WS_MB": 286
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6270.046875,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4687.078125,
+    "WS_MB": 397
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4422.78125,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 3877.8125,
+    "WS_MB": 49
+   }
+  ]
+ },
+ "rows": [
+  {
+   "threads": 4,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 0.9915301,
+    "long-text": 3.9297434,
+    "policy-near-tie": 0.9633242
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.0202264,
+    "long-text": 3.9869237,
+    "policy-near-tie": 0.9418707
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2644872999999999,
+    "long-text": 4.180338,
+    "policy-near-tie": 0.9761755
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.01571,
+    "long-text": 3.877206,
+    "policy-near-tie": 0.8850345
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.3051268999999999,
+    "long-text": 5.906188,
+    "policy-near-tie": 1.332284
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.0182683,
+    "long-text": 3.3658516,
+    "policy-near-tie": 0.9046415
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 0.9861821,
+    "long-text": 3.4015261,
+    "policy-near-tie": 0.9514544
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.5661141,
+    "long-text": 3.4948338,
+    "policy-near-tie": 1.1869722
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2767361,
+    "long-text": 3.6342603,
+    "policy-near-tie": 1.0771487
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 2.0409722,
+    "long-text": 6.8520727,
+    "policy-near-tie": 2.0677415
+   },
+   "stderr": ""
+  }
+ ]
+}
