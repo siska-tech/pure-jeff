@@ -16,20 +16,32 @@ Python・PyTorchを使わず、Rustだけで[Jeff](https://github.com/firelex/je
 | Native CLI（`runtime/rust`） | `jeff.exe`。1要求ごとの子processとして動き、期限を超えると親がkillする。bundleのhashを照合してから実行する | 公式参照7件（最大8192 tokens、255候補）で判断が一致。確率差は最大5.066e-6 |
 | ブラウザWasm（`runtime/wasm`） | Web Worker内の推論。single-thread、SIMD128 | Chrome／Edgeで128〜512 tokens、2〜8候補の12件が一致。最大2.38e-6 |
 | ONNX／Tract（`runtime/onnx`、`runtime/tract`）**実験** | 512 tokens固定のONNXへexportし、局所修正したTractで実行する開発用CLI。公開API・デモには組み込んでいない（[手順と判断](docs/tract-development.md)） | 公式参照のうち512 tokens以下の4件で判断が一致。最大4.917e-6 |
-| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存。画面は日本語・英語・ベトナム語。**https://pure-jeff.siska-tech.workers.dev** | 公開サイトに対するChrome／EdgeのE2Eに合格（[公開の記録](docs/web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する。公開中のサイトは0.2.0（commit `4572a8d`）からbuildしたもの。推論速度は[0.2.0の最終受入](docs/release-0.2.0-verification-2026-10-14.md)で記録した（128 tokensで約3.3秒、512 tokensで約12.6秒、基準機での値） |
+| Webデモ（`apps/web-demo`） | ブラウザだけで、モデルの取得・保存・削除、判断、取消、JSON保存。画面は日本語・英語・ベトナム語。**https://pure-jeff.siska-tech.workers.dev** | 公開サイトに対するChrome／EdgeのE2Eに合格（[公開の記録](docs/web-demo-deployment-2026-10-12.md)）。モデルはHugging Faceから直接取得する。公開中のサイトは2026-10-18にmain `1c7d799`からbuildしたもの（engineのbytesは0.2.0と同じ。配信切替時の再試行を追加、[記録](docs/web-demo-deployment-2026-10-12.md#再deploy配信切替の対策2026-10-18)）。推論速度は[0.2.0の最終受入](docs/release-0.2.0-verification-2026-10-14.md)で記録した（128 tokensで約3.3秒、512 tokensで約12.6秒、基準機での値） |
 
 対象は固定checkpoint（`jeff-legacy/Jeff-Qwen3.5-0.8B` revision `51552f39…`）、text-only、batch 1。検証は人工データで行い、日本語OCR／ASRの認識品質は評価していない。
 
-公式Jeffとの1 threadの比較（[結果](docs/benchmark-results-2026-10-12.md)、[前回](docs/benchmark-results-2026-10-11.md)）：
+公式Jeffとの比較。基準機は、Windows、AMD Ryzen AI MAX+ 395、CPU FP32、公開API。
 
-- 1要求ごとに起動する場合、Nativeは公式Jeffの1.97〜3.02倍速く、メモリは3分の1以下（1.03 GiB対3.84 GiB）。
-- モデルを常駐させると、公式Jeff（PyTorch）の方がまだ速く、Nativeの0.74〜0.94倍の時間で判断する（前回は0.51〜0.66倍）。Nativeのresidentのメモリは1.07 GiB、公式Jeffは3.82 GiB。
-- 前回からの改善は、DeltaNetの逐次更新（[記録](docs/native-delta-recurrence-2026-10-12.md)）、要素ごとの演算（[記録](docs/native-elementwise-2026-10-12.md)）、重みの読込（[記録](docs/native-weight-load-2026-10-12.md)）の書き換えによる。どれも出力をbit単位で変えていない。Nativeのforwardは、今は行列積が6〜7割を占める。
+- **1 thread（0.2.0の既定）**：事前登録したbenchmarkで測った（[0.2.0の最終受入](docs/release-0.2.0-verification-2026-10-14.md)）。
+  - **常駐させた判断の時間**：128〜8192 tokensのすべての入力群で、Nativeは公式Jeffと同等以下である（Native／公式 0.82〜0.96）。
+  - **load**：Native 1.87秒、公式10.42秒。
+  - **peak Working Set**：513 tokens以下で1.09 GiB（公式3.88 GiB）、8192 tokensまでで2.09 GiB（公式5.17 GiB）。
+  - **1要求ごとに起動する場合**：128 tokensで3.80秒（公式13.09秒）、512 tokensで7.64秒（公式17.93秒）。
+  - **crates.io版Candleでbuildした場合**：これも同等だった（[記録](docs/benchmark-cratesio-2026-10-17.md)）。
+- **複数thread（mainのみ、未リリース）**：2 thread以上では、DeltaNetの逐次更新の16 headを計算threadで分担する。出力は1 threadとbit単位で同じである。
+  - **4 thread**：公式Jeffと同程度。日の違う参考比較で、事前登録した判定ではない。
+  - **16 thread**：まだ公式の約1.6〜1.7倍の時間がかかる。
+  - **未検証**：Intelのhybrid CPU、Linuxの実機、ARM64（[記録](docs/native-delta-heads-2026-10-18.md)、#18）。
+- **経緯**：2026-10-12の時点（別の測定機Core i7-1360P、0.1.1相当）では、常駐の判断は公式Jeffの方が速かった（[結果](docs/benchmark-results-2026-10-12.md)）。その後、次の書き換えで追いついた。どれも出力をbit単位で変えていない。
+  - DeltaNetの逐次更新（[記録](docs/native-delta-recurrence-2026-10-12.md)）。
+  - 要素ごとの演算（[記録](docs/native-elementwise-2026-10-12.md)）。
+  - 重みの読込と共有buffer（[記録](docs/native-weight-load-2026-10-12.md)、[記録](docs/native-weight-buffers-2026-10-13.md)）。
+  - attentionのblock化（[記録](docs/native-attention-blocks-2026-10-14.md)）。
 
 ## 必要なもの
 
 - Rust 1.99.0（`rust-toolchain`は固定していない。CIは1.99.0を使う）。Wasmには`wasm32-unknown-unknown` target
-- Windows x86_64で検証している。ほかのOSは未検証
+- モデルを使う検証（数値・速度・メモリ）は、Windows x86_64でだけ行っている。LinuxはCIでのbuildと、モデルを使わない試験だけである。ほかのOSやCPU（ARM64を含む）では未検証
 - モデル（約1.73 GB）：`tools/fetch_model.py`で取得する
 - 公式Jeffとの照合やbenchmarkをする場合だけ：固定commitのJeff sourceとPython環境（[手順](docs/jeff-runtime.md)）
 
