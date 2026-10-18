@@ -1,0 +1,98 @@
+{
+ "kind": "oneshot",
+ "session": 1,
+ "threads": 4,
+ "arm": "baseline",
+ "case": "synthetic-ocr-ascii-8-512",
+ "rep": 2,
+ "index": 176,
+ "returncode": 0,
+ "process_wall_s": 5.172844400047325,
+ "memory": {
+  "max_tree_working_set": 1076051968,
+  "max_tree_private": 168103936,
+  "max_process_peak_working_set": 1135718400,
+  "max_process_page_faults": 1271298,
+  "samples": 42
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "events": [
+  {
+   "compute_threads": 4,
+   "event": "init",
+   "kernel": {
+    "candle": {
+     "has_mkl": false,
+     "num_threads": 4,
+     "with_avx": true,
+     "with_f16c": true
+    },
+    "compiled": {
+     "avx": false,
+     "avx2": false,
+     "f16c": false,
+     "fma": false
+    },
+    "detected": {
+     "avx": true,
+     "avx2": true,
+     "avx512f": true,
+     "avxvnni": true,
+     "f16c": true,
+     "fma": true
+    }
+   },
+   "load_s": 1.9588953,
+   "manifest_sha256": "7571f0d3e102095fccd55956f058c34d1cb57ba5ffc20233e166eaf51745411b",
+   "mode": "api",
+   "retain_f32": false,
+   "retained_f32_bytes": 0,
+   "runtime_build": "ba15eb72bba8e94b3d16eda1eff0ac183474c40109735f49f7aa69a9a4ba347e",
+   "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+   "startup_s": 1.9595557000000001
+  }
+ ],
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "synthetic-ocr-ascii-8-512",
+   "outcome": {
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "forwards": 1,
+    "input_tokens": 512,
+    "judgment": {
+     "kind": "abstained"
+    },
+    "probabilities": [
+     0.5633882880210876,
+     0.0894194021821022,
+     0.06949261575937271,
+     0.05251253768801689,
+     0.07833296805620193,
+     0.06976400315761566,
+     0.026990283280611038,
+     0.05009987950325012
+    ],
+    "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+    "status": "completed"
+   },
+   "phase": "measure",
+   "wall_s": 3.0417664,
+   "gate": []
+  }
+ ],
+ "stderr": ""
+}

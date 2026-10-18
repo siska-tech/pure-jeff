@@ -1,0 +1,87 @@
+{
+ "kind": "oneshot",
+ "session": 0,
+ "threads": 16,
+ "arm": "baseline",
+ "case": "token-limit-8192",
+ "rep": 0,
+ "index": 117,
+ "returncode": 0,
+ "process_wall_s": 49.450297500006855,
+ "memory": {
+  "max_tree_working_set": 2131480576,
+  "max_tree_private": 1256456192,
+  "max_process_peak_working_set": 2216771584,
+  "max_process_page_faults": 27338412,
+  "samples": 384
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "events": [
+  {
+   "compute_threads": 16,
+   "event": "init",
+   "kernel": {
+    "candle": {
+     "has_mkl": false,
+     "num_threads": 16,
+     "with_avx": true,
+     "with_f16c": true
+    },
+    "compiled": {
+     "avx": false,
+     "avx2": false,
+     "f16c": false,
+     "fma": false
+    },
+    "detected": {
+     "avx": true,
+     "avx2": true,
+     "avx512f": true,
+     "avxvnni": true,
+     "f16c": true,
+     "fma": true
+    }
+   },
+   "load_s": 1.9702077,
+   "manifest_sha256": "e7dbdd4a53f6acafd01f42dbc17cd03c6c71413aefd4fff7b4302ddd51cf25bc",
+   "mode": "api",
+   "retain_f32": false,
+   "retained_f32_bytes": 0,
+   "runtime_build": "ba15eb72bba8e94b3d16eda1eff0ac183474c40109735f49f7aa69a9a4ba347e",
+   "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+   "startup_s": 1.9708630999999999
+  }
+ ],
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "token-limit-8192",
+   "outcome": {
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "forwards": 1,
+    "input_tokens": 8192,
+    "judgment": {
+     "candidate_id": "alternative",
+     "kind": "selected"
+    },
+    "probabilities": [
+     0.17470434308052063,
+     0.8252956867218018
+    ],
+    "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c",
+    "status": "completed"
+   },
+   "phase": "measure",
+   "wall_s": 47.2796926,
+   "gate": []
+  }
+ ],
+ "stderr": ""
+}

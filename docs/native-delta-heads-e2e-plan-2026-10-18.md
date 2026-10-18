@@ -64,3 +64,33 @@
   - メモリの「条件」は、(session, thread数, 種類, 入力)ごとのprocess peakの最大値どうしで比べる。
 
 全条件を満たした場合に限り、既定経路（2 thread以上）への採用を提案する。満たさない条件があれば採用せず、結果と原因を記録する。
+
+## E2b：メモリの再計測（E2の結果を見た後に追加した計画）
+
+**E2の判定は変えない。** E2は、事前登録した条件では「不合格」である。
+
+- **不合格の理由**：one-shotのPrivate（sampling）比が、6条件で1.03を超えた（最大1.147）。
+- **合格した項目**：
+  - 数値：gate違反0、bit不一致0、timeout後の再利用。
+  - 速度：全条件。
+  - peak Working Set：全条件。
+- **原因の推定**：
+  - E2のPrivateは、`bench/procmem.py`がprocess treeのPrivate bytesを0.1秒ごとに読んだ最大値である。sampleの間にある短いpeakは取りこぼす。
+  - 1 threadでは両armが同じ逐次loopを使う。それでも1.078になった条件があり、逆に0.864〜0.885になった条件もある。
+  - これは推定であり、確認はしていない。
+
+E2bでは、条件をそのままに、計測器だけを替えて測り直す。採否は、E2とE2bの結果を並べて示したうえで、利用者が判断する。
+
+- **計器**：各one-shot processを起動時にopenし、終了後に`GetProcessMemoryInfo`でOSの生涯peakを読む。読むのは`PeakPagefileUsage`（private commitのpeak）と`PeakWorkingSetSize`である。終了後の読み取りでpeakが取れることは、300 MiBの一時確保で確かめた。
+- **driver**：`bench/delta_heads_memory.py`。
+- **計測の構成**：
+  - thread数：1／2／4／8／16。
+  - 入力：128／512／874 tokensは各3回、8192 tokensは1回。
+  - one-shotのみ。
+  - 2 sessionで、thread数の昇順と降順。
+  - 2つのarmのどちらを先にするかを毎回入れ替える。
+  - 全判断に数値gateをかける。
+- **判定**：
+  - (session, thread数, 入力)ごとに、各armのpeakの最大値を求め、candidate÷baselineの比をとる。
+  - 2 sessionの全条件で、比が1.03以下であること。
+  - processの失敗やgate違反がないこと。

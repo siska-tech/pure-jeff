@@ -1,0 +1,30 @@
+{
+ "kind": "timeout",
+ "session": 0,
+ "threads": 8,
+ "arm": "baseline",
+ "index": 95,
+ "returncode": 0,
+ "process_wall_s": 7.084553000051528,
+ "memory": {
+  "max_tree_working_set": 2147524608,
+  "max_tree_private": 1147584512,
+  "max_process_peak_working_set": 2141085696,
+  "max_process_page_faults": 1922509,
+  "samples": 57
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "events": [
+  {
+   "deadline_s": 3.0,
+   "reuse_bitwise_equal": true,
+   "stopped_after_s": 3.1314897,
+   "timeout": true
+  }
+ ],
+ "decisions": [],
+ "stderr": ""
+}

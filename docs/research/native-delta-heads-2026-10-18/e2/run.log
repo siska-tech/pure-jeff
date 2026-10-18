@@ -1,0 +1,231 @@
+000 warm s0 t1 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+001 warm s0 t1 candidate  rc=0 decisions=28 gate_failures=0 peak=2.08 GiB
+002 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+003 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+004 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+005 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+006 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+007 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+008 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+009 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+010 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+011 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+012 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+013 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+014 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+015 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+016 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+017 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+018 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+019 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+020 oneshot s0 t1 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+021 oneshot s0 t1 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+022 timeout s0 t1 baseline  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+023 timeout s0 t1 candidate  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+024 warm s0 t2 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+025 warm s0 t2 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+026 oneshot s0 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+027 oneshot s0 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+028 oneshot s0 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+029 oneshot s0 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+030 oneshot s0 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+031 oneshot s0 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+032 oneshot s0 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+033 oneshot s0 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+034 oneshot s0 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+035 oneshot s0 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+036 oneshot s0 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+037 oneshot s0 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+038 oneshot s0 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+039 oneshot s0 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+040 oneshot s0 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+041 oneshot s0 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+042 oneshot s0 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+043 oneshot s0 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+044 oneshot s0 t2 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+045 oneshot s0 t2 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+046 timeout s0 t2 candidate  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+047 timeout s0 t2 baseline  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+048 warm s0 t4 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+049 warm s0 t4 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+050 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+051 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+052 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+053 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+054 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+055 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+056 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+057 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+058 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+059 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+060 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+061 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+062 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+063 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+064 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+065 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+066 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+067 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+068 oneshot s0 t4 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+069 oneshot s0 t4 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+070 timeout s0 t4 baseline  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+071 timeout s0 t4 candidate  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+072 warm s0 t8 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+073 warm s0 t8 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+074 oneshot s0 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+075 oneshot s0 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+076 oneshot s0 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+077 oneshot s0 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+078 oneshot s0 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+079 oneshot s0 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+080 oneshot s0 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+081 oneshot s0 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+082 oneshot s0 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+083 oneshot s0 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+084 oneshot s0 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+085 oneshot s0 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+086 oneshot s0 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+087 oneshot s0 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+088 oneshot s0 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+089 oneshot s0 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+090 oneshot s0 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+091 oneshot s0 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+092 oneshot s0 t8 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+093 oneshot s0 t8 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+094 timeout s0 t8 candidate  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+095 timeout s0 t8 baseline  rc=0 decisions=0 gate_failures=0 peak=1.99 GiB
+096 warm s0 t16 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+097 warm s0 t16 candidate  rc=0 decisions=28 gate_failures=0 peak=2.10 GiB
+098 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+099 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+100 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+101 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+102 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+103 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+104 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+105 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+106 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+107 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+108 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+109 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+110 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+111 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+112 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+113 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+114 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+115 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+116 oneshot s0 t16 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+117 oneshot s0 t16 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+118 timeout s0 t16 baseline  rc=0 decisions=0 gate_failures=0 peak=2.00 GiB
+119 timeout s0 t16 candidate  rc=0 decisions=0 gate_failures=0 peak=2.00 GiB
+120 warm s1 t16 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+121 warm s1 t16 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+122 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+123 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+124 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+125 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+126 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+127 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+128 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+129 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+130 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+131 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+132 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+133 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+134 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+135 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+136 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+137 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+138 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+139 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+140 oneshot s1 t16 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+141 oneshot s1 t16 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+142 warm s1 t8 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+143 warm s1 t8 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+144 oneshot s1 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+145 oneshot s1 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+146 oneshot s1 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+147 oneshot s1 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+148 oneshot s1 t8 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+149 oneshot s1 t8 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+150 oneshot s1 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+151 oneshot s1 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+152 oneshot s1 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+153 oneshot s1 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+154 oneshot s1 t8 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+155 oneshot s1 t8 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+156 oneshot s1 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+157 oneshot s1 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+158 oneshot s1 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+159 oneshot s1 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+160 oneshot s1 t8 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+161 oneshot s1 t8 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+162 oneshot s1 t8 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+163 oneshot s1 t8 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+164 warm s1 t4 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+165 warm s1 t4 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+166 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+167 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+168 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+169 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+170 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+171 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.03 GiB
+172 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+173 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+174 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+175 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+176 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+177 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+178 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+179 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+180 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+181 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+182 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+183 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.11 GiB
+184 oneshot s1 t4 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+185 oneshot s1 t4 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+186 warm s1 t2 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+187 warm s1 t2 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+188 oneshot s1 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+189 oneshot s1 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+190 oneshot s1 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+191 oneshot s1 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+192 oneshot s1 t2 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+193 oneshot s1 t2 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+194 oneshot s1 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+195 oneshot s1 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+196 oneshot s1 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+197 oneshot s1 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+198 oneshot s1 t2 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+199 oneshot s1 t2 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+200 oneshot s1 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+201 oneshot s1 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+202 oneshot s1 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+203 oneshot s1 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+204 oneshot s1 t2 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+205 oneshot s1 t2 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+206 oneshot s1 t2 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+207 oneshot s1 t2 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+208 warm s1 t1 candidate  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+209 warm s1 t1 baseline  rc=0 decisions=28 gate_failures=0 peak=2.09 GiB
+210 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+211 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+212 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+213 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+214 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+215 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 peak=1.02 GiB
+216 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.05 GiB
+217 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.05 GiB
+218 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+219 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+220 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+221 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 peak=1.06 GiB
+222 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+223 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+224 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+225 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+226 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+227 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 peak=1.10 GiB
+228 oneshot s1 t1 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+229 oneshot s1 t1 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 peak=2.06 GiB
+exit=0
