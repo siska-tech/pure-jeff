@@ -1,0 +1,142 @@
+{
+ "rows": [
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "candidate-request",
+   "peak_private_commit": {
+    "baseline": 212230144,
+    "candidate": 212582400,
+    "ratio": 1.0016597830702128
+   },
+   "peak_working_set": {
+    "baseline": 1098203136,
+    "candidate": 1098592256,
+    "ratio": 1.0003543242477138
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "long-text",
+   "peak_private_commit": {
+    "baseline": 213635072,
+    "candidate": 213753856,
+    "ratio": 1.0005560135744003
+   },
+   "peak_working_set": {
+    "baseline": 1185308672,
+    "candidate": 1185447936,
+    "ratio": 1.0001174917582987
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "token-limit-8192",
+   "peak_private_commit": {
+    "baseline": 1238495232,
+    "candidate": 1238446080,
+    "ratio": 0.9999603131294089
+   },
+   "peak_working_set": {
+    "baseline": 2207911936,
+    "candidate": 2207641600,
+    "ratio": 0.9998775603340005
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "candidate-request",
+   "peak_private_commit": {
+    "baseline": 212459520,
+    "candidate": 212750336,
+    "ratio": 1.0013688066319646
+   },
+   "peak_working_set": {
+    "baseline": 1101348864,
+    "candidate": 1100275712,
+    "ratio": 0.9990256021183856
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "long-text",
+   "peak_private_commit": {
+    "baseline": 217198592,
+    "candidate": 217128960,
+    "ratio": 0.9996794086031644
+   },
+   "peak_working_set": {
+    "baseline": 1187168256,
+    "candidate": 1187115008,
+    "ratio": 0.9999551470486758
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "token-limit-8192",
+   "peak_private_commit": {
+    "baseline": 1241337856,
+    "candidate": 1240997888,
+    "ratio": 0.9997261277432596
+   },
+   "peak_working_set": {
+    "baseline": 2209247232,
+    "candidate": 2209120256,
+    "ratio": 0.9999425252193775
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "candidate-request",
+   "peak_private_commit": {
+    "baseline": 212553728,
+    "candidate": 212602880,
+    "ratio": 1.0002312450619544
+   },
+   "peak_working_set": {
+    "baseline": 1108541440,
+    "candidate": 1108185088,
+    "ratio": 0.9996785397576116
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "long-text",
+   "peak_private_commit": {
+    "baseline": 231194624,
+    "candidate": 230932480,
+    "ratio": 0.9988661328041953
+   },
+   "peak_working_set": {
+    "baseline": 1194561536,
+    "candidate": 1194528768,
+    "ratio": 0.9999725690146447
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "token-limit-8192",
+   "peak_private_commit": {
+    "baseline": 1255428096,
+    "candidate": 1255321600,
+    "ratio": 0.9999151715655088
+   },
+   "peak_working_set": {
+    "baseline": 2216546304,
+    "candidate": 2216566784,
+    "ratio": 1.0000092395994449
+   }
+  }
+ ],
+ "violations": [],
+ "failed": [],
+ "e2b_met": true
+}

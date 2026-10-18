@@ -301,7 +301,7 @@ fn linear_attention(x: &Tensor, weights: &Weights, prefix: &str) -> Result<Tenso
     let g = weights.with(&format!("{prefix}.A_log"), |a| {
         softplus.broadcast_mul(&a.exp()?.neg()?)
     })?;
-    let attention = delta_recurrence(&q, &k, &v, &beta, &g)?;
+    let attention = recurrence(&q, &k, &v, &beta, &g)?;
     let attention = normalized(&attention, 1e-6)?;
     let attention = weights.with(&format!("{prefix}.norm.weight"), |w| {
         attention.broadcast_mul(w)
@@ -463,6 +463,114 @@ pub fn forward_blocks(
     norm(&x, &weights, "language_model.norm")?.narrow(0, seq - 1, 1)
 }
 
+// Without Native the recurrence is `delta_recurrence` itself (the browser build is unchanged).
+#[cfg(not(feature = "native"))]
+use self::delta_recurrence as recurrence;
+
+/// `delta_recurrence`; above one compute thread its 16 independent heads run on the compute
+/// threads (`delta_recurrence_heads`) with the same result bit for bit.
+#[cfg(feature = "native")]
+fn recurrence(q: &Tensor, k: &Tensor, v: &Tensor, beta: &Tensor, g: &Tensor) -> Result<Tensor> {
+    if candle_core::utils::get_num_threads() > 1 {
+        return delta_recurrence_heads(q, k, v, beta, g);
+    }
+    delta_recurrence(q, k, v, beta, g)
+}
+
+/// Columns `column..column + COLUMNS` of head `h` into `out` (the head's (seq, V) output), from
+/// q, k, v, beta and g as stored. This is the loop body of `delta_recurrence` with its
+/// preparation done per value where it is used: q divided by sqrt(K) and exp(g), the same
+/// operations on the same values, so every value the loop sees is the same.
+#[cfg(feature = "native")]
+#[allow(clippy::too_many_arguments)]
+fn delta_head_columns(
+    h: usize,
+    column: usize,
+    q: &[f32],
+    k: &[f32],
+    v: &[f32],
+    beta: &[f32],
+    g: &[f32],
+    out: &mut [f32],
+) {
+    let scale = (K as f32).sqrt();
+    let mut state = [[0_f32; COLUMNS]; K];
+    let mut scaled = [0_f32; K];
+    for (t, out) in out.as_chunks_mut::<V>().0.iter_mut().enumerate() {
+        let at = t * H + h;
+        let (q, k) = (&q[at * K..][..K], &k[at * K..][..K]);
+        for (s, x) in scaled.iter_mut().zip(q) {
+            *s = x / scale;
+        }
+        let decay = g[at].exp();
+        let mut delta = [0_f32; COLUMNS];
+        for (row, ki) in state.iter_mut().zip(k) {
+            for (s, d) in row.iter_mut().zip(&mut delta) {
+                *s *= decay;
+                *d += *s * ki;
+            }
+        }
+        for (d, vj) in delta.iter_mut().zip(&v[at * V + column..][..COLUMNS]) {
+            *d = (vj - *d) * beta[at];
+        }
+        let mut output = [0_f32; COLUMNS];
+        for ((row, ki), qi) in state.iter_mut().zip(k).zip(&scaled) {
+            for ((s, d), o) in row.iter_mut().zip(&delta).zip(&mut output) {
+                *s += ki * d;
+                *o += *s * qi;
+            }
+        }
+        out[column..][..COLUMNS].copy_from_slice(&output);
+    }
+}
+
+/// `delta_recurrence` with its heads on the compute threads (the rayon pool Candle's
+/// matrix products use). Each head reads the inputs in place and writes its own (seq, V)
+/// buffer; the buffers are then interleaved into (seq, H, V) by token ranges. Only the thread
+/// and the place each value is written differ from the serial loop, so the result is bitwise
+/// the same (see the tests). Native only: the browser build keeps the serial loop.
+#[cfg(feature = "native")]
+fn delta_recurrence_heads(
+    q: &Tensor,
+    k: &Tensor,
+    v: &Tensor,
+    beta: &Tensor,
+    g: &Tensor,
+) -> Result<Tensor> {
+    use rayon::prelude::*;
+    let seq = q.dim(0)?;
+    let heads: Vec<Vec<f32>> = with_f32(q, |q| {
+        with_f32(k, |k| {
+            with_f32(v, |v| {
+                with_f32(beta, |beta| {
+                    with_f32(g, |g| {
+                        (0..H)
+                            .into_par_iter()
+                            .map(|h| {
+                                let mut out = vec![0_f32; seq * V];
+                                for column in (0..V).step_by(COLUMNS) {
+                                    delta_head_columns(h, column, q, k, v, beta, g, &mut out);
+                                }
+                                out
+                            })
+                            .collect()
+                    })
+                })
+            })
+        })
+    })?????;
+    let mut out = vec![0_f32; seq * H * V];
+    out.par_chunks_mut(H * V)
+        .with_min_len(16)
+        .enumerate()
+        .for_each(|(t, row)| {
+            for (o, head) in row.as_chunks_mut::<V>().0.iter_mut().zip(&heads) {
+                o.copy_from_slice(&head[t * V..][..V]);
+            }
+        });
+    Tensor::from_vec(out, (seq, H, V), &Device::Cpu)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -581,6 +689,58 @@ mod tests {
                 bits(reference_recurrence(&q, &k, &v, &beta, &g)?)?,
                 "seq {seq}"
             );
+        }
+        Ok(())
+    }
+
+    /// Random recurrence inputs as `linear_attention` passes them: q and k L2-normalized, and
+    /// v narrowed out of a wider tensor and reshaped as there.
+    #[cfg(feature = "native")]
+    fn recurrence_inputs(seed: &mut u64, seq: usize) -> Result<[Tensor; 5]> {
+        let q = l2(&Tensor::from_vec(
+            uniform(seed, seq * H * K, -1.0, 1.0),
+            (seq, H, K),
+            &Device::Cpu,
+        )?)?;
+        let k = l2(&Tensor::from_vec(
+            uniform(seed, seq * H * K, -1.0, 1.0),
+            (seq, H, K),
+            &Device::Cpu,
+        )?)?;
+        let wide = Tensor::from_vec(
+            uniform(seed, seq * 2 * H * V, -4.0, 4.0),
+            (seq, 2 * H * V),
+            &Device::Cpu,
+        )?;
+        let v = wide.narrow(1, H * V, H * V)?.reshape((seq, H, V))?;
+        let beta = Tensor::from_vec(uniform(seed, seq * H, 0.0, 1.0), (seq, H), &Device::Cpu)?;
+        let g = Tensor::from_vec(uniform(seed, seq * H, -3.0, 0.0), (seq, H), &Device::Cpu)?;
+        Ok([q, k, v, beta, g])
+    }
+
+    #[cfg(feature = "native")]
+    #[test]
+    fn delta_heads_are_bitwise_equal_to_the_serial_loop() -> Result<()> {
+        let mut seed = 0x9e37_79b9_7f4a_7c15_u64;
+        for seq in [1, 2, 37, 130] {
+            let [q, k, v, beta, g] = recurrence_inputs(&mut seed, seq)?;
+            let serial = bits(&delta_recurrence(&q, &k, &v, &beta, &g)?)?;
+            assert_eq!(
+                serial,
+                bits(&reference_recurrence(&q, &k, &v, &beta, &g)?)?,
+                "seq {seq}"
+            );
+            for threads in [1, 2, 3, 16] {
+                let pool = rayon::ThreadPoolBuilder::new()
+                    .num_threads(threads)
+                    .build()
+                    .unwrap();
+                for _ in 0..2 {
+                    let heads = pool.install(|| delta_recurrence_heads(&q, &k, &v, &beta, &g))?;
+                    assert_eq!(heads.dims(), [seq, H, V]);
+                    assert_eq!(bits(&heads)?, serial, "seq {seq}, {threads} threads");
+                }
+            }
         }
         Ok(())
     }

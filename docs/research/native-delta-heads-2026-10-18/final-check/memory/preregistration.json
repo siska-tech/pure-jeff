@@ -1,0 +1,338 @@
+{
+ "schema_version": "pure_jeff.delta_heads_memory.v1",
+ "created_utc": "2026-10-18T10:54:09.907672+00:00",
+ "plan": [
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "candidate-request",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "candidate-request",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "long-text",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "long-text",
+   "rep": 1,
+   "arm": "candidate"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "baseline"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "case": "token-limit-8192",
+   "rep": 0,
+   "arm": "candidate"
+  }
+ ],
+ "source": {
+  "commit": "a91b5e4c084c191e355bbbc8e96f80173254bdff",
+  "dirty": ""
+ },
+ "hashes": {
+  "driver": "dcac5ff3f5db742a8dc9ded3c315958f2fda85971643fc2f4088ea763fed6d0f",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "exes": {
+   "baseline": "ac050de15c92a8570887039f279aeec3ed040f7e3fe3c545fc86916b54ffc868",
+   "candidate": "9d25bd129e11a291edcd4bbd1f226cc924aa20243b7e523126712f3f85e628b9"
+  },
+  "bundles": {
+   "baseline": {
+    "1": "2c3d0a552528a3840e184a165429c68141fa1709afb2387c2540f16d5a53f0f3",
+    "4": "7571f0d3e102095fccd55956f058c34d1cb57ba5ffc20233e166eaf51745411b",
+    "16": "e7dbdd4a53f6acafd01f42dbc17cd03c6c71413aefd4fff7b4302ddd51cf25bc"
+   },
+   "candidate": {
+    "1": "7a27047b560e1c7ae80bcc22bd26f7bc24d730db2ae5760b32e604998ec1a2f8",
+    "4": "6ada70086f02e5ddb226e6635b81b41f5de93e21122d7f923b54af19f8597e3a",
+    "16": "740dec93f319562ecdbafa79b09947b79fb35b4c5a96c29e08416a55a1c8d802"
+   }
+  }
+ },
+ "environment_start": {
+  "time_utc": "2026-10-18T10:54:10.080783+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 13,
+   "processor_performance_percent": 153,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 151724.265625,
+    "WS_MB": 198
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 151559.390625,
+    "WS_MB": 139
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 151483.890625,
+    "WS_MB": 145
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28173.171875,
+    "WS_MB": 308
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 19284.953125,
+    "WS_MB": 553
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 8228.3125,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 7253.09375,
+    "WS_MB": 492
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6982.21875,
+    "WS_MB": 295
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6363.21875,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4739.625,
+    "WS_MB": 399
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4569.25,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 3935.125,
+    "WS_MB": 49
+   }
+  ]
+ }
+}

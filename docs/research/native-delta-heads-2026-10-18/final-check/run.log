@@ -1,0 +1,48 @@
+reference rc=0 decisions=13 gate_failures=0
+candidate t1 p0 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t2 p0 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t4 p0 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t8 p0 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t16 p0 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t16 p1 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t8 p1 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t4 p1 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t2 p1 rc=0 decisions=26 gate_failures=0 mismatches=0
+candidate t1 p1 rc=0 decisions=26 gate_failures=0 mismatches=0
+timeout t1 rc=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 3.7838308, 'timeout': True}
+timeout t4 rc=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 4.4692974, 'timeout': True}
+timeout t16 rc=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 3.1194976, 'timeout': True}
+failures: none passed: True
+numeric exit=0
+000 s0 t1 candidate-request baseline rc=0 commit=0.198 GiB ws=1.023 GiB gate_failures=0
+001 s0 t1 candidate-request candidate rc=0 commit=0.198 GiB ws=1.023 GiB gate_failures=0
+002 s0 t1 candidate-request candidate rc=0 commit=0.198 GiB ws=1.023 GiB gate_failures=0
+003 s0 t1 candidate-request baseline rc=0 commit=0.198 GiB ws=1.023 GiB gate_failures=0
+004 s0 t1 long-text candidate rc=0 commit=0.199 GiB ws=1.104 GiB gate_failures=0
+005 s0 t1 long-text baseline rc=0 commit=0.199 GiB ws=1.104 GiB gate_failures=0
+006 s0 t1 long-text baseline rc=0 commit=0.199 GiB ws=1.104 GiB gate_failures=0
+007 s0 t1 long-text candidate rc=0 commit=0.199 GiB ws=1.104 GiB gate_failures=0
+008 s0 t1 token-limit-8192 baseline rc=0 commit=1.153 GiB ws=2.056 GiB gate_failures=0
+009 s0 t1 token-limit-8192 candidate rc=0 commit=1.153 GiB ws=2.056 GiB gate_failures=0
+010 s0 t4 candidate-request candidate rc=0 commit=0.198 GiB ws=1.025 GiB gate_failures=0
+011 s0 t4 candidate-request baseline rc=0 commit=0.198 GiB ws=1.025 GiB gate_failures=0
+012 s0 t4 candidate-request baseline rc=0 commit=0.198 GiB ws=1.026 GiB gate_failures=0
+013 s0 t4 candidate-request candidate rc=0 commit=0.198 GiB ws=1.025 GiB gate_failures=0
+014 s0 t4 long-text baseline rc=0 commit=0.202 GiB ws=1.106 GiB gate_failures=0
+015 s0 t4 long-text candidate rc=0 commit=0.202 GiB ws=1.106 GiB gate_failures=0
+016 s0 t4 long-text candidate rc=0 commit=0.202 GiB ws=1.106 GiB gate_failures=0
+017 s0 t4 long-text baseline rc=0 commit=0.202 GiB ws=1.106 GiB gate_failures=0
+018 s0 t4 token-limit-8192 candidate rc=0 commit=1.156 GiB ws=2.057 GiB gate_failures=0
+019 s0 t4 token-limit-8192 baseline rc=0 commit=1.156 GiB ws=2.058 GiB gate_failures=0
+020 s0 t16 candidate-request baseline rc=0 commit=0.198 GiB ws=1.032 GiB gate_failures=0
+021 s0 t16 candidate-request candidate rc=0 commit=0.198 GiB ws=1.032 GiB gate_failures=0
+022 s0 t16 candidate-request candidate rc=0 commit=0.198 GiB ws=1.032 GiB gate_failures=0
+023 s0 t16 candidate-request baseline rc=0 commit=0.198 GiB ws=1.032 GiB gate_failures=0
+024 s0 t16 long-text candidate rc=0 commit=0.215 GiB ws=1.112 GiB gate_failures=0
+025 s0 t16 long-text baseline rc=0 commit=0.215 GiB ws=1.112 GiB gate_failures=0
+026 s0 t16 long-text baseline rc=0 commit=0.215 GiB ws=1.113 GiB gate_failures=0
+027 s0 t16 long-text candidate rc=0 commit=0.215 GiB ws=1.112 GiB gate_failures=0
+028 s0 t16 token-limit-8192 baseline rc=0 commit=1.169 GiB ws=2.064 GiB gate_failures=0
+029 s0 t16 token-limit-8192 candidate rc=0 commit=1.169 GiB ws=2.064 GiB gate_failures=0
+violations: none failed: none
+memory exit=0

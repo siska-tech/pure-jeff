@@ -1,0 +1,971 @@
+{
+ "processes": 230,
+ "failed_processes": [],
+ "gate_failures": [],
+ "bit_mismatches_vs_baseline_1_thread": [],
+ "inputs_checked": [
+  "asr-unicode",
+  "candidate-request",
+  "long-text",
+  "maximum-candidates",
+  "policy-margin-near",
+  "policy-near-tie",
+  "policy-top1-above",
+  "policy-top1-below",
+  "reversed",
+  "special-token-text",
+  "synthetic-ocr-ascii-3-513",
+  "synthetic-ocr-ascii-8-512",
+  "synthetic-ocr-ja-2-127",
+  "synthetic-ocr-ja-2-128",
+  "synthetic-ocr-ja-2-129",
+  "synthetic-ocr-ja-2-256",
+  "synthetic-ocr-ja-2-511",
+  "synthetic-ocr-ja-2-512",
+  "token-limit-8192",
+  "token-limit-8193"
+ ],
+ "timeout_reuse": [
+  {
+   "arm": "baseline",
+   "threads": 1,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.7145877,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "candidate",
+   "threads": 1,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.7485033,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "candidate",
+   "threads": 2,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 4.4861659,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "baseline",
+   "threads": 2,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 4.8867419,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "baseline",
+   "threads": 4,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.4955211999999998,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "candidate",
+   "threads": 4,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 4.3880513,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "candidate",
+   "threads": 8,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.696865,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "baseline",
+   "threads": 8,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.1314897,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "baseline",
+   "threads": 16,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 4.2255438,
+    "timeout": true
+   }
+  },
+  {
+   "arm": "candidate",
+   "threads": 16,
+   "returncode": 0,
+   "result": {
+    "deadline_s": 3.0,
+    "reuse_bitwise_equal": true,
+    "stopped_after_s": 3.1812797,
+    "timeout": true
+   }
+  }
+ ],
+ "rows": [
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": 128,
+   "warm_baseline_s": 1.5050843999999999,
+   "warm_candidate_s": 1.520804,
+   "warm_ratio": 1.0104443312282023,
+   "oneshot_baseline_s": 3.9923995001008734,
+   "oneshot_candidate_s": 3.978770100045949,
+   "oneshot_ratio": 0.9965861632698382,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0010184705035274,
+    "oneshot_max_tree_private": 0.9975649015642412
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": 512,
+   "warm_baseline_s": 5.5391927,
+   "warm_candidate_s": 5.58699,
+   "warm_ratio": 1.0086289289051091,
+   "oneshot_baseline_s": 8.064184400020167,
+   "oneshot_candidate_s": 8.10195499996189,
+   "oneshot_ratio": 1.004683747055887,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000975440573994,
+    "oneshot_max_tree_private": 0.9407950790715073
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": 874,
+   "warm_baseline_s": 9.7004207,
+   "warm_candidate_s": 9.732533,
+   "warm_ratio": 1.0033104028158284,
+   "oneshot_baseline_s": 12.224420999991708,
+   "oneshot_candidate_s": 12.260946299997158,
+   "oneshot_ratio": 1.0029878961143006,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999792691691083,
+    "oneshot_max_tree_private": 0.9996570187305882
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": 8192,
+   "warm_baseline_s": 134.0311386,
+   "warm_candidate_s": 136.4772804,
+   "warm_ratio": 1.0182505485333542,
+   "oneshot_baseline_s": 137.42095039994456,
+   "oneshot_candidate_s": 139.6859272000147,
+   "oneshot_ratio": 1.0164820341693042,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9996864965338389,
+    "oneshot_max_tree_private": 0.999260122938501
+   }
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9983320134536283
+   },
+   "baseline_bytes": 2239557632,
+   "candidate_bytes": 2235822080,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 0,
+   "threads": 1,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.996599434446116
+   },
+   "baseline_bytes": 1244254208,
+   "candidate_bytes": 1240023040,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": 128,
+   "warm_baseline_s": 0.9702153,
+   "warm_candidate_s": 0.9184045,
+   "warm_ratio": 0.9465986570197357,
+   "oneshot_baseline_s": 3.4650513000087813,
+   "oneshot_candidate_s": 3.4285042999545112,
+   "oneshot_ratio": 0.9894526813919963,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000633371211416,
+    "oneshot_max_tree_private": 1.0000896639842192
+   }
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": 512,
+   "warm_baseline_s": 3.5911011,
+   "warm_candidate_s": 3.3590097,
+   "warm_ratio": 0.9353704077003012,
+   "oneshot_baseline_s": 6.081061600008979,
+   "oneshot_candidate_s": 5.882943200063892,
+   "oneshot_ratio": 0.9674204254163787,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9998483524577734,
+    "oneshot_max_tree_private": 1.015654259683969
+   }
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": 874,
+   "warm_baseline_s": 6.0755703,
+   "warm_candidate_s": 5.704161,
+   "warm_ratio": 0.9388684054894403,
+   "oneshot_baseline_s": 8.572930800030008,
+   "oneshot_candidate_s": 8.25065259996336,
+   "oneshot_ratio": 0.9624074651266845,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000587101720553,
+    "oneshot_max_tree_private": 1.0286884446611408
+   }
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": 8192,
+   "warm_baseline_s": 84.5108,
+   "warm_candidate_s": 80.6498216,
+   "warm_ratio": 0.9543137871135996,
+   "oneshot_baseline_s": 86.69236340001225,
+   "oneshot_candidate_s": 84.37404120003339,
+   "oneshot_ratio": 0.9732580574683175,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001651650258419,
+    "oneshot_max_tree_private": 0.9998612281310403
+   }
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9998024857533705
+   },
+   "baseline_bytes": 2239676416,
+   "candidate_bytes": 2239234048,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 0,
+   "threads": 2,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.9967191320343685
+   },
+   "baseline_bytes": 1244704768,
+   "candidate_bytes": 1240621056,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": 128,
+   "warm_baseline_s": 0.7592903,
+   "warm_candidate_s": 0.6808173,
+   "warm_ratio": 0.8966495423423689,
+   "oneshot_baseline_s": 3.238156000035815,
+   "oneshot_candidate_s": 3.1675510000204667,
+   "oneshot_ratio": 0.9781959238484597,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9995722267272741,
+    "oneshot_max_tree_private": 0.9346637563662821
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": 512,
+   "warm_baseline_s": 2.743505,
+   "warm_candidate_s": 2.3634095999999998,
+   "warm_ratio": 0.8614562758223513,
+   "oneshot_baseline_s": 5.176570300012827,
+   "oneshot_candidate_s": 4.866470800014213,
+   "oneshot_ratio": 0.9400955686822516,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9998557227568495,
+    "oneshot_max_tree_private": 0.9598490915988703
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": 874,
+   "warm_baseline_s": 4.4874937,
+   "warm_candidate_s": 3.986981,
+   "warm_ratio": 0.888464979906267,
+   "oneshot_baseline_s": 7.015599599923007,
+   "oneshot_candidate_s": 6.467165400041267,
+   "oneshot_ratio": 0.9218264679917367,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9998275136436708,
+    "oneshot_max_tree_private": 1.000300018751172
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": 8192,
+   "warm_baseline_s": 59.4630383,
+   "warm_candidate_s": 54.77864,
+   "warm_ratio": 0.9212216793167126,
+   "oneshot_baseline_s": 61.94340240000747,
+   "oneshot_candidate_s": 57.13852199993562,
+   "oneshot_ratio": 0.9224311191522268,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0003913299096603,
+    "oneshot_max_tree_private": 1.0007158314200513
+   }
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9998701984866241
+   },
+   "baseline_bytes": 2240466944,
+   "candidate_bytes": 2240176128,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 0,
+   "threads": 4,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.999839005910783
+   },
+   "baseline_bytes": 1246654464,
+   "candidate_bytes": 1246453760,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": 128,
+   "warm_baseline_s": 0.7036425,
+   "warm_candidate_s": 0.6296342,
+   "warm_ratio": 0.894821162735338,
+   "oneshot_baseline_s": 3.1653628000058234,
+   "oneshot_candidate_s": 3.1298667999217287,
+   "oneshot_ratio": 0.9887861195297962,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9996548422294965,
+    "oneshot_max_tree_private": 0.86445682995991
+   }
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": 512,
+   "warm_baseline_s": 2.5574593,
+   "warm_candidate_s": 2.2499029999999998,
+   "warm_ratio": 0.8797414684175031,
+   "oneshot_baseline_s": 5.062128599965945,
+   "oneshot_candidate_s": 4.734255500021391,
+   "oneshot_ratio": 0.9352301915153322,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001223739098823,
+    "oneshot_max_tree_private": 1.0185459026494146
+   }
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": 874,
+   "warm_baseline_s": 4.3191225,
+   "warm_candidate_s": 3.7391255,
+   "warm_ratio": 0.8657141583736049,
+   "oneshot_baseline_s": 6.822613999946043,
+   "oneshot_candidate_s": 6.242421599919908,
+   "oneshot_ratio": 0.9149603949408945,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.000051640978149,
+    "oneshot_max_tree_private": 0.9950432057734309
+   }
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": 8192,
+   "warm_baseline_s": 51.0579732,
+   "warm_candidate_s": 46.3223399,
+   "warm_ratio": 0.9072498768909222,
+   "oneshot_baseline_s": 53.88994769996498,
+   "oneshot_candidate_s": 48.06709349993616,
+   "oneshot_ratio": 0.8919491584507031,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.999896291687038,
+    "oneshot_max_tree_private": 1.0065603475926104
+   }
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 1.0043457425988858
+   },
+   "baseline_bytes": 2239455232,
+   "candidate_bytes": 2249187328,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 0,
+   "threads": 8,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 1.0080031250923247
+   },
+   "baseline_bytes": 1247768576,
+   "candidate_bytes": 1257754624,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": 128,
+   "warm_baseline_s": 0.7309098,
+   "warm_candidate_s": 0.6522019,
+   "warm_ratio": 0.8923151666594153,
+   "oneshot_baseline_s": 3.1931341000599787,
+   "oneshot_candidate_s": 3.192296199966222,
+   "oneshot_ratio": 0.9997375932023209,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0002882046696546,
+    "oneshot_max_tree_private": 0.9135809567617296
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": 512,
+   "warm_baseline_s": 2.3682596,
+   "warm_candidate_s": 2.0541575,
+   "warm_ratio": 0.8673700720985149,
+   "oneshot_baseline_s": 4.853893099934794,
+   "oneshot_candidate_s": 4.549569700029679,
+   "oneshot_ratio": 0.9373032339939247,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9995449985669246,
+    "oneshot_max_tree_private": 0.9691236911129928
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": 874,
+   "warm_baseline_s": 3.9644991000000003,
+   "warm_candidate_s": 3.360995,
+   "warm_ratio": 0.8477729254623868,
+   "oneshot_baseline_s": 6.472460399963893,
+   "oneshot_candidate_s": 5.91852690000087,
+   "oneshot_ratio": 0.9144168576193819,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999074420055604,
+    "oneshot_max_tree_private": 1.048522699975979
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": 8192,
+   "warm_baseline_s": 46.0097792,
+   "warm_candidate_s": 40.0299681,
+   "warm_ratio": 0.8700317366443697,
+   "oneshot_baseline_s": 49.450297500006855,
+   "oneshot_candidate_s": 42.718944199965335,
+   "oneshot_ratio": 0.8638763841604676,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001607526921457,
+    "oneshot_max_tree_private": 0.993610473607344
+   }
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 1.0035247370130225
+   },
+   "baseline_bytes": 2245124096,
+   "candidate_bytes": 2253037568,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 0,
+   "threads": 16,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.9960405945320316
+   },
+   "baseline_bytes": 1252777984,
+   "candidate_bytes": 1247817728,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": 128,
+   "warm_baseline_s": 1.505374,
+   "warm_candidate_s": 1.5154798,
+   "warm_ratio": 1.0067131490247607,
+   "oneshot_baseline_s": 3.9633376999991015,
+   "oneshot_candidate_s": 4.136212400044315,
+   "oneshot_ratio": 1.0436184633081487,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0002572284934612,
+    "oneshot_max_tree_private": 1.0776731255964482
+   }
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": 512,
+   "warm_baseline_s": 5.547378,
+   "warm_candidate_s": 5.5631314,
+   "warm_ratio": 1.002839792060321,
+   "oneshot_baseline_s": 8.03460980008822,
+   "oneshot_candidate_s": 8.04769789997954,
+   "oneshot_ratio": 1.001628965216354,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000433496255676,
+    "oneshot_max_tree_private": 0.9627341896424773
+   }
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": 874,
+   "warm_baseline_s": 9.6754836,
+   "warm_candidate_s": 9.766054,
+   "warm_ratio": 1.0093608137581878,
+   "oneshot_baseline_s": 12.15865490003489,
+   "oneshot_candidate_s": 12.174316599965096,
+   "oneshot_ratio": 1.0012881112309686,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000034550191061,
+    "oneshot_max_tree_private": 0.9884509833816131
+   }
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": 8192,
+   "warm_baseline_s": 134.06311,
+   "warm_candidate_s": 137.0317979,
+   "warm_ratio": 1.0221439581701484,
+   "oneshot_baseline_s": 137.25529940007254,
+   "oneshot_candidate_s": 139.1569549998967,
+   "oneshot_ratio": 1.0138548792515558,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001558484930007,
+    "oneshot_max_tree_private": 1.0003007558556505
+   }
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 1.000252387623496
+   },
+   "baseline_bytes": 2239602688,
+   "candidate_bytes": 2240167936,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 1,
+   "threads": 1,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 1.0006254773379684
+   },
+   "baseline_bytes": 1244233728,
+   "candidate_bytes": 1245011968,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": 128,
+   "warm_baseline_s": 0.9674274,
+   "warm_candidate_s": 0.9242133,
+   "warm_ratio": 0.9553309116529054,
+   "oneshot_baseline_s": 3.645813100039959,
+   "oneshot_candidate_s": 3.7088783000363037,
+   "oneshot_ratio": 1.0172979794262227,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9996797080128862,
+    "oneshot_max_tree_private": 0.8853630877647726
+   }
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": 512,
+   "warm_baseline_s": 3.5615776,
+   "warm_candidate_s": 3.3747095,
+   "warm_ratio": 0.9475322115682667,
+   "oneshot_baseline_s": 6.305434399982914,
+   "oneshot_candidate_s": 6.18549790000543,
+   "oneshot_ratio": 0.9809788680098219,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999061178654092,
+    "oneshot_max_tree_private": 1.14683900466016
+   }
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": 874,
+   "warm_baseline_s": 6.0614436,
+   "warm_candidate_s": 5.7215067,
+   "warm_ratio": 0.9439181616735658,
+   "oneshot_baseline_s": 8.988237799960189,
+   "oneshot_candidate_s": 8.430068499990739,
+   "oneshot_ratio": 0.9379000297508905,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999930933502776,
+    "oneshot_max_tree_private": 0.960354009134497
+   }
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": 8192,
+   "warm_baseline_s": 84.5398035,
+   "warm_candidate_s": 80.8637716,
+   "warm_ratio": 0.9565171463877368,
+   "oneshot_baseline_s": 87.80525110010058,
+   "oneshot_candidate_s": 87.05557940003928,
+   "oneshot_ratio": 0.9914621085792847,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001540294474611,
+    "oneshot_max_tree_private": 0.9996927488734125
+   }
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9996781013834325
+   },
+   "baseline_bytes": 2239512576,
+   "candidate_bytes": 2238791680,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 1,
+   "threads": 2,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.9993319709489632
+   },
+   "baseline_bytes": 1244688384,
+   "candidate_bytes": 1243856896,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": 128,
+   "warm_baseline_s": 0.7536631,
+   "warm_candidate_s": 0.686351,
+   "warm_ratio": 0.9106867511491541,
+   "oneshot_baseline_s": 3.2241115999640897,
+   "oneshot_candidate_s": 3.1451914999634027,
+   "oneshot_ratio": 0.9755219081121242,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9997023931312334,
+    "oneshot_max_tree_private": 1.0327794779108217
+   }
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": 512,
+   "warm_baseline_s": 2.7336148,
+   "warm_candidate_s": 2.3638433,
+   "warm_ratio": 0.8647316732408679,
+   "oneshot_baseline_s": 5.1841582000488415,
+   "oneshot_candidate_s": 4.867037800024264,
+   "oneshot_ratio": 0.9388289500845884,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9997655756920025,
+    "oneshot_max_tree_private": 1.0810169938084573
+   }
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": 874,
+   "warm_baseline_s": 4.5156679,
+   "warm_candidate_s": 3.9874786,
+   "warm_ratio": 0.8830318544904509,
+   "oneshot_baseline_s": 6.991418700083159,
+   "oneshot_candidate_s": 6.405672999913804,
+   "oneshot_ratio": 0.9162193361180918,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0001034975264091,
+    "oneshot_max_tree_private": 0.9600840336134454
+   }
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": 8192,
+   "warm_baseline_s": 59.7521687,
+   "warm_candidate_s": 54.4804787,
+   "warm_ratio": 0.9117740809297187,
+   "oneshot_baseline_s": 61.39186780003365,
+   "oneshot_candidate_s": 56.64522519998718,
+   "oneshot_ratio": 0.922682876899799,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999072858488537,
+    "oneshot_max_tree_private": 1.0031298076127773
+   }
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.99974771157949
+   },
+   "baseline_bytes": 2240483328,
+   "candidate_bytes": 2239918080,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 1,
+   "threads": 4,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 1.0028163799600682
+   },
+   "baseline_bytes": 1239105536,
+   "candidate_bytes": 1242595328,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": 128,
+   "warm_baseline_s": 0.7062801,
+   "warm_candidate_s": 0.6314745,
+   "warm_ratio": 0.8940850804093164,
+   "oneshot_baseline_s": 3.195618899888359,
+   "oneshot_candidate_s": 3.0964784000534564,
+   "oneshot_ratio": 0.9689761191992055,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0004382902224138,
+    "oneshot_max_tree_private": 1.0066113666228647
+   }
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": 512,
+   "warm_baseline_s": 2.5618879,
+   "warm_candidate_s": 2.2382095,
+   "warm_ratio": 0.8736562985445226,
+   "oneshot_baseline_s": 5.026833700016141,
+   "oneshot_candidate_s": 4.70774589991197,
+   "oneshot_ratio": 0.9365231039763368,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9998236572761167,
+    "oneshot_max_tree_private": 1.0174288873253594
+   }
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": 874,
+   "warm_baseline_s": 4.3176808,
+   "warm_candidate_s": 3.7541089,
+   "warm_ratio": 0.8694734682563843,
+   "oneshot_baseline_s": 6.782849699957296,
+   "oneshot_candidate_s": 6.227343800012022,
+   "oneshot_ratio": 0.9181013991879001,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0000688548745809,
+    "oneshot_max_tree_private": 0.9955563995442461
+   }
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": 8192,
+   "warm_baseline_s": 50.9868197,
+   "warm_candidate_s": 45.3554649,
+   "warm_ratio": 0.8895527347433282,
+   "oneshot_baseline_s": 53.71025150001515,
+   "oneshot_candidate_s": 48.34890380001161,
+   "oneshot_ratio": 0.9001801788248558,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9999462838620051,
+    "oneshot_max_tree_private": 1.0031116092029797
+   }
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9997717791187023
+   },
+   "baseline_bytes": 2243440640,
+   "candidate_bytes": 2242928640,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 1,
+   "threads": 8,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 1.0003577747069694
+   },
+   "baseline_bytes": 1247891456,
+   "candidate_bytes": 1248337920,
+   "key": "max_tree_private"
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": 128,
+   "warm_baseline_s": 0.7171051,
+   "warm_candidate_s": 0.6757672,
+   "warm_ratio": 0.9423544749577154,
+   "oneshot_baseline_s": 3.1853562999749556,
+   "oneshot_candidate_s": 3.1415904000168666,
+   "oneshot_ratio": 0.9862602811627593,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 1.0003437099236077,
+    "oneshot_max_tree_private": 1.013551996445378
+   }
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": 512,
+   "warm_baseline_s": 2.4034882,
+   "warm_candidate_s": 2.0732537,
+   "warm_ratio": 0.8626019882269444,
+   "oneshot_baseline_s": 4.877707800013013,
+   "oneshot_candidate_s": 4.53707800002303,
+   "oneshot_ratio": 0.9301660095364723,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9997635230762065,
+    "oneshot_max_tree_private": 1.1294263253191539
+   }
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": 874,
+   "warm_baseline_s": 3.9659321,
+   "warm_candidate_s": 3.3581468,
+   "warm_ratio": 0.8467484352543505,
+   "oneshot_baseline_s": 6.4650992000242695,
+   "oneshot_candidate_s": 5.849043600028381,
+   "oneshot_ratio": 0.9047105727328087,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9998903035164579,
+    "oneshot_max_tree_private": 1.0000704932767037
+   }
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": 8192,
+   "warm_baseline_s": 45.8426838,
+   "warm_candidate_s": 40.6418312,
+   "warm_ratio": 0.8865499973193104,
+   "oneshot_baseline_s": 48.071964900009334,
+   "oneshot_candidate_s": 41.873727600090206,
+   "oneshot_ratio": 0.8710633669164223,
+   "memory_ratios": {
+    "oneshot_max_process_peak_working_set": 0.9997838544841882,
+    "oneshot_max_tree_private": 0.9965174910239557
+   }
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_process_peak_working_set": 0.9996574899478765
+   },
+   "baseline_bytes": 2248249344,
+   "candidate_bytes": 2247479296,
+   "key": "max_process_peak_working_set"
+  },
+  {
+   "session": 1,
+   "threads": 16,
+   "tokens": "warm-process",
+   "memory_ratios": {
+    "warm_max_tree_private": 0.999296575036881
+   },
+   "baseline_bytes": 1257754624,
+   "candidate_bytes": 1256869888,
+   "key": "max_tree_private"
+  }
+ ],
+ "violations": [
+  "s0 t16 874: oneshot_max_tree_private ratio 1.049 > 1.03",
+  "s1 t1 128: oneshot_max_tree_private ratio 1.078 > 1.03",
+  "s1 t2 512: oneshot_max_tree_private ratio 1.147 > 1.03",
+  "s1 t4 128: oneshot_max_tree_private ratio 1.033 > 1.03",
+  "s1 t4 512: oneshot_max_tree_private ratio 1.081 > 1.03",
+  "s1 t16 512: oneshot_max_tree_private ratio 1.129 > 1.03"
+ ],
+ "e2_met": false
+}

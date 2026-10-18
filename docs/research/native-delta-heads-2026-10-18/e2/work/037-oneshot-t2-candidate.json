@@ -1,0 +1,98 @@
+{
+ "kind": "oneshot",
+ "session": 0,
+ "threads": 2,
+ "arm": "candidate",
+ "case": "synthetic-ocr-ascii-8-512",
+ "rep": 2,
+ "index": 37,
+ "returncode": 0,
+ "process_wall_s": 5.869945799931884,
+ "memory": {
+  "max_tree_working_set": 1102635008,
+  "max_tree_private": 186601472,
+  "max_process_peak_working_set": 1134149632,
+  "max_process_page_faults": 1217247,
+  "samples": 47
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "events": [
+  {
+   "compute_threads": 2,
+   "event": "init",
+   "kernel": {
+    "candle": {
+     "has_mkl": false,
+     "num_threads": 2,
+     "with_avx": true,
+     "with_f16c": true
+    },
+    "compiled": {
+     "avx": false,
+     "avx2": false,
+     "f16c": false,
+     "fma": false
+    },
+    "detected": {
+     "avx": true,
+     "avx2": true,
+     "avx512f": true,
+     "avxvnni": true,
+     "f16c": true,
+     "fma": true
+    }
+   },
+   "load_s": 1.9589474,
+   "manifest_sha256": "83875baad780b4046c5d547b5702cc3dbf34e6d7b70fa53fada9caacc2bd2bc4",
+   "mode": "api",
+   "retain_f32": false,
+   "retained_f32_bytes": 0,
+   "runtime_build": "e883ad1b33e0b2d2a696d8101dff124cfce6bb24bd9cc30829039dc040a5845b",
+   "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+   "startup_s": 1.9595446
+  }
+ ],
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "synthetic-ocr-ascii-8-512",
+   "outcome": {
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "forwards": 1,
+    "input_tokens": 512,
+    "judgment": {
+     "kind": "abstained"
+    },
+    "probabilities": [
+     0.5633882880210876,
+     0.0894194021821022,
+     0.06949261575937271,
+     0.05251253768801689,
+     0.07833296805620193,
+     0.06976400315761566,
+     0.026990283280611038,
+     0.05009987950325012
+    ],
+    "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+    "status": "completed"
+   },
+   "phase": "measure",
+   "wall_s": 3.7464432,
+   "gate": []
+  }
+ ],
+ "stderr": ""
+}

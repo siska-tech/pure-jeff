@@ -15,6 +15,7 @@ Performance-parity measurement of official Jeff (Python/PyTorch), Rust Native an
 | `export_cases.py`, `check_outcomes.py` | Catalog inputs for outside deciders (the crates.io consumer of `tools/check_package.py --cases`) and the same gate on their outcomes |
 | `compare_runs.py` | Baseline vs candidate: one-shot median / peak > 5 %, bitwise identity |
 | `delta_stage_profile.py`, `delta_stage_summary.py` | Issue #18: the DeltaNet recurrence by stage and the head-parallel variants of `forward_breakdown --delta` at 1-16 threads, and their summary ([plan](../docs/native-delta-threads-plan-2026-10-18.md)) |
+| `delta_heads_e2e.py`, `delta_heads_e2e_summary.py`, `delta_heads_memory.py`, `delta_heads_affinity.py` | Issue #18: the DeltaNet-heads library change against main through the public API (E2), lifetime peak memory (E2b) and decisions under process affinity masks ([plan](../docs/native-delta-heads-e2e-plan-2026-10-18.md)) |
 | `test_bench.py` | Unit tests (no model): `python -B -m unittest bench/test_bench.py` |
 | `wasm/bench.html`, `tract_resident.py`, `procmem.py` | The earlier probe page (kept for the old runs), the experimental Tract path, memory sampling |
 

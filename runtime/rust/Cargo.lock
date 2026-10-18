@@ -875,6 +875,7 @@ dependencies = [
  "candle-core",
  "candle-nn",
  "half",
+ "rayon",
  "serde",
  "serde_json",
  "sha2",

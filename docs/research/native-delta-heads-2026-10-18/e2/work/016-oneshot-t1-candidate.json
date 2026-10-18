@@ -1,0 +1,87 @@
+{
+ "kind": "oneshot",
+ "session": 0,
+ "threads": 1,
+ "arm": "candidate",
+ "case": "long-text",
+ "rep": 1,
+ "index": 16,
+ "returncode": 0,
+ "process_wall_s": 12.260946299997158,
+ "memory": {
+  "max_tree_working_set": 1138704384,
+  "max_tree_private": 214876160,
+  "max_process_peak_working_set": 1185435648,
+  "max_process_page_faults": 1974033,
+  "samples": 98
+ },
+ "affinity": {
+  "process_mask": "0xffffffff",
+  "system_mask": "0xffffffff"
+ },
+ "events": [
+  {
+   "compute_threads": 1,
+   "event": "init",
+   "kernel": {
+    "candle": {
+     "has_mkl": false,
+     "num_threads": 1,
+     "with_avx": true,
+     "with_f16c": true
+    },
+    "compiled": {
+     "avx": false,
+     "avx2": false,
+     "f16c": false,
+     "fma": false
+    },
+    "detected": {
+     "avx": true,
+     "avx2": true,
+     "avx512f": true,
+     "avxvnni": true,
+     "f16c": true,
+     "fma": true
+    }
+   },
+   "load_s": 1.9544932,
+   "manifest_sha256": "b42f60829db32dce590fa68a53b5df704176a9648b458c4410617630c5351a7c",
+   "mode": "api",
+   "retain_f32": false,
+   "retained_f32_bytes": 0,
+   "runtime_build": "e883ad1b33e0b2d2a696d8101dff124cfce6bb24bd9cc30829039dc040a5845b",
+   "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+   "startup_s": 1.9551033
+  }
+ ],
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "long-text",
+   "outcome": {
+    "candidate_ids": [
+     "original",
+     "alternative"
+    ],
+    "forwards": 1,
+    "input_tokens": 874,
+    "judgment": {
+     "candidate_id": "original",
+     "kind": "selected"
+    },
+    "probabilities": [
+     0.995419979095459,
+     0.004580068867653608
+    ],
+    "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270",
+    "status": "completed"
+   },
+   "phase": "measure",
+   "wall_s": 10.1435633,
+   "gate": []
+  }
+ ],
+ "stderr": ""
+}

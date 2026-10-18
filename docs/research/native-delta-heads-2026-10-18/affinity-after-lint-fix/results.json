@@ -1,0 +1,473 @@
+{
+ "created_utc": "2026-10-18T07:31:55.154304+00:00",
+ "cases": [
+  "candidate-request",
+  "long-text",
+  "policy-near-tie"
+ ],
+ "reference": "main (baseline) at 1 thread without affinity",
+ "source": {
+  "commit": "39fe1a6c80bff26436e32afbd97e975316a94b85",
+  "dirty": "M src/backbone.rs"
+ },
+ "environment": {
+  "time_utc": "2026-10-18T07:31:55.198657+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 9,
+   "processor_performance_percent": 155,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 140257,
+    "WS_MB": 197
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 140091.59375,
+    "WS_MB": 138
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 140021.09375,
+    "WS_MB": 145
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28144.96875,
+    "WS_MB": 308
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 18174.96875,
+    "WS_MB": 533
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 8138.5,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 7046.921875,
+    "WS_MB": 493
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6787.953125,
+    "WS_MB": 286
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6278.484375,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4690.0625,
+    "WS_MB": 397
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4446.90625,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 3882.53125,
+    "WS_MB": 49
+   }
+  ]
+ },
+ "rows": [
+  {
+   "threads": 1,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.8413688000000001,
+    "long-text": 9.800165400000001,
+    "policy-near-tie": 2.1558499
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 1,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.8519239,
+    "long-text": 9.7946277,
+    "policy-near-tie": 2.1502554
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 1,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.7466902,
+    "long-text": 9.2202729,
+    "policy-near-tie": 2.0048945
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 1,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.8668139,
+    "long-text": 9.8367935,
+    "policy-near-tie": 2.1448169
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 1,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.8464985999999999,
+    "long-text": 10.2554034,
+    "policy-near-tie": 2.2590404
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 2,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2860540999999999,
+    "long-text": 5.8756737999999995,
+    "policy-near-tie": 1.306735
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 2,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.3048788,
+    "long-text": 5.7998769,
+    "policy-near-tie": 1.2885389
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 2,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.3194195,
+    "long-text": 5.4668182,
+    "policy-near-tie": 1.3543174
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 2,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2919268,
+    "long-text": 5.7418085,
+    "policy-near-tie": 1.2848848
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 2,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2894988,
+    "long-text": 5.8853729999999995,
+    "policy-near-tie": 1.3207544
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.0208335,
+    "long-text": 3.9495839,
+    "policy-near-tie": 0.9322174
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.0026253999999999,
+    "long-text": 3.9797693,
+    "policy-near-tie": 0.9478368
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.2762913,
+    "long-text": 4.109232,
+    "policy-near-tie": 0.9618308
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.0320439,
+    "long-text": 3.9335641,
+    "policy-near-tie": 0.8941837
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 4,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.3166821,
+    "long-text": 5.9938947,
+    "policy-near-tie": 1.3368781
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "all",
+   "mask_hex": null,
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffffffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 0.9668416,
+    "long-text": 3.3532488,
+    "policy-near-tie": 0.8451166
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 0-15",
+   "mask_hex": "0xffff",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 0.9612634,
+    "long-text": 3.3996043,
+    "policy-near-tie": 0.8468013
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 16-31",
+   "mask_hex": "0xffff0000",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xffff0000",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.5571545,
+    "long-text": 3.6872955,
+    "policy-near-tie": 1.0972652
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "one per core (even cpus)",
+   "mask_hex": "0x55555555",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0x55555555",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 1.3120409,
+    "long-text": 3.6066642,
+    "policy-near-tie": 1.0583172
+   },
+   "stderr": ""
+  },
+  {
+   "threads": 16,
+   "mask": "cpus 8-11",
+   "mask_hex": "0xf00",
+   "returncode": 0,
+   "affinity": {
+    "process_mask": "0xf00",
+    "system_mask": "0xffffffff"
+   },
+   "bit_equal_to_main_1_thread": true,
+   "gate_failures": 0,
+   "wall_s": {
+    "candidate-request": 2.0532508,
+    "long-text": 6.8514975,
+    "policy-near-tie": 2.0791277
+   },
+   "stderr": ""
+  }
+ ]
+}

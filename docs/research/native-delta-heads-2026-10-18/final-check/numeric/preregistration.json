@@ -1,0 +1,162 @@
+{
+ "schema_version": "pure_jeff.delta_heads_final_check.v1",
+ "created_utc": "2026-10-18T10:11:36.737466+00:00",
+ "inputs": [
+  "synthetic-ocr-ja-2-127",
+  "candidate-request",
+  "synthetic-ocr-ja-2-129",
+  "reversed",
+  "synthetic-ocr-ja-2-511",
+  "synthetic-ocr-ascii-8-512",
+  "synthetic-ocr-ascii-3-513",
+  "policy-near-tie",
+  "policy-margin-near",
+  "long-text",
+  "maximum-candidates",
+  "token-limit-8192",
+  "token-limit-8193"
+ ],
+ "threads": [
+  1,
+  2,
+  4,
+  8,
+  16
+ ],
+ "timeout_threads": [
+  1,
+  4,
+  16
+ ],
+ "timeout_seconds": 3.0,
+ "gates": {
+  "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+  "probability_max_abs_vs_official": 0.0001,
+  "probability_sum_abs_error": 1e-06,
+  "finite": "every probability is a finite float in [0, 1]",
+  "judgment": "selected candidate or abstention equals the official reference",
+  "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+  "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+ },
+ "source": {
+  "commit": "a91b5e4c084c191e355bbbc8e96f80173254bdff",
+  "dirty": ""
+ },
+ "hashes": {
+  "driver": "53dd5e3fc84d8fd4257a4d19433bc80ed158607ce89315e1ffc1927750adb442",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "baseline_exe": "ac050de15c92a8570887039f279aeec3ed040f7e3fe3c545fc86916b54ffc868",
+  "candidate_exe": "9d25bd129e11a291edcd4bbd1f226cc924aa20243b7e523126712f3f85e628b9",
+  "timeout_exe": "366ad3cf81c4f26ba0188a33d717beccf6113c6d5ac3f20fb6247807abe5d261",
+  "bundles": {
+   "baseline-t1": "2c3d0a552528a3840e184a165429c68141fa1709afb2387c2540f16d5a53f0f3",
+   "baseline-t2": "17f20c7cd6693a01501b0b338717f982c4ae63c7ec1ce1cfcd419465d06e4e39",
+   "baseline-t4": "7571f0d3e102095fccd55956f058c34d1cb57ba5ffc20233e166eaf51745411b",
+   "baseline-t8": "98f988b7cc638096f0a7db16ca53f57f4f1c2d927e2dedaab2347f9229f190f5",
+   "baseline-t16": "e7dbdd4a53f6acafd01f42dbc17cd03c6c71413aefd4fff7b4302ddd51cf25bc",
+   "candidate-t1": "7a27047b560e1c7ae80bcc22bd26f7bc24d730db2ae5760b32e604998ec1a2f8",
+   "candidate-t2": "385f21b6795ed8f4b006d1e235079f197d277f4f47d81de3088fc59f2f4cc3c8",
+   "candidate-t4": "6ada70086f02e5ddb226e6635b81b41f5de93e21122d7f923b54af19f8597e3a",
+   "candidate-t8": "4c58aff8855081584f5bf10c5cc0e80cb99d39381eed62ab01b9a4a5eb7fa666",
+   "candidate-t16": "740dec93f319562ecdbafa79b09947b79fb35b4c5a96c29e08416a55a1c8d802"
+  }
+ },
+ "environment_start": {
+  "time_utc": "2026-10-18T10:11:37.006705+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 11,
+   "processor_performance_percent": 155,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 149374.640625,
+    "WS_MB": 198
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 149204.921875,
+    "WS_MB": 139
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 149136.984375,
+    "WS_MB": 145
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28166.3125,
+    "WS_MB": 308
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 19078.09375,
+    "WS_MB": 554
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 8200.28125,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 7182.890625,
+    "WS_MB": 490
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6934.90625,
+    "WS_MB": 288
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6334.59375,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4728.59375,
+    "WS_MB": 399
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4537.203125,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "ChatGPT",
+    "Id": 21876,
+    "CPU": 3917.09375,
+    "WS_MB": 49
+   }
+  ]
+ }
+}
