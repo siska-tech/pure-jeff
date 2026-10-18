@@ -30,11 +30,11 @@ ARMS = ("baseline", "candidate")
 SYNCHRONIZE = 0x00100000
 
 
-def plan():
+def plan(threads=THREADS, cases=CASES, sessions=(0, 1)):
     entries = []
-    for session in (0, 1):
-        for i, n in enumerate(THREADS if session == 0 else THREADS[::-1]):
-            for j, (case, reps) in enumerate(CASES.items()):
+    for session in sessions:
+        for i, n in enumerate(threads if session == 0 else threads[::-1]):
+            for j, (case, reps) in enumerate(cases.items()):
                 for rep in range(reps):
                     arms = ARMS if (i + j + rep + session) % 2 == 0 else ARMS[::-1]
                     entries += [{"session": session, "threads": n, "case": case, "rep": rep, "arm": a} for a in arms]
@@ -63,21 +63,28 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--baseline", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)
+    # A smaller plan (e.g. the final-commit check); the defaults are the registered E2b plan.
+    parser.add_argument("--threads", type=int, nargs="+", default=THREADS)
+    parser.add_argument("--case", nargs=2, action="append", metavar=("ID", "REPS"),
+                        help="input and its repetitions (repeatable); default: the E2b inputs")
+    parser.add_argument("--sessions", type=int, default=2, choices=(1, 2))
     args = parser.parse_args()
+    cases = {c: int(r) for c, r in args.case} if args.case else CASES
+    threads, sessions = args.threads, tuple(range(args.sessions))
     if rb.busy_processes():
         raise SystemExit("build/install/benchmark processes are running")
     by_id = cat.by_id(cat.load())
     exes = {"baseline": args.baseline / "examples/resident_bench.exe",
             "candidate": args.candidate / "examples/resident_bench.exe"}
-    bundles = {"baseline": {n: ROOT / f"models/pure-jeff-bundle-t{n}-diag.json" for n in THREADS},
-               "candidate": {n: ROOT / f"models/pure-jeff-bundle-t{n}-delta-heads.json" for n in THREADS}}
+    bundles = {"baseline": {n: ROOT / f"models/pure-jeff-bundle-t{n}-diag.json" for n in threads},
+               "candidate": {n: ROOT / f"models/pure-jeff-bundle-t{n}-delta-heads.json" for n in threads}}
     args.output.mkdir(parents=True)
     work = args.output / "work"
     work.mkdir()
-    for case in CASES:
+    for case in cases:
         job = [{"name": case, "phase": "measure", "max_input_tokens": cat.MAX_TOKENS, "request": by_id[case]["request"]}]
         (work / f"{case}.json").write_text(json.dumps(job, ensure_ascii=False), encoding="utf-8")
-    entries = plan()
+    entries = plan(threads, cases, sessions)
     rb.save(args.output / "preregistration.json", {
         "schema_version": "pure_jeff.delta_heads_memory.v1", "created_utc": datetime.now(timezone.utc).isoformat(),
         "plan": entries, "source": {"commit": rb.git("rev-parse", "HEAD"), "dirty": rb.git("status", "--porcelain")},
@@ -105,9 +112,9 @@ def main():
     rb.save(args.output / "environment-end.json", rb.sample_environment(full=True))
     # E2b decision: max over reps of each peak, candidate / baseline, per (session, threads, case).
     rows, violations = [], []
-    for s in (0, 1):
-        for n in THREADS:
-            for case in CASES:
+    for s in sessions:
+        for n in threads:
+            for case in cases:
                 peaks = {arm: [r for r in results if (r["session"], r["threads"], r["case"], r["arm"]) == (s, n, case, arm)]
                          for arm in ARMS}
                 row = {"session": s, "threads": n, "case": case}
