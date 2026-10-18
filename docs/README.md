@@ -23,7 +23,7 @@
 | [native-delta-threads-plan-2026-10-18.md](native-delta-threads-plan-2026-10-18.md) | DeltaNet逐次更新の複数thread化の事前登録：工程別診断（D1）と採否条件（E1／E2）（#18） |
 | [native-delta-threads-2026-10-18.md](native-delta-threads-2026-10-18.md) | DeltaNet逐次更新の工程別時間と方式比較：逐次の準備・書き戻しが主因、`fused`で16 thread 15.7%短縮、E1合格（#18、診断のみ） |
 | [native-delta-heads-e2e-plan-2026-10-18.md](native-delta-heads-e2e-plan-2026-10-18.md) | DeltaNet headの複数thread化をライブラリに組み込んだ版のE2（公開API E2E）事前登録と、E2後に追加したE2b（#18） |
-| [native-delta-heads-2026-10-18.md](native-delta-heads-2026-10-18.md) | E2／E2bの結果：bit一致・速度（4 thread以上で8〜15%短縮）は合格、sampling Privateで E2不合格、生涯peakのE2bは合格。採否保留（#18） |
+| [native-delta-heads-2026-10-18.md](native-delta-heads-2026-10-18.md) | E2／E2bの結果：bit一致・速度（4 thread以上で8〜15%短縮）は合格、sampling PrivateでE2不合格（記録として維持）、生涯peakのE2bと最終検証は合格。例外承認で採用（#18） |
 | [native-delta-heads-final-check-2026-10-18.md](native-delta-heads-final-check-2026-10-18.md) | rebase後の最終commitで代表ケースの数値（1〜16 thread、mainの1 threadとbit一致、timeout再利用）とメモリ（生涯peak比≤1.0017）を確認、合格（#18） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
