@@ -147,6 +147,12 @@
 4. **行列積**
    - #15の範囲。この作業では扱わない。
 
+## 計測後の変更
+
+CI（Rust 1.99.0）のclippyに合わせて、`fused`の書き戻しの1か所を`chunks_exact_mut(V)`から`as_chunks_mut::<V>()`に置き換えた。分割と演算は同じである。
+
+変更後に、16 thread・128 tokensで`serial`と`fused`を1回ずつ実行し、両方がライブラリとbit一致することを確かめた。D1で使ったexeは、この変更の前のもの（`preregistration.json`のhash）である。
+
 ## 証跡
 
 [research/native-delta-threads-2026-10-18/d1/](research/native-delta-threads-2026-10-18/d1)：

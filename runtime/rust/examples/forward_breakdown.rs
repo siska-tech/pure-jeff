@@ -713,7 +713,7 @@ mod profiled {
                 .with_min_len(16)
                 .enumerate()
                 .for_each(|(t, row)| {
-                    for (h, o) in row.chunks_exact_mut(V).enumerate() {
+                    for (h, o) in row.as_chunks_mut::<V>().0.iter_mut().enumerate() {
                         o.copy_from_slice(&heads[h][t * V..][..V]);
                     }
                 });
