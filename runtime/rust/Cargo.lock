@@ -891,6 +891,7 @@ dependencies = [
  "candle-nn",
  "gemm-common",
  "pure-jeff",
+ "rayon",
  "serde",
  "serde_json",
  "sha2",

@@ -1,0 +1,480 @@
+{
+ "schema_version": "pure_jeff.delta_stage_profile.v1",
+ "created_utc": "2026-10-18T02:03:14.158163+00:00",
+ "plan": [
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 1,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 1,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 2,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 2,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 4,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 4,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 8,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 8,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 16,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 0,
+   "threads": 16,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 16,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 16,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 8,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 8,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 4,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 4,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 2,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 2,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 1,
+   "cases": [
+    "candidate-request.json",
+    "synthetic-ocr-ascii-8-512.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,scoped,pool,fused"
+   ]
+  },
+  {
+   "kind": "stages",
+   "session": 1,
+   "threads": 1,
+   "cases": [
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "serial,fused"
+   ]
+  },
+  {
+   "kind": "no_stage_timers",
+   "session": 0,
+   "threads": 1,
+   "cases": [
+    "candidate-request.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,fused",
+    "--no-stage-timers"
+   ]
+  },
+  {
+   "kind": "no_stage_timers",
+   "session": 0,
+   "threads": 2,
+   "cases": [
+    "candidate-request.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,fused",
+    "--no-stage-timers"
+   ]
+  },
+  {
+   "kind": "no_stage_timers",
+   "session": 0,
+   "threads": 4,
+   "cases": [
+    "candidate-request.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,fused",
+    "--no-stage-timers"
+   ]
+  },
+  {
+   "kind": "no_stage_timers",
+   "session": 0,
+   "threads": 8,
+   "cases": [
+    "candidate-request.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,fused",
+    "--no-stage-timers"
+   ]
+  },
+  {
+   "kind": "no_stage_timers",
+   "session": 0,
+   "threads": 16,
+   "cases": [
+    "candidate-request.json",
+    "long-text.json"
+   ],
+   "reps": 3,
+   "args": [
+    "--delta",
+    "serial,fused",
+    "--no-stage-timers"
+   ]
+  },
+  {
+   "kind": "probe",
+   "session": 0,
+   "threads": 16,
+   "cases": [
+    "long-text.json",
+    "token-limit-8192.json"
+   ],
+   "reps": 1,
+   "args": [
+    "--delta",
+    "fused",
+    "--probe-scaling"
+   ]
+  }
+ ],
+ "source": {
+  "commit": "0fb99d4a82aca4fbbca785ed4b7f28032871475e",
+  "dirty": ""
+ },
+ "exe_sha256": "dc7f7050cabde4f82d589a2091b3c93dc904980d16d10ad56f6ad1eef2877f0d",
+ "driver_sha256": "8db78fd71f0473d2f589ef70fda161121bd5f40aadbb185d9b0afa4c56caf746",
+ "environment_start": {
+  "time_utc": "2026-10-18T02:03:14.316780+00:00",
+  "ac_line_status": 1,
+  "battery_percent": 255,
+  "battery_saver": 0,
+  "cpu": {
+   "load_percent": 20,
+   "processor_performance_percent": 151,
+   "processor_frequency_mhz": 3000,
+   "current_clock_mhz": 3000,
+   "max_clock_mhz": 3000
+  },
+  "thermal": null,
+  "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": {
+   "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+   "NumberOfCores": 16,
+   "NumberOfLogicalProcessors": 32,
+   "L2CacheSize": 16384,
+   "L3CacheSize": 65536
+  },
+  "logical_cpus": 32,
+  "top_processes": [
+   {
+    "ProcessName": "Code",
+    "Id": 14172,
+    "CPU": 121952.34375,
+    "WS_MB": 185
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 16868,
+    "CPU": 121856.703125,
+    "WS_MB": 137
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 3628,
+    "CPU": 121799.21875,
+    "WS_MB": 143
+   },
+   {
+    "ProcessName": "node",
+    "Id": 2528,
+    "CPU": 28092.921875,
+    "WS_MB": 307
+   },
+   {
+    "ProcessName": "Creative Cloud",
+    "Id": 6900,
+    "CPU": 17594.359375,
+    "WS_MB": 533
+   },
+   {
+    "ProcessName": "LineMediaPlayer",
+    "Id": 24528,
+    "CPU": 7935.84375,
+    "WS_MB": 26
+   },
+   {
+    "ProcessName": "claude",
+    "Id": 34792,
+    "CPU": 6597.25,
+    "WS_MB": 501
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 28624,
+    "CPU": 6427.5,
+    "WS_MB": 287
+   },
+   {
+    "ProcessName": "OsdShowV2.4",
+    "Id": 9912,
+    "CPU": 6068.6875,
+    "WS_MB": 21
+   },
+   {
+    "ProcessName": "chrome",
+    "Id": 25076,
+    "CPU": 4477.890625,
+    "WS_MB": 400
+   },
+   {
+    "ProcessName": "Code",
+    "Id": 26196,
+    "CPU": 4156.765625,
+    "WS_MB": 112
+   },
+   {
+    "ProcessName": "RadeonSoftware",
+    "Id": 16660,
+    "CPU": 3774.1875,
+    "WS_MB": 66
+   }
+  ]
+ }
+}
