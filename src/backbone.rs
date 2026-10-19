@@ -997,8 +997,17 @@ mod tests {
 
     #[test]
     fn attention_in_query_blocks_is_bitwise_equal_to_one_block() -> Result<()> {
+        // On aarch64, gemm computes a one-row product on its gemv path, which sums in another
+        // order than the multi-row kernel: a partition with a one-row block is only within
+        // 1e-6 there (at most 1.8e-7 measured, docs/native-host-matrix-2026-10-19.md). Every
+        // other partition, and every partition on other targets, must be bitwise equal.
+        let one_row_exact = !cfg!(target_arch = "aarch64");
         let mut seed = 0x5eed_u64;
-        for seq in [1, 7, 8, 9, 37] {
+        let cases = [1, 7, 8, 9, 37]
+            .map(|seq| (seq, vec![1, 3, 8]))
+            .into_iter()
+            .chain([(513, vec![QUERY_BLOCK]), (1024, vec![QUERY_BLOCK])]);
+        for (seq, blocks) in cases {
             let q = Tensor::from_vec(
                 uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
                 (8, seq, 256),
@@ -1014,17 +1023,24 @@ mod tests {
                 (8, seq, 256),
                 &Device::Cpu,
             )?;
-            let whole = bits(&attention_rows(&q, &kt, &v, 0, seq)?)?;
-            for block in [1, 3, 8] {
+            let whole = attention_rows(&q, &kt, &v, 0, seq)?;
+            for block in blocks {
                 let parts: Vec<Tensor> = (0..seq)
                     .step_by(block)
                     .map(|start| attention_rows(&q, &kt, &v, start, block.min(seq - start)))
                     .collect::<Result<_>>()?;
-                assert_eq!(
-                    bits(&Tensor::cat(&parts, 1)?)?,
-                    whole,
-                    "seq {seq}, block {block}"
-                );
+                let blocked = Tensor::cat(&parts, 1)?;
+                let one_row_block = seq > 1 && (block == 1 || seq % block == 1);
+                if one_row_exact || !one_row_block {
+                    assert_eq!(bits(&blocked)?, bits(&whole)?, "seq {seq}, block {block}");
+                } else {
+                    let error = (blocked - &whole)?
+                        .abs()?
+                        .flatten_all()?
+                        .max(0)?
+                        .to_scalar::<f32>()?;
+                    assert!(error <= 1e-6, "seq {seq}, block {block}: {error}");
+                }
             }
         }
         Ok(())

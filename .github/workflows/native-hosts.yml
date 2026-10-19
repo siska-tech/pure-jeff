@@ -1,8 +1,8 @@
 name: Native hosts
 # Model-based checks of the Native runtime on GitHub-hosted runners other than the measuring
 # machine (issue #18): Linux and Windows, x86_64 and ARM64. Each job downloads the pinned
-# checkpoint (1.73 GB, cached across jobs), builds the CLI, runs the library and CLI tests,
-# compares the one-shot CLI with the official golden references, and runs bench/host_matrix.py
+# checkpoint (1.73 GB, cached across jobs), builds the CLI, runs the library and CLI tests (debug),
+# compares the one-shot CLI with the seven official golden references, and runs bench/host_matrix.py
 # (gemm CACHE_INFO per CPU, 1 to 4 threads in two independent processes, pinned processes,
 # timeout and reuse). Runners are shared 4-vCPU machines: the wall times are descriptive only.
 on:
@@ -86,10 +86,11 @@ jobs:
           # A native path (bash's `command -v` gives /c/... on Windows).
           export PURE_JEFF_PYTHON="$(python -c 'import sys; print(sys.executable)')"
           python -c "import argparse, json, pathlib, time"
-          # Release: on aarch64, gemm-f16 0.19 does not compile at opt-level 0 (fp16 inline asm
-          # in #[inline] functions without the target feature).
-          cargo test --locked --release --all-features
-          cargo test --locked --release --manifest-path runtime/rust/Cargo.toml
+          # Debug builds (aarch64 needs .cargo/config.toml for gemm-f16). No fail-fast: every
+          # test binary runs and every failure is listed.
+          cargo build --locked
+          cargo test --locked --all-features --no-fail-fast
+          cargo test --locked --manifest-path runtime/rust/Cargo.toml --no-fail-fast
       # The later checks still run (and the job still fails) when a test fails.
       - name: One-shot CLI against the official golden references
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
@@ -104,7 +105,9 @@ jobs:
           "$jeff" lock models/jeff-checkpoint models/ci-golden-bundle.json \
             51552f39a943d62e8387c4ea5e17026a1408729f 0.7 0.1 1
           python -B runtime/validate_migration_cases.py --executable "$jeff" \
-            --manifest models/ci-golden-bundle.json --output "$RUNNER_TEMP/host-results/golden.json"
+            --manifest models/ci-golden-bundle.json --output "$RUNNER_TEMP/host-results/golden.json" \
+            --cases candidate-request reversed asr-unicode special-token-text long-text \
+            maximum-candidates token-limit-8192
       - name: Host matrix
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |

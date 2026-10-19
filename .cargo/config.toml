@@ -1,0 +1,8 @@
+# Debug builds on aarch64: gemm-f16 0.19 does not compile at opt-level 0 ("instruction requires:
+# fullfp16", sarah-quinones/gemm#31 and #46: FP16 inline asm in #[inline] helpers without the
+# target feature). Optimizing that one crate drops the uncalled helpers. pure-jeff computes in F32
+# and never calls the F16 kernels; release builds and the runtime build hash are unaffected.
+# Applies to builds started inside this repository only (README.crate.md has the same lines for
+# projects that depend on the crate).
+[profile.dev.package.gemm-f16]
+opt-level = 1

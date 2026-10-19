@@ -72,7 +72,9 @@
 - **起動**：手動（thread数・process数を指定できる）、週1回、この2ファイルを変えるPR。
 - **範囲**：runnerは共有の仮想機なので、速度は判定しない。数値・起動・peakだけを見る。Intel hybrid CPUのrunnerはないため、P／E-coreの問題はCIでは再現できない。
 
-### 結果（PR #38、commit `5b729b9`、run 39233327905）
+### 結果（変更前：PR #38、commit `5b729b9`、run 39233327905）
+
+原因と対応は[native-arm64-2026-10-20.md](native-arm64-2026-10-20.md)にまとめた。この節は、対応前の記録として残す。
 
 | runner | CPU | gemm CACHE_INFO（L1／L2／L3） | matrix | 公式refとの最大差 | golden 6件の最大差 | library試験 |
 | --- | --- | --- | --- | ---: | ---: | --- |
