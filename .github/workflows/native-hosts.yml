@@ -78,6 +78,7 @@ jobs:
       - name: Fetch and verify the model
         run: python -B tools/fetch_model.py
       - name: Build
+        id: build
         run: cargo build --locked --release --manifest-path runtime/rust/Cargo.toml --bins --examples
       - name: Library and CLI tests
         run: |
@@ -89,7 +90,9 @@ jobs:
           # in #[inline] functions without the target feature).
           cargo test --locked --release --all-features
           cargo test --locked --release --manifest-path runtime/rust/Cargo.toml
+      # The later checks still run (and the job still fails) when a test fails.
       - name: One-shot CLI against the official golden references
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |
           set -e
           jeff=runtime/rust/target/release/jeff
@@ -103,6 +106,7 @@ jobs:
           python -B runtime/validate_migration_cases.py --executable "$jeff" \
             --manifest models/ci-golden-bundle.json --output "$RUNNER_TEMP/host-results/golden.json"
       - name: Host matrix
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |
           python -B bench/host_matrix.py --output "$RUNNER_TEMP/host-results/matrix" \
             --bin runtime/rust/target/release --threads $THREADS --processes "$PROCESSES"
