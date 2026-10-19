@@ -82,9 +82,12 @@ jobs:
       - name: Library and CLI tests
         run: |
           set -e
-          export PURE_JEFF_PYTHON="$(command -v python)"
+          # A native path (bash's `command -v` gives /c/... on Windows).
+          export PURE_JEFF_PYTHON="$(python -c 'import sys; print(sys.executable)')"
           python -c "import argparse, json, pathlib, time"
-          cargo test --locked --all-features
+          # Release: on aarch64, gemm-f16 0.19 does not compile at opt-level 0 (fp16 inline asm
+          # in #[inline] functions without the target feature).
+          cargo test --locked --release --all-features
           cargo test --locked --release --manifest-path runtime/rust/Cargo.toml
       - name: One-shot CLI against the official golden references
         run: |
