@@ -25,6 +25,7 @@
 | [native-delta-heads-e2e-plan-2026-10-18.md](native-delta-heads-e2e-plan-2026-10-18.md) | DeltaNet headの複数thread化をライブラリに組み込んだ版のE2（公開API E2E）事前登録と、E2後に追加したE2b（#18） |
 | [native-delta-heads-2026-10-18.md](native-delta-heads-2026-10-18.md) | E2／E2bの結果：bit一致・速度（4 thread以上で8〜15%短縮）は合格、sampling PrivateでE2不合格（記録として維持）、生涯peakのE2bと最終検証は合格。例外承認で採用（#18） |
 | [native-delta-heads-final-check-2026-10-18.md](native-delta-heads-final-check-2026-10-18.md) | rebase後の最終commitで代表ケースの数値（1〜16 thread、mainの1 threadとbit一致、timeout再利用）とメモリ（生涯peak比≤1.0017）を確認、合格（#18） |
+| [native-host-matrix-2026-10-19.md](native-host-matrix-2026-10-19.md) | Intel hybrid CPU（i7-1360P）での検証：P-coreから起動すれば1〜16 threadでbit一致、E-coreから起動するとCACHE_INFOが変わり最大3.55e-6の差。Linux／ARM64のCI（#18） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |
