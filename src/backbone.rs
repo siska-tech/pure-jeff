@@ -997,11 +997,13 @@ mod tests {
 
     #[test]
     fn attention_in_query_blocks_is_bitwise_equal_to_one_block() -> Result<()> {
-        // On aarch64, gemm computes a one-row product on its gemv path, which sums in another
-        // order than the multi-row kernel: a partition with a one-row block is only within
-        // 1e-6 there (at most 1.8e-7 measured, docs/native-host-matrix-2026-10-19.md). Every
-        // other partition, and every partition on other targets, must be bitwise equal.
-        let one_row_exact = !cfg!(target_arch = "aarch64");
+        // gemm computes a one-row product on its gemv path, which sums all of k in one pass;
+        // the multi-row kernel splits k at kc, which depends on the cache sizes gemm reads from
+        // the host (never below 512). A partition with a one-row block is therefore only within
+        // 1e-6 on aarch64 (the two paths add in another order there) and, on any target, when
+        // a product reaches k > 512 (513 rows). Every other partition must be bitwise equal
+        // (docs/native-arm64-2026-10-20.md).
+        let one_row_exact = |seq: usize| !cfg!(target_arch = "aarch64") && seq <= 512;
         let mut seed = 0x5eed_u64;
         let cases = [1, 7, 8, 9, 37]
             .map(|seq| (seq, vec![1, 3, 8]))
@@ -1031,7 +1033,7 @@ mod tests {
                     .collect::<Result<_>>()?;
                 let blocked = Tensor::cat(&parts, 1)?;
                 let one_row_block = seq > 1 && (block == 1 || seq % block == 1);
-                if one_row_exact || !one_row_block {
+                if one_row_exact(seq) || !one_row_block {
                     assert_eq!(bits(&blocked)?, bits(&whole)?, "seq {seq}, block {block}");
                 } else {
                     let error = (blocked - &whole)?
