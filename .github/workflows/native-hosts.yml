@@ -1,0 +1,116 @@
+name: Native hosts
+# Model-based checks of the Native runtime on GitHub-hosted runners other than the measuring
+# machine (issue #18): Linux and Windows, x86_64 and ARM64. Each job downloads the pinned
+# checkpoint (1.73 GB, cached across jobs), builds the CLI, runs the library and CLI tests,
+# compares the one-shot CLI with the official golden references, and runs bench/host_matrix.py
+# (gemm CACHE_INFO per CPU, 1 to 4 threads in two independent processes, pinned processes,
+# timeout and reuse). Runners are shared 4-vCPU machines: the wall times are descriptive only.
+on:
+  workflow_dispatch:
+    inputs:
+      threads:
+        description: "Thread counts (the first must be 1)"
+        default: "1 2 4"
+      processes:
+        description: "Independent processes per thread count"
+        default: "2"
+  schedule:
+    - cron: "41 4 * * 2"
+  pull_request:
+    paths:
+      - .github/workflows/native-hosts.yml
+      - bench/host_matrix.py
+permissions:
+  contents: read
+concurrency:
+  group: native-hosts-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  CARGO_TERM_COLOR: always
+  RUST_TOOLCHAIN: 1.99.0
+  THREADS: ${{ inputs.threads || '1 2 4' }}
+  PROCESSES: ${{ inputs.processes || '2' }}
+jobs:
+  host:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-24.04-arm, windows-2022, windows-11-arm]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 240
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Rust toolchain
+        run: |
+          set -e
+          if ! command -v rustup >/dev/null; then
+            # Not every image ships rustup (e.g. Windows on ARM).
+            curl -sSfL -o "$RUNNER_TEMP/rustup-init.exe" \
+              "https://static.rust-lang.org/rustup/dist/aarch64-pc-windows-msvc/rustup-init.exe"
+            "$RUNNER_TEMP/rustup-init.exe" -y --profile minimal --default-toolchain none
+            echo "$USERPROFILE/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$USERPROFILE/.cargo/bin:$PATH"
+          fi
+          rustup toolchain install "$RUST_TOOLCHAIN" --profile minimal
+          rustup default "$RUST_TOOLCHAIN"
+          rustc -vV
+      - uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            target
+            runtime/rust/target
+          key: native-hosts-${{ runner.os }}-${{ runner.arch }}-${{ env.RUST_TOOLCHAIN }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Model cache
+        uses: actions/cache@v6
+        with:
+          path: models/jeff-checkpoint
+          key: jeff-checkpoint-${{ hashFiles('tools/checkpoint.json') }}
+          enableCrossOsArchive: true
+      - name: Fetch and verify the model
+        run: python -B tools/fetch_model.py
+      - name: Build
+        run: cargo build --locked --release --manifest-path runtime/rust/Cargo.toml --bins --examples
+      - name: Library and CLI tests
+        run: |
+          set -e
+          export PURE_JEFF_PYTHON="$(command -v python)"
+          python -c "import argparse, json, pathlib, time"
+          cargo test --locked --all-features
+          cargo test --locked --release --manifest-path runtime/rust/Cargo.toml
+      - name: One-shot CLI against the official golden references
+        run: |
+          set -e
+          jeff=runtime/rust/target/release/jeff
+          [ -x "$jeff.exe" ] && jeff="$jeff.exe"
+          mkdir -p experiments/runs "$RUNNER_TEMP/host-results"
+          # The validator gives the CLI only %SystemRoot%\System32 as PATH (and checks that no
+          # Python is on it); elsewhere that is a directory that does not exist.
+          export SystemRoot="${SystemRoot:-$RUNNER_TEMP/no-system-root}"
+          "$jeff" lock models/jeff-checkpoint models/ci-golden-bundle.json \
+            51552f39a943d62e8387c4ea5e17026a1408729f 0.7 0.1 1
+          python -B runtime/validate_migration_cases.py --executable "$jeff" \
+            --manifest models/ci-golden-bundle.json --output "$RUNNER_TEMP/host-results/golden.json"
+      - name: Host matrix
+        run: |
+          python -B bench/host_matrix.py --output "$RUNNER_TEMP/host-results/matrix" \
+            --bin runtime/rust/target/release --threads $THREADS --processes "$PROCESSES"
+      - name: Summary
+        if: always()
+        run: |
+          summary="$RUNNER_TEMP/host-results/matrix/summary.md"
+          if [ -f "$summary" ]; then cat "$summary" >> "$GITHUB_STEP_SUMMARY"; fi
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: native-host-${{ matrix.runner }}
+          path: ${{ runner.temp }}/host-results
+          if-no-files-found: ignore
