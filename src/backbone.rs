@@ -1034,7 +1034,8 @@ mod tests {
                 let blocked = Tensor::cat(&parts, 1)?;
                 let one_row_block = seq > 1 && (block == 1 || seq % block == 1);
                 if one_row_exact(seq) || !one_row_block {
-                    assert_eq!(bits(&blocked)?, bits(&whole)?, "seq {seq}, block {block}");
+                    // Not assert_eq!: at 513 rows the vectors would fill the log.
+                    assert!(bits(&blocked)? == bits(&whole)?, "seq {seq}, block {block}");
                 } else {
                     let error = (blocked - &whole)?
                         .abs()?
