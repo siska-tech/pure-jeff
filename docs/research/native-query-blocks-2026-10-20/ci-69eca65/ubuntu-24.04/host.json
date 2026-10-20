@@ -1,0 +1,540 @@
+{
+ "schema_version": "pure_jeff.host_matrix.v1",
+ "created_utc": "2026-10-20T04:23:00.995031+00:00",
+ "source": {
+  "commit": "69eca65be265d42b3f2f0f5b9720bb5ca5c77063",
+  "dirty": ""
+ },
+ "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+ "host": {
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "system": "Linux",
+  "machine": "x86_64",
+  "python": "3.12.15",
+  "logical_cpus": 4,
+  "runner": {
+   "RUNNER_NAME": "GitHub Actions 1000002311",
+   "RUNNER_OS": "Linux",
+   "RUNNER_ARCH": "X64",
+   "ImageOS": "ubuntu24",
+   "ImageVersion": "20261012.334.1"
+  },
+  "process_affinity": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "cpuinfo": {
+   "model name": [
+    "Intel(R) Xeon(R) 6973P-C"
+   ],
+   "flags": [
+    "3dnowprefetch",
+    "abm",
+    "adx",
+    "aes",
+    "amx_bf16",
+    "amx_int8",
+    "amx_tile",
+    "aperfmperf",
+    "apic",
+    "arch_capabilities",
+    "avx",
+    "avx2",
+    "avx512_bf16",
+    "avx512_bitalg",
+    "avx512_fp16",
+    "avx512_vbmi2",
+    "avx512_vnni",
+    "avx512_vpopcntdq",
+    "avx512bw",
+    "avx512cd",
+    "avx512dq",
+    "avx512f",
+    "avx512ifma",
+    "avx512vbmi",
+    "avx512vl",
+    "avx_vnni",
+    "bmi1",
+    "bmi2",
+    "cldemote",
+    "clflush",
+    "clflushopt",
+    "clwb",
+    "cmov",
+    "constant_tsc",
+    "cpuid",
+    "cx16",
+    "cx8",
+    "de",
+    "ept",
+    "ept_ad",
+    "erms",
+    "f16c",
+    "fma",
+    "fpu",
+    "fsgsbase",
+    "fsrm",
+    "fxsr",
+    "gfni",
+    "hle",
+    "ht",
+    "hypervisor",
+    "ibt",
+    "invpcid",
+    "la57",
+    "lahf_lm",
+    "lm",
+    "mca",
+    "mce",
+    "mmx",
+    "movbe",
+    "movdir64b",
+    "movdiri",
+    "msr",
+    "mtrr",
+    "nonstop_tsc",
+    "nopl",
+    "nx",
+    "pae",
+    "pat",
+    "pcid",
+    "pclmulqdq",
+    "pdpe1gb",
+    "pge",
+    "pni",
+    "popcnt",
+    "pse",
+    "pse36",
+    "rdpid",
+    "rdrand",
+    "rdseed",
+    "rdtscp",
+    "rep_good",
+    "rtm",
+    "sep",
+    "serialize",
+    "sha_ni",
+    "smap",
+    "smep",
+    "ss",
+    "sse",
+    "sse2",
+    "sse4_1",
+    "sse4_2",
+    "ssse3",
+    "syscall",
+    "tpr_shadow",
+    "tsc",
+    "tsc_adjust",
+    "tsc_deadline_timer",
+    "tsc_known_freq",
+    "tsc_reliable",
+    "tsxldtrk",
+    "umip",
+    "user_shstk",
+    "vaes",
+    "vme",
+    "vmx",
+    "vnmi",
+    "vpclmulqdq",
+    "vpid",
+    "waitpkg",
+    "x2apic",
+    "xgetbv1",
+    "xsave",
+    "xsavec",
+    "xsaveopt",
+    "xsaves",
+    "xtopology"
+   ]
+  },
+  "lscpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) 6973P-C\nCPU family:                              6\nModel:                                   173\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nCPU(s) scaling MHz:                      156%\nCPU max MHz:                             2600.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                5200.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 vnmi avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk ibt amx_bf16 avx512_fp16 amx_tile amx_int8 arch_capabilities\nVirtualization:                          VT-x\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               128 KiB (2 instances)\nL2 cache:                                4 MiB (2 instances)\nL3 cache:                                480 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Vulnerable\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Retpoline\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+  "memory_total": "MemTotal:       16372440 kB",
+  "os_caches": {
+   "core_types": {},
+   "cache_groups": [
+    {
+     "cpus": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "caches": [
+      {
+       "coherency_line_size": "64",
+       "level": "1",
+       "size": "48K",
+       "type": "Data",
+       "ways_of_associativity": "12"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "1",
+       "size": "64K",
+       "type": "Instruction",
+       "ways_of_associativity": "16"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "2",
+       "size": "2048K",
+       "type": "Unified",
+       "ways_of_associativity": "16"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "3",
+       "size": "491520K",
+       "type": "Unified",
+       "ways_of_associativity": "16"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "plan": {
+  "cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513",
+   "long-text",
+   "maximum-candidates",
+   "token-limit-8192",
+   "token-limit-8193"
+  ],
+  "short_cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513"
+  ],
+  "threads": [
+   1,
+   2,
+   4
+  ],
+  "processes": 2,
+  "pinned_threads": [
+   1,
+   4
+  ],
+  "timeout_threads": [
+   1,
+   4
+  ],
+  "timeout_seconds": 3.0,
+  "gates": {
+   "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+   "probability_max_abs_vs_official": 0.0001,
+   "probability_sum_abs_error": 1e-06,
+   "finite": "every probability is a finite float in [0, 1]",
+   "judgment": "selected candidate or abstention equals the official reference",
+   "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+   "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+  }
+ },
+ "hashes": {
+  "driver": "4ce65cbff7df0c0beb03d08e64a90b2fb3856950e3415cfe26a4f92929827cb9",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "jeff": "7f1c27d3d6815c8412808d5af4428e5e978da7d2413c594cada5ad30c4c7dd3a",
+  "resident_bench": "90d0e2113316b656b145d16c75619530defe507802e7d113669b2bd6e2d68a7c",
+  "timeout_reuse": "5cc8017209d1ce5ab9ff0dd814a7c5f4201f5683937f6fe9c9586a872f1af932",
+  "thread_probe": "f03861e9f330c893128cf818ca7126498cd607a02024213e82a35a2c30ae3881",
+  "bundles": {
+   "t1": "e93f53f9f7de560d4175854bf90856b41df40d46df709eef1b2ce6b7a0e8563a",
+   "t2": "ec66eaaac66fc01da719c80a2f664db23c8a568d12b762ab4da97b463624604e",
+   "t4": "b811b187bfdae0e27c75f11996896b17e6f8521f6bb2fad5d69aca2804994157"
+  }
+ },
+ "cache_probe": {
+  "unpinned": [
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "pinned": [
+   {
+    "cpus": [
+     0
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     1
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     2
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     3
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 2,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 12,
+       "bytes": 24576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 503316480,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "groups": [
+   {
+    "gemm_cache_info": [
+     {
+      "associativity": 12,
+      "bytes": 24576,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 16,
+      "bytes": 1048576,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 16,
+      "bytes": 503316480,
+      "line_bytes": 64
+     }
+    ],
+    "pinned_cpus": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "unpinned_processes": 3
+   }
+  ]
+ }
+}

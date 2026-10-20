@@ -56,6 +56,15 @@
   - 比較（`compare-39-cases.json`）。
   - 513 tokensの比較（`blockdiff-513-*.jsonl`）。
 
-### 4環境CI
+### 4環境CI（`native-hosts.yml`を手動実行、commit `69eca65`、run 39368534736）
 
-`native-hosts.yml`をこのbranchで手動実行し、結果をPRに記録する。
+| runner | CPU | gemm CACHE_INFO（KiB） | 試験（debug） | golden 7件の最大差 | host matrix | 公式refとの最大差 |
+| --- | --- | --- | --- | ---: | --- | ---: |
+| ubuntu-24.04 | Intel Xeon 6973P-C | 24／1024／491520 | 45件合格 | 4.38e-6 | 合格 | 3.99e-6 |
+| windows-2022 | AMD EPYC 9V45 | 48／1024／0 | 45件合格 | 5.07e-6 | 合格 | 4.74e-6 |
+| ubuntu-24.04-arm | Cobalt 100 | 64／1024／131072 | 45件合格 | 5.72e-6 | 合格 | 5.30e-6 |
+| windows-11-arm | Cobalt 100 | 16／512／1024 | 45件合格 | 4.26e-6 | 合格 | 3.78e-6 |
+
+- 2つのblock試験は、ARM64を含む4環境とも、例外なしのbit一致で合格した。#38では、ARM64で1e-6の例外が必要だった。
+- host matrixは、39件×1／2／4 thread×2 process、固定process、timeout→再利用で、gate違反0、1 threadとのbit不一致0だった。
+- 証跡：[research/native-query-blocks-2026-10-20/ci-69eca65/](research/native-query-blocks-2026-10-20/ci-69eca65)
