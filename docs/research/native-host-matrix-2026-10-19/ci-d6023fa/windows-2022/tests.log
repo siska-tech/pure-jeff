@@ -1,0 +1,20 @@
+^[[1m^[[92m   Compiling^[[0m static_assertions v1.1.0
+test backbone::tests::a_failed_retention_returns_the_error ... ok
+test backbone::tests::a_result_that_keeps_the_lent_weight_is_rejected ... ok
+test backbone::tests::a_query_block_sees_exactly_its_causal_prefix ... ok
+test backbone::tests::delta_update_decay_and_state_isolation ... ok
+test backbone::tests::fused_element_wise_steps_are_bitwise_equal_to_candle_ops ... ok
+test backbone::tests::one_buffer_gives_every_weight_its_own_values ... ok
+test backbone::tests::retained_tensors_are_lent_as_kept_and_never_overwritten ... ok
+test backbone::tests::rope_preserves_unrotated_dimensions_and_zero_position ... ok
+test bundle::tests::inventory_detects_added_modified_and_missing_files ... ok
+test bundle::tests::paths_deadlines_and_required_sets_are_enforced ... ok
+test bundle::tests::tensor_names_shapes_and_dtypes_are_checked ... ok
+test json::tests::duplicate_nested_escaped_and_trailing_keys_are_rejected ... ok
+test tests::build_hash_covers_every_source_file ... ok
+test weights::tests::direct_conversion_is_bitwise_equal_to_candle ... ok
+test backbone::tests::delta_recurrence_is_bitwise_equal_to_the_reference ... ok
+test backbone::tests::attention_in_query_blocks_is_bitwise_equal_to_one_block ... FAILED
+test backbone::tests::delta_heads_are_bitwise_equal_to_the_serial_loop ... ok
+thread 'backbone::tests::attention_in_query_blocks_is_bitwise_equal_to_one_block' (6704) panicked at src\backbone.rs:1035:21:
+assertion `left == right` failed: seq 513, block 512

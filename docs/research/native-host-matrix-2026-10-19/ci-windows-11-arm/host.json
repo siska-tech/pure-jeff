@@ -1,0 +1,366 @@
+{
+ "schema_version": "pure_jeff.host_matrix.v1",
+ "created_utc": "2026-10-19T10:02:34.639180+00:00",
+ "source": {
+  "commit": "5b729b92be67039821905aec482b590aaccd3b6f",
+  "dirty": ""
+ },
+ "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+ "host": {
+  "platform": "Windows-11-10.0.26200-SP0",
+  "system": "Windows",
+  "machine": "ARM64",
+  "python": "3.12.10",
+  "logical_cpus": 4,
+  "runner": {
+   "RUNNER_NAME": "GitHub Actions 1000002215",
+   "RUNNER_OS": "Windows",
+   "RUNNER_ARCH": "ARM64",
+   "ImageOS": "win11-vs2026-arm64",
+   "ImageVersion": "20261013.183.4"
+  },
+  "processor": "{\"Name\":\"Cobalt 100\",\"NumberOfCores\":4,\"NumberOfLogicalProcessors\":4,\"MaxClockSpeed\":3400,\"L2CacheSize\":4096,\"L3CacheSize\":0}",
+  "memory_total": "17169387520"
+ },
+ "plan": {
+  "cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513",
+   "long-text",
+   "maximum-candidates",
+   "token-limit-8192",
+   "token-limit-8193"
+  ],
+  "short_cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513"
+  ],
+  "threads": [
+   1,
+   2,
+   4
+  ],
+  "processes": 2,
+  "pinned_threads": [
+   1,
+   4
+  ],
+  "timeout_threads": [
+   1,
+   4
+  ],
+  "timeout_seconds": 3.0,
+  "gates": {
+   "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+   "probability_max_abs_vs_official": 0.0001,
+   "probability_sum_abs_error": 1e-06,
+   "finite": "every probability is a finite float in [0, 1]",
+   "judgment": "selected candidate or abstention equals the official reference",
+   "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+   "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+  }
+ },
+ "hashes": {
+  "driver": "4ce65cbff7df0c0beb03d08e64a90b2fb3856950e3415cfe26a4f92929827cb9",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "jeff": "e76e88e0af8b4ab622605736dfdd63d3bca943034816a0db70f413babdb0bff0",
+  "resident_bench": "8c12cde81078a6e1152abb3e3d7e69badd60ded17d3ad8648b8397ad17cadcba",
+  "timeout_reuse": "e506a9c08d7a7d176f05dee097c9efb56e84e82963359cdf02f135e857547aac",
+  "thread_probe": "b38404198e90df12c4d32c51fc70ede1e8cb7ec2851d8e3d03aeb310d6417442",
+  "bundles": {
+   "t1": "ca33b1a62cd0fbf09706163c0b5adc26cc9f9a5062056850c2ad429dea8b82a8",
+   "t2": "c346b827bf026fa2761ad1c64398d87a26626e2df936329d80d6dd2a41bebf3f",
+   "t4": "197f8c9bffc82681062882935ef5e1dc979ae1d944ff91fc3ae3a014a1cc129e"
+  }
+ },
+ "cache_probe": {
+  "unpinned": [
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 0,
+     "cpu_at_start": 0,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 1,
+     "cpu_at_start": 1,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 2,
+     "cpu_at_start": 2,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "pinned": [
+   {
+    "cpus": [
+     0
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 0,
+     "cpu_at_start": 0,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     1
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 1,
+     "cpu_at_start": 1,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     2
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 2,
+     "cpu_at_start": 2,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     3
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 3,
+     "cpu_at_start": 3,
+     "gemm_cache_info": [
+      {
+       "associativity": 8,
+       "bytes": 16384,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 524288,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "groups": [
+   {
+    "gemm_cache_info": [
+     {
+      "associativity": 8,
+      "bytes": 16384,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 8,
+      "bytes": 524288,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 8,
+      "bytes": 1048576,
+      "line_bytes": 64
+     }
+    ],
+    "pinned_cpus": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "unpinned_processes": 3
+   }
+  ]
+ }
+}

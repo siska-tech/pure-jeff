@@ -997,8 +997,19 @@ mod tests {
 
     #[test]
     fn attention_in_query_blocks_is_bitwise_equal_to_one_block() -> Result<()> {
+        // gemm computes a one-row product on its gemv path, which sums all of k in one pass;
+        // the multi-row kernel splits k at kc, which depends on the cache sizes gemm reads from
+        // the host (never below 512). A partition with a one-row block is therefore only within
+        // 1e-6 on aarch64 (the two paths add in another order there) and, on any target, when
+        // a product reaches k > 512 (513 rows). Every other partition must be bitwise equal
+        // (docs/native-arm64-2026-10-20.md).
+        let one_row_exact = |seq: usize| !cfg!(target_arch = "aarch64") && seq <= 512;
         let mut seed = 0x5eed_u64;
-        for seq in [1, 7, 8, 9, 37] {
+        let cases = [1, 7, 8, 9, 37]
+            .map(|seq| (seq, vec![1, 3, 8]))
+            .into_iter()
+            .chain([(513, vec![QUERY_BLOCK]), (1024, vec![QUERY_BLOCK])]);
+        for (seq, blocks) in cases {
             let q = Tensor::from_vec(
                 uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
                 (8, seq, 256),
@@ -1014,17 +1025,25 @@ mod tests {
                 (8, seq, 256),
                 &Device::Cpu,
             )?;
-            let whole = bits(&attention_rows(&q, &kt, &v, 0, seq)?)?;
-            for block in [1, 3, 8] {
+            let whole = attention_rows(&q, &kt, &v, 0, seq)?;
+            for block in blocks {
                 let parts: Vec<Tensor> = (0..seq)
                     .step_by(block)
                     .map(|start| attention_rows(&q, &kt, &v, start, block.min(seq - start)))
                     .collect::<Result<_>>()?;
-                assert_eq!(
-                    bits(&Tensor::cat(&parts, 1)?)?,
-                    whole,
-                    "seq {seq}, block {block}"
-                );
+                let blocked = Tensor::cat(&parts, 1)?;
+                let one_row_block = seq > 1 && (block == 1 || seq % block == 1);
+                if one_row_exact(seq) || !one_row_block {
+                    // Not assert_eq!: at 513 rows the vectors would fill the log.
+                    assert!(bits(&blocked)? == bits(&whole)?, "seq {seq}, block {block}");
+                } else {
+                    let error = (blocked - &whole)?
+                        .abs()?
+                        .flatten_all()?
+                        .max(0)?
+                        .to_scalar::<f32>()?;
+                    assert!(error <= 1e-6, "seq {seq}, block {block}: {error}");
+                }
             }
         }
         Ok(())

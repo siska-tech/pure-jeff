@@ -1,0 +1,6 @@
+{"attempt": "plain", "exit": 101, "seconds": 17}
+{"attempt": "gemm-f16-o1", "exit": 0, "seconds": 31}
+{"attempt": "gemm-f16-o2", "exit": 0, "seconds": 31}
+{"attempt": "gemm-f16-o3", "exit": 0, "seconds": 30}
+{"attempt": "plain-test", "exit": 101, "seconds": 57}
+{"attempt": "cli-test", "exit": 0, "seconds": 41}

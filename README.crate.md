@@ -78,7 +78,13 @@ println!("{:?}", observation.judgment); // Selected { candidate_id } or Abstaine
 - One fixed checkpoint (revision above), text only, batch one, FP32 compute on CPU, at most 8192 input tokens.
 - Checked against the official Python implementation on seven reference cases (up to 8192 tokens and 255 candidates; artificial inputs): all judgments and token counts match. With this crate's crates.io dependencies the largest probability difference was 3.5e-6. Recognition quality on real OCR/ASR data has not been evaluated.
 - Changes between versions are listed in [CHANGELOG.md](https://github.com/siska-tech/pure-jeff/blob/main/CHANGELOG.md). Since 0.2.0, with one thread on the reference machine, a resident `Model` is at least as fast as the official Python/PyTorch implementation from 128 to 8192 tokens and uses less memory; outputs are still bitwise identical to 0.1.0. `LoadOptions` gained a field in 0.2.0, so struct literals need `..LoadOptions::default()`.
-- Validated with the model on Windows x86_64. On Linux x86_64 the crate builds and passes the model-free tests in CI (GitHub Actions); other platforms are untested.
+- Validated with the model on Windows x86_64. On Linux x86_64 the crate builds and passes the model-free tests in CI (GitHub Actions); other platforms are untested with crates.io dependencies. The repository's own build has also been checked with the model on Linux and Windows on x86_64 and ARM64 (GitHub-hosted runners).
+- On aarch64, debug builds stop in `gemm-f16` 0.19 ("instruction requires: fullfp16", [gemm#31](https://github.com/sarah-quinones/gemm/issues/31)). Release builds are not affected. In the project that builds, add the following to `.cargo/config.toml` or to the workspace `Cargo.toml` (this crate never calls the F16 kernels):
+
+  ```toml
+  [profile.dev.package.gemm-f16]
+  opt-level = 1
+  ```
 - Candle 0.11.0 from crates.io depends on `tokenizers` with the Oniguruma C library, so building needs a C compiler. The repository's browser (wasm32) build uses a later Candle revision. This crate does not support wasm32 on crates.io dependencies.
 
 ## License

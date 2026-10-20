@@ -1,0 +1,470 @@
+{
+ "schema_version": "pure_jeff.host_matrix.v1",
+ "created_utc": "2026-10-19T09:59:32.809842+00:00",
+ "source": {
+  "commit": "5b729b92be67039821905aec482b590aaccd3b6f",
+  "dirty": ""
+ },
+ "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+ "host": {
+  "platform": "Linux-6.17.0-1022-azure-aarch64-with-glibc2.39",
+  "system": "Linux",
+  "machine": "aarch64",
+  "python": "3.12.15",
+  "logical_cpus": 4,
+  "runner": {
+   "RUNNER_NAME": "GitHub Actions 1000002214",
+   "RUNNER_OS": "Linux",
+   "RUNNER_ARCH": "ARM64",
+   "ImageOS": "ubuntu24-arm64",
+   "ImageVersion": "20261012.149.1"
+  },
+  "process_affinity": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "cpuinfo": {
+   "Features": [
+    "aes",
+    "asimd",
+    "asimddp",
+    "asimdfhm",
+    "asimdhp",
+    "asimdrdm",
+    "atomics",
+    "bf16",
+    "cpuid",
+    "crc32",
+    "dcpodp",
+    "dcpop",
+    "evtstrm",
+    "fcma",
+    "flagm",
+    "flagm2",
+    "fp",
+    "fphp",
+    "frint",
+    "i8mm",
+    "ilrcpc",
+    "jscvt",
+    "lrcpc",
+    "paca",
+    "pacg",
+    "pmull",
+    "sb",
+    "sha1",
+    "sha2",
+    "sha3",
+    "sha512",
+    "sm3",
+    "sm4",
+    "sve",
+    "sve2",
+    "sveaes",
+    "svebf16",
+    "svebitperm",
+    "svei8mm",
+    "svesha3",
+    "svesm4",
+    "uscat"
+   ],
+   "CPU implementer": [
+    "0x41"
+   ],
+   "CPU variant": [
+    "0x0"
+   ],
+   "CPU part": [
+    "0xd49"
+   ]
+  },
+  "lscpu": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel name:                              Neoverse-N2\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+  "memory_total": "MemTotal:       16330088 kB",
+  "os_caches": {
+   "core_types": {},
+   "cache_groups": [
+    {
+     "cpus": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "caches": [
+      {
+       "coherency_line_size": "64",
+       "level": "1",
+       "size": "64K",
+       "type": "Data",
+       "ways_of_associativity": "4"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "1",
+       "size": "64K",
+       "type": "Instruction",
+       "ways_of_associativity": "4"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "2",
+       "size": "1024K",
+       "type": "Unified",
+       "ways_of_associativity": "8"
+      },
+      {
+       "coherency_line_size": "64",
+       "level": "3",
+       "size": "131072K",
+       "type": "Unified",
+       "ways_of_associativity": "16"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "plan": {
+  "cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513",
+   "long-text",
+   "maximum-candidates",
+   "token-limit-8192",
+   "token-limit-8193"
+  ],
+  "short_cases": [
+   "policy-top1-above",
+   "policy-top1-below",
+   "special-token-text",
+   "policy-near-tie",
+   "policy-margin-near",
+   "asr-unicode",
+   "synthetic-ocr-ja-2-127",
+   "candidate-request",
+   "reversed",
+   "synthetic-asr-mixed-2-128",
+   "synthetic-asr-unicode-2-128",
+   "synthetic-ocr-ascii-3-128",
+   "synthetic-ocr-ja-2-128",
+   "synthetic-ocr-ja-2-129",
+   "synthetic-asr-mixed-2-256",
+   "synthetic-asr-unicode-2-256",
+   "synthetic-ocr-ascii-3-256",
+   "synthetic-ocr-ascii-8-256",
+   "synthetic-ocr-ja-2-256",
+   "synthetic-asr-mixed-2-384",
+   "synthetic-asr-unicode-2-384",
+   "synthetic-ocr-ascii-3-384",
+   "synthetic-ocr-ascii-8-384",
+   "synthetic-ocr-ja-2-384",
+   "synthetic-asr-mixed-2-511",
+   "synthetic-asr-unicode-2-511",
+   "synthetic-ocr-ascii-3-511",
+   "synthetic-ocr-ascii-8-511",
+   "synthetic-ocr-ja-2-511",
+   "synthetic-asr-mixed-2-512",
+   "synthetic-asr-unicode-2-512",
+   "synthetic-ocr-ascii-3-512",
+   "synthetic-ocr-ascii-8-512",
+   "synthetic-ocr-ja-2-512",
+   "synthetic-ocr-ascii-3-513"
+  ],
+  "threads": [
+   1,
+   2,
+   4
+  ],
+  "processes": 2,
+  "pinned_threads": [
+   1,
+   4
+  ],
+  "timeout_threads": [
+   1,
+   4
+  ],
+  "timeout_seconds": 3.0,
+  "gates": {
+   "input": "case ID, candidate IDs and order, input token count (and input-ID digest when reported) equal the catalog",
+   "probability_max_abs_vs_official": 0.0001,
+   "probability_sum_abs_error": 1e-06,
+   "finite": "every probability is a finite float in [0, 1]",
+   "judgment": "selected candidate or abstention equals the official reference",
+   "status": "completed, or the catalog's expected failure for the arm (e.g. budget_exceeded over the limit)",
+   "repeat": "within one arm and mode, every completed decision of a case has bitwise identical probabilities"
+  }
+ },
+ "hashes": {
+  "driver": "4ce65cbff7df0c0beb03d08e64a90b2fb3856950e3415cfe26a4f92929827cb9",
+  "catalog": "117baccd5a2abfd2b8002ea744e88e299975b92cf5a28e9495c0cae196444816",
+  "jeff": "129ced7294e781488fe68851bfdcc562df29f739f1feaeb8f35de3e6981aa7fe",
+  "resident_bench": "042b40426a57c2805b42f775d43cf02ded17d50a6b914136a58fb02f1ca35116",
+  "timeout_reuse": "f34f6ea6459286883dc0664a5cdffe052ccc71700c2b873a017a4724424562ed",
+  "thread_probe": "74c86cc7a1fce82b788df05a013adf7280588b4533f03b7769d80a8f5a379013",
+  "bundles": {
+   "t1": "b55c04354d670a91efa13ee853dbaf7b3f9910e7a46711d24fe25f9e73af5ff7",
+   "t2": "e9ab6256c52c5cc670755413a7ba43ee0f9f4f2019964d6cb4ba765bcd33c784",
+   "t4": "778c2061c52fa13d44d378076669bb7125904c77d158b7666a2c3ccb35731f59"
+  }
+ },
+ "cache_probe": {
+  "unpinned": [
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": null,
+    "returncode": 0,
+    "result": {
+     "candle_threads": 4,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "pinned": [
+   {
+    "cpus": [
+     0
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 1,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     1
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 1,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     2
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 1,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   },
+   {
+    "cpus": [
+     3
+    ],
+    "returncode": 0,
+    "result": {
+     "candle_threads": 1,
+     "cpu_after": 4294967295,
+     "cpu_at_start": 4294967295,
+     "gemm_cache_info": [
+      {
+       "associativity": 4,
+       "bytes": 65536,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 8,
+       "bytes": 1048576,
+       "line_bytes": 64
+      },
+      {
+       "associativity": 16,
+       "bytes": 134217728,
+       "line_bytes": 64
+      }
+     ]
+    }
+   }
+  ],
+  "groups": [
+   {
+    "gemm_cache_info": [
+     {
+      "associativity": 4,
+      "bytes": 65536,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 8,
+      "bytes": 1048576,
+      "line_bytes": 64
+     },
+     {
+      "associativity": 16,
+      "bytes": 134217728,
+      "line_bytes": 64
+     }
+    ],
+    "pinned_cpus": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "unpinned_processes": 3
+   }
+  ]
+ }
+}
