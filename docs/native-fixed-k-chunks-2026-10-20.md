@@ -78,11 +78,56 @@ library・CLIの試験、clippy、fmt、doc（警告をErrorとして扱う）�
 
 8-way L1のhost（i7-1360PのE-core、EPYC 7763、Windows on ARM）では、結果は変わらない。
 
+## 4環境CI（`native-hosts.yml`を手動実行、`f517597`、run 39418570792）
+
+| runner | CPU | gemmのL1 | 試験（debug） | golden 7件の最大差 | host matrix | 公式refとの最大差 |
+| --- | --- | --- | --- | ---: | --- | ---: |
+| ubuntu-24.04 | AMD EPYC 9V45 | 24 KiB 12-way | 46件合格 | 4.13e-6 | 合格 | 3.58e-6 |
+| windows-2022 | AMD EPYC 9V74 | 32 KiB 8-way | 46件合格 | 3.99e-6 | 合格 | 3.52e-6 |
+| ubuntu-24.04-arm | Cobalt 100 | 64 KiB 4-way | 46件合格 | 3.76e-6 | 合格 | 3.31e-6 |
+| windows-11-arm | Cobalt 100 | 16 KiB 8-way | 46件合格 | 4.26e-6 | 合格 | 3.78e-6 |
+
+host matrixは、各runner内で、1／2／4 thread、独立process、固定process、timeout→再利用がすべてbit一致した。
+
+### hostの間の比較（期待どおりにならなかった点）
+
+- **期待**：同じkernel ISAのrunnerどうしで、host matrixの確率がbit一致すること。
+- **結果**：一致しなかった。
+  - ARM64のLinuxとWindows（同じCobalt 100）で、39件中37件が不一致だった。
+  - x86_64のLinuxとWindowsで、39件中35件が不一致だった。
+- **原因**：要素ごとの関数の結果が、OSの数学libraryによって違う。行列積（gemm）ではない。
+  - 調べ方：[`math_probe`](../runtime/rust/examples/math_probe.rs)で、forwardが使う要素ごとの関数を固定の入力（2^20個、−20〜20）で計算し、出力bitのdigestを4つのrunnerと手元で比べた（一時的なworkflow、run 39434906095）。
+
+| 関数 | ubuntu x86_64 | windows x86_64（i7-1360Pも同じ） | ubuntu ARM64 | windows ARM64 |
+| --- | --- | --- | --- | --- |
+| `f32::exp`、SiLU、Candleのexp・sigmoid | A | **B** | A | A |
+| `ln_1p`（DeltaNetのsoftplus） | 1 | 2 | 3 | 4 |
+| `sqrt`、`powf`（RoPE） | 同じ | 同じ | 同じ | 同じ |
+| Candleのsoftmax | P | Q | R | R |
+| Candleのsum | S | S | T | T |
+| gemm（k分割、31積） | X | X | Y | Y |
+
+- **関数ごとの違い**：
+  - Rustの`f32::exp`と`ln_1p`は、OSの数学library（glibc、MSVCのCRTなど）を呼ぶ。
+  - `exp`は、Windowsのx86_64だけが違うbitを返す。
+  - `ln_1p`は、4つのrunnerすべてで違った。
+  - softmaxは、expと、ISAごとのvector和の両方の影響を受ける。
+  - `sqrt`は、IEEEで正しく丸めるため、どこでも同じだった。
+- **この変更の効果**：k分割したgemmの全31積は、x86_64のLinuxとWindowsの間で一致し、ARM64のLinuxとWindowsの間でも一致した。
+  - 変更前は、ARM64で31積中5積しか一致しなかった（[調査](native-gemm-kernel-params-2026-10-20.md)）。
+  - **この変更で、行列積はOSによらなくなった。ただし、forward全体は、数学libraryの違いでOSごとに違う**。
+- 異なるOS・CPUの間でbit一致することは、#18では要求していない。この変更で得たのは、次の2点である。
+  1. 同じhost（同じOS・ISA）で、起動したcoreやCACHE_INFOによらず、bitが同じになること（i7-1360PのP／E起動で、全39件一致）。
+  2. 行列積については、同じISAのhostの間で同じbitになること。
+- OSの間でもforward全体を一致させるには、`exp`・`ln_1p`を、OSによらない実装（例：pure Rustの`libm` crate）に替える必要がある。
+  - Candleの内部（softmax・sigmoid・exp）も対象になるので、大きな変更である。
+  - 全hostで結果も変わる。#18の範囲外として扱う。
+- **未確認**：同じOS・ISAで、cacheの違うhostどうし（例：LinuxのEPYC 7763とXeon）が、forward全体で一致すること。予測では一致するが、同じrunでそのような組を得られていない。
+
 ## 残っていること
 
 - **記録機での確認**：
   - 0.2.0のrelease gateの手順で、公式refとのgate、速度同等性、peakを確認する。
   - 新しいbit基準を取る。
-- **4環境CI**：`native-hosts.yml`を実行し、hostの間の一致を確かめる。期待するのは、同じkernel ISAのrunnerどうし（x86_64のLinux・Windows、ARM64のLinux・Windows）で、host matrixの確率がbit一致すること。
 
-証跡：[research/native-fixed-k-chunks-2026-10-20/](research/native-fixed-k-chunks-2026-10-20)
+証跡：[research/native-fixed-k-chunks-2026-10-20/](research/native-fixed-k-chunks-2026-10-20)（`ci-f517597`、`math-probe`を含む）
