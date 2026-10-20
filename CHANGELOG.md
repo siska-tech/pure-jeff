@@ -2,6 +2,15 @@
 
 Changes to the `pure-jeff` crate. Records of how each change was verified are linked from each entry.
 
+## [Unreleased]
+
+**Outputs change on some hosts** (see below); the official-reference gate and the judgments are unaffected. The numbers in this section come from a laptop and GitHub-hosted runners; the release gate on the reference machine is still to be run.
+
+### Changed
+
+- Matrix products whose summed dimension k exceeds 512 (every linear layer and the attention value product) are split by this crate into ceil(k / 512) equal chunks, added in order, instead of by gemm into blocks it sizes from the CPU's L1 cache. The bits then no longer depend on the cache sizes: the same on the P- and E-cores of a hybrid CPU, and on Linux and Windows on the same ARM64 CPU ([#18](https://github.com/siska-tech/pure-jeff/issues/18), [record](docs/native-fixed-k-chunks-2026-10-20.md)). Hosts on which gemm already used blocks of 512 (an 8-way L1 data cache) give the same outputs as before; hosts with larger blocks for some products (a 12-way L1, as on the reference machine, or a 64 KiB 4-way L1 under Linux on ARM64) change by up to a few 1e-6.
+- Full attention never makes a one-row query block: a sequence of 512n + 1 tokens ends in blocks of 511 and 2 rows instead of 512 and 1 ([#39](https://github.com/siska-tech/pure-jeff/pull/39), [record](docs/native-query-blocks-2026-10-20.md)), so blocked attention stays bitwise equal to one block on every host.
+
 ## [0.2.0] - 2026-10-14
 
 Native inference as fast as the official implementation at every tested length, with less memory. **Outputs are bitwise identical to 0.1.1.** The version is 0.2.0 because `LoadOptions` gained a public field (see Breaking).

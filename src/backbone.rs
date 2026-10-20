@@ -9,8 +9,37 @@ const H: usize = 16;
 const K: usize = 128;
 const V: usize = 128;
 
+/// The largest part of the summed dimension that one gemm call gets (see `matmul`).
+const K_CHUNK: usize = 512;
+
+/// `a.matmul(b)` with the summed dimension k split by this crate rather than by gemm. gemm splits
+/// k into blocks of kc, derived from the L1 cache of the CPU the process first ran gemm on (never
+/// below 512), so a product added in another order on another host, or after a start on another
+/// core of a hybrid CPU. Here k is split into ceil(k / 512) equal chunks, the split gemm makes
+/// itself at kc = 512; gemm never splits a chunk of at most 512 again, and the chunk products are
+/// added in order. The bits then depend on the kernel (FMA on every x86_64 host, NEON on aarch64)
+/// but not on the cache sizes (docs/native-fixed-k-chunks-2026-10-20.md). One-row products
+/// (gemv) do not depend on the cache sizes and are left to gemm.
+fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+    let (m, k) = (a.dim(D::Minus2)?, a.dim(D::Minus1)?);
+    if k <= K_CHUNK || m <= 1 {
+        return a.matmul(b);
+    }
+    let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
+    let part = |start: usize| -> Result<Tensor> {
+        let size = chunk.min(k - start);
+        a.narrow(D::Minus1, start, size)?
+            .matmul(&b.narrow(D::Minus2, start, size)?)
+    };
+    let mut sum = part(0)?;
+    for start in (chunk..k).step_by(chunk) {
+        sum = (sum + part(start)?)?;
+    }
+    Ok(sum)
+}
+
 fn linear(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
-    weights.with(&format!("{name}.weight"), |w| x.matmul(&w.t()?))
+    weights.with(&format!("{name}.weight"), |w| matmul(x, &w.t()?))
 }
 
 fn normalized(x: &Tensor, eps: f64) -> Result<Tensor> {
@@ -134,13 +163,13 @@ fn attention_rows(
     } else {
         q.narrow(1, start, rows)?.contiguous()?
     };
-    let scores = (q.matmul(kt)? / 16.0)?;
+    let scores = (matmul(&q, kt)? / 16.0)?;
     let mask: Vec<f32> = (start..start + rows)
         .flat_map(|i| (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 }))
         .collect();
     let mask = Tensor::from_vec(mask, (1, rows, seq), &Device::Cpu)?;
     let probs = candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)?;
-    probs.matmul(v)
+    matmul(&probs, v)
 }
 
 fn full_attention(
@@ -1009,6 +1038,54 @@ mod tests {
             assert_eq!(
                 bits(&zip_map(&xt, &yt, |g, u| silu(g) * u)?)?,
                 bits(&(xt.silu()? * &yt)?)?
+            );
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn matmul_splits_k_into_equal_chunks_of_at_most_512() -> Result<()> {
+        let mut seed = 0x6b5eed_u64;
+        let chunks = |k: usize| -> Vec<usize> {
+            let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
+            (0..k).step_by(chunk).map(|s| chunk.min(k - s)).collect()
+        };
+        assert_eq!(chunks(513), [257, 256]);
+        assert_eq!(chunks(874), [437, 437]);
+        assert_eq!(chunks(1024), [512, 512]);
+        assert_eq!(chunks(2048), [512; 4]);
+        assert_eq!(chunks(3584), [512; 7]);
+        for (m, k, n) in [
+            (1, 1024, 255),
+            (2, 512, 7),
+            (70, 513, 9),
+            (70, 1024, 70),
+            (3, 3584, 16),
+        ] {
+            let a = Tensor::from_vec(uniform(&mut seed, m * k, -1.0, 1.0), (m, k), &Device::Cpu)?;
+            // The weight layout of `linear`: (n, k) transposed.
+            let w = Tensor::from_vec(uniform(&mut seed, n * k, -1.0, 1.0), (n, k), &Device::Cpu)?;
+            let b = w.t()?;
+            let expected = if m <= 1 || k <= K_CHUNK {
+                a.matmul(&b)?
+            } else {
+                let mut start = 0;
+                let mut sum: Option<Tensor> = None;
+                for size in chunks(k) {
+                    let part = a
+                        .narrow(1, start, size)?
+                        .matmul(&b.narrow(0, start, size)?)?;
+                    sum = Some(match sum {
+                        Some(s) => (s + part)?,
+                        None => part,
+                    });
+                    start += size;
+                }
+                sum.unwrap()
+            };
+            assert!(
+                bits(&matmul(&a, &b)?)? == bits(&expected)?,
+                "m {m}, k {k}, n {n}"
             );
         }
         Ok(())
