@@ -98,6 +98,25 @@ fn rotary(x: &Tensor) -> Result<Tensor> {
 /// one block, exactly as before blocks were introduced.
 pub const QUERY_BLOCK: usize = 512;
 
+/// The query blocks of a sequence: `(start, rows)` of at most `block` rows each, in order and
+/// covering every row. When the last block would have one row, the last two have `block - 1`
+/// and 2 instead (for `block` >= 3): gemm computes a one-row product on another path (gemv,
+/// all of k in one sum), which on aarch64, or when the host's kc is below k, adds in another
+/// order than the multi-row kernel that one block uses (docs/native-arm64-2026-10-20.md).
+fn query_blocks(seq: usize, block: usize) -> Vec<(usize, usize)> {
+    let block = block.max(1);
+    let mut blocks: Vec<(usize, usize)> = (0..seq)
+        .step_by(block)
+        .map(|start| (start, block.min(seq - start)))
+        .collect();
+    if block >= 3 && blocks.len() >= 2 && blocks[blocks.len() - 1].1 == 1 {
+        let n = blocks.len();
+        blocks[n - 2].1 = block - 1;
+        blocks[n - 1] = (blocks[n - 2].0 + block - 1, 2);
+    }
+    blocks
+}
+
 /// Causal attention for query rows `start..start + rows` against all `seq` keys: the scores,
 /// mask, softmax and value product of those rows only. Every row still spans every key (masked
 /// ones contribute exp(-inf) = 0 as before), so each row's values come from the same products,
@@ -161,14 +180,14 @@ fn full_attention(
     let kt = k.transpose(1, 2)?.contiguous()?;
     // Scores, mask and probabilities exist for one block of query rows at a time, so their
     // memory is (8, block, seq) instead of (8, seq, seq): 128 MiB instead of 2 GiB each at 8192.
-    let block = query_block.max(1);
-    let out = if seq <= block {
+    let out = if seq <= query_block.max(1) {
         attention_rows(&q, &kt, &v, 0, seq)?
     } else {
-        let mut parts = Vec::with_capacity(seq.div_ceil(block));
-        for start in (0..seq).step_by(block) {
+        let blocks = query_blocks(seq, query_block);
+        let mut parts = Vec::with_capacity(blocks.len());
+        for (start, rows) in blocks {
             check()?;
-            parts.push(attention_rows(&q, &kt, &v, start, block.min(seq - start))?);
+            parts.push(attention_rows(&q, &kt, &v, start, rows)?);
         }
         Tensor::cat(&parts, 1)?
     };
@@ -996,19 +1015,40 @@ mod tests {
     }
 
     #[test]
+    fn query_blocks_cover_the_sequence_without_one_row_blocks() {
+        for block in [3, 8, QUERY_BLOCK] {
+            for seq in (1..=3 * block + 2).chain([8191, 8192]) {
+                let blocks = query_blocks(seq, block);
+                let mut next = 0;
+                for &(start, rows) in &blocks {
+                    assert_eq!(start, next, "seq {seq}, block {block}");
+                    assert!((1..=block).contains(&rows), "seq {seq}, block {block}");
+                    assert!(
+                        rows > 1 || seq == 1,
+                        "one-row block: seq {seq}, block {block}"
+                    );
+                    next += rows;
+                }
+                assert_eq!(next, seq, "seq {seq}, block {block}");
+                // Only a one-row tail changes the plain partition.
+                let plain: Vec<_> = (0..seq)
+                    .step_by(block)
+                    .map(|s| (s, block.min(seq - s)))
+                    .collect();
+                assert_eq!(blocks == plain, seq % block != 1 || seq == 1);
+            }
+        }
+    }
+
+    #[test]
     fn attention_in_query_blocks_is_bitwise_equal_to_one_block() -> Result<()> {
-        // gemm computes a one-row product on its gemv path, which sums all of k in one pass;
-        // the multi-row kernel splits k at kc, which depends on the cache sizes gemm reads from
-        // the host (never below 512). A partition with a one-row block is therefore only within
-        // 1e-6 on aarch64 (the two paths add in another order there) and, on any target, when
-        // a product reaches k > 512 (513 rows). Every other partition must be bitwise equal
-        // (docs/native-arm64-2026-10-20.md).
-        let one_row_exact = |seq: usize| !cfg!(target_arch = "aarch64") && seq <= 512;
+        // Bitwise on every target: `query_blocks` never makes a one-row block, the only kind of
+        // block whose products gemm computes on another path (docs/native-arm64-2026-10-20.md).
         let mut seed = 0x5eed_u64;
         let cases = [1, 7, 8, 9, 37]
-            .map(|seq| (seq, vec![1, 3, 8]))
+            .map(|seq| (seq, vec![3, 8]))
             .into_iter()
-            .chain([(513, vec![QUERY_BLOCK]), (1024, vec![QUERY_BLOCK])]);
+            .chain([513, 1024, 1025].map(|seq| (seq, vec![QUERY_BLOCK])));
         for (seq, blocks) in cases {
             let q = Tensor::from_vec(
                 uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
@@ -1025,25 +1065,17 @@ mod tests {
                 (8, seq, 256),
                 &Device::Cpu,
             )?;
-            let whole = attention_rows(&q, &kt, &v, 0, seq)?;
+            let whole = bits(&attention_rows(&q, &kt, &v, 0, seq)?)?;
             for block in blocks {
-                let parts: Vec<Tensor> = (0..seq)
-                    .step_by(block)
-                    .map(|start| attention_rows(&q, &kt, &v, start, block.min(seq - start)))
+                let parts: Vec<Tensor> = query_blocks(seq, block)
+                    .into_iter()
+                    .map(|(start, rows)| attention_rows(&q, &kt, &v, start, rows))
                     .collect::<Result<_>>()?;
-                let blocked = Tensor::cat(&parts, 1)?;
-                let one_row_block = seq > 1 && (block == 1 || seq % block == 1);
-                if one_row_exact(seq) || !one_row_block {
-                    // Not assert_eq!: at 513 rows the vectors would fill the log.
-                    assert!(bits(&blocked)? == bits(&whole)?, "seq {seq}, block {block}");
-                } else {
-                    let error = (blocked - &whole)?
-                        .abs()?
-                        .flatten_all()?
-                        .max(0)?
-                        .to_scalar::<f32>()?;
-                    assert!(error <= 1e-6, "seq {seq}, block {block}: {error}");
-                }
+                // Not assert_eq!: at 1025 rows the vectors would fill the log.
+                assert!(
+                    bits(&Tensor::cat(&parts, 1)?)? == whole,
+                    "seq {seq}, block {block}"
+                );
             }
         }
         Ok(())
