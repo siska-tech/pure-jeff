@@ -28,6 +28,7 @@
 | [native-host-matrix-2026-10-19.md](native-host-matrix-2026-10-19.md) | Intel hybrid CPU（i7-1360P）での検証：P-coreから起動すれば1〜16 threadでbit一致、E-coreから起動するとCACHE_INFOが変わり最大3.55e-6の差。Linux・ARM64のCIでは数値gate・複数threadのbit一致は合格、ARM64でattentionのblock化がbit互換でない（#18） |
 | [native-arm64-2026-10-20.md](native-arm64-2026-10-20.md) | ARM64の4つの差異：1行のquery blockだけgemmのgemv経路でbit不一致（513 tokens等、判定は一致）、debug buildはgemm-f16のopt-levelで回避、期限超過はDeltaNet 1 layer分で契約内（強制停止は期限どおり）、CACHE_INFOのOS・CPU差と調査計画（#18） |
 | [native-query-blocks-2026-10-20.md](native-query-blocks-2026-10-20.md) | 1行のquery blockを作らない分け方（512＋1→511＋2）：513 tokens等がARM64・kc＜kのhostでも1 blockの計算とbit一致、kc≧kのhostでは全39件の結果が不変（#18） |
+| [native-gemm-kernel-params-2026-10-20.md](native-gemm-kernel-params-2026-10-20.md) | gemmのCACHE_INFOによるbit差の原因はkc（k方向の区切り）だけ：i7のP／E、ARMのLinux／Windowsの差を説明。kを512以下に自前で分割するとhostによらず一致するが、記録機を含むkc＞512のhostで結果が変わる。固定方式の候補（#18、調査のみ） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |

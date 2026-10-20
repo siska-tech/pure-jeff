@@ -1,0 +1,1127 @@
+{
+ "cache_info": {
+  "P": [
+   {
+    "associativity": 12,
+    "bytes": 49152,
+    "line_bytes": 64
+   },
+   {
+    "associativity": 10,
+    "bytes": 1310720,
+    "line_bytes": 64
+   },
+   {
+    "associativity": 12,
+    "bytes": 18874368,
+    "line_bytes": 64
+   }
+  ],
+  "E": [
+   {
+    "associativity": 8,
+    "bytes": 32768,
+    "line_bytes": 64
+   },
+   {
+    "associativity": 16,
+    "bytes": 2097152,
+    "line_bytes": 64
+   },
+   {
+    "associativity": 12,
+    "bytes": 18874368,
+    "line_bytes": 64
+   }
+  ]
+ },
+ "products": [
+  {
+   "name": "in_proj_a/b",
+   "m": 128,
+   "n": 16,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.3853406326034063,
+    "E": 0.34979346601577166
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "k_proj/v_proj",
+   "m": 128,
+   "n": 512,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.9447992053356038,
+    "E": 1.3400561973150171
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_z",
+   "m": 128,
+   "n": 2048,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.1705159705159704,
+    "E": 0.9400476834847606
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "q_proj",
+   "m": 128,
+   "n": 4096,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.4289242432944689,
+    "E": 1.112490566438844
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_qkv",
+   "m": 128,
+   "n": 6144,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3072,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 6144,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.2320486999026907,
+    "E": 0.8056408413901228
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": true
+  },
+  {
+   "name": "gate/up_proj",
+   "m": 128,
+   "n": 3584,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.148596052265777,
+    "E": 1.1925170620734482
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "out_proj/o_proj",
+   "m": 128,
+   "n": 1024,
+   "k": 2048,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.9268475318242038,
+    "E": 1.7594897697114973
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "down_proj",
+   "m": 128,
+   "n": 1024,
+   "k": 3584,
+   "params_P": {
+    "kc": 896,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 2.395780793402986,
+    "E": 1.1821095118759841
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention scores",
+   "m": 128,
+   "n": 128,
+   "k": 256,
+   "params_P": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 132,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 132,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": true,
+   "chunk": 256,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": true,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.8958633958633958,
+    "E": 0.981203589108911
+   },
+   "kc_differs": false,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention values",
+   "m": 128,
+   "n": 256,
+   "k": 128,
+   "params_P": {
+    "kc": 128,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 128,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": true,
+   "chunk": 128,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": true,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.8964194373401534,
+    "E": 0.7947630096121975
+   },
+   "kc_differs": false,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_a/b",
+   "m": 513,
+   "n": 16,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.682559087204564,
+    "E": 0.6205872649290664
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "k_proj/v_proj",
+   "m": 513,
+   "n": 512,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.2952344931921331,
+    "E": 0.7072317785781538
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_z",
+   "m": 513,
+   "n": 2048,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.3231316856571438,
+    "E": 1.3786517007173835
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "q_proj",
+   "m": 513,
+   "n": 4096,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.3481251631821012,
+    "E": 1.1405333585173558
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_qkv",
+   "m": 513,
+   "n": 6144,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3072,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 6144,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 2.0225048577989755,
+    "E": 0.9936685310754592
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": true
+  },
+  {
+   "name": "gate/up_proj",
+   "m": 513,
+   "n": 3584,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.4526128183025417,
+    "E": 1.1904770974192935
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "out_proj/o_proj",
+   "m": 513,
+   "n": 1024,
+   "k": 2048,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.3402522211785721,
+    "E": 1.1059959313742782
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "down_proj",
+   "m": 513,
+   "n": 1024,
+   "k": 3584,
+   "params_P": {
+    "kc": 896,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 2.249698176613355,
+    "E": 1.0824992087018965
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention scores",
+   "m": 512,
+   "n": 513,
+   "k": 256,
+   "params_P": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": true,
+   "chunk": 256,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": true,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.964746019711903,
+    "E": 0.9946896892401652
+   },
+   "kc_differs": false,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention values",
+   "m": 512,
+   "n": 256,
+   "k": 513,
+   "params_P": {
+    "kc": 513,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 257,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 257,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.2287034363268843,
+    "E": 1.31977639671273
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_a/b",
+   "m": 874,
+   "n": 16,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 18,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.9265402843601894,
+    "E": 0.9215850192275539
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "k_proj/v_proj",
+   "m": 874,
+   "n": 512,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 516,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.362137979750412,
+    "E": 0.8159650784320129
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_z",
+   "m": 874,
+   "n": 2048,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 2052,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 0.8708358440216922,
+    "E": 1.3661206120612062
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "q_proj",
+   "m": 874,
+   "n": 4096,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 4098,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.665716971664869,
+    "E": 1.1574322660587624
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "in_proj_qkv",
+   "m": 874,
+   "n": 6144,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3072,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 6144,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.4934425554378308,
+    "E": 1.1875309116887398
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": true
+  },
+  {
+   "name": "gate/up_proj",
+   "m": 874,
+   "n": 3584,
+   "k": 1024,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 3588,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.6931657338752615,
+    "E": 1.0531656884321206
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "out_proj/o_proj",
+   "m": 874,
+   "n": 1024,
+   "k": 2048,
+   "params_P": {
+    "kc": 1024,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.2440173060684407,
+    "E": 0.9362811200020354
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "down_proj",
+   "m": 874,
+   "n": 1024,
+   "k": 3584,
+   "params_P": {
+    "kc": 896,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 512,
+    "mc": 128,
+    "nc": 1026,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 2.340403473437448,
+    "E": 1.0488838125276607
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention scores",
+   "m": 512,
+   "n": 874,
+   "k": 256,
+   "params_P": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 876,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 256,
+    "mc": 128,
+    "nc": 876,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": true,
+   "chunk": 256,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": true,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.0087754748571098,
+    "E": 0.8160969982129526
+   },
+   "kc_differs": false,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "attention values",
+   "m": 512,
+   "n": 256,
+   "k": 874,
+   "params_P": {
+    "kc": 874,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "params_E": {
+    "kc": 437,
+    "mc": 128,
+    "nc": 258,
+    "path": "kernel_params"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": false,
+   "chunk": 437,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": true
+   },
+   "time_ratio_t4": {
+    "P": 1.352880985947519,
+    "E": 1.0743714764589363
+   },
+   "kc_differs": true,
+   "mc_or_nc_differs": false
+  },
+  {
+   "name": "readout",
+   "m": 1,
+   "n": 255,
+   "k": 1024,
+   "params_P": {
+    "path": "gemv"
+   },
+   "params_E": {
+    "path": "gemv"
+   },
+   "threads_equal": {
+    "P": true,
+    "E": true
+   },
+   "p_equals_e": true,
+   "chunk": 512,
+   "chunked_p_equals_e": true,
+   "chunked_equals_plain": {
+    "P": false,
+    "E": false
+   },
+   "time_ratio_t4": {
+    "P": 0.7888349514563107,
+    "E": 0.8362919132149902
+   },
+   "kc_differs": false,
+   "mc_or_nc_differs": false
+  }
+ ],
+ "kc_differs_and_bits_differ": 26,
+ "kc_differs_but_bits_equal": 0,
+ "kc_same_but_bits_differ": 0,
+ "kc_same_and_bits_equal": 5,
+ "chunked_p_equals_e": 31,
+ "chunked_equals_plain_on_E": 30,
+ "chunked_equals_plain_on_P": 4,
+ "product_count": 31
+}
