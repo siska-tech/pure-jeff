@@ -76,6 +76,8 @@
 
 原因と対応は[native-arm64-2026-10-20.md](native-arm64-2026-10-20.md)にまとめた。この節は、対応前の記録として残す。
 
+**最終結果**（PR #38の`e0795dd`）：4環境とも、debug buildの試験44件、golden 7件、host matrixのすべてに合格した。詳細は[native-arm64-2026-10-20.md](native-arm64-2026-10-20.md#4環境ciの結果pr-38の最終commit-e0795ddrun-39341846567)。
+
 | runner | CPU | gemm CACHE_INFO（L1／L2／L3） | matrix | 公式refとの最大差 | golden 6件の最大差 | library試験 |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | ubuntu-24.04 | Intel Xeon 6973P-C | 24 KiB／1 MiB／480 MiB | 合格 | 3.99e-6 | 4.38e-6 | 合格 |

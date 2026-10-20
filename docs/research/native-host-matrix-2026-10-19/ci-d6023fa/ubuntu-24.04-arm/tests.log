@@ -1,0 +1,55 @@
+^[[1m^[[92m   Compiling^[[0m static_assertions v1.1.0
+test backbone::tests::a_failed_retention_returns_the_error ... ok
+test backbone::tests::a_result_that_keeps_the_lent_weight_is_rejected ... ok
+test backbone::tests::a_query_block_sees_exactly_its_causal_prefix ... ok
+test backbone::tests::delta_update_decay_and_state_isolation ... ok
+test backbone::tests::fused_element_wise_steps_are_bitwise_equal_to_candle_ops ... ok
+test backbone::tests::one_buffer_gives_every_weight_its_own_values ... ok
+test backbone::tests::retained_tensors_are_lent_as_kept_and_never_overwritten ... ok
+test backbone::tests::rope_preserves_unrotated_dimensions_and_zero_position ... ok
+test bundle::tests::inventory_detects_added_modified_and_missing_files ... ok
+test bundle::tests::paths_deadlines_and_required_sets_are_enforced ... ok
+test bundle::tests::tensor_names_shapes_and_dtypes_are_checked ... ok
+test json::tests::duplicate_nested_escaped_and_trailing_keys_are_rejected ... ok
+test tests::build_hash_covers_every_source_file ... ok
+test weights::tests::direct_conversion_is_bitwise_equal_to_candle ... ok
+test backbone::tests::delta_recurrence_is_bitwise_equal_to_the_reference ... ok
+test backbone::tests::delta_heads_are_bitwise_equal_to_the_serial_loop ... ok
+test backbone::tests::attention_in_query_blocks_is_bitwise_equal_to_one_block ... ok
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 22.08s
+test clockless_validation_matches_limits_validation ... ok
+test abstention_and_failure_are_distinct ... ok
+test opt_in_and_preflight_do_not_call_provider ... ok
+test rejects_duplicate_choices ... ok
+test malformed_outputs_never_succeed ... ok
+test rejects_excess_actual_usage ... ok
+test preserves_input_and_round_trips ... ok
+test late_result_is_discarded ... ok
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+test native_preflight_never_starts_worker ... ok
+test native_round_trip_and_protocol_failures ... ok
+test native_timeout_kills_and_waits_even_after_response_written ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.90s
+test direct_provider_also_enforces_preflight ... ok
+test process_failures_are_preserved ... ok
+test process_round_trip ... ok
+test timeout_terminates_running_child ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.24s
+test a_slow_start_within_the_deadline_completes ... ok
+test a_start_slower_than_the_deadline_times_out_and_the_child_is_reaped ... ok
+test a_response_followed_by_a_late_exit_is_a_timeout_and_the_child_is_killed ... ok
+test a_running_child_past_the_deadline_is_killed_and_reaped ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.79s
+test src/lib.rs - (line 12) - compile ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+^[[1m^[[92m   Compiling^[[0m static_assertions v1.1.0
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test a_missing_bundle_is_unavailable_and_a_load_error ... ok
+test selection_boundaries_and_invalid_distributions ... ok
+test preflight_stops_without_loading_a_missing_bundle ... ok
+test independent_prompt_bytes_match_all_official_goldens ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+test process_cli_opt_out_needs_no_manifest ... ok
+test malformed_worker_inputs_and_existing_output_are_rejected ... ok
+test worker_preflight_and_unavailable_are_typed_responses ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
