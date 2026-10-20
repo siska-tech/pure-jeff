@@ -1,0 +1,4 @@
+{"bitwise_equal":true,"candle_chunked_s":0.0293588,"direct_chunked_s":0.0223001,"k":1024,"m":874,"n":4096,"name":"q_proj","plain_s":0.0199587,"threads":4}
+{"bitwise_equal":true,"candle_chunked_s":0.0224842,"direct_chunked_s":0.0187873,"k":1024,"m":874,"n":3584,"name":"gate/up_proj","plain_s":0.0192475,"threads":4}
+{"bitwise_equal":true,"candle_chunked_s":0.0183641,"direct_chunked_s":0.0114011,"k":2048,"m":874,"n":1024,"name":"out_proj","plain_s":0.0108867,"threads":4}
+{"bitwise_equal":true,"candle_chunked_s":0.0300232,"direct_chunked_s":0.0205388,"k":3584,"m":874,"n":1024,"name":"down_proj","plain_s":0.0184592,"threads":4}

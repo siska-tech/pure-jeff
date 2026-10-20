@@ -16,26 +16,101 @@ const K_CHUNK: usize = 512;
 /// k into blocks of kc, derived from the L1 cache of the CPU the process first ran gemm on (never
 /// below 512), so a product added in another order on another host, or after a start on another
 /// core of a hybrid CPU. Here k is split into ceil(k / 512) equal chunks, the split gemm makes
-/// itself at kc = 512; gemm never splits a chunk of at most 512 again, and the chunk products are
-/// added in order. The bits then depend on the kernel (FMA on every x86_64 host, NEON on aarch64)
-/// but not on the cache sizes (docs/native-fixed-k-chunks-2026-10-20.md). One-row products
-/// (gemv) do not depend on the cache sizes and are left to gemm.
+/// itself at kc = 512; gemm never splits a chunk of at most 512 again, and each chunk is added
+/// into the output in order. The bits then depend on the kernel (FMA on every x86_64 host, NEON
+/// on aarch64) but not on the cache sizes (docs/native-fixed-k-chunks-2026-10-20.md). One-row
+/// products (gemv) do not depend on the cache sizes and are left to Candle.
+///
+/// gemm is called as Candle calls it (row-major output, the thread count Candle uses), the first
+/// chunk writing the output and the others adding to it, so there is no tensor per chunk; the
+/// result is bitwise that of Candle's matmul of each chunk added with `+` (see the tests).
+/// `a` is (m, k) or (b, m, k), `b` is (k, n) or (b, k, n), both F32 on the CPU, any strides.
 fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+    let rank = a.rank();
     let (m, k) = (a.dim(D::Minus2)?, a.dim(D::Minus1)?);
     if k <= K_CHUNK || m <= 1 {
         return a.matmul(b);
     }
-    let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
-    let part = |start: usize| -> Result<Tensor> {
-        let size = chunk.min(k - start);
-        a.narrow(D::Minus1, start, size)?
-            .matmul(&b.narrow(D::Minus2, start, size)?)
-    };
-    let mut sum = part(0)?;
-    for start in (chunk..k).step_by(chunk) {
-        sum = (sum + part(start)?)?;
+    let n = b.dim(D::Minus1)?;
+    let batch = if rank == 3 { a.dim(0)? } else { 1 };
+    if !(rank == 2 || rank == 3)
+        || b.rank() != rank
+        || b.dim(D::Minus2)? != k
+        || (rank == 3 && b.dim(0)? != batch)
+    {
+        candle_core::bail!("matmul: {:?} x {:?}", a.dims(), b.dims())
     }
-    Ok(sum)
+    let (a_storage, a_layout) = a.storage_and_layout();
+    let (b_storage, b_layout) = b.storage_and_layout();
+    let (Storage::Cpu(CpuStorage::F32(av)), Storage::Cpu(CpuStorage::F32(bv))) =
+        (&*a_storage, &*b_storage)
+    else {
+        candle_core::bail!("matmul: F32 tensors on the CPU only")
+    };
+    // (offset, batch stride, row stride, column stride), each checked against its buffer: the
+    // largest index gemm reads is offset + (batch - 1) bs + (rows - 1) rs + (cols - 1) cs.
+    let strides = |layout: &Layout, len: usize, rows: usize, cols: usize| -> Result<[usize; 4]> {
+        let s = layout.stride();
+        let (bs, rs, cs) = if rank == 3 {
+            (s[0], s[1], s[2])
+        } else {
+            (0, s[0], s[1])
+        };
+        let last = layout.start_offset() + (batch - 1) * bs + (rows - 1) * rs + (cols - 1) * cs;
+        if last >= len {
+            candle_core::bail!("matmul: layout outside its buffer")
+        }
+        Ok([layout.start_offset(), bs, rs, cs])
+    };
+    let [a_off, a_bs, a_rs, a_cs] = strides(a_layout, av.len(), m, k)?;
+    let [b_off, b_bs, b_rs, b_cs] = strides(b_layout, bv.len(), k, n)?;
+    let threads = candle_core::utils::get_num_threads();
+    let parallelism = if threads > 1 {
+        gemm::Parallelism::Rayon(threads)
+    } else {
+        gemm::Parallelism::None
+    };
+    let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
+    let mut dst = vec![0f32; batch * m * n];
+    for step in 0..batch {
+        for start in (0..k).step_by(chunk) {
+            let size = chunk.min(k - start);
+            let accumulate = start > 0;
+            // SAFETY: dst holds batch * m * n elements, written at step * m * n + i * n + j for
+            // i < m, j < n. The reads of a and b stay inside their buffers: the largest index of
+            // each layout was checked above, and a chunk only narrows k. No buffer is written
+            // while gemm runs except dst, which nothing else references.
+            unsafe {
+                gemm::gemm(
+                    m,
+                    n,
+                    size,
+                    dst.as_mut_ptr().add(step * m * n),
+                    1,
+                    n as isize,
+                    accumulate,
+                    av.as_ptr().add(a_off + step * a_bs + start * a_cs),
+                    a_cs as isize,
+                    a_rs as isize,
+                    bv.as_ptr().add(b_off + step * b_bs + start * b_rs),
+                    b_cs as isize,
+                    b_rs as isize,
+                    if accumulate { 1.0 } else { 0.0 },
+                    1.0,
+                    false,
+                    false,
+                    false,
+                    parallelism,
+                )
+            }
+        }
+    }
+    let shape: Vec<usize> = if rank == 3 {
+        vec![batch, m, n]
+    } else {
+        vec![m, n]
+    };
+    Tensor::from_vec(dst, shape, &Device::Cpu)
 }
 
 fn linear(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
@@ -1087,6 +1162,38 @@ mod tests {
                 bits(&matmul(&a, &b)?)? == bits(&expected)?,
                 "m {m}, k {k}, n {n}"
             );
+        }
+        // The attention value product: 8 heads, probabilities (8, rows, seq) times values
+        // (8, seq, 256), the probabilities also as a strided view.
+        for (rows, seq) in [(3, 874), (40, 1025)] {
+            let p = Tensor::from_vec(
+                uniform(&mut seed, 8 * (rows + 1) * seq, 0.0, 1.0),
+                (8, rows + 1, seq),
+                &Device::Cpu,
+            )?;
+            let v = Tensor::from_vec(
+                uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
+                (8, seq, 256),
+                &Device::Cpu,
+            )?;
+            for a in [p.narrow(1, 0, rows)?.contiguous()?, p.narrow(1, 1, rows)?] {
+                let mut start = 0;
+                let mut expected: Option<Tensor> = None;
+                for size in chunks(seq) {
+                    let part = a
+                        .narrow(2, start, size)?
+                        .matmul(&v.narrow(1, start, size)?)?;
+                    expected = Some(match expected {
+                        Some(s) => (s + part)?,
+                        None => part,
+                    });
+                    start += size;
+                }
+                assert!(
+                    bits(&matmul(&a, &v)?)? == bits(&expected.unwrap())?,
+                    "rows {rows}, seq {seq}"
+                );
+            }
         }
         Ok(())
     }

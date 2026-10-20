@@ -1,0 +1,206 @@
+[
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 2.0087329,
+  "walls": {
+   "candidate-request": 1.8643282,
+   "long-text": 11.7059719,
+   "maximum-candidates": 51.9416136,
+   "token-limit-8192": 159.9720236
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235637760,
+   "peak_private_bytes": 1238396928
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 2.0180978,
+  "walls": {
+   "candidate-request": 1.6783829,
+   "long-text": 10.9217051,
+   "maximum-candidates": 46.1791387,
+   "token-limit-8192": 147.7952681
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235674624,
+   "peak_private_bytes": 1238315008
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 1.9865306999999999,
+  "walls": {
+   "candidate-request": 1.0766746,
+   "long-text": 6.0839053,
+   "maximum-candidates": 23.415983,
+   "token-limit-8192": 74.4882878
+  },
+  "memory": {
+   "peak_working_set_bytes": 2237935616,
+   "peak_private_bytes": 1243107328
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 2.0196283,
+  "walls": {
+   "candidate-request": 1.2911441,
+   "long-text": 7.0206404,
+   "maximum-candidates": 27.0680584,
+   "token-limit-8192": 84.7773459
+  },
+  "memory": {
+   "peak_working_set_bytes": 2237542400,
+   "peak_private_bytes": 1243705344
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.9334125,
+  "walls": {
+   "candidate-request": 1.6974238000000001,
+   "long-text": 10.9465665,
+   "maximum-candidates": 46.2575442,
+   "token-limit-8192": 148.6048053
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235502592,
+   "peak_private_bytes": 1238114304
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.932463,
+  "walls": {
+   "candidate-request": 1.8884594,
+   "long-text": 11.9298417,
+   "maximum-candidates": 50.0790991,
+   "token-limit-8192": 161.1157328
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235273216,
+   "peak_private_bytes": 1238171648
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.9549109,
+  "walls": {
+   "candidate-request": 1.2964551,
+   "long-text": 7.0087535,
+   "maximum-candidates": 27.2979755,
+   "token-limit-8192": 84.7857893
+  },
+  "memory": {
+   "peak_working_set_bytes": 2239422464,
+   "peak_private_bytes": 1245413376
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.9780246,
+  "walls": {
+   "candidate-request": 1.1299787000000001,
+   "long-text": 5.9274278,
+   "maximum-candidates": 23.4386055,
+   "token-limit-8192": 74.6451634
+  },
+  "memory": {
+   "peak_working_set_bytes": 2240622592,
+   "peak_private_bytes": 1245696000
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9667056,
+  "walls": {
+   "candidate-request": 1.8776914,
+   "long-text": 11.9521299,
+   "maximum-candidates": 50.4885745,
+   "token-limit-8192": 163.9086061
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235904000,
+   "peak_private_bytes": 1238867968
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9672756,
+  "walls": {
+   "candidate-request": 1.7734352,
+   "long-text": 10.8659638,
+   "maximum-candidates": 46.302902,
+   "token-limit-8192": 147.2101738
+  },
+  "memory": {
+   "peak_working_set_bytes": 2236035072,
+   "peak_private_bytes": 1238749184
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9842607,
+  "walls": {
+   "candidate-request": 1.1038112,
+   "long-text": 6.1233327,
+   "maximum-candidates": 23.5932512,
+   "token-limit-8192": 75.0409427
+  },
+  "memory": {
+   "peak_working_set_bytes": 2240696320,
+   "peak_private_bytes": 1245724672
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9717164,
+  "walls": {
+   "candidate-request": 1.2879249,
+   "long-text": 7.09656,
+   "maximum-candidates": 27.5880777,
+   "token-limit-8192": 85.2227834
+  },
+  "memory": {
+   "peak_working_set_bytes": 2236817408,
+   "peak_private_bytes": 1242816512
+  }
+ }
+]
