@@ -30,6 +30,8 @@
 | [native-query-blocks-2026-10-20.md](native-query-blocks-2026-10-20.md) | 1行のquery blockを作らない分け方（512＋1→511＋2）：513 tokens等がARM64・kc＜kのhostでも1 blockの計算とbit一致、kc≧kのhostでは全39件の結果が不変（#18） |
 | [native-gemm-kernel-params-2026-10-20.md](native-gemm-kernel-params-2026-10-20.md) | gemmのCACHE_INFOによるbit差の原因はkc（k方向の区切り）だけ：i7のP／E、ARMのLinux／Windowsの差を説明。kを512以下に自前で分割するとhostによらず一致するが、記録機を含むkc＞512のhostで結果が変わる。固定方式の候補（#18、調査のみ） |
 | [native-fixed-k-chunks-2026-10-20.md](native-fixed-k-chunks-2026-10-20.md) | 行列積のk分割をcrate側で512以下に固定（gemmの直接呼び出しで足し込み）：i7のP／E起動で全39件bit一致、速度・peakは不変（ノート機）。kc＞512のhost（記録機を含む）で結果が変わる（#18、案A） |
+| [native-fixed-k-chunks-amd-acceptance-plan-2026-10-21.md](native-fixed-k-chunks-amd-acceptance-plan-2026-10-21.md) | k分割（#41）のAMD記録機での受入試験の事前登録：旧mainとのbit差・判断・再現性・速度・メモリの基準（#18） |
+| [native-fixed-k-chunks-amd-acceptance-2026-10-21.md](native-fixed-k-chunks-amd-acceptance-2026-10-21.md) | 同結果：数値・判断・再現性・メモリ・one-shot・CLI・利用者build・Wasmは合格、warm速度が4条件で1.03超（中央値1.017）のため不受入（#18） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |

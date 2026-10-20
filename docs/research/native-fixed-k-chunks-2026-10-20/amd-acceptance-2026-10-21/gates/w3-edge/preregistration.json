@@ -1,0 +1,71 @@
+{
+ "schema_version": "kaze_judge.web_demo_w3_preregistration.v1",
+ "created_utc": "2026-10-20T20:17:48.234305+00:00",
+ "gates": {
+  "probability_max_abs_vs_official": 0.0001,
+  "max_main_thread_gap_ms": 250,
+  "consent": "no model/ request before the download button is pressed",
+  "single_download": "each model file is fetched from the server exactly once in the whole session (cancel recovery and page reload read Cache Storage)",
+  "private_inference": "no network request from the page or its Workers while any evaluation runs, and every request goes to the demo origin",
+  "results": "sample 0/2/5 completed Attempts match the official prompt hash, candidate order, judgment and probabilities; sample 6 (874 tokens) fails budget_exceeded after one provider call; reason none is not_selected with no provider call; duplicate IDs are rejected in the UI",
+  "attempt": "schema pure_jeff.attempt.v1; artifacts include the manifest files, bundle_manifest, wasm_engine (= deployed engine hash), prompt, rendered_prompt and policy",
+  "save": "the downloaded JSON equals the displayed Attempt, with top-level fields in pure_jeff::Attempt order",
+  "repeat": "results after cancel recovery and after page reload are bitwise equal to the first",
+  "delete": "after delete no pure-jeff-model cache remains and a reload shows the model as not downloaded",
+  "languages": "the language selector switches to English, Vietnamese and back to Japanese: the document language, URL ?lang=, page state and title follow; English and Vietnamese pages contain no Japanese text outside the selector; the rest of the run is in Japanese (opened with ?lang=ja)"
+ },
+ "mode": "w3",
+ "gates_w4": null,
+ "gates_external": null,
+ "site_url": null,
+ "model_base_url": "model/",
+ "origins": {
+  "site": null,
+  "model": null
+ },
+ "browser": {
+  "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "sha256": "4bb4545b4ab80a3cf463a588ce570ca42de38fe6db16e3baeb0798ac75b4648b"
+ },
+ "dist": {
+  "build_info_sha256": "058663fc8700848ba83f22a024f17e9d678638aefc6adddf8ed12d15bfb5b493",
+  "build_info": {
+   "source_commit": "f181385d27884a1acc54dbb5f2530a903707ab33",
+   "source_dirty": false,
+   "copy_model": false,
+   "model_base_url": "model/",
+   "engine_input_sha256": "cc2d97535a3dd16fe067314548ad1c218c330b5620d1160c70f70b7f27e0ce06",
+   "engine_removed_exports": [
+    "__getrandom_v03_custom"
+   ],
+   "files": {
+    "_headers": "b1442bf701d7137fea7a0542d54fc65a377c08a44f04ce97fded5b4be8538d3f",
+    "app.js": "ef38cf9c0ffd36c3912885a8d5cb28e90951a8a3cd660cb279ee3f67dcc059c9",
+    "demo-config.json": "af6499e8784e688212e6efe75142ca9dfaabf4f50984c0086fed18082e73efa5",
+    "engine-e31d547ebedd6265.wasm": "e31d547ebedd626527dd4dac4d222154e4349b33d030cd1fdbeb494a39b65738",
+    "engine-worker.js": "b05da143b83a745f8009ea29263b8167de50c10ca63e6b194b9d33bbc6c16fab",
+    "i18n.js": "477148635dd3d238460f72a6430c9c490a5fb94a6203c5366342250984d7843f",
+    "index.html": "d5831c1d400ff6c1e2db5c814d8a4ac009f7a687bbf3cd7cdc3eecb61d6f1389",
+    "licenses/JEFF_SOURCE_LICENSE.txt": "ab061adada2c603bdd6d7773bd89a0c48af32f9ddb3c5a12086b6f5c7c364bdb",
+    "licenses/MODEL_LICENSE.txt": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+    "licenses/MODEL_NOTICE.txt": "bdc779b5af2d3ac2c603b12d693dd344727f6d75d933c27b4e39430802543e74",
+    "licenses/THIRD_PARTY_LICENSES.txt": "f0a745e29f475d495ec3efbf9a3a266c4bc3093571bb9ac294874d0c950f9a83",
+    "licenses/THIRD_PARTY_NOTICES.md": "b29082ceed396b42cd09ca642d09760ace9635437c8592eed6a8079f663c2732",
+    "samples.json": "bcecaf0751f13b34cdeb852f5135e1510f14c07808631d98fa4f412cdd412bf6",
+    "style.css": "57b65d5c00e875ad45c897915a608885c02bba583745d5d5f6478350da62ecdc"
+   }
+  }
+ },
+ "driver_sha256": "823e15d794cd800fac115ca14953c7d2f4902f90be468195ece5f322c14b9706",
+ "e2e_sha256": "1e5b838338d981b20baad7d5afed356c1695bde9e6803d9f7a1d0c49fd322cc4",
+ "samples": {
+  "OCR：2候補（128 tokens）": "bff97417b7f7ac3337dc2bfc0ce23cd9db2660b0fc6c684fe5c2293cd380409a",
+  "OCR：同じ2候補を逆順（128 tokens）": "4edc9e0a0701ca1599af0ad1afe752d4fd4391bbfe7ba153ddff66148a030e10",
+  "ASR：Unicode文字を含む3候補（206 tokens）": "da0cb1a32a30711066ca5ee691e67094ad74dcb278e79972a3ec55062d20591c",
+  "区切り記号に似た文字列を含む2候補（182 tokens）": "dfcca0da6021cb1202ee4ff9854ed7a7b88d2a35488d940b3b955ab6a7e1d797",
+  "日本語OCR：2候補（256 tokens）": "e92e762438ed2ea28a833c68e0efef67145281f8abb3210e48d7a6c75844e206",
+  "OCR：8候補（512 tokens、上限ちょうど）": "c1f6e4204f6701501c1d882abf9fe8dec45309ce8b54e485252dec3d88e304f3",
+  "上限を超える長文（874 tokens、予算超過の例）": "1673fda806d2e9f5be0c791058da519291127879bf38b79eb736bffa204ca995"
+ },
+ "headless": true
+}

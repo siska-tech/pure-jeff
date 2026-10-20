@@ -1,0 +1,98 @@
+{
+ "time_utc": "2026-10-20T22:18:38.114632+00:00",
+ "ac_line_status": 1,
+ "battery_percent": 255,
+ "battery_saver": 0,
+ "cpu": {
+  "load_percent": 10,
+  "processor_performance_percent": 158,
+  "processor_frequency_mhz": 3000,
+  "current_clock_mhz": 3000,
+  "max_clock_mhz": 3000
+ },
+ "thermal": null,
+ "power_scheme": "�d���ݒ�� GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (�o�����X)",
+ "platform": "Windows-11-10.0.26200-SP0",
+ "processor": {
+  "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+  "NumberOfCores": 16,
+  "NumberOfLogicalProcessors": 32,
+  "L2CacheSize": 16384,
+  "L3CacheSize": 65536
+ },
+ "logical_cpus": 32,
+ "top_processes": [
+  {
+   "ProcessName": "Code",
+   "Id": 14172,
+   "CPU": 356588.609375,
+   "WS_MB": 202
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 16868,
+   "CPU": 356390.84375,
+   "WS_MB": 139
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 3628,
+   "CPU": 356195.328125,
+   "WS_MB": 147
+  },
+  {
+   "ProcessName": "node",
+   "Id": 2528,
+   "CPU": 46377.625,
+   "WS_MB": 339
+  },
+  {
+   "ProcessName": "Creative Cloud",
+   "Id": 6900,
+   "CPU": 28826.703125,
+   "WS_MB": 588
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 28624,
+   "CPU": 10461.296875,
+   "WS_MB": 283
+  },
+  {
+   "ProcessName": "claude",
+   "Id": 34792,
+   "CPU": 9792,
+   "WS_MB": 467
+  },
+  {
+   "ProcessName": "LineMediaPlayer",
+   "Id": 24528,
+   "CPU": 9780.453125,
+   "WS_MB": 26
+  },
+  {
+   "ProcessName": "OsdShowV2.4",
+   "Id": 9912,
+   "CPU": 7724.921875,
+   "WS_MB": 20
+  },
+  {
+   "ProcessName": "chrome",
+   "Id": 25076,
+   "CPU": 7040.375,
+   "WS_MB": 419
+  },
+  {
+   "ProcessName": "Code",
+   "Id": 26196,
+   "CPU": 5959.09375,
+   "WS_MB": 110
+  },
+  {
+   "ProcessName": "ChatGPT",
+   "Id": 21876,
+   "CPU": 4750.78125,
+   "WS_MB": 47
+  }
+ ]
+}
