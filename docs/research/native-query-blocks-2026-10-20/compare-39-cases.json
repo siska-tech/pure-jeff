@@ -1,0 +1,374 @@
+{
+ "base-P vs new-P": {},
+ "base-E vs new-E": {
+  "synthetic-ocr-ascii-3-513": {
+   "tokens": 513,
+   "max_abs": 3.725290298461914e-07,
+   "judgment_equal": true
+  }
+ },
+ "new-P vs new-E": {
+  "policy-top1-above": {
+   "tokens": 149,
+   "max_abs": 2.384185791015625e-07,
+   "judgment_equal": true
+  },
+  "policy-top1-below": {
+   "tokens": 171,
+   "max_abs": 8.344650268554688e-07,
+   "judgment_equal": true
+  },
+  "special-token-text": {
+   "tokens": 182,
+   "max_abs": 1.4901161193847656e-06,
+   "judgment_equal": true
+  },
+  "policy-near-tie": {
+   "tokens": 188,
+   "max_abs": 2.2798776626586914e-06,
+   "judgment_equal": true
+  },
+  "policy-margin-near": {
+   "tokens": 192,
+   "max_abs": 1.430511474609375e-06,
+   "judgment_equal": true
+  },
+  "asr-unicode": {
+   "tokens": 206,
+   "max_abs": 2.682209014892578e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-127": {
+   "tokens": 127,
+   "max_abs": 1.2665987014770508e-07,
+   "judgment_equal": true
+  },
+  "candidate-request": {
+   "tokens": 128,
+   "max_abs": 5.960464477539063e-08,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-128": {
+   "tokens": 128,
+   "max_abs": 2.384185791015625e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-128": {
+   "tokens": 128,
+   "max_abs": 1.430511474609375e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-128": {
+   "tokens": 128,
+   "max_abs": 3.546476364135742e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-128": {
+   "tokens": 128,
+   "max_abs": 1.7136335372924805e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-129": {
+   "tokens": 129,
+   "max_abs": 7.82310962677002e-08,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-256": {
+   "tokens": 256,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-256": {
+   "tokens": 256,
+   "max_abs": 6.556510925292969e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-256": {
+   "tokens": 256,
+   "max_abs": 3.7997961044311523e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-256": {
+   "tokens": 256,
+   "max_abs": 1.0728836059570312e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-256": {
+   "tokens": 256,
+   "max_abs": 3.5762786865234375e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-384": {
+   "tokens": 384,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-384": {
+   "tokens": 384,
+   "max_abs": 1.1324882507324219e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-384": {
+   "tokens": 384,
+   "max_abs": 6.705522537231445e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-384": {
+   "tokens": 384,
+   "max_abs": 2.4437904357910156e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-384": {
+   "tokens": 384,
+   "max_abs": 1.7881393432617188e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-511": {
+   "tokens": 511,
+   "max_abs": 4.023313522338867e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-511": {
+   "tokens": 511,
+   "max_abs": 1.4901161193847656e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-511": {
+   "tokens": 511,
+   "max_abs": 4.3958425521850586e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-511": {
+   "tokens": 511,
+   "max_abs": 2.980232238769531e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-512": {
+   "tokens": 512,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-512": {
+   "tokens": 512,
+   "max_abs": 4.76837158203125e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-512": {
+   "tokens": 512,
+   "max_abs": 4.76837158203125e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "tokens": 512,
+   "max_abs": 3.8743019104003906e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-512": {
+   "tokens": 512,
+   "max_abs": 1.7881393432617188e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-513": {
+   "tokens": 513,
+   "max_abs": 8.344650268554688e-07,
+   "judgment_equal": true
+  },
+  "long-text": {
+   "tokens": 874,
+   "max_abs": 8.847564458847046e-09,
+   "judgment_equal": true
+  },
+  "maximum-candidates": {
+   "tokens": 3206,
+   "max_abs": 5.960464477539062e-07,
+   "judgment_equal": true
+  },
+  "token-limit-8192": {
+   "tokens": 8192,
+   "max_abs": 6.854534149169922e-07,
+   "judgment_equal": true
+  }
+ },
+ "base-P vs base-E": {
+  "policy-top1-above": {
+   "tokens": 149,
+   "max_abs": 2.384185791015625e-07,
+   "judgment_equal": true
+  },
+  "policy-top1-below": {
+   "tokens": 171,
+   "max_abs": 8.344650268554688e-07,
+   "judgment_equal": true
+  },
+  "special-token-text": {
+   "tokens": 182,
+   "max_abs": 1.4901161193847656e-06,
+   "judgment_equal": true
+  },
+  "policy-near-tie": {
+   "tokens": 188,
+   "max_abs": 2.2798776626586914e-06,
+   "judgment_equal": true
+  },
+  "policy-margin-near": {
+   "tokens": 192,
+   "max_abs": 1.430511474609375e-06,
+   "judgment_equal": true
+  },
+  "asr-unicode": {
+   "tokens": 206,
+   "max_abs": 2.682209014892578e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-127": {
+   "tokens": 127,
+   "max_abs": 1.2665987014770508e-07,
+   "judgment_equal": true
+  },
+  "candidate-request": {
+   "tokens": 128,
+   "max_abs": 5.960464477539063e-08,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-128": {
+   "tokens": 128,
+   "max_abs": 2.384185791015625e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-128": {
+   "tokens": 128,
+   "max_abs": 1.430511474609375e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-128": {
+   "tokens": 128,
+   "max_abs": 3.546476364135742e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-128": {
+   "tokens": 128,
+   "max_abs": 1.7136335372924805e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-129": {
+   "tokens": 129,
+   "max_abs": 7.82310962677002e-08,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-256": {
+   "tokens": 256,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-256": {
+   "tokens": 256,
+   "max_abs": 6.556510925292969e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-256": {
+   "tokens": 256,
+   "max_abs": 3.7997961044311523e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-256": {
+   "tokens": 256,
+   "max_abs": 1.0728836059570312e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-256": {
+   "tokens": 256,
+   "max_abs": 3.5762786865234375e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-384": {
+   "tokens": 384,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-384": {
+   "tokens": 384,
+   "max_abs": 1.1324882507324219e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-384": {
+   "tokens": 384,
+   "max_abs": 6.705522537231445e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-384": {
+   "tokens": 384,
+   "max_abs": 2.4437904357910156e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-384": {
+   "tokens": 384,
+   "max_abs": 1.7881393432617188e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-511": {
+   "tokens": 511,
+   "max_abs": 4.023313522338867e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-511": {
+   "tokens": 511,
+   "max_abs": 1.4901161193847656e-06,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-511": {
+   "tokens": 511,
+   "max_abs": 4.3958425521850586e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-511": {
+   "tokens": 511,
+   "max_abs": 2.980232238769531e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-mixed-2-512": {
+   "tokens": 512,
+   "max_abs": 5.364418029785156e-07,
+   "judgment_equal": true
+  },
+  "synthetic-asr-unicode-2-512": {
+   "tokens": 512,
+   "max_abs": 4.76837158203125e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-512": {
+   "tokens": 512,
+   "max_abs": 4.76837158203125e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "tokens": 512,
+   "max_abs": 3.8743019104003906e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ja-2-512": {
+   "tokens": 512,
+   "max_abs": 1.7881393432617188e-07,
+   "judgment_equal": true
+  },
+  "synthetic-ocr-ascii-3-513": {
+   "tokens": 513,
+   "max_abs": 5.960464477539062e-07,
+   "judgment_equal": true
+  },
+  "long-text": {
+   "tokens": 874,
+   "max_abs": 8.847564458847046e-09,
+   "judgment_equal": true
+  },
+  "maximum-candidates": {
+   "tokens": 3206,
+   "max_abs": 5.960464477539062e-07,
+   "judgment_equal": true
+  },
+  "token-limit-8192": {
+   "tokens": 8192,
+   "max_abs": 6.854534149169922e-07,
+   "judgment_equal": true
+  }
+ }
+}
