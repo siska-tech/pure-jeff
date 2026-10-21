@@ -1,0 +1,87 @@
+{
+ "kind": "oneshot",
+ "session": 1,
+ "threads": 1,
+ "arm": "candidate",
+ "case": "synthetic-ocr-ascii-8-512",
+ "rep": 1,
+ "index": 120,
+ "returncode": 0,
+ "process_wall_s": 8.789796800003387,
+ "stderr": "",
+ "peak_private_commit": 212193280,
+ "peak_working_set": 1132380160,
+ "init": {
+  "compute_threads": 1,
+  "event": "init",
+  "kernel": {
+   "candle": {
+    "has_mkl": false,
+    "num_threads": 1,
+    "with_avx": true,
+    "with_f16c": true
+   },
+   "compiled": {
+    "avx": false,
+    "avx2": false,
+    "f16c": false,
+    "fma": false
+   },
+   "detected": {
+    "avx": true,
+    "avx2": true,
+    "avx512f": true,
+    "avxvnni": true,
+    "f16c": true,
+    "fma": true
+   }
+  },
+  "load_s": 1.9241713,
+  "manifest_sha256": "41719ce7047bac0be248b494db1dd0b0a5dd5a3404289a1b9be8b4ebc24b82f0",
+  "mode": "api",
+  "retain_f32": false,
+  "retained_f32_bytes": 0,
+  "runtime_build": "e3eb2d35b248e800b6498c4b9481d7e8466e6bb82be56428ae6fcdbf1551319f",
+  "source_sha256": "8fdc46d191c6f4aee39bb4c87ed9257d57ac913555dd74c35faedd012f2f51ee",
+  "startup_s": 1.924753
+ },
+ "decisions": [
+  {
+   "event": "decision",
+   "index": 0,
+   "name": "synthetic-ocr-ascii-8-512",
+   "outcome": {
+    "candidate_ids": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h"
+    ],
+    "forwards": 1,
+    "input_tokens": 512,
+    "judgment": {
+     "kind": "abstained"
+    },
+    "probabilities": [
+     0.5633885860443115,
+     0.08941901475191116,
+     0.06949277967214584,
+     0.05251261219382286,
+     0.07833307981491089,
+     0.06976410001516342,
+     0.026990139856934547,
+     0.05009966716170311
+    ],
+    "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c",
+    "status": "completed"
+   },
+   "phase": "measure",
+   "wall_s": 6.6357732,
+   "gate": []
+  }
+ ]
+}

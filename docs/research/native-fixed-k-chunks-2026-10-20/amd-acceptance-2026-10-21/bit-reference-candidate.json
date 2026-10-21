@@ -1,0 +1,1312 @@
+{
+ "schema_version": "pure_jeff.bit_reference.v1",
+ "arm": "candidate",
+ "source": {
+  "commit": "f181385d27884a1acc54dbb5f2530a903707ab33",
+  "dirty": ""
+ },
+ "exe_sha256": {
+  "resident_bench": "cbe8e6167c6159310993a1ee1bfceaabdbe07081a0ec7859b56412c9e900b7a4",
+  "timeout_reuse": "7b961737719a86fef4460ef63d6b6423a0b4d24f1a48fe1102de75fd934121c8"
+ },
+ "bundles": {
+  "1": "41719ce7047bac0be248b494db1dd0b0a5dd5a3404289a1b9be8b4ebc24b82f0",
+  "4": "54f96e5621571fc56d68e99ee4037bf94fffd8d9507f19fa374b781aace601eb",
+  "16": "585845761f9c820b7e78cbbcd0431de51c054514bcb48fd3b2a6ff39bd9ed134"
+ },
+ "machine": {
+  "Name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S          ",
+  "NumberOfCores": 16,
+  "NumberOfLogicalProcessors": 32,
+  "L2CacheSize": 16384,
+  "L3CacheSize": 65536
+ },
+ "note": "One outcome per catalog input, identical over every process, thread count and start of this run.",
+ "outcomes": {
+  "asr-unicode": {
+   "sha256": "b5b0d9b39cb43e294159e8bc360fb74f6d4f1304f21fe5da145d3f19d15f490f",
+   "status": "completed",
+   "probabilities": [
+    "0x1.45a06a0000000p-1",
+    "0x1.71bd320000000p-2",
+    "0x1.80fabc0000000p-9"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "original",
+    "normalized",
+    "conflicting"
+   ],
+   "input_tokens": 206,
+   "forwards": 1,
+   "rendered_prompt_sha256": "817f2636168727b1c60519857a6d4585ed639c68ed1e54054bc84a93f83eb4f3"
+  },
+  "candidate-request": {
+   "sha256": "c4b59a71937ed442dd772d3e74b8b273c3e8165d05951a4dbc7c03c26e863aed",
+   "status": "completed",
+   "probabilities": [
+    "0x1.db70d80000000p-1",
+    "0x1.24793e0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "60fc3875aa90b804a0c0485e7be735ee7111db1aaeafea1958f156a4188ab97a"
+  },
+  "long-text": {
+   "sha256": "516a2337ded572f00f03eb939579cdd2ffb0acb7633e658a57b755f320ce3f94",
+   "status": "completed",
+   "probabilities": [
+    "0x1.fda7b00000000p-1",
+    "0x1.2c28f40000000p-8"
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative"
+   ],
+   "input_tokens": 874,
+   "forwards": 1,
+   "rendered_prompt_sha256": "2ad442456ab13e102e752d43aaea0ae2698f840b404706ce6c709e1434af4270"
+  },
+  "maximum-candidates": {
+   "sha256": "517fd55993b8e02a0418173ba157a2f645b7199445120f6279752ee742542b13",
+   "status": "completed",
+   "probabilities": [
+    "0x1.ca4e980000000p-1",
+    "0x1.13620a0000000p-5",
+    "0x1.9bf58c0000000p-9",
+    "0x1.73fb6c0000000p-9",
+    "0x1.7de9520000000p-10",
+    "0x1.4b79620000000p-10",
+    "0x1.fb12620000000p-11",
+    "0x1.035ae60000000p-10",
+    "0x1.88bd2c0000000p-11",
+    "0x1.96de000000000p-12",
+    "0x1.7140e60000000p-11",
+    "0x1.18ddba0000000p-9",
+    "0x1.67a74a0000000p-11",
+    "0x1.3ef9940000000p-11",
+    "0x1.cf28cc0000000p-10",
+    "0x1.1ed5160000000p-11",
+    "0x1.9e856a0000000p-11",
+    "0x1.4edc600000000p-10",
+    "0x1.5056ca0000000p-11",
+    "0x1.0743ae0000000p-11",
+    "0x1.37d6360000000p-11",
+    "0x1.fec5440000000p-11",
+    "0x1.33f0d80000000p-11",
+    "0x1.55da120000000p-10",
+    "0x1.a92a000000000p-10",
+    "0x1.493d5a0000000p-11",
+    "0x1.26c0320000000p-9",
+    "0x1.b28aaa0000000p-9",
+    "0x1.3c98aa0000000p-10",
+    "0x1.af31480000000p-11",
+    "0x1.cab8260000000p-11",
+    "0x1.a7f8fe0000000p-11",
+    "0x1.f2ac440000000p-12",
+    "0x1.a34e4a0000000p-11",
+    "0x1.da64c60000000p-11",
+    "0x1.c97d260000000p-12",
+    "0x1.625db60000000p-11",
+    "0x1.9731ba0000000p-11",
+    "0x1.9e02b20000000p-12",
+    "0x1.c189fc0000000p-13",
+    "0x1.662fc40000000p-10",
+    "0x1.6982c20000000p-12",
+    "0x1.722c2a0000000p-12",
+    "0x1.54d39a0000000p-11",
+    "0x1.d78ba20000000p-12",
+    "0x1.9d20d40000000p-12",
+    "0x1.c5b6d60000000p-11",
+    "0x1.2947d60000000p-12",
+    "0x1.fa14a80000000p-12",
+    "0x1.4dd1960000000p-11",
+    "0x1.09ae620000000p-11",
+    "0x1.45f1440000000p-12",
+    "0x1.571b100000000p-8",
+    "0x1.336d360000000p-12",
+    "0x1.5ea0460000000p-10",
+    "0x1.f158ee0000000p-12",
+    "0x1.4abcfe0000000p-13",
+    "0x1.8070880000000p-11",
+    "0x1.02817a0000000p-11",
+    "0x1.f98eaa0000000p-12",
+    "0x1.1862ea0000000p-14",
+    "0x1.7b22ac0000000p-11",
+    "0x1.2e8a780000000p-12",
+    "0x1.fb7fec0000000p-12",
+    "0x1.b91f0a0000000p-13",
+    "0x1.0cee140000000p-12",
+    "0x1.a476a60000000p-13",
+    "0x1.04b2b20000000p-13",
+    "0x1.b3ac3c0000000p-13",
+    "0x1.0c144e0000000p-12",
+    "0x1.4916420000000p-14",
+    "0x1.d3258a0000000p-13",
+    "0x1.e954120000000p-13",
+    "0x1.7bf4460000000p-13",
+    "0x1.66e59e0000000p-13",
+    "0x1.748c4a0000000p-13",
+    "0x1.f7c3c80000000p-11",
+    "0x1.d4c7100000000p-12",
+    "0x1.c3e21e0000000p-15",
+    "0x1.64fd620000000p-13",
+    "0x1.1dbe2c0000000p-14",
+    "0x1.f0c9e60000000p-15",
+    "0x1.b8c38a0000000p-15",
+    "0x1.865f3e0000000p-14",
+    "0x1.6660e20000000p-15",
+    "0x1.d6fc280000000p-16",
+    "0x1.e390c40000000p-14",
+    "0x1.6705640000000p-16",
+    "0x1.1185d60000000p-15",
+    "0x1.0f82c80000000p-14",
+    "0x1.2bc8840000000p-15",
+    "0x1.77f7060000000p-14",
+    "0x1.95ae580000000p-15",
+    "0x1.6c7ef40000000p-15",
+    "0x1.e9ee160000000p-16",
+    "0x1.0a95e00000000p-15",
+    "0x1.e2a7880000000p-17",
+    "0x1.a5d4140000000p-16",
+    "0x1.8a664e0000000p-16",
+    "0x1.88fdb80000000p-11",
+    "0x1.35c6640000000p-13",
+    "0x1.cf83ae0000000p-15",
+    "0x1.4bbc800000000p-16",
+    "0x1.94f2b80000000p-15",
+    "0x1.9e00ba0000000p-15",
+    "0x1.c1547e0000000p-16",
+    "0x1.1641060000000p-14",
+    "0x1.92aa360000000p-15",
+    "0x1.65eb7e0000000p-16",
+    "0x1.2cf97c0000000p-14",
+    "0x1.ac5eea0000000p-14",
+    "0x1.0a2d240000000p-16",
+    "0x1.132fd60000000p-15",
+    "0x1.4ce35e0000000p-15",
+    "0x1.5a61980000000p-16",
+    "0x1.7af0fa0000000p-15",
+    "0x1.86a9b40000000p-16",
+    "0x1.8915840000000p-15",
+    "0x1.9db6de0000000p-17",
+    "0x1.4883980000000p-16",
+    "0x1.ac35680000000p-16",
+    "0x1.07e6760000000p-14",
+    "0x1.848a100000000p-15",
+    "0x1.b2a7bc0000000p-12",
+    "0x1.2320200000000p-13",
+    "0x1.33fe800000000p-16",
+    "0x1.8b9f000000000p-15",
+    "0x1.b4352a0000000p-16",
+    "0x1.6aa5740000000p-16",
+    "0x1.d394f80000000p-16",
+    "0x1.88e8f20000000p-16",
+    "0x1.51ff4c0000000p-15",
+    "0x1.6889c20000000p-17",
+    "0x1.5b33bc0000000p-16",
+    "0x1.7e75b20000000p-17",
+    "0x1.22e12c0000000p-17",
+    "0x1.30ebe60000000p-15",
+    "0x1.ec76ea0000000p-17",
+    "0x1.27a7b80000000p-16",
+    "0x1.8b0e2c0000000p-16",
+    "0x1.b6dcc00000000p-16",
+    "0x1.b089f20000000p-17",
+    "0x1.498fbe0000000p-16",
+    "0x1.3d0b720000000p-16",
+    "0x1.6042980000000p-17",
+    "0x1.e156840000000p-17",
+    "0x1.70a6c60000000p-17",
+    "0x1.080f740000000p-10",
+    "0x1.033bc00000000p-12",
+    "0x1.a179e60000000p-14",
+    "0x1.b512180000000p-15",
+    "0x1.f61d340000000p-16",
+    "0x1.b850900000000p-15",
+    "0x1.38d3a40000000p-14",
+    "0x1.53cfa20000000p-15",
+    "0x1.df6bde0000000p-16",
+    "0x1.543bb80000000p-15",
+    "0x1.867d5c0000000p-14",
+    "0x1.0913980000000p-15",
+    "0x1.7a97180000000p-17",
+    "0x1.895f0e0000000p-15",
+    "0x1.51b2b40000000p-16",
+    "0x1.0b9c6a0000000p-15",
+    "0x1.27be480000000p-15",
+    "0x1.b3961e0000000p-17",
+    "0x1.19bae40000000p-16",
+    "0x1.00191c0000000p-15",
+    "0x1.b5d3d40000000p-15",
+    "0x1.350aae0000000p-15",
+    "0x1.4849120000000p-12",
+    "0x1.d716080000000p-14",
+    "0x1.3de2900000000p-15",
+    "0x1.4320ee0000000p-16",
+    "0x1.df6b1a0000000p-17",
+    "0x1.2dfc7e0000000p-16",
+    "0x1.feafd20000000p-17",
+    "0x1.0209d40000000p-16",
+    "0x1.c6bf9a0000000p-16",
+    "0x1.13bfa00000000p-15",
+    "0x1.2d3c4e0000000p-16",
+    "0x1.ac3d900000000p-18",
+    "0x1.a931920000000p-16",
+    "0x1.c62cde0000000p-17",
+    "0x1.2b000e0000000p-16",
+    "0x1.e446100000000p-17",
+    "0x1.16a2460000000p-17",
+    "0x1.6eacbe0000000p-18",
+    "0x1.026e080000000p-15",
+    "0x1.6d513e0000000p-16",
+    "0x1.78e29c0000000p-17",
+    "0x1.bb40b40000000p-16",
+    "0x1.f633740000000p-13",
+    "0x1.bff0f60000000p-14",
+    "0x1.1e5b200000000p-15",
+    "0x1.bac41c0000000p-16",
+    "0x1.aebc9a0000000p-17",
+    "0x1.8f72380000000p-16",
+    "0x1.4638520000000p-16",
+    "0x1.e810ca0000000p-16",
+    "0x1.8bc4a00000000p-16",
+    "0x1.13c5ae0000000p-15",
+    "0x1.9288260000000p-14",
+    "0x1.1d25360000000p-16",
+    "0x1.cea15a0000000p-17",
+    "0x1.695f5e0000000p-15",
+    "0x1.68b99c0000000p-16",
+    "0x1.258d440000000p-17",
+    "0x1.80844a0000000p-16",
+    "0x1.bc5c420000000p-16",
+    "0x1.c7f4d20000000p-17",
+    "0x1.c3ff400000000p-17",
+    "0x1.17d7660000000p-16",
+    "0x1.a9f25a0000000p-17",
+    "0x1.549c740000000p-15",
+    "0x1.c9c14e0000000p-16",
+    "0x1.31dcae0000000p-16",
+    "0x1.9721460000000p-12",
+    "0x1.a040620000000p-15",
+    "0x1.4cefc40000000p-16",
+    "0x1.b6cd520000000p-16",
+    "0x1.c3b6f00000000p-18",
+    "0x1.44719c0000000p-16",
+    "0x1.1030760000000p-16",
+    "0x1.291c4c0000000p-16",
+    "0x1.4bc7ce0000000p-15",
+    "0x1.af99de0000000p-17",
+    "0x1.d3ff4c0000000p-18",
+    "0x1.0561e20000000p-15",
+    "0x1.2560c40000000p-17",
+    "0x1.5e969a0000000p-16",
+    "0x1.1ea3a00000000p-16",
+    "0x1.b06f300000000p-18",
+    "0x1.ce9c600000000p-19",
+    "0x1.92f97a0000000p-17",
+    "0x1.93b1200000000p-17",
+    "0x1.2e75580000000p-18",
+    "0x1.9a1bbe0000000p-18",
+    "0x1.27078a0000000p-15",
+    "0x1.2ffe680000000p-17",
+    "0x1.3950d60000000p-16",
+    "0x1.56c9560000000p-18",
+    "0x1.a2adcc0000000p-13",
+    "0x1.3201c40000000p-15",
+    "0x1.51dd1a0000000p-16",
+    "0x1.4894ec0000000p-16",
+    "0x1.9d8d1c0000000p-18",
+    "0x1.c89e600000000p-17",
+    "0x1.db90a80000000p-17",
+    "0x1.2ba8de0000000p-16",
+    "0x1.2a8b6c0000000p-18",
+    "0x1.2267de0000000p-16",
+    "0x1.386ec60000000p-17",
+    "0x1.08b6a20000000p-16",
+    "0x1.e6e67c0000000p-17",
+    "0x1.dd471a0000000p-18"
+   ],
+   "judgment": {
+    "candidate_id": "c0",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9",
+    "c10",
+    "c11",
+    "c12",
+    "c13",
+    "c14",
+    "c15",
+    "c16",
+    "c17",
+    "c18",
+    "c19",
+    "c20",
+    "c21",
+    "c22",
+    "c23",
+    "c24",
+    "c25",
+    "c26",
+    "c27",
+    "c28",
+    "c29",
+    "c30",
+    "c31",
+    "c32",
+    "c33",
+    "c34",
+    "c35",
+    "c36",
+    "c37",
+    "c38",
+    "c39",
+    "c40",
+    "c41",
+    "c42",
+    "c43",
+    "c44",
+    "c45",
+    "c46",
+    "c47",
+    "c48",
+    "c49",
+    "c50",
+    "c51",
+    "c52",
+    "c53",
+    "c54",
+    "c55",
+    "c56",
+    "c57",
+    "c58",
+    "c59",
+    "c60",
+    "c61",
+    "c62",
+    "c63",
+    "c64",
+    "c65",
+    "c66",
+    "c67",
+    "c68",
+    "c69",
+    "c70",
+    "c71",
+    "c72",
+    "c73",
+    "c74",
+    "c75",
+    "c76",
+    "c77",
+    "c78",
+    "c79",
+    "c80",
+    "c81",
+    "c82",
+    "c83",
+    "c84",
+    "c85",
+    "c86",
+    "c87",
+    "c88",
+    "c89",
+    "c90",
+    "c91",
+    "c92",
+    "c93",
+    "c94",
+    "c95",
+    "c96",
+    "c97",
+    "c98",
+    "c99",
+    "c100",
+    "c101",
+    "c102",
+    "c103",
+    "c104",
+    "c105",
+    "c106",
+    "c107",
+    "c108",
+    "c109",
+    "c110",
+    "c111",
+    "c112",
+    "c113",
+    "c114",
+    "c115",
+    "c116",
+    "c117",
+    "c118",
+    "c119",
+    "c120",
+    "c121",
+    "c122",
+    "c123",
+    "c124",
+    "c125",
+    "c126",
+    "c127",
+    "c128",
+    "c129",
+    "c130",
+    "c131",
+    "c132",
+    "c133",
+    "c134",
+    "c135",
+    "c136",
+    "c137",
+    "c138",
+    "c139",
+    "c140",
+    "c141",
+    "c142",
+    "c143",
+    "c144",
+    "c145",
+    "c146",
+    "c147",
+    "c148",
+    "c149",
+    "c150",
+    "c151",
+    "c152",
+    "c153",
+    "c154",
+    "c155",
+    "c156",
+    "c157",
+    "c158",
+    "c159",
+    "c160",
+    "c161",
+    "c162",
+    "c163",
+    "c164",
+    "c165",
+    "c166",
+    "c167",
+    "c168",
+    "c169",
+    "c170",
+    "c171",
+    "c172",
+    "c173",
+    "c174",
+    "c175",
+    "c176",
+    "c177",
+    "c178",
+    "c179",
+    "c180",
+    "c181",
+    "c182",
+    "c183",
+    "c184",
+    "c185",
+    "c186",
+    "c187",
+    "c188",
+    "c189",
+    "c190",
+    "c191",
+    "c192",
+    "c193",
+    "c194",
+    "c195",
+    "c196",
+    "c197",
+    "c198",
+    "c199",
+    "c200",
+    "c201",
+    "c202",
+    "c203",
+    "c204",
+    "c205",
+    "c206",
+    "c207",
+    "c208",
+    "c209",
+    "c210",
+    "c211",
+    "c212",
+    "c213",
+    "c214",
+    "c215",
+    "c216",
+    "c217",
+    "c218",
+    "c219",
+    "c220",
+    "c221",
+    "c222",
+    "c223",
+    "c224",
+    "c225",
+    "c226",
+    "c227",
+    "c228",
+    "c229",
+    "c230",
+    "c231",
+    "c232",
+    "c233",
+    "c234",
+    "c235",
+    "c236",
+    "c237",
+    "c238",
+    "c239",
+    "c240",
+    "c241",
+    "c242",
+    "c243",
+    "c244",
+    "c245",
+    "c246",
+    "c247",
+    "c248",
+    "c249",
+    "c250",
+    "c251",
+    "c252",
+    "c253",
+    "c254"
+   ],
+   "input_tokens": 3206,
+   "forwards": 1,
+   "rendered_prompt_sha256": "64d1273bde4ac7b82f8cd8f76b70b907cbaf6a70bb8200913beb93971390679e"
+  },
+  "policy-margin-near": {
+   "sha256": "d6841abf054684779a0cc6f7950ca5069da046b9d1b7d28f458c95425a79c253",
+   "status": "completed",
+   "probabilities": [
+    "0x1.9610360000000p-3",
+    "0x1.6e7b7e0000000p-2",
+    "0x1.c67c6a0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative",
+    "third"
+   ],
+   "input_tokens": 192,
+   "forwards": 1,
+   "rendered_prompt_sha256": "89c5d273c170bb1874c05e63f6671dd104d927a3f2a6894c698da2b9cacfc6fc"
+  },
+  "policy-near-tie": {
+   "sha256": "552c1af46cd09f344edf0237823a118ae3b3250fb6627702c84eef174983f96e",
+   "status": "completed",
+   "probabilities": [
+    "0x1.8421ba0000000p-2",
+    "0x1.f48bee0000000p-3",
+    "0x1.81984c0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative",
+    "third"
+   ],
+   "input_tokens": 188,
+   "forwards": 1,
+   "rendered_prompt_sha256": "e4451bee53592923b9c7240d15554add6352cd8bb90d3347c3b697b1ef684c3a"
+  },
+  "policy-top1-above": {
+   "sha256": "80a9f5bd0572b2c39882f1f64897e5182caf0c68d4e6590da222c762a2a3e949",
+   "status": "completed",
+   "probabilities": [
+    "0x1.67864c0000000p-1",
+    "0x1.30f3640000000p-2"
+   ],
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "alternative",
+    "original"
+   ],
+   "input_tokens": 149,
+   "forwards": 1,
+   "rendered_prompt_sha256": "4be6c0c6d89d1e8ce21883b10d6cfef00683f5de185735d092be7d330c1e3c68"
+  },
+  "policy-top1-below": {
+   "sha256": "882f9d908da693ff63520274908f75c037dd82131de84f869ffdc2107987cbb3",
+   "status": "completed",
+   "probabilities": [
+    "0x1.34342e0000000p-2",
+    "0x1.65e5ea0000000p-1"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "alternative",
+    "original"
+   ],
+   "input_tokens": 171,
+   "forwards": 1,
+   "rendered_prompt_sha256": "bacce263c20b43b1dc7b5d6871bfa94b93fcf8c21f4ea93b8ab707a5b8946301"
+  },
+  "reversed": {
+   "sha256": "7f7f934d756707a0062fe38d4f880181ea85864498fd589a0da66e2a4637042d",
+   "status": "completed",
+   "probabilities": [
+    "0x1.0e049a0000000p-5",
+    "0x1.ef1fb60000000p-1"
+   ],
+   "judgment": {
+    "candidate_id": "original",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "alternative",
+    "original"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "4e99980f23f4dd00a568cb65ff0aad43e0a43cf6052c210c9a00b67058cf0c34"
+  },
+  "special-token-text": {
+   "sha256": "3339aab5e4e4a31370b4ec3b78c4f940319a113bed152cacb1667b1d0686e229",
+   "status": "completed",
+   "probabilities": [
+    "0x1.537c300000000p-1",
+    "0x1.59079e0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative"
+   ],
+   "input_tokens": 182,
+   "forwards": 1,
+   "rendered_prompt_sha256": "5d005644b81080732f1e9c9ec849481cbfd8b7a94493b5fb4be727461e9d8f3a"
+  },
+  "synthetic-asr-mixed-2-128": {
+   "sha256": "32cdb9376797afc5a2a83c44166b7ff469537a364d8e1289cd4055da929a0adc",
+   "status": "completed",
+   "probabilities": [
+    "0x1.d48d960000000p-1",
+    "0x1.5b93560000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "875113b24fd4cf743d89a2df8034247be55273f5a0c7678be32b989c37f13375"
+  },
+  "synthetic-asr-mixed-2-256": {
+   "sha256": "c627dffe19a90803947fc421c9758eedeef24efdb6abf759841dea0783eb1f38",
+   "status": "completed",
+   "probabilities": [
+    "0x1.df2efe0000000p-1",
+    "0x1.0688100000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 256,
+   "forwards": 1,
+   "rendered_prompt_sha256": "47bd73a36b7051d9f370dc248beecafc0e016728b3db456a5ca910ce0f2e334c"
+  },
+  "synthetic-asr-mixed-2-384": {
+   "sha256": "12c4b437bd53cc0f362594052a3d103ab8b5f9587b45ab9126efabb5c4b7b988",
+   "status": "completed",
+   "probabilities": [
+    "0x1.e1b9fe0000000p-1",
+    "0x1.e460360000000p-5"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 384,
+   "forwards": 1,
+   "rendered_prompt_sha256": "95fa981735767e7c84a0f2c47c31e6ff5c89396411776034ca12b901e87f3e16"
+  },
+  "synthetic-asr-mixed-2-511": {
+   "sha256": "296bc149ef1270ac5678965def67cf27cac744923812158dafa67b0c81660c62",
+   "status": "completed",
+   "probabilities": [
+    "0x1.df745a0000000p-1",
+    "0x1.045d3c0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 511,
+   "forwards": 1,
+   "rendered_prompt_sha256": "8c5b75c1ef4f53b254c1580d5aab50a1e5dbb82cf6daf1fca717460acda1c632"
+  },
+  "synthetic-asr-mixed-2-512": {
+   "sha256": "677103e8eb941fb33019e3fc31a33a873661d7f229603cad4ed38f0d9975cd19",
+   "status": "completed",
+   "probabilities": [
+    "0x1.df7a960000000p-1",
+    "0x1.042b5e0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 512,
+   "forwards": 1,
+   "rendered_prompt_sha256": "d6c4a3b40ccf7f196932ae953bafc0d5f23bd3d29023f04ab47c172c45ffaecb"
+  },
+  "synthetic-asr-unicode-2-128": {
+   "sha256": "48f821df33c63bdb2e9d9b925bc2faecf643d4d69c6358113ad1b4ea9991a04b",
+   "status": "completed",
+   "probabilities": [
+    "0x1.67f4200000000p-1",
+    "0x1.3017bc0000000p-2"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "30375394bed9d83fb1c2d36687b1e16fbc1a4d702c617ebea205fbbd0a7564a7"
+  },
+  "synthetic-asr-unicode-2-256": {
+   "sha256": "c321f0ba9c974a3c821ca9f3e7a456ba970e2ee4e77cab4791db63efa199fac6",
+   "status": "completed",
+   "probabilities": [
+    "0x1.46d7120000000p-1",
+    "0x1.7251da0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 256,
+   "forwards": 1,
+   "rendered_prompt_sha256": "5eb99a8bfb9a0608a18bbc8f4af7764fdf5e7440e60f7efe0e178caf95f11be4"
+  },
+  "synthetic-asr-unicode-2-384": {
+   "sha256": "a1e56edcf607e39a7a80ebab7c53cc86a5abf97cef00a5045dc01097670b6b51",
+   "status": "completed",
+   "probabilities": [
+    "0x1.4479d20000000p-1",
+    "0x1.770c5c0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 384,
+   "forwards": 1,
+   "rendered_prompt_sha256": "ab08852e639de7410b7d3dd0d657490b1f955ce2487caa953d0667f48ccca03c"
+  },
+  "synthetic-asr-unicode-2-511": {
+   "sha256": "d7c548796e9b11198f00f2eac5adcf8dccc96c681f4a18b3694163ae6705dd09",
+   "status": "completed",
+   "probabilities": [
+    "0x1.3864100000000p-1",
+    "0x1.8f37e00000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 511,
+   "forwards": 1,
+   "rendered_prompt_sha256": "d78d70639c7ad6e75eabf9483a53e3736f797720b9187e35318aa956b91974d9"
+  },
+  "synthetic-asr-unicode-2-512": {
+   "sha256": "f99ccfebc176725843475ac2456414a08615dfb3da5a62af53c307089d972cd2",
+   "status": "completed",
+   "probabilities": [
+    "0x1.390d5a0000000p-1",
+    "0x1.8de54a0000000p-2"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 512,
+   "forwards": 1,
+   "rendered_prompt_sha256": "81b399b33df3d77e609d62c6b80f32b23599bd519283a65dcbfc1b88a2f3da42"
+  },
+  "synthetic-ocr-ascii-3-128": {
+   "sha256": "6a9fd1546119035344fc6e2a8db2e17eaad16bea155728c536da06c2898c9ca4",
+   "status": "completed",
+   "probabilities": [
+    "0x1.cbbec00000000p-2",
+    "0x1.3a9ba40000000p-2",
+    "0x1.f34b420000000p-3"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "bdcb1e50df0c81a1595c49b427f489274a726fbde12ebdc252967b80c7da7130"
+  },
+  "synthetic-ocr-ascii-3-256": {
+   "sha256": "6bc3d10efefd18b50c5596f15f4037a99cae9d664a38787f87e561bc2cbf8982",
+   "status": "completed",
+   "probabilities": [
+    "0x1.7d00be0000000p-1",
+    "0x1.581ba40000000p-3",
+    "0x1.67c2aa0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 256,
+   "forwards": 1,
+   "rendered_prompt_sha256": "a7ce170fd76c595d64cfa8052ea52e59628a864286a686fd2f0c751a3c155117"
+  },
+  "synthetic-ocr-ascii-3-384": {
+   "sha256": "3964535162077cd29f7d1778907b29bdc6dabb6ed7e08e062312a06a9f007ed3",
+   "status": "completed",
+   "probabilities": [
+    "0x1.86ae440000000p-1",
+    "0x1.3a895e0000000p-3",
+    "0x1.557b160000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 384,
+   "forwards": 1,
+   "rendered_prompt_sha256": "5dcc01785b8237c2b66d7c6e6bf99d2b1385d29fe78236b88cde2bee06140406"
+  },
+  "synthetic-ocr-ascii-3-511": {
+   "sha256": "668191ff869f356d35eccabc9c1f7673b27954d4b3873a9cd12316347268810b",
+   "status": "completed",
+   "probabilities": [
+    "0x1.81157c0000000p-1",
+    "0x1.4ee56a0000000p-3",
+    "0x1.59894a0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 511,
+   "forwards": 1,
+   "rendered_prompt_sha256": "6fa306a33b4e815c4537be510b0f46aca9ce98447ffb0d987c2aadbb84e1f210"
+  },
+  "synthetic-ocr-ascii-3-512": {
+   "sha256": "493529a36d5a1560bd6296581161e471affe3a3c7b40d8c4cadddbc98c4aa7bd",
+   "status": "completed",
+   "probabilities": [
+    "0x1.82254a0000000p-1",
+    "0x1.4baf840000000p-3",
+    "0x1.5776ac0000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 512,
+   "forwards": 1,
+   "rendered_prompt_sha256": "889854439229c9d392ed3d0c86e39968f156a07f5cab14a8975ca29dfb83faa4"
+  },
+  "synthetic-ocr-ascii-3-513": {
+   "sha256": "231c55e552b75c1fcfcbef3d387c89b81429bb47c6cdfcaf1e85bc4dba21ca45",
+   "status": "completed",
+   "probabilities": [
+    "0x1.826bd40000000p-1",
+    "0x1.49ae9c0000000p-3",
+    "0x1.5944260000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c"
+   ],
+   "input_tokens": 513,
+   "forwards": 1,
+   "rendered_prompt_sha256": "8f2ed4cfc942e36ddd024c6b72c111e6c3c1795b0e0fe7b8ee6e8e464103d949"
+  },
+  "synthetic-ocr-ascii-8-256": {
+   "sha256": "07af87e0e8376e308e2e26e11ed8ade62f4027bc67170fd1a18f70b88c3eb0b3",
+   "status": "completed",
+   "probabilities": [
+    "0x1.2691680000000p-1",
+    "0x1.665b1e0000000p-4",
+    "0x1.0f61480000000p-4",
+    "0x1.a33c560000000p-5",
+    "0x1.2e0d200000000p-4",
+    "0x1.15db1c0000000p-4",
+    "0x1.9e7e580000000p-6",
+    "0x1.b124ba0000000p-5"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+   ],
+   "input_tokens": 256,
+   "forwards": 1,
+   "rendered_prompt_sha256": "0dff2accc6e525608cdf7ee716355c3bb07fa10472656a4f6b3dd97f2904ffe0"
+  },
+  "synthetic-ocr-ascii-8-384": {
+   "sha256": "896f52782042e9208c033ec497c4f3314998e0a57ecbcccf4b3d5b702e5c5129",
+   "status": "completed",
+   "probabilities": [
+    "0x1.212f4c0000000p-1",
+    "0x1.7b816a0000000p-4",
+    "0x1.1187940000000p-4",
+    "0x1.af02300000000p-5",
+    "0x1.3e28220000000p-4",
+    "0x1.1a4e220000000p-4",
+    "0x1.9cc9ac0000000p-6",
+    "0x1.a4a5a20000000p-5"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+   ],
+   "input_tokens": 384,
+   "forwards": 1,
+   "rendered_prompt_sha256": "b310b76ef9ba4d8f8c0e5df91205d70ec510adcff6400a9452ae9d4b2bf15f83"
+  },
+  "synthetic-ocr-ascii-8-511": {
+   "sha256": "8d3f5a1bd7c5065ca6f7fb0ba06ef02fd1886a6acd1d008d25f42d11b6545a26",
+   "status": "completed",
+   "probabilities": [
+    "0x1.1f74640000000p-1",
+    "0x1.751f8c0000000p-4",
+    "0x1.1d4be20000000p-4",
+    "0x1.b059360000000p-5",
+    "0x1.3e853a0000000p-4",
+    "0x1.1de2a00000000p-4",
+    "0x1.ba3c3e0000000p-6",
+    "0x1.9d9bbc0000000p-5"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+   ],
+   "input_tokens": 511,
+   "forwards": 1,
+   "rendered_prompt_sha256": "b4e592ae0c3bb157728f487d9ddc7df86f64f298f92b9626d3ca2ccdd5c23a53"
+  },
+  "synthetic-ocr-ascii-8-512": {
+   "sha256": "c864e31386cd9cf7da0afb382d96f939c774f1d8ceb809149debab7044816eb8",
+   "status": "completed",
+   "probabilities": [
+    "0x1.2074780000000p-1",
+    "0x1.6e42a20000000p-4",
+    "0x1.1ca4760000000p-4",
+    "0x1.ae2eee0000000p-5",
+    "0x1.40da300000000p-4",
+    "0x1.1dc0f60000000p-4",
+    "0x1.ba34da0000000p-6",
+    "0x1.9a6a9e0000000p-5"
+   ],
+   "judgment": {
+    "kind": "abstained"
+   },
+   "candidate_ids": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+   ],
+   "input_tokens": 512,
+   "forwards": 1,
+   "rendered_prompt_sha256": "cc3a90f7e98176bb448eb4bd7370e50b1b18a160d57f8beb24033270e2cdd08c"
+  },
+  "synthetic-ocr-ja-2-127": {
+   "sha256": "42055a045d2efd87fcda701d00804b149c4e25e52b9682defd9e7e432be226d8",
+   "status": "completed",
+   "probabilities": [
+    "0x1.e8caae0000000p-1",
+    "0x1.7355200000000p-5"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 127,
+   "forwards": 1,
+   "rendered_prompt_sha256": "6fcb91cb70ea5d46a09377f705e9e87118ac5e51bbb1c6c5363a7254f1807594"
+  },
+  "synthetic-ocr-ja-2-128": {
+   "sha256": "14c5807ade93d03388bc17043ff7b0cb357eee31557c99667cde57f9045bc3cd",
+   "status": "completed",
+   "probabilities": [
+    "0x1.e8581e0000000p-1",
+    "0x1.7a7e0a0000000p-5"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 128,
+   "forwards": 1,
+   "rendered_prompt_sha256": "be06c17439d533d24a1d616d7c5d330a96729be73586093c4756428aa4d4e425"
+  },
+  "synthetic-ocr-ja-2-129": {
+   "sha256": "fc16027f2d166042789e16659227a52c3a82fac9ec48a0d767ece3b829ba4a7e",
+   "status": "completed",
+   "probabilities": [
+    "0x1.e9768e0000000p-1",
+    "0x1.6897300000000p-5"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 129,
+   "forwards": 1,
+   "rendered_prompt_sha256": "6598458f2f8ad81a81c2529af6aa1cfb41377a8cff477a2f06ed18f905bff5b0"
+  },
+  "synthetic-ocr-ja-2-256": {
+   "sha256": "17ba445850fd8b9043500d13d68f600297c85238dedd5cb36c1b5dca661841c1",
+   "status": "completed",
+   "probabilities": [
+    "0x1.e0468e0000000p-1",
+    "0x1.fb970e0000000p-5"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 256,
+   "forwards": 1,
+   "rendered_prompt_sha256": "c8fd652708cddea6101f7e14e971c02862787cfc4d4c5a5cc1556d8af5783c1c"
+  },
+  "synthetic-ocr-ja-2-384": {
+   "sha256": "5ffa397a26ff5ee897ed7714ef1ba04975d6f350e35fe273049c81c8fcbd8851",
+   "status": "completed",
+   "probabilities": [
+    "0x1.df692c0000000p-1",
+    "0x1.04b6920000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 384,
+   "forwards": 1,
+   "rendered_prompt_sha256": "572c15dc8754757bb0b8e7275bdeadf306950fb6143968bb02a77fe3e50a9c36"
+  },
+  "synthetic-ocr-ja-2-511": {
+   "sha256": "d921b3e6eeab9c8badf3c58391566df378f38cb35f3adefc746c912c421b4795",
+   "status": "completed",
+   "probabilities": [
+    "0x1.dd2ab20000000p-1",
+    "0x1.16aa740000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 511,
+   "forwards": 1,
+   "rendered_prompt_sha256": "3ae54551d09c99dd382bd48853a804cf71e7958a0e5e2f8dc04ad8d1bc7cc377"
+  },
+  "synthetic-ocr-ja-2-512": {
+   "sha256": "e83a736d96505cc39f495d819120aa581adda470e539e84056ad00ed4618ca66",
+   "status": "completed",
+   "probabilities": [
+    "0x1.dc777e0000000p-1",
+    "0x1.1c44060000000p-4"
+   ],
+   "judgment": {
+    "candidate_id": "a",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "a",
+    "b"
+   ],
+   "input_tokens": 512,
+   "forwards": 1,
+   "rendered_prompt_sha256": "0d2e2751df43e424b9609722c6511b50bea87c7a34de8da2e36ff1c1e0be059b"
+  },
+  "token-limit-8192": {
+   "sha256": "01dea24a0f649c9e63b00b8f74085c3ba2c58bb53bef1efeed4b17524f498cc2",
+   "status": "completed",
+   "probabilities": [
+    "0x1.65cb080000000p-3",
+    "0x1.a68d3c0000000p-1"
+   ],
+   "judgment": {
+    "candidate_id": "alternative",
+    "kind": "selected"
+   },
+   "candidate_ids": [
+    "original",
+    "alternative"
+   ],
+   "input_tokens": 8192,
+   "forwards": 1,
+   "rendered_prompt_sha256": "a9a2c15eaab4e5b0cb3844427a242d8ce17690d7204edcdf658c3db1e650530c"
+  },
+  "token-limit-8193": {
+   "sha256": "225c7b50da579e411d75e3cd8601f7f1561116094e517d7e595a2d8d8c627805",
+   "status": "failed",
+   "failure": "budget_exceeded"
+  }
+ }
+}

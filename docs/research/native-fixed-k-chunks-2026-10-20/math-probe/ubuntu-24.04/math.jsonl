@@ -1,0 +1,9 @@
+{"function":"exp","sha256":"31ca92cdef8758f09b2d06dcc7c904d9a310050ddb83eb8818e62c23ea80342c"}
+{"function":"ln_1p(exp)","sha256":"1f8407f91b0ad7e811a608f204a6b83f59e2d5ff90ffb7c25f1106f8ac32ffb4"}
+{"function":"silu","sha256":"266d9ec31d98fa7a29d45fc3b3d53b164aa50cfd0f6e5553ebc715628398ad14"}
+{"function":"sqrt(|x|)","sha256":"c4e3d3d6418e34af97f7821680acc3c70cba3d0b1f157dfa1cf531c2be0b6be7"}
+{"function":"powf (rotary)","sha256":"1be8cfe48bf1c3c50c2162c2c4ac3764c74aa64816ffd81b757d5aefe53664b2"}
+{"function":"candle exp","sha256":"31ca92cdef8758f09b2d06dcc7c904d9a310050ddb83eb8818e62c23ea80342c"}
+{"function":"candle sigmoid","sha256":"383212fe864634b3339d6e9ce57917d8a20b9e8ef87256350bba40d5a1b0183c"}
+{"function":"candle softmax","sha256":"92aa7c9e469037d6fbd6ee8a462860c361a6630dc7fd444824ce1bc888a50471"}
+{"function":"candle sum","sha256":"937f55c06165209c4fc2f65d003ba5462000b9e11d6d92e4a970ddb3ba846c1d"}

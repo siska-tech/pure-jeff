@@ -1,0 +1,10 @@
+bits t4: 39 decisions, differ from PR head reference: none, gate failures: none
+bits t16: 39 decisions, differ from PR head reference: none, gate failures: none
+t4 128: main 0.868 prhead 0.883 (1.017) cand 0.878 (1.012)
+t4 512: main 3.096 prhead 3.142 (1.015) cand 3.040 (0.982)
+t4 874: main 5.198 prhead 5.198 (1.000) cand 5.082 (0.978)
+t16 128: main 0.734 prhead 0.754 (1.027) cand 0.746 (1.017)
+t16 512: main 2.247 prhead 2.282 (1.016) cand 2.238 (0.996)
+t16 874: main 3.711 prhead 3.792 (1.022) cand 3.712 (1.000)
+
+[exited with code 0]

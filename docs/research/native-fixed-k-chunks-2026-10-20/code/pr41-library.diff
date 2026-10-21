@@ -1,0 +1,395 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 95aa55b..02ce420 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,6 +27,8 @@ name = "pure_jeff"
+ anyhow = "1"
+ candle-core = { version = "=0.11.0", default-features = false }
+ candle-nn = { version = "=0.11.0", default-features = false }
++# The gemm Candle already calls, called directly for products split along k (backbone::matmul).
++gemm = { version = "=0.19.0", default-features = false, features = ["std", "rayon"] }
+ half = "2"
+ # The pool Candle's matrix products already use (Native's DeltaNet heads above one thread).
+ rayon = { version = "1.7", optional = true }
+diff --git a/src/backbone.rs b/src/backbone.rs
+index c7f2155..6dfba58 100644
+--- a/src/backbone.rs
++++ b/src/backbone.rs
+@@ -9,8 +9,156 @@ const H: usize = 16;
+ const K: usize = 128;
+ const V: usize = 128;
+ 
++/// The largest part of the summed dimension that one gemm call gets (see `matmul`).
++const K_CHUNK: usize = 512;
++
++/// `a.matmul(b)` with the summed dimension k split by this crate rather than by gemm. gemm splits
++/// k into blocks of kc, derived from the L1 cache of the CPU the process first ran gemm on (never
++/// below 512), so a product added in another order on another host, or after a start on another
++/// core of a hybrid CPU. Here k is split into ceil(k / 512) equal chunks, the split gemm makes
++/// itself at kc = 512; gemm never splits a chunk of at most 512 again, and each chunk is added
++/// into the output in order. The bits then depend on the kernel (FMA on every x86_64 host, NEON
++/// on aarch64) but not on the cache sizes (docs/native-fixed-k-chunks-2026-10-20.md). One-row
++/// products (gemv) do not depend on the cache sizes and are left to Candle.
++///
++/// gemm is called as Candle calls it (row-major output, the thread count Candle uses), the first
++/// chunk writing the output and the others adding to it, so there is no tensor per chunk; the
++/// result is bitwise that of Candle's matmul of each chunk added with `+` (see the tests).
++/// `a` is (m, k) or (b, m, k), `b` is (k, n) or (b, k, n), both F32 on the CPU, any strides.
++fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
++    let rank = a.rank();
++    let (m, k) = (a.dim(D::Minus2)?, a.dim(D::Minus1)?);
++    if k <= K_CHUNK || m <= 1 {
++        return a.matmul(b);
++    }
++    let n = b.dim(D::Minus1)?;
++    let batch = if rank == 3 { a.dim(0)? } else { 1 };
++    if !(rank == 2 || rank == 3)
++        || b.rank() != rank
++        || b.dim(D::Minus2)? != k
++        || (rank == 3 && b.dim(0)? != batch)
++    {
++        candle_core::bail!("matmul: {:?} x {:?}", a.dims(), b.dims())
++    }
++    if batch == 0 || n == 0 {
++        // Nothing to compute; Candle returns the empty product.
++        return a.matmul(b);
++    }
++    // The read guards stay alive until gemm returns: no in-place op can write a or b meanwhile.
++    let (a_storage, a_layout) = a.storage_and_layout();
++    let (b_storage, b_layout) = b.storage_and_layout();
++    let (Storage::Cpu(CpuStorage::F32(av)), Storage::Cpu(CpuStorage::F32(bv))) =
++        (&*a_storage, &*b_storage)
++    else {
++        candle_core::bail!("matmul: F32 tensors on the CPU only")
++    };
++    let [a_off, a_bs, a_rs, a_cs] = operand_strides(a_layout, av.len(), batch, m, k)?;
++    let [b_off, b_bs, b_rs, b_cs] = operand_strides(b_layout, bv.len(), batch, k, n)?;
++    let threads = candle_core::utils::get_num_threads();
++    let parallelism = if threads > 1 {
++        gemm::Parallelism::Rayon(threads)
++    } else {
++        gemm::Parallelism::None
++    };
++    let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
++    // Zero-initialized: no element of dst is ever read before it is written, and even a read
++    // would see 0.0, not uninitialized memory.
++    let mut dst = vec![0f32; batch * m * n];
++    for step in 0..batch {
++        for start in (0..k).step_by(chunk) {
++            let size = chunk.min(k - start);
++            let accumulate = start > 0;
++            // SAFETY (the contract of `gemm::gemm`: every element it reads or writes must be
++            // valid for that access, and the output must not overlap the inputs):
++            // - Bounds: dst has batch * m * n elements and gemm writes dst[step * m * n + i * n
++            //   + j] for i < m, j < n (row stride n, column stride 1), below (step + 1) * m * n.
++            //   gemm reads a[a_off + step * a_bs + i * a_rs + (start + c) * a_cs] for i < m,
++            //   c < size, and b[b_off + step * b_bs + (start + r) * b_rs + j * b_cs] for r < size,
++            //   j < n. With step < batch and start + size <= k, these are indices that
++            //   `operand_strides` checked to be inside av and bv (a chunk only narrows k), so the
++            //   offset pointers below are also inside their allocations.
++            // - Strides: non-negative and at most isize::MAX (checked), as gemm takes isize.
++            // - Alignment: every pointer comes from a [f32] slice and moves by whole elements.
++            // - Aliasing: dst is a new Vec that only this call refers to; a and b are only read
++            //   (they may share storage), and their read guards keep writers out.
++            // - read_dst: the first chunk passes false, and gemm sets alpha to 0, so the old
++            //   contents of dst do not count (they are the zeros above in any case: dst is
++            //   never uninitialized). Each later chunk passes true with alpha = 1 and adds to the
++            //   values the previous call wrote to every element of this step's m x n block.
++            // - Threads: gemm splits the output among the rayon pool's threads, which write
++            //   disjoint elements of dst and only read a and b.
++            unsafe {
++                gemm::gemm(
++                    m,
++                    n,
++                    size,
++                    dst.as_mut_ptr().add(step * m * n),
++                    1,
++                    n as isize,
++                    accumulate,
++                    av.as_ptr().add(a_off + step * a_bs + start * a_cs),
++                    a_cs as isize,
++                    a_rs as isize,
++                    bv.as_ptr().add(b_off + step * b_bs + start * b_rs),
++                    b_cs as isize,
++                    b_rs as isize,
++                    if accumulate { 1.0 } else { 0.0 },
++                    1.0,
++                    false,
++                    false,
++                    false,
++                    parallelism,
++                )
++            }
++        }
++    }
++    let shape: Vec<usize> = if rank == 3 {
++        vec![batch, m, n]
++    } else {
++        vec![m, n]
++    };
++    Tensor::from_vec(dst, shape, &Device::Cpu)
++}
++
++/// Where gemm may read one operand of `matmul`: `[offset, batch stride, row stride, column
++/// stride]` of a (batch, rows, cols) view (rank 3, or rank 2 with batch 1) over a buffer of `len`
++/// elements. Errors unless every element gemm can read, offset + i bs + r rs + c cs for i <
++/// batch, r < rows, c < cols, is inside the buffer, computed without overflow. A dimension of
++/// size 1 is never stepped, so its stride (which Candle may leave at any value) is returned as 0.
++/// Every stride returned fits in isize, as gemm takes them. Needs batch, rows, cols >= 1.
++fn operand_strides(
++    layout: &Layout,
++    len: usize,
++    batch: usize,
++    rows: usize,
++    cols: usize,
++) -> Result<[usize; 4]> {
++    let (dims, stride) = (layout.dims(), layout.stride());
++    let (bs, rs, cs) = match (dims, stride) {
++        ([b, r, c], [bs, rs, cs]) if (*b, *r, *c) == (batch, rows, cols) => (*bs, *rs, *cs),
++        ([r, c], [rs, cs]) if (*r, *c, batch) == (rows, cols, 1) => (0, *rs, *cs),
++        _ => candle_core::bail!("matmul: layout {dims:?} is not ({batch}, {rows}, {cols})"),
++    };
++    if batch == 0 || rows == 0 || cols == 0 {
++        candle_core::bail!("matmul: empty operand")
++    }
++    let steps = [(batch, bs), (rows, rs), (cols, cs)].map(|(n, s)| if n > 1 { s } else { 0 });
++    let last = [batch, rows, cols]
++        .iter()
++        .zip(steps)
++        .try_fold(layout.start_offset(), |at, (n, s)| {
++            at.checked_add((n - 1).checked_mul(s)?)
++        });
++    match last {
++        Some(last) if last < len && steps.iter().all(|&s| s <= isize::MAX as usize) => {
++            Ok([layout.start_offset(), steps[0], steps[1], steps[2]])
++        }
++        _ => candle_core::bail!("matmul: layout outside its buffer"),
++    }
++}
++
+ fn linear(x: &Tensor, weights: &Weights, name: &str) -> Result<Tensor> {
+-    weights.with(&format!("{name}.weight"), |w| x.matmul(&w.t()?))
++    weights.with(&format!("{name}.weight"), |w| matmul(x, &w.t()?))
+ }
+ 
+ fn normalized(x: &Tensor, eps: f64) -> Result<Tensor> {
+@@ -134,13 +282,13 @@ fn attention_rows(
+     } else {
+         q.narrow(1, start, rows)?.contiguous()?
+     };
+-    let scores = (q.matmul(kt)? / 16.0)?;
++    let scores = (matmul(&q, kt)? / 16.0)?;
+     let mask: Vec<f32> = (start..start + rows)
+         .flat_map(|i| (0..seq).map(move |j| if j > i { f32::NEG_INFINITY } else { 0.0 }))
+         .collect();
+     let mask = Tensor::from_vec(mask, (1, rows, seq), &Device::Cpu)?;
+     let probs = candle_nn::ops::softmax_last_dim(&scores.broadcast_add(&mask)?)?;
+-    probs.matmul(v)
++    matmul(&probs, v)
+ }
+ 
+ fn full_attention(
+@@ -1014,6 +1162,203 @@ mod tests {
+         Ok(())
+     }
+ 
++    #[test]
++    fn matmul_splits_k_into_equal_chunks_of_at_most_512() -> Result<()> {
++        let mut seed = 0x6b5eed_u64;
++        let chunks = |k: usize| -> Vec<usize> {
++            let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
++            (0..k).step_by(chunk).map(|s| chunk.min(k - s)).collect()
++        };
++        assert_eq!(chunks(513), [257, 256]);
++        assert_eq!(chunks(874), [437, 437]);
++        assert_eq!(chunks(1024), [512, 512]);
++        assert_eq!(chunks(2048), [512; 4]);
++        assert_eq!(chunks(3584), [512; 7]);
++        for (m, k, n) in [
++            (1, 1024, 255),
++            (2, 512, 7),
++            (70, 513, 9),
++            (70, 1024, 70),
++            (3, 3584, 16),
++        ] {
++            let a = Tensor::from_vec(uniform(&mut seed, m * k, -1.0, 1.0), (m, k), &Device::Cpu)?;
++            // The weight layout of `linear`: (n, k) transposed.
++            let w = Tensor::from_vec(uniform(&mut seed, n * k, -1.0, 1.0), (n, k), &Device::Cpu)?;
++            let b = w.t()?;
++            let expected = if m <= 1 || k <= K_CHUNK {
++                a.matmul(&b)?
++            } else {
++                let mut start = 0;
++                let mut sum: Option<Tensor> = None;
++                for size in chunks(k) {
++                    let part = a
++                        .narrow(1, start, size)?
++                        .matmul(&b.narrow(0, start, size)?)?;
++                    sum = Some(match sum {
++                        Some(s) => (s + part)?,
++                        None => part,
++                    });
++                    start += size;
++                }
++                sum.unwrap()
++            };
++            assert!(
++                bits(&matmul(&a, &b)?)? == bits(&expected)?,
++                "m {m}, k {k}, n {n}"
++            );
++        }
++        // The attention value product: 8 heads, probabilities (8, rows, seq) times values
++        // (8, seq, 256), the probabilities also as a strided view.
++        for (rows, seq) in [(3, 874), (40, 1025)] {
++            let p = Tensor::from_vec(
++                uniform(&mut seed, 8 * (rows + 1) * seq, 0.0, 1.0),
++                (8, rows + 1, seq),
++                &Device::Cpu,
++            )?;
++            let v = Tensor::from_vec(
++                uniform(&mut seed, 8 * seq * 256, -1.0, 1.0),
++                (8, seq, 256),
++                &Device::Cpu,
++            )?;
++            for a in [p.narrow(1, 0, rows)?.contiguous()?, p.narrow(1, 1, rows)?] {
++                let mut start = 0;
++                let mut expected: Option<Tensor> = None;
++                for size in chunks(seq) {
++                    let part = a
++                        .narrow(2, start, size)?
++                        .matmul(&v.narrow(1, start, size)?)?;
++                    expected = Some(match expected {
++                        Some(s) => (s + part)?,
++                        None => part,
++                    });
++                    start += size;
++                }
++                assert!(
++                    bits(&matmul(&a, &v)?)? == bits(&expected.unwrap())?,
++                    "rows {rows}, seq {seq}"
++                );
++            }
++        }
++        Ok(())
++    }
++
++    #[test]
++    fn matmul_operands_are_checked_against_their_buffers() {
++        let layout = |dims: &[usize], stride: &[usize], offset: usize| {
++            Layout::new(dims.to_vec().into(), stride.to_vec(), offset)
++        };
++        // Contiguous (rows, cols): the last element is at rows * cols - 1.
++        let l = layout(&[3, 600], &[600, 1], 0);
++        assert_eq!(
++            operand_strides(&l, 1800, 1, 3, 600).unwrap(),
++            [0, 0, 600, 1]
++        );
++        assert!(operand_strides(&l, 1799, 1, 3, 600).is_err());
++        // An offset view (as `narrow` makes) must still end inside the buffer.
++        let l = layout(&[3, 600], &[700, 1], 100);
++        assert!(operand_strides(&l, 100 + 2 * 700 + 600, 1, 3, 600).is_ok());
++        assert!(operand_strides(&l, 100 + 2 * 700 + 599, 1, 3, 600).is_err());
++        // The transposed weight of `linear`: (k, n) with strides (1, k).
++        let l = layout(&[600, 4], &[1, 600], 0);
++        assert_eq!(
++            operand_strides(&l, 2400, 1, 600, 4).unwrap(),
++            [0, 0, 1, 600]
++        );
++        // Batched (8, rows, seq), rows a strided window.
++        let l = layout(&[8, 3, 874], &[5 * 874, 874, 1], 874);
++        assert_eq!(
++            operand_strides(&l, 8 * 5 * 874, 8, 3, 874).unwrap(),
++            [874, 5 * 874, 874, 1]
++        );
++        assert!(operand_strides(&l, 7 * 5 * 874 + 4 * 874 - 1, 8, 3, 874).is_err());
++        // A dimension of size 1 is never stepped: its stride may be anything and is reported 0.
++        let l = layout(&[600, 1], &[1, usize::MAX], 0);
++        assert_eq!(operand_strides(&l, 600, 1, 600, 1).unwrap(), [0, 0, 1, 0]);
++        let l = layout(&[1, 2, 600], &[usize::MAX, 600, 1], 0);
++        assert_eq!(
++            operand_strides(&l, 1200, 1, 2, 600).unwrap(),
++            [0, 0, 600, 1]
++        );
++        // Overflowing index arithmetic is an error, not a wrapped (small) index.
++        let l = layout(&[2, 600], &[usize::MAX / 2 + 1, 1], 0);
++        assert!(operand_strides(&l, usize::MAX, 1, 2, 600).is_err());
++        let l = layout(&[2, 600], &[1, 1], usize::MAX - 10);
++        assert!(operand_strides(&l, usize::MAX, 1, 2, 600).is_err());
++        // A stride gemm could not take as isize.
++        let l = layout(&[2, 600], &[isize::MAX as usize + 1, 1], 0);
++        assert!(operand_strides(&l, usize::MAX, 1, 2, 600).is_err());
++        // Shapes that do not match, and empty operands, are refused.
++        let l = layout(&[3, 600], &[600, 1], 0);
++        assert!(operand_strides(&l, 1800, 1, 3, 601).is_err());
++        assert!(operand_strides(&l, 1800, 2, 3, 600).is_err());
++        let l = layout(&[0, 600], &[600, 1], 0);
++        assert!(operand_strides(&l, 0, 1, 0, 600).is_err());
++    }
++
++    #[test]
++    fn matmul_edge_shapes_and_repeats_are_bitwise_equal_to_the_chunks() -> Result<()> {
++        let mut seed = 0x00dd_5eed_u64;
++        let chunked = |a: &Tensor, b: &Tensor| -> Result<Tensor> {
++            let k = a.dim(D::Minus1)?;
++            let chunk = k.div_ceil(k.div_ceil(K_CHUNK));
++            let mut sum: Option<Tensor> = None;
++            for start in (0..k).step_by(chunk) {
++                let size = chunk.min(k - start);
++                let part = a.narrow(a.rank() - 1, start, size)?.matmul(&b.narrow(
++                    b.rank() - 2,
++                    start,
++                    size,
++                )?)?;
++                sum = Some(match sum {
++                    Some(s) => (s + part)?,
++                    None => part,
++                });
++            }
++            Ok(sum.unwrap())
++        };
++        let a = Tensor::from_vec(
++            uniform(&mut seed, 5 * 1100, -1.0, 1.0),
++            (5, 1100),
++            &Device::Cpu,
++        )?;
++        let w = Tensor::from_vec(
++            uniform(&mut seed, 9 * 1100, -1.0, 1.0),
++            (9, 1100),
++            &Device::Cpu,
++        )?;
++        // One output column out of a wider weight (n = 1, its stride not stepped), an offset
++        // window of rows of a, and the empty product (n = 0).
++        let one = w.t()?.narrow(1, 4, 1)?;
++        assert_eq!(bits(&matmul(&a, &one)?)?, bits(&chunked(&a, &one)?)?);
++        let rows = a.narrow(0, 1, 3)?;
++        assert_eq!(
++            bits(&matmul(&rows, &w.t()?)?)?,
++            bits(&chunked(&rows, &w.t()?)?)?
++        );
++        let empty = w.t()?.narrow(1, 0, 0)?;
++        assert_eq!(matmul(&a, &empty)?.dims(), [5, 0]);
++        // A batch of one, and repeated calls: each call starts from a new zeroed output, so a
++        // previous result never leaks into the next (read_dst only within one call).
++        let a3 = a.unsqueeze(0)?;
++        let b3 = w.t()?.unsqueeze(0)?;
++        let first = bits(&matmul(&a3, &b3)?)?;
++        assert_eq!(first, bits(&chunked(&a3, &b3)?)?);
++        for _ in 0..3 {
++            assert_eq!(bits(&matmul(&a3, &b3)?)?, first);
++        }
++        // Several threads in gemm (the pool Candle uses) give the same bits.
++        #[cfg(feature = "native")]
++        for threads in [2, 5] {
++            let pool = rayon::ThreadPoolBuilder::new()
++                .num_threads(threads)
++                .build()
++                .unwrap();
++            assert_eq!(pool.install(|| matmul(&a3, &b3))?.dims(), [1, 5, 9]);
++            assert_eq!(bits(&pool.install(|| matmul(&a3, &b3))?)?, first);
++        }
++        Ok(())
++    }
++
+     #[test]
+     fn query_blocks_cover_the_sequence_without_one_row_blocks() {
+         for block in [3, 8, QUERY_BLOCK] {

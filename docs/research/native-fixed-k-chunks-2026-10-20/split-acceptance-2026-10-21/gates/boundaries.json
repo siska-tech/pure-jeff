@@ -1,0 +1,16 @@
+{
+  "schema_version": "kaze_judge.rust_boundaries.v1",
+  "checked_on": "2026-10-10",
+  "executable_sha256": "7e5caee14c7d4df59a9c7db1794b9e61c97e94918276ddb268e4b9c50dfdcaf6",
+  "manifest_sha256": "571eb6642ebbb6de16c5bdab7d042551c97f12991c3cae2517ff72f0b47480f2",
+  "checker_sha256": "352946837fa6f321dc6dbeb2904d75d1fc5825d9b58d57a0c810adec9db767de",
+  "reference_sha256": "b7f6b6052b99f0bf46f273254f006bd5524b4930d118936ad02c8a9af7623821",
+  "exact_token_limit": 128,
+  "undersized_token_limit_rejected": 127,
+  "maximum_candidates": 255,
+  "maximum_candidates_input_tokens": 3206,
+  "maximum_candidates_one_token_short_rejected": true,
+  "over_maximum_candidates_rejected": 256,
+  "runtime_8192_token_ceiling_enforced": true,
+  "forwards": 0
+}

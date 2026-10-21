@@ -1,0 +1,16 @@
+{
+ "kind": "timeout",
+ "session": 0,
+ "threads": 16,
+ "arm": "candidate",
+ "index": 136,
+ "returncode": 0,
+ "stderr": "",
+ "result": {
+  "deadline_s": 3.0,
+  "reuse_bitwise_equal": true,
+  "stopped_after_s": 3.576601,
+  "timeout": true
+ },
+ "decisions": []
+}
