@@ -126,6 +126,9 @@ fn blocks(len: usize, parts: usize, unit: usize) -> Vec<(usize, usize)> {
         .collect()
 }
 
+/// One block of the output: (product, (row0, rows), (col0, cols)).
+type Block = (usize, (usize, usize), (usize, usize));
+
 /// The candidate rule: the output of each of `batch` products split along its larger dimension
 /// into about `per_thread` x threads blocks in all (whole 16s, at least 64 long), every block run
 /// on one thread with all its chunks. None (the caller keeps gemm's own threads) when that gives
@@ -137,7 +140,7 @@ fn rule_blocks(
     n: usize,
     threads: usize,
     per_thread: usize,
-) -> Option<Vec<(usize, (usize, usize), (usize, usize))>> {
+) -> Option<Vec<Block>> {
     if threads <= 1 {
         return None;
     }
