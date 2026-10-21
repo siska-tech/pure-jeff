@@ -1,0 +1,138 @@
+000 warm s0 t1 baseline  rc=0 decisions=48 gate_failures=0 commit=1.154 GiB
+001 warm s0 t1 candidate  rc=0 decisions=48 gate_failures=0 commit=1.155 GiB
+002 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+003 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+004 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+005 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+006 oneshot s0 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+007 oneshot s0 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+008 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+009 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+010 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+011 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+012 oneshot s0 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+013 oneshot s0 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+014 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+015 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+016 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+017 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+018 oneshot s0 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+019 oneshot s0 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+020 oneshot s0 t1 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.153 GiB
+021 oneshot s0 t1 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.153 GiB
+022 warm s0 t4 candidate  rc=0 decisions=48 gate_failures=0 commit=1.160 GiB
+023 warm s0 t4 baseline  rc=0 decisions=48 gate_failures=0 commit=1.164 GiB
+024 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+025 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+026 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+027 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+028 oneshot s0 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+029 oneshot s0 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+030 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+031 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+032 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+033 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+034 oneshot s0 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+035 oneshot s0 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+036 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+037 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+038 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+039 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+040 oneshot s0 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+041 oneshot s0 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+042 oneshot s0 t4 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.156 GiB
+043 oneshot s0 t4 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.156 GiB
+044 warm s0 t16 baseline  rc=0 decisions=48 gate_failures=0 commit=1.177 GiB
+045 warm s0 t16 candidate  rc=0 decisions=48 gate_failures=0 commit=1.173 GiB
+046 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+047 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+048 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+049 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+050 oneshot s0 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+051 oneshot s0 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+052 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+053 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+054 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+055 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+056 oneshot s0 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+057 oneshot s0 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+058 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+059 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+060 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+061 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+062 oneshot s0 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+063 oneshot s0 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+064 oneshot s0 t16 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.169 GiB
+065 oneshot s0 t16 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.169 GiB
+066 warm s1 t16 candidate  rc=0 decisions=48 gate_failures=0 commit=1.177 GiB
+067 warm s1 t16 baseline  rc=0 decisions=48 gate_failures=0 commit=1.173 GiB
+068 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+069 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+070 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+071 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+072 oneshot s1 t16 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+073 oneshot s1 t16 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+074 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+075 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+076 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+077 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+078 oneshot s1 t16 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+079 oneshot s1 t16 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+080 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+081 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+082 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+083 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+084 oneshot s1 t16 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+085 oneshot s1 t16 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.215 GiB
+086 oneshot s1 t16 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.169 GiB
+087 oneshot s1 t16 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.170 GiB
+088 warm s1 t4 baseline  rc=0 decisions=48 gate_failures=0 commit=1.164 GiB
+089 warm s1 t4 candidate  rc=0 decisions=48 gate_failures=0 commit=1.160 GiB
+090 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+091 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+092 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+093 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+094 oneshot s1 t4 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+095 oneshot s1 t4 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+096 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+097 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+098 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+099 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+100 oneshot s1 t4 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+101 oneshot s1 t4 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+102 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+103 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+104 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+105 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+106 oneshot s1 t4 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+107 oneshot s1 t4 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.202 GiB
+108 oneshot s1 t4 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.156 GiB
+109 oneshot s1 t4 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.156 GiB
+110 warm s1 t1 candidate  rc=0 decisions=48 gate_failures=0 commit=1.154 GiB
+111 warm s1 t1 baseline  rc=0 decisions=48 gate_failures=0 commit=1.154 GiB
+112 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+113 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+114 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+115 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+116 oneshot s1 t1 candidate candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+117 oneshot s1 t1 baseline candidate-request rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+118 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+119 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+120 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+121 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+122 oneshot s1 t1 baseline synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+123 oneshot s1 t1 candidate synthetic-ocr-ascii-8-512 rc=0 decisions=1 gate_failures=0 commit=0.198 GiB
+124 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+125 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+126 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+127 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+128 oneshot s1 t1 candidate long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+129 oneshot s1 t1 baseline long-text rc=0 decisions=1 gate_failures=0 commit=0.199 GiB
+130 oneshot s1 t1 baseline token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.153 GiB
+131 oneshot s1 t1 candidate token-limit-8192 rc=0 decisions=1 gate_failures=0 commit=1.153 GiB
+132 affinity s0 t4 candidate cpus 0-15 rc=0 decisions=39 gate_failures=0
+133 affinity s0 t4 candidate cpus 16-31 rc=0 decisions=39 gate_failures=0
+134 timeout s0 t1 candidate  rc=0 decisions=0 gate_failures=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 4.6339505, 'timeout': True}
+135 timeout s0 t4 candidate  rc=0 decisions=0 gate_failures=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 3.9944975, 'timeout': True}
+136 timeout s0 t16 candidate  rc=0 decisions=0 gate_failures=0 {'deadline_s': 3.0, 'reuse_bitwise_equal': True, 'stopped_after_s': 3.576601, 'timeout': True}
+exit=0

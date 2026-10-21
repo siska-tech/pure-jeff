@@ -1,0 +1,288 @@
+diff --git a/src/backbone.rs b/src/backbone.rs
+index 6dfba58..5bb69ba 100644
+--- a/src/backbone.rs
++++ b/src/backbone.rs
+@@ -26,6 +26,11 @@ const K_CHUNK: usize = 512;
+ /// result is bitwise that of Candle's matmul of each chunk added with `+` (see the tests).
+ /// `a` is (m, k) or (b, m, k), `b` is (k, n) or (b, k, n), both F32 on the CPU, any strides.
+ fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
++    matmul_with(a, b, candle_core::utils::get_num_threads())
++}
++
++/// `matmul` with `threads` compute threads (the tests choose it).
++fn matmul_with(a: &Tensor, b: &Tensor, threads: usize) -> Result<Tensor> {
+     let rank = a.rank();
+     let (m, k) = (a.dim(D::Minus2)?, a.dim(D::Minus1)?);
+     if k <= K_CHUNK || m <= 1 {
+@@ -54,7 +59,6 @@ fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+     };
+     let [a_off, a_bs, a_rs, a_cs] = operand_strides(a_layout, av.len(), batch, m, k)?;
+     let [b_off, b_bs, b_rs, b_cs] = operand_strides(b_layout, bv.len(), batch, k, n)?;
+-    let threads = candle_core::utils::get_num_threads();
+     let parallelism = if threads > 1 {
+         gemm::Parallelism::Rayon(threads)
+     } else {
+@@ -64,42 +68,52 @@ fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+     // Zero-initialized: no element of dst is ever read before it is written, and even a read
+     // would see 0.0, not uninitialized memory.
+     let mut dst = vec![0f32; batch * m * n];
+-    for step in 0..batch {
++    let out = Output(dst.as_mut_ptr());
++    // Rows row0..row0 + rows and columns col0..col0 + cols of product `step`, every chunk in
++    // order. Each output element gets the same chunks added in the same order whichever block
++    // it is in, so the blocks only decide which thread computes it.
++    let block = |step: usize, (row0, rows): (usize, usize), (col0, cols): (usize, usize), par| {
+         for start in (0..k).step_by(chunk) {
+             let size = chunk.min(k - start);
+             let accumulate = start > 0;
+             // SAFETY (the contract of `gemm::gemm`: every element it reads or writes must be
+             // valid for that access, and the output must not overlap the inputs):
+-            // - Bounds: dst has batch * m * n elements and gemm writes dst[step * m * n + i * n
+-            //   + j] for i < m, j < n (row stride n, column stride 1), below (step + 1) * m * n.
+-            //   gemm reads a[a_off + step * a_bs + i * a_rs + (start + c) * a_cs] for i < m,
+-            //   c < size, and b[b_off + step * b_bs + (start + r) * b_rs + j * b_cs] for r < size,
+-            //   j < n. With step < batch and start + size <= k, these are indices that
+-            //   `operand_strides` checked to be inside av and bv (a chunk only narrows k), so the
+-            //   offset pointers below are also inside their allocations.
++            // - Bounds: the block is inside product `step` (row0 + rows <= m, col0 + cols <= n,
++            //   step < batch; see `out_blocks`). dst has batch * m * n elements and gemm writes
++            //   dst[step * m * n + (row0 + i) * n + col0 + j] for i < rows, j < cols (row stride
++            //   n, column stride 1), below (step + 1) * m * n. gemm reads a[a_off + step * a_bs
++            //   + (row0 + i) * a_rs + (start + c) * a_cs] for c < size, and b[b_off + step * b_bs
++            //   + (start + r) * b_rs + (col0 + j) * b_cs] for r < size. These are indices that
++            //   `operand_strides` checked to be inside av and bv (a block and a chunk only narrow
++            //   the ranges), so the offset pointers below are also inside their allocations.
+             // - Strides: non-negative and at most isize::MAX (checked), as gemm takes isize.
+             // - Alignment: every pointer comes from a [f32] slice and moves by whole elements.
+-            // - Aliasing: dst is a new Vec that only this call refers to; a and b are only read
+-            //   (they may share storage), and their read guards keep writers out.
++            // - Aliasing: dst is a new Vec that only this function refers to, and the blocks of
++            //   one call are disjoint (`out_blocks`), so no two gemm calls running at the same
++            //   time write the same element, and none reads what another writes. a and b are
++            //   only read (they may share storage), and their read guards keep writers out.
+             // - read_dst: the first chunk passes false, and gemm sets alpha to 0, so the old
+-            //   contents of dst do not count (they are the zeros above in any case: dst is
+-            //   never uninitialized). Each later chunk passes true with alpha = 1 and adds to the
+-            //   values the previous call wrote to every element of this step's m x n block.
+-            // - Threads: gemm splits the output among the rayon pool's threads, which write
+-            //   disjoint elements of dst and only read a and b.
++            //   contents of the block do not count (they are the zeros above in any case: dst
++            //   is never uninitialized). Each later chunk passes true with alpha = 1 and adds to
++            //   the values the previous call, on the same thread, wrote to every element of
++            //   this block.
++            // - Threads: with `par` = Rayon, gemm splits the block among the pool's threads,
++            //   which write disjoint elements of it and only read a and b.
+             unsafe {
+                 gemm::gemm(
+-                    m,
+-                    n,
++                    rows,
++                    cols,
+                     size,
+-                    dst.as_mut_ptr().add(step * m * n),
++                    out.at(step * m * n + row0 * n + col0),
+                     1,
+                     n as isize,
+                     accumulate,
+-                    av.as_ptr().add(a_off + step * a_bs + start * a_cs),
++                    av.as_ptr()
++                        .add(a_off + step * a_bs + row0 * a_rs + start * a_cs),
+                     a_cs as isize,
+                     a_rs as isize,
+-                    bv.as_ptr().add(b_off + step * b_bs + start * b_rs),
++                    bv.as_ptr()
++                        .add(b_off + step * b_bs + start * b_rs + col0 * b_cs),
+                     b_cs as isize,
+                     b_rs as isize,
+                     if accumulate { 1.0 } else { 0.0 },
+@@ -107,11 +121,29 @@ fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+                     false,
+                     false,
+                     false,
+-                    parallelism,
++                    par,
+                 )
+             }
+         }
++    };
++    #[cfg(feature = "native")]
++    if let Some(blocks) = out_blocks(batch, m, n, threads) {
++        use rayon::prelude::*;
++        // One parallel region for the whole product: each block runs all its chunks on one
++        // thread, instead of every chunk call starting and joining the threads again.
++        blocks
++            .into_par_iter()
++            .for_each(|(step, rows, cols)| block(step, rows, cols, gemm::Parallelism::None));
++        return finish(dst, rank, batch, m, n);
++    }
++    for step in 0..batch {
++        block(step, (0, m), (0, n), parallelism);
+     }
++    finish(dst, rank, batch, m, n)
++}
++
++/// `matmul`'s output as a tensor of its shape.
++fn finish(dst: Vec<f32>, rank: usize, batch: usize, m: usize, n: usize) -> Result<Tensor> {
+     let shape: Vec<usize> = if rank == 3 {
+         vec![batch, m, n]
+     } else {
+@@ -120,6 +152,68 @@ fn matmul(a: &Tensor, b: &Tensor) -> Result<Tensor> {
+     Tensor::from_vec(dst, shape, &Device::Cpu)
+ }
+ 
++/// `matmul`'s output buffer, shared by the threads that write its blocks.
++#[derive(Clone, Copy)]
++struct Output(*mut f32);
++
++// SAFETY: the threads of one `matmul` write disjoint blocks of the output (`out_blocks`) and
++// read nothing through this pointer; the buffer outlives them, and nothing else touches it
++// until the parallel loop has joined.
++#[cfg(feature = "native")]
++unsafe impl Send for Output {}
++#[cfg(feature = "native")]
++unsafe impl Sync for Output {}
++
++impl Output {
++    /// The output pointer `offset` elements in. Callers stay inside the buffer (see `matmul`).
++    fn at(self, offset: usize) -> *mut f32 {
++        self.0.wrapping_add(offset)
++    }
++}
++
++/// With 4 or more compute threads and at least 512 rows, the blocks `matmul` gives the threads:
++/// `(product, (row0, rows), (col0, cols))`. The output of each of the `batch` products is split
++/// along its larger side into about `threads / batch` parts of whole 16s, at least 64 long.
++/// The blocks are disjoint and cover every output element once. None (gemm then splits each
++/// chunk among the threads itself) for fewer threads or rows, when that gives fewer than two
++/// blocks, or when a block would make gemm take another path than for the whole product,
++/// adding in another order: m x n <= 256 (its horizontal kernels) or a side of 1 (gemv).
++#[cfg(feature = "native")]
++#[allow(clippy::type_complexity)]
++fn out_blocks(
++    batch: usize,
++    m: usize,
++    n: usize,
++    threads: usize,
++) -> Option<Vec<(usize, (usize, usize), (usize, usize))>> {
++    if threads < 4 || m < 512 || batch == 0 {
++        return None;
++    }
++    let along_rows = m >= n;
++    let len = if along_rows { m } else { n };
++    let parts = threads.div_ceil(batch).min(len / 64).max(1);
++    let per = len.div_ceil(16).div_ceil(parts).max(1) * 16;
++    let split: Vec<(usize, usize)> = (0..len)
++        .step_by(per)
++        .map(|start| (start, per.min(len - start)))
++        .collect();
++    let blocks: Vec<_> = (0..batch)
++        .flat_map(|step| {
++            split.iter().map(move |&part| {
++                if along_rows {
++                    (step, part, (0, n))
++                } else {
++                    (step, (0, m), part)
++                }
++            })
++        })
++        .collect();
++    let same_path = blocks
++        .iter()
++        .all(|&(_, (_, rows), (_, cols))| rows >= 2 && cols >= 2 && rows * cols > 256);
++    (blocks.len() >= 2 && same_path).then_some(blocks)
++}
++
+ /// Where gemm may read one operand of `matmul`: `[offset, batch stride, row stride, column
+ /// stride]` of a (batch, rows, cols) view (rank 3, or rank 2 with batch 1) over a buffer of `len`
+ /// elements. Errors unless every element gemm can read, offset + i bs + r rs + c cs for i <
+@@ -1359,6 +1453,90 @@ mod tests {
+         Ok(())
+     }
+ 
++    #[cfg(feature = "native")]
++    #[test]
++    fn out_blocks_are_disjoint_cover_the_output_and_keep_gemm_on_one_path() {
++        for threads in [1, 2, 3, 4, 5, 8, 16, 32] {
++            for (batch, m, n) in [
++                (1, 512, 16),
++                (1, 874, 6144),
++                (1, 874, 1024),
++                (1, 8192, 1024),
++                (1, 8192, 6144),
++                (1, 600, 2),
++                (1, 511, 4096),
++                (8, 512, 256),
++                (8, 362, 256),
++                (8, 513, 256),
++            ] {
++                let Some(blocks) = out_blocks(batch, m, n, threads) else {
++                    // Too few threads or rows, or blocks of 2 columns x few rows (m x n <= 256).
++                    assert!(
++                        threads < 4 || m < 512 || (m, n) == (600, 2),
++                        "{batch} {m} {n} {threads}"
++                    );
++                    continue;
++                };
++                assert!(threads >= 4 && m >= 512 && blocks.len() >= 2);
++                let mut covered = vec![0u8; batch * m * n];
++                for &(step, (row0, rows), (col0, cols)) in &blocks {
++                    assert!(step < batch && row0 + rows <= m && col0 + cols <= n);
++                    assert!(rows >= 2 && cols >= 2 && rows * cols > 256);
++                    for i in row0..row0 + rows {
++                        for j in col0..col0 + cols {
++                            covered[step * m * n + i * n + j] += 1;
++                        }
++                    }
++                }
++                assert!(covered.iter().all(|&c| c == 1), "{batch} {m} {n} {threads}");
++            }
++        }
++    }
++
++    #[test]
++    fn matmul_in_blocks_is_bitwise_equal_to_the_chunks_on_one_thread() -> Result<()> {
++        // The blocks only decide which thread computes which elements: every thread count,
++        // with or without blocks, gives the bits of one thread.
++        let mut seed = 0x00b1_0c55_u64;
++        let shapes: [(usize, usize, usize, usize); 5] = [
++            (1, 600, 1024, 2048),
++            (1, 520, 2048, 96),
++            (1, 512, 1100, 16),
++            (8, 512, 874, 256),
++            (8, 700, 1025, 40),
++        ];
++        for (batch, m, k, n) in shapes {
++            let a = Tensor::from_vec(
++                uniform(&mut seed, batch * m * k, -1.0, 1.0),
++                (batch, m, k),
++                &Device::Cpu,
++            )?;
++            let w = Tensor::from_vec(
++                uniform(&mut seed, batch * n * k, -1.0, 1.0),
++                (batch, n, k),
++                &Device::Cpu,
++            )?;
++            let (a, b) = if batch == 1 {
++                (a.squeeze(0)?, w.squeeze(0)?.t()?)
++            } else {
++                (a, w.transpose(1, 2)?)
++            };
++            let one = bits(&matmul_with(&a, &b, 1)?)?;
++            for threads in [2, 4, 7, 16] {
++                #[cfg(feature = "native")]
++                let got = rayon::ThreadPoolBuilder::new()
++                    .num_threads(threads)
++                    .build()
++                    .unwrap()
++                    .install(|| matmul_with(&a, &b, threads))?;
++                #[cfg(not(feature = "native"))]
++                let got = matmul_with(&a, &b, threads)?;
++                assert_eq!(bits(&got)?, one, "{batch} {m} {k} {n}, {threads} threads");
++            }
++        }
++        Ok(())
++    }
++
+     #[test]
+     fn query_blocks_cover_the_sequence_without_one_row_blocks() {
+         for block in [3, 8, QUERY_BLOCK] {

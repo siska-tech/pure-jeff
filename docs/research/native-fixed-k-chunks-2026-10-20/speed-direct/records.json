@@ -1,0 +1,206 @@
+[
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 1.9864951,
+  "walls": {
+   "candidate-request": 1.7355366,
+   "long-text": 10.9630596,
+   "maximum-candidates": 46.3435907,
+   "token-limit-8192": 149.4367833
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235674624,
+   "peak_private_bytes": 1238704128
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 1.9982288000000001,
+  "walls": {
+   "candidate-request": 1.7574994,
+   "long-text": 10.911148,
+   "maximum-candidates": 46.4485255,
+   "token-limit-8192": 147.9901418
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235871232,
+   "peak_private_bytes": 1238609920
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 2.0384097,
+  "walls": {
+   "candidate-request": 1.1225922,
+   "long-text": 6.2233,
+   "maximum-candidates": 24.1731168,
+   "token-limit-8192": 75.0484453
+  },
+  "memory": {
+   "peak_working_set_bytes": 2238136320,
+   "peak_private_bytes": 1243086848
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 0,
+  "rc": 0,
+  "load_s": 1.9416377,
+  "walls": {
+   "candidate-request": 1.0855894,
+   "long-text": 6.2245552,
+   "maximum-candidates": 23.7108635,
+   "token-limit-8192": 76.7379214
+  },
+  "memory": {
+   "peak_working_set_bytes": 2239447040,
+   "peak_private_bytes": 1245528064
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.9389706,
+  "walls": {
+   "candidate-request": 1.7503202,
+   "long-text": 10.9117263,
+   "maximum-candidates": 46.3837021,
+   "token-limit-8192": 148.7574223
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235781120,
+   "peak_private_bytes": 1238396928
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.9301178,
+  "walls": {
+   "candidate-request": 1.8334212,
+   "long-text": 11.1379096,
+   "maximum-candidates": 46.2168688,
+   "token-limit-8192": 150.4114134
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235408384,
+   "peak_private_bytes": 1238392832
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 2.0262711,
+  "walls": {
+   "candidate-request": 1.0687382,
+   "long-text": 6.2481457,
+   "maximum-candidates": 23.9910107,
+   "token-limit-8192": 75.2603222
+  },
+  "memory": {
+   "peak_working_set_bytes": 2236903424,
+   "peak_private_bytes": 1242996736
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 1,
+  "rc": 0,
+  "load_s": 1.967657,
+  "walls": {
+   "candidate-request": 1.113477,
+   "long-text": 6.0524204,
+   "maximum-candidates": 23.730982,
+   "token-limit-8192": 74.6552221
+  },
+  "memory": {
+   "peak_working_set_bytes": 2237878272,
+   "peak_private_bytes": 1243111424
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 1,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9607533,
+  "walls": {
+   "candidate-request": 1.8141171,
+   "long-text": 10.9982717,
+   "maximum-candidates": 46.2759571,
+   "token-limit-8192": 149.3297597
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235838464,
+   "peak_private_bytes": 1238691840
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 1,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9497893,
+  "walls": {
+   "candidate-request": 1.8178698,
+   "long-text": 10.8675019,
+   "maximum-candidates": 46.5139043,
+   "token-limit-8192": 148.2115134
+  },
+  "memory": {
+   "peak_working_set_bytes": 2235940864,
+   "peak_private_bytes": 1238429696
+  }
+ },
+ {
+  "arm": "base",
+  "threads": 4,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 2.0020461,
+  "walls": {
+   "candidate-request": 1.1391248,
+   "long-text": 6.1487319,
+   "maximum-candidates": 23.5309258,
+   "token-limit-8192": 75.0117842
+  },
+  "memory": {
+   "peak_working_set_bytes": 2237992960,
+   "peak_private_bytes": 1243213824
+  }
+ },
+ {
+  "arm": "new",
+  "threads": 4,
+  "rep": 2,
+  "rc": 0,
+  "load_s": 1.9461437,
+  "walls": {
+   "candidate-request": 1.0879959,
+   "long-text": 6.0857927,
+   "maximum-candidates": 23.9413821,
+   "token-limit-8192": 75.7157878
+  },
+  "memory": {
+   "peak_working_set_bytes": 2236850176,
+   "peak_private_bytes": 1243049984
+  }
+ }
+]
