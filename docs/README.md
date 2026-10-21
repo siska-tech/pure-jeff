@@ -32,6 +32,8 @@
 | [native-fixed-k-chunks-2026-10-20.md](native-fixed-k-chunks-2026-10-20.md) | 行列積のk分割をcrate側で512以下に固定（gemmの直接呼び出しで足し込み）：i7のP／E起動で全39件bit一致、速度・peakは不変（ノート機）。kc＞512のhost（記録機を含む）で結果が変わる（#18、案A） |
 | [native-fixed-k-chunks-amd-acceptance-plan-2026-10-21.md](native-fixed-k-chunks-amd-acceptance-plan-2026-10-21.md) | k分割（#41）のAMD記録機での受入試験の事前登録：旧mainとのbit差・判断・再現性・速度・メモリの基準（#18） |
 | [native-fixed-k-chunks-amd-acceptance-2026-10-21.md](native-fixed-k-chunks-amd-acceptance-2026-10-21.md) | 同結果：数値・判断・再現性・メモリ・one-shot・CLI・利用者build・Wasmは合格、warm速度が4条件で1.03超（中央値1.017）のため不受入（#18） |
+| [native-fixed-k-chunks-split-acceptance-plan-2026-10-21.md](native-fixed-k-chunks-split-acceptance-plan-2026-10-21.md) | k分割の並列実行の改良（#41の追加実験）：原因の診断と、AMD受入試験の事前登録（#18） |
+| [native-fixed-k-chunks-split-acceptance-2026-10-21.md](native-fixed-k-chunks-split-acceptance-2026-10-21.md) | 同結果：数値・再現性・CI・メモリは合格、16 threadの長文は改善したがwarm速度が5条件で1.03超のため不採用。1 threadの遅れはk分割に固有（#18） |
 | [commit-map.md](commit-map.md) | 履歴の書き換え前後のcommit hashの対応 |
 | [crate-release-plan.md](crate-release-plan.md)、[crate-release-results-2026-10-12.md](crate-release-results-2026-10-12.md) | crates.io v0.1.0に向けたライブラリ化の計画と検証結果 |
 | [../CHANGELOG.md](../CHANGELOG.md)、[release-notes-v0.1.1.md](release-notes-v0.1.1.md)、[release-0.1.1-2026-10-12.md](release-0.1.1-2026-10-12.md) | crateの変更履歴、v0.1.1のRelease notes、v0.1.1の公開の記録 |
